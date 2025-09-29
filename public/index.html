@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Embracing Authenticity</title>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- Header/Menu minimal styles (safe to move into style.css later) -->
+  <style>
+    .site-header{
+      position: sticky; top: 0; z-index: 1000;
+      background:#0b1324; /* matches your palette */
+    }
+    .header-row{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;}
+    .brand img{height:28px;width:auto;display:block;object-fit:contain}
+    .site-nav{display:flex;align-items:center;gap:0.5rem}
+    .nav-toggle{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:40px;height:40px;border-radius:.75rem;border:1px solid rgba(255,255,255,.2);
+      background:rgba(255,255,255,.06);color:#fff; /* makes icon white */
+    }
+    /* slide-down list (mobile first) */
+    .nav-list{
+      position: absolute; left:0; right:0; top:calc(100% + .25rem);
+      margin:0 auto; list-style:none; padding:.25rem 0;
+      width:min(680px, calc(100% - 1.5rem)); background:#0f1a33; border-radius:1rem;
+      overflow:hidden; max-height:0; transition:max-height .28s ease;
+      box-shadow:0 10px 24px rgba(0,0,0,.35);
+    }
+    .nav-list li{border-top:1px solid rgba(255,255,255,.06)}
+    .nav-list li:first-child{border-top:none}
+    .nav-list a{display:block;padding:.9rem 1rem;color:#e8eefc;text-decoration:none}
+    .nav-list a:hover,.nav-list a:focus{background:rgba(255,255,255,.06)}
+    .nav-list.open{max-height:420px}
+    /* desktop */
+    @media (min-width:768px){
+      .nav-toggle{display:none}
+      .site-nav{position:static}
+      .nav-list{all:unset;display:flex;gap:1rem;list-style:none}
+      .nav-list a{padding:.25rem .5rem;border-radius:.5rem}
+      .nav-list a:hover{background:rgba(255,255,255,.08)}
+    }
+  </style>
+
+  <!-- Persist theme -->
+  <script>
+    (function () {
+      var t = localStorage.getItem('ea-theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="./index.html" aria-label="Embracing Authenticity — Home">
+        <!-- PNG logo -->
+        <img src="./assets/images/logo.png" alt="Embracing Authenticity">
+      </a>
+
+      <!-- Mobile-first nav -->
+      <nav class="site-nav" aria-label="Primary">
+  <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
+    <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+      <path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+  <ul id="primary-nav" class="nav-list" hidden>
+    <li><a href="/blog.html">Blog</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/themes.html">Themes</a></li>
+  </ul>
+</nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="content" class="site-main">
+    <section class="container section hero">
+      <h1>Welcome</h1>
+      <p class="lead">Simple, soulful, professional. A clean framework you can replicate for clients.</p>
+      <a class="btn" href="./blog.html">Explore the Blog</a>
+    </section>
+
+    <!-- Cards row -->
+    <section class="container section cards">
+      <article class="card">
+        <h2>Why This Works</h2>
+        <p>Fast, mobile-first, accessible. Edit one CSS file to rebrand in minutes.</p>
+      </article>
+
+      <article class="card">
+        <h2>Latest Posts</h2>
+        <ul class="list">
+          <li><a href="#">Hello, World</a> <span class="muted">· Sep 19, 2025</span></li>
+          <li><a href="#">Finding Quiet Confidence</a> <span class="muted">· Sep 12, 2025</span></li>
+        </ul>
+        <a class="link" href="./blog.html">View all →</a>
+      </article>
+
+      <article class="card">
+        <h2>Work With Me</h2>
+        <p>Build a simple, beautiful site that lets your voice shine.</p>
+        <a class="btn btn--ghost" href="mailto:">Get in touch</a>
+      </article>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container grid">
+      <div>
+        <strong>Embracing Authenticity</strong>
+        <p class="muted">© <span id="year"></span> · All rights reserved.</p>
+      </div>
+      <div>
+        <p class="muted">Made with care. <a class="link" href="./blog.html">RSS coming soon</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile nav toggle -->
+  <script>
+    (function(){
+      const btn  = document.querySelector('.nav-toggle');
+      const list = document.getElementById('primary-nav');
+      if (!btn || !list) return;
+      btn.addEventListener('click', () => {
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        if(open){
+          list.classList.remove('open');
+          list.hidden = true;
+        } else {
+          list.hidden = false;
+          // allow paint before animating
+          requestAnimationFrame(() => list.classList.add('open'));
+        }
+      });
+    })();
+  </script>
+
+  <!-- Year stamp -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

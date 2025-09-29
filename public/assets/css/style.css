@@ -1,0 +1,452 @@
+/* =========================
+   Brand tokens
+   ========================= */
+:root {
+  --bg: #0f172a;           /* dark navy */
+  --surface: #0b1223;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #ffb38a;       /* peach */
+  --accent-2: #ffd6c2;
+  --link: #ffd6c2;
+  --border: #23314f;
+
+  --radius: 1.25rem;
+  --maxw: 1200px;
+  --shadow: 0 10px 30px rgba(0,0,0,.25);
+
+  /* layout */
+  --gutter: clamp(16px, 4vw, 32px);
+}
+
+/* =========================
+   Reset / base
+   ========================= */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  min-height: 100dvh;
+  position: relative;
+}
+
+/* Subtle depth/texture background (no image required) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(1200px 1200px at 80% -10%, rgba(255,179,138,.10), transparent 50%),
+    radial-gradient(1000px 800px at -10% 120%, rgba(255,214,194,.07), transparent 60%),
+    linear-gradient(180deg, rgba(255,179,138,.03), transparent 40%);
+}
+
+body::after {
+  /* fine grain */
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">\
+<filter id="n"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" stitchTiles="stitch"/></filter>\
+<rect width="120" height="120" filter="url(%23n)" opacity="0.035"/></svg>');
+  background-size: 200px 200px;
+  pointer-events: none;
+}
+
+/* =========================
+   Containers & helpers
+   ========================= */
+.container {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.muted { color: var(--muted); }
+
+.link {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+}
+.link:hover { opacity: .9; }
+
+/* =========================
+   Header + Navigation (mobile-first)
+   ========================= */
+/* Header shell */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: saturate(120%) blur(6px);
+  background: color-mix(in oklab, var(--bg) 85%, black 15%);
+}
+
+/* Row inside header */
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  padding-block: 10px;
+  padding-inline: var(--gutter);
+}
+
+/* Brand */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text);
+}
+
+/* Support either <img> or a .brand-logo element */
+.brand img,
+.brand-logo {
+  height: 64px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.brand-text {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+/* Nav reset */
+.site-nav ul { list-style: none; margin: 0; padding: 0; }
+.site-nav a { color: var(--text); text-decoration: none; }
+
+/* Mobile: hamburger visible, menu hidden */
+.nav-toggle,
+.hamburger { /* alias both for compatibility */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  line-height: 1;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: .75rem;
+  cursor: pointer;
+  color: var(--text);
+}
+
+/* Menu panel — supports .nav-list OR .mobile-menu */
+:where(.nav-list, .mobile-menu) {
+  display: none;                /* hidden by default on mobile */
+  position: absolute;
+  top: 64px;
+  left: var(--gutter);
+  right: var(--gutter);
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 1rem;
+  background: rgba(255,255,255,.05);
+  backdrop-filter: saturate(140%) blur(6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  border: 1px solid var(--border);
+}
+
+:where(.nav-list, .mobile-menu).open,
+.menu-open :where(#mobile-menu) { /* JS toggles .open or .menu-open on body */
+  display: flex;
+}
+
+:where(.nav-list, .mobile-menu) a {
+  display: block;
+  padding: .6rem .5rem;
+  border-radius: .5rem;
+}
+
+:where(.nav-list, .mobile-menu) a:hover,
+:where(.nav-list, .mobile-menu) a:focus {
+  background: rgba(255,255,255,.05);
+}
+
+/* Desktop: hide hamburger; show links inline */
+@media (min-width: 1024px) {
+  .nav-toggle,
+  .hamburger {
+    display: none;
+  }
+
+  .header-row { padding-inline: var(--gutter); }
+
+  :where(.nav-list, .mobile-menu) {
+    display: flex !important;
+    position: static;
+    padding: 0;
+    box-shadow: none;
+    background: none;
+    border: 0;
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  :where(.nav-list, .mobile-menu) a {
+    padding: .35rem .2rem;
+    border-radius: .5rem;
+  }
+
+  :where(.nav-list, .mobile-menu) a:hover {
+    background: rgba(255,255,255,.06);
+  }
+}
+
+/* =========================
+   Hero
+   ========================= */
+.hero {
+  padding: 3.2rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero h1 {
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  margin: .25rem 0;
+  text-shadow: 0 1px 0 rgba(0,0,0,.35);
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin: .5rem 0 1rem;
+}
+
+/* =========================
+   Buttons
+   ========================= */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #1b1b1b;
+  text-decoration: none;
+  padding: .7rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 700;
+  border: 1px solid transparent;
+  box-shadow: var(--shadow);
+  transition: filter .2s ease, transform .2s ease;
+}
+.btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--accent-2);
+  border-color: var(--border);
+  box-shadow: none;
+}
+
+/* =========================
+   Cards
+   ========================= */
+.cards {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+@media (min-width: 800px) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+.card h2 { margin-top: 0; }
+
+/* =========================
+   Prose
+   ========================= */
+.prose h1,
+.prose h2,
+.prose h3 { line-height: 1.2; }
+
+.prose h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.prose p { margin: .75rem 0; }
+
+.prose img {
+  max-width: 100%;
+  border-radius: .75rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+/* =========================
+   Blog list
+   ========================= */
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.post-list li {
+  padding: .6rem 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+/* =========================
+   Footer
+   ========================= */
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+  padding: 1.5rem 0;
+  color: var(--muted);
+}
+
+/* =========================
+   Simple grid helper
+   ========================= */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 800px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* =========================
+   Accessibility
+   ========================= */
+:focus {
+  outline: 2px dashed var(--accent-2);
+  outline-offset: 2px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+/* Logo size (works for <img>, inline <svg>, or an element with .brand-logo) */
+.brand :is(img, svg, .brand-logo) {
+  height: 64px !important;   /* set your target size here (e.g., 48px, 64px) */
+  width: auto !important;
+  display: block;
+  object-fit: contain;
+}
+/* Make left edges line up everywhere (logo, hero, cards, footer) */
+.header-row {
+  /* keep vertical padding for height */
+  padding-block: 10px;
+
+  /* use the same horizontal gutter as every .container */
+  padding-inline: var(--gutter);
+}
+
+/* Ensure all major sections use the container with the same gutter */
+.site-header > .container,
+.hero.container,
+.cards.container,
+.site-footer > .container {
+  padding-inline: var(--gutter);
+}
+/* === Page rails: keep left/right edges perfectly aligned === */
+:root{
+  /* If you want a slightly narrower content width than the header, lower this: */
+  --content-maxw: var(--maxw);
+}
+
+/* Make every major row use the same rails (left/right padding + max width) */
+.site-header > .container,
+.section.container,
+.site-footer > .container {
+  max-width: var(--content-maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Ensure the header uses the same horizontal padding as .container */
+.header-row { padding-block: 10px; padding-inline: var(--gutter); }
+
+/* === Card grids: align to rails and prevent any overflow === */
+/* Home + Themes both use .cards as the grid container */
+.section.cards {
+  max-width: var(--content-maxw);
+  margin-inline: auto;          /* center within rails */
+  padding-inline: var(--gutter);/* same left edge as logo/hero */
+}
+
+/* Grid that fits nicely inside the rails on any screen */
+.cards {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  /* Remove any accidental extra spacing on the grid container */
+  margin-left: 0; margin-right: 0;
+}
+
+/* Cards themselves shouldn’t add outside gaps */
+.cards > .card {
+  margin: 0;            /* no external offset */
+  width: 100%;          /* stay inside the rail */
+  box-sizing: border-box;
+}
+
+/* Optional: the thin rule under the hero should align too */
+.hero { padding-inline: var(--gutter); max-width: var(--content-maxw); margin-inline: auto; }
+/* ==== One rail for everything ==== */
+:root { --content-maxw: var(--maxw); } /* tweak to taste */
+
+/* Make header wrappers share the same rails */
+.header-row,
+.header-inner {                       /* themes page used .header-inner */
+  padding-block: 10px;
+  padding-inline: var(--gutter);
+}
+.site-header > .container,
+.hero,
+.section,
+.site-footer > .container {
+  max-width: var(--content-maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ==== Card grids: Home + Themes ==== */
+
+/* Home uses <section class="container cards"> */
+.section.cards {
+  max-width: var(--content-maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Themes originally used .demo-blocks — give it the same rails + grid */
+.demo-blocks,
+.cards {
+  max-width: var(--content-maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Cards themselves shouldn’t shift the rail */
+.cards > .card,
+.demo-blocks > .card {
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
