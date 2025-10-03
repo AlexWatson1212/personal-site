@@ -1,0 +1,6 @@
+[build]
+command = ""      # no build step
+publish = "."     # serve from repo root
+
+[build.environment]
+NODE_VERSION = "20"
