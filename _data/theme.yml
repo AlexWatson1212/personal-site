@@ -1,0 +1,12 @@
+name: "Client Brand"
+logo: "/static/logo.png"   # put a real file here in Step 2
+colors:
+  primary: "#143E5A"
+  accent:  "#F2B880"
+  text:    "#1f2430"
+  bg:      "#ffffff"
+typography:
+  body: "Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+  heading: "Poppins, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+radius: "14px"
+gap: "1rem"

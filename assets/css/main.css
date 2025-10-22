@@ -2,14 +2,6 @@
 ====================================================================
 Embracing Authenticity — Consolidated CSS (Part 1/5)
 --------------------------------------------------------------------
-Copy this whole chunk as your first ~200 lines.
-====================================================================
-*/
-
-/*
-====================================================================
-Embracing Authenticity — Consolidated CSS (Part 1/5)
---------------------------------------------------------------------
 Replace your entire PART 1/5 with this block.
 ====================================================================
 */
@@ -50,9 +42,14 @@ PART 1/5 — Base, Variables, Resets, Layout, Typography
   /* Layout */
   --container-max: 1100px;
 
-  /* Logo sizing */
+  /* Component sizing (centralized) */
   --logo-h-mobile: 48px;
   --logo-h-desktop: 72px;
+  --footer-icon-size: 22px;
+
+  /* Header padding (helps anchor offset/CLS) */
+  --header-pad-mobile: 0.9rem;
+  --header-pad-desktop: 1.15rem;
 }
 
 /* Reset & Box Model */
@@ -60,6 +57,7 @@ PART 1/5 — Base, Variables, Resets, Layout, Typography
 *::before, *::after { box-sizing: inherit; }
 html { scroll-behavior: smooth; }
 
+/* Base */
 body {
   font-family: var(--font-body);
   background-color: var(--color-bg);
@@ -72,6 +70,25 @@ body {
 }
 
 img { max-width: 100%; height: auto; display: block; }
+
+/* Links (general) */
+a { color: var(--color-primary); text-decoration: none; }
+a:hover { color: var(--color-accent); }
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Motion/accessibility helpers */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* Print: drop paper texture to save ink/moire */
+@media print {
+  body { background-image: none !important; }
+}
 
 /* Global container (site content wrapper) */
 .container {
@@ -108,10 +125,6 @@ h1, h2, h3, h4, h5, h6 {
 
 main h2 { color: var(--color-accent); }
 
-/* Links (general) */
-a { color: var(--color-primary); text-decoration: none; }
-a:hover { color: var(--color-accent); }
-
 /* Screen-reader only helper */
 .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
@@ -126,7 +139,7 @@ PART 2/5 — Header / Navigation (final: full-bleed, rect logo)
 .top-accent { display: none; }
 
 /* Sticky header — full-bleed */
-.site-header{
+.site-header {
   position: sticky; top: 0; z-index: 1000;
   background: var(--ea-navy);
   color: var(--ea-text);
@@ -135,10 +148,10 @@ PART 2/5 — Header / Navigation (final: full-bleed, rect logo)
 }
 
 /* Inner container keeps content aligned to site width */
-.site-header .shell{
+.site-header .shell {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0.9rem 1rem;             /* comfy mobile height */
+  padding: var(--header-pad-mobile) 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -146,65 +159,65 @@ PART 2/5 — Header / Navigation (final: full-bleed, rect logo)
 }
 
 /* ---- Brand (logo only) ---- */
-.brand{
+.brand {
   display: flex; align-items: center; gap: .6rem;
   text-decoration: none; color: inherit;
 }
-
-/* Use height-only so rectangular logos keep their aspect ratio */
-:root{
-  --logo-h-mobile: 48px;
-  --logo-h-desktop: 72px; /* bump this up/down to taste */
+.brand:focus-visible {
+  outline: 2px solid var(--ea-link);
+  outline-offset: 2px; border-radius: 6px;
 }
-.brand-mark{
+.brand-mark {
   height: var(--logo-h-mobile);
   width: auto;                 /* keep original aspect ratio */
   max-width: 100%;
   object-fit: contain;
 }
-
-/* Hide brand text (we’ll rely on aria-label on the link) */
-.brand-text{ display: none; }
+.brand-text { display: none; } /* rely on aria-label on the link */
 
 /* ---- Nav links ---- */
 .site-nav { width: auto; }
-.site-nav ul{
+.site-nav ul {
   display: flex; align-items: center; gap: 1.25rem;
   list-style: none; margin: 0; padding: 0;
   flex-wrap: wrap; /* avoid pushing past the logo on mid widths */
 }
-.site-nav a{
+.site-nav a {
   color: var(--ea-text);
   text-decoration: none;
   padding: .45rem 0;
   border-bottom: 2px solid transparent;
 }
 .site-nav a:hover,
-.site-nav a:focus{ border-bottom-color: var(--ea-link); }
-
-/* Optional: active link class (added via JS or templating) */
+.site-nav a:focus-visible { border-bottom-color: var(--ea-link); }
 .site-nav a.is-active { border-bottom-color: var(--ea-accent); }
 
 /* ---- Hamburger (mobile) ---- */
-.nav-toggle{
+.nav-toggle {
   display: inline-flex; align-items: center; justify-content: center;
   border: 1px solid rgba(255,255,255,.2);
   background: transparent; color: var(--ea-text);
-  border-radius: .6rem; padding: .45rem; cursor: pointer;
+  border-radius: .6rem; padding: .55rem; cursor: pointer;
+}
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--ea-link);
+  outline-offset: 2px;
 }
 
 /* ---- Mobile slide-down ---- */
 @media (max-width: 860px){
-  .site-header .shell{ flex-wrap: wrap; }
-  .nav-toggle{ display: inline-flex; }
-  .site-nav{
+  .site-header .shell { flex-wrap: wrap; }
+  .nav-toggle { display: inline-flex; }
+
+  .site-nav {
     width: 100%;
     overflow: hidden;
     max-height: 0;
     transition: max-height .3s ease;
   }
-  .site-header.is-open .site-nav{ max-height: 240px; }
-  .site-nav ul{
+  .site-header.is-open .site-nav { max-height: 260px; }
+
+  .site-nav ul {
     flex-direction: column; align-items: flex-start;
     padding: .5rem 0 .75rem; gap: .75rem;
   }
@@ -212,14 +225,14 @@ PART 2/5 — Header / Navigation (final: full-bleed, rect logo)
 
 /* ---- Desktop: thicker bar + larger logo ---- */
 @media (min-width: 861px){
-  .nav-toggle{ display: none; }
-  .site-nav{ max-height: none !important; }
-  .site-header .shell{ padding: 1.15rem 1.5rem; }      /* thicker bar */
-  .brand-mark{ height: var(--logo-h-desktop); }        /* larger logo */
+  .nav-toggle { display: none; }
+  .site-nav { max-height: none !important; }
+  .site-header .shell { padding: var(--header-pad-desktop) 1.5rem; } /* thicker bar */
+  .brand-mark { height: var(--logo-h-desktop); }                     /* larger logo */
 }
 
 /* Hide any leftover huge masthead title */
-.masthead, .site-title, header .site-title{ display: none !important; }
+.masthead, .site-title, header .site-title { display: none !important; }
 
 /* ==================================================================
 PART 3/5 — Cards, Hero, Quotes, Animations
@@ -242,7 +255,8 @@ PART 3/5 — Cards, Hero, Quotes, Animations
 }
 
 .blog-card-content h3 a { text-decoration: none; color: var(--color-primary); }
-.blog-card-content h3 a:hover { color: var(--color-accent); }
+.blog-card-content h3 a:hover,
+.blog-card-content h3 a:focus-visible { color: var(--color-accent); }
 
 .read-more, .latest-posts .read-more {
   display: inline-block;
@@ -255,7 +269,10 @@ PART 3/5 — Cards, Hero, Quotes, Animations
   text-decoration: none;
   transition: var(--transition);
 }
-.read-more:hover, .latest-posts .read-more:hover {
+.read-more:hover,
+.read-more:focus-visible,
+.latest-posts .read-more:hover,
+.latest-posts .read-more:focus-visible {
   background-color: var(--color-accent);
   color: var(--color-light);
 }
@@ -266,7 +283,8 @@ PART 3/5 — Cards, Hero, Quotes, Animations
   color: var(--color-primary);
 }
 .blog-card a { color: var(--color-primary); text-decoration: none; }
-.blog-card a:hover { color: var(--color-accent); }
+.blog-card a:hover,
+.blog-card a:focus-visible { color: var(--color-accent); }
 .blog-card mark { background: rgba(232,143,58,.15); color: inherit; }
 
 /* Quote carousel */
@@ -284,18 +302,44 @@ PART 3/5 — Cards, Hero, Quotes, Animations
 }
 .quote-carousel blockquote.active { display: block; }
 .quote-dots { display: flex; justify-content: center; gap: .75rem; margin-top: 1rem; }
-.quote-dots .dot { width: 12px; height: 12px; background: #ccc; border-radius: 50%; cursor: pointer; transition: background-color var(--transition); }
+.quote-dots .dot {
+  width: 12px; height: 12px; background: #cfcfcf;
+  border-radius: 50%; cursor: pointer;
+  transition: background-color var(--transition), transform .2s ease;
+}
+.quote-dots .dot:hover,
+.quote-dots .dot:focus-visible { transform: scale(1.1); }
 .quote-dots .dot.active { background: var(--color-accent); }
 
 /* Hero banner */
 .hero-banner { position: relative; overflow: hidden; }
 .hero-banner img { width: 100%; height: auto; display: block; border-radius: 0; }
-.hero-overlay { position: absolute; bottom: 2rem; left: 2rem; color: #fff; text-align: left; z-index: 10; max-width: 80%; }
-.hero-text { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,.6); }
-.hero-buttons { display: flex; gap: 1rem; }
-.hero-button { background: rgba(255,255,255,.8); color: var(--color-primary); padding: .6rem 1.2rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: background-color var(--transition), transform .2s ease; }
-.hero-button:hover { background: #fff; transform: scale(1.05); }
-@media (max-width: 768px) { .hero-overlay { display: none; } }
+
+/* Overlay uses gradient for legibility on all screens */
+.hero-overlay {
+  position: absolute; inset: 0;
+  display: flex; align-items: flex-end;
+  padding: 1.25rem;
+  background: linear-gradient(to top, rgba(0,0,0,.45), rgba(0,0,0,0));
+  color: #fff; text-align: left; z-index: 10;
+}
+.hero-overlay .inner { max-width: 80%; }
+
+.hero-text {
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  font-weight: 700; margin-bottom: .6rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,.5);
+}
+.hero-buttons { display: flex; gap: .75rem; flex-wrap: wrap; }
+.hero-button {
+  background: rgba(255,255,255,.88);
+  color: var(--color-primary);
+  padding: .55rem 1.1rem; border-radius: 8px;
+  font-weight: 600; text-decoration: none;
+  transition: background-color var(--transition), transform .2s ease;
+}
+.hero-button:hover,
+.hero-button:focus-visible { background: #fff; transform: translateY(-1px); }
 
 /* Simple fade-in utility */
 @keyframes fadeIn { from { opacity:0; transform: translateY(-10px); } to { opacity:1; transform: translateY(0); } }
@@ -326,25 +370,35 @@ PART 4/5 — Music Therapy Grid, LEGO Animation, Tags/Emotions
 
 /* Tags & Emotion Filters */
 .tag-filter { text-align: center; margin: 2rem 0; }
+
 .post-tag, .emotion-button {
-  display: inline-block; font-size: .7rem; font-weight: 600;
-  padding: .4rem 1rem; border-radius: 6px; margin: .3rem;
+  display: inline-block; font-size: .72rem; font-weight: 700;
+  padding: .45rem 1rem; border-radius: 6px; margin: .3rem;
   text-transform: uppercase; letter-spacing: .5px; cursor: pointer; text-decoration: none;
-  background: var(--color-highlight); color: var(--color-accent);
+  background: var(--color-highlight); color: #5a3a24; /* darker for contrast */
   transition: background-color var(--transition), color var(--transition), transform .2s ease;
 }
-.post-tag:hover, .post-tag.active, .emotion-button.active { background: var(--color-accent); color: #fff; transform: scale(1.05); }
+.post-tag:hover, .post-tag.active,
+.emotion-button.active {
+  background: var(--color-accent); color: #fff; transform: translateY(-1px);
+}
 .emotion-button { background: #dbe5ea; color: var(--color-primary); }
-.emotion-button:hover { transform: scale(1.05); }
+.emotion-button:hover { transform: translateY(-1px); }
 
-.clear-tag-filter, .clear-emotion-filter { background: #EDEDED; color: var(--color-primary); font-size: .95rem; padding: .4rem 1rem; border-radius: 6px; margin: .5rem; display: inline-block; transition: background-color var(--transition), color var(--transition); }
-.clear-tag-filter:hover, .clear-emotion-filter:hover { background: var(--color-accent); color: #fff; }
+.post-tag:focus-visible, .emotion-button:focus-visible {
+  outline: 2px solid var(--color-accent); outline-offset: 2px;
+}
 
-/* Emotion list */
-.emotion-list { list-style: none; padding: 0; margin-top: 2rem; }
-.emotion-list li { margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #ddd; }
-.emotion-list h3 a { font-size: 1.4rem; color: var(--color-accent); text-decoration: none; font-family: var(--font-heading); }
-.emotion-list p { font-size: 1rem; color: #444; margin-top: .5rem; }
+.clear-tag-filter, .clear-emotion-filter {
+  background: #EDEDED; color: var(--color-primary);
+  font-size: .95rem; padding: .4rem 1rem; border-radius: 6px;
+  margin: .5rem; display: inline-block;
+  transition: background-color var(--transition), color var(--transition), transform .2s ease;
+}
+.clear-tag-filter:hover, .clear-emotion-filter:hover {
+  background: var(--color-accent); color: #fff; transform: translateY(-1px);
+}
+
 /* ==================================================================
 PART 5/5 — Accent Band + Global Footer (Centered Layout, Clean Icons)
 ================================================================== */
@@ -417,6 +471,7 @@ PART 5/5 — Accent Band + Global Footer (Centered Layout, Clean Icons)
   display: flex;
   gap: 16px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .footer-nav a {
   color: var(--ea-text);
@@ -426,22 +481,23 @@ PART 5/5 — Accent Band + Global Footer (Centered Layout, Clean Icons)
   border-bottom: 2px solid transparent;
   transition: opacity var(--transition), border-color var(--transition);
 }
-.footer-nav a:hover { opacity: 1; border-bottom-color: var(--ea-link); }
+.footer-nav a:hover,
+.footer-nav a:focus-visible { opacity: 1; border-bottom-color: var(--ea-link); }
 
 /* Social */
-:root { --footer-icon-size: 22px; }
-
 .footer-social {
   display: flex;
   gap: 20px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .footer-social .social {
   color: #fff;
   opacity: 0.9;
   transition: opacity var(--transition), transform var(--transition);
 }
-.footer-social .social:hover { opacity: 1; transform: translateY(-1px); }
+.footer-social .social:hover,
+.footer-social .social:focus-visible { opacity: 1; transform: translateY(-1px); }
 .footer-social .icon {
   width: var(--footer-icon-size);
   height: var(--footer-icon-size);
@@ -459,7 +515,8 @@ PART 5/5 — Accent Band + Global Footer (Centered Layout, Clean Icons)
   text-decoration: none;
   transition: opacity var(--transition);
 }
-.footer-note a:hover { opacity: 1; }
+.footer-note a:hover,
+.footer-note a:focus-visible { opacity: 1; }
 
 /* Print */
 @media print {
