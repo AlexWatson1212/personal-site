@@ -1,6 +1,7 @@
 [build]
-command = ""      # no build step
-publish = "."     # serve from repo root
+  command = "bundle exec jekyll build"
+  publish = "_site"
 
 [build.environment]
-NODE_VERSION = "20"
+  RUBY_VERSION = "3.2.2"
+  NODE_VERSION = "20"

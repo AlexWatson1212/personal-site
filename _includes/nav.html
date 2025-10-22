@@ -1,0 +1,48 @@
+<header class="site-header" role="banner">
+  <nav class="nav" role="navigation" aria-label="Main">
+    <a class="nav__brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+
+    <button class="nav__toggle" type="button"
+            aria-label="Open menu"
+            aria-controls="primary-nav"
+            aria-expanded="false">
+      <!-- hamburger -->
+      <span aria-hidden="true" class="nav__icon"></span>
+    </button>
+
+    <ul id="primary-nav" class="nav__links" hidden>
+      {% for item in site.nav %}
+        <li><a href="{{ item.url | relative_url }}">{{ item.text }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>
+
+<script>
+  (function () {
+    const nav = document.currentScript.previousElementSibling; // <header>
+    const btn = nav.querySelector('.nav__toggle');
+    const list = nav.querySelector('#primary-nav');
+
+    if (!btn || !list) return;
+
+    function toggle(open) {
+      btn.setAttribute('aria-expanded', open);
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      if (open) list.removeAttribute('hidden'); else list.setAttribute('hidden', '');
+    }
+
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') !== 'true';
+      toggle(open);
+    });
+
+    // Close on escape & when a link is chosen (mobile UX)
+    list.addEventListener('click', e => {
+      if (e.target.tagName === 'A') toggle(false);
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') toggle(false);
+    });
+  })();
+</script>

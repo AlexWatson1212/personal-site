@@ -1,0 +1,84 @@
+# ---- Site basics
+title: Embracing Authenticity
+description: A space to grow, reflect, and be your true self.
+url: "https://embracingauthenticity.co.uk"
+baseurl: ""          # keep empty on Netlify
+markdown: kramdown
+permalink: /blog/:title/
+future: true
+
+# ---- Plugins (make sure these are also in your Gemfile)
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jekyll-paginate-v2
+
+# ---- Pagination (jekyll-paginate-v2)
+pagination:
+  enabled: true
+  per_page: 12
+  permalink: /blog/page/:num/
+  title: ":title - Page :num"
+  limit: 0
+  sort_field: "date"
+  sort_reverse: true
+
+# ---- Collections
+collections:
+  # Pages live in /_pages
+  pages:
+    output: true
+    permalink: /:title/
+  # Only keep this if you actually have a folder named _music_music
+  music_music:
+    output: true
+    permalink: /music-therapy/:title/
+    sort_by: date
+    sort_order: descending
+  # Remove this block if you don't have a /_tag folder
+  tag:
+    output: true
+    permalink: /tag/:name/
+
+# ---- Defaults
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      tags: []
+  - scope:
+      path: ""
+      type: music_music
+    values:
+      layout: music
+      tags: []
+      sitemap: true
+
+# ---- Navigation for _includes/nav.html
+nav:
+  - text: Blog
+    url: /blog/
+  - text: Self-Discovery
+    url: /self-discovery/
+  - text: About
+    url: /about/
+  - text: Contact
+    url: /contact/
+
+# ---- Misc
+image: /images/default-social.jpg
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# Don’t publish these files/folders to _site
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - netlify.toml
+  - _archive_snapshot_2025-09-19

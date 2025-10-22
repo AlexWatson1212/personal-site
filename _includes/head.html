@@ -1,0 +1,14 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+{%- if site.title -%}
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+{%- else -%}
+  <title>{% if page.title %}{{ page.title }}{% else %}Embracing Authenticity{% endif %}</title>
+{%- endif -%}
+
+<!-- Main stylesheet -->
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
+
+<!-- Favicon (you have favicon.ico at the project root per your screenshot) -->
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}">

@@ -1,132 +1,135 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blog – Embracing Authenticity</title>
+---
+layout: default
+title: Blog
+pagination:
+  enabled: true
+  collection: posts
+---
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+<section class="blog-intro fade-in">
+  <h2>{{ page.title }}{% if paginator.page > 1 %} - Page {{ paginator.page }}{% endif %}</h2>
+  <p>
+    This is where I share thoughts, stories, and reflections on what it means to live more honestly and authentically.
+    <a href="#blogPosts" class="scroll-link">Click here to skip to the blogs</a> or search below.
+  </p>
+</section>
 
-  <!-- Header/Menu minimal styles (same as index; move into style.css later) -->
-  <style>
-    .site-header{ position:sticky; top:0; z-index:1000; background:#0b1324; }
-    .header-row{ display:flex; align-items:center; justify-content:space-between; padding-block:10px; padding-inline:var(--gutter); }
-    .brand img{ height:28px; width:auto; display:block; object-fit:contain; }
-    .site-nav{ display:flex; align-items:center; gap:.5rem; }
-    .nav-toggle{
-      display:inline-flex; align-items:center; justify-content:center;
-      width:40px; height:40px; border-radius:.75rem;
-      border:1px solid rgba(255,255,255,.2);
-      background:rgba(255,255,255,.06); color:#fff;
-    }
-    .nav-list{
-      position:absolute; left:0; right:0; top:calc(100% + .25rem);
-      margin:0 auto; list-style:none; padding:.25rem 0;
-      width:min(680px, calc(100% - 1.5rem));
-      background:#0f1a33; border-radius:1rem; overflow:hidden;
-      max-height:0; transition:max-height .28s ease;
-      box-shadow:0 10px 24px rgba(0,0,0,.35);
-    }
-    .nav-list li{ border-top:1px solid rgba(255,255,255,.06); }
-    .nav-list li:first-child{ border-top:none; }
-    .nav-list a{ display:block; padding:.9rem 1rem; color:#e8eefc; text-decoration:none; }
-    .nav-list a:hover,.nav-list a:focus{ background:rgba(255,255,255,.06); }
-    .nav-list.open{ max-height:420px; }
-    @media (min-width:768px){
-      .nav-toggle{ display:none; }
-      .site-nav{ position:static; }
-      .nav-list{ all:unset; display:flex; gap:1rem; list-style:none; }
-      .nav-list a{ padding:.25rem .5rem; border-radius:.5rem; }
-      .nav-list a:hover{ background:rgba(255,255,255,.08); }
-    }
-  </style>
+<p style="font-style: italic; margin-bottom: 0.25rem; color: #555;">
+  These blogs reflect personal experiences and emotional truths. They aren’t about blame — they’re about healing, reflection, and reclaiming meaning through honest expression.
+</p>
 
-  <!-- Persist theme -->
-  <script>
-    (function () {
-      var t = localStorage.getItem('ea-theme');
-      if (t) document.documentElement.setAttribute('data-theme', t);
-    })();
-  </script>
-</head>
-<body>
+<p style="color: #800; font-weight: 500; margin-bottom: 1rem;">
+  If you’re exploring painful or confusing emotions and don’t have support right now, please be gentle with yourself. We strongly recommend working with a therapist as some discoveries may be difficult to process alone.
+</p>
 
-  <!-- Header / Nav -->
-  <header class="site-header">
-    <div class="container header-row">
-      <a class="brand" href="./index.html" aria-label="Embracing Authenticity — Home">
-        <img src="./assets/images/logo.png" alt="Embracing Authenticity">
-      </a>
+<p style="margin-bottom: 1.5rem; text-align: center;">
+  <a href="{{ '/blog/why-writing-helps-us-heal.html' | relative_url }}" class="why-link">
+    ✍️ Want to know why this helps? Read the science behind expressive writing.
+  </a>
+</p>
 
-      <nav class="site-nav" aria-label="Primary">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
-          <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
-            <path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </button>
-        <ul id="primary-nav" class="nav-list" hidden>
-          <li><a href="./blog.html" aria-current="page">Blog</a></li>
-          <li><a href="./about.html">About</a></li>
-          <li><a href="./themes.html">Themes</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<!-- Search UI -->
+<form class="blog-search" role="search" aria-label="Blog Search" onsubmit="return false;">
+  <input id="blog-search-input" type="search" placeholder="Search for what's on your mind…" />
+  <button id="blog-search-button">Search</button>
+  <span id="blog-search-count" class="search-count" aria-live="polite"></span>
+</form>
 
-  <!-- Hero -->
-  <main id="content" class="site-main">
-    <section class="container section hero">
-      <h1>Blog</h1>
-      <p class="lead">Notes on healing, craft, and clarity.</p>
-    </section>
+<!-- Live results (populated by /assets/js/search.js) -->
+<ul id="blog-search-results" class="blog-search-results"></ul>
 
-    <!-- Post list -->
-    <section class="container">
-      <ul class="post-list">
-        <li><a href="#">Hello, World</a> <span class="muted">· Sep 19, 2025</span></li>
-        <li><a href="#">Finding Quiet Confidence</a> <span class="muted">· Sep 12, 2025</span></li>
-      </ul>
-    </section>
-  </main>
+<section class="blog-list" id="blogPosts">
+  {% for post in paginator.posts %}
+    <article class="blog-card fade-in" data-tags="{{ post.tags | join: ',' }}" data-emotions="{{ post.emotions | join: ',' }}">
+      <div class="blog-card-content">
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
+        <p class="excerpt">{{ post.description | default: post.excerpt | strip_html | truncatewords: 24 }}</p>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container grid">
-      <div>
-        <strong>Embracing Authenticity</strong>
-        <p class="muted">© <span id="year"></span> · All rights reserved.</p>
+        <div class="tag-list">
+          {% assign shown_emotions = post.emotions | slice: 0, 2 %}
+          {% for emotion in shown_emotions %}
+            <span class="tag">{{ emotion | capitalize }}</span>
+          {% endfor %}
+          {% if post.emotions and post.emotions.size > 2 %}
+            <span class="tag">+{{ post.emotions.size | minus: 2 }} more</span>
+          {% endif %}
+        </div>
+
+        <a href="{{ post.url | relative_url }}" class="read-more">Read More →</a>
       </div>
-      <div>
-        <p class="muted">Made with care. <a class="link" href="./blog.html">RSS coming soon</a></p>
-      </div>
-    </div>
-  </footer>
+    </article>
+  {% endfor %}
 
-  <!-- Mobile nav toggle (same as index) -->
-  <script>
-    (function(){
-      const btn  = document.querySelector('.nav-toggle');
-      const list = document.getElementById('primary-nav');
-      if (!btn || !list) return;
-      btn.addEventListener('click', () => {
-        const open = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!open));
-        if (open) {
-          list.classList.remove('open');
-          list.hidden = true;
-        } else {
-          list.hidden = false;
-          requestAnimationFrame(() => list.classList.add('open'));
-        }
-      });
-    })();
-  </script>
+  <div class="pagination fade-in">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination-link">&larr; Previous</a>
+    {% endif %}
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="pagination-link">Next &rarr;</a>
+    {% endif %}
+  </div>
 
-  <!-- Year stamp -->
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <div class="back-to-top fade-in">
+    <a href="#" class="scroll-link">Back to Top ↑</a>
+  </div>
+</section>
 
-</body>
-</html>
+<style>
+  .why-link { text-decoration: none; font-weight: 500; color: #333; transition: color .3s; }
+  .why-link:hover { color: #ff6600; }
+
+  /* Search UI (matches your design tokens) */
+  .blog-search { display: flex; gap: .5rem; align-items: center; margin: 1rem 0 1.5rem; }
+  .blog-search input[type="search"] { flex: 1; padding: .6rem .8rem; border: 1px solid var(--color-mid); border-radius: 6px; }
+  .blog-search button { padding: .6rem 1rem; border: 2px solid var(--color-accent); color: var(--color-accent); background: transparent; border-radius: 6px; font-weight: 600; cursor: pointer; }
+  .blog-search button:hover { background: var(--color-accent); color: #fff; }
+  .search-count { margin-left: .5rem; color: var(--color-muted); font-size: .95rem; }
+
+  .blog-search-results { list-style: none; margin: 1rem 0 2rem; padding: 0; display: grid; gap: 1rem; }
+  .search-result { background: var(--color-light); border-radius: var(--radius); padding: 1rem 1.25rem; box-shadow: var(--shadow); }
+  .search-title { font-weight: 700; text-decoration: none; color: var(--color-primary); }
+  .search-title:hover { color: var(--color-accent); }
+  .search-snippet { margin: .5rem 0 .25rem; }
+  .search-meta { color: var(--color-muted); font-size: .9rem; }
+  .chip { display: inline-block; margin-left: .35rem; padding: .1rem .5rem; background: var(--color-highlight); color: var(--color-accent); border-radius: 999px; font-size: .75rem; }
+  .chip.emo { background: #dbe5ea; color: var(--color-primary); }
+</style>
+
+<script>
+  // Smooth scroll
+  document.querySelectorAll('.scroll-link').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const el = document.getElementById('blogPosts');
+      if (!el) return;
+      const offset = 80;
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  // Fade-in observer
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOnScroll = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("in-view");
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+  faders.forEach(el => appearOnScroll.observe(el));
+
+  // Hide the static list when a query is present (the search.js drives results)
+  (function(){
+    var input = document.querySelector('#blog-search-input');
+    var list  = document.querySelector('.blog-list');
+    if (!input || !list) return;
+    input.addEventListener('input', function(){
+      list.style.display = this.value.trim() ? 'none' : '';
+    });
+  })();
+</script>
+
+<!-- Load search AFTER nav.js; this page loads it directly -->
+<script src="{{ '/assets/js/search.js' | relative_url }}" defer></script>

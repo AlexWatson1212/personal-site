@@ -1,154 +1,160 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Embracing Authenticity</title>
+---
+layout: default
+title: Home
+---
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+<!-- Hero Section with Overlay -->
+<section class="hero-banner">
+  <div class="hero-image-wrapper">
+    <img src="/assets/images/van-hero.jpg" alt="Black Transit Van Driving through Norwegian Mountains" />
+  </div>
 
-  <!-- Header/Menu minimal styles (safe to move into style.css later) -->
-  <style>
-    .site-header{
-      position: sticky; top: 0; z-index: 1000;
-      background:#0b1324; /* matches your palette */
-    }
-    .header-row{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;}
-    .brand img{height:28px;width:auto;display:block;object-fit:contain}
-    .site-nav{display:flex;align-items:center;gap:0.5rem}
-    .nav-toggle{
-      display:inline-flex;align-items:center;justify-content:center;
-      width:40px;height:40px;border-radius:.75rem;border:1px solid rgba(255,255,255,.2);
-      background:rgba(255,255,255,.06);color:#fff; /* makes icon white */
-    }
-    /* slide-down list (mobile first) */
-    .nav-list{
-      position: absolute; left:0; right:0; top:calc(100% + .25rem);
-      margin:0 auto; list-style:none; padding:.25rem 0;
-      width:min(680px, calc(100% - 1.5rem)); background:#0f1a33; border-radius:1rem;
-      overflow:hidden; max-height:0; transition:max-height .28s ease;
-      box-shadow:0 10px 24px rgba(0,0,0,.35);
-    }
-    .nav-list li{border-top:1px solid rgba(255,255,255,.06)}
-    .nav-list li:first-child{border-top:none}
-    .nav-list a{display:block;padding:.9rem 1rem;color:#e8eefc;text-decoration:none}
-    .nav-list a:hover,.nav-list a:focus{background:rgba(255,255,255,.06)}
-    .nav-list.open{max-height:420px}
-    /* desktop */
-    @media (min-width:768px){
-      .nav-toggle{display:none}
-      .site-nav{position:static}
-      .nav-list{all:unset;display:flex;gap:1rem;list-style:none}
-      .nav-list a{padding:.25rem .5rem;border-radius:.5rem}
-      .nav-list a:hover{background:rgba(255,255,255,.08)}
-    }
-  </style>
-
-  <!-- Persist theme -->
-  <script>
-    (function () {
-      var t = localStorage.getItem('ea-theme');
-      if (t) document.documentElement.setAttribute('data-theme', t);
-    })();
-  </script>
-</head>
-<body>
-
-  <!-- Header / Nav -->
-  <header class="site-header">
-    <div class="container header-row">
-      <a class="brand" href="./index.html" aria-label="Embracing Authenticity — Home">
-        <!-- PNG logo -->
-        <img src="./assets/images/logo.png" alt="Embracing Authenticity">
-      </a>
-
-      <!-- Mobile-first nav -->
-      <nav class="site-nav" aria-label="Primary">
-  <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
-    <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
-      <path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-  </button>
-  <ul id="primary-nav" class="nav-list" hidden>
-    <li><a href="/blog.html">Blog</a></li>
-    <li><a href="/about.html">About</a></li>
-    <li><a href="/themes.html">Themes</a></li>
-  </ul>
-</nav>
+  <div class="hero-overlay">
+    <div class="hero-text">Welcome to the journey back to yourself.</div>
+    <div class="hero-buttons">
+      <a href="/self-discovery" class="hero-button">Start Here</a>
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- Hero -->
-  <main id="content" class="site-main">
-    <section class="container section hero">
-      <h1>Welcome</h1>
-      <p class="lead">Simple, soulful, professional. A clean framework you can replicate for clients.</p>
-      <a class="btn" href="./blog.html">Explore the Blog</a>
-    </section>
+<!-- Welcome Section -->
+<section class="hero">
+  <h2>Welcome</h2>
+  <p>This space was created to document the journey of healing, fatherhood, and discovering what it means to live authentically.</p>
+  <p>Hi, I’m Alex. I am a level 4 counselling student at Stockport College in Manchester. I created this space to hold the truths I wish I’d heard when I felt most alone. I hope something here meets you where you are.</p>
+</section>
 
-    <!-- Cards row -->
-    <section class="container section cards">
-      <article class="card">
-        <h2>Why This Works</h2>
-        <p>Fast, mobile-first, accessible. Edit one CSS file to rebrand in minutes.</p>
-      </article>
+<!-- Ethical Caution Section -->
+<section class="why-built">
+  <h2>This Isn’t Therapy. And That Matters.</h2>
+  <p><strong>Therapy isn’t always available. But healing can’t always wait.</strong></p>
 
-      <article class="card">
-        <h2>Latest Posts</h2>
-        <ul class="list">
-          <li><a href="#">Hello, World</a> <span class="muted">· Sep 19, 2025</span></li>
-          <li><a href="#">Finding Quiet Confidence</a> <span class="muted">· Sep 12, 2025</span></li>
-        </ul>
-        <a class="link" href="./blog.html">View all →</a>
-      </article>
+  <p><em>Embracing Authenticity</em> is a space for those in-between moments — between support systems, between clarity and confusion, between who you were and who you’re becoming. But we want to be clear:</p>
 
-      <article class="card">
-        <h2>Work With Me</h2>
-        <p>Build a simple, beautiful site that lets your voice shine.</p>
-        <a class="btn btn--ghost" href="mailto:">Get in touch</a>
-      </article>
-    </section>
-  </main>
+  <p><strong>If you’re reading this and don’t have any support right now, please go gently.</strong></p>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container grid">
-      <div>
-        <strong>Embracing Authenticity</strong>
-        <p class="muted">© <span id="year"></span> · All rights reserved.</p>
-      </div>
-      <div>
-        <p class="muted">Made with care. <a class="link" href="./blog.html">RSS coming soon</a></p>
+  <p>Some of the reflections shared here may stir up deep emotions — old wounds, unprocessed grief, or forgotten memories. This is normal. But it can also be overwhelming.</p>
+
+  <p><strong>We strongly recommend walking this journey with a qualified therapist or mental health professional if possible.</strong> Healing is not a solo sport. You deserve support. And no one should have to hold these things alone.</p>
+
+  <p>This site isn’t here to replace therapy. It’s here to sit beside it. To hold space while you wait for it, reflect after it, or reconnect with yourself in the quiet moments in between.</p>
+</section>
+
+<!-- Why I Built This -->
+<section class="why-built">
+  <h2>Why I Built This Site</h2>
+  <p>I didn’t build this site to prove anything or teach anyone how to live.<br>
+  I built it as a way of learning how to truly see myself.</p>
+
+  <p>For most of my life, I’ve hidden parts of myself — out of shame, fear, or simply not knowing how to express them. This space is an attempt to stop hiding. To let what’s real speak. To document what healing actually looks like — not as a linear process, but as a series of quiet reckonings.</p>
+
+  <p>If you’re reading this, you’re not just seeing a website. You’re seeing the parts of me I’ve never fully shown before. And in doing so, I hope it gives others permission to do the same — to be more honest with themselves, more gentle, more free.</p>
+</section>
+
+<!-- Quote Carousel -->
+<section class="quote-carousel">
+  <div class="quote-container">
+    <blockquote>
+      <p><em>“Your task is not to seek for love, but merely to seek and find all the barriers within yourself that you have built against it.”</em></p>
+      <footer>— Rumi</footer>
+    </blockquote>
+    <blockquote>
+      <p><em>“Owning our story and loving ourselves through that process is the bravest thing that we’ll ever do.”</em></p>
+      <footer>— Brené Brown</footer>
+    </blockquote>
+    <blockquote>
+      <p><em>“The curious paradox is that when I accept myself just as I am, then I can change.”</em></p>
+      <footer>— Carl Rogers</footer>
+    </blockquote>
+  </div>
+</section>
+
+<div class="quote-dots">
+  <span class="dot" onclick="goToQuote(0)"></span>
+  <span class="dot" onclick="goToQuote(1)"></span>
+  <span class="dot" onclick="goToQuote(2)"></span>
+</div>
+
+<!-- Latest Blog Posts -->
+<section class="latest-posts container">
+  <h2 class="text-2xl font-bold mb-6">Latest Reflections</h2>
+
+  <div class="grid gap-10">
+    {% for post in site.posts limit:3 %}
+    <div class="blog-card animate-on-scroll" style="margin-bottom: 1.5rem;">
+      <div class="blog-card-content">
+        <h3 class="text-xl font-semibold italic text-[#1A2D41] mb-1">{{ post.title }}</h3>
+        <p class="text-sm text-gray-600 mb-2">{{ post.date | date: "%B %d, %Y" }}</p>
+        <p class="text-gray-700 mb-4">{{ post.description }}</p>
+        <a href="{{ post.url | relative_url }}" class="read-more">Read More →</a>
       </div>
     </div>
-  </footer>
+    {% endfor %}
+  </div>
 
-  <!-- Mobile nav toggle -->
-  <script>
-    (function(){
-      const btn  = document.querySelector('.nav-toggle');
-      const list = document.getElementById('primary-nav');
-      if (!btn || !list) return;
-      btn.addEventListener('click', () => {
-        const open = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!open));
-        if(open){
-          list.classList.remove('open');
-          list.hidden = true;
-        } else {
-          list.hidden = false;
-          // allow paint before animating
-          requestAnimationFrame(() => list.classList.add('open'));
-        }
-      });
-    })();
-  </script>
+  <!-- Blog Button -->
+  <div class="mt-6 text-center">
+    <a href="/blog" class="blog-button">Explore the Full Blog</a>
+  </div>
+</section>
 
-  <!-- Year stamp -->
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<!-- Quote Carousel Script -->
+<script>
+  const quotes = document.querySelectorAll(".quote-container blockquote");
+  const dots = document.querySelectorAll(".quote-dots .dot");
+  const quoteContainer = document.querySelector(".quote-carousel");
+  let current = 0;
+  let quoteInterval;
 
-</body>
-</html>
+  function showQuote(index) {
+    quotes.forEach((quote, i) => {
+      quote.classList.toggle("active", i === index);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+    });
+  }
+
+  function nextQuote() {
+    current = (current + 1) % quotes.length;
+    showQuote(current);
+    resetAutoRotate();
+  }
+
+  function goToQuote(index) {
+    current = index;
+    showQuote(current);
+    resetAutoRotate();
+  }
+
+  function startAutoRotate() {
+    quoteInterval = setInterval(nextQuote, 5000);
+  }
+
+  function resetAutoRotate() {
+    clearInterval(quoteInterval);
+    startAutoRotate();
+  }
+
+  quoteContainer.addEventListener("mouseenter", () => clearInterval(quoteInterval));
+  quoteContainer.addEventListener("mouseleave", startAutoRotate);
+
+  let startX = 0;
+  quoteContainer.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+  });
+
+  quoteContainer.addEventListener("touchend", e => {
+    const endX = e.changedTouches[0].clientX;
+    const delta = startX - endX;
+    if (delta > 50) nextQuote();
+    else if (delta < -50) {
+      current = (current - 1 + quotes.length) % quotes.length;
+      showQuote(current);
+      resetAutoRotate();
+    }
+  });
+
+  showQuote(current);
+  startAutoRotate();
+</script>

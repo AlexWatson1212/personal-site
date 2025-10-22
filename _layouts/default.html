@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- DEFAULT layout -->
+  {% include head.html %}
+</head>
+<body>
+  {% include header.html %}
+  <main id="content" class="site-content">
+    <div class="container">
+      {{ content }}
+    </div>
+  </main>
+  {% include footer.html %}
+ {% if site.google_analytics %}
+  {% include analytics.html %}
+{% endif %}
+<script src="{{ '/assets/js/nav.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/search.js' | relative_url }}" defer></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1G5FKYL0R4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1G5FKYL0R4');
+</script>
+</body>
+</html>
+
+
