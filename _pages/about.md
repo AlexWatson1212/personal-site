@@ -5,10 +5,27 @@ permalink: /about/
 
 <h2>About Me</h2>
 
-I create websites that are as unique as the people and projects behind them.
+My name is Alex, and I’m a therapist in training who believes deeply in the power of honest, grounded human connection.
 
-I’m not tied to templates or one-size-fits-all platforms — I can build anything from the ground up. Whether you want something simple and streamlined or a fully customised site with advanced features, I design with both flexibility and authenticity in mind.
+My path into this work hasn’t been a straight line.
+Like many people, I’ve navigated my own challenges — questions about identity, emotional struggles, relationship difficulties, and periods of feeling disconnected from myself.
+Those experiences didn’t break me; they shaped me.
+They taught me compassion, patience, and the importance of having someone who truly listens.
 
-What makes my work different is the way I combine technical skill with personal care. I don’t just hand over a polished design; I build something that feels aligned with your values, your vision, and your voice. And because everything I make is yours to keep, you’ll never be locked in — your site can grow with you, or be handed over to another developer if life takes you in a new direction.
+I bring that understanding into every session.
 
-At heart, I believe websites should feel alive: not just functional, but meaningful, built to represent you at every level. That’s what I offer — custom, authentic websites built with care, to the nth degree.
+I’m someone who values authenticity, warmth, and real conversation.
+I’m not here to judge or diagnose who you should be.
+I’m here to meet you where you are — with honesty, curiosity, and respect — and to support you as you begin to understand yourself more deeply.
+
+I work in a way that is calm, steady, and emotionally present.
+People often tell me they feel at ease around me, that they sense they can speak freely without having to perform or pretend.
+That is the environment I aim to create:
+a space where you can explore your inner world safely and at your own pace.
+
+Outside of therapy, I’m a dad, a writer, a long-distance walker, and someone who finds joy in simple things — cooking, meaningful conversations, time outdoors, and building a life that feels aligned and purposeful.
+
+I believe that healing doesn’t have to be dramatic to be meaningful.
+Sometimes it’s the small shifts — the ones we hardly notice at first — that quietly change everything.
+
+If you choose to work with me, my hope is that you’ll feel seen, understood, and supported as you navigate whatever brings you here.
