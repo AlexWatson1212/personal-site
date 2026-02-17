@@ -1,32 +1,24 @@
-# -------------------------------
-# Core (minimal + safe)
-# -------------------------------
-title: ""                       # intentionally blank
-description: ""                 # optional
+title: ""
+description: ""
 url: "https://embracingauthenticity.co.uk"
 baseurl: ""
-future: true
 
 markdown: kramdown
 kramdown:
   input: GFM
 
-# Blog posts (optional)
-# If you create files in _posts/, they will build automatically.
+future: true
 permalink: /:title/
 
-# Plugins (keep only what you truly need)
 plugins:
   - jekyll-sitemap
-  - jekyll-feed
 
-# Keep Netlify builds clean
 exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
-  - node_modules
   - netlify.toml
+  - node_modules
   - vendor
   - .bundle
   - .jekyll-cache
