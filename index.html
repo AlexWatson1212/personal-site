@@ -3,168 +3,220 @@ layout: default
 title: Home
 ---
 
-<!-- Hero Section with Overlay -->
-<section class="hero-banner">
-  <div class="hero-image-wrapper">
-    <img src="/assets/images/van-hero.jpg" alt="Black Transit Van Driving through Norwegian Mountains" />
-  </div>
+<section class="acw-hero">
+  <div class="acw-hero-inner">
+    <p class="acw-kicker">Web design for local services</p>
+    <h1>Simple, fast websites for small businesses.</h1>
+    <p class="acw-sub">
+      One clear product. Built quickly. Mobile-friendly. No endless revisions.
+    </p>
 
-  <div class="hero-overlay">
-    <div class="hero-text">Welcome to the journey back to yourself.</div>
-    <div class="hero-buttons">
-      <a href="/self-discovery" class="hero-button">Start Here</a>
+    <div class="acw-cta-row">
+      <a class="acw-btn acw-btn-primary" href="#contact">Enquire</a>
+      <a class="acw-btn acw-btn-ghost" href="#pricing">See pricing</a>
+    </div>
+
+    <div class="acw-trust">
+      <span>✅ Fixed price</span>
+      <span>✅ Fast turnaround</span>
+      <span>✅ Clean boundaries</span>
     </div>
   </div>
 </section>
 
-<!-- Welcome Section -->
-<section class="hero">
-  <h2>Welcome</h2>
-  <p>This space was created to document the journey of healing, fatherhood, and discovering what it means to live authentically.</p>
-  <p>Hi, I’m Alex. I am a level 4 counselling student at Stockport College in Manchester. I created this space to hold the truths I wish I’d heard when I felt most alone. I hope something here meets you where you are.</p>
-<h2>My therapeutic approach</h2>
-<p>
-I believe that healing begins the moment something painful is brought into the open and met with compassion instead of judgment. My role isn’t to fix you, but to be with you — to hold what’s here so it can finally breathe.
+<section class="acw-section" id="offer">
+  <div class="acw-container">
+    <h2>The offer</h2>
+    <p class="acw-lead">A simple business website for a fair fixed price.</p>
 
-When a person feels safe enough to share their truth, no matter how heavy, it creates space for that truth to soften. I meet vulnerability with steady presence — with the same words, the same tone, the same care — not because I’m repeating a script, but because I mean it every time.
+    <div class="acw-grid-3">
+      <div class="acw-card">
+        <h3>What you get</h3>
+        <ul class="acw-list">
+          <li>Up to 5 pages (Home, About, Services, Testimonials, Contact)</li>
+          <li>Mobile-friendly</li>
+          <li>Fast loading</li>
+          <li>Contact form</li>
+          <li>Basic SEO foundations</li>
+          <li>2 revision rounds</li>
+        </ul>
+      </div>
 
-We move at your pace.
-You are not alone.
-And together, we make room for what once felt unbearable to begin healing.
-</p>
-</section>
+      <div class="acw-card">
+        <h3>Who it’s for</h3>
+        <ul class="acw-list">
+          <li>Local trades</li>
+          <li>Small service businesses</li>
+          <li>Therapists</li>
+        </ul>
+        <p class="acw-muted">
+          If you want something complex, I’m probably not the right fit — and that’s okay.
+        </p>
+      </div>
 
-<!-- Ethical Caution Section -->
-<section class="why-built">
-  <h2>This Isn’t Therapy. And That Matters.</h2>
-  <p><strong>Therapy isn’t always available. But healing can’t always wait.</strong></p>
-
-  <p><em>Embracing Authenticity</em> is a space for those in-between moments — between support systems, between clarity and confusion, between who you were and who you’re becoming. But we want to be clear:</p>
-
-  <p><strong>If you’re reading this and don’t have any support right now, please go gently.</strong></p>
-
-  <p>Some of the reflections shared here may stir up deep emotions — old wounds, unprocessed grief, or forgotten memories. This is normal. But it can also be overwhelming.</p>
-
-  <p><strong>We strongly recommend walking this journey with a qualified therapist or mental health professional if possible.</strong> Healing is not a solo sport. You deserve support. And no one should have to hold these things alone.</p>
-
-  <p>This site isn’t here to replace therapy. It’s here to sit beside it. To hold space while you wait for it, reflect after it, or reconnect with yourself in the quiet moments in between.</p>
-</section>
-
-<!-- Why I Built This -->
-<section class="why-built">
-  <h2>Why I Built This Site</h2>
-  <p>I didn’t build this site to prove anything or teach anyone how to live.<br>
-  I built it as a way of learning how to truly see myself.</p>
-
-  <p>For most of my life, I’ve hidden parts of myself — out of shame, fear, or simply not knowing how to express them. This space is an attempt to stop hiding. To let what’s real speak. To document what healing actually looks like — not as a linear process, but as a series of quiet reckonings.</p>
-
-  <p>If you’re reading this, you’re not just seeing a website. You’re seeing the parts of me I’ve never fully shown before. And in doing so, I hope it gives others permission to do the same — to be more honest with themselves, more gentle, more free.</p>
-</section>
-
-<!-- Quote Carousel -->
-<section class="quote-carousel">
-  <div class="quote-container">
-    <blockquote>
-      <p><em>“Your task is not to seek for love, but merely to seek and find all the barriers within yourself that you have built against it.”</em></p>
-      <footer>— Rumi</footer>
-    </blockquote>
-    <blockquote>
-      <p><em>“Owning our story and loving ourselves through that process is the bravest thing that we’ll ever do.”</em></p>
-      <footer>— Brené Brown</footer>
-    </blockquote>
-    <blockquote>
-      <p><em>“The curious paradox is that when I accept myself just as I am, then I can change.”</em></p>
-      <footer>— Carl Rogers</footer>
-    </blockquote>
-  </div>
-</section>
-
-<div class="quote-dots">
-  <span class="dot" onclick="goToQuote(0)"></span>
-  <span class="dot" onclick="goToQuote(1)"></span>
-  <span class="dot" onclick="goToQuote(2)"></span>
-</div>
-
-<!-- Latest Blog Posts -->
-<section class="latest-posts container">
-  <h2 class="text-2xl font-bold mb-6">Latest Reflections</h2>
-
-  <div class="grid gap-10">
-    {% for post in site.posts limit:3 %}
-    <div class="blog-card animate-on-scroll" style="margin-bottom: 1.5rem;">
-      <div class="blog-card-content">
-        <h3 class="text-xl font-semibold italic text-[#1A2D41] mb-1">{{ post.title }}</h3>
-        <p class="text-sm text-gray-600 mb-2">{{ post.date | date: "%B %d, %Y" }}</p>
-        <p class="text-gray-700 mb-4">{{ post.description }}</p>
-        <a href="{{ post.url | relative_url }}" class="read-more">Read More →</a>
+      <div class="acw-card">
+        <h3>How it stays simple</h3>
+        <ul class="acw-list">
+          <li>Clear scope in writing</li>
+          <li>Client approves copy before build</li>
+          <li>Two revision rounds included</li>
+          <li>Extras billed hourly</li>
+        </ul>
       </div>
     </div>
-    {% endfor %}
-  </div>
-
-  <!-- Blog Button -->
-  <div class="mt-6 text-center">
-    <a href="/blog" class="blog-button">Explore the Full Blog</a>
   </div>
 </section>
 
-<!-- Quote Carousel Script -->
-<script>
-  const quotes = document.querySelectorAll(".quote-container blockquote");
-  const dots = document.querySelectorAll(".quote-dots .dot");
-  const quoteContainer = document.querySelector(".quote-carousel");
-  let current = 0;
-  let quoteInterval;
+<section class="acw-section acw-section-alt" id="process">
+  <div class="acw-container">
+    <h2>Process</h2>
+    <p class="acw-lead">A calm, structured build. No drama.</p>
 
-  function showQuote(index) {
-    quotes.forEach((quote, i) => {
-      quote.classList.toggle("active", i === index);
-    });
-    dots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === index);
-    });
-  }
+    <div class="acw-steps">
+      <div class="acw-step">
+        <div class="acw-step-num">1</div>
+        <div>
+          <h3>Quick call or email</h3>
+          <p>We confirm fit, scope, and timeline. If it’s not a fit, we keep it simple.</p>
+        </div>
+      </div>
 
-  function nextQuote() {
-    current = (current + 1) % quotes.length;
-    showQuote(current);
-    resetAutoRotate();
-  }
+      <div class="acw-step">
+        <div class="acw-step-num">2</div>
+        <div>
+          <h3>Intake checklist</h3>
+          <p>You send basics: services, area, hours, contact details, photos/logo, testimonials.</p>
+        </div>
+      </div>
 
-  function goToQuote(index) {
-    current = index;
-    showQuote(current);
-    resetAutoRotate();
-  }
+      <div class="acw-step">
+        <div class="acw-step-num">3</div>
+        <div>
+          <h3>Build</h3>
+          <p>I build the site from a proven template system — fast and clean.</p>
+        </div>
+      </div>
 
-  function startAutoRotate() {
-    quoteInterval = setInterval(nextQuote, 5000);
-  }
+      <div class="acw-step">
+        <div class="acw-step-num">4</div>
+        <div>
+          <h3>Revisions</h3>
+          <p>Two rounds included. Clear notes in one email each round.</p>
+        </div>
+      </div>
 
-  function resetAutoRotate() {
-    clearInterval(quoteInterval);
-    startAutoRotate();
-  }
+      <div class="acw-step">
+        <div class="acw-step-num">5</div>
+        <div>
+          <h3>Launch</h3>
+          <p>Site goes live. Any future edits are hourly so it stays fair for both of us.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  quoteContainer.addEventListener("mouseenter", () => clearInterval(quoteInterval));
-  quoteContainer.addEventListener("mouseleave", startAutoRotate);
+<section class="acw-section" id="portfolio">
+  <div class="acw-container">
+    <h2>Portfolio</h2>
+    <p class="acw-lead">Example builds (more coming soon).</p>
 
-  let startX = 0;
-  quoteContainer.addEventListener("touchstart", e => {
-    startX = e.touches[0].clientX;
-  });
+    <div class="acw-grid-3">
+      <a class="acw-card acw-card-link" href="#" aria-label="Trades example site">
+        <h3>Trades / Flooring</h3>
+        <p class="acw-muted">Simple services + reviews + contact.</p>
+        <span class="acw-link">View example →</span>
+      </a>
 
-  quoteContainer.addEventListener("touchend", e => {
-    const endX = e.changedTouches[0].clientX;
-    const delta = startX - endX;
-    if (delta > 50) nextQuote();
-    else if (delta < -50) {
-      current = (current - 1 + quotes.length) % quotes.length;
-      showQuote(current);
-      resetAutoRotate();
-    }
-  });
+      <a class="acw-card acw-card-link" href="#" aria-label="Therapist example site">
+        <h3>Therapist</h3>
+        <p class="acw-muted">Warm, minimal, trust-building layout.</p>
+        <span class="acw-link">View example →</span>
+      </a>
 
-  showQuote(current);
-  startAutoRotate();
-</script>
+      <a class="acw-card acw-card-link" href="#" aria-label="Local service example site">
+        <h3>Local Service</h3>
+        <p class="acw-muted">Clean homepage + clear call-to-action.</p>
+        <span class="acw-link">View example →</span>
+      </a>
+    </div>
+
+    <p class="acw-muted acw-note">
+      Tip: once you have real examples, replace the # links with the actual URLs.
+    </p>
+  </div>
+</section>
+
+<section class="acw-section acw-section-alt" id="pricing">
+  <div class="acw-container">
+    <h2>Pricing</h2>
+    <p class="acw-lead">One offer. Transparent terms. Clear boundaries.</p>
+
+    <div class="acw-pricing">
+      <div class="acw-price-card">
+        <h3>Simple Business Website</h3>
+        <div class="acw-price">£600</div>
+        <ul class="acw-list">
+          <li>Up to 5 pages</li>
+          <li>Mobile-friendly</li>
+          <li>Fast loading</li>
+          <li>Contact form</li>
+          <li>Basic SEO foundations</li>
+          <li>2 revision rounds</li>
+        </ul>
+
+        <div class="acw-terms">
+          <p><strong>Payment:</strong> 50% upfront, 50% before launch</p>
+          <p><strong>Extra changes:</strong> £40/hour</p>
+        </div>
+
+        <a class="acw-btn acw-btn-primary" href="#contact">Enquire</a>
+      </div>
+
+      <div class="acw-card">
+        <h3>Optional add-ons</h3>
+        <ul class="acw-list">
+          <li>Extra page — <strong>£75</strong></li>
+          <li>Copywriting — <strong>£150</strong> (if you want me to craft it)</li>
+          <li>Edits after handover — <strong>£40/hour</strong></li>
+        </ul>
+        <p class="acw-muted">
+          By default, you provide the text. If you want help shaping it, that’s an add-on.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="acw-section" id="contact">
+  <div class="acw-container">
+    <h2>Contact</h2>
+    <p class="acw-lead">If you want something simple and clean, send a message.</p>
+
+    <div class="acw-contact">
+      <div class="acw-card">
+        <h3>Email</h3>
+        <p class="acw-muted">Tell me your business name, what you do, and your area.</p>
+        <p class="acw-email">
+          <a href="mailto:alexanderclivewatson@gmail.com">alexanderclivewatson@gmail.com</a>
+        </p>
+        <p class="acw-muted acw-note">
+          I’ll reply with next steps + an intake checklist.
+        </p>
+      </div>
+
+      <div class="acw-card">
+        <h3>What to include</h3>
+        <ul class="acw-list">
+          <li>Business name</li>
+          <li>Services</li>
+          <li>Area served</li>
+          <li>Phone/email</li>
+          <li>Opening hours</li>
+          <li>Photos/logo (if you have them)</li>
+          <li>2–3 testimonials (optional)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
