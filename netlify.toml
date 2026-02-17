@@ -1,7 +1,6 @@
 [build]
-  command = "bundle exec jekyll build"
+  command = "bundle exec jekyll build --skip-initial-cleanup"
   publish = "_site"
 
 [build.environment]
   RUBY_VERSION = "3.2.2"
-  NODE_VERSION = "20"
