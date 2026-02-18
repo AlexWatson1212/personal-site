@@ -1,14 +1,21 @@
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<!-- Favicon & App Icons -->
+<link rel="icon" href="{{ '/assets/images/brand/favicon.ico' | relative_url }}" sizes="any">
+<link rel="icon" href="{{ '/assets/images/brand/monogram.svg' | relative_url }}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{ '/assets/images/brand/favicon-192.png' | relative_url }}">
+<link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
 
-{%- if site.title -%}
-  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-{%- else -%}
-  <title>{% if page.title %}{{ page.title }}{% else %}Embracing Authenticity{% endif %}</title>
-{%- endif -%}
+<!-- Theme color (mobile browser UI tint) -->
+<meta name="theme-color" content="#2563EB">
 
-<!-- Main stylesheet -->
-<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Alex Watson — Websites for Therapists">
+<meta property="og:description" content="Simple, fast websites for therapists and local service professionals. Clear scope. Transparent pricing.">
+<meta property="og:image" content="{{ '/assets/images/brand/og-image-1200x630.png' | relative_url }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
 
-<!-- Favicon (you have favicon.ico at the project root per your screenshot) -->
-<link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alex Watson — Websites for Therapists">
+<meta name="twitter:description" content="Simple, fast websites for therapists and local service professionals.">
+<meta name="twitter:image" content="{{ '/assets/images/brand/og-image-1200x630.png' | relative_url }}">

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="140" viewBox="0 0 720 140" role="img" aria-label="Alex Watson — Websites for Therapists">
+  <rect width="720" height="140" fill="none"/>
+  <text x="0" y="62" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+        font-size="56" font-weight="700" letter-spacing="0.12em" fill="#FFFFFF">ALEX WATSON</text>
+  <g>
+    <line x1="0" y1="96" x2="120" y2="96" stroke="#2563EB" stroke-width="2" opacity="0.95"/>
+    <text x="140" y="104" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+          font-size="20" font-weight="600" letter-spacing="0.18em" fill="#FFFFFF" opacity="0.92">WEBSITES FOR THERAPISTS</text>
+    <line x1="520" y1="96" x2="700" y2="96" stroke="#2563EB" stroke-width="2" opacity="0.95"/>
+  </g>
+</svg>

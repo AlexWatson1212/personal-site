@@ -1,8 +1,11 @@
 <footer class="site-footer">
   <div class="container footer-center">
-    <!-- Brand / Copyright -->
+
+    <!-- Brand -->
     <div class="footer-brand">
-      <strong>{{ site.title }}</strong>
+      <a href="{{ '/' | relative_url }}" aria-label="Alex Watson — Websites for Therapists" style="display:inline-flex; align-items:center; gap:12px; text-decoration:none; color:inherit;">
+        <img src="/assets/images/brand/logo-white.svg" alt="Alex Watson" style="height:46px; width:auto;">
+      </a>
       <p class="muted">© {{ "now" | date: "%Y" }} · All rights reserved.</p>
     </div>
 
@@ -22,8 +25,8 @@
         </svg>
       </a>
 
-      <!-- YouTube -->
-      <a class="social" href="https://www.youtube.com/@embracingauthenticity" target="_blank" rel="noopener" aria-label="YouTube">
+      <!-- YouTube (optional - swap when you have the new channel) -->
+      <a class="social" href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
         <svg class="icon" viewBox="0 0 24 24" role="img">
           <path fill="currentColor" d="M23.5 6.2a4 4 0 0 0-2.8-2.8C18.9 3 12 3 12 3s-6.9 0-8.7.4A4 4 0 0 0 .5 6.2 41.7 41.7 0 0 0 0 12a41.7 41.7 0 0 0 .5 5.8 4 4 0 0 0 2.8 2.8C5.1 21 12 21 12 21s6.9 0 8.7-.4a4 4 0 0 0 2.8-2.8c.3-1.9.5-3.8.5-5.8s-.2-3.9-.5-5.8ZM9.7 15.5V8.5l6.2 3.5-6.2 3.5Z"/>
         </svg>
@@ -40,9 +43,10 @@
     <!-- Note -->
     <div class="footer-note">
       <p class="muted">
-        Made with ❤ by Alex · For website inquiries:
+        Web design inquiries:
         <a class="footer-email" href="mailto:alexanderclivewatson@gmail.com">alexanderclivewatson@gmail.com</a>
       </p>
     </div>
+
   </div>
 </footer>

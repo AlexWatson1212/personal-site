@@ -16,28 +16,38 @@ Paste this as your full main CSS file.
 ================================================================== */
 
 :root {
-  /* Core palette (web services) */
-  --color-bg: #0b1220;           /* deep navy */
-  --color-surface: #ffffff;      /* cards/sections */
-  --color-soft: #f4f6fb;         /* alt section */
-  --color-ink: #0f172a;          /* headings/body on light */
+  /* ================================================================
+  BRAND PALETTE (Crisp + Digital)
+  Primary: Bright Blue #2563EB
+  Anchor:  Charcoal Slate #1E293B
+  Base:    Cool Off-White #F8FAFC
+  Alt:     Mist Grey #EEF2F7
+  ================================================================ */
+
+  /* Core surfaces */
+  --color-bg: #F8FAFC;            /* page base */
+  --color-surface: #ffffff;       /* cards/sections */
+  --color-soft: #EEF2F7;          /* alt section */
+
+  /* Text */
+  --color-ink: #0f172a;           /* headings/body on light */
   --color-muted: rgba(15, 23, 42, 0.72);
   --color-line: rgba(15, 23, 42, 0.12);
 
-  /* Accent */
-  --color-accent: #2563eb;       /* primary */
-  --color-accent-2: #0ea5e9;     /* gradient partner */
+  /* Brand accents */
+  --color-accent: #2563EB;        /* primary */
+  --color-accent-2: #0EA5E9;      /* secondary (gradient partner) */
 
-  /* Header/Nav */
-  --nav-bg: #071024;
+  /* Header/Nav (distinct from EA navy) */
+  --nav-bg: #1E293B;              /* charcoal slate */
   --nav-text: rgba(255, 255, 255, 0.92);
   --nav-link: rgba(255, 255, 255, 0.82);
   --nav-hover: rgba(255, 255, 255, 0.96);
   --nav-underline: rgba(255, 255, 255, 0.22);
-  --nav-shadow: 0 6px 16px rgba(0, 0, 0, .20);
+  --nav-shadow: 0 6px 16px rgba(0, 0, 0, .18);
 
-  /* Fonts */
-  --font-heading: 'Playfair Display', serif;
+  /* Fonts (modern + clean) */
+  --font-heading: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 
   /* Radius, shadows, motion */
@@ -69,8 +79,8 @@ body {
   font-family: var(--font-body);
   color: var(--color-ink);
 
-  /* Default page background is light; hero handles dark */
-  background: var(--color-soft);
+  /* Crisp base */
+  background: var(--color-bg);
   line-height: 1.6;
   text-align: left;
 }
@@ -113,12 +123,15 @@ button:focus-visible {
 
 /* Typography defaults */
 :where(p, ul, ol, blockquote) { margin: 0 0 1.25rem; }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: 750;
   margin: 0 0 0.85rem;
   color: var(--color-ink);
+  letter-spacing: -0.015em;
 }
+
 main h2 { color: var(--color-ink); }
 
 /* Screen-reader helper */
@@ -172,7 +185,8 @@ main h2 { color: var(--color-ink); }
   width: auto;
   object-fit: contain;
 }
-.brand-text { display: none; } /* keep if you rely on logo only */
+/* Keep hidden (we now use sr-only in header.html) */
+.brand-text { display: none; }
 
 /* Nav */
 .site-nav ul {
@@ -255,41 +269,46 @@ main h2 { color: var(--color-ink); }
 }
 .acw-section-alt { background: var(--color-soft); }
 
-/* Hero */
+/* Hero (blue-led, modern, not EA-navy) */
 .acw-hero {
   padding: 92px 0 72px;
   background:
-    radial-gradient(1200px 520px at 20% 10%, rgba(14,165,233,0.20), transparent 60%),
-    radial-gradient(1000px 520px at 80% 30%, rgba(37,99,235,0.18), transparent 55%),
-    linear-gradient(180deg, #071024, #0b1220);
+    radial-gradient(900px 420px at 15% 20%, rgba(37,99,235,0.30), transparent 60%),
+    radial-gradient(900px 520px at 85% 35%, rgba(14,165,233,0.22), transparent 58%),
+    linear-gradient(180deg, #111827, #1E293B);
   color: #fff;
 }
+
 .acw-hero-inner {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 1rem;
 }
+
 .acw-kicker {
   display: inline-block;
   padding: 8px 12px;
-  border: 1px solid rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.18);
   border-radius: 999px;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.88);
   font-size: 0.95rem;
   margin: 0 0 16px;
+  backdrop-filter: blur(6px);
 }
+
 .acw-hero h1 {
   font-size: clamp(2.2rem, 4vw, 3.4rem);
   line-height: 1.06;
   margin: 0 0 12px;
   color: #fff;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
+
 .acw-sub {
-  max-width: 54ch;
-  font-size: 1.1rem;
+  max-width: 56ch;
+  font-size: 1.08rem;
   line-height: 1.65;
-  color: rgba(255,255,255,0.86);
+  color: rgba(255,255,255,0.88);
   margin: 0 0 22px;
 }
 
@@ -307,28 +326,38 @@ main h2 { color: var(--color-ink); }
   padding: 12px 16px;
   border-radius: 12px;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 750;
   border: 1px solid transparent;
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background var(--transition);
+  will-change: transform;
 }
+
 .acw-btn-primary {
   background: linear-gradient(90deg, var(--color-accent), var(--color-accent-2));
   color: #fff;
-  box-shadow: 0 10px 24px rgba(14,165,233,0.18);
+  box-shadow: 0 12px 26px rgba(37,99,235,0.25);
 }
-.acw-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 14px 30px rgba(14,165,233,0.22); }
+.acw-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 34px rgba(37,99,235,0.30);
+}
+
 .acw-btn-ghost {
-  background: transparent;
+  background: rgba(255,255,255,0.06);
   border-color: rgba(255,255,255,0.24);
-  color: rgba(255,255,255,0.92);
+  color: rgba(255,255,255,0.94);
 }
-.acw-btn-ghost:hover { transform: translateY(-1px); border-color: rgba(255,255,255,0.34); }
+.acw-btn-ghost:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,0.34);
+  background: rgba(255,255,255,0.08);
+}
 
 .acw-trust {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-  color: rgba(255,255,255,0.78);
+  color: rgba(255,255,255,0.82);
   font-size: 0.98rem;
 }
 
@@ -374,6 +403,7 @@ main h2 { color: var(--color-ink); }
   gap: 14px;
   margin-top: 22px;
 }
+
 .acw-step {
   display: grid;
   grid-template-columns: 44px 1fr;
@@ -385,11 +415,12 @@ main h2 { color: var(--color-ink); }
   padding: 14px 16px;
   box-shadow: var(--shadow-soft);
 }
+
 .acw-step-num {
   width: 34px;
   height: 34px;
   border-radius: 10px;
-  background: rgba(37,99,235,0.10);
+  background: rgba(37,99,235,0.12);
   color: var(--color-accent);
   display: grid;
   place-items: center;
@@ -414,12 +445,14 @@ main h2 { color: var(--color-ink); }
   padding: 18px;
   box-shadow: var(--shadow);
 }
+
 .acw-price {
   font-size: 2.2rem;
   font-weight: 900;
   margin: 10px 0 12px;
   color: var(--color-ink);
 }
+
 .acw-terms {
   margin-top: 14px;
   padding-top: 12px;
@@ -438,6 +471,7 @@ main h2 { color: var(--color-ink); }
   transform: translateY(-2px);
   box-shadow: 0 14px 34px rgba(2,6,23,0.12);
 }
+
 .acw-link {
   display: inline-block;
   margin-top: 10px;
@@ -455,11 +489,13 @@ main h2 { color: var(--color-ink); }
 @media (max-width: 900px) {
   .acw-contact { grid-template-columns: 1fr; }
 }
+
 .acw-email a {
   font-weight: 900;
   color: var(--color-accent);
   text-decoration: none;
 }
+
 .acw-note {
   margin-top: 12px;
   font-size: 0.95rem;
@@ -506,6 +542,7 @@ section { scroll-margin-top: 90px; } /* anchor offset under sticky header */
   justify-content: center;
   flex-wrap: wrap;
 }
+
 .footer-nav a {
   color: var(--nav-text);
   text-decoration: none;
@@ -526,6 +563,7 @@ section { scroll-margin-top: 90px; } /* anchor offset under sticky header */
   justify-content: center;
   flex-wrap: wrap;
 }
+
 .footer-social .social {
   color: #fff;
   opacity: 0.9;
@@ -536,6 +574,7 @@ section { scroll-margin-top: 90px; } /* anchor offset under sticky header */
   opacity: 1;
   transform: translateY(-1px);
 }
+
 .footer-social .icon {
   width: var(--footer-icon-size);
   height: var(--footer-icon-size);
@@ -547,6 +586,7 @@ section { scroll-margin-top: 90px; } /* anchor offset under sticky header */
   color: rgba(255,255,255,.85);
   max-width: 520px;
 }
+
 .footer-note a {
   color: var(--nav-text);
   text-decoration: none;
