@@ -1,12 +1,23 @@
 <!-- _includes/header.html -->
 <header class="site-header" role="banner">
   <div class="shell">
+
     <a class="brand" href="{{ '/' | relative_url }}" aria-label="Alex Watson — Websites for Therapists">
-      <img class="brand-mark" src="/assets/images/brand/logo-white.svg" alt="Alex Watson">
-      <span class="sr-only">Alex Watson — Websites for Therapists</span>
+      <!-- Desktop / default logo -->
+      <img 
+        class="brand-mark"
+        src="{{ '/assets/brand/logo-white.svg' | relative_url }}"
+        alt="Alex Watson — Websites for Therapists"
+        width="260"
+        height="68"
+      >
     </a>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+    <button class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-menu"
+            aria-label="Open menu">
       <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
         <path d="M3 6h18M3 12h18M3 18h18"
               stroke="currentColor"
@@ -23,5 +34,6 @@
         <li><a href="{{ '/self-discovery/' | relative_url }}">Self-Discovery</a></li>
       </ul>
     </nav>
+
   </div>
 </header>

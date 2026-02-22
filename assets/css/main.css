@@ -2,11 +2,8 @@
 ====================================================================
 AlexanderCliveWatson.co.uk — Consolidated CSS (Single File)
 --------------------------------------------------------------------
-This replaces your current Embracing Authenticity CSS for THIS site.
-It keeps your existing header/footer structure working, but removes
-EA-specific blog/music/lego styling and adds the new ACW web-services
-homepage styling (acw-* classes).
-
+Updated to support the NEW stacked logo (SVG) and a more robust
+mobile nav open/close (works via aria-expanded OR .is-open).
 Paste this as your full main CSS file.
 ====================================================================
 */
@@ -38,7 +35,7 @@ Paste this as your full main CSS file.
   --color-accent: #2563EB;        /* primary */
   --color-accent-2: #0EA5E9;      /* secondary (gradient partner) */
 
-  /* Header/Nav (distinct from EA navy) */
+  /* Header/Nav */
   --nav-bg: #1E293B;              /* charcoal slate */
   --nav-text: rgba(255, 255, 255, 0.92);
   --nav-link: rgba(255, 255, 255, 0.82);
@@ -46,7 +43,7 @@ Paste this as your full main CSS file.
   --nav-underline: rgba(255, 255, 255, 0.22);
   --nav-shadow: 0 6px 16px rgba(0, 0, 0, .18);
 
-  /* Fonts (modern + clean) */
+  /* Fonts */
   --font-heading: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 
@@ -59,8 +56,8 @@ Paste this as your full main CSS file.
   /* Layout */
   --container-max: 1100px;
 
-  /* Header sizing */
-  --logo-h-mobile: 44px;
+  /* Header sizing (tuned for stacked logo SVG) */
+  --logo-h-mobile: 52px;
   --logo-h-desktop: 64px;
   --header-pad-mobile: 0.85rem;
   --header-pad-desktop: 1.10rem;
@@ -78,8 +75,6 @@ body {
   margin: 0;
   font-family: var(--font-body);
   color: var(--color-ink);
-
-  /* Crisp base */
   background: var(--color-bg);
   line-height: 1.6;
   text-align: left;
@@ -117,9 +112,7 @@ button:focus-visible {
 }
 
 /* Page content wrapper safety */
-.site-content {
-  min-height: 60vh;
-}
+.site-content { min-height: 60vh; }
 
 /* Typography defaults */
 :where(p, ul, ol, blockquote) { margin: 0 0 1.25rem; }
@@ -171,20 +164,25 @@ main h2 { color: var(--color-ink); }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: .6rem;
   text-decoration: none;
   color: inherit;
+  min-width: 0;
 }
 .brand:focus-visible {
   outline: 2px solid rgba(255,255,255,.35);
   outline-offset: 2px;
   border-radius: 8px;
 }
+
+/* NEW: logo sizing tuned for stacked SVG */
 .brand-mark {
   height: var(--logo-h-mobile);
   width: auto;
   object-fit: contain;
+  /* prevents logo forcing layout too wide on tiny screens */
+  max-width: min(520px, 70vw);
 }
+
 /* Keep hidden (we now use sr-only in header.html) */
 .brand-text { display: none; }
 
@@ -201,9 +199,10 @@ main h2 { color: var(--color-ink); }
 .site-nav a {
   color: var(--nav-link);
   text-decoration: none;
-  padding: .45rem 0;
+  padding: .55rem 0;
   border-bottom: 2px solid transparent;
-  transition: color var(--transition), border-color var(--transition);
+  transition: color var(--transition), border-color var(--transition), opacity var(--transition);
+  white-space: nowrap;
 }
 .site-nav a:hover,
 .site-nav a:focus-visible {
@@ -223,10 +222,19 @@ main h2 { color: var(--color-ink); }
   border-radius: .7rem;
   padding: .55rem;
   cursor: pointer;
+  transition: border-color var(--transition), background var(--transition), transform var(--transition);
 }
-.nav-toggle:hover { border-color: rgba(255,255,255,.28); }
+.nav-toggle:hover {
+  border-color: rgba(255,255,255,.30);
+  background: rgba(255,255,255,.04);
+}
+.nav-toggle:active { transform: translateY(1px); }
 
-/* Mobile slide-down */
+/* Mobile slide-down
+   Works with:
+   - .site-header.is-open (if your JS adds it)
+   - OR aria-expanded="true" on the button (your current setup)
+*/
 @media (max-width: 860px) {
   .site-header .shell { flex-wrap: wrap; }
   .nav-toggle { display: inline-flex; }
@@ -237,13 +245,25 @@ main h2 { color: var(--color-ink); }
     max-height: 0;
     transition: max-height .28s ease;
   }
-  .site-header.is-open .site-nav { max-height: 260px; }
+
+  /* If your JS toggles a class on header */
+  .site-header.is-open .site-nav { max-height: 320px; }
+
+  /* If your JS only toggles aria-expanded (matches your header.html) */
+  .nav-toggle[aria-expanded="true"] ~ .site-nav { max-height: 320px; }
 
   .site-nav ul {
     flex-direction: column;
     align-items: flex-start;
-    gap: .75rem;
-    padding: .55rem 0 .85rem;
+    gap: .25rem;
+    padding: .65rem 0 .95rem;
+  }
+
+  /* Bigger tap targets on mobile */
+  .site-nav a {
+    width: 100%;
+    padding: .65rem 0;
+    border-bottom-color: transparent;
   }
 }
 
@@ -252,7 +272,7 @@ main h2 { color: var(--color-ink); }
   .nav-toggle { display: none; }
   .site-nav { max-height: none !important; }
   .site-header .shell { padding: var(--header-pad-desktop) 1.5rem; }
-  .brand-mark { height: var(--logo-h-desktop); }
+  .brand-mark { height: var(--logo-h-desktop); max-width: none; }
 }
 
 /* Hide any leftover huge masthead title */
@@ -269,7 +289,7 @@ main h2 { color: var(--color-ink); }
 }
 .acw-section-alt { background: var(--color-soft); }
 
-/* Hero (blue-led, modern, not EA-navy) */
+/* Hero */
 .acw-hero {
   padding: 92px 0 72px;
   background:
