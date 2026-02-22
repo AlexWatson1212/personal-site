@@ -3,75 +3,88 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{%- comment -%}
-===========================================================
-Primary stylesheet (THIS is the missing piece)
-===========================================================
-{%- endcomment -%}
+<!-- ===========================================================
+Primary Stylesheet
+=========================================================== -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
-{%- comment -%}
-===========================================================
-Optional: Font (Inter)
-If you prefer no external calls, delete these 2 lines.
-===========================================================
-{%- endcomment -%}
+<!-- ===========================================================
+Font: Inter
+=========================================================== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-{%- comment -%}
-===========================================================
+<!-- ===========================================================
 Title + Description (SEO)
-===========================================================
-{%- endcomment -%}
+=========================================================== -->
 <title>
-  {%- if page.title and page.title != "Home" -%}
+  {% if page.title and page.title != "Home" %}
     {{ page.title }} · Alex Watson
-  {%- else -%}
+  {% else %}
     Alex Watson · Simple, fast websites for therapists
-  {%- endif -%}
+  {% endif %}
 </title>
 
-<meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% else %}Simple, fast websites for therapists and local service professionals. Clear scope. Transparent pricing.{% endif %}">
+<meta name="description"
+      content="{% if page.description %}
+        {{ page.description | strip_html | strip_newlines | escape }}
+      {% else %}
+        Simple, fast websites for therapists and local service professionals. Clear scope. Transparent pricing.
+      {% endif %}">
 
 <link rel="canonical" href="{{ page.url | absolute_url }}">
 
-{%- comment -%}
-===========================================================
-Favicon & App Icons
-===========================================================
-{%- endcomment -%}
-<link rel="icon" href="{{ '/assets/images/brand/favicon.ico' | relative_url }}" sizes="any">
-<link rel="icon" href="{{ '/assets/images/brand/monogram.svg' | relative_url }}" type="image/svg+xml">
-<link rel="apple-touch-icon" href="{{ '/assets/images/brand/favicon-192.png' | relative_url }}">
-<link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+<!-- ===========================================================
+Favicons & App Icons (Place in /favicons/)
+=========================================================== -->
+<link rel="icon" href="{{ '/favicons/favicon.ico' | relative_url }}" sizes="any">
+<link rel="icon" href="{{ '/favicons/favicon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{ '/favicons/apple-touch-icon.png' | relative_url }}">
+<link rel="manifest" href="{{ '/favicons/site.webmanifest' | relative_url }}">
+<meta name="msapplication-config" content="{{ '/favicons/browserconfig.xml' | relative_url }}">
 
-{%- comment -%}
-===========================================================
-Theme color (mobile browser UI tint)
-===========================================================
-{%- endcomment -%}
-<meta name="theme-color" content="#2563EB">
+<!-- ===========================================================
+Theme Color (Mobile Browser UI Tint)
+=========================================================== -->
+<meta name="theme-color" content="#0B1220">
 
-{%- comment -%}
-===========================================================
-Open Graph (Social sharing)
-===========================================================
-{%- endcomment -%}
+<!-- ===========================================================
+Open Graph (Facebook / LinkedIn)
+=========================================================== -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="{% if page.title and page.title != 'Home' %}{{ page.title | escape }} · Alex Watson{% else %}Alex Watson — Websites for Therapists{% endif %}">
-<meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% else %}Simple, fast websites for therapists and local service professionals. Clear scope. Transparent pricing.{% endif %}">
-<meta property="og:image" content="{{ '/assets/images/brand/og-image-1200x630.png' | relative_url }}">
+<meta property="og:title"
+      content="{% if page.title and page.title != 'Home' %}
+        {{ page.title | escape }} · Alex Watson
+      {% else %}
+        Alex Watson — Websites for Therapists
+      {% endif %}">
+<meta property="og:description"
+      content="{% if page.description %}
+        {{ page.description | strip_html | strip_newlines | escape }}
+      {% else %}
+        Simple, fast websites for therapists and local service professionals. Clear scope. Transparent pricing.
+      {% endif %}">
+<meta property="og:image"
+      content="{{ '/assets/images/brand/og-image-1200x630.png' | absolute_url }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta property="og:site_name" content="Alex Watson">
 
-{%- comment -%}
-===========================================================
+<!-- ===========================================================
 Twitter
-===========================================================
-{%- endcomment -%}
+=========================================================== -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{% if page.title and page.title != 'Home' %}{{ page.title | escape }} · Alex Watson{% else %}Alex Watson — Websites for Therapists{% endif %}">
-<meta name="twitter:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% else %}Simple, fast websites for therapists and local service professionals.{% endif %}">
-<meta name="twitter:image" content="{{ '/assets/images/brand/og-image-1200x630.png' | relative_url }}">
+<meta name="twitter:title"
+      content="{% if page.title and page.title != 'Home' %}
+        {{ page.title | escape }} · Alex Watson
+      {% else %}
+        Alex Watson — Websites for Therapists
+      {% endif %}">
+<meta name="twitter:description"
+      content="{% if page.description %}
+        {{ page.description | strip_html | strip_newlines | escape }}
+      {% else %}
+        Simple, fast websites for therapists and local service professionals.
+      {% endif %}">
+<meta name="twitter:image"
+      content="{{ '/assets/images/brand/og-image-1200x630.png' | absolute_url }}">
