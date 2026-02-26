@@ -1,6 +1,9 @@
 <header class="site-header" role="banner">
   <nav class="nav" role="navigation" aria-label="Main">
-    <a class="nav__brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <a class="nav__brand" href="{{ '/' | relative_url }}">
+      <span class="nav__brand-mark" aria-hidden="true"></span>
+      <span class="nav__brand-text">{{ site.title }}</span>
+    </a>
 
     <button class="nav__toggle" type="button"
             aria-label="Open menu"
@@ -17,6 +20,8 @@
       <li><a href="{{ '/' | relative_url }}#faq">FAQs</a></li>
       <li><a href="{{ '/' | relative_url }}#contact">Contact</a></li>
 
+      <li class="nav__sep" aria-hidden="true"></li>
+
       <!-- Real pages -->
       <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
       <li><a href="{{ '/self-discovery/' | relative_url }}">Self-Discovery</a></li>
@@ -32,41 +37,60 @@
 
     if (!btn || !list) return;
 
-    function toggle(open) {
+    const mqDesktop = window.matchMedia('(min-width: 861px)');
+
+    function setOpen(open) {
       btn.setAttribute('aria-expanded', String(open));
       btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       if (open) list.removeAttribute('hidden');
       else list.setAttribute('hidden', '');
     }
 
+    function syncForBreakpoint() {
+      // Desktop: ALWAYS show links
+      if (mqDesktop.matches) {
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Open menu');
+        list.removeAttribute('hidden');
+        return;
+      }
+      // Mobile: closed by default
+      setOpen(false);
+    }
+
+    // Initial state
+    syncForBreakpoint();
+
+    // Toggle (mobile)
     btn.addEventListener('click', (e) => {
+      if (mqDesktop.matches) return;
       e.stopPropagation();
       const open = btn.getAttribute('aria-expanded') !== 'true';
-      toggle(open);
+      setOpen(open);
     });
 
-    // Close when a link is chosen (mobile UX)
+    // Close when a link is chosen (mobile)
     list.addEventListener('click', (e) => {
-      if (e.target && e.target.tagName === 'A') toggle(false);
+      if (mqDesktop.matches) return;
+      if (e.target && e.target.tagName === 'A') setOpen(false);
     });
 
-    // Close on Escape
+    // Close on Escape (mobile)
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') toggle(false);
+      if (mqDesktop.matches) return;
+      if (e.key === 'Escape') setOpen(false);
     });
 
-    // Close when clicking outside
+    // Close when clicking outside (mobile)
     document.addEventListener('click', (e) => {
+      if (mqDesktop.matches) return;
       const isOpen = btn.getAttribute('aria-expanded') === 'true';
       if (!isOpen) return;
-      if (!header.contains(e.target)) toggle(false);
+      if (!header.contains(e.target)) setOpen(false);
     });
 
-    // If resizing up to desktop, ensure menu isn't stuck "hidden"
-    window.addEventListener('resize', () => {
-      if (window.matchMedia('(min-width: 861px)').matches) {
-        toggle(false);
-      }
-    });
+    // React to breakpoint changes
+    mqDesktop.addEventListener?.('change', syncForBreakpoint);
+    window.addEventListener('resize', syncForBreakpoint);
   })();
 </script>
