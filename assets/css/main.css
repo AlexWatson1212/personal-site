@@ -2,9 +2,11 @@
 ====================================================================
 AlexanderCliveWatson.co.uk — Consolidated CSS (Single File)
 --------------------------------------------------------------------
-Updated to support the NEW stacked logo (SVG) and a more robust
-mobile nav open/close (works via aria-expanded OR .is-open).
-Paste this as your full main CSS file.
+Updated to:
+- feel warmer / more human (therapy-adjacent)
+- reduce “futuristic block” vibe
+- keep clarity + boundaries
+- support hero photo area + care plan grid + FAQ cards
 ====================================================================
 */
 
@@ -13,35 +15,28 @@ Paste this as your full main CSS file.
 ================================================================== */
 
 :root {
-  /* ================================================================
-  BRAND PALETTE (Crisp + Digital)
-  Primary: Bright Blue #2563EB
-  Anchor:  Charcoal Slate #1E293B
-  Base:    Cool Off-White #F8FAFC
-  Alt:     Mist Grey #EEF2F7
-  ================================================================ */
-
-  /* Core surfaces */
-  --color-bg: #F8FAFC;            /* page base */
-  --color-surface: #ffffff;       /* cards/sections */
-  --color-soft: #EEF2F7;          /* alt section */
+  /* Warm, calm palette (still professional) */
+  --color-bg: #FAFAF9;            /* warm off-white */
+  --color-surface: #ffffff;       /* cards */
+  --color-soft: #F3F4F6;          /* gentle alt section */
+  --color-soft-2: #EEF2F7;        /* subtle */
 
   /* Text */
-  --color-ink: #0f172a;           /* headings/body on light */
+  --color-ink: #0f172a;
   --color-muted: rgba(15, 23, 42, 0.72);
   --color-line: rgba(15, 23, 42, 0.12);
 
-  /* Brand accents */
-  --color-accent: #2563EB;        /* primary */
-  --color-accent-2: #0EA5E9;      /* secondary (gradient partner) */
+  /* Accent */
+  --color-accent: #2563EB;        /* blue (used sparingly) */
+  --color-accent-2: #0EA5E9;
 
-  /* Header/Nav */
-  --nav-bg: #1E293B;              /* charcoal slate */
-  --nav-text: rgba(255, 255, 255, 0.92);
-  --nav-link: rgba(255, 255, 255, 0.82);
-  --nav-hover: rgba(255, 255, 255, 0.96);
-  --nav-underline: rgba(255, 255, 255, 0.22);
-  --nav-shadow: 0 6px 16px rgba(0, 0, 0, .18);
+  /* Header/Nav (lighter, more welcoming) */
+  --nav-bg: rgba(250, 250, 249, 0.90);
+  --nav-text: rgba(15, 23, 42, 0.92);
+  --nav-link: rgba(15, 23, 42, 0.78);
+  --nav-hover: rgba(15, 23, 42, 0.96);
+  --nav-underline: rgba(37, 99, 235, 0.35);
+  --nav-shadow: 0 8px 22px rgba(2, 6, 23, 0.08);
 
   /* Fonts */
   --font-heading: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
@@ -49,18 +44,19 @@ Paste this as your full main CSS file.
 
   /* Radius, shadows, motion */
   --radius: 18px;
-  --shadow: 0 10px 30px rgba(2, 6, 23, 0.10);
-  --shadow-soft: 0 8px 22px rgba(2, 6, 23, 0.06);
+  --radius-soft: 14px;
+  --shadow: 0 14px 36px rgba(2, 6, 23, 0.10);
+  --shadow-soft: 0 10px 26px rgba(2, 6, 23, 0.06);
   --transition: 0.22s ease;
 
   /* Layout */
   --container-max: 1100px;
 
-  /* Header sizing (tuned for stacked logo SVG) */
-  --logo-h-mobile: 52px;
-  --logo-h-desktop: 64px;
-  --header-pad-mobile: 0.85rem;
-  --header-pad-desktop: 1.10rem;
+  /* Header sizing */
+  --logo-h-mobile: 50px;
+  --logo-h-desktop: 62px;
+  --header-pad-mobile: 0.80rem;
+  --header-pad-desktop: 1.00rem;
 
   /* Footer */
   --footer-icon-size: 22px;
@@ -89,17 +85,12 @@ a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-}
-
-/* Print */
-@media print {
-  body { background: #fff !important; color: #000 !important; }
 }
 
 /* Shared container */
@@ -137,10 +128,8 @@ main h2 { color: var(--color-ink); }
 2) Header / Navigation (works with your existing structure)
 ================================================================== */
 
-/* If you had a top accent bar from older themes, hide it */
 .top-accent { display: none !important; }
 
-/* Sticky header */
 .site-header {
   position: sticky;
   top: 0;
@@ -149,9 +138,10 @@ main h2 { color: var(--color-ink); }
   color: var(--nav-text);
   box-shadow: var(--nav-shadow);
   width: 100%;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.10);
 }
 
-/* Inner bar */
 .site-header .shell {
   display: flex;
   align-items: center;
@@ -160,7 +150,6 @@ main h2 { color: var(--color-ink); }
   padding: var(--header-pad-mobile) 1rem;
 }
 
-/* Brand */
 .brand {
   display: inline-flex;
   align-items: center;
@@ -169,21 +158,18 @@ main h2 { color: var(--color-ink); }
   min-width: 0;
 }
 .brand:focus-visible {
-  outline: 2px solid rgba(255,255,255,.35);
+  outline: 2px solid rgba(37,99,235,.25);
   outline-offset: 2px;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
-/* NEW: logo sizing tuned for stacked SVG */
 .brand-mark {
   height: var(--logo-h-mobile);
   width: auto;
   object-fit: contain;
-  /* prevents logo forcing layout too wide on tiny screens */
   max-width: min(520px, 70vw);
 }
 
-/* Keep hidden (we now use sr-only in header.html) */
 .brand-text { display: none; }
 
 /* Nav */
@@ -196,6 +182,7 @@ main h2 { color: var(--color-ink); }
   padding: 0;
   flex-wrap: wrap;
 }
+
 .site-nav a {
   color: var(--nav-link);
   text-decoration: none;
@@ -204,37 +191,36 @@ main h2 { color: var(--color-ink); }
   transition: color var(--transition), border-color var(--transition), opacity var(--transition);
   white-space: nowrap;
 }
+
 .site-nav a:hover,
 .site-nav a:focus-visible {
   color: var(--nav-hover);
   border-bottom-color: var(--nav-underline);
 }
-.site-nav a.is-active { border-bottom-color: rgba(255,255,255,.55); }
+
+.site-nav a.is-active { border-bottom-color: rgba(37,99,235,.55); }
 
 /* Hamburger */
 .nav-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255,255,255,.18);
-  background: transparent;
+  border: 1px solid rgba(15,23,42,.14);
+  background: rgba(255,255,255,.55);
   color: var(--nav-text);
-  border-radius: .7rem;
+  border-radius: .8rem;
   padding: .55rem;
   cursor: pointer;
   transition: border-color var(--transition), background var(--transition), transform var(--transition);
 }
+
 .nav-toggle:hover {
-  border-color: rgba(255,255,255,.30);
-  background: rgba(255,255,255,.04);
+  border-color: rgba(15,23,42,.22);
+  background: rgba(255,255,255,.75);
 }
+
 .nav-toggle:active { transform: translateY(1px); }
 
-/* Mobile slide-down
-   Works with:
-   - .site-header.is-open (if your JS adds it)
-   - OR aria-expanded="true" on the button (your current setup)
-*/
 @media (max-width: 860px) {
   .site-header .shell { flex-wrap: wrap; }
   .nav-toggle { display: inline-flex; }
@@ -246,11 +232,8 @@ main h2 { color: var(--color-ink); }
     transition: max-height .28s ease;
   }
 
-  /* If your JS toggles a class on header */
-  .site-header.is-open .site-nav { max-height: 320px; }
-
-  /* If your JS only toggles aria-expanded (matches your header.html) */
-  .nav-toggle[aria-expanded="true"] ~ .site-nav { max-height: 320px; }
+  .site-header.is-open .site-nav { max-height: 340px; }
+  .nav-toggle[aria-expanded="true"] ~ .site-nav { max-height: 340px; }
 
   .site-nav ul {
     flex-direction: column;
@@ -259,7 +242,6 @@ main h2 { color: var(--color-ink); }
     padding: .65rem 0 .95rem;
   }
 
-  /* Bigger tap targets on mobile */
   .site-nav a {
     width: 100%;
     padding: .65rem 0;
@@ -267,7 +249,6 @@ main h2 { color: var(--color-ink); }
   }
 }
 
-/* Desktop sizing */
 @media (min-width: 861px) {
   .nav-toggle { display: none; }
   .site-nav { max-height: none !important; }
@@ -275,7 +256,6 @@ main h2 { color: var(--color-ink); }
   .brand-mark { height: var(--logo-h-desktop); max-width: none; }
 }
 
-/* Hide any leftover huge masthead title */
 .masthead, .site-title, header .site-title { display: none !important; }
 
 /* ==================================================================
@@ -287,48 +267,56 @@ main h2 { color: var(--color-ink); }
   padding: 64px 0;
   background: var(--color-surface);
 }
-.acw-section-alt { background: var(--color-soft); }
 
-/* Hero */
-.acw-hero {
-  padding: 92px 0 72px;
-  background:
-    radial-gradient(900px 420px at 15% 20%, rgba(37,99,235,0.30), transparent 60%),
-    radial-gradient(900px 520px at 85% 35%, rgba(14,165,233,0.22), transparent 58%),
-    linear-gradient(180deg, #111827, #1E293B);
-  color: #fff;
+.acw-section-alt {
+  background: var(--color-soft);
 }
 
-.acw-hero-inner {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 1rem;
+/* Hero (now light + welcoming) */
+.acw-hero {
+  padding: 82px 0 62px;
+  background:
+    radial-gradient(900px 420px at 18% 18%, rgba(37,99,235,0.12), transparent 60%),
+    radial-gradient(900px 520px at 84% 35%, rgba(14,165,233,0.10), transparent 58%),
+    linear-gradient(180deg, rgba(255,255,255,1), rgba(250,250,249,1));
+  border-bottom: 1px solid rgba(15,23,42,0.08);
+}
+
+.acw-hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 26px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .acw-hero-grid { grid-template-columns: 1fr; }
 }
 
 .acw-kicker {
   display: inline-block;
   padding: 8px 12px;
-  border: 1px solid rgba(255,255,255,0.18);
+  border: 1px solid rgba(15,23,42,0.10);
   border-radius: 999px;
-  color: rgba(255,255,255,0.88);
+  color: rgba(15,23,42,0.72);
   font-size: 0.95rem;
   margin: 0 0 16px;
+  background: rgba(255,255,255,0.55);
   backdrop-filter: blur(6px);
 }
 
 .acw-hero h1 {
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
-  line-height: 1.06;
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+  line-height: 1.08;
   margin: 0 0 12px;
-  color: #fff;
   letter-spacing: -0.03em;
 }
 
 .acw-sub {
-  max-width: 56ch;
-  font-size: 1.08rem;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.88);
+  max-width: 62ch;
+  font-size: 1.06rem;
+  line-height: 1.7;
+  color: var(--color-muted);
   margin: 0 0 22px;
 }
 
@@ -353,37 +341,72 @@ main h2 { color: var(--color-ink); }
 }
 
 .acw-btn-primary {
-  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-2));
+  background: var(--color-accent);
   color: #fff;
-  box-shadow: 0 12px 26px rgba(37,99,235,0.25);
+  box-shadow: 0 14px 30px rgba(37,99,235,0.20);
 }
+
 .acw-btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 16px 34px rgba(37,99,235,0.30);
+  box-shadow: 0 18px 36px rgba(37,99,235,0.26);
 }
 
 .acw-btn-ghost {
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.24);
-  color: rgba(255,255,255,0.94);
+  background: rgba(255,255,255,0.65);
+  border-color: rgba(15,23,42,0.14);
+  color: rgba(15,23,42,0.86);
 }
+
 .acw-btn-ghost:hover {
   transform: translateY(-1px);
-  border-color: rgba(255,255,255,0.34);
-  background: rgba(255,255,255,0.08);
+  border-color: rgba(15,23,42,0.20);
+  background: rgba(255,255,255,0.85);
 }
 
 .acw-trust {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-  color: rgba(255,255,255,0.82);
+  color: rgba(15,23,42,0.70);
   font-size: 0.98rem;
+}
+
+/* Hero photo area */
+.acw-hero-media { display: flex; justify-content: center; }
+.acw-photo {
+  width: 100%;
+  max-width: 360px;
+  min-height: 420px;
+  border-radius: 22px;
+  background:
+    radial-gradient(520px 280px at 20% 20%, rgba(37,99,235,0.10), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.9), rgba(243,244,246,0.9));
+  border: 1px solid rgba(15,23,42,0.10);
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.acw-photo-inner {
+  text-align: center;
+  padding: 18px;
+}
+
+.acw-photo-label {
+  font-weight: 850;
+  margin: 0 0 6px;
+}
+
+.acw-photo-muted {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.95rem;
 }
 
 /* Lead text in sections */
 .acw-lead {
-  max-width: 66ch;
+  max-width: 70ch;
   color: var(--color-muted);
   margin: 8px 0 0;
 }
@@ -440,7 +463,7 @@ main h2 { color: var(--color-ink); }
   width: 34px;
   height: 34px;
   border-radius: 10px;
-  background: rgba(37,99,235,0.12);
+  background: rgba(37,99,235,0.10);
   color: var(--color-accent);
   display: grid;
   place-items: center;
@@ -450,7 +473,7 @@ main h2 { color: var(--color-ink); }
 /* Pricing layout */
 .acw-pricing {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 18px;
   margin-top: 22px;
 }
@@ -473,6 +496,8 @@ main h2 { color: var(--color-ink); }
   color: var(--color-ink);
 }
 
+.acw-tight { margin-bottom: 12px; }
+
 .acw-terms {
   margin-top: 14px;
   padding-top: 12px;
@@ -481,15 +506,53 @@ main h2 { color: var(--color-ink); }
   line-height: 1.6;
 }
 
+/* Care plan mini-grid */
+.acw-care-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.acw-care {
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: 14px 14px 12px;
+  background: rgba(255,255,255,0.85);
+}
+
+.acw-care-soft {
+  background: rgba(243,244,246,0.85);
+}
+
+.acw-care-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.acw-care-top h4 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.acw-care-price {
+  font-weight: 900;
+  color: var(--color-ink);
+}
+
 /* Portfolio cards as links */
 .acw-card-link {
   text-decoration: none;
   color: inherit;
   transition: transform var(--transition), box-shadow var(--transition);
 }
+
 .acw-card-link:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(2,6,23,0.12);
+  box-shadow: 0 16px 36px rgba(2,6,23,0.10);
 }
 
 .acw-link {
@@ -521,20 +584,31 @@ main h2 { color: var(--color-ink); }
   font-size: 0.95rem;
 }
 
+/* FAQ */
+.acw-faq {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+  margin-top: 22px;
+}
+@media (max-width: 900px) {
+  .acw-faq { grid-template-columns: 1fr; }
+}
+
 /* ==================================================================
-4) Generic helpers (small, safe)
+4) Generic helpers
 ================================================================== */
 
 main { display: block; }
-section { scroll-margin-top: 90px; } /* anchor offset under sticky header */
+section { scroll-margin-top: 90px; }
 
 /* ==================================================================
 5) Footer (clean, centered)
 ================================================================== */
 
 .site-footer {
-  background: var(--nav-bg);
-  color: var(--nav-text);
+  background: rgba(15, 23, 42, 0.92);
+  color: rgba(255,255,255,0.92);
   margin-top: 48px;
   padding: 36px 16px;
   text-align: center;
@@ -549,9 +623,9 @@ section { scroll-margin-top: 90px; } /* anchor offset under sticky header */
   gap: 16px;
 }
 
-.footer-brand strong { color: var(--nav-text); }
+.footer-brand strong { color: rgba(255,255,255,0.98); }
 .footer-brand .muted {
-  color: rgba(255,255,255,.85);
+  color: rgba(255,255,255,.80);
   font-size: 0.95rem;
   margin-top: 4px;
 }
@@ -564,13 +638,14 @@ section { scroll-margin-top: 90px; } /* anchor offset under sticky header */
 }
 
 .footer-nav a {
-  color: var(--nav-text);
+  color: rgba(255,255,255,.92);
   text-decoration: none;
   opacity: 0.92;
   font-size: 0.95rem;
   border-bottom: 2px solid transparent;
   transition: opacity var(--transition), border-color var(--transition);
 }
+
 .footer-nav a:hover,
 .footer-nav a:focus-visible {
   opacity: 1;
@@ -589,6 +664,7 @@ section { scroll-margin-top: 90px; } /* anchor offset under sticky header */
   opacity: 0.9;
   transition: opacity var(--transition), transform var(--transition);
 }
+
 .footer-social .social:hover,
 .footer-social .social:focus-visible {
   opacity: 1;
@@ -603,14 +679,15 @@ section { scroll-margin-top: 90px; } /* anchor offset under sticky header */
 
 .footer-note {
   font-size: 0.95rem;
-  color: rgba(255,255,255,.85);
+  color: rgba(255,255,255,.80);
   max-width: 520px;
 }
 
 .footer-note a {
-  color: var(--nav-text);
+  color: rgba(255,255,255,.92);
   text-decoration: none;
 }
+
 .footer-note a:hover,
 .footer-note a:focus-visible { opacity: 1; }
 
@@ -620,6 +697,7 @@ section { scroll-margin-top: 90px; } /* anchor offset under sticky header */
     background: #fff !important;
     color: #000 !important;
     box-shadow: none !important;
+    border: 0 !important;
   }
   .site-nav a, .footer-nav a, .footer-note a {
     color: #000 !important;
