@@ -1,627 +1,72 @@
-/*
-====================================================================
-AlexanderCliveWatson.co.uk — Consolidated CSS (Single File)
---------------------------------------------------------------------
-Updated to:
-- Style your real header markup (.nav__*)
-- Calmer premium header/footer gradient
-- Inter font everywhere (incl. header/nav/buttons)
-- Third colour (warm neutral) used subtly
-====================================================================
-*/
-
-/* ==================================================================
-1) Base, Variables, Resets, Layout, Typography
-================================================================== */
-
-:root {
-  /* Core surfaces */
-  --color-bg: #F8FAFC;
-  --color-surface: #ffffff;
-  --color-soft: #EEF2F7;
-
-  /* Third colour (warm accent) */
-  --color-warm: #F2EDE6;
-  --color-warm-2: rgba(242, 237, 230, 0.55);
-
-  /* Text */
-  --color-ink: #0B1220;
-  --color-muted: rgba(11, 18, 32, 0.72);
-  --color-line: rgba(11, 18, 32, 0.12);
-
-  /* Brand accents */
-  --color-accent: #2563EB;
-  --color-accent-2: #0EA5E9;
-
-  /* Header/Nav */
-  --nav-bg: #0B1220;
-  --nav-bg-2: #111A2E;
-  --nav-text: rgba(255, 255, 255, 0.94);
-  --nav-link: rgba(255, 255, 255, 0.84);
-  --nav-hover: rgba(255, 255, 255, 0.98);
-  --nav-underline: rgba(255, 255, 255, 0.24);
-  --nav-shadow: 0 10px 26px rgba(0, 0, 0, .20);
-
-  /* Fonts */
-  --font-heading: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-
-  /* Radius, shadows, motion */
-  --radius: 18px;
-  --shadow: 0 10px 30px rgba(2, 6, 23, 0.10);
-  --shadow-soft: 0 8px 22px rgba(2, 6, 23, 0.06);
-  --transition: 0.22s ease;
-
-  /* Layout */
-  --container-max: 1100px;
-}
-
-/* Reset & box model */
-* { box-sizing: border-box; }
-*::before, *::after { box-sizing: inherit; }
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  font-family: var(--font-body);
-  color: var(--color-ink);
-  background: var(--color-bg);
-  line-height: 1.6;
-  text-align: left;
-}
-
-/* Make sure form controls inherit Inter */
-button, input, select, textarea {
-  font-family: inherit;
-  color: inherit;
-}
-
-img { max-width: 100%; height: auto; display: block; }
-
-a { color: var(--color-accent); text-decoration: none; }
-a:hover { color: var(--color-accent-2); }
-
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-  border-radius: 6px;
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-}
-
-/* Shared container */
-.container,
-.shell,
-.acw-container {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-/* Typography defaults */
-:where(p, ul, ol, blockquote) { margin: 0 0 1.25rem; }
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 750;
-  margin: 0 0 0.85rem;
-  color: var(--color-ink);
-  letter-spacing: -0.015em;
-}
-
-/* Screen-reader helper */
-.sr-only {
-  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-}
-
-/* ==================================================================
-2) Header / Navigation (your real markup: .nav__*)
-================================================================== */
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: linear-gradient(180deg, var(--nav-bg), var(--nav-bg-2));
-  color: var(--nav-text);
-  box-shadow: var(--nav-shadow);
-  width: 100%;
-}
-
-/* Main nav bar */
-.site-header .nav {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0.95rem 1rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-/* Brand (text logo) */
-.nav__brand {
-  color: var(--nav-text);
-  text-decoration: none;
-  font-family: var(--font-heading);
-  font-weight: 900;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  font-size: 0.95rem;
-
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  white-space: nowrap;
-}
-
-/* Subtle “rule” detail using the warm third colour */
-.nav__brand::after {
-  content: "";
-  height: 1px;
-  width: 34px;
-  background: linear-gradient(90deg, rgba(37,99,235,0.9), rgba(242,237,230,0.9));
-  border-radius: 99px;
-  opacity: 0.85;
-}
-
-/* Hamburger toggle */
-.nav__toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.04);
-  color: var(--nav-text);
-  border-radius: 0.75rem;
-  padding: 0.55rem 0.65rem;
-  cursor: pointer;
-}
-.nav__toggle:hover {
-  border-color: rgba(255,255,255,0.28);
-  background: rgba(255,255,255,0.06);
-}
-
-/* hamburger icon */
-.nav__icon {
-  width: 22px;
-  height: 14px;
-  position: relative;
-  display: inline-block;
-}
-.nav__icon::before,
-.nav__icon::after,
-.nav__icon {
-  background: transparent;
-}
-.nav__icon::before,
-.nav__icon::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 2px;
-  border-radius: 2px;
-  background: rgba(255,255,255,0.92);
-}
-.nav__icon::before { top: 0; }
-.nav__icon::after  { bottom: 0; }
-
-/* Links container (desktop) */
-.nav__links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  display: flex;
-  align-items: center;
-  gap: 1.15rem;
-  flex-wrap: wrap;
-}
-
-/* Link styles */
-.nav__links a {
-  color: var(--nav-link);
-  text-decoration: none;
-  padding: 0.45rem 0;
-  border-bottom: 2px solid transparent;
-  transition: color var(--transition), border-color var(--transition);
-  font-family: var(--font-body);
-}
-.nav__links a:hover,
-.nav__links a:focus-visible {
-  color: var(--nav-hover);
-  border-bottom-color: var(--nav-underline);
-}
-
-/* Mobile behaviour: your JS toggles [hidden] */
-@media (max-width: 860px) {
-  .site-header .nav {
-    flex-wrap: wrap;
-  }
-
-  /* Mobile menu panel */
-  .nav__links {
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.85rem;
-
-    padding: 0.75rem 0 0.9rem;
-    margin-top: 0.35rem;
-
-    border-top: 1px solid rgba(255,255,255,0.10);
-  }
-
-  /* When hidden attribute is present, keep it gone */
-  .nav__links[hidden] {
-    display: none !important;
-  }
-}
-
-@media (min-width: 861px) {
-  .nav__toggle { display: none; }
-  .nav__links[hidden] { display: flex !important; } /* safety: ensure desktop always shows */
-}
-
-/* ==================================================================
-3) ACW Web Services Homepage (acw-*)
-================================================================== */
-
-/* Sections */
-.acw-section {
-  padding: 64px 0;
-  background: var(--color-surface);
-}
-.acw-section-alt { background: var(--color-soft); }
-
-/* Optional: warm strip for subtle third colour */
-.acw-warm-strip {
-  background: linear-gradient(90deg, rgba(242,237,230,0.85), rgba(242,237,230,0.35));
-  border-top: 1px solid rgba(11,18,32,0.08);
-  border-bottom: 1px solid rgba(11,18,32,0.08);
-}
-
-/* Hero */
-.acw-hero {
-  padding: 92px 0 72px;
-  background:
-    radial-gradient(900px 420px at 15% 20%, rgba(37,99,235,0.28), transparent 60%),
-    radial-gradient(900px 520px at 85% 35%, rgba(14,165,233,0.20), transparent 58%),
-    linear-gradient(180deg, var(--nav-bg), var(--nav-bg-2));
-  color: #fff;
-}
-
-.acw-hero-inner {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.acw-kicker {
-  display: inline-block;
-  padding: 8px 12px;
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 999px;
-  color: rgba(255,255,255,0.88);
-  font-size: 0.95rem;
-  margin: 0 0 16px;
-  backdrop-filter: blur(6px);
-}
-
-.acw-hero h1 {
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
-  line-height: 1.06;
-  margin: 0 0 12px;
-  color: #fff;
-  letter-spacing: -0.03em;
-}
-
-.acw-sub {
-  max-width: 56ch;
-  font-size: 1.08rem;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.88);
-  margin: 0 0 22px;
-}
-
-.acw-cta-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin: 0 0 18px;
-}
-
-.acw-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 16px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 750;
-  border: 1px solid transparent;
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background var(--transition);
-  will-change: transform;
-}
-
-.acw-btn-primary {
-  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-2));
-  color: #fff;
-  box-shadow: 0 12px 26px rgba(37,99,235,0.25);
-}
-.acw-btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 16px 34px rgba(37,99,235,0.30);
-}
-
-.acw-btn-ghost {
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.24);
-  color: rgba(255,255,255,0.94);
-}
-.acw-btn-ghost:hover {
-  transform: translateY(-1px);
-  border-color: rgba(255,255,255,0.34);
-  background: rgba(255,255,255,0.08);
-}
-
-.acw-trust {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  color: rgba(255,255,255,0.82);
-  font-size: 0.98rem;
-}
-
-/* Lead text */
-.acw-lead {
-  max-width: 66ch;
-  color: var(--color-muted);
-  margin: 8px 0 0;
-}
-
-/* Grids */
-.acw-grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin-top: 22px;
-}
-@media (max-width: 900px) {
-  .acw-grid-3 { grid-template-columns: 1fr; }
-}
-
-.acw-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius);
-  padding: 18px;
-  box-shadow: var(--shadow-soft);
-}
-
-.acw-card h3 { margin: 0 0 10px; }
-.acw-muted { color: var(--color-muted); }
-
-.acw-list {
-  margin: 0;
-  padding-left: 18px;
-  color: var(--color-muted);
-  line-height: 1.7;
-}
-
-/* Steps */
-.acw-steps {
-  display: grid;
-  gap: 14px;
-  margin-top: 22px;
-}
-
-.acw-step {
-  display: grid;
-  grid-template-columns: 44px 1fr;
-  gap: 12px;
-  align-items: start;
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius);
-  padding: 14px 16px;
-  box-shadow: var(--shadow-soft);
-}
-
-.acw-step-num {
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  background: rgba(37,99,235,0.12);
-  color: var(--color-accent);
-  display: grid;
-  place-items: center;
-  font-weight: 900;
-}
-
-/* Pricing */
-.acw-pricing {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 18px;
-  margin-top: 22px;
-}
-@media (max-width: 900px) {
-  .acw-pricing { grid-template-columns: 1fr; }
-}
-
-.acw-price-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius);
-  padding: 18px;
-  box-shadow: var(--shadow);
-}
-
-.acw-price {
-  font-size: 2.2rem;
-  font-weight: 900;
-  margin: 10px 0 12px;
-  color: var(--color-ink);
-}
-
-.acw-terms {
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid var(--color-line);
-  color: var(--color-muted);
-  line-height: 1.6;
-}
-
-/* Portfolio links */
-.acw-card-link {
-  text-decoration: none;
-  color: inherit;
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-.acw-card-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(2,6,23,0.12);
-}
-
-.acw-link {
-  display: inline-block;
-  margin-top: 10px;
-  color: var(--color-accent);
-  font-weight: 800;
-}
-
-/* Contact */
-.acw-contact {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-  margin-top: 22px;
-}
-@media (max-width: 900px) {
-  .acw-contact { grid-template-columns: 1fr; }
-}
-
-.acw-email a {
-  font-weight: 900;
-  color: var(--color-accent);
-  text-decoration: none;
-}
-
-.acw-note {
-  margin-top: 12px;
-  font-size: 0.95rem;
-}
-
-/* ==================================================================
-4) Helpers
-================================================================== */
-
-main { display: block; }
-section { scroll-margin-top: 90px; }
-
-/* ==================================================================
-5) Footer
-================================================================== */
-
-.site-footer {
-  background: linear-gradient(180deg, var(--nav-bg), var(--nav-bg-2));
-  color: var(--nav-text);
-  margin-top: 48px;
-  padding: 36px 16px;
-  text-align: center;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-/* Keep your existing footer structure working */
-.site-footer .footer-center {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-
-.footer-brand strong { color: var(--nav-text); }
-.footer-brand .muted {
-  color: rgba(255,255,255,.85);
-  font-size: 0.95rem;
-  margin-top: 4px;
-}
-
-.footer-nav {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.footer-nav a {
-  color: var(--nav-text);
-  text-decoration: none;
-  opacity: 0.92;
-  font-size: 0.95rem;
-  border-bottom: 2px solid transparent;
-  transition: opacity var(--transition), border-color var(--transition);
-}
-.footer-nav a:hover,
-.footer-nav a:focus-visible {
-  opacity: 1;
-  border-bottom-color: rgba(242,237,230,0.55); /* warm third colour */
-}
-
-.footer-social {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.footer-social .social {
-  color: #fff;
-  opacity: 0.9;
-  transition: opacity var(--transition), transform var(--transition);
-}
-.footer-social .social:hover,
-.footer-social .social:focus-visible {
-  opacity: 1;
-  transform: translateY(-1px);
-}
-
-.footer-social .icon {
-  width: 22px;
-  height: 22px;
-  display: block;
-}
-
-.footer-note {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,.85);
-  max-width: 520px;
-}
-
-.footer-note a {
-  color: var(--nav-text);
-  text-decoration: none;
-}
-.footer-note a:hover,
-.footer-note a:focus-visible { opacity: 1; }
-
-/* Print */
-@media print {
-  .site-header, .site-footer {
-    background: #fff !important;
-    color: #000 !important;
-    box-shadow: none !important;
-  }
-  a { color: #000 !important; }
-}
+<header class="site-header" role="banner">
+  <nav class="nav" role="navigation" aria-label="Main">
+    <a class="nav__brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+
+    <button class="nav__toggle" type="button"
+            aria-label="Open menu"
+            aria-controls="primary-nav"
+            aria-expanded="false">
+      <span aria-hidden="true" class="nav__icon"></span>
+    </button>
+
+    <ul id="primary-nav" class="nav__links" hidden>
+      <!-- Homepage sections (works from any page) -->
+      <li><a href="{{ '/' | relative_url }}#offer">Offer</a></li>
+      <li><a href="{{ '/' | relative_url }}#process">Process</a></li>
+      <li><a href="{{ '/' | relative_url }}#pricing">Pricing</a></li>
+      <li><a href="{{ '/' | relative_url }}#faq">FAQs</a></li>
+      <li><a href="{{ '/' | relative_url }}#contact">Contact</a></li>
+
+      <!-- Real pages -->
+      <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+      <li><a href="{{ '/self-discovery/' | relative_url }}">Self-Discovery</a></li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  (function () {
+    const header = document.currentScript.previousElementSibling; // <header>
+    const btn = header.querySelector('.nav__toggle');
+    const list = header.querySelector('#primary-nav');
+
+    if (!btn || !list) return;
+
+    function toggle(open) {
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      if (open) list.removeAttribute('hidden');
+      else list.setAttribute('hidden', '');
+    }
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = btn.getAttribute('aria-expanded') !== 'true';
+      toggle(open);
+    });
+
+    // Close when a link is chosen (mobile UX)
+    list.addEventListener('click', (e) => {
+      if (e.target && e.target.tagName === 'A') toggle(false);
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') toggle(false);
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      if (!isOpen) return;
+      if (!header.contains(e.target)) toggle(false);
+    });
+
+    // If resizing up to desktop, ensure menu isn't stuck "hidden"
+    window.addEventListener('resize', () => {
+      if (window.matchMedia('(min-width: 861px)').matches) {
+        toggle(false);
+      }
+    });
+  })();
+</script>
