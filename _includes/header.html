@@ -3,8 +3,7 @@
   <div class="shell">
 
     <a class="brand" href="{{ '/' | relative_url }}" aria-label="Alex Watson — Websites for Therapists">
-      <!-- Desktop / default logo -->
-      <img 
+      <img
         class="brand-mark"
         src="{{ '/assets/images/brand/logo-white.svg' | relative_url }}"
         alt="Alex Watson — Websites for Therapists"
@@ -27,11 +26,12 @@
       </svg>
     </button>
 
-    <nav id="site-menu" class="site-nav" role="navigation">
+    <nav id="site-menu" class="site-nav" role="navigation" aria-label="Primary">
       <ul>
-        <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+        <li><a href="{{ '/' | relative_url }}#pricing">Pricing</a></li>
         <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
-        <li><a href="{{ '/self-discovery/' | relative_url }}">Self-Discovery</a></li>
+        <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+        <li><a href="{{ '/' | relative_url }}#contact">Contact</a></li>
       </ul>
     </nav>
 

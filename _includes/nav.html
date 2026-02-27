@@ -13,18 +13,11 @@
     </button>
 
     <ul id="primary-nav" class="nav__links" hidden>
-      <!-- Homepage sections (works from any page) -->
-      <li><a href="{{ '/' | relative_url }}#offer">Offer</a></li>
-      <li><a href="{{ '/' | relative_url }}#process">Process</a></li>
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
       <li><a href="{{ '/' | relative_url }}#pricing">Pricing</a></li>
-      <li><a href="{{ '/' | relative_url }}#faq">FAQs</a></li>
-      <li><a href="{{ '/' | relative_url }}#contact">Contact</a></li>
-
-      <li class="nav__sep" aria-hidden="true"></li>
-
-      <!-- Real pages -->
       <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
-      <li><a href="{{ '/self-discovery/' | relative_url }}">Self-Discovery</a></li>
+      <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+      <li><a href="{{ '/' | relative_url }}#contact">Contact</a></li>
     </ul>
   </nav>
 </header>
@@ -34,7 +27,6 @@
     const header = document.currentScript.previousElementSibling; // <header>
     const btn = header.querySelector('.nav__toggle');
     const list = header.querySelector('#primary-nav');
-
     if (!btn || !list) return;
 
     const mqDesktop = window.matchMedia('(min-width: 861px)');
@@ -47,21 +39,17 @@
     }
 
     function syncForBreakpoint() {
-      // Desktop: ALWAYS show links
       if (mqDesktop.matches) {
         btn.setAttribute('aria-expanded', 'false');
         btn.setAttribute('aria-label', 'Open menu');
         list.removeAttribute('hidden');
         return;
       }
-      // Mobile: closed by default
       setOpen(false);
     }
 
-    // Initial state
     syncForBreakpoint();
 
-    // Toggle (mobile)
     btn.addEventListener('click', (e) => {
       if (mqDesktop.matches) return;
       e.stopPropagation();
@@ -69,19 +57,16 @@
       setOpen(open);
     });
 
-    // Close when a link is chosen (mobile)
     list.addEventListener('click', (e) => {
       if (mqDesktop.matches) return;
       if (e.target && e.target.tagName === 'A') setOpen(false);
     });
 
-    // Close on Escape (mobile)
     document.addEventListener('keydown', (e) => {
       if (mqDesktop.matches) return;
       if (e.key === 'Escape') setOpen(false);
     });
 
-    // Close when clicking outside (mobile)
     document.addEventListener('click', (e) => {
       if (mqDesktop.matches) return;
       const isOpen = btn.getAttribute('aria-expanded') === 'true';
@@ -89,7 +74,6 @@
       if (!header.contains(e.target)) setOpen(false);
     });
 
-    // React to breakpoint changes
     mqDesktop.addEventListener?.('change', syncForBreakpoint);
     window.addEventListener('resize', syncForBreakpoint);
   })();
