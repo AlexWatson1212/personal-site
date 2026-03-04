@@ -3,26 +3,16 @@
   <div class="shell">
 
     <a class="brand" href="{{ '/' | relative_url }}" aria-label="Alex Watson — Websites for Therapists">
-      <!-- Prefer dark logo for the LIGHT header -->
       <img
-        class="brand-mark brand-mark--light"
-        src="{{ '/assets/images/brand/logo-white-temp.png' | relative_url }}"
+        class="brand-mark"
+        src="{{ '/assets/images/brand/logo-sage-webdesign.png' | relative_url }}"
         alt="Alex Watson — Websites for Therapists"
         width="260"
         height="68"
+        loading="eager"
+        decoding="async"
       >
-
-      <!-- Optional: keep white logo available if you ever switch header dark again -->
-      <img
-        class="brand-mark brand-mark--dark"
-        src="{{ '/assets/images/brand/logo-white-temp.png' | relative_url }}"
-        alt=""
-        width="260"
-        height="68"
-        aria-hidden="true"
-      >
-
-      <span class="brand-text">Websites for Therapists</span>
+      <span class="sr-only">Websites for Therapists</span>
     </a>
 
     <button class="nav-toggle"
