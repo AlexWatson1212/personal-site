@@ -5,20 +5,36 @@ permalink: /websites-for-therapists/
 ---
 
 <section class="acw-hero">
-  <div class="acw-container">
-    <h1>Websites for therapists</h1>
-    <p class="acw-sub acw-sub--tight">
-      A calm, professional website without the usual complexity — built for trust, clarity, and simple enquiries.
-    </p>
+  <div class="acw-container acw-hero-grid">
+    <div class="acw-hero-copy">
+      <h1>Websites for therapists</h1>
 
-    <div class="acw-cta-row">
-      <a class="acw-btn acw-btn-primary" href="#pricing">View pricing</a>
-      <a class="acw-btn acw-btn-ghost" href="#contact">Enquire</a>
+      <p class="acw-sub acw-sub--tight">
+        A calm, professional website — built for trust, clarity, and simple enquiries.
+      </p>
+
+      <div class="acw-cta-row">
+        <a class="acw-btn acw-btn-primary" href="#pricing">View pricing</a>
+        <a class="acw-btn acw-btn-ghost" href="#contact">Email to enquire</a>
+      </div>
+
+      <p class="acw-hero-note">
+        Clear scope. Calm process. Two tidy revision rounds.
+      </p>
     </div>
 
-    <p class="acw-hero-note">
-      Simple structure. Clear scope. Two tidy revision rounds.
-    </p>
+    <div class="acw-hero-aside" aria-label="What this includes">
+      <div class="acw-hero-aside-card">
+        <h2 class="acw-kicker">Included</h2>
+        <ul class="acw-mini-list">
+          <li>Up to 5 pages</li>
+          <li>Mobile-friendly + fast-loading</li>
+          <li>Clear enquiry route</li>
+          <li>SEO foundations</li>
+          <li>Two calm revision rounds</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -37,7 +53,7 @@ permalink: /websites-for-therapists/
           <li>Mobile-friendly, fast-loading build</li>
           <li>Clear enquiry route (email or form)</li>
           <li>Basic SEO foundations (titles, meta, structure)</li>
-          <li>2 revision rounds</li>
+          <li>Two revision rounds</li>
         </ul>
       </div>
 
@@ -47,19 +63,50 @@ permalink: /websites-for-therapists/
           <li>Calm layout and spacing (not “salesy”)</li>
           <li>Simple navigation</li>
           <li>Clear language that builds trust</li>
-          <li>Professional feel without heavy jargon</li>
+          <li>Professional feel without jargon</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="acw-section acw-section-alt" id="process">
+<section class="acw-section acw-section-alt" id="fit">
+  <div class="acw-container">
+    <h2>Is this a good fit?</h2>
+    <p class="acw-lead">
+      A quick check so we both stay aligned.
+    </p>
+
+    <div class="acw-grid-2">
+      <div class="acw-soft-panel">
+        <h3 style="margin-top:0;">Good fit if you want…</h3>
+        <ul class="acw-mini-list">
+          <li>A calm site that feels like you</li>
+          <li>Simple structure and clean design</li>
+          <li>Clear information + a steady enquiry route</li>
+          <li>A build that doesn’t take over your week</li>
+        </ul>
+      </div>
+
+      <div class="acw-card">
+        <h3 style="margin-top:0;">Not a fit if you need…</h3>
+        <ul class="acw-mini-list">
+          <li>Complex funnels / heavy sales pages</li>
+          <li>Large custom builds or web apps</li>
+          <li>Daily content publishing / constant redesign</li>
+          <li>Guaranteed rankings (nobody can promise this honestly)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="acw-section" id="process">
   <div class="acw-container">
     <h2>Process</h2>
     <p class="acw-lead">A simple, structured build — without it taking over your week.</p>
 
-    <div class="acw-steps">
+    <div class="acw-steps acw-steps-quiet">
       <div class="acw-step">
         <div class="acw-step-num">1</div>
         <div>
@@ -72,7 +119,7 @@ permalink: /websites-for-therapists/
         <div class="acw-step-num">2</div>
         <div>
           <h3>Intake checklist</h3>
-          <p>You send your services, location, contact details, and any photos/logo (optional). I can help tidy the copy.</p>
+          <p>You send your details (services, contact info, optional photos/logo). I can help tidy the copy.</p>
         </div>
       </div>
 
@@ -88,14 +135,14 @@ permalink: /websites-for-therapists/
         <div class="acw-step-num">4</div>
         <div>
           <h3>Launch</h3>
-          <p>Site goes live. Optional monthly care available if you want ongoing support.</p>
+          <p>Site goes live. Optional monthly care if you want ongoing support.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="acw-section" id="pricing">
+<section class="acw-section acw-section-alt" id="pricing">
   <div class="acw-container">
     <h2>Pricing</h2>
     <p class="acw-lead">Simple setup + optional care. Transparent terms.</p>
@@ -111,7 +158,7 @@ permalink: /websites-for-therapists/
           <li>Fast loading</li>
           <li>Clear contact route</li>
           <li>Basic SEO structure</li>
-          <li>2 revision rounds</li>
+          <li>Two revision rounds</li>
         </ul>
 
         <div class="acw-terms">
@@ -216,12 +263,13 @@ permalink: /websites-for-therapists/
         <h3>What to include</h3>
         <ul class="acw-list">
           <li>Your practice name</li>
-          <li>Services offered</li>
-          <li>Area served</li>
+          <li>Your location / area served</li>
+          <li>Your services (bullet points are fine)</li>
           <li>Fees (optional)</li>
           <li>Contact details</li>
-          <li>Any photos/logo (optional)</li>
+          <li>Photos + logo (optional)</li>
           <li>1–3 testimonials (optional)</li>
+          <li>Any sites you like (optional)</li>
         </ul>
       </div>
     </div>

@@ -1,31 +1,18 @@
 /*
 ====================================================================
 AlexanderCliveWatson.co.uk — Consolidated CSS (Single File)
-Warm + grounded (blue + sage).
-Header LIGHT (calm + aligned with body).
-✅ Footer UPDATED to a light, calm “landing zone” (no dark void)
+Calm + grounded (SAGE primary).
+Header LIGHT + slightly taller.
+Footer LIGHT “landing zone”.
 
-✅ IMPORTANT (matches your CURRENT header markup):
+✅ IMPORTANT (current header markup):
 <header class="site-header" role="banner">
   <div class="shell">
-    <a class="brand">
-      <img class="brand-mark brand-mark--light" ...>
-      <img class="brand-mark brand-mark--dark" ...>
-      <span class="brand-text">...</span>
-    </a>
+    <a class="brand"><img class="brand-mark" ...></a>
     <button class="nav-toggle"...></button>
     <nav id="site-menu" class="site-nav"><ul>...</ul></nav>
   </div>
 </header>
-
-Mobile menu opens via nav.js toggling .is-open on:
-  .site-header and #site-menu (.site-nav)
-
-✅ Fixes included in this version:
-- Mobile menu will open if EITHER .site-header OR .site-nav has .is-open
-- Brand mark sizing locked + won’t “shrink tiny” due to flex/layout
-- Footer changed from deep slate to LIGHT footer (still premium)
-- Clearer palette roles (primary/secondary/soft/surface/footer) so blue + sage feel coherent
 ====================================================================
 */
 
@@ -37,20 +24,21 @@ Mobile menu opens via nav.js toggling .is-open on:
   /* Surfaces */
   --color-bg: #F7F5F2;            /* warm base */
   --color-surface: #ffffff;       /* cards/primary sections */
-  --color-soft: #EFF4F9;          /* alt sections */
+  --color-soft: #EEF3F1;          /* alt sections (sagey, not blue) */
 
   /* Text */
   --color-ink: #0f172a;
   --color-muted: rgba(15, 23, 42, 0.72);
   --color-line: rgba(15, 23, 42, 0.12);
 
-  /* Brand */
-  --color-accent: #1D4ED8;        /* blue */
-  --color-accent-2: #0284C7;      /* sky */
-  --color-accent-soft: rgba(29, 78, 216, 0.12);
+  /* Brand (SAGE PRIMARY) */
+  --color-accent: #0F766E;        /* sage primary */
+  --color-accent-2: #0B5F59;      /* deeper sage for hover */
+  --color-accent-soft: rgba(15, 118, 110, 0.14);
 
-  --color-sage: #0F766E;          /* grounded green */
-  --color-sage-soft: rgba(15, 118, 110, 0.12);
+  /* Optional secondary (subtle, not loud) */
+  --color-secondary: #2563EB;     /* keep for tiny accents if ever needed */
+  --color-secondary-soft: rgba(37, 99, 235, 0.10);
 
   /* Layout */
   --container-max: 1100px;
@@ -58,28 +46,28 @@ Mobile menu opens via nav.js toggling .is-open on:
   /* Shape & motion */
   --radius: 18px;
   --radius-soft: 14px;
-  --shadow: 0 18px 44px rgba(2, 6, 23, 0.12);
-  --shadow-soft: 0 10px 26px rgba(2, 6, 23, 0.07);
+  --shadow: 0 18px 44px rgba(2, 6, 23, 0.10);
+  --shadow-soft: 0 10px 26px rgba(2, 6, 23, 0.06);
   --transition: 0.22s ease;
 
   /* Header/Nav (LIGHT) */
-  --nav-bg: rgba(255, 255, 255, 0.82);
-  --nav-bg-solid: rgba(255, 255, 255, 0.96); /* mobile dropdown panel */
+  --nav-bg: rgba(255, 255, 255, 0.90);
+  --nav-bg-solid: rgba(255, 255, 255, 0.97);
   --nav-border: rgba(15, 23, 42, 0.10);
   --nav-text: rgba(15, 23, 42, 0.92);
-  --nav-link: rgba(15, 23, 42, 0.72);
+  --nav-link: rgba(15, 23, 42, 0.74);
   --nav-hover: rgba(15, 23, 42, 0.95);
-  --nav-underline: rgba(29, 78, 216, 0.35);
-  --nav-shadow: 0 10px 26px rgba(2, 6, 23, 0.10);
+  --nav-underline: rgba(15, 118, 110, 0.35);
+  --nav-shadow: 0 12px 28px rgba(2, 6, 23, 0.08);
 
-  /* Footer (UPDATED: LIGHT + calm) */
-  --footer-bg: #E8EEF4;                 /* light blue-gray */
+  /* Footer (LIGHT + calm) */
+  --footer-bg: #E8EEF4;
   --footer-surface: rgba(255,255,255,0.66);
   --footer-top: rgba(15,23,42,0.08);
   --footer-text: rgba(15,23,42,0.92);
   --footer-muted: rgba(15,23,42,0.68);
-  --footer-link: rgba(29,78,216,0.92);
-  --footer-link-hover: rgba(2,132,199,1);
+  --footer-link: rgba(15,118,110,0.95);
+  --footer-link-hover: rgba(11,95,89,1);
   --footer-icon-size: 22px;
 
   /* Fonts */
@@ -126,6 +114,14 @@ button:focus-visible {
 
 .site-content { min-height: 60vh; }
 
+/* ✅ IMPORTANT:
+Your default layout currently wraps {{ content }} in .container already.
+Most of your pages use .acw-container inside sections.
+That creates “double padding”.
+This fixes it without you changing layouts:
+*/
+.site-content > .container { padding-left: 0; padding-right: 0; }
+
 :where(p, ul, ol, blockquote) { margin: 0 0 1.25rem; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -144,7 +140,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==================================================================
-2) Header / Navigation (CURRENT MARKUP)
+2) Header / Navigation
 ================================================================== */
 
 .site-header {
@@ -166,8 +162,10 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   gap: 1rem;
 
-  padding-top: 0.65rem;
-  padding-bottom: 0.65rem;
+  /* ✅ Taller header */
+  padding-top: 0.95rem;
+  padding-bottom: 0.95rem;
+  min-height: 78px;
 }
 
 /* Brand */
@@ -181,64 +179,19 @@ h1, h2, h3, h4, h5, h6 {
   flex: 1;
   max-width: 70%;
   min-width: 0;
-  position: relative; /* for brand-text sr fallback */
+  position: relative;
 }
-
-.brand:hover { color: var(--nav-hover); }
 
 /* ✅ Logo sizing (won’t shrink tiny) */
 .brand-mark {
   display: block;
-  flex: 0 0 auto;          /* prevent flex shrink */
-  flex-shrink: 0;          /* extra safety */
-  height: clamp(34px, 4.2vw, 44px); /* responsive, never tiny */
+  flex: 0 0 auto;
+  flex-shrink: 0;
+  height: 44px;        /* stable */
   width: auto;
-  max-width: 320px;        /* a bit more forgiving */
+  max-width: 340px;
   object-fit: contain;
-  filter: drop-shadow(0 8px 14px rgba(2,6,23,0.08));
-}
-
-/* Logo switching (light header default) */
-.brand-mark--dark { display: none; }
-.brand-mark--light { display: block; }
-
-/* Optional “dark header mode” (if you ever use it) */
-.site-header.is-dark {
-  background: rgba(11,18,32,0.78);
-  border-bottom-color: rgba(255,255,255,0.10);
-  color: rgba(255,255,255,0.92);
-}
-.site-header.is-dark .brand { color: rgba(255,255,255,0.92); }
-.site-header.is-dark .nav-toggle { border-color: rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.92); }
-.site-header.is-dark .site-nav a { color: rgba(255,255,255,0.78); }
-.site-header.is-dark .site-nav a:hover,
-.site-header.is-dark .site-nav a:focus-visible { color: rgba(255,255,255,0.96); border-bottom-color: rgba(255,255,255,0.26); }
-.site-header.is-dark .brand-mark--light { display: none; }
-.site-header.is-dark .brand-mark--dark { display: block; }
-
-/* Text fallback (screen reader only) */
-.brand-text {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  white-space: nowrap;
-  border: 0;
-}
-
-@media (min-width: 861px) {
-  .site-header .shell {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-  }
-  .brand { max-width: 520px; }
-  .brand-mark {
-    height: 46px;     /* clearer desktop size */
-    max-width: 360px;
-  }
+  filter: drop-shadow(0 8px 14px rgba(2,6,23,0.06));
 }
 
 /* Toggle */
@@ -246,12 +199,12 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border: 1px solid rgba(15,23,42,0.14);
   background: rgba(15,23,42,0.04);
   color: var(--nav-text);
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
   transition: border-color var(--transition), background var(--transition), transform var(--transition);
   flex: 0 0 auto;
@@ -270,7 +223,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 1.05rem;
+  gap: 1.0rem;
   align-items: center;
 }
 
@@ -279,9 +232,8 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   padding: .55rem 0;
   border-bottom: 2px solid transparent;
-  transition: color var(--transition), border-color var(--transition), opacity var(--transition), background var(--transition);
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
   white-space: nowrap;
-
   font-weight: 650;
   letter-spacing: 0.01em;
 }
@@ -294,7 +246,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .site-nav a[aria-current="page"] {
   color: var(--nav-hover);
-  border-bottom-color: rgba(29,78,216,0.55);
+  border-bottom-color: rgba(15,118,110,0.55);
 }
 
 /* Mobile menu */
@@ -303,10 +255,9 @@ h1, h2, h3, h4, h5, h6 {
 
   .site-nav {
     width: 100%;
-    display: none; /* closed by default */
+    display: none;
   }
 
-  /* ✅ OPEN RULES (supports both toggling styles) */
   .site-nav.is-open { display: block; }
   .site-header.is-open .site-nav { display: block; }
 
@@ -316,19 +267,19 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    padding: 0.75rem;
+    padding: 0.85rem;
     margin-top: 0.85rem;
     border-radius: 16px;
     background: var(--nav-bg-solid);
     border: 1px solid rgba(15,23,42,0.10);
-    box-shadow: 0 18px 44px rgba(2,6,23,0.14);
+    box-shadow: 0 18px 44px rgba(2,6,23,0.12);
   }
 
   .site-nav li { width: 100%; }
 
   .site-nav a {
     width: 100%;
-    padding: 0.85rem 0.75rem;
+    padding: 0.90rem 0.80rem;
     border-bottom: 0;
     border-radius: 12px;
     font-weight: 720;
@@ -351,31 +302,31 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 861px) {
   .nav-toggle { display: none; }
   .site-nav { display: block !important; }
+  .site-header .shell { min-height: 86px; }
+  .brand-mark { height: 48px; }
 }
 
 /* ==================================================================
-3) ACW homepage sections
+3) Homepage sections (calmer, less “busy”)
 ================================================================== */
 
 .acw-section {
-  padding: 64px 0;
+  padding: 56px 0;
   background: var(--color-surface);
   border-top: 1px solid rgba(15,23,42,0.06);
 }
 
 .acw-section-alt {
   background:
-    radial-gradient(800px 380px at 20% 10%, rgba(15,118,110,0.08), transparent 60%),
-    radial-gradient(900px 520px at 90% 30%, rgba(29,78,216,0.06), transparent 58%),
-    var(--color-soft);
+    radial-gradient(900px 520px at 20% 10%, rgba(15,118,110,0.08), transparent 60%),
+    linear-gradient(180deg, rgba(238,243,241,1) 0%, rgba(247,245,242,1) 100%);
 }
 
 /* Hero */
 .acw-hero {
-  padding: 70px 0 48px;
+  padding: 66px 0 44px;
   background:
-    radial-gradient(820px 380px at 18% 18%, rgba(29,78,216,0.12), transparent 62%),
-    radial-gradient(840px 420px at 78% 30%, rgba(15,118,110,0.10), transparent 60%),
+    radial-gradient(900px 520px at 20% 20%, rgba(15,118,110,0.14), transparent 62%),
     linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(247,245,242,1) 100%);
   border-bottom: 1px solid rgba(15,23,42,0.08);
 }
@@ -383,29 +334,29 @@ h1, h2, h3, h4, h5, h6 {
 .acw-hero-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 28px;
-  align-items: center;
+  gap: 26px;
+  align-items: start;
 }
 @media (max-width: 900px) {
   .acw-hero-grid { grid-template-columns: 1fr; }
 }
 
 .acw-hero h1 {
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
-  line-height: 1.07;
+  font-size: clamp(2.1rem, 4vw, 3.05rem);
+  line-height: 1.08;
   margin: 0 0 12px;
   letter-spacing: -0.035em;
 }
 
 .acw-sub {
-  max-width: 56ch;
-  font-size: 1.08rem;
+  max-width: 60ch;
+  font-size: 1.05rem;
   line-height: 1.7;
   color: var(--color-muted);
-  margin: 0 0 22px;
+  margin: 0 0 20px;
 }
 
-.acw-sub--tight { margin-bottom: 18px; }
+.acw-sub--tight { margin-bottom: 16px; }
 
 .acw-cta-row {
   display: flex;
@@ -419,6 +370,24 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 62ch;
   color: rgba(15,23,42,0.62);
   font-size: 0.98rem;
+}
+
+/* Hero aside */
+.acw-hero-aside { display: flex; justify-content: center; }
+.acw-hero-aside-card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(15,23,42,0.10);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow-soft);
+}
+
+.acw-kicker {
+  font-size: 1.05rem;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
 }
 
 /* Buttons */
@@ -436,13 +405,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .acw-btn-primary {
-  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-2));
+  background: var(--color-accent);
   color: #fff;
-  box-shadow: 0 16px 34px rgba(29,78,216,0.22);
+  box-shadow: 0 16px 34px rgba(15,118,110,0.22);
 }
 .acw-btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 20px 40px rgba(29,78,216,0.28);
+  background: var(--color-accent-2);
+  box-shadow: 0 20px 40px rgba(15,118,110,0.26);
 }
 
 .acw-btn-ghost {
@@ -452,52 +422,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 .acw-btn-ghost:hover {
   transform: translateY(-1px);
-  border-color: rgba(29,78,216,0.22);
+  border-color: rgba(15,118,110,0.22);
   background: rgba(255,255,255,0.94);
-}
-
-/* Hero photo */
-.acw-hero-media { display: flex; justify-content: center; }
-
-.acw-photo {
-  width: 100%;
-  max-width: 360px;
-  min-height: 420px;
-  border-radius: 22px;
-  border: 1px solid rgba(15,23,42,0.10);
-  box-shadow: var(--shadow-soft);
-  overflow: hidden;
-  position: relative;
-  background: #fff;
-}
-
-.acw-photo-img {
-  width: 100%;
-  height: 100%;
-  min-height: 420px;
-  object-fit: cover;
-  display: block;
-  border-radius: 22px;
-}
-
-.acw-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(520px 280px at 18% 18%, rgba(29,78,216,0.08), transparent 62%),
-    radial-gradient(520px 280px at 80% 30%, rgba(15,118,110,0.08), transparent 60%),
-    linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.06));
-  pointer-events: none;
 }
 
 /* Section lead */
 .acw-lead { max-width: 70ch; color: var(--color-muted); margin: 8px 0 0; }
-
 .acw-muted { color: var(--color-muted); }
 
+/* Cards (lighter) */
 .acw-card {
-  background: rgba(255,255,255,0.95);
+  background: rgba(255,255,255,0.92);
   border: 1px solid rgba(15,23,42,0.10);
   border-radius: var(--radius);
   padding: 16px;
@@ -513,17 +448,53 @@ h1, h2, h3, h4, h5, h6 {
 
 .acw-note { margin-top: 12px; font-size: 0.95rem; }
 
-/* Cards & grids */
-.acw-grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-  margin-top: 22px;
+/* New “calmer” blocks */
+.acw-mini-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--color-muted);
+  line-height: 1.7;
 }
-@media (max-width: 900px) { .acw-grid-2 { grid-template-columns: 1fr; } }
+
+.acw-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+  color: var(--color-muted);
+}
+.acw-checklist li {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+.acw-checklist li::before {
+  content: "✓";
+  color: var(--color-accent);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-top: 1px;
+}
+
+.acw-split {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+@media (max-width: 900px) { .acw-split { grid-template-columns: 1fr; } }
+
+.acw-soft-panel {
+  background: rgba(15,118,110,0.08);
+  border: 1px solid rgba(15,23,42,0.08);
+  border-radius: var(--radius);
+  padding: 16px;
+}
 
 /* Steps */
-.acw-steps { display: grid; gap: 14px; margin-top: 22px; }
+.acw-steps { display: grid; gap: 14px; margin-top: 18px; }
 
 .acw-step {
   display: grid;
@@ -536,6 +507,8 @@ h1, h2, h3, h4, h5, h6 {
   padding: 14px 16px;
   box-shadow: var(--shadow-soft);
 }
+
+.acw-steps-quiet .acw-step { box-shadow: 0 8px 18px rgba(2,6,23,0.05); }
 
 .acw-step-num {
   width: 34px;
@@ -553,12 +526,12 @@ h1, h2, h3, h4, h5, h6 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 18px;
-  margin-top: 22px;
+  margin-top: 18px;
 }
 @media (max-width: 900px) { .acw-testimonials { grid-template-columns: 1fr; } }
 
 .acw-quote {
-  background: rgba(255,255,255,0.95);
+  background: rgba(255,255,255,0.92);
   border: 1px solid rgba(15,23,42,0.10);
   border-radius: var(--radius);
   padding: 18px;
@@ -577,103 +550,31 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.95rem;
 }
 
-/* Pricing */
-.acw-pricing {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 18px;
-  margin-top: 22px;
-}
-@media (max-width: 900px) { .acw-pricing { grid-template-columns: 1fr; } }
-
-.acw-price-card {
-  background: rgba(255,255,255,0.98);
-  border: 1px solid rgba(15,23,42,0.10);
-  border-radius: var(--radius);
-  padding: 18px;
-  box-shadow: var(--shadow);
-}
-
-.acw-price {
-  font-size: 2.2rem;
-  font-weight: 950;
-  margin: 10px 0 12px;
-  color: var(--color-ink);
-}
-
-.acw-tight { margin-bottom: 12px; }
-
-.acw-terms {
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(15,23,42,0.12);
-  color: var(--color-muted);
-  line-height: 1.6;
-}
-
-/* Care plan boxes */
-.acw-care-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-  margin-top: 12px;
-}
-
-.acw-care {
-  border: 1px solid rgba(15,23,42,0.12);
-  border-radius: var(--radius);
-  padding: 14px 14px 12px;
-  background: rgba(255,255,255,0.94);
-}
-
-.acw-care-soft { background: rgba(239,244,249,0.94); }
-
-.acw-care-top {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-.acw-care-top h4 { margin: 0; font-size: 1.05rem; }
-.acw-care-price { font-weight: 950; color: var(--color-ink); }
-
-/* FAQ */
-.acw-faq {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 18px;
-  margin-top: 22px;
-}
-@media (max-width: 900px) { .acw-faq { grid-template-columns: 1fr; } }
-
 /* Contact */
 .acw-contact {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
-  margin-top: 22px;
+  margin-top: 18px;
 }
 @media (max-width: 900px) { .acw-contact { grid-template-columns: 1fr; } }
 
-.acw-email a { font-weight: 950; color: var(--color-accent); }
+.acw-email a { font-weight: 900; color: var(--color-accent); }
 
 /* Helpers */
 main { display: block; }
-section { scroll-margin-top: 92px; }
+section { scroll-margin-top: 100px; }
 
 /* ==================================================================
-5) Footer (UPDATED: light + calm)
+5) Footer (light + calm)
 ================================================================== */
 
 .site-footer {
-  margin-top: 56px;
+  margin-top: 52px;
   padding: 44px 16px 40px;
   text-align: center;
   background:
-    radial-gradient(900px 420px at 18% 18%, rgba(29,78,216,0.10), transparent 62%),
-    radial-gradient(860px 380px at 82% 28%, rgba(15,118,110,0.10), transparent 60%),
+    radial-gradient(900px 420px at 18% 18%, rgba(15,118,110,0.10), transparent 62%),
     linear-gradient(180deg, rgba(232,238,244,1) 0%, rgba(247,245,242,1) 100%);
   color: var(--footer-text);
   border-top: 1px solid var(--footer-top);
@@ -730,7 +631,7 @@ section { scroll-margin-top: 92px; }
 .footer-nav a:focus-visible {
   opacity: 1;
   color: var(--footer-link-hover);
-  border-bottom-color: rgba(29,78,216,0.30);
+  border-bottom-color: rgba(15,118,110,0.30);
 }
 
 .footer-social {
@@ -782,14 +683,14 @@ section { scroll-margin-top: 92px; }
 .footer-email {
   color: var(--footer-link);
   text-decoration: none;
-  border-bottom: 1px solid rgba(29,78,216,0.24);
+  border-bottom: 1px solid rgba(15,118,110,0.24);
   transition: border-color var(--transition), opacity var(--transition), color var(--transition);
 }
 
 .footer-note a:hover,
 .footer-note a:focus-visible {
   color: var(--footer-link-hover);
-  border-bottom-color: rgba(2,132,199,0.40);
+  border-bottom-color: rgba(11,95,89,0.40);
 }
 
 @media (max-width: 520px) {

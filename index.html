@@ -4,12 +4,12 @@ title: Home
 ---
 
 <section class="acw-hero">
-  <div class="acw-container">
+  <div class="acw-container acw-hero-grid">
     <div class="acw-hero-copy">
-      <h1>Clean, grounded websites for therapists.</h1>
+      <h1>Clean, calm websites for therapists.</h1>
 
       <p class="acw-sub acw-sub--tight">
-        Websites that feel calm, clear, and trustworthy — so the right clients feel safe enough to reach out.
+        Simple websites that feel steady and trustworthy — so the right clients feel safe enough to reach out.
       </p>
 
       <div class="acw-cta-row">
@@ -22,15 +22,14 @@ title: Home
       </p>
     </div>
 
-    <!-- NEW: calm trust panel (replaces photo) -->
-    <div class="acw-hero-panel" aria-label="What this includes">
-      <div class="acw-card acw-hero-card">
-        <h3 style="margin-top:0;">What you get</h3>
-        <ul class="acw-list">
-          <li>Up to 5 pages (Home, About, Services, Fees, Contact)</li>
+    <div class="acw-hero-aside" aria-label="What this includes">
+      <div class="acw-hero-aside-card">
+        <h2 class="acw-kicker">What you get</h2>
+        <ul class="acw-mini-list">
+          <li>Up to 5 pages</li>
           <li>Mobile-friendly + fast-loading</li>
-          <li>Clear enquiry route (email or form)</li>
-          <li>SEO foundations (titles, meta, structure)</li>
+          <li>Clear enquiry route</li>
+          <li>SEO foundations</li>
           <li>Two calm revision rounds</li>
         </ul>
         <p class="acw-muted acw-note" style="margin-bottom:0;">
@@ -41,24 +40,6 @@ title: Home
   </div>
 </section>
 
-<!-- Lightweight layout styles for the new hero panel (keeps your main CSS unchanged) -->
-<style>
-  .acw-hero .acw-container{
-    display:grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 28px;
-    align-items: start;
-  }
-  @media (max-width: 900px){
-    .acw-hero .acw-container{ grid-template-columns: 1fr; }
-  }
-  .acw-hero-panel{ display:flex; justify-content:center; }
-  .acw-hero-card{
-    width:100%;
-    max-width: 420px;
-  }
-</style>
-
 <section class="acw-section" id="offer">
   <div class="acw-container">
     <h2>The offer</h2>
@@ -66,25 +47,24 @@ title: Home
       A calm, professional website that helps the right people feel safe enough to reach out.
     </p>
 
-    <div class="acw-grid-2">
-      <div class="acw-card">
-        <h3>What you get</h3>
-        <ul class="acw-list">
-          <li>Up to 5 pages (Home, About, Services, Fees, Contact)</li>
-          <li>Mobile-friendly, fast-loading design</li>
-          <li>Clear enquiry route (email or form)</li>
-          <li>Basic SEO foundations (titles, meta, structure)</li>
-          <li>2 revision rounds</li>
+    <div class="acw-split">
+      <div>
+        <ul class="acw-checklist">
+          <li><strong>Up to 5 pages</strong> (Home, About, Services, Fees, Contact)</li>
+          <li><strong>Mobile-friendly</strong> and fast-loading</li>
+          <li><strong>Clear enquiry route</strong> (email or form)</li>
+          <li><strong>Basic SEO foundations</strong> (titles, meta, structure)</li>
+          <li><strong>Two revision rounds</strong></li>
         </ul>
 
-        <p class="acw-muted acw-note" style="margin-bottom: 0;">
-          Full details here: <a href="{{ '/websites-for-therapists/' | relative_url }}">pricing + process</a>.
+        <p class="acw-muted acw-note" style="margin-bottom:0;">
+          Full details: <a href="{{ '/websites-for-therapists/' | relative_url }}">pricing + process</a>.
         </p>
       </div>
 
-      <div class="acw-card">
-        <h3>Boundaries (so it stays calm)</h3>
-        <ul class="acw-list">
+      <div class="acw-soft-panel">
+        <h3 style="margin-top:0;">Boundaries (so it stays calm)</h3>
+        <ul class="acw-mini-list">
           <li>Clear scope agreed before build</li>
           <li>Copy approved before I start building</li>
           <li>Two tidy revision rounds (one email per round)</li>
@@ -100,7 +80,7 @@ title: Home
     <h2>Process</h2>
     <p class="acw-lead">A simple, structured build — without it taking over your week.</p>
 
-    <div class="acw-steps">
+    <div class="acw-steps acw-steps-quiet">
       <div class="acw-step">
         <div class="acw-step-num">1</div>
         <div>
@@ -113,7 +93,7 @@ title: Home
         <div class="acw-step-num">2</div>
         <div>
           <h3>Intake checklist</h3>
-          <p>You send your services, fees (optional), location, contact details, and any photos/logo (optional).</p>
+          <p>You send details (services, contact info, optional photos/logo).</p>
         </div>
       </div>
 
@@ -129,13 +109,13 @@ title: Home
         <div class="acw-step-num">4</div>
         <div>
           <h3>Launch</h3>
-          <p>Site goes live. Choose optional monthly care or keep edits ad-hoc.</p>
+          <p>Site goes live. Optional care plan if you want support.</p>
         </div>
       </div>
     </div>
 
     <div class="acw-cta-row" style="margin-top: 18px;">
-      <a class="acw-btn acw-btn-primary" href="{{ '/websites-for-therapists/' | relative_url }}">View full pricing & FAQs</a>
+      <a class="acw-btn acw-btn-primary" href="{{ '/websites-for-therapists/' | relative_url }}">View full pricing</a>
       <a class="acw-btn acw-btn-ghost" href="#contact">Ask a question</a>
     </div>
   </div>
@@ -144,9 +124,7 @@ title: Home
 <section class="acw-section" id="testimonials">
   <div class="acw-container">
     <h2>What clients say</h2>
-    <p class="acw-lead">
-      The goal is a site you feel confident sharing — clean, calm, and professional.
-    </p>
+    <p class="acw-lead">Clean, calm, and professional — so you feel confident sharing it.</p>
 
     <div class="acw-testimonials">
       <div class="acw-quote">
@@ -166,7 +144,7 @@ title: Home
     </div>
 
     <p class="acw-muted acw-note">
-      Replace these placeholders with real client quotes as soon as you have them — even one strong quote adds trust.
+      Swap these for real quotes as soon as you have them — even one strong quote adds trust.
     </p>
   </div>
 </section>
@@ -183,14 +161,12 @@ title: Home
         <p class="acw-email">
           <a href="mailto:alexanderclivewatson@gmail.com">alexanderclivewatson@gmail.com</a>
         </p>
-        <p class="acw-muted acw-note">
-          I’ll reply with next steps + a short intake checklist.
-        </p>
+        <p class="acw-muted acw-note">I’ll reply with next steps + a short intake checklist.</p>
       </div>
 
       <div class="acw-card">
         <h3>What to include</h3>
-        <ul class="acw-list">
+        <ul class="acw-mini-list">
           <li>Your practice name</li>
           <li>Services offered</li>
           <li>Area served</li>
