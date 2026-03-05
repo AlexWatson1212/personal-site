@@ -5,49 +5,76 @@
       <span class="nav__brand-text">{{ site.title }}</span>
     </a>
 
-    <button class="nav__toggle" type="button"
-            aria-label="Open menu"
-            aria-controls="primary-nav"
-            aria-expanded="false">
+    <button
+      class="nav__toggle"
+      type="button"
+      aria-label="Open menu"
+      aria-controls="primary-nav"
+      aria-expanded="false"
+    >
       <span aria-hidden="true" class="nav__icon"></span>
     </button>
 
     <ul id="primary-nav" class="nav__links" hidden>
-      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      <li>
+        <a
+          href="{{ '/' | relative_url }}"
+          {% if page.url == "/" %}aria-current="page"{% endif %}
+        >Home</a>
+      </li>
 
-      <!-- UPDATED: pricing now lives on the service page -->
-      <li><a href="{{ '/websites-for-therapists/' | relative_url }}">Websites for Therapists</a></li>
+      <li>
+        <a
+          href="{{ '/websites-for-therapists/' | relative_url }}"
+          {% if page.url contains "/websites-for-therapists" %}aria-current="page"{% endif %}
+        >Websites for Therapists</a>
+      </li>
 
-      <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
-      <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+      <li>
+        <a
+          href="{{ '/blog/' | relative_url }}"
+          {% if page.url contains "/blog" %}aria-current="page"{% endif %}
+        >Blog</a>
+      </li>
 
-      <!-- UPDATED: contact stays on home -->
-      <li><a href="{{ '/' | relative_url }}#contact">Contact</a></li>
+      <li>
+        <a
+          href="{{ '/about/' | relative_url }}"
+          {% if page.url contains "/about" %}aria-current="page"{% endif %}
+        >About</a>
+      </li>
+
+      <li>
+        <a href="{{ '/' | relative_url }}#contact">Contact</a>
+      </li>
     </ul>
   </nav>
 </header>
 
 <script>
   (function () {
-    const header = document.currentScript.previousElementSibling; // <header>
-    const btn = header.querySelector('.nav__toggle');
-    const list = header.querySelector('#primary-nav');
+    // More robust than previousElementSibling (works even if this script moves)
+    const header = document.querySelector(".site-header");
+    if (!header) return;
+
+    const btn = header.querySelector(".nav__toggle");
+    const list = header.querySelector("#primary-nav");
     if (!btn || !list) return;
 
-    const mqDesktop = window.matchMedia('(min-width: 861px)');
+    const mqDesktop = window.matchMedia("(min-width: 861px)");
 
     function setOpen(open) {
-      btn.setAttribute('aria-expanded', String(open));
-      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-      if (open) list.removeAttribute('hidden');
-      else list.setAttribute('hidden', '');
+      btn.setAttribute("aria-expanded", String(open));
+      btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      if (open) list.removeAttribute("hidden");
+      else list.setAttribute("hidden", "");
     }
 
     function syncForBreakpoint() {
       if (mqDesktop.matches) {
-        btn.setAttribute('aria-expanded', 'false');
-        btn.setAttribute('aria-label', 'Open menu');
-        list.removeAttribute('hidden');
+        btn.setAttribute("aria-expanded", "false");
+        btn.setAttribute("aria-label", "Open menu");
+        list.removeAttribute("hidden");
         return;
       }
       setOpen(false);
@@ -55,31 +82,31 @@
 
     syncForBreakpoint();
 
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener("click", (e) => {
       if (mqDesktop.matches) return;
       e.stopPropagation();
-      const open = btn.getAttribute('aria-expanded') !== 'true';
+      const open = btn.getAttribute("aria-expanded") !== "true";
       setOpen(open);
     });
 
-    list.addEventListener('click', (e) => {
+    list.addEventListener("click", (e) => {
       if (mqDesktop.matches) return;
-      if (e.target && e.target.tagName === 'A') setOpen(false);
+      if (e.target && e.target.tagName === "A") setOpen(false);
     });
 
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener("keydown", (e) => {
       if (mqDesktop.matches) return;
-      if (e.key === 'Escape') setOpen(false);
+      if (e.key === "Escape") setOpen(false);
     });
 
-    document.addEventListener('click', (e) => {
+    document.addEventListener("click", (e) => {
       if (mqDesktop.matches) return;
-      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
       if (!isOpen) return;
       if (!header.contains(e.target)) setOpen(false);
     });
 
-    mqDesktop.addEventListener?.('change', syncForBreakpoint);
-    window.addEventListener('resize', syncForBreakpoint);
+    mqDesktop.addEventListener?.("change", syncForBreakpoint);
+    window.addEventListener("resize", syncForBreakpoint);
   })();
 </script>
