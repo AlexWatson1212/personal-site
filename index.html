@@ -4,7 +4,7 @@ title: Home
 ---
 
 <section class="acw-hero">
-  <div class="acw-container acw-hero-grid">
+  <div class="acw-container">
     <div class="acw-hero-copy">
       <h1>Clean, grounded websites for therapists.</h1>
 
@@ -13,391 +13,51 @@ title: Home
       </p>
 
       <div class="acw-cta-row">
-        <a class="acw-btn acw-btn-primary" href="#pricing">View pricing</a>
+        <a class="acw-btn acw-btn-primary" href="{{ '/websites-for-therapists/' | relative_url }}">View pricing & process</a>
         <a class="acw-btn acw-btn-ghost" href="#contact">Get started</a>
       </div>
 
       <p class="acw-hero-note">
-        Calm structure. Clear scope. A tidy build you don’t have to manage alone.
+        Calm structure. Clear scope. Two tidy revision rounds.
       </p>
     </div>
 
-    <div class="acw-hero-media" aria-label="Photo">
-      <div class="acw-photo">
-        <img
-          class="acw-photo-img"
-          src="{{ '/assets/images/alex-watson-hero.jpg' | relative_url }}"
-          alt="Alex Watson"
-          width="900"
-          height="1125"
-          loading="eager"
-          decoding="async"
-        >
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-PALETTE PICKER (CLIENT-FACING)
-- Changes CSS variables live (no rebuild needed)
-- Saves choice in localStorage
-- Lets client export the palette as text to email you
-============================================================= -->
-<section class="acw-section acw-section-alt" id="palette">
-  <div class="acw-container">
-    <h2>Pick a palette (live preview)</h2>
-    <p class="acw-lead">
-      Choose a calm palette and see it applied instantly. If you like one, copy it into your enquiry email.
-    </p>
-
-    <div class="acw-grid-2">
-      <div class="acw-card">
-        <h3>Palette picker</h3>
-
-        <div class="acw-palette">
-          <div class="acw-palette-row">
-            <label class="acw-palette-label" for="palettePreset"><strong>Preset</strong></label>
-            <select id="palettePreset" class="acw-palette-select">
-              <option value="blueSage" selected>Blue + Sage (calm, modern)</option>
-              <option value="navySage">Navy + Sage (grounded, premium)</option>
-              <option value="slateSky">Slate + Sky (minimal, crisp)</option>
-              <option value="forestSky">Forest + Sky (nature, fresh)</option>
-              <option value="plumSage">Plum + Sage (warm, distinctive)</option>
-            </select>
-          </div>
-
-          <div class="acw-palette-grid">
-            <div class="acw-palette-field">
-              <label class="acw-palette-label" for="colorAccent">Primary (buttons/links)</label>
-              <div class="acw-palette-input">
-                <input id="colorAccent" type="color" value="#1D4ED8" aria-label="Primary colour">
-                <input id="colorAccentText" type="text" value="#1D4ED8" inputmode="text" spellcheck="false" aria-label="Primary colour hex">
-              </div>
-            </div>
-
-            <div class="acw-palette-field">
-              <label class="acw-palette-label" for="colorAccent2">Secondary (hover/gradient)</label>
-              <div class="acw-palette-input">
-                <input id="colorAccent2" type="color" value="#0284C7" aria-label="Secondary colour">
-                <input id="colorAccent2Text" type="text" value="#0284C7" inputmode="text" spellcheck="false" aria-label="Secondary colour hex">
-              </div>
-            </div>
-
-            <div class="acw-palette-field">
-              <label class="acw-palette-label" for="colorSage">Support (sage)</label>
-              <div class="acw-palette-input">
-                <input id="colorSage" type="color" value="#0F766E" aria-label="Sage colour">
-                <input id="colorSageText" type="text" value="#0F766E" inputmode="text" spellcheck="false" aria-label="Sage colour hex">
-              </div>
-            </div>
-
-            <div class="acw-palette-field">
-              <label class="acw-palette-label" for="colorBg">Background</label>
-              <div class="acw-palette-input">
-                <input id="colorBg" type="color" value="#F7F5F2" aria-label="Background colour">
-                <input id="colorBgText" type="text" value="#F7F5F2" inputmode="text" spellcheck="false" aria-label="Background colour hex">
-              </div>
-            </div>
-          </div>
-
-          <div class="acw-cta-row" style="margin-top: 14px;">
-            <button class="acw-btn acw-btn-primary" type="button" id="applyPaletteBtn">Apply palette</button>
-            <button class="acw-btn acw-btn-ghost" type="button" id="resetPaletteBtn">Reset</button>
-          </div>
-
-          <p class="acw-muted acw-note" style="margin-bottom: 0;">
-            This only changes colours (not layout). When you send an enquiry, paste the “Palette export” below.
-          </p>
-        </div>
-      </div>
-
-      <div class="acw-card">
-        <h3>Palette export</h3>
-        <p class="acw-muted">
-          Copy this into your email so I can match the site to your preferred palette.
+    <!-- NEW: calm trust panel (replaces photo) -->
+    <div class="acw-hero-panel" aria-label="What this includes">
+      <div class="acw-card acw-hero-card">
+        <h3 style="margin-top:0;">What you get</h3>
+        <ul class="acw-list">
+          <li>Up to 5 pages (Home, About, Services, Fees, Contact)</li>
+          <li>Mobile-friendly + fast-loading</li>
+          <li>Clear enquiry route (email or form)</li>
+          <li>SEO foundations (titles, meta, structure)</li>
+          <li>Two calm revision rounds</li>
+        </ul>
+        <p class="acw-muted acw-note" style="margin-bottom:0;">
+          Prefer details first? <a href="{{ '/websites-for-therapists/' | relative_url }}">See the full service page</a>.
         </p>
-
-        <textarea
-          id="paletteExport"
-          class="acw-palette-export"
-          rows="10"
-          readonly
-          aria-label="Palette export text"
-        ></textarea>
-
-        <div class="acw-cta-row" style="margin-top: 12px;">
-          <button class="acw-btn acw-btn-primary" type="button" id="copyPaletteBtn">Copy</button>
-          <a class="acw-btn acw-btn-ghost" href="#contact">Use this in your enquiry</a>
-        </div>
-
-        <div class="acw-palette-swatches" aria-label="Palette preview swatches">
-          <div class="acw-swatch" id="swatchPrimary"><span>Primary</span></div>
-          <div class="acw-swatch" id="swatchSecondary"><span>Secondary</span></div>
-          <div class="acw-swatch" id="swatchSage"><span>Sage</span></div>
-          <div class="acw-swatch" id="swatchBg"><span>Background</span></div>
-        </div>
       </div>
     </div>
   </div>
-
-  <!-- Small, page-local styles for the picker (keeps your main CSS clean) -->
-  <style>
-    .acw-palette { margin-top: 10px; }
-    .acw-palette-row { display: grid; grid-template-columns: 120px 1fr; gap: 12px; align-items: center; }
-    .acw-palette-select { width: 100%; padding: 10px 12px; border-radius: 12px; border: 1px solid rgba(15,23,42,0.14); background: rgba(255,255,255,0.9); font-weight: 650; }
-
-    .acw-palette-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
-    @media (max-width: 900px) { .acw-palette-grid { grid-template-columns: 1fr; } }
-
-    .acw-palette-label { display: block; font-size: 0.95rem; color: rgba(15,23,42,0.78); margin-bottom: 6px; }
-    .acw-palette-field { padding: 10px; border-radius: 16px; border: 1px solid rgba(15,23,42,0.10); background: rgba(255,255,255,0.65); }
-
-    .acw-palette-input { display: grid; grid-template-columns: 52px 1fr; gap: 10px; align-items: center; }
-    .acw-palette-input input[type="color"] { width: 52px; height: 44px; border-radius: 12px; border: 1px solid rgba(15,23,42,0.12); background: transparent; padding: 0; }
-    .acw-palette-input input[type="text"] { width: 100%; height: 44px; border-radius: 12px; border: 1px solid rgba(15,23,42,0.12); padding: 0 12px; font-weight: 700; letter-spacing: 0.01em; }
-
-    .acw-palette-export { width: 100%; border-radius: 16px; border: 1px solid rgba(15,23,42,0.12); padding: 12px 12px; background: rgba(255,255,255,0.75); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 0.92rem; line-height: 1.45; }
-
-    .acw-palette-swatches { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
-    .acw-swatch { border-radius: 16px; border: 1px solid rgba(15,23,42,0.10); min-height: 62px; position: relative; overflow: hidden; }
-    .acw-swatch span { position: absolute; left: 10px; bottom: 8px; font-size: 0.92rem; font-weight: 800; color: rgba(15,23,42,0.84); background: rgba(255,255,255,0.62); border: 1px solid rgba(15,23,42,0.10); padding: 5px 9px; border-radius: 999px; }
-  </style>
-
-  <script>
-    (function () {
-      const root = document.documentElement;
-
-      const els = {
-        preset: document.getElementById("palettePreset"),
-        apply: document.getElementById("applyPaletteBtn"),
-        reset: document.getElementById("resetPaletteBtn"),
-        copy: document.getElementById("copyPaletteBtn"),
-        export: document.getElementById("paletteExport"),
-
-        accent: document.getElementById("colorAccent"),
-        accentText: document.getElementById("colorAccentText"),
-        accent2: document.getElementById("colorAccent2"),
-        accent2Text: document.getElementById("colorAccent2Text"),
-        sage: document.getElementById("colorSage"),
-        sageText: document.getElementById("colorSageText"),
-        bg: document.getElementById("colorBg"),
-        bgText: document.getElementById("colorBgText"),
-
-        swPrimary: document.getElementById("swatchPrimary"),
-        swSecondary: document.getElementById("swatchSecondary"),
-        swSage: document.getElementById("swatchSage"),
-        swBg: document.getElementById("swatchBg"),
-      };
-
-      const PRESETS = {
-        blueSage:  { accent:"#1D4ED8", accent2:"#0284C7", sage:"#0F766E", bg:"#F7F5F2" },
-        navySage:  { accent:"#1E3A8A", accent2:"#2563EB", sage:"#0F766E", bg:"#F7F5F2" },
-        slateSky:  { accent:"#334155", accent2:"#0284C7", sage:"#0F766E", bg:"#F7F5F2" },
-        forestSky: { accent:"#166534", accent2:"#0284C7", sage:"#0F766E", bg:"#F7F5F2" },
-        plumSage:  { accent:"#6D28D9", accent2:"#A855F7", sage:"#0F766E", bg:"#F7F5F2" }
-      };
-
-      const DEFAULT = PRESETS.blueSage;
-
-      function clamp01(n){ return Math.max(0, Math.min(1, n)); }
-
-      function hexToRgb(hex) {
-        const h = (hex || "").trim().replace("#", "");
-        if (h.length === 3) {
-          const r = parseInt(h[0] + h[0], 16);
-          const g = parseInt(h[1] + h[1], 16);
-          const b = parseInt(h[2] + h[2], 16);
-          return { r, g, b };
-        }
-        if (h.length !== 6) return null;
-        const r = parseInt(h.slice(0,2), 16);
-        const g = parseInt(h.slice(2,4), 16);
-        const b = parseInt(h.slice(4,6), 16);
-        if ([r,g,b].some(Number.isNaN)) return null;
-        return { r, g, b };
-      }
-
-      function rgba(hex, a) {
-        const rgb = hexToRgb(hex);
-        if (!rgb) return null;
-        return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${clamp01(a)})`;
-      }
-
-      function normalizeHex(value) {
-        const v = (value || "").trim();
-        if (!v) return null;
-        if (v[0] === "#") {
-          if (v.length === 4 || v.length === 7) return v.toUpperCase();
-          return null;
-        }
-        // allow "1D4ED8"
-        if (v.length === 3 || v.length === 6) return ("#" + v).toUpperCase();
-        return null;
-      }
-
-      function setInputs(p) {
-        els.accent.value = p.accent; els.accentText.value = p.accent.toUpperCase();
-        els.accent2.value = p.accent2; els.accent2Text.value = p.accent2.toUpperCase();
-        els.sage.value = p.sage; els.sageText.value = p.sage.toUpperCase();
-        els.bg.value = p.bg; els.bgText.value = p.bg.toUpperCase();
-      }
-
-      function applyPalette(p, persist = true) {
-        // Core roles your CSS already uses
-        root.style.setProperty("--color-accent", p.accent);
-        root.style.setProperty("--color-accent-2", p.accent2);
-        root.style.setProperty("--color-sage", p.sage);
-        root.style.setProperty("--color-bg", p.bg);
-
-        // Derived soft tints used throughout your gradients/cards
-        const aSoft = rgba(p.accent, 0.12) || "rgba(29, 78, 216, 0.12)";
-        const sSoft = rgba(p.sage, 0.12) || "rgba(15, 118, 110, 0.12)";
-        root.style.setProperty("--color-accent-soft", aSoft);
-        root.style.setProperty("--color-sage-soft", sSoft);
-
-        // Keep the “soft section” coherent with the palette
-        // (We keep your existing --color-soft unless you want to generate it.)
-        // Optional: slightly more “on-brand” underline colour
-        root.style.setProperty("--nav-underline", rgba(p.accent, 0.35) || "rgba(29, 78, 216, 0.35)");
-
-        // Footer in your updated CSS is light; keep it calm and coherent
-        // Make footer a pale wash based on primary colour (very subtle).
-        const footerBg = rgba(p.accent, 0.08) ? `linear-gradient(180deg, rgba(232,238,244,1) 0%, rgba(247,245,242,1) 100%)` : null;
-        // We don’t override the complex footer background here; your CSS handles it.
-        // If you want the footer to be tinted more strongly later, we can add variables.
-
-        updateSwatches(p);
-        updateExport(p);
-
-        if (persist) {
-          localStorage.setItem("acwPalette", JSON.stringify(p));
-        }
-      }
-
-      function updateSwatches(p) {
-        els.swPrimary.style.background = p.accent;
-        els.swSecondary.style.background = p.accent2;
-        els.swSage.style.background = p.sage;
-        els.swBg.style.background = p.bg;
-
-        // Make label readable on dark swatches
-        [els.swPrimary, els.swSecondary, els.swSage].forEach(el => {
-          el.querySelector("span").style.color = "rgba(15,23,42,0.84)";
-        });
-      }
-
-      function updateExport(p) {
-        const accentSoft = rgba(p.accent, 0.12) || "rgba(29, 78, 216, 0.12)";
-        const sageSoft = rgba(p.sage, 0.12) || "rgba(15, 118, 110, 0.12)";
-        els.export.value =
-`Palette choice
-------------
-Primary (accent):   ${p.accent.toUpperCase()}
-Secondary (hover):  ${p.accent2.toUpperCase()}
-Sage (support):     ${p.sage.toUpperCase()}
-Background:         ${p.bg.toUpperCase()}
-
-CSS variables (paste into :root)
--------------------------------
---color-accent: ${p.accent.toUpperCase()};
---color-accent-2: ${p.accent2.toUpperCase()};
---color-accent-soft: ${accentSoft};
---color-sage: ${p.sage.toUpperCase()};
---color-sage-soft: ${sageSoft};
---color-bg: ${p.bg.toUpperCase()};`;
-      }
-
-      function readInputs() {
-        const accent = normalizeHex(els.accentText.value) || els.accent.value;
-        const accent2 = normalizeHex(els.accent2Text.value) || els.accent2.value;
-        const sage = normalizeHex(els.sageText.value) || els.sage.value;
-        const bg = normalizeHex(els.bgText.value) || els.bg.value;
-
-        // validate
-        if (!hexToRgb(accent) || !hexToRgb(accent2) || !hexToRgb(sage) || !hexToRgb(bg)) {
-          return null;
-        }
-        return { accent, accent2, sage, bg };
-      }
-
-      function syncTextToColor(textEl, colorEl) {
-        const hex = normalizeHex(textEl.value);
-        if (hex && hexToRgb(hex)) colorEl.value = hex;
-      }
-
-      // Event wiring
-      els.preset.addEventListener("change", () => {
-        const p = PRESETS[els.preset.value] || DEFAULT;
-        setInputs(p);
-        applyPalette(p);
-      });
-
-      // Keep text + colour inputs synced
-      [
-        [els.accentText, els.accent],
-        [els.accent2Text, els.accent2],
-        [els.sageText, els.sage],
-        [els.bgText, els.bg],
-      ].forEach(([t, c]) => {
-        t.addEventListener("input", () => syncTextToColor(t, c));
-        c.addEventListener("input", () => { t.value = c.value.toUpperCase(); });
-      });
-
-      els.apply.addEventListener("click", () => {
-        const p = readInputs();
-        if (!p) {
-          alert("One of your hex values isn’t valid. Use format like #1D4ED8.");
-          return;
-        }
-        applyPalette(p);
-      });
-
-      els.reset.addEventListener("click", () => {
-        els.preset.value = "blueSage";
-        setInputs(DEFAULT);
-        applyPalette(DEFAULT);
-        localStorage.removeItem("acwPalette");
-      });
-
-      els.copy.addEventListener("click", async () => {
-        try {
-          await navigator.clipboard.writeText(els.export.value);
-          els.copy.textContent = "Copied ✓";
-          setTimeout(() => (els.copy.textContent = "Copy"), 1200);
-        } catch (e) {
-          // fallback
-          els.export.focus();
-          els.export.select();
-          document.execCommand("copy");
-          els.copy.textContent = "Copied ✓";
-          setTimeout(() => (els.copy.textContent = "Copy"), 1200);
-        }
-      });
-
-      // Load saved palette if present
-      const saved = localStorage.getItem("acwPalette");
-      if (saved) {
-        try {
-          const p = JSON.parse(saved);
-          if (p && p.accent && p.accent2 && p.sage && p.bg) {
-            setInputs(p);
-            applyPalette(p, false);
-          } else {
-            setInputs(DEFAULT);
-            applyPalette(DEFAULT, false);
-          }
-        } catch {
-          setInputs(DEFAULT);
-          applyPalette(DEFAULT, false);
-        }
-      } else {
-        setInputs(DEFAULT);
-        applyPalette(DEFAULT, false);
-      }
-    })();
-  </script>
 </section>
+
+<!-- Lightweight layout styles for the new hero panel (keeps your main CSS unchanged) -->
+<style>
+  .acw-hero .acw-container{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 28px;
+    align-items: start;
+  }
+  @media (max-width: 900px){
+    .acw-hero .acw-container{ grid-template-columns: 1fr; }
+  }
+  .acw-hero-panel{ display:flex; justify-content:center; }
+  .acw-hero-card{
+    width:100%;
+    max-width: 420px;
+  }
+</style>
 
 <section class="acw-section" id="offer">
   <div class="acw-container">
@@ -416,6 +76,10 @@ CSS variables (paste into :root)
           <li>Basic SEO foundations (titles, meta, structure)</li>
           <li>2 revision rounds</li>
         </ul>
+
+        <p class="acw-muted acw-note" style="margin-bottom: 0;">
+          Full details here: <a href="{{ '/websites-for-therapists/' | relative_url }}">pricing + process</a>.
+        </p>
       </div>
 
       <div class="acw-card">
@@ -469,6 +133,11 @@ CSS variables (paste into :root)
         </div>
       </div>
     </div>
+
+    <div class="acw-cta-row" style="margin-top: 18px;">
+      <a class="acw-btn acw-btn-primary" href="{{ '/websites-for-therapists/' | relative_url }}">View full pricing & FAQs</a>
+      <a class="acw-btn acw-btn-ghost" href="#contact">Ask a question</a>
+    </div>
   </div>
 </section>
 
@@ -502,106 +171,6 @@ CSS variables (paste into :root)
   </div>
 </section>
 
-<section class="acw-section acw-section-alt" id="pricing">
-  <div class="acw-container">
-    <h2>Pricing</h2>
-    <p class="acw-lead">Simple setup + optional care. Transparent terms.</p>
-
-    <div class="acw-pricing">
-      <div class="acw-price-card">
-        <h3>Website setup</h3>
-        <div class="acw-price">£600</div>
-
-        <ul class="acw-list">
-          <li>Up to 5 pages</li>
-          <li>Mobile-friendly</li>
-          <li>Fast loading</li>
-          <li>Clear contact route</li>
-          <li>Basic SEO structure</li>
-          <li>2 revision rounds</li>
-        </ul>
-
-        <div class="acw-terms">
-          <p><strong>Payment:</strong> 50% upfront, 50% before launch</p>
-          <p><strong>Extra changes:</strong> £40/hour</p>
-        </div>
-
-        <a class="acw-btn acw-btn-primary" href="#contact">Enquire</a>
-      </div>
-
-      <div class="acw-card">
-        <h3>Monthly care (optional)</h3>
-        <p class="acw-muted acw-tight">
-          Light ongoing support — so your site stays tidy and up to date.
-        </p>
-
-        <div class="acw-care-grid">
-          <div class="acw-care">
-            <div class="acw-care-top">
-              <h4>Care plan</h4>
-              <div class="acw-care-price">£30/mo</div>
-            </div>
-            <ul class="acw-list">
-              <li>Hosting + SSL</li>
-              <li>Backups</li>
-              <li>Minor content edits</li>
-              <li>Email support</li>
-              <li>Best-practice upkeep</li>
-            </ul>
-          </div>
-
-          <div class="acw-care acw-care-soft">
-            <div class="acw-care-top">
-              <h4>Ad-hoc edits</h4>
-              <div class="acw-care-price">£40/hr</div>
-            </div>
-            <ul class="acw-list">
-              <li>Bigger changes</li>
-              <li>New sections/pages</li>
-              <li>Design upgrades</li>
-              <li>Extra content help</li>
-            </ul>
-            <p class="acw-muted acw-note">You can switch to monthly care later if you prefer.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="acw-section" id="faq">
-  <div class="acw-container">
-    <h2>FAQs</h2>
-    <p class="acw-lead">A few clear answers.</p>
-
-    <div class="acw-faq">
-      <div class="acw-card">
-        <h3>Do you guarantee SEO rankings?</h3>
-        <p class="acw-muted">
-          No — and I won’t pretend. I build strong foundations (structure, speed, metadata).
-          Rankings depend on many factors outside anyone’s control.
-        </p>
-      </div>
-
-      <div class="acw-card">
-        <h3>How fast can it be built?</h3>
-        <p class="acw-muted">
-          If you send your intake details promptly, builds can move quickly.
-          I’ll give you a realistic timeline after the initial email.
-        </p>
-      </div>
-
-      <div class="acw-card">
-        <h3>Will it feel “salesy”?</h3>
-        <p class="acw-muted">
-          No. The aim is clarity and trust — not pressure.
-          A calm site helps the right people feel safe enough to reach out.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="acw-section acw-section-alt" id="contact">
   <div class="acw-container">
     <h2>Contact</h2>
@@ -630,6 +199,9 @@ CSS variables (paste into :root)
           <li>Any photos/logo (optional)</li>
           <li>1–3 testimonials (optional)</li>
         </ul>
+        <p class="acw-muted acw-note" style="margin-bottom: 0;">
+          Prefer details first? <a href="{{ '/websites-for-therapists/' | relative_url }}">View the full service page</a>.
+        </p>
       </div>
     </div>
   </div>
