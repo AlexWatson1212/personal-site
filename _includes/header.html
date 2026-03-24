@@ -2,18 +2,21 @@
 <header class="site-header" role="banner">
   <div class="shell">
 
-    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Alex Watson — Websites for Therapists">
-      <img
-        class="brand-mark"
-        src="{{ '/assets/images/brand/logo-sage-webdesign.png' | relative_url }}"
-        alt="Alex Watson — Websites for Therapists"
-        width="300"
-        height="80"
-        loading="eager"
-        decoding="async"
-      >
-      <span class="sr-only">Websites for Therapists</span>
-    </a>
+    <div class="brand-wrap">
+      <a class="brand brand-home" href="{{ '/' | relative_url }}" aria-label="Alex Watson home">
+        <img
+          class="brand-mark"
+          src="{{ '/assets/images/brand/logo-sage-webdesign.png' | relative_url }}"
+          alt="Alex Watson"
+          width="300"
+          height="80"
+          loading="eager"
+          decoding="async"
+        >
+      </a>
+
+      <span class="brand-tagline" aria-hidden="true">Websites for Therapists</span>
+    </div>
 
     <button class="nav-toggle"
             type="button"
