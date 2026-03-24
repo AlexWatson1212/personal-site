@@ -1,4 +1,3 @@
-<!-- _includes/header.html -->
 <header class="site-header" role="banner">
   <div class="shell">
 
@@ -18,27 +17,57 @@
       <span class="brand-tagline" aria-hidden="true">Websites for Therapists</span>
     </div>
 
-    <button class="nav-toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="site-menu"
-            aria-label="Open menu">
-      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-        <path d="M3 6h18M3 12h18M3 18h18"
-              stroke="currentColor"
-              stroke-width="2"
-              fill="none"
-              stroke-linecap="round" />
-      </svg>
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="Open menu"
+      aria-controls="site-menu"
+      aria-expanded="false"
+    >
+      <span class="nav-toggle-lines" aria-hidden="true"></span>
     </button>
 
     <nav id="site-menu" class="site-nav" role="navigation" aria-label="Primary">
-      <ul>
-        <li><a href="{{ '/websites-for-therapists/' | relative_url }}">Pricing</a></li>
-        <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
-        <li><a href="{{ '/about/' | relative_url }}">About</a></li>
-        <li><a href="{{ '/' | relative_url }}#contact">Contact</a></li>
-      </ul>
+      <div class="site-nav-panel">
+        <div class="site-nav-top">
+          <span class="site-nav-title">Menu</span>
+
+          <button
+            class="nav-close"
+            type="button"
+            aria-label="Close menu"
+          >
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <ul>
+          <li>
+            <a
+              href="{{ '/websites-for-therapists/' | relative_url }}"
+              {% if page.url contains "/websites-for-therapists" %}aria-current="page"{% endif %}
+            >Pricing</a>
+          </li>
+
+          <li>
+            <a
+              href="{{ '/blog/' | relative_url }}"
+              {% if page.url contains "/blog" %}aria-current="page"{% endif %}
+            >Blog</a>
+          </li>
+
+          <li>
+            <a
+              href="{{ '/about/' | relative_url }}"
+              {% if page.url contains "/about" %}aria-current="page"{% endif %}
+            >About</a>
+          </li>
+
+          <li>
+            <a href="{{ '/' | relative_url }}#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
   </div>
