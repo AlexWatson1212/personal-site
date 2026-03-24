@@ -309,9 +309,12 @@ body.menu-open {
   .site-nav {
     position: static;
     inset: auto;
+    z-index: auto;
     background: transparent;
     opacity: 1;
     pointer-events: auto;
+    width: auto;
+    height: auto;
   }
 
   .site-nav-panel {
@@ -322,6 +325,8 @@ body.menu-open {
     display: block;
     transform: none;
     opacity: 1;
+    width: auto;
+    min-height: auto;
   }
 
   .site-nav ul {
@@ -371,7 +376,7 @@ body.menu-open {
     position: fixed;
     inset: 0;
     z-index: 1200;
-    background: rgba(31, 41, 51, 0.25);
+    background: rgba(31, 41, 51, 0.22);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.25s ease;
@@ -383,12 +388,15 @@ body.menu-open {
   }
 
   .site-nav-panel {
-    position: absolute;
+    position: fixed;
     inset: 0;
+    z-index: 1201;
     background: linear-gradient(180deg, #f8f3ec 0%, #f3ece3 100%);
     padding: 1.2rem 1rem 2rem;
     display: flex;
     flex-direction: column;
+    width: 100vw;
+    min-height: 100vh;
     transform: translateY(-8px);
     opacity: 0;
     transition: transform 0.25s ease, opacity 0.25s ease;
