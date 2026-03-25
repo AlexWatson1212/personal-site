@@ -2,6 +2,7 @@
 ====================================================================
 AlexanderCliveWatson.co.uk — Home CSS
 Simplified, warmer, calmer, more human.
+Updated accent colour to better match logo sage green.
 ====================================================================
 */
 
@@ -17,9 +18,9 @@ Simplified, warmer, calmer, more human.
   --muted: #5f6b76;
   --line: rgba(31, 41, 51, 0.10);
 
-  --accent: #5f7f73;
-  --accent-dark: #486559;
-  --accent-soft: #dfe8e2;
+  --accent: #8e9f84;
+  --accent-dark: #72826a;
+  --accent-soft: #e6ecdf;
 
   --warm: #d9c2a7;
   --shadow: 0 10px 30px rgba(31, 41, 51, 0.08);
@@ -227,7 +228,7 @@ p {
 .site-nav a:hover,
 .site-nav a:focus-visible {
   color: var(--text);
-  border-bottom-color: rgba(95, 127, 115, 0.35);
+  border-bottom-color: rgba(142, 159, 132, 0.38);
 }
 
 .nav-toggle {
