@@ -526,64 +526,29 @@ section {
 ========================= */
 
 .acw-blog-hero {
-  padding: 64px 0 48px;
+  padding: 56px 0 38px;
   background:
-    radial-gradient(circle at top left, rgba(217, 194, 167, 0.25), transparent 42%),
+    radial-gradient(circle at top left, rgba(217, 194, 167, 0.20), transparent 40%),
     linear-gradient(180deg, #fcf8f2 0%, #f6f1ea 100%);
 }
 
 .acw-blog-hero-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.9fr);
-  gap: 2rem;
-  align-items: start;
-}
-
-.acw-blog-hero-copy {
   max-width: 760px;
 }
 
 .acw-blog-page-title {
-  font-size: clamp(2.4rem, 4vw, 3.5rem);
-  line-height: 1.02;
+  font-size: clamp(2.2rem, 3.6vw, 3.1rem);
+  line-height: 1.04;
   letter-spacing: -0.04em;
-  max-width: 11ch;
-  margin-bottom: 1rem;
+  max-width: 10ch;
+  margin-bottom: 0.9rem;
 }
 
 .acw-blog-page-intro {
-  max-width: 62ch;
-  font-size: 1.08rem;
+  max-width: 56ch;
+  font-size: 1.03rem;
   color: var(--muted);
-  margin-bottom: 1.5rem;
-}
-
-.acw-blog-highlight {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(31, 41, 51, 0.08);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  box-shadow: var(--shadow);
-}
-
-.acw-blog-highlight-label {
-  margin: 0 0 0.7rem;
-  font-size: 0.78rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--accent-dark);
-}
-
-.acw-blog-highlight h2 {
-  font-size: 1.45rem;
-  line-height: 1.15;
-  margin-bottom: 0.8rem;
-}
-
-.acw-blog-highlight p {
-  margin: 0;
-  color: var(--muted);
+  margin-bottom: 1.35rem;
 }
 
 .acw-blog-search {
@@ -596,14 +561,14 @@ section {
 .acw-blog-search input[type="search"] {
   flex: 1 1 320px;
   min-width: 220px;
-  height: 54px;
-  padding: 0 1rem;
+  height: 56px;
+  padding: 0 1.1rem;
   font: inherit;
   color: var(--text);
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(31, 41, 51, 0.12);
+  background: #fffdf9;
+  border: 1.5px solid rgba(31, 41, 51, 0.14);
   border-radius: 999px;
-  box-shadow: none;
+  box-shadow: 0 2px 8px rgba(31, 41, 51, 0.03);
 }
 
 .acw-blog-search input[type="search"]::placeholder {
@@ -612,12 +577,12 @@ section {
 
 .acw-blog-search input[type="search"]:focus {
   outline: none;
-  border-color: rgba(114, 130, 106, 0.55);
+  border-color: rgba(114, 130, 106, 0.6);
   background: #fff;
 }
 
 .acw-blog-search .acw-btn {
-  min-height: 54px;
+  min-height: 56px;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
@@ -654,19 +619,30 @@ section {
 }
 
 .acw-blog-posts-section {
-  padding-top: 40px;
+  padding-top: 36px;
 }
 
 .acw-blog-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .acw-blog-card {
   height: 100%;
   padding: 0;
   overflow: hidden;
+}
+
+.acw-blog-card-image-link {
+  display: block;
+}
+
+.acw-blog-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(31, 41, 51, 0.06);
 }
 
 .acw-blog-card-inner {
@@ -684,7 +660,7 @@ section {
 }
 
 .acw-blog-title {
-  font-size: 1.45rem;
+  font-size: 1.4rem;
   line-height: 1.12;
   margin-bottom: 0.8rem;
 }
@@ -724,27 +700,22 @@ section {
 
 .acw-blog-empty {
   max-width: 700px;
-  padding: 2rem 0;
+  padding: 1rem 0 2rem;
 }
 
 @media (max-width: 960px) {
-  .acw-blog-hero-inner,
   .acw-blog-grid {
     grid-template-columns: 1fr;
-  }
-
-  .acw-blog-page-title {
-    max-width: 12ch;
   }
 }
 
 @media (max-width: 640px) {
   .acw-blog-hero {
-    padding: 48px 0 36px;
+    padding: 46px 0 30px;
   }
 
   .acw-blog-page-title {
-    font-size: clamp(2rem, 10vw, 2.8rem);
+    font-size: clamp(2rem, 10vw, 2.65rem);
   }
 
   .acw-blog-search {
@@ -757,7 +728,7 @@ section {
   }
 
   .acw-blog-title {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
 }
 

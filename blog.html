@@ -8,37 +8,27 @@ pagination:
 
 <section class="acw-section acw-blog-hero">
   <div class="acw-container acw-blog-hero-inner">
-    <div class="acw-blog-hero-copy">
-      <p class="acw-section-label">Blog</p>
-      <h1 class="acw-blog-page-title">Notes on calm, clear therapist websites.</h1>
-      <p class="acw-blog-page-intro">
-        Thoughts on calm design, clearer messaging, and building trust online — written simply, for therapists who want their website to feel more human.
-      </p>
+    <p class="acw-section-label">Blog</p>
+    <h1 class="acw-blog-page-title">Calm, clear websites for therapists.</h1>
+    <p class="acw-blog-page-intro">
+      Simple notes on trust, clarity, and making a therapist website feel more human.
+    </p>
 
-      <form class="acw-blog-search" role="search" aria-label="Blog search" onsubmit="return false;">
-        <label class="sr-only" for="blog-search-input">Search posts</label>
-        <input
-          id="blog-search-input"
-          type="search"
-          placeholder="Search posts…"
-          autocomplete="off"
-        />
-        <button id="blog-search-button" class="acw-btn acw-btn-secondary" type="button">
-          Search
-        </button>
-        <span id="blog-search-count" class="acw-blog-search-count" aria-live="polite"></span>
-      </form>
+    <form class="acw-blog-search" role="search" aria-label="Blog search" onsubmit="return false;">
+      <label class="sr-only" for="blog-search-input">Search posts</label>
+      <input
+        id="blog-search-input"
+        type="search"
+        placeholder="Search posts..."
+        autocomplete="off"
+      />
+      <button id="blog-search-button" class="acw-btn acw-btn-secondary" type="button">
+        Search
+      </button>
+      <span id="blog-search-count" class="acw-blog-search-count" aria-live="polite"></span>
+    </form>
 
-      <ul id="blog-search-results" class="acw-blog-search-results" hidden></ul>
-    </div>
-
-    <aside class="acw-blog-highlight">
-      <p class="acw-blog-highlight-label">Why this page exists</p>
-      <h2>Simple thoughts that help a therapist site feel clearer and easier to trust.</h2>
-      <p>
-        This is where I’m collecting ideas around tone, structure, copy, and design — the small things that make a website feel calmer and more grounded.
-      </p>
-    </aside>
+    <ul id="blog-search-results" class="acw-blog-search-results" hidden></ul>
   </div>
 </section>
 
@@ -48,17 +38,26 @@ pagination:
       <div class="acw-blog-grid" id="blogPosts">
         {% for post in paginator.posts %}
           <article class="acw-card acw-blog-card">
+            {% if post.hero_image %}
+              <a class="acw-blog-card-image-link" href="{{ post.url | relative_url }}">
+                <img
+                  class="acw-blog-card-image"
+                  src="{{ post.hero_image | relative_url }}"
+                  alt="{{ post.title }}"
+                  loading="lazy"
+                >
+              </a>
+            {% endif %}
+
             <div class="acw-blog-card-inner">
-              <p class="acw-blog-meta">
-                {{ post.date | date: "%-d %B %Y" }}
-              </p>
+              <p class="acw-blog-meta">{{ post.date | date: "%-d %B %Y" }}</p>
 
               <h2 class="acw-blog-title">
                 <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
               </h2>
 
               <p class="acw-blog-excerpt">
-                {{ post.description | default: post.excerpt | strip_html | truncatewords: 26 }}
+                {{ post.description | default: post.excerpt | strip_html | truncatewords: 24 }}
               </p>
 
               <a class="acw-blog-readmore" href="{{ post.url | relative_url }}">
@@ -83,7 +82,7 @@ pagination:
         <p class="acw-section-label">Coming soon</p>
         <h2>The first posts are on their way.</h2>
         <p class="acw-section-text">
-          I’m starting simply here. A few thoughtful posts will appear soon around therapist websites, calm design, and building trust online.
+          A few thoughtful posts will appear here soon around therapist websites, calm design, and building trust online.
         </p>
       </div>
     {% endif %}
