@@ -39,34 +39,32 @@
     setOpen(false);
   }
 
-  syncForBreakpoint();
-
-  btn.addEventListener('click', function (e) {
+  function handleToggleClick(e) {
     if (mqDesktop.matches) return;
 
     e.stopPropagation();
     const open = btn.getAttribute('aria-expanded') !== 'true';
     setOpen(open);
-  });
+  }
 
-  menu.addEventListener('click', function (e) {
+  function handleMenuClick(e) {
     if (mqDesktop.matches) return;
 
     const link = e.target.closest('a');
     if (link) {
       setOpen(false);
     }
-  });
+  }
 
-  document.addEventListener('keydown', function (e) {
+  function handleKeydown(e) {
     if (mqDesktop.matches) return;
 
     if (e.key === 'Escape') {
       setOpen(false);
     }
-  });
+  }
 
-  document.addEventListener('click', function (e) {
+  function handleDocumentClick(e) {
     if (mqDesktop.matches) return;
 
     const isOpen = btn.getAttribute('aria-expanded') === 'true';
@@ -75,7 +73,14 @@
     if (!header.contains(e.target)) {
       setOpen(false);
     }
-  });
+  }
+
+  syncForBreakpoint();
+
+  btn.addEventListener('click', handleToggleClick);
+  menu.addEventListener('click', handleMenuClick);
+  document.addEventListener('keydown', handleKeydown);
+  document.addEventListener('click', handleDocumentClick);
 
   if (mqDesktop.addEventListener) {
     mqDesktop.addEventListener('change', syncForBreakpoint);
