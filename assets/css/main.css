@@ -2,7 +2,7 @@
 ====================================================================
 AlexanderCliveWatson.co.uk — Home CSS
 Simplified, warmer, calmer, more human.
-Updated accent colour to better match logo sage green.
+Updated for text-based header branding.
 ====================================================================
 */
 
@@ -135,10 +135,10 @@ p {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(239, 231, 220, 0.96);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(31, 41, 51, 0.10);
+  background: rgba(246, 241, 234, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(31, 41, 51, 0.08);
   box-shadow: 0 6px 24px rgba(31, 41, 51, 0.04);
 }
 
@@ -146,8 +146,8 @@ p {
 .site-header .shell {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 1.15rem 1.25rem;
-  min-height: 96px;
+  padding: 0 1.25rem;
+  min-height: 88px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -155,10 +155,9 @@ p {
 }
 
 .brand-wrap {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 1rem;
-  flex: 1;
+  flex: 0 0 auto;
   min-width: 0;
 }
 
@@ -166,9 +165,15 @@ p {
 .brand {
   display: inline-flex;
   align-items: center;
+  gap: 0.9rem;
   color: var(--text);
   text-decoration: none;
   min-width: 0;
+}
+
+.brand:hover {
+  color: var(--text);
+  text-decoration: none;
 }
 
 .brand-home {
@@ -191,42 +196,69 @@ p {
 }
 
 .brand-mark {
+  display: inline-block;
+  flex: 0 0 auto;
+  font-family: var(--font-heading);
+  font-size: 2.45rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.065em;
+  color: var(--text);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.15rem;
+  min-width: 0;
+  line-height: 1.05;
+}
+
+.brand-name {
   display: block;
-  height: 56px;
-  width: auto;
-  max-width: 420px;
-  object-fit: contain;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  white-space: nowrap;
 }
 
 .brand-tagline {
-  display: inline-block;
-  font-size: 0.98rem;
+  display: block;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: rgba(31, 41, 51, 0.70);
+  color: rgba(31, 41, 51, 0.82);
   white-space: nowrap;
-  line-height: 1;
-  padding-left: 1rem;
-  border-left: 1px solid rgba(31, 41, 51, 0.12);
+}
+
+.site-nav {
+  flex: 0 0 auto;
 }
 
 .site-nav ul {
   list-style: none;
   display: flex;
-  gap: 1.15rem;
+  gap: 2rem;
   align-items: center;
   margin: 0;
   padding: 0;
 }
 
 .site-nav a {
-  color: rgba(31, 41, 51, 0.80);
+  color: rgba(31, 41, 51, 0.82);
   font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.2;
   padding: 0.45rem 0;
   border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .site-nav a:hover,
-.site-nav a:focus-visible {
+.site-nav a:focus-visible,
+.site-nav a[aria-current="page"] {
   color: var(--text);
   border-bottom-color: rgba(142, 159, 132, 0.38);
 }
@@ -239,10 +271,16 @@ p {
   height: 46px;
   border: 1px solid rgba(31, 41, 51, 0.12);
   border-radius: 12px;
-  background: rgba(255, 253, 249, 0.78);
+  background: rgba(255, 253, 249, 0.82);
   cursor: pointer;
   color: var(--text);
   padding: 0;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-toggle:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(31, 41, 51, 0.18);
 }
 
 .nav-toggle-lines {
@@ -281,7 +319,7 @@ p {
   height: 46px;
   border: 1px solid rgba(31, 41, 51, 0.10);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.70);
+  background: rgba(255, 255, 255, 0.72);
   color: var(--text);
   cursor: pointer;
   padding: 0;
@@ -333,7 +371,7 @@ body.menu-open {
   .site-nav ul {
     display: flex;
     flex-direction: row;
-    gap: 1.15rem;
+    gap: 2rem;
     align-items: center;
   }
 
@@ -354,19 +392,32 @@ body.menu-open {
 @media (max-width: 860px) {
   .site-header .nav,
   .site-header .shell {
-    min-height: 84px;
-    padding: 0.95rem 1rem;
+    min-height: 76px;
+    padding: 0 1rem;
     gap: 0.9rem;
   }
 
   .brand-wrap {
-    gap: 0.75rem;
     min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .brand {
+    gap: 0.7rem;
+    max-width: calc(100vw - 84px);
   }
 
   .brand-mark {
-    height: 48px;
-    max-width: 260px;
+    font-size: 2rem;
+  }
+
+  .brand-text {
+    gap: 0.08rem;
+  }
+
+  .brand-name {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
   }
 
   .brand-tagline {
@@ -377,7 +428,7 @@ body.menu-open {
     position: fixed;
     inset: 0;
     z-index: 1200;
-    background: rgba(31, 41, 51, 0.22);
+    background: rgba(31, 41, 51, 0.24);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.25s ease;
@@ -450,7 +501,8 @@ body.menu-open {
   }
 
   .site-nav a:hover,
-  .site-nav a:focus-visible {
+  .site-nav a:focus-visible,
+  .site-nav a[aria-current="page"] {
     color: var(--accent-dark);
   }
 }

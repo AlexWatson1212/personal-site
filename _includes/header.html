@@ -3,15 +3,11 @@
 
     <div class="brand-wrap">
       <a class="brand brand-home" href="{{ '/' | relative_url }}" aria-label="Alex Watson home">
-        <img
-          class="brand-mark"
-          src="{{ '/assets/images/brand/aw-logo.png' | relative_url }}"
-          alt="Alex Watson"
-          width="300"
-          height="80"
-          loading="eager"
-          decoding="async"
-        >
+        <span class="brand-mark" aria-hidden="true">AW</span>
+        <span class="brand-text">
+          <span class="brand-name">Alex Watson</span>
+          <span class="brand-tagline">Websites for Therapists</span>
+        </span>
       </a>
     </div>
 
@@ -25,7 +21,7 @@
       <span class="nav-toggle-lines" aria-hidden="true"></span>
     </button>
 
-    <nav id="site-menu" class="site-nav" role="navigation" aria-label="Primary">
+    <nav id="site-menu" class="site-nav" aria-label="Primary">
       <div class="site-nav-panel">
         <div class="site-nav-top">
           <span class="site-nav-title">Menu</span>
