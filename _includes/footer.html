@@ -3,19 +3,28 @@
   <div class="container footer-center">
 
     <!-- Brand -->
+<footer class="site-footer">
+  <div class="footer-center">
     <div class="footer-brand">
-      <a href="{{ '/' | relative_url }}" aria-label="Alex Watson — Websites for Therapists">
-        <img
-          src="{{ '/assets/images/brand/aw-logo.webp' | relative_url }}"
-          alt="Alex Watson — Websites for Therapists"
-          width="260"
-          height="68"
-          loading="lazy"
-          decoding="async"
-        >
+      <a href="{{ '/' | relative_url }}" aria-label="Alex Watson home">
+        <span class="footer-brand-mark" aria-hidden="true">AW</span>
       </a>
-      <p class="muted">© {{ "now" | date: "%Y" }} · All rights reserved.</p>
     </div>
+
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="{{ '/websites-for-therapists/' | relative_url }}">Web Design</a>
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="{{ '/' | relative_url }}#contact">Contact</a>
+    </nav>
+
+    <div class="footer-note">
+      <p>
+        Clean, calm websites for therapists.
+      </p>
+    </div>
+  </div>
+</footer>
 
     <!-- Footer Navigation -->
     <nav class="footer-nav" aria-label="Footer">
