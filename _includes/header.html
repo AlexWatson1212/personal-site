@@ -1,68 +1,44 @@
 <header class="site-header" role="banner">
-  <div class="shell">
-
-    <div class="brand-wrap">
-      <a class="brand brand-home" href="{{ '/' | relative_url }}" aria-label="Alex Watson home">
-        <span class="brand-mark" aria-hidden="true">AW</span>
-        <span class="brand-text">
-          <span class="brand-name">Alex Watson</span>
-          <span class="brand-tagline">Websites for Therapists</span>
-        </span>
-      </a>
-    </div>
+  <nav class="nav" role="navigation" aria-label="Main">
+    <a class="nav__brand" href="{{ '/' | relative_url }}" aria-label="Alex Watson home">
+      <span class="nav__brand-text" aria-hidden="true">AW</span>
+    </a>
 
     <button
-      class="nav-toggle"
+      class="nav__toggle"
       type="button"
       aria-label="Open menu"
-      aria-controls="site-menu"
+      aria-controls="primary-nav"
       aria-expanded="false"
     >
-      <span class="nav-toggle-lines" aria-hidden="true"></span>
+      <span aria-hidden="true" class="nav__icon"></span>
     </button>
 
-    <nav id="site-menu" class="site-nav" aria-label="Primary">
-      <div class="site-nav-panel">
-        <div class="site-nav-top">
-          <span class="site-nav-title">Menu</span>
+    <ul id="primary-nav" class="nav__links" hidden>
+      <li>
+        <a
+          href="{{ '/websites-for-therapists/' | relative_url }}"
+          {% if page.url contains "/websites-for-therapists" %}aria-current="page"{% endif %}
+        >Web Design</a>
+      </li>
 
-          <button
-            class="nav-close"
-            type="button"
-            aria-label="Close menu"
-          >
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
+      <li>
+        <a
+          href="{{ '/blog/' | relative_url }}"
+          {% if page.url contains "/blog" %}aria-current="page"{% endif %}
+        >Blog</a>
+      </li>
 
-        <ul>
-          <li>
-            <a
-              href="{{ '/websites-for-therapists/' | relative_url }}"
-              {% if page.url contains "/websites-for-therapists" %}aria-current="page"{% endif %}
-            >Pricing</a>
-          </li>
+      <li>
+        <a
+          href="{{ '/about/' | relative_url }}"
+          {% if page.url contains "/about" %}aria-current="page"{% endif %}
+        >About</a>
+      </li>
 
-          <li>
-            <a
-              href="{{ '/blog/' | relative_url }}"
-              {% if page.url contains "/blog" %}aria-current="page"{% endif %}
-            >Blog</a>
-          </li>
-
-          <li>
-            <a
-              href="{{ '/about/' | relative_url }}"
-              {% if page.url contains "/about" %}aria-current="page"{% endif %}
-            >About</a>
-          </li>
-
-          <li>
-            <a href="{{ '/' | relative_url }}#contact">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-  </div>
+      <li>
+        <a href="{{ '/' | relative_url }}#contact">Contact</a>
+      </li>
+    </ul>
+  </nav>
 </header>
