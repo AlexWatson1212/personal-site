@@ -2,7 +2,7 @@
 ====================================================================
 AlexanderCliveWatson.co.uk — Home CSS
 Simplified, warmer, calmer, more human.
-Cleaned up for minimal AW header + simplified nav.
+Cleaned up for minimal AW header + simplified nav + matching footer.
 ====================================================================
 */
 
@@ -515,15 +515,19 @@ section {
 .footer-brand a {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
   color: inherit;
   text-decoration: none;
 }
 
-.footer-brand img {
-  height: 44px;
-  width: auto;
-  display: block;
+.footer-brand-mark {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.065em;
+  color: var(--text);
 }
 
 .site-footer .muted {
@@ -542,6 +546,12 @@ section {
 .footer-nav a {
   color: var(--accent-dark);
   font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus-visible {
+  color: var(--text);
 }
 
 .footer-social {
@@ -578,6 +588,7 @@ section {
 
 .footer-note p {
   margin: 0;
+  color: rgba(31, 41, 51, 0.72);
 }
 
 .footer-note a,
