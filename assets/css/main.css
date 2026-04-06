@@ -526,29 +526,51 @@ section {
 ========================= */
 
 .acw-blog-hero {
-  padding: 56px 0 38px;
+  padding: 56px 0 42px;
   background:
     radial-gradient(circle at top left, rgba(217, 194, 167, 0.20), transparent 40%),
     linear-gradient(180deg, #fcf8f2 0%, #f6f1ea 100%);
 }
 
-.acw-blog-hero-inner {
-  max-width: 760px;
+.acw-blog-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.acw-blog-hero-copy {
+  max-width: 720px;
 }
 
 .acw-blog-page-title {
-  font-size: clamp(2.2rem, 3.6vw, 3.1rem);
-  line-height: 1.04;
-  letter-spacing: -0.04em;
-  max-width: 10ch;
+  font-size: clamp(2.5rem, 4.5vw, 4.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  max-width: 11ch;
   margin-bottom: 0.9rem;
 }
 
 .acw-blog-page-intro {
-  max-width: 56ch;
+  max-width: 46ch;
   font-size: 1.03rem;
   color: var(--muted);
-  margin-bottom: 1.35rem;
+  margin-bottom: 1.45rem;
+}
+
+.acw-blog-hero-image-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.acw-blog-hero-image {
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 28px;
+  border: 1px solid rgba(31, 41, 51, 0.08);
+  box-shadow: var(--shadow);
 }
 
 .acw-blog-search {
@@ -556,35 +578,50 @@ section {
   align-items: center;
   gap: 0.85rem;
   flex-wrap: wrap;
+  max-width: 760px;
 }
 
 .acw-blog-search input[type="search"] {
-  flex: 1 1 320px;
-  min-width: 220px;
-  height: 56px;
+  flex: 1 1 360px;
+  min-width: 240px;
+  height: 58px;
   padding: 0 1.1rem;
   font: inherit;
+  font-size: 1rem;
   color: var(--text);
-  background: #fffdf9;
-  border: 1.5px solid rgba(31, 41, 51, 0.14);
-  border-radius: 999px;
-  box-shadow: 0 2px 8px rgba(31, 41, 51, 0.03);
+  background: #fff;
+  border: 2px solid rgba(31, 41, 51, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 3px 10px rgba(31, 41, 51, 0.04);
 }
 
 .acw-blog-search input[type="search"]::placeholder {
-  color: rgba(95, 107, 118, 0.85);
+  color: rgba(95, 107, 118, 0.88);
 }
 
 .acw-blog-search input[type="search"]:focus {
   outline: none;
-  border-color: rgba(114, 130, 106, 0.6);
-  background: #fff;
+  border-color: var(--accent-dark);
+  box-shadow: 0 0 0 4px rgba(142, 159, 132, 0.16);
 }
 
-.acw-blog-search .acw-btn {
-  min-height: 56px;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+.acw-blog-search-button {
+  min-height: 58px;
+  min-width: 120px;
+  padding: 0 1.3rem;
+  background: var(--text);
+  color: #fff;
+  border: 2px solid var(--text);
+  border-radius: 16px;
+  font-weight: 700;
+  box-shadow: 0 3px 10px rgba(31, 41, 51, 0.06);
+}
+
+.acw-blog-search-button:hover,
+.acw-blog-search-button:focus-visible {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  color: #fff;
 }
 
 .acw-blog-search-count {
@@ -602,8 +639,8 @@ section {
 .acw-blog-search-results li {
   margin: 0 0 0.75rem;
   padding: 1rem 1.1rem;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(31, 41, 51, 0.08);
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(31, 41, 51, 0.10);
   border-radius: 16px;
   box-shadow: var(--shadow);
 }
@@ -619,13 +656,14 @@ section {
 }
 
 .acw-blog-posts-section {
-  padding-top: 36px;
+  padding-top: 34px;
 }
 
 .acw-blog-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
+  align-items: stretch;
 }
 
 .acw-blog-card {
@@ -690,22 +728,23 @@ section {
   color: var(--text);
 }
 
-.acw-pagination {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-}
-
 .acw-blog-empty {
   max-width: 700px;
   padding: 1rem 0 2rem;
 }
 
 @media (max-width: 960px) {
+  .acw-blog-hero-layout,
   .acw-blog-grid {
     grid-template-columns: 1fr;
+  }
+
+  .acw-blog-hero-image-wrap {
+    justify-content: flex-start;
+  }
+
+  .acw-blog-hero-image {
+    max-width: 100%;
   }
 }
 
@@ -715,7 +754,8 @@ section {
   }
 
   .acw-blog-page-title {
-    font-size: clamp(2rem, 10vw, 2.65rem);
+    font-size: clamp(2rem, 10vw, 2.9rem);
+    max-width: 12ch;
   }
 
   .acw-blog-search {
@@ -723,7 +763,7 @@ section {
   }
 
   .acw-blog-search input[type="search"],
-  .acw-blog-search .acw-btn {
+  .acw-blog-search-button {
     width: 100%;
   }
 
