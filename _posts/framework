@@ -1,4 +1,2214 @@
-Create a wide banner image for a professional website about designing calm, effective websites for therapists.
+
+
+
+Uploaded image
+Yeah, so I'd like the blog to be left aligned. I think all this text is just too much. I'd like a header image. I think that would tie things nicely, but keep it consistent. I'd like the search bar to be more visible. I'd like the outline of the bar to be clear and the search button to be clear, more clear. The posts aren't actually working, and I know Blog is using the default layout. I'm not sure, because I do have underscore posts, but they're not displaying. I'm not sure why that's not happening. What code do you need?
+
+Please send these 5 things:
+
+Your blog.html page
+
+Your _layouts/default.html file
+
+Your _config.yml file
+
+One example file from _posts/
+
+Any blog-related CSS file(s), or your main stylesheet if that page uses the global CSS
+
+If you have them, also paste:
+
+any include used on the blog page, like _includes/header.html or _includes/footer.html
+
+the part of blog.html where you loop through posts, usually something like site.posts
+
+The reason I want those is:
+
+blog.html will show why the posts are not rendering
+
+default.html will show whether the content block is being injected properly
+
+_config.yml can reveal Jekyll settings issues
+
+a sample post will confirm the front matter is valid
+
+CSS is what I need to fix the left alignment, clearer search bar, stronger button, and add a header image cleanly
+
+From what you’ve shown, the most likely reasons the posts are not appearing are:
+
+the loop is missing or incorrect in blog.html
+
+the page is using layout: default but {{ content }} is missing or misplaced in default.html
+
+the post filenames or front matter in _posts are invalid
+
+the posts are future-dated or marked unpublished
+
+the blog page is filtering by category/tag and nothing matches
+
+Paste those files and I’ll tell you exactly what to change, and then I can give you the full updated code.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  {% include header.html %}
+  <main id="content" class="site-content">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+
+  {% if site.google_analytics %}
+    {% include analytics.html %}
+  {% endif %}
+
+  <script src="{{ '/assets/js/nav.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/search.js' | relative_url }}" defer></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1G5FKYL0R4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1G5FKYL0R4');
+  </script>
+</body>
+</html> - ---
+layout: default
+title: Blog
+pagination:
+  enabled: true
+  collection: posts
+---
+
+<section class="acw-section acw-blog-hero">
+  <div class="acw-container acw-blog-hero-inner">
+    <p class="acw-section-label">Blog</p>
+    <h1 class="acw-blog-page-title">Calm, clear websites for therapists.</h1>
+    <p class="acw-blog-page-intro">
+      Simple notes on trust, clarity, and making a therapist website feel more human.
+    </p>
+
+    <form class="acw-blog-search" role="search" aria-label="Blog search" onsubmit="return false;">
+      <label class="sr-only" for="blog-search-input">Search posts</label>
+      <input
+        id="blog-search-input"
+        type="search"
+        placeholder="Search posts..."
+        autocomplete="off"
+      />
+      <button id="blog-search-button" class="acw-btn acw-btn-secondary" type="button">
+        Search
+      </button>
+      <span id="blog-search-count" class="acw-blog-search-count" aria-live="polite"></span>
+    </form>
+
+    <ul id="blog-search-results" class="acw-blog-search-results" hidden></ul>
+  </div>
+</section>
+
+<section class="acw-section acw-blog-posts-section">
+  <div class="acw-container">
+    {% if paginator.posts and paginator.posts.size > 0 %}
+      <div class="acw-blog-grid" id="blogPosts">
+        {% for post in paginator.posts %}
+          <article class="acw-card acw-blog-card">
+            {% if post.hero_image %}
+              <a class="acw-blog-card-image-link" href="{{ post.url | relative_url }}">
+                <img
+                  class="acw-blog-card-image"
+                  src="{{ post.hero_image | relative_url }}"
+                  alt="{{ post.title }}"
+                  loading="lazy"
+                >
+              </a>
+            {% endif %}
+
+            <div class="acw-blog-card-inner">
+              <p class="acw-blog-meta">{{ post.date | date: "%-d %B %Y" }}</p>
+
+              <h2 class="acw-blog-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              </h2>
+
+              <p class="acw-blog-excerpt">
+                {{ post.description | default: post.excerpt | strip_html | truncatewords: 24 }}
+              </p>
+
+              <a class="acw-blog-readmore" href="{{ post.url | relative_url }}">
+                Read article
+              </a>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+
+      <nav class="acw-pagination" aria-label="Pagination">
+        {% if paginator.previous_page %}
+          <a class="acw-btn acw-btn-secondary" href="{{ paginator.previous_page_path | relative_url }}">← Newer</a>
+        {% endif %}
+
+        {% if paginator.next_page %}
+          <a class="acw-btn acw-btn-secondary" href="{{ paginator.next_page_path | relative_url }}">Older →</a>
+        {% endif %}
+      </nav>
+    {% else %}
+      <div class="acw-blog-empty" id="blogPosts">
+        <p class="acw-section-label">Coming soon</p>
+        <h2>The first posts are on their way.</h2>
+        <p class="acw-section-text">
+          A few thoughtful posts will appear here soon around therapist websites, calm design, and building trust online.
+        </p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  (function () {
+    const input = document.getElementById('blog-search-input');
+    const grid = document.getElementById('blogPosts');
+    const results = document.getElementById('blog-search-results');
+
+    if (!input || !grid || !results) return;
+
+    input.addEventListener('input', function () {
+      const q = this.value.trim();
+      results.hidden = !q;
+      grid.style.display = q ? 'none' : '';
+    });
+  })();
+</script>
+
+<script src="{{ '/assets/js/search.js' | relative_url }}" defer></script> - title: ""
+description: ""
+url: "https://embracingauthenticity.co.uk"
+baseurl: ""
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+future: true
+permalink: /:title/
+
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - netlify.toml
+  - node_modules
+  - vendor
+  - .bundle
+  - .jekyll-cache
+  - _site - ---
+layout: post
+title: "What makes a therapist website feel calm?"
+date: 2026-04-04
+tags: [web design, therapists, trust]
+description: "A few simple things that make a therapist website feel calmer, clearer, and easier to trust."
+hero_image: /assets/images/blog/calm-therapist-website.webp
+---
+
+A calm therapist website usually does less, not more.
+
+It does not try to impress people with too many effects, too many colours, or too much information all at once. It gives someone space to land, breathe, and understand where they are.
+
+That matters more than people think.
+
+When someone is looking for a therapist, they are often already carrying uncertainty. They may feel nervous, hesitant, overwhelmed, or emotionally tired. A busy website adds to that feeling. A calm one helps reduce it.
+
+Here are a few things that help.
+
+## 1. Clear structure
+
+A calm site is easy to move through.
+
+The visitor should be able to understand, quite quickly:
+
+- who the therapist is
+- who the work is for
+- how to get in touch
+- what kind of tone to expect
+
+That does not require a lot of pages. It requires clear decisions.
+
+## 2. Softer visual rhythm
+
+Spacing matters.
+
+Good spacing makes a page feel quieter. It helps each section breathe. It makes the content feel easier to take in.
+
+This is one of the simplest ways to make a site feel calmer without adding anything new.
+
+## 3. Fewer, better words
+
+People often trust a website more when it sounds human and straightforward.
+
+That usually means fewer claims, fewer buzzwords, and less filler.
+
+Clear language is calming because it does not make the visitor work harder than they need to.
+
+## 4. A consistent tone
+
+The visual style and the writing should feel like they belong together.
+
+If the design feels soft and grounded but the writing feels cold or generic, trust weakens. The same is true the other way round.
+
+A calm site feels coherent.
+
+## 5. An easy next step
+
+Trust grows when the next step feels simple.
+
+A clear contact route, a welcoming message, and a straightforward invitation to get in touch all help the visitor feel less pressure.
+
+That does not mean pushing them. It means making the path obvious.
+
+## Final thought
+
+A therapist website does not need to be loud to be effective.
+
+Often, the best ones feel steady, uncluttered, and easy to trust. They make room for the person on the other side of the screen.
+
+And that, in itself, communicates something important. - /*
+====================================================================
+AlexanderCliveWatson.co.uk — Home CSS
+Simplified, warmer, calmer, more human.
+Cleaned up for minimal AW header + simplified nav + matching footer.
+====================================================================
+*/
+
+/* =========================
+1) Variables + base
+========================= */
+
+:root {
+  --bg: #f6f1ea;
+  --surface: #fffdf9;
+  --surface-soft: #efe7dc;
+  --text: #1f2933;
+  --muted: #5f6b76;
+  --line: rgba(31, 41, 51, 0.10);
+
+  --accent: #8e9f84;
+  --accent-dark: #72826a;
+  --accent-soft: #e6ecdf;
+
+  --warm: #d9c2a7;
+  --shadow: 0 10px 30px rgba(31, 41, 51, 0.08);
+
+  --radius: 22px;
+  --container: 1120px;
+  --narrow: 760px;
+
+  --font-heading: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.65;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--accent-dark);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+.container,
+.shell,
+.acw-container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.acw-narrow {
+  max-width: var(--narrow);
+}
+
+.site-content {
+  min-height: 60vh;
+}
+
+.site-content > .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-heading);
+  color: var(--text);
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: clamp(2.3rem, 5vw, 4.2rem);
+  line-height: 1.02;
+  max-width: 10ch;
+}
+
+h2 {
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  line-height: 1.12;
+}
+
+h3 {
+  font-size: 1.15rem;
+  line-height: 1.25;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =========================
+2) Header / nav
+========================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(246, 241, 234, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(31, 41, 51, 0.08);
+  box-shadow: 0 6px 24px rgba(31, 41, 51, 0.04);
+}
+
+.site-header .nav {
+  max-width: var(--container);
+  margin: 0 auto;
+  min-height: 88px;
+  padding: 0 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.nav__brand {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav__brand:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav__brand-text {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 2.35rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.065em;
+  color: var(--text);
+}
+
+.nav__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(31, 41, 51, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 253, 249, 0.82);
+  cursor: pointer;
+  color: var(--text);
+  padding: 0;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.nav__toggle:hover {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(31, 41, 51, 0.18);
+}
+
+.nav__toggle:active {
+  transform: translateY(1px);
+}
+
+.nav__icon {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 999px;
+}
+
+.nav__icon::before,
+.nav__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 999px;
+}
+
+.nav__icon::before {
+  top: -6px;
+}
+
+.nav__icon::after {
+  top: 6px;
+}
+
+.nav__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+@media (min-width: 861px) {
+  .nav__toggle {
+    display: none;
+  }
+
+  .nav__links {
+    display: flex !important;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav__links li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav__links a {
+    display: inline-block;
+    padding: 0.45rem 0;
+    font-size: 1rem;
+    line-height: 1.2;
+    font-weight: 600;
+    color: rgba(31, 41, 51, 0.82);
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .nav__links a:hover,
+  .nav__links a:focus-visible,
+  .nav__links a[aria-current="page"] {
+    color: var(--text);
+    border-bottom-color: rgba(142, 159, 132, 0.38);
+  }
+}
+
+@media (max-width: 860px) {
+  .site-header .nav {
+    min-height: 76px;
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  .nav__brand {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .nav__brand-text {
+    font-size: 1.95rem;
+  }
+
+  .nav__links {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    padding: 0.5rem 1rem 1rem;
+    background: linear-gradient(180deg, #f8f3ec 0%, #f3ece3 100%);
+    border-bottom: 1px solid rgba(31, 41, 51, 0.08);
+    box-shadow: 0 12px 30px rgba(31, 41, 51, 0.08);
+  }
+
+  .nav__links li {
+    border-bottom: 1px solid rgba(31, 41, 51, 0.08);
+  }
+
+  .nav__links li:last-child {
+    border-bottom: 0;
+  }
+
+  .nav__links a {
+    display: block;
+    width: 100%;
+    padding: 1rem 0;
+    font-size: 1.15rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .nav__links a:hover,
+  .nav__links a:focus-visible,
+  .nav__links a[aria-current="page"] {
+    color: var(--accent-dark);
+  }
+}
+
+/* =========================
+3) Shared sections + homepage
+========================= */
+
+.acw-section {
+  padding: 84px 0;
+  background: var(--surface);
+}
+
+.acw-section-soft {
+  background: var(--surface-soft);
+}
+
+.acw-hero {
+  padding: 72px 0 56px;
+  background:
+    radial-gradient(circle at top left, rgba(217, 194, 167, 0.35), transparent 40%),
+    linear-gradient(180deg, #fcf8f2 0%, #f6f1ea 100%);
+}
+
+.acw-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.acw-eyebrow,
+.acw-section-label {
+  display: inline-block;
+  margin-bottom: 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent-dark);
+}
+
+.acw-hero-text,
+.acw-section-text,
+.acw-section-intro {
+  max-width: 62ch;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.acw-cta-row {
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.acw-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: 0.2s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
+.acw-btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.acw-btn-primary:hover {
+  background: var(--accent-dark);
+  color: #fff;
+}
+
+.acw-btn-secondary {
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text);
+  border: 1px solid rgba(31, 41, 51, 0.10);
+}
+
+.acw-btn-secondary:hover {
+  background: #fff;
+  color: var(--text);
+}
+
+.acw-btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(31, 41, 51, 0.14);
+}
+
+.acw-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--text);
+}
+
+.acw-hero-image-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.acw-hero-image {
+  width: 100%;
+  max-width: 560px;
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.acw-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.acw-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(31, 41, 51, 0.08);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.acw-card-tag {
+  margin-bottom: 0.8rem;
+  color: var(--accent-dark);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.acw-contact-box {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(31, 41, 51, 0.08);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.acw-email {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--accent-dark);
+}
+
+.acw-contact-note {
+  margin: 0;
+  color: var(--muted);
+}
+
+.acw-muted {
+  color: var(--muted);
+}
+
+section {
+  scroll-margin-top: 100px;
+}
+
+@media (max-width: 960px) {
+  .acw-hero-grid,
+  .acw-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-hero {
+    padding-top: 56px;
+  }
+
+  h1 {
+    max-width: 12ch;
+  }
+
+  .acw-hero-image {
+    max-width: 100%;
+  }
+}
+
+/* =========================
+4) Blog
+========================= */
+
+.acw-blog-hero {
+  padding: 56px 0 38px;
+  background:
+    radial-gradient(circle at top left, rgba(217, 194, 167, 0.20), transparent 40%),
+    linear-gradient(180deg, #fcf8f2 0%, #f6f1ea 100%);
+}
+
+.acw-blog-hero-inner {
+  max-width: 760px;
+}
+
+.acw-blog-page-title {
+  font-size: clamp(2.2rem, 3.6vw, 3.1rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  max-width: 10ch;
+  margin-bottom: 0.9rem;
+}
+
+.acw-blog-page-intro {
+  max-width: 56ch;
+  font-size: 1.03rem;
+  color: var(--muted);
+  margin-bottom: 1.35rem;
+}
+
+.acw-blog-search {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.acw-blog-search input[type="search"] {
+  flex: 1 1 320px;
+  min-width: 220px;
+  height: 56px;
+  padding: 0 1.1rem;
+  font: inherit;
+  color: var(--text);
+  background: #fffdf9;
+  border: 1.5px solid rgba(31, 41, 51, 0.14);
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(31, 41, 51, 0.03);
+}
+
+.acw-blog-search input[type="search"]::placeholder {
+  color: rgba(95, 107, 118, 0.85);
+}
+
+.acw-blog-search input[type="search"]:focus {
+  outline: none;
+  border-color: rgba(114, 130, 106, 0.6);
+  background: #fff;
+}
+
+.acw-blog-search .acw-btn {
+  min-height: 56px;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.acw-blog-search-count {
+  width: 100%;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.acw-blog-search-results {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.acw-blog-search-results li {
+  margin: 0 0 0.75rem;
+  padding: 1rem 1.1rem;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(31, 41, 51, 0.08);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.acw-blog-search-results a {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.acw-blog-search-results a:hover,
+.acw-blog-search-results a:focus-visible {
+  color: var(--accent-dark);
+}
+
+.acw-blog-posts-section {
+  padding-top: 36px;
+}
+
+.acw-blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.acw-blog-card {
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.acw-blog-card-image-link {
+  display: block;
+}
+
+.acw-blog-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(31, 41, 51, 0.06);
+}
+
+.acw-blog-card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.5rem;
+}
+
+.acw-blog-meta {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+.acw-blog-title {
+  font-size: 1.4rem;
+  line-height: 1.12;
+  margin-bottom: 0.8rem;
+}
+
+.acw-blog-title a {
+  color: var(--text);
+}
+
+.acw-blog-title a:hover,
+.acw-blog-title a:focus-visible {
+  color: var(--accent-dark);
+}
+
+.acw-blog-excerpt {
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+
+.acw-blog-readmore {
+  margin-top: auto;
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+.acw-blog-readmore:hover,
+.acw-blog-readmore:focus-visible {
+  color: var(--text);
+}
+
+.acw-pagination {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.acw-blog-empty {
+  max-width: 700px;
+  padding: 1rem 0 2rem;
+}
+
+@media (max-width: 960px) {
+  .acw-blog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .acw-blog-hero {
+    padding: 46px 0 30px;
+  }
+
+  .acw-blog-page-title {
+    font-size: clamp(2rem, 10vw, 2.65rem);
+  }
+
+  .acw-blog-search {
+    align-items: stretch;
+  }
+
+  .acw-blog-search input[type="search"],
+  .acw-blog-search .acw-btn {
+    width: 100%;
+  }
+
+  .acw-blog-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* =========================
+5) Footer
+========================= */
+
+.site-footer {
+  margin-top: 0;
+  padding: 44px 16px 40px;
+  text-align: center;
+  background: #e9edf0;
+  color: rgba(31, 41, 51, 0.9);
+  border-top: 1px solid rgba(31, 41, 51, 0.08);
+}
+
+.site-footer .footer-center {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer-brand a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-brand-mark {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.065em;
+  color: var(--text);
+}
+
+.site-footer .muted {
+  margin: 8px 0 0;
+  color: rgba(31, 41, 51, 0.68);
+  font-size: 0.95rem;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  color: var(--accent-dark);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus-visible {
+  color: var(--text);
+}
+
+.footer-social {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-social .social {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(31, 41, 51, 0.08);
+  color: rgba(31, 41, 51, 0.9);
+}
+
+.footer-social .icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.footer-note {
+  width: 100%;
+  max-width: 560px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(31, 41, 51, 0.08);
+}
+
+.footer-note p {
+  margin: 0;
+  color: rgba(31, 41, 51, 0.72);
+}
+
+.footer-note a,
+.footer-email {
+  color: var(--accent-dark);
+}
+
+@media print {
+  .site-header,
+  .site-footer {
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+
+  .nav__links a,
+  .footer-nav a,
+  .footer-note a {
+    color: #000 !important;
+    border: 0 !important;
+  }
+} 
+
+I can see the main problem.
+
+Your posts are not showing because your blog page is using paginator.posts, but your _config.yml does not include a pagination plugin.
+
+Right now you have:
+
+plugins:
+  - jekyll-sitemap
+But your page expects pagination to exist:
+
+{% if paginator.posts and paginator.posts.size > 0 %}
+So paginator is never being created, which means your template falls into the empty state every time.
+
+What’s going wrong
+The main issue is this:
+
+you are using paginator.posts
+
+but pagination is not enabled in a way Jekyll can actually use
+
+so no posts are passed into the page
+
+There are also a few secondary issues:
+
+your blog hero is constrained to max-width: 760px, so it feels centered and narrow rather than properly left-aligned
+
+you are loading search.js twice
+
+your blog page currently has no image area in the hero
+
+the search field and button are too soft for what you want
+
+your site url is set to embracingauthenticity.co.uk, which is the wrong site for this project
+
+Immediate fix for posts not displaying
+The simplest fix is:
+
+1. Stop using paginator.posts
+Use site.posts instead.
+
+Replace this:
+
+{% if paginator.posts and paginator.posts.size > 0 %}
+  <div class="acw-blog-grid" id="blogPosts">
+    {% for post in paginator.posts %}
+with this:
+
+{% assign blog_posts = site.posts %}
+{% if blog_posts and blog_posts.size > 0 %}
+  <div class="acw-blog-grid" id="blogPosts">
+    {% for post in blog_posts %}
+And remove the pagination nav for now.
+
+2. Remove this from the blog page front matter
+Delete this:
+
+pagination:
+  enabled: true
+  collection: posts
+So the top of blog.html becomes:
+
+---
+layout: default
+title: Blog
+---
+3. Fix your _config.yml site URL
+Change:
+
+url: "https://embracingauthenticity.co.uk"
+to your actual therapist site URL.
+
+For example:
+
+url: "https://alexanderclivewatson.co.uk"
+or whatever domain you are actively using.
+
+Full updated blog.html
+This version does four things:
+
+fixes the posts display
+
+left-aligns the whole blog hero better
+
+reduces text
+
+adds a hero image area
+
+---
+layout: default
+title: Blog
+---
+
+<section class="acw-section acw-blog-hero">
+  <div class="acw-container acw-blog-hero-layout">
+    <div class="acw-blog-hero-copy">
+      <p class="acw-section-label">Blog</p>
+      <h1 class="acw-blog-page-title">Notes on calm, clear therapist websites.</h1>
+      <p class="acw-blog-page-intro">
+        Simple thoughts on clarity, trust, and calm design for therapist websites.
+      </p>
+
+      <form class="acw-blog-search" role="search" aria-label="Blog search" onsubmit="return false;">
+        <label class="sr-only" for="blog-search-input">Search posts</label>
+        <input
+          id="blog-search-input"
+          type="search"
+          placeholder="Search posts..."
+          autocomplete="off"
+        />
+        <button id="blog-search-button" class="acw-btn acw-btn-secondary acw-blog-search-button" type="button">
+          Search
+        </button>
+        <span id="blog-search-count" class="acw-blog-search-count" aria-live="polite"></span>
+      </form>
+
+      <ul id="blog-search-results" class="acw-blog-search-results" hidden></ul>
+    </div>
+
+    <div class="acw-blog-hero-image-wrap">
+      <img
+        class="acw-blog-hero-image"
+        src="{{ '/assets/images/blog/blog-hero.webp' | relative_url }}"
+        alt="A calm, minimal workspace and design-led website atmosphere"
+        loading="eager"
+      >
+    </div>
+  </div>
+</section>
+
+<section class="acw-section acw-blog-posts-section">
+  <div class="acw-container">
+    {% assign blog_posts = site.posts %}
+
+    {% if blog_posts and blog_posts.size > 0 %}
+      <div class="acw-blog-grid" id="blogPosts">
+        {% for post in blog_posts %}
+          <article class="acw-card acw-blog-card">
+            {% if post.hero_image %}
+              <a class="acw-blog-card-image-link" href="{{ post.url | relative_url }}">
+                <img
+                  class="acw-blog-card-image"
+                  src="{{ post.hero_image | relative_url }}"
+                  alt="{{ post.title }}"
+                  loading="lazy"
+                >
+              </a>
+            {% endif %}
+
+            <div class="acw-blog-card-inner">
+              <p class="acw-blog-meta">{{ post.date | date: "%-d %B %Y" }}</p>
+
+              <h2 class="acw-blog-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              </h2>
+
+              <p class="acw-blog-excerpt">
+                {{ post.description | default: post.excerpt | strip_html | truncatewords: 24 }}
+              </p>
+
+              <a class="acw-blog-readmore" href="{{ post.url | relative_url }}">
+                Read article
+              </a>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="acw-blog-empty" id="blogPosts">
+        <p class="acw-section-label">Coming soon</p>
+        <h2>The first posts are on their way.</h2>
+        <p class="acw-section-text">
+          A few thoughtful posts will appear here soon around therapist websites, calm design, and building trust online.
+        </p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  (function () {
+    const input = document.getElementById('blog-search-input');
+    const grid = document.getElementById('blogPosts');
+    const results = document.getElementById('blog-search-results');
+
+    if (!input || !grid || !results) return;
+
+    input.addEventListener('input', function () {
+      const q = this.value.trim();
+      results.hidden = !q;
+      grid.style.display = q ? 'none' : '';
+    });
+  })();
+</script>
+
+What is this?
+CSS changes to make it feel cleaner, more left aligned, and clearer
+Replace your current blog section CSS only with this:
+
+/* =========================
+4) Blog
+========================= */
+
+.acw-blog-hero {
+  padding: 56px 0 42px;
+  background:
+    radial-gradient(circle at top left, rgba(217, 194, 167, 0.20), transparent 40%),
+    linear-gradient(180deg, #fcf8f2 0%, #f6f1ea 100%);
+}
+
+.acw-blog-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 2.25rem;
+  align-items: center;
+}
+
+.acw-blog-hero-copy {
+  max-width: 700px;
+}
+
+.acw-blog-page-title {
+  font-size: clamp(2.4rem, 4.2vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  max-width: 11ch;
+  margin-bottom: 0.9rem;
+}
+
+.acw-blog-page-intro {
+  max-width: 48ch;
+  font-size: 1.03rem;
+  color: var(--muted);
+  margin-bottom: 1.4rem;
+}
+
+.acw-blog-hero-image-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.acw-blog-hero-image {
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 28px;
+  border: 1px solid rgba(31, 41, 51, 0.08);
+  box-shadow: var(--shadow);
+}
+
+.acw-blog-search {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  max-width: 760px;
+}
+
+.acw-blog-search input[type="search"] {
+  flex: 1 1 360px;
+  min-width: 240px;
+  height: 58px;
+  padding: 0 1.1rem;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  background: #fff;
+  border: 2px solid rgba(31, 41, 51, 0.16);
+  border-radius: 16px;
+  box-shadow: 0 3px 10px rgba(31, 41, 51, 0.04);
+}
+
+.acw-blog-search input[type="search"]::placeholder {
+  color: rgba(95, 107, 118, 0.88);
+}
+
+.acw-blog-search input[type="search"]:focus {
+  outline: none;
+  border-color: var(--accent-dark);
+  box-shadow: 0 0 0 4px rgba(142, 159, 132, 0.16);
+}
+
+.acw-blog-search-button {
+  min-height: 58px;
+  min-width: 120px;
+  padding: 0 1.3rem;
+  background: var(--text);
+  color: #fff;
+  border: 2px solid var(--text);
+  border-radius: 16px;
+  box-shadow: 0 3px 10px rgba(31, 41, 51, 0.06);
+}
+
+.acw-blog-search-button:hover,
+.acw-blog-search-button:focus-visible {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  color: #fff;
+}
+
+.acw-blog-search-count {
+  width: 100%;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.acw-blog-search-results {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.acw-blog-search-results li {
+  margin: 0 0 0.75rem;
+  padding: 1rem 1.1rem;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(31, 41, 51, 0.10);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.acw-blog-search-results a {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.acw-blog-search-results a:hover,
+.acw-blog-search-results a:focus-visible {
+  color: var(--accent-dark);
+}
+
+.acw-blog-posts-section {
+  padding-top: 34px;
+}
+
+.acw-blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.acw-blog-card {
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.acw-blog-card-image-link {
+  display: block;
+}
+
+.acw-blog-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(31, 41, 51, 0.06);
+}
+
+.acw-blog-card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.5rem;
+}
+
+.acw-blog-meta {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+.acw-blog-title {
+  font-size: 1.4rem;
+  line-height: 1.12;
+  margin-bottom: 0.8rem;
+}
+
+.acw-blog-title a {
+  color: var(--text);
+}
+
+.acw-blog-title a:hover,
+.acw-blog-title a:focus-visible {
+  color: var(--accent-dark);
+}
+
+.acw-blog-excerpt {
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+
+.acw-blog-readmore {
+  margin-top: auto;
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+.acw-blog-readmore:hover,
+.acw-blog-readmore:focus-visible {
+  color: var(--text);
+}
+
+.acw-blog-empty {
+  max-width: 700px;
+  padding: 1rem 0 2rem;
+}
+
+@media (max-width: 960px) {
+  .acw-blog-hero-layout,
+  .acw-blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-blog-hero-image-wrap {
+    justify-content: flex-start;
+  }
+
+  .acw-blog-hero-image {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .acw-blog-hero {
+    padding: 46px 0 30px;
+  }
+
+  .acw-blog-page-title {
+    font-size: clamp(2rem, 10vw, 2.9rem);
+    max-width: 12ch;
+  }
+
+  .acw-blog-search {
+    align-items: stretch;
+  }
+
+  .acw-blog-search input[type="search"],
+  .acw-blog-search-button {
+    width: 100%;
+  }
+
+  .acw-blog-title {
+    font-size: 1.25rem;
+  }
+}
+Remove this duplicate script
+In your default layout, you already load:
+
+<script src="{{ '/assets/js/search.js' | relative_url }}" defer></script>
+
+What is this?
+So remove this from the bottom of blog.html:
+
+<script src="{{ '/assets/js/search.js' | relative_url }}" defer></script>
+
+What is this?
+You only need it once.
+
+One more thing to check
+Your sample post uses:
+
+layout: post
+That means you also need a _layouts/post.html file.
+
+If that file does not exist, the post cards may appear on the blog page, but clicking into a post could break or render badly.
+
+So if the listing starts working but the article page itself does not, send me your _layouts/post.html next.
+
+In summary
+Your main fix is:
+
+remove pagination front matter
+
+replace paginator.posts with site.posts
+
+That should make the posts appear straight away.
+
+After that, the design changes above will give you:
+
+a more left-aligned layout
+
+less cluttered intro text
+
+a proper header image
+
+a clearer search bar and search button
+
+Paste your _layouts/post.html and your search.js next, and I’ll tighten the blog fully so the search actually works as well.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  {% include header.html %}
+
+  <main id="content" class="site-content">
+    <article class="post">
+      <h1>{{ page.title }}</h1>
+      {% if page.date %}
+        <p class="post-meta">{{ page.date | date: "%B %d, %Y" }}</p>
+      {% endif %}
+      {{ content }}
+    </article>
+  </main>
+
+  {% include footer.html %}
+  <script src="{{ '/assets/js/nav.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/search.js' | relative_url }}" defer></script>
+</body>
+</html>  - (function () {
+  const INPUT = document.querySelector('#blog-search-input');
+  const BTN   = document.querySelector('#blog-search-button');
+  const LIST  = document.querySelector('#blog-search-results');
+  const COUNT = document.querySelector('#blog-search-count');
+
+  if (!INPUT || !LIST) return; // not on the blog page
+
+  let INDEX = [];
+
+  // Fetch the index
+  fetch((document.querySelector('meta[name="baseurl"]')?.content || '') + '/search.json', {cache: 'no-store'})
+    .then(r => r.json())
+    .then(data => { INDEX = data; })
+    .catch(() => { /* silent fail; just leaves INDEX empty */ });
+
+  function parseQuery(q) {
+    // Supports emotion:grief, tag:boundaries, key:value pairs; remaining terms are keywords
+    const parts = q.trim().toLowerCase().split(/\s+/);
+    const filters = { emotion: [], tag: [] };
+    const terms = [];
+    parts.forEach(p => {
+      const m = p.match(/^(\w+):(.*)$/);
+      if (m) {
+        const key = m[1];
+        const val = m[2];
+        if (key === 'emotion') filters.emotion.push(val);
+        else if (key === 'tag' || key === 'tags') filters.tag.push(val);
+        else { terms.push(p); }
+      } else {
+        terms.push(p);
+      }
+    });
+    return { terms, filters };
+  }
+
+  function matches(post, { terms, filters }) {
+    // Filter by emotions/tags if provided
+    if (filters.emotion.length) {
+      const emos = (post.emotions || []).map(e => String(e).toLowerCase());
+      if (!filters.emotion.every(x => emos.includes(x))) return false;
+    }
+    if (filters.tag.length) {
+      const tags = (post.tags || []).map(t => String(t).toLowerCase());
+      if (!filters.tag.every(x => tags.includes(x))) return false;
+    }
+
+    if (!terms.length) return true;
+
+    const hay = [
+      post.title,
+      post.description,
+      (post.tags || []).join(' '),
+      (post.emotions || []).join(' '),
+      post.content
+    ].join(' ').toLowerCase();
+
+    // ALL terms must appear (AND search)
+    return terms.every(t => hay.includes(t));
+  }
+
+  function highlight(text, terms) {
+    if (!terms.length) return escapeHTML(text);
+    // collapse duplicates, ignore stop-words-length 1
+    const uniq = [...new Set(terms.filter(t => t.length > 1))];
+    let s = escapeHTML(text);
+    uniq.forEach(t => {
+      const re = new RegExp((${escapeRegExp(t)}), 'gi');
+      s = s.replace(re, '<mark>$1</mark>');
+    });
+    return s;
+  }
+
+  function escapeHTML(s) {
+    return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  function escapeRegExp(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+  function snippet(content, terms, len = 220) {
+    const text = content || '';
+    if (!terms.length) return escapeHTML(text.slice(0, len)) + (text.length > len ? '…' : '');
+    // find first hit
+    const lc = text.toLowerCase();
+    let idx = -1;
+    for (const t of terms) {
+      const i = lc.indexOf(t.toLowerCase());
+      if (i !== -1 && (idx === -1 || i < idx)) idx = i;
+    }
+    let start = Math.max(0, idx - Math.floor(len / 3));
+    let end   = Math.min(text.length, start + len);
+    if (end - start < len) start = Math.max(0, end - len);
+    const slice = text.slice(start, end);
+    return (start > 0 ? '…' : '') + highlight(slice, terms) + (end < text.length ? '…' : '');
+  }
+
+  function render(results, query) {
+    LIST.innerHTML = '';
+    if (COUNT) COUNT.textContent = results.length + (query ?  result${results.length !== 1 ? 's' : ''} : '');
+    if (!results.length) {
+      LIST.innerHTML = <li class="search-empty">No results.</li>;
+      return;
+    }
+    const { terms } = parseQuery(query);
+    const frag = document.createDocumentFragment();
+    results.forEach(p => {
+      const li = document.createElement('li');
+      li.className = 'search-result';
+      li.innerHTML = 
+        <a class="search-title" href="${p.url}">${highlight(p.title, terms)}</a>
+        <p class="search-snippet">${snippet(p.content || p.description || '', terms)}</p>
+        <p class="search-meta">
+          ${p.date ? new Date(p.date).toLocaleDateString() : ''}
+          ${p.tags?.length ? ' • ' + p.tags.map(t => <span class="chip">${escapeHTML(t)}</span>).join(' ') : ''}
+          ${p.emotions?.length ? ' • ' + p.emotions.map(e => <span class="chip emo">${escapeHTML(e)}</span>).join(' ') : ''}
+        </p>;
+      frag.appendChild(li);
+    });
+    LIST.appendChild(frag);
+  }
+
+  function runSearch() {
+    const q = (INPUT.value || '').trim();
+    const parsed = parseQuery(q);
+    const res = INDEX.filter(p => matches(p, parsed))
+                     // simple score: title hit > description > content
+                     .map(p => {
+                        let score = 0;
+                        const qq = (parsed.terms || []).join(' ').toLowerCase();
+                        if (qq) {
+                          if (p.title?.toLowerCase().includes(qq)) score += 3;
+                          if ((p.description || '').toLowerCase().includes(qq)) score += 2;
+                          if ((p.content || '').toLowerCase().includes(qq)) score += 1;
+                        }
+                        return { p, score };
+                      })
+                     .sort((a,b) => b.score - a.score)
+                     .map(x => x.p);
+    render(res, q);
+  }
+
+  INPUT.addEventListener('input', runSearch);
+  BTN && BTN.addEventListener('click', (e) => { e.preventDefault(); runSearch(); });
+
+  // Run once if there’s a prefilled query (e.g., from link ?q=foo)
+  const urlQ = new URLSearchParams(location.search).get('q');
+  if (urlQ) { INPUT.value = urlQ; runSearch(); }
+})();
+
+Good — your _layouts/post.html is fine enough to render posts, so the main blocker really was the blog page using paginator.posts.
+
+Your search script also looks broadly fine. The remaining issue is likely that the blog listing logic was wrong, not the post layout.
+
+There are now 3 things I’d change next.
+
+1. Fix the blog page so posts actually render
+Use this as your full blog.html:
+
+---
+layout: default
+title: Blog
+---
+
+<section class="acw-section acw-blog-hero">
+  <div class="acw-container acw-blog-hero-layout">
+    <div class="acw-blog-hero-copy">
+      <p class="acw-section-label">Blog</p>
+      <h1 class="acw-blog-page-title">Notes on calm, clear therapist websites.</h1>
+      <p class="acw-blog-page-intro">
+        Simple thoughts on clarity, trust, and calm design for therapist websites.
+      </p>
+
+      <form class="acw-blog-search" role="search" aria-label="Blog search" onsubmit="return false;">
+        <label class="sr-only" for="blog-search-input">Search posts</label>
+        <input
+          id="blog-search-input"
+          type="search"
+          placeholder="Search posts..."
+          autocomplete="off"
+        />
+        <button id="blog-search-button" class="acw-btn acw-blog-search-button" type="button">
+          Search
+        </button>
+        <span id="blog-search-count" class="acw-blog-search-count" aria-live="polite"></span>
+      </form>
+
+      <ul id="blog-search-results" class="acw-blog-search-results" hidden></ul>
+    </div>
+
+    <div class="acw-blog-hero-image-wrap">
+      <img
+        class="acw-blog-hero-image"
+        src="{{ '/assets/images/blog/blog-hero.webp' | relative_url }}"
+        alt="Calm, minimal workspace for a therapist website"
+        loading="eager"
+      >
+    </div>
+  </div>
+</section>
+
+<section class="acw-section acw-blog-posts-section">
+  <div class="acw-container">
+    {% assign blog_posts = site.posts %}
+
+    {% if blog_posts.size > 0 %}
+      <div class="acw-blog-grid" id="blogPosts">
+        {% for post in blog_posts %}
+          <article class="acw-card acw-blog-card">
+            {% if post.hero_image %}
+              <a class="acw-blog-card-image-link" href="{{ post.url | relative_url }}">
+                <img
+                  class="acw-blog-card-image"
+                  src="{{ post.hero_image | relative_url }}"
+                  alt="{{ post.title }}"
+                  loading="lazy"
+                >
+              </a>
+            {% endif %}
+
+            <div class="acw-blog-card-inner">
+              <p class="acw-blog-meta">{{ post.date | date: "%-d %B %Y" }}</p>
+
+              <h2 class="acw-blog-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              </h2>
+
+              <p class="acw-blog-excerpt">
+                {{ post.description | default: post.excerpt | strip_html | truncatewords: 24 }}
+              </p>
+
+              <a class="acw-blog-readmore" href="{{ post.url | relative_url }}">
+                Read article
+              </a>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="acw-blog-empty" id="blogPosts">
+        <p class="acw-section-label">Coming soon</p>
+        <h2>The first posts are on their way.</h2>
+        <p class="acw-section-text">
+          A few thoughtful posts will appear here soon around therapist websites, calm design, and building trust online.
+        </p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+What is this?
+2. Replace your blog CSS section with this
+This will make it feel more left aligned, less wordy, with a stronger search field and clearer button.
+
+/* =========================
+4) Blog
+========================= */
+
+.acw-blog-hero {
+  padding: 56px 0 42px;
+  background:
+    radial-gradient(circle at top left, rgba(217, 194, 167, 0.20), transparent 40%),
+    linear-gradient(180deg, #fcf8f2 0%, #f6f1ea 100%);
+}
+
+.acw-blog-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.acw-blog-hero-copy {
+  max-width: 720px;
+}
+
+.acw-blog-page-title {
+  font-size: clamp(2.5rem, 4.5vw, 4.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  max-width: 11ch;
+  margin-bottom: 0.9rem;
+}
+
+.acw-blog-page-intro {
+  max-width: 46ch;
+  font-size: 1.03rem;
+  color: var(--muted);
+  margin-bottom: 1.45rem;
+}
+
+.acw-blog-hero-image-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.acw-blog-hero-image {
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 28px;
+  border: 1px solid rgba(31, 41, 51, 0.08);
+  box-shadow: var(--shadow);
+}
+
+.acw-blog-search {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  max-width: 760px;
+}
+
+.acw-blog-search input[type="search"] {
+  flex: 1 1 360px;
+  min-width: 240px;
+  height: 58px;
+  padding: 0 1.1rem;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  background: #fff;
+  border: 2px solid rgba(31, 41, 51, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 3px 10px rgba(31, 41, 51, 0.04);
+}
+
+.acw-blog-search input[type="search"]::placeholder {
+  color: rgba(95, 107, 118, 0.88);
+}
+
+.acw-blog-search input[type="search"]:focus {
+  outline: none;
+  border-color: var(--accent-dark);
+  box-shadow: 0 0 0 4px rgba(142, 159, 132, 0.16);
+}
+
+.acw-blog-search-button {
+  min-height: 58px;
+  min-width: 120px;
+  padding: 0 1.3rem;
+  background: var(--text);
+  color: #fff;
+  border: 2px solid var(--text);
+  border-radius: 16px;
+  font-weight: 700;
+  box-shadow: 0 3px 10px rgba(31, 41, 51, 0.06);
+}
+
+.acw-blog-search-button:hover,
+.acw-blog-search-button:focus-visible {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  color: #fff;
+}
+
+.acw-blog-search-count {
+  width: 100%;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.acw-blog-search-results {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.acw-blog-search-results li {
+  margin: 0 0 0.75rem;
+  padding: 1rem 1.1rem;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(31, 41, 51, 0.10);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.acw-blog-search-results a {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.acw-blog-search-results a:hover,
+.acw-blog-search-results a:focus-visible {
+  color: var(--accent-dark);
+}
+
+.acw-blog-posts-section {
+  padding-top: 34px;
+}
+
+.acw-blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.acw-blog-card {
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.acw-blog-card-image-link {
+  display: block;
+}
+
+.acw-blog-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(31, 41, 51, 0.06);
+}
+
+.acw-blog-card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.5rem;
+}
+
+.acw-blog-meta {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+.acw-blog-title {
+  font-size: 1.4rem;
+  line-height: 1.12;
+  margin-bottom: 0.8rem;
+}
+
+.acw-blog-title a {
+  color: var(--text);
+}
+
+.acw-blog-title a:hover,
+.acw-blog-title a:focus-visible {
+  color: var(--accent-dark);
+}
+
+.acw-blog-excerpt {
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+
+.acw-blog-readmore {
+  margin-top: auto;
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+.acw-blog-readmore:hover,
+.acw-blog-readmore:focus-visible {
+  color: var(--text);
+}
+
+.acw-blog-empty {
+  max-width: 700px;
+  padding: 1rem 0 2rem;
+}
+
+@media (max-width: 960px) {
+  .acw-blog-hero-layout,
+  .acw-blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-blog-hero-image-wrap {
+    justify-content: flex-start;
+  }
+
+  .acw-blog-hero-image {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .acw-blog-hero {
+    padding: 46px 0 30px;
+  }
+
+  .acw-blog-page-title {
+    font-size: clamp(2rem, 10vw, 2.9rem);
+    max-width: 12ch;
+  }
+
+  .acw-blog-search {
+    align-items: stretch;
+  }
+
+  .acw-blog-search input[type="search"],
+  .acw-blog-search-button {
+    width: 100%;
+  }
+
+  .acw-blog-title {
+    font-size: 1.25rem;
+  }
+}
+3. Remove the duplicate search script load
+You are loading search.js in the default layout already.
+
+So do not also load it again inside blog.html.
+
+And if your post pages use _layouts/post.html, that layout already loads search.js too, which is fine, but it is unnecessary on individual posts unless you plan to use search there. Not harmful, just not needed.
+
+One thing I’d also fix in _config.yml
+Change this:
+
+url: "https://embracingauthenticity.co.uk"
+to your therapist site domain.
+
+Because that is the wrong site and can cause odd URL behaviour later.
+
+One more likely issue for search
+Your search script fetches:
+
+'/search.json'
+So you also need a search.json file at the root of the site. If that file does not exist, the search box will show but never return real results.
+
+Create search.json with this:
+
+---
+layout: none
+---
+
+[
+  {% for post in site.posts %}
+    {
+      "title": {{ post.title | jsonify }},
+      "url": {{ post.url | relative_url | jsonify }},
+      "date": {{ post.date | date_to_xmlschema | jsonify }},
+      "description": {{ post.description | default: "" | jsonify }},
+      "tags": {{ post.tags | jsonify }},
+      "emotions": {{ post.emotions | jsonify }},
+      "content": {{ post.content | strip_html | normalize_whitespace | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
+So the minimum fix is
+change paginator.posts to site.posts
+
+remove pagination front matter from blog.html
+
+add search.json if it does not exist
+
+update the blog CSS
+
+add a real hero image file at /assets/images/blog/blog-hero.webp
+
+The biggest reason your posts were not showing is still the paginator issue.
+
+If you paste your current blog.html after you update it, I’ll check it line by line and tighten it up.
+
+
+Uploaded image
+One image for the blog that I can put in and then obviously two images. For the post, let's do the blog one first. Sorry, let's do the, yeah, the one for the blog page first, and this is the prompt I'm using for the images on this site. - Create a wide banner image for a professional website about designing calm, effective websites for therapists.
 
 Base the image specifically on this blog post title:
 “[INSERT POST TITLE HERE]”
@@ -47,3 +2257,426 @@ Composition:
 The image should feel like it belongs on a high-quality, calm, professional service website — not a blog about emotions.
 
 Make it specific enough that it clearly relates to the post title, but keep it grounded, practical, and design-focused.
+
+Use this for the main blog page hero image:
+
+Create a wide banner image for a professional website blog about designing calm, effective websites for therapists.
+
+Base the image specifically on this page theme:
+“Notes on calm, clear therapist websites”
+
+The image should feel:
+- clean
+- structured
+- calm
+- clear
+- professional
+- quietly warm
+- intentionally designed
+
+This is NOT a personal or emotional brand.
+It should feel like a thoughtful design studio, not a reflective, poetic, or therapeutic inner world.
+
+Important:
+- No emotional or symbolic imagery
+- No abstract metaphors
+- No dramatic atmosphere
+- No landscapes
+- No stock-photo clichés
+- No people
+- No text, logos, or UI mockups
+- No laptops showing website screens
+
+Instead, focus on:
+- a calm, well-composed interior workspace
+- a refined desk or studio corner
+- subtle architectural detail
+- neatly arranged design materials
+- a sense of order, clarity, and restraint
+- an environment that feels intentional, professional, and quietly premium
+
+Style:
+- modern editorial photography or realistic illustration
+- soft natural daylight
+- neutral palette with off-white, soft beige, sage, light grey, muted wood tones
+- minimal contrast
+- crisp but not harsh
+- simple, uncluttered composition
+- premium but understated
+
+Composition:
+- horizontal banner
+- lots of negative space
+- balanced layout
+- clear focal area on one side, open breathing room on the other
+- nothing busy or visually loud
+
+The image should feel like it belongs on a high-quality, calm, professional web design studio site for therapists.
+
+It should visually communicate:
+clarity, trust, order, spaciousness, and thoughtful design.
+
+Final direction:
+show a minimal, design-conscious workspace or interior that feels calm, capable, and well put together — something that supports the title “Notes on calm, clear therapist websites” in a grounded, practical, design-focused way.
+A slightly tighter version, if your image tool responds better to shorter prompts:
+
+Wide banner image for a calm, professional blog about therapist website design. Show a minimal, design-conscious interior workspace with soft natural daylight, muted wood, off-white, soft beige, sage, and light grey tones. Clean editorial style, realistic, uncluttered, quietly premium. No people, no text, no logos, no UI mockups, no symbolic imagery, no landscapes. Emphasise order, clarity, spaciousness, and thoughtful design. Balanced horizontal composition with generous negative space. The image should feel specifically suited to the title: “Notes on calm, clear therapist websites.”
+Also, from your screenshot, the images are not loading rather than being the wrong style. That usually means the file path is wrong, the file is missing, or the extension does not match.
+
+
+create image for blog page
+
+Generated image: Calm minimalist workspace with clean details
+
+
+Edit
+
+
+---
+layout: post
+title: "What makes a therapist website feel calm?"
+date: 2026-04-04
+tags: [web design, therapists, trust]
+description: "A few simple things that make a therapist website feel calmer, clearer, and easier to trust."
+hero_image: /assets/images/blog/calm-therapist-website.webp
+---
+
+A calm therapist website usually does less, not more.
+
+It does not try to impress people with too many effects, too many colours, or too much information all at once. It gives someone space to land, breathe, and understand where they are.
+
+That matters more than people think.
+
+When someone is looking for a therapist, they are often already carrying uncertainty. They may feel nervous, hesitant, overwhelmed, or emotionally tired. A busy website adds to that feeling. A calm one helps reduce it.
+
+Here are a few things that help.
+
+## 1. Clear structure
+
+A calm site is easy to move through.
+
+The visitor should be able to understand, quite quickly:
+
+- who the therapist is
+- who the work is for
+- how to get in touch
+- what kind of tone to expect
+
+That does not require a lot of pages. It requires clear decisions.
+
+## 2. Softer visual rhythm
+
+Spacing matters.
+
+Good spacing makes a page feel quieter. It helps each section breathe. It makes the content feel easier to take in.
+
+This is one of the simplest ways to make a site feel calmer without adding anything new.
+
+## 3. Fewer, better words
+
+People often trust a website more when it sounds human and straightforward.
+
+That usually means fewer claims, fewer buzzwords, and less filler.
+
+Clear language is calming because it does not make the visitor work harder than they need to.
+
+## 4. A consistent tone
+
+The visual style and the writing should feel like they belong together.
+
+If the design feels soft and grounded but the writing feels cold or generic, trust weakens. The same is true the other way round.
+
+A calm site feels coherent.
+
+## 5. An easy next step
+
+Trust grows when the next step feels simple.
+
+A clear contact route, a welcoming message, and a straightforward invitation to get in touch all help the visitor feel less pressure.
+
+That does not mean pushing them. It means making the path obvious.
+
+## Final thought
+
+A therapist website does not need to be loud to be effective.
+
+Often, the best ones feel steady, uncluttered, and easy to trust. They make room for the person on the other side of the screen.
+
+And that, in itself, communicates something important. - Create a wide banner image for a professional website about designing calm, effective websites for therapists.
+
+Base the image specifically on this blog post title:
+“[INSERT POST TITLE HERE]”
+
+The image should feel:
+- clean
+- structured
+- calm
+- clear
+- professional
+- quietly warm
+- intentionally designed
+
+This is NOT a personal or emotional brand.
+It should feel like a thoughtful design studio, not a reflective or poetic space.
+
+Important:
+- No emotional or symbolic imagery
+- No abstract metaphors
+- No “deep” or moody atmosphere
+- No landscapes unless directly relevant
+- No stock-photo clichés
+- No text, logos, or UI mockups
+
+Instead, focus on:
+- clean physical spaces
+- minimal interiors
+- desks, rooms, architecture
+- subtle signs of order and clarity
+- environments that feel intentional and well put together
+
+Style:
+- modern editorial photography or realistic illustration
+- soft, even lighting (like natural daylight in a calm room)
+- neutral palette (off-white, soft beige, sage, light grey, muted wood tones)
+- minimal contrast
+- crisp but not harsh
+- simple, uncluttered composition
+
+Composition:
+- horizontal banner
+- lots of negative space
+- balanced layout
+- nothing busy or overwhelming
+
+The image should feel like it belongs on a high-quality, calm, professional service website — not a blog about emotions.
+
+Make it specific enough that it clearly relates to the post title, but keep it grounded, practical, and design-focused. - create image
+
+Generated image: Calm and minimalist living space
+
+
+Edit
+
+
+and now this one - ---
+layout: post
+title: "Why clarity builds trust before contact"
+date: 2026-04-04
+tags: [web design, therapists, clarity]
+description: "Why a clear therapist website helps build trust before a client ever sends a message."
+hero_image: /assets/images/blog/clarity-builds-trust.webp
+---
+
+Before someone gets in touch, they are already deciding how safe your website feels.
+
+That decision is rarely made in one dramatic moment. It happens quietly.
+
+They notice whether the site feels clear or confusing. Whether the words feel human or distant. Whether it is obvious where to go next. Whether they can picture themselves reaching out.
+
+This is where clarity matters.
+
+## Clarity reduces friction
+
+When a website is unclear, the visitor has to work harder.
+
+They may have to guess:
+
+- what the therapist offers
+- whether they are in the right place
+- who the work is suited to
+- how to make contact
+
+Every extra piece of uncertainty adds friction.
+
+A clearer website lowers that friction. It makes the experience feel steadier and more respectful.
+
+## Clarity feels more trustworthy
+
+People often associate clarity with confidence.
+
+Not performative confidence. Not polished marketing language. Just a quiet sense that the person behind the site knows what they are offering and can explain it simply.
+
+That helps trust grow.
+
+## Clarity supports the emotional experience
+
+A therapist website is not just informational. It is relational.
+
+The visitor is not only reading words. They are sensing tone.
+
+If the site feels cluttered, vague, or inconsistent, that affects the emotional experience. If it feels clear, grounded, and easy to follow, that affects the emotional experience too.
+
+## What clarity can look like
+
+Clarity does not have to mean sounding formal.
+
+It can be as simple as:
+
+- a clear heading
+- a calm introduction
+- a short explanation of who the work is for
+- an easy way to get in touch
+- a consistent visual style
+
+Often, those basics do more than a complicated site ever could.
+
+## Final thought
+
+Trust does not begin when someone sends an enquiry.
+
+It begins earlier, in the small moments when they decide whether your website feels understandable, thoughtful, and safe enough to stay with.
+
+That is why clarity matters so much.
+
+It helps people feel more settled before they ever make contact.
+
+Generated image: A calm and organized workspace
+
+
+Edit
+
+
+i think a lot of these images are clean but souless
+
+Good — that’s actually a really important observation.
+
+Right now your prompts are over-correcting toward “clean”, and you’ve accidentally removed the thing that builds trust:
+
+human presence (without showing people).
+
+Let me challenge you slightly:
+
+You’re designing for therapists… but your images feel like they were made for accountants or architecture firms.
+
+That’s why they feel soulless.
+
+What’s missing (this is the key shift)
+Your current images have:
+
+clean desk
+
+neutral tones
+
+symmetry
+
+no noise
+
+But they don’t have:
+
+signs of life
+
+signs of use
+
+subtle imperfection
+
+warmth that feels lived-in, not staged
+
+And for therapists, that matters.
+
+Because trust isn’t built from perfection —
+it’s built from “this feels safe and real.”
+
+The adjustment (not a full pivot — just a correction)
+You don’t want:
+
+emotional landscapes ❌
+
+symbolic metaphors ❌
+
+people ❌
+
+But you do want:
+
+a space that feels used by a real person ✔️
+
+soft imperfection ✔️
+
+quiet warmth ✔️
+
+New direction for your images
+Think:
+
+“A calm, thoughtful workspace that someone actually sits in every day.”
+
+Not:
+
+“A perfectly staged Pinterest minimal desk.”
+
+Updated prompt (this will fix it)
+Use this instead going forward:
+
+Create a wide banner image for a professional website about designing calm, clear websites for therapists.
+
+Base the image on the blog title:
+“Why clarity builds trust before contact”
+
+The image should feel:
+- calm
+- clear
+- grounded
+- quietly warm
+- human, but without showing people
+
+Important shift:
+The space should feel lightly lived-in, not perfectly staged.
+
+Avoid:
+- sterile perfection
+- empty, lifeless minimalism
+- overly polished or showroom-style interiors
+
+Instead include subtle signs of real use:
+- a slightly open notebook
+- a pen placed naturally (not perfectly aligned)
+- a mug or glass of water
+- soft texture (paper, wood, fabric)
+- small imperfections in arrangement
+
+Environment:
+- a calm desk or workspace near natural light
+- soft daylight coming through a window
+- gentle shadows
+- neutral tones (off-white, beige, sage, warm wood)
+
+Style:
+- modern editorial photography
+- soft, natural lighting
+- low contrast
+- warm but restrained
+- clean, but not clinical
+
+Composition:
+- horizontal banner
+- balanced but slightly organic layout
+- clear focal point with natural negative space
+- nothing busy or cluttered
+
+No:
+- people
+- text
+- logos
+- UI screens
+- abstract symbolism
+
+The image should feel trustworthy, clear, and quietly human — like a space where someone thoughtful actually works, not a staged design template.
+Why this matters for your site specifically
+Your positioning is:
+
+“Clean, calm websites for therapists”
+
+But the deeper layer (the one that will actually convert clients) is:
+
+“This feels safe, thoughtful, and human.”
+
+Right now you're hitting:
+
+clean ✔️
+
+calm ✔️
+
+But missing:
+
+
+
+
+
