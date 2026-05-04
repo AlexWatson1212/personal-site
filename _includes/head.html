@@ -3,88 +3,40 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- ===========================================================
-Primary Stylesheet
-=========================================================== -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
-<!-- ===========================================================
-Font: Inter
-=========================================================== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<!-- ===========================================================
-Title + Description (SEO)
-=========================================================== -->
 <title>
   {% if page.title and page.title != "Home" %}
-    {{ page.title }} · Alex Watson
+    {{ page.title }} · {{ site.title }}
   {% else %}
-    Alex Watson · Simple, fast websites for therapists
+    {{ site.title }} · Websites for therapists
   {% endif %}
 </title>
 
-<meta name="description"
-      content="{% if page.description %}
-        {{ page.description | strip_html | strip_newlines | escape }}
-      {% else %}
-        Simple, fast websites for therapists and local service professionals. Clear scope. Transparent pricing.
-      {% endif %}">
+<meta
+  name="description"
+  content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% else %}{{ site.description | escape }}{% endif %}"
+>
 
 <link rel="canonical" href="{{ page.url | absolute_url }}">
 
-<!-- ===========================================================
-Favicons & App Icons (Place in /favicons/)
-=========================================================== -->
 <link rel="icon" href="{{ '/favicons/favicon.ico' | relative_url }}" sizes="any">
 <link rel="icon" href="{{ '/favicons/favicon.svg' | relative_url }}" type="image/svg+xml">
 <link rel="apple-touch-icon" href="{{ '/favicons/apple-touch-icon.png' | relative_url }}">
 <link rel="manifest" href="{{ '/favicons/site.webmanifest' | relative_url }}">
-<meta name="msapplication-config" content="{{ '/favicons/browserconfig.xml' | relative_url }}">
 
-<!-- ===========================================================
-Theme Color (Mobile Browser UI Tint)
-=========================================================== -->
-<meta name="theme-color" content="#0B1220">
+<meta name="theme-color" content="#8e9f84">
 
-<!-- ===========================================================
-Open Graph (Facebook / LinkedIn)
-=========================================================== -->
 <meta property="og:type" content="website">
-<meta property="og:title"
-      content="{% if page.title and page.title != 'Home' %}
-        {{ page.title | escape }} · Alex Watson
-      {% else %}
-        Alex Watson — Websites for Therapists
-      {% endif %}">
-<meta property="og:description"
-      content="{% if page.description %}
-        {{ page.description | strip_html | strip_newlines | escape }}
-      {% else %}
-        Simple, fast websites for therapists and local service professionals. Clear scope. Transparent pricing.
-      {% endif %}">
-<meta property="og:image"
-      content="{{ '/assets/images/brand/og-image-1200x630.png' | absolute_url }}">
+<meta property="og:title" content="{% if page.title and page.title != 'Home' %}{{ page.title | escape }} · {{ site.title }}{% else %}{{ site.title }} — Websites for therapists{% endif %}">
+<meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% else %}{{ site.description | escape }}{% endif %}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
-<meta property="og:site_name" content="Alex Watson">
+<meta property="og:site_name" content="{{ site.title }}">
 
-<!-- ===========================================================
-Twitter
-=========================================================== -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title"
-      content="{% if page.title and page.title != 'Home' %}
-        {{ page.title | escape }} · Alex Watson
-      {% else %}
-        Alex Watson — Websites for Therapists
-      {% endif %}">
-<meta name="twitter:description"
-      content="{% if page.description %}
-        {{ page.description | strip_html | strip_newlines | escape }}
-      {% else %}
-        Simple, fast websites for therapists and local service professionals.
-      {% endif %}">
-<meta name="twitter:image"
-      content="{{ '/assets/images/brand/og-image-1200x630.png' | absolute_url }}">
+<meta name="twitter:title" content="{% if page.title and page.title != 'Home' %}{{ page.title | escape }} · {{ site.title }}{% else %}{{ site.title }} — Websites for therapists{% endif %}">
+<meta name="twitter:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% else %}{{ site.description | escape }}{% endif %}">
