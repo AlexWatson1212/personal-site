@@ -2,7 +2,7 @@
 ====================================================================
 AlexanderWatson.co.uk — Main CSS
 Calm, premium, emotionally intelligent design studio feel.
-Organised, restrained, spacious, therapist-focused.
+Refined for stronger hierarchy, calmer spacing, and better readability.
 ====================================================================
 */
 
@@ -30,8 +30,8 @@ Organised, restrained, spacious, therapist-focused.
   --line-strong: rgba(23, 35, 49, 0.16);
 
   --shadow-sm: 0 4px 14px rgba(23, 35, 49, 0.04);
-  --shadow: 0 16px 40px rgba(23, 35, 49, 0.075);
-  --shadow-lg: 0 28px 70px rgba(23, 35, 49, 0.12);
+  --shadow: 0 16px 40px rgba(23, 35, 49, 0.07);
+  --shadow-lg: 0 28px 70px rgba(23, 35, 49, 0.11);
 
   --radius-sm: 14px;
   --radius-md: 18px;
@@ -40,8 +40,7 @@ Organised, restrained, spacious, therapist-focused.
   --pill: 999px;
 
   --container: 1080px;
-  --narrow: 720px;
-  --content: 860px;
+  --narrow: 760px;
 
   --font-heading: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
@@ -61,7 +60,7 @@ Organised, restrained, spacious, therapist-focused.
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 108px;
+  scroll-padding-top: 104px;
 }
 
 body {
@@ -138,7 +137,7 @@ input:focus-visible {
 }
 
 section {
-  scroll-margin-top: 108px;
+  scroll-margin-top: 104px;
 }
 
 .sr-only {
@@ -163,20 +162,20 @@ h3 {
   margin: 0 0 0.85rem;
   color: var(--text);
   font-family: var(--font-heading);
-  font-weight: 850;
-  letter-spacing: -0.055em;
+  font-weight: 840;
+  letter-spacing: -0.052em;
 }
 
 h1 {
-  max-width: 10.5ch;
-  font-size: clamp(3rem, 5.4vw, 5rem);
-  line-height: 0.98;
+  max-width: 11.5ch;
+  font-size: clamp(2.75rem, 4.8vw, 4.45rem);
+  line-height: 1;
 }
 
 h2 {
-  max-width: 13ch;
-  font-size: clamp(2.1rem, 3.2vw, 3.1rem);
-  line-height: 1.04;
+  max-width: 17ch;
+  font-size: clamp(2rem, 3vw, 2.85rem);
+  line-height: 1.06;
 }
 
 h3 {
@@ -194,7 +193,7 @@ p {
 ========================= */
 
 .acw-section {
-  padding: 104px 0;
+  padding: 88px 0;
   background: var(--surface);
 }
 
@@ -203,16 +202,20 @@ p {
 }
 
 .acw-section-heading {
-  max-width: 720px;
-  margin-bottom: 2.2rem;
+  max-width: 760px;
+  margin-bottom: 2.15rem;
+}
+
+.acw-section-heading h2 {
+  max-width: 15ch;
 }
 
 .acw-eyebrow,
 .acw-section-label {
   display: inline-block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
   color: var(--accent-dark);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 850;
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -226,15 +229,15 @@ p {
 }
 
 .acw-hero-text {
-  max-width: 54ch;
-  font-size: 1.08rem;
+  max-width: 52ch;
+  font-size: 1.06rem;
   line-height: 1.75;
 }
 
 .acw-section-text,
 .acw-section-intro {
   max-width: 58ch;
-  font-size: 1.04rem;
+  font-size: 1.03rem;
   line-height: 1.75;
 }
 
@@ -242,15 +245,15 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
-  margin-top: 1.65rem;
+  margin-top: 1.55rem;
 }
 
 .acw-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 52px;
-  padding: 0.88rem 1.25rem;
+  min-height: 50px;
+  padding: 0.86rem 1.2rem;
   border: 1px solid transparent;
   border-radius: var(--pill);
   cursor: pointer;
@@ -354,7 +357,7 @@ p {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(247, 242, 235, 0.9);
+  background: rgba(247, 242, 235, 0.92);
   border-bottom: 1px solid rgba(23, 35, 49, 0.075);
   box-shadow: 0 8px 28px rgba(23, 35, 49, 0.035);
   backdrop-filter: blur(16px);
@@ -367,7 +370,7 @@ p {
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  min-height: 84px;
+  min-height: 82px;
   width: min(100% - 2.5rem, var(--container));
   margin: 0 auto;
 }
@@ -383,7 +386,6 @@ p {
   color: var(--text);
 }
 
-/* Text logo fallback */
 .nav__brand-text,
 .footer-brand-mark {
   display: inline-block;
@@ -395,14 +397,13 @@ p {
 }
 
 .nav__brand-text {
-  font-size: 2.35rem;
+  font-size: 2.2rem;
 }
 
-/* Image logo */
 .nav__logo {
   display: block;
   width: auto;
-  height: 56px;
+  height: 58px;
   object-fit: contain;
 }
 
@@ -472,7 +473,6 @@ body.menu-open {
   overflow: hidden;
 }
 
-/* Desktop nav */
 @media (min-width: 861px) {
   .nav__toggle {
     display: none;
@@ -507,7 +507,6 @@ body.menu-open {
   }
 }
 
-/* Mobile nav */
 @media (max-width: 860px) {
   html {
     scroll-padding-top: 92px;
@@ -577,15 +576,15 @@ body.menu-open {
 ========================= */
 
 .acw-hero {
-  padding: 92px 0 86px;
+  padding: 78px 0 74px;
   background:
-    radial-gradient(circle at 12% 8%, rgba(216, 193, 164, 0.36), transparent 35%),
+    radial-gradient(circle at 12% 8%, rgba(216, 193, 164, 0.32), transparent 35%),
     linear-gradient(180deg, #fcf8f2 0%, #f7f2eb 100%);
 }
 
 .acw-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.9fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 0.95fr);
   gap: 4rem;
   align-items: center;
 }
@@ -609,7 +608,7 @@ body.menu-open {
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
-  margin-top: 1.45rem;
+  margin-top: 1.35rem;
 }
 
 .acw-proof-strip span {
@@ -631,18 +630,16 @@ body.menu-open {
   font-weight: 900;
 }
 
-/* About section feels more editorial */
 #about .acw-narrow,
 #contact .acw-narrow {
-  max-width: 760px;
+  max-width: 780px;
 }
 
-/* Template cards */
 .acw-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
-  margin-top: 2.1rem;
+  margin-top: 2rem;
 }
 
 .acw-card-link {
@@ -662,11 +659,10 @@ body.menu-open {
   color: var(--text);
 }
 
-/* Process */
 .acw-process-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.78fr) minmax(440px, 1.1fr);
-  gap: 4rem;
+  grid-template-columns: minmax(0, 0.82fr) minmax(420px, 1.08fr);
+  gap: 3.75rem;
   align-items: start;
 }
 
@@ -704,7 +700,7 @@ body.menu-open {
 ========================= */
 
 .acw-blog-hero {
-  padding: 76px 0 56px;
+  padding: 72px 0 54px;
   background:
     radial-gradient(circle at top left, rgba(216, 193, 164, 0.2), transparent 40%),
     linear-gradient(180deg, #fcf8f2 0%, #f7f2eb 100%);
@@ -722,9 +718,9 @@ body.menu-open {
 }
 
 .acw-blog-page-title {
-  max-width: 11ch;
+  max-width: 13ch;
   margin-bottom: 1rem;
-  font-size: clamp(2.6rem, 4.6vw, 4.2rem);
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
   line-height: 1.02;
   letter-spacing: -0.055em;
 }
@@ -945,12 +941,13 @@ body.menu-open {
 .footer-logo {
   display: block;
   width: auto;
-  height: 54px;
+  height: 86px;
+  max-width: 260px;
   object-fit: contain;
 }
 
 .footer-tagline {
-  max-width: 560px;
+  max-width: 680px;
   margin: 0;
   color: rgba(23, 35, 49, 0.68);
   font-size: 1rem;
@@ -1030,7 +1027,7 @@ body.menu-open {
 
 @media (max-width: 960px) {
   .acw-hero {
-    padding-top: 64px;
+    padding-top: 60px;
   }
 
   .acw-hero-grid,
@@ -1046,7 +1043,7 @@ body.menu-open {
   }
 
   h2 {
-    max-width: 15ch;
+    max-width: 16ch;
   }
 
   .acw-hero-image,
@@ -1071,19 +1068,19 @@ body.menu-open {
   }
 
   .acw-section {
-    padding: 74px 0;
+    padding: 72px 0;
   }
 
   .acw-hero {
-    padding: 56px 0 58px;
+    padding: 52px 0 56px;
   }
 
   h1 {
-    font-size: clamp(2.35rem, 12vw, 3.4rem);
+    font-size: clamp(2.25rem, 11vw, 3.25rem);
   }
 
   h2 {
-    font-size: clamp(1.95rem, 9vw, 2.55rem);
+    font-size: clamp(1.85rem, 8.5vw, 2.45rem);
   }
 
   .acw-cta-row,
@@ -1116,6 +1113,11 @@ body.menu-open {
 
   .acw-blog-title {
     font-size: 1.25rem;
+  }
+
+  .footer-logo {
+    height: 76px;
+    max-width: 230px;
   }
 
   .site-footer {
