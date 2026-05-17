@@ -1,8 +1,12 @@
 <header class="site-header" role="banner">
   <nav class="nav" role="navigation" aria-label="Main">
     <a class="nav__brand" href="{{ '/' | relative_url }}" aria-label="Alex Watson home">
-      <span class="nav__brand-text" aria-hidden="true">AW</span>
-    </a>
+  <img
+    class="nav__logo"
+    src="{{ '/assets/images/aw-logo.png' | relative_url }}"
+    alt="Alex Watson"
+  >
+</a>
 
     <button
       class="nav__toggle"

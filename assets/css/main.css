@@ -2,13 +2,13 @@
 ====================================================================
 AlexanderWatson.co.uk — Main CSS
 Warm, calm, minimal, human.
-Updated for stronger homepage engagement, clearer CTAs, proof strip,
-example cards, process section, and conversion-focused contact.
+Organised + streamlined.
+Supports both text logo and image logo.
 ====================================================================
 */
 
 /* =========================
-1) Tokens + reset
+1) Design tokens
 ========================= */
 
 :root {
@@ -19,15 +19,16 @@ example cards, process section, and conversion-focused contact.
 
   --text: #1f2933;
   --muted: #5f6b76;
-  --line: rgba(31, 41, 51, 0.1);
-  --line-strong: rgba(31, 41, 51, 0.16);
+  --white: #ffffff;
 
   --accent: #8e9f84;
   --accent-dark: #72826a;
   --accent-soft: #e6ecdf;
   --warm: #d9c2a7;
 
-  --white: #ffffff;
+  --line: rgba(31, 41, 51, 0.1);
+  --line-strong: rgba(31, 41, 51, 0.16);
+
   --shadow-sm: 0 3px 10px rgba(31, 41, 51, 0.04);
   --shadow: 0 10px 30px rgba(31, 41, 51, 0.08);
   --shadow-lg: 0 20px 55px rgba(31, 41, 51, 0.1);
@@ -46,6 +47,10 @@ example cards, process section, and conversion-focused contact.
 
   --transition: 0.2s ease;
 }
+
+/* =========================
+2) Reset + base
+========================= */
 
 *,
 *::before,
@@ -87,6 +92,11 @@ a:hover {
   color: var(--accent);
 }
 
+button,
+input {
+  font: inherit;
+}
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible {
@@ -95,10 +105,13 @@ input:focus-visible {
   border-radius: 10px;
 }
 
-button,
-input {
-  font: inherit;
+[hidden] {
+  display: none !important;
 }
+
+/* =========================
+3) Layout helpers
+========================= */
 
 .container,
 .shell,
@@ -120,6 +133,26 @@ input {
   padding-right: 0;
 }
 
+section {
+  scroll-margin-top: 110px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =========================
+4) Typography
+========================= */
+
 h1,
 h2,
 h3 {
@@ -130,9 +163,9 @@ h3 {
 }
 
 h1 {
+  max-width: 10.5ch;
   font-size: clamp(2.45rem, 5.2vw, 4.45rem);
   line-height: 1.02;
-  max-width: 10.5ch;
 }
 
 h2 {
@@ -149,28 +182,8 @@ p {
   margin: 0 0 1rem;
 }
 
-section {
-  scroll-margin-top: 110px;
-}
-
-[hidden] {
-  display: none !important;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
 /* =========================
-2) Reusable UI
+5) Reusable UI
 ========================= */
 
 .acw-section {
@@ -226,7 +239,6 @@ section {
   border: 1px solid transparent;
   border-radius: var(--pill);
   cursor: pointer;
-  font: inherit;
   font-weight: 800;
   transition:
     background var(--transition),
@@ -287,11 +299,6 @@ section {
   padding: 1.55rem;
 }
 
-.acw-contact-box {
-  margin-top: 1.5rem;
-  padding: 1.65rem;
-}
-
 .acw-card-tag,
 .acw-blog-meta {
   color: var(--accent-dark);
@@ -308,6 +315,11 @@ section {
   margin-top: 0.7rem;
   color: var(--accent-dark);
   font-weight: 800;
+}
+
+.acw-contact-box {
+  margin-top: 1.5rem;
+  padding: 1.65rem;
 }
 
 .acw-email {
@@ -328,7 +340,7 @@ section {
 }
 
 /* =========================
-3) Header / navigation
+6) Header / navigation
 ========================= */
 
 .site-header {
@@ -364,6 +376,7 @@ section {
   color: var(--text);
 }
 
+/* Text logo fallback */
 .nav__brand-text,
 .footer-brand-mark {
   display: inline-block;
@@ -375,7 +388,15 @@ section {
 }
 
 .nav__brand-text {
-  font-size: 2.35rem;
+  font-size: 2.45rem;
+}
+
+/* Image logo support */
+.nav__logo {
+  display: block;
+  width: auto;
+  height: 56px;
+  object-fit: contain;
 }
 
 .nav__toggle {
@@ -405,8 +426,9 @@ section {
   transform: translateY(1px);
 }
 
-.nav__icon {
-  position: relative;
+.nav__icon,
+.nav__icon::before,
+.nav__icon::after {
   display: block;
   width: 20px;
   height: 2px;
@@ -414,15 +436,15 @@ section {
   border-radius: var(--pill);
 }
 
+.nav__icon {
+  position: relative;
+}
+
 .nav__icon::before,
 .nav__icon::after {
   content: "";
   position: absolute;
   left: 0;
-  width: 20px;
-  height: 2px;
-  background: currentColor;
-  border-radius: var(--pill);
 }
 
 .nav__icon::before {
@@ -443,6 +465,7 @@ body.menu-open {
   overflow: hidden;
 }
 
+/* Desktop navigation */
 @media (min-width: 861px) {
   .nav__toggle {
     display: none;
@@ -477,13 +500,14 @@ body.menu-open {
   }
 }
 
+/* Mobile navigation */
 @media (max-width: 860px) {
   html {
     scroll-padding-top: 90px;
   }
 
   .site-header .nav {
-    min-height: 76px;
+    min-height: 78px;
     gap: 1rem;
   }
 
@@ -493,7 +517,11 @@ body.menu-open {
   }
 
   .nav__brand-text {
-    font-size: 1.95rem;
+    font-size: 2.05rem;
+  }
+
+  .nav__logo {
+    height: 62px;
   }
 
   .nav__links {
@@ -534,7 +562,7 @@ body.menu-open {
 }
 
 /* =========================
-4) Homepage
+7) Homepage
 ========================= */
 
 .acw-hero {
@@ -601,8 +629,8 @@ body.menu-open {
 
 .acw-card-link {
   display: block;
-  color: var(--text);
   min-height: 100%;
+  color: var(--text);
 }
 
 .acw-card-link:hover {
@@ -652,64 +680,8 @@ body.menu-open {
   color: var(--muted);
 }
 
-@media (max-width: 960px) {
-  .acw-hero {
-    padding-top: 56px;
-  }
-
-  .acw-hero-grid,
-  .acw-cards,
-  .acw-process-grid {
-    grid-template-columns: 1fr;
-  }
-
-  h1 {
-    max-width: 12ch;
-  }
-
-  .acw-hero-image {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 640px) {
-  .acw-section {
-    padding: 68px 0;
-  }
-
-  .acw-hero {
-    padding: 50px 0 52px;
-  }
-
-  .container,
-  .shell,
-  .acw-container {
-    width: min(100% - 1.5rem, var(--container));
-  }
-
-  h1 {
-    font-size: clamp(2.2rem, 12vw, 3.2rem);
-  }
-
-  .acw-cta-row {
-    align-items: stretch;
-  }
-
-  .acw-btn {
-    width: 100%;
-  }
-
-  .acw-proof-strip {
-    display: grid;
-  }
-
-  .acw-step {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* =========================
-5) Blog
+8) Blog
 ========================= */
 
 .acw-blog-hero {
@@ -917,47 +889,8 @@ body.menu-open {
   padding: 1rem 0 2rem;
 }
 
-@media (max-width: 960px) {
-  .acw-blog-hero-layout,
-  .acw-blog-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .acw-blog-hero-image-wrap {
-    justify-content: flex-start;
-  }
-
-  .acw-blog-hero-image {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 640px) {
-  .acw-blog-hero {
-    padding: 46px 0 30px;
-  }
-
-  .acw-blog-page-title {
-    max-width: 12ch;
-    font-size: clamp(2rem, 10vw, 2.9rem);
-  }
-
-  .acw-blog-search {
-    align-items: stretch;
-  }
-
-  .acw-blog-search input[type="search"],
-  .acw-blog-search-button {
-    width: 100%;
-  }
-
-  .acw-blog-title {
-    font-size: 1.25rem;
-  }
-}
-
 /* =========================
-6) Footer
+9) Footer
 ========================= */
 
 .site-footer {
@@ -987,6 +920,13 @@ body.menu-open {
 
 .footer-brand-mark {
   font-size: 2.1rem;
+}
+
+.footer-logo {
+  display: block;
+  width: auto;
+  height: 54px;
+  object-fit: contain;
 }
 
 .site-footer .muted {
@@ -1057,7 +997,90 @@ body.menu-open {
 }
 
 /* =========================
-7) Print
+10) Responsive
+========================= */
+
+@media (max-width: 960px) {
+  .acw-hero {
+    padding-top: 56px;
+  }
+
+  .acw-hero-grid,
+  .acw-cards,
+  .acw-process-grid,
+  .acw-blog-hero-layout,
+  .acw-blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    max-width: 12ch;
+  }
+
+  .acw-hero-image,
+  .acw-blog-hero-image {
+    max-width: 100%;
+  }
+
+  .acw-blog-hero-image-wrap {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .container,
+  .shell,
+  .acw-container {
+    width: min(100% - 1.5rem, var(--container));
+  }
+
+  .acw-section {
+    padding: 68px 0;
+  }
+
+  .acw-hero {
+    padding: 50px 0 52px;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 12vw, 3.2rem);
+  }
+
+  .acw-cta-row,
+  .acw-blog-search {
+    align-items: stretch;
+  }
+
+  .acw-btn,
+  .acw-blog-search input[type="search"],
+  .acw-blog-search-button {
+    width: 100%;
+  }
+
+  .acw-proof-strip {
+    display: grid;
+  }
+
+  .acw-step {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-blog-hero {
+    padding: 46px 0 30px;
+  }
+
+  .acw-blog-page-title {
+    max-width: 12ch;
+    font-size: clamp(2rem, 10vw, 2.9rem);
+  }
+
+  .acw-blog-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* =========================
+11) Print
 ========================= */
 
 @media print {
