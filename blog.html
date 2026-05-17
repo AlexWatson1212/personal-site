@@ -1,28 +1,36 @@
 ---
 layout: default
 title: Blog
+description: Notes on calm, clear therapist websites, emotional trust, and creating an online presence that feels human.
 ---
 
 <section class="acw-section acw-blog-hero">
   <div class="acw-container acw-blog-hero-layout">
     <div class="acw-blog-hero-copy">
       <p class="acw-section-label">Blog</p>
-      <h1 class="acw-blog-page-title">Notes on calm, clear therapist websites.</h1>
+
+      <h1 class="acw-blog-page-title">
+        Notes on calm, clear therapist websites.
+      </h1>
+
       <p class="acw-blog-page-intro">
-        Simple thoughts on clarity, trust, and calm design for therapist websites.
+        Reflections on design, trust, emotional safety, and building an online presence that feels genuinely human.
       </p>
 
       <form class="acw-blog-search" role="search" aria-label="Blog search" onsubmit="return false;">
         <label class="sr-only" for="blog-search-input">Search posts</label>
+
         <input
           id="blog-search-input"
           type="search"
           placeholder="Search posts..."
           autocomplete="off"
-        />
+        >
+
         <button id="blog-search-button" class="acw-btn acw-blog-search-button" type="button">
           Search
         </button>
+
         <span id="blog-search-count" class="acw-blog-search-count" aria-live="polite"></span>
       </form>
 
@@ -33,7 +41,7 @@ title: Blog
       <img
         class="acw-blog-hero-image"
         src="{{ '/assets/images/heroes/blog-hero.webp' | relative_url }}"
-        alt="Calm, minimal workspace for a therapist website"
+        alt="A calm workspace with soft natural light"
         loading="eager"
       >
     </div>
@@ -42,6 +50,11 @@ title: Blog
 
 <section class="acw-section acw-blog-posts-section">
   <div class="acw-container">
+    <div class="acw-section-heading">
+      <p class="acw-section-label">Recent notes</p>
+      <h2>Thoughtful writing for therapists building trust online.</h2>
+    </div>
+
     {% assign blog_posts = site.posts %}
 
     {% if blog_posts.size > 0 %}
@@ -60,7 +73,9 @@ title: Blog
             {% endif %}
 
             <div class="acw-blog-card-inner">
-              <p class="acw-blog-meta">{{ post.date | date: "%-d %B %Y" }}</p>
+              <p class="acw-blog-meta">
+                {{ post.date | date: "%-d %B %Y" }}
+              </p>
 
               <h2 class="acw-blog-title">
                 <a href="{{ post.url | relative_url }}">{{ post.title }}</a>

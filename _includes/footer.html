@@ -4,9 +4,18 @@
   <div class="footer-center">
     <div class="footer-brand">
       <a href="{{ '/' | relative_url }}" aria-label="Alex Watson home">
-        <span class="footer-brand-mark" aria-hidden="true">AW</span>
+        <img
+          class="footer-logo"
+          src="{{ '/assets/images/brand/footer-logo.webp' | relative_url }}"
+          alt="Alex Watson"
+          loading="lazy"
+        >
       </a>
     </div>
+
+    <p class="footer-tagline">
+      Calm, clear websites for therapists who want an online presence that feels human, trustworthy, and true to them.
+    </p>
 
     <nav class="footer-nav" aria-label="Footer">
       <a href="{{ '/' | relative_url }}#templates">Examples</a>
@@ -17,7 +26,6 @@
     </nav>
 
     <div class="footer-note">
-      <p>Calm, clear websites for therapists.</p>
       <p>
         <a class="footer-email" href="mailto:hello@alexanderwatson.co.uk">
           hello@alexanderwatson.co.uk
