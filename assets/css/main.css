@@ -1144,9 +1144,13 @@ body.menu-open {
 }
 
 /* ====================================================================
-Mobile-first homepage refinements — May 2026
-Sharper mobile rhythm, clearer example buttons, softer contact CTA.
+Calmer mobile-first homepage refinements — May 2026
+Less visual noise, clearer cards, softer footer, quieter contact CTA.
 ==================================================================== */
+
+.acw-proof-strip {
+  display: none;
+}
 
 .acw-card-link {
   position: relative;
@@ -1157,95 +1161,87 @@ Sharper mobile rhythm, clearer example buttons, softer contact CTA.
   content: "";
   position: absolute;
   inset: 0 0 auto 0;
-  height: 5px;
-  background: var(--accent);
-  opacity: 0.82;
+  height: 4px;
+  background: rgba(137, 155, 127, 0.68);
 }
 
 .acw-card-sarah::before {
-  background: #b99f8b;
+  background: rgba(185, 159, 139, 0.64);
 }
 
 .acw-card-lianne::before {
-  background: #899b7f;
+  background: rgba(137, 155, 127, 0.68);
 }
 
 .acw-card-michael::before {
-  background: #6f8190;
+  background: rgba(111, 129, 144, 0.6);
 }
 
 .acw-card-action {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  min-height: 42px;
-  margin-top: 1rem;
-  padding: 0.72rem 1rem;
-  background: rgba(137, 155, 127, 0.13);
+  margin-top: 0.9rem;
+  padding-bottom: 0.08rem;
   color: var(--accent-dark);
-  border: 1px solid rgba(104, 121, 96, 0.2);
-  border-radius: var(--pill);
+  border-bottom: 1px solid rgba(104, 121, 96, 0.34);
   font-weight: 850;
-  line-height: 1.1;
-}
-
-.acw-card-sarah .acw-card-action {
-  background: rgba(185, 159, 139, 0.14);
-  border-color: rgba(185, 159, 139, 0.28);
-  color: #735f51;
-}
-
-.acw-card-lianne .acw-card-action {
-  background: rgba(137, 155, 127, 0.14);
-  border-color: rgba(137, 155, 127, 0.28);
-}
-
-.acw-card-michael .acw-card-action {
-  background: rgba(111, 129, 144, 0.13);
-  border-color: rgba(111, 129, 144, 0.26);
-  color: #536473;
+  line-height: 1.2;
 }
 
 .acw-card-link:hover .acw-card-action,
 .acw-card-link:focus-visible .acw-card-action {
-  background: var(--text);
-  border-color: var(--text);
-  color: var(--white);
+  color: var(--text);
+  border-bottom-color: var(--text);
 }
 
 .acw-contact-box {
   display: grid;
-  gap: 0.75rem;
+  gap: 0.82rem;
 }
 
 .acw-contact-kicker {
   margin: 0;
   color: var(--accent-dark);
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 850;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.15em;
 }
 
 .acw-contact-button {
-  margin-top: 0.45rem;
+  margin-top: 0.65rem;
   width: fit-content;
   min-width: 168px;
 }
 
-.acw-contact-email-small {
-  margin: 0.1rem 0 0;
-  color: rgba(94, 105, 117, 0.82);
-  font-size: 0.92rem;
+.acw-contact-email-small,
+.footer-nav,
+.footer-note {
+  display: none;
+}
+
+/* Footer as a calm closing mark */
+
+.site-footer {
+  padding: 62px 16px 58px;
+  background: var(--surface-alt);
+}
+
+.site-footer .footer-center {
+  gap: 18px;
 }
 
 .footer-logo {
-  height: 116px;
-  max-width: 310px;
+  width: min(82vw, 420px);
+  height: auto;
+  max-width: 420px;
 }
 
 .footer-tagline {
-  font-size: 1.02rem;
+  max-width: 42ch;
+  color: rgba(23, 35, 49, 0.66);
+  font-size: 1.03rem;
+  line-height: 1.66;
 }
 
 @media (max-width: 640px) {
@@ -1267,7 +1263,7 @@ Sharper mobile rhythm, clearer example buttons, softer contact CTA.
   }
 
   .acw-hero-grid {
-    gap: 2.35rem;
+    gap: 2.25rem;
   }
 
   h1 {
@@ -1306,11 +1302,6 @@ Sharper mobile rhythm, clearer example buttons, softer contact CTA.
     min-height: 50px;
   }
 
-  .acw-proof-strip span {
-    padding: 0.55rem 0.85rem;
-    background: rgba(255, 255, 255, 0.78);
-  }
-
   .acw-hero-image {
     aspect-ratio: 4 / 3;
     border-radius: 24px;
@@ -1326,13 +1317,13 @@ Sharper mobile rhythm, clearer example buttons, softer contact CTA.
   }
 
   .acw-card {
-    padding: 1.45rem 1.35rem;
+    padding: 1.5rem 1.35rem 1.4rem;
     border-radius: 22px;
   }
 
   .acw-card-action {
-    width: 100%;
-    min-height: 46px;
+    width: auto;
+    min-height: 0;
   }
 
   .acw-process-grid {
@@ -1359,37 +1350,24 @@ Sharper mobile rhythm, clearer example buttons, softer contact CTA.
     width: 100%;
   }
 
-  .acw-contact-email-small {
-    text-align: center;
-    font-size: 0.9rem;
-  }
-
   .site-footer {
-    padding: 46px 16px 40px;
+    padding: 58px 16px 54px;
   }
 
   .site-footer .footer-center {
-    gap: 14px;
+    gap: 16px;
   }
 
   .footer-logo {
-    height: 124px;
-    max-width: 330px;
+    width: min(88vw, 360px);
+    height: auto;
+    max-width: 360px;
   }
 
   .footer-tagline {
     max-width: 31ch;
     font-size: 1rem;
     line-height: 1.62;
-  }
-
-  .footer-nav {
-    row-gap: 10px;
-    column-gap: 14px;
-  }
-
-  .footer-nav a {
-    font-size: 0.95rem;
   }
 }
 
@@ -1402,5 +1380,9 @@ Sharper mobile rhythm, clearer example buttons, softer contact CTA.
   .container,
   .shell {
     width: min(100% - 1.25rem, var(--container));
+  }
+
+  .footer-logo {
+    width: min(90vw, 330px);
   }
 }
