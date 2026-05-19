@@ -1142,3 +1142,265 @@ body.menu-open {
     border: 0 !important;
   }
 }
+
+/* ====================================================================
+Mobile-first homepage refinements — May 2026
+Sharper mobile rhythm, clearer example buttons, softer contact CTA.
+==================================================================== */
+
+.acw-card-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.acw-card-link::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 5px;
+  background: var(--accent);
+  opacity: 0.82;
+}
+
+.acw-card-sarah::before {
+  background: #b99f8b;
+}
+
+.acw-card-lianne::before {
+  background: #899b7f;
+}
+
+.acw-card-michael::before {
+  background: #6f8190;
+}
+
+.acw-card-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  margin-top: 1rem;
+  padding: 0.72rem 1rem;
+  background: rgba(137, 155, 127, 0.13);
+  color: var(--accent-dark);
+  border: 1px solid rgba(104, 121, 96, 0.2);
+  border-radius: var(--pill);
+  font-weight: 850;
+  line-height: 1.1;
+}
+
+.acw-card-sarah .acw-card-action {
+  background: rgba(185, 159, 139, 0.14);
+  border-color: rgba(185, 159, 139, 0.28);
+  color: #735f51;
+}
+
+.acw-card-lianne .acw-card-action {
+  background: rgba(137, 155, 127, 0.14);
+  border-color: rgba(137, 155, 127, 0.28);
+}
+
+.acw-card-michael .acw-card-action {
+  background: rgba(111, 129, 144, 0.13);
+  border-color: rgba(111, 129, 144, 0.26);
+  color: #536473;
+}
+
+.acw-card-link:hover .acw-card-action,
+.acw-card-link:focus-visible .acw-card-action {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--white);
+}
+
+.acw-contact-box {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.acw-contact-kicker {
+  margin: 0;
+  color: var(--accent-dark);
+  font-size: 0.88rem;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.acw-contact-button {
+  margin-top: 0.45rem;
+  width: fit-content;
+  min-width: 168px;
+}
+
+.acw-contact-email-small {
+  margin: 0.1rem 0 0;
+  color: rgba(94, 105, 117, 0.82);
+  font-size: 0.92rem;
+}
+
+.footer-logo {
+  height: 116px;
+  max-width: 310px;
+}
+
+.footer-tagline {
+  font-size: 1.02rem;
+}
+
+@media (max-width: 640px) {
+  .site-header .nav {
+    min-height: 70px;
+  }
+
+  .nav__logo {
+    height: 50px;
+  }
+
+  .nav__toggle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .acw-hero {
+    padding: 38px 0 48px;
+  }
+
+  .acw-hero-grid {
+    gap: 2.35rem;
+  }
+
+  h1 {
+    max-width: 13ch;
+    font-size: clamp(2.2rem, 9.2vw, 2.85rem);
+    line-height: 1.04;
+    letter-spacing: -0.055em;
+  }
+
+  h2 {
+    max-width: 16ch;
+    font-size: clamp(1.82rem, 7.6vw, 2.22rem);
+    line-height: 1.08;
+  }
+
+  .acw-eyebrow,
+  .acw-section-label {
+    margin-bottom: 0.72rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.17em;
+  }
+
+  .acw-hero-text,
+  .acw-section-text,
+  .acw-section-intro {
+    max-width: 34ch;
+    line-height: 1.68;
+  }
+
+  .acw-cta-row {
+    gap: 0.72rem;
+    margin-top: 1.25rem;
+  }
+
+  .acw-btn {
+    min-height: 50px;
+  }
+
+  .acw-proof-strip span {
+    padding: 0.55rem 0.85rem;
+    background: rgba(255, 255, 255, 0.78);
+  }
+
+  .acw-hero-image {
+    aspect-ratio: 4 / 3;
+    border-radius: 24px;
+    box-shadow: 0 18px 42px rgba(23, 35, 49, 0.09);
+  }
+
+  .acw-section {
+    padding: 60px 0;
+  }
+
+  .acw-section-heading {
+    margin-bottom: 1.45rem;
+  }
+
+  .acw-card {
+    padding: 1.45rem 1.35rem;
+    border-radius: 22px;
+  }
+
+  .acw-card-action {
+    width: 100%;
+    min-height: 46px;
+  }
+
+  .acw-process-grid {
+    gap: 1.65rem;
+  }
+
+  .acw-step {
+    gap: 0.85rem;
+    padding: 1.35rem;
+    border-radius: 22px;
+  }
+
+  .acw-step span {
+    width: 42px;
+    height: 42px;
+  }
+
+  .acw-contact-box {
+    padding: 1.45rem;
+    border-radius: 22px;
+  }
+
+  .acw-contact-button {
+    width: 100%;
+  }
+
+  .acw-contact-email-small {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  .site-footer {
+    padding: 46px 16px 40px;
+  }
+
+  .site-footer .footer-center {
+    gap: 14px;
+  }
+
+  .footer-logo {
+    height: 124px;
+    max-width: 330px;
+  }
+
+  .footer-tagline {
+    max-width: 31ch;
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  .footer-nav {
+    row-gap: 10px;
+    column-gap: 14px;
+  }
+
+  .footer-nav a {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 380px) {
+  h1 {
+    font-size: 2.12rem;
+  }
+
+  .acw-container,
+  .container,
+  .shell {
+    width: min(100% - 1.25rem, var(--container));
+  }
+}
