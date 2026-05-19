@@ -896,7 +896,7 @@ body.menu-open {
 
 .site-footer {
   margin-top: 0;
-  padding: 50px 16px 44px;
+  padding: 72px 16px 42px;
   background: var(--surface-alt);
   color: rgba(23, 35, 49, 0.9);
   text-align: center;
@@ -907,105 +907,130 @@ body.menu-open {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 28px;
   max-width: var(--container);
   margin: 0 auto;
 }
 
-.footer-brand a,
+.footer-brand,
 .footer-logo-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: inherit;
 }
 
-.footer-brand-mark {
-  font-size: 2rem;
-  letter-spacing: -0.05em;
+.footer-logo-link {
+  color: inherit;
+  transition:
+    transform var(--transition),
+    opacity var(--transition);
+}
+
+.footer-logo-link:hover,
+.footer-logo-link:focus-visible {
+  color: inherit;
+  transform: translateY(-2px);
+  opacity: 0.92;
 }
 
 .footer-logo {
   display: block;
-  width: auto;
-  height: 82px;
-  max-width: 250px;
+  width: min(88vw, 480px);
+  max-width: 480px;
+  height: auto;
   object-fit: contain;
 }
 
-.footer-tagline {
-  max-width: 660px;
-  margin: 0;
-  color: rgba(23, 35, 49, 0.68);
-  font-size: 0.98rem;
-  line-height: 1.68;
+.footer-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
 }
 
-.site-footer .muted {
-  margin: 8px 0 0;
-  color: rgba(23, 35, 49, 0.62);
+.footer-email-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0.9rem 1.4rem;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--text);
+  border: 1px solid rgba(23, 35, 49, 0.1);
+  border-radius: var(--pill);
+  box-shadow: var(--shadow-sm);
   font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1;
 }
 
-.footer-nav,
+.footer-email-button:hover,
+.footer-email-button:focus-visible {
+  background: var(--white);
+  color: var(--text);
+  border-color: rgba(23, 35, 49, 0.18);
+  transform: translateY(-1px);
+}
+
 .footer-social {
   display: flex;
+  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-}
-
-.footer-nav {
-  gap: 15px;
-}
-
-.footer-social {
   gap: 14px;
-}
-
-.footer-nav a {
-  color: var(--accent-dark);
-  font-size: 0.92rem;
-  font-weight: 740;
-}
-
-.footer-nav a:hover,
-.footer-nav a:focus-visible {
-  color: var(--text);
 }
 
 .footer-social .social {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
-  background: rgba(255, 255, 255, 0.72);
-  color: rgba(23, 35, 49, 0.9);
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.78);
+  color: rgba(23, 35, 49, 0.88);
   border: 1px solid rgba(23, 35, 49, 0.08);
-  border-radius: var(--radius-sm);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform var(--transition),
+    background var(--transition),
+    border-color var(--transition),
+    color var(--transition);
 }
 
+.footer-social .social:hover,
+.footer-social .social:focus-visible {
+  background: var(--white);
+  color: var(--text);
+  border-color: rgba(23, 35, 49, 0.16);
+  transform: translateY(-2px);
+}
+
+.footer-social svg,
 .footer-social .icon {
   display: block;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
 }
 
-.footer-note {
+.footer-bottom {
   width: 100%;
-  max-width: 540px;
-  padding-top: 11px;
+  padding-top: 22px;
   border-top: 1px solid rgba(23, 35, 49, 0.08);
 }
 
-.footer-note p {
+.footer-bottom p {
   margin: 0;
-  color: rgba(23, 35, 49, 0.68);
+  color: rgba(23, 35, 49, 0.62);
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
-.footer-note a,
-.footer-email {
-  color: var(--accent-dark);
+.footer-tagline,
+.site-footer .muted,
+.footer-nav,
+.footer-note {
+  display: none;
 }
 
 /* Responsive */
@@ -1112,18 +1137,6 @@ body.menu-open {
     font-size: 1.22rem;
   }
 
-  .footer-logo {
-    height: 74px;
-    max-width: 230px;
-  }
-
-  .footer-tagline {
-    max-width: 34ch;
-  }
-
-  .site-footer {
-    padding-top: 44px;
-  }
 }
 
 @media print {
@@ -1218,30 +1231,6 @@ Less visual noise, clearer cards, softer footer, quieter contact CTA.
 .footer-nav,
 .footer-note {
   display: none;
-}
-
-/* Footer as a calm closing mark */
-
-.site-footer {
-  padding: 62px 16px 58px;
-  background: var(--surface-alt);
-}
-
-.site-footer .footer-center {
-  gap: 18px;
-}
-
-.footer-logo {
-  width: min(82vw, 420px);
-  height: auto;
-  max-width: 420px;
-}
-
-.footer-tagline {
-  max-width: 42ch;
-  color: rgba(23, 35, 49, 0.66);
-  font-size: 1.03rem;
-  line-height: 1.66;
 }
 
 @media (max-width: 640px) {
@@ -1351,23 +1340,34 @@ Less visual noise, clearer cards, softer footer, quieter contact CTA.
   }
 
   .site-footer {
-    padding: 58px 16px 54px;
+    padding: 58px 16px 38px;
   }
 
   .site-footer .footer-center {
-    gap: 16px;
+    gap: 24px;
   }
 
   .footer-logo {
-    width: min(88vw, 360px);
+    width: min(92vw, 380px);
+    max-width: 380px;
     height: auto;
-    max-width: 360px;
   }
 
-  .footer-tagline {
-    max-width: 31ch;
-    font-size: 1rem;
-    line-height: 1.62;
+  .footer-actions {
+    gap: 18px;
+  }
+
+  .footer-social {
+    gap: 12px;
+  }
+
+  .footer-social .social {
+    width: 46px;
+    height: 46px;
+  }
+
+  .footer-bottom {
+    padding-top: 18px;
   }
 }
 
@@ -1383,6 +1383,6 @@ Less visual noise, clearer cards, softer footer, quieter contact CTA.
   }
 
   .footer-logo {
-    width: min(90vw, 330px);
+    width: min(92vw, 340px);
   }
 }

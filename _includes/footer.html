@@ -2,19 +2,83 @@
 
 <footer class="site-footer">
   <div class="footer-center">
+
     <div class="footer-brand">
-      <a class="footer-logo-link" href="{{ '/' | relative_url }}" aria-label="Alex Watson home">
+      <a
+        class="footer-logo-link"
+        href="{{ '/' | relative_url }}"
+        aria-label="Alexander Watson home"
+      >
         <img
           class="footer-logo"
           src="{{ '/assets/images/brand/footer-logo.webp' | relative_url }}"
-          alt="Alex Watson — Web Design for Therapists"
+          alt="Alexander Watson — Web Design for Therapists"
           loading="lazy"
         >
       </a>
     </div>
 
-    <p class="footer-tagline">
-      Calm, clear websites for therapists who want an online presence that feels human, trustworthy, and true to them.
-    </p>
+    <div class="footer-actions">
+
+      <a
+        class="footer-email-button"
+        href="mailto:hello@alexanderwatson.co.uk"
+      >
+        Email Me
+      </a>
+
+      <div class="footer-social" aria-label="Social links">
+
+        <!-- Instagram -->
+        <a
+          class="social"
+          href="https://instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.5" cy="6.5" r="1"></circle>
+          </svg>
+        </a>
+
+        <!-- LinkedIn -->
+        <a
+          class="social"
+          href="https://linkedin.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.94 8.5H3.56V20h3.38V8.5Zm-1.69-5A1.96 1.96 0 1 0 5.25 7.4a1.95 1.95 0 0 0 0-3.9ZM20.44 13c0-3.27-1.74-4.79-4.07-4.79a3.52 3.52 0 0 0-3.18 1.75V8.5H9.81c.05.97 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.12-.92a1.85 1.85 0 0 1 1.73-1.24c1.22 0 1.71.92 1.71 2.28V20h3.38Z"/>
+          </svg>
+        </a>
+
+        <!-- YouTube -->
+        <a
+          class="social"
+          href="https://youtube.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="YouTube"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21.58 7.19a2.98 2.98 0 0 0-2.1-2.1C17.6 4.5 12 4.5 12 4.5s-5.6 0-7.48.59a2.98 2.98 0 0 0-2.1 2.1A31.6 31.6 0 0 0 1.83 12a31.6 31.6 0 0 0 .59 4.81 2.98 2.98 0 0 0 2.1 2.1c1.88.59 7.48.59 7.48.59s5.6 0 7.48-.59a2.98 2.98 0 0 0 2.1-2.1 31.6 31.6 0 0 0 .59-4.81 31.6 31.6 0 0 0-.59-4.81ZM10 15.5v-7l6 3.5-6 3.5Z"/>
+          </svg>
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        © {{ site.time | date: '%Y' }} Alexander Watson. All rights reserved.
+      </p>
+    </div>
+
   </div>
 </footer>
