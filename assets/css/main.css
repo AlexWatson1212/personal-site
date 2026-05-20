@@ -181,12 +181,14 @@ p {
 /* Reusable UI */
 
 .acw-section {
-  padding: 82px 0;
+  padding: 70px 0;
   background: var(--surface);
 }
 
 .acw-section-soft {
-  background: var(--surface-soft);
+  background:
+    radial-gradient(circle at 12% 10%, rgba(255, 255, 255, 0.22), transparent 34%),
+    var(--surface-soft);
 }
 
 .acw-section-heading {
@@ -317,7 +319,7 @@ p {
 
 .acw-contact-box {
   margin-top: 1.45rem;
-  padding: 1.65rem;
+  padding: 1.5rem;
 }
 
 .acw-email {
@@ -560,7 +562,7 @@ body.menu-open {
 /* Homepage */
 
 .acw-hero {
-  padding: 72px 0 68px;
+  padding: 64px 0 62px;
   background:
     radial-gradient(circle at 12% 8%, rgba(216, 193, 164, 0.28), transparent 34%),
     linear-gradient(180deg, #fcf8f2 0%, #f7f2eb 100%);
@@ -593,29 +595,7 @@ body.menu-open {
 }
 
 .acw-proof-strip {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 1.25rem;
-}
-
-.acw-proof-strip span {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.44rem 0.7rem;
-  color: var(--soft-text);
-  background: rgba(255, 255, 255, 0.64);
-  border: 1px solid var(--line);
-  border-radius: var(--pill);
-  font-size: 0.86rem;
-  font-weight: 740;
-}
-
-.acw-proof-strip span::before {
-  content: "✓";
-  margin-right: 0.42rem;
-  color: var(--accent-dark);
-  font-weight: 900;
+  display: none;
 }
 
 /* Sections */
@@ -623,6 +603,49 @@ body.menu-open {
 #about .acw-narrow,
 #contact .acw-narrow {
   max-width: 760px;
+}
+
+.acw-about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.72fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.acw-about-side {
+  display: grid;
+  gap: 1rem;
+}
+
+.acw-about-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid rgba(23, 35, 49, 0.08);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+}
+
+.acw-about-note {
+  padding: 1.45rem;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(23, 35, 49, 0.09);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-about-note p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.acw-about-note strong {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--text);
+  font-size: 1.02rem;
 }
 
 .acw-cards {
@@ -633,9 +656,31 @@ body.menu-open {
 }
 
 .acw-card-link {
+  position: relative;
   display: block;
   min-height: 100%;
+  overflow: hidden;
   color: var(--text);
+}
+
+.acw-card-link::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: rgba(137, 155, 127, 0.68);
+}
+
+.acw-card-sarah::before {
+  background: rgba(185, 159, 139, 0.64);
+}
+
+.acw-card-lianne::before {
+  background: rgba(137, 155, 127, 0.68);
+}
+
+.acw-card-michael::before {
+  background: rgba(111, 129, 144, 0.6);
 }
 
 .acw-card-link:hover {
@@ -645,8 +690,21 @@ body.menu-open {
   box-shadow: var(--shadow-lg);
 }
 
-.acw-card-link:hover .acw-card-action {
+.acw-card-action {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.9rem;
+  padding-bottom: 0.08rem;
+  color: var(--accent-dark);
+  border-bottom: 1px solid rgba(104, 121, 96, 0.34);
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+.acw-card-link:hover .acw-card-action,
+.acw-card-link:focus-visible .acw-card-action {
   color: var(--text);
+  border-bottom-color: var(--text);
 }
 
 .acw-process-grid {
@@ -683,6 +741,32 @@ body.menu-open {
 
 .acw-step p {
   color: var(--muted);
+}
+
+.acw-contact-box {
+  display: grid;
+  gap: 0.82rem;
+}
+
+.acw-contact-kicker {
+  margin: 0;
+  color: var(--accent-dark);
+  font-size: 0.82rem;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.acw-contact-button {
+  margin-top: 0.65rem;
+  width: fit-content;
+  min-width: 168px;
+}
+
+.acw-contact-email-small,
+.footer-nav,
+.footer-note {
+  display: none;
 }
 
 /* Blog */
@@ -897,7 +981,7 @@ body.menu-open {
 .site-footer {
   position: relative;
   margin-top: 0;
-  padding: 52px 16px 30px;
+  padding: 38px 16px 24px;
   background:
     linear-gradient(180deg, rgba(231, 236, 239, 0.96), rgba(220, 228, 232, 0.98));
   color: var(--text);
@@ -921,7 +1005,7 @@ body.menu-open {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 22px;
+  gap: 16px;
   max-width: var(--container);
   margin: 0 auto;
 }
@@ -949,8 +1033,8 @@ body.menu-open {
 
 .footer-logo {
   display: block;
-  width: min(82vw, 390px);
-  max-width: 390px;
+  width: min(76vw, 310px);
+  max-width: 310px;
   height: auto;
   object-fit: contain;
 }
@@ -967,12 +1051,12 @@ body.menu-open {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   background: rgba(255, 255, 255, 0.72);
   color: rgba(23, 35, 49, 0.82);
   border: 1px solid rgba(23, 35, 49, 0.08);
-  border-radius: 15px;
+  border-radius: 14px;
   box-shadow: 0 8px 20px rgba(23, 35, 49, 0.035);
   transition:
     transform var(--transition),
@@ -1002,10 +1086,10 @@ body.menu-open {
 .footer-bottom {
   width: min(100%, 720px);
   margin: 2px 0 0;
-  padding-top: 20px;
+  padding-top: 16px;
   color: rgba(23, 35, 49, 0.58);
   border-top: 1px solid rgba(23, 35, 49, 0.09);
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   line-height: 1.5;
 }
 
@@ -1023,41 +1107,6 @@ body.menu-open {
 .footer-nav,
 .footer-note {
   display: none !important;
-}
-
-@media (max-width: 640px) {
-  .site-footer {
-    padding: 42px 16px 28px;
-  }
-
-  .site-footer::before {
-    width: min(100% - 1.5rem, var(--container));
-  }
-
-  .site-footer .footer-center {
-    gap: 18px;
-  }
-
-  .footer-logo {
-    width: min(86vw, 330px);
-    max-width: 330px;
-  }
-
-  .footer-social {
-    gap: 11px;
-  }
-
-  .footer-social .social {
-    width: 42px;
-    height: 42px;
-    border-radius: 14px;
-  }
-
-  .footer-copyright,
-  .footer-bottom {
-    padding-top: 17px;
-    font-size: 0.84rem;
-  }
 }
 
 /* Responsive */
@@ -1099,168 +1148,29 @@ body.menu-open {
   .acw-process-grid {
     gap: 2.35rem;
   }
+
+  .acw-about-grid {
+    grid-template-columns: 1fr;
+    gap: 1.7rem;
+  }
+
+  .acw-about-side,
+  .acw-about-note {
+    max-width: 640px;
+  }
 }
 
 @media (max-width: 640px) {
+  html {
+    scroll-padding-top: 84px;
+  }
+
   .container,
   .shell,
   .acw-container {
     width: min(100% - 1.5rem, var(--container));
   }
 
-  .acw-section {
-    padding: 66px 0;
-  }
-
-  .acw-hero {
-    padding: 48px 0 52px;
-  }
-
-  h1 {
-    max-width: 11ch;
-    font-size: clamp(2.15rem, 10.2vw, 3rem);
-  }
-
-  h2 {
-    max-width: 15ch;
-    font-size: clamp(1.75rem, 8vw, 2.28rem);
-  }
-
-  .acw-hero-text,
-  .acw-section-text,
-  .acw-section-intro {
-    font-size: 1rem;
-  }
-
-  .acw-cta-row,
-  .acw-blog-search {
-    align-items: stretch;
-  }
-
-  .acw-btn,
-  .acw-blog-search input[type="search"],
-  .acw-blog-search-button {
-    width: 100%;
-  }
-
-  .acw-proof-strip {
-    display: grid;
-  }
-
-  .acw-step {
-    grid-template-columns: 1fr;
-  }
-
-  .acw-blog-hero {
-    padding: 48px 0 32px;
-  }
-
-  .acw-blog-page-title {
-    max-width: 12ch;
-    font-size: clamp(2rem, 9.4vw, 2.72rem);
-  }
-
-  .acw-blog-title {
-    font-size: 1.22rem;
-  }
-
-}
-
-@media print {
-  .site-header,
-  .site-footer {
-    background: #fff !important;
-    color: #000 !important;
-    border: 0 !important;
-    box-shadow: none !important;
-  }
-
-  .nav__links a,
-  .footer-nav a,
-  .footer-note a {
-    color: #000 !important;
-    border: 0 !important;
-  }
-}
-
-/* ====================================================================
-Calmer mobile-first homepage refinements — May 2026
-Less visual noise, clearer cards, softer footer, quieter contact CTA.
-==================================================================== */
-
-.acw-proof-strip {
-  display: none;
-}
-
-.acw-card-link {
-  position: relative;
-  overflow: hidden;
-}
-
-.acw-card-link::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 4px;
-  background: rgba(137, 155, 127, 0.68);
-}
-
-.acw-card-sarah::before {
-  background: rgba(185, 159, 139, 0.64);
-}
-
-.acw-card-lianne::before {
-  background: rgba(137, 155, 127, 0.68);
-}
-
-.acw-card-michael::before {
-  background: rgba(111, 129, 144, 0.6);
-}
-
-.acw-card-action {
-  display: inline-flex;
-  align-items: center;
-  margin-top: 0.9rem;
-  padding-bottom: 0.08rem;
-  color: var(--accent-dark);
-  border-bottom: 1px solid rgba(104, 121, 96, 0.34);
-  font-weight: 850;
-  line-height: 1.2;
-}
-
-.acw-card-link:hover .acw-card-action,
-.acw-card-link:focus-visible .acw-card-action {
-  color: var(--text);
-  border-bottom-color: var(--text);
-}
-
-.acw-contact-box {
-  display: grid;
-  gap: 0.82rem;
-}
-
-.acw-contact-kicker {
-  margin: 0;
-  color: var(--accent-dark);
-  font-size: 0.82rem;
-  font-weight: 850;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-}
-
-.acw-contact-button {
-  margin-top: 0.65rem;
-  width: fit-content;
-  min-width: 168px;
-}
-
-.acw-contact-email-small,
-.footer-nav,
-.footer-note {
-  display: none;
-}
-
-@media (max-width: 640px) {
   .site-header .nav {
     min-height: 70px;
   }
@@ -1274,8 +1184,12 @@ Less visual noise, clearer cards, softer footer, quieter contact CTA.
     height: 42px;
   }
 
+  .acw-section {
+    padding: 56px 0;
+  }
+
   .acw-hero {
-    padding: 38px 0 48px;
+    padding: 40px 0 48px;
   }
 
   .acw-hero-grid {
@@ -1306,12 +1220,21 @@ Less visual noise, clearer cards, softer footer, quieter contact CTA.
   .acw-section-text,
   .acw-section-intro {
     max-width: 34ch;
+    font-size: 1rem;
     line-height: 1.68;
   }
 
-  .acw-cta-row {
+  .acw-cta-row,
+  .acw-blog-search {
+    align-items: stretch;
     gap: 0.72rem;
     margin-top: 1.25rem;
+  }
+
+  .acw-btn,
+  .acw-blog-search input[type="search"],
+  .acw-blog-search-button {
+    width: 100%;
   }
 
   .acw-btn {
@@ -1324,8 +1247,8 @@ Less visual noise, clearer cards, softer footer, quieter contact CTA.
     box-shadow: 0 18px 42px rgba(23, 35, 49, 0.09);
   }
 
-  .acw-section {
-    padding: 60px 0;
+  .acw-about-image {
+    border-radius: 24px;
   }
 
   .acw-section-heading {
@@ -1347,6 +1270,7 @@ Less visual noise, clearer cards, softer footer, quieter contact CTA.
   }
 
   .acw-step {
+    grid-template-columns: 1fr;
     gap: 0.85rem;
     padding: 1.35rem;
     border-radius: 22px;
@@ -1357,7 +1281,8 @@ Less visual noise, clearer cards, softer footer, quieter contact CTA.
     height: 42px;
   }
 
-  .acw-contact-box {
+  .acw-contact-box,
+  .acw-about-note {
     padding: 1.45rem;
     border-radius: 22px;
   }
@@ -1366,6 +1291,51 @@ Less visual noise, clearer cards, softer footer, quieter contact CTA.
     width: 100%;
   }
 
+  .acw-blog-hero {
+    padding: 48px 0 32px;
+  }
+
+  .acw-blog-page-title {
+    max-width: 12ch;
+    font-size: clamp(2rem, 9.4vw, 2.72rem);
+  }
+
+  .acw-blog-title {
+    font-size: 1.22rem;
+  }
+
+  .site-footer {
+    padding: 34px 16px 22px;
+  }
+
+  .site-footer::before {
+    width: min(100% - 1.5rem, var(--container));
+  }
+
+  .site-footer .footer-center {
+    gap: 16px;
+  }
+
+  .footer-logo {
+    width: min(84vw, 285px);
+    max-width: 285px;
+  }
+
+  .footer-social {
+    gap: 11px;
+  }
+
+  .footer-social .social {
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+  }
+
+  .footer-copyright,
+  .footer-bottom {
+    padding-top: 16px;
+    font-size: 0.84rem;
+  }
 }
 
 @media (max-width: 380px) {
@@ -1380,6 +1350,23 @@ Less visual noise, clearer cards, softer footer, quieter contact CTA.
   }
 
   .footer-logo {
-    width: min(88vw, 310px);
+    width: min(88vw, 285px);
+  }
+}
+
+@media print {
+  .site-header,
+  .site-footer {
+    background: #fff !important;
+    color: #000 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .nav__links a,
+  .footer-nav a,
+  .footer-note a {
+    color: #000 !important;
+    border: 0 !important;
   }
 }
