@@ -605,16 +605,26 @@ body.menu-open {
   max-width: 760px;
 }
 
+/* About */
+
 .acw-about-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.72fr);
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 390px);
   gap: 3rem;
-  align-items: center;
+  align-items: start;
+}
+
+.acw-about-copy {
+  max-width: 720px;
 }
 
 .acw-about-side {
   display: grid;
   gap: 1rem;
+  justify-self: end;
+  width: 100%;
+  max-width: 390px;
+  margin-top: 0.35rem;
 }
 
 .acw-about-image {
@@ -627,8 +637,8 @@ body.menu-open {
 }
 
 .acw-about-note {
-  padding: 1.45rem;
-  background: rgba(255, 255, 255, 0.58);
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.68);
   border: 1px solid rgba(23, 35, 49, 0.09);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
@@ -637,16 +647,18 @@ body.menu-open {
 .acw-about-note p {
   margin: 0;
   color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.96rem;
+  line-height: 1.65;
 }
 
 .acw-about-note strong {
   display: block;
   margin-bottom: 0.45rem;
   color: var(--text);
-  font-size: 1.02rem;
+  font-size: 1rem;
 }
+
+/* Example cards */
 
 .acw-cards {
   display: grid;
@@ -707,6 +719,8 @@ body.menu-open {
   border-bottom-color: var(--text);
 }
 
+/* Process */
+
 .acw-process-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.82fr) minmax(420px, 1.08fr);
@@ -742,6 +756,8 @@ body.menu-open {
 .acw-step p {
   color: var(--muted);
 }
+
+/* Contact */
 
 .acw-contact-box {
   display: grid;
@@ -1151,12 +1167,12 @@ body.menu-open {
 
   .acw-about-grid {
     grid-template-columns: 1fr;
-    gap: 1.7rem;
+    gap: 1.9rem;
   }
 
-  .acw-about-side,
-  .acw-about-note {
-    max-width: 640px;
+  .acw-about-side {
+    justify-self: start;
+    max-width: 620px;
   }
 }
 
