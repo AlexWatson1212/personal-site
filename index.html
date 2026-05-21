@@ -19,8 +19,8 @@ description: Calm, modern websites for therapists, wellness practitioners and sm
       </h1>
 
       <p class="acw-hero-text">
-        Calm, mobile-first websites for therapists, wellness practitioners,
-        and people-focused businesses that want to feel trustworthy online.
+        Calm, modern websites for therapists, wellness businesses
+        and people-focused brands that want to feel trustworthy online.
       </p>
 
       <div class="acw-trust-row">
@@ -54,8 +54,8 @@ description: Calm, modern websites for therapists, wellness practitioners and sm
 
       <img
         class="acw-hero-image"
-        src="{{ '/assets/images/hero/desk.jpg' | relative_url }}"
-        alt="Minimal calm workspace with laptop and warm lighting"
+        src="{{ '/assets/images/alex-watson-hero.jpg' | relative_url }}"
+        alt="Alexander Watson"
       >
 
     </div>
@@ -89,8 +89,8 @@ description: Calm, modern websites for therapists, wellness practitioners and sm
 
       <p class="acw-section-text">
         The focus is always clarity, trust, mobile usability and creating
-        something that genuinely reflects the quality of the work behind the
-        business.
+        something that genuinely reflects the quality of the work behind
+        the business.
       </p>
 
     </div>
@@ -99,16 +99,14 @@ description: Calm, modern websites for therapists, wellness practitioners and sm
 
       <img
         class="acw-about-image"
-        src="{{ '/assets/images/about/workspace.jpg' | relative_url }}"
-        alt="Calm workspace"
+        src="{{ '/assets/images/about-workspace.jpg' | relative_url }}"
+        alt="Workspace"
       >
 
       <div class="acw-about-note">
 
         <p>
-          <strong>
-            Calm. Clear. Thoughtful.
-          </strong>
+          <strong>Calm. Clear. Thoughtful.</strong>
 
           Websites designed to feel trustworthy,
           spacious and easy to use.
@@ -153,8 +151,6 @@ description: Calm, modern websites for therapists, wellness practitioners and sm
       <span>Wellness Brands</span>
       <span>Coaches</span>
       <span>Creatives</span>
-      <span>Trades & Services</span>
-      <span>Studios</span>
       <span>Small Businesses</span>
 
     </div>
@@ -182,7 +178,7 @@ description: Calm, modern websites for therapists, wellness practitioners and sm
 
       <p class="acw-section-intro">
         Each website is tailored to the business while keeping
-        a refined, trustworthy and mobile-first feel.
+        a refined and trustworthy feel.
       </p>
 
     </div>
@@ -219,10 +215,6 @@ description: Calm, modern websites for therapists, wellness practitioners and sm
               soft tones and a premium feel.
             </p>
 
-            <span class="acw-card-action">
-              View project
-            </span>
-
           </div>
 
         </article>
@@ -253,13 +245,9 @@ description: Calm, modern websites for therapists, wellness practitioners and sm
             </h3>
 
             <p>
-              Warm, welcoming design focused on trust,
-              atmosphere and mobile usability.
+              Warm, welcoming design focused on atmosphere,
+              trust and simplicity.
             </p>
-
-            <span class="acw-card-action">
-              View project
-            </span>
 
           </div>
 
@@ -292,12 +280,8 @@ description: Calm, modern websites for therapists, wellness practitioners and sm
 
             <p>
               Clean, modern service-based website
-              focused on simplicity and trust.
+              focused on clarity and trust.
             </p>
-
-            <span class="acw-card-action">
-              View project
-            </span>
 
           </div>
 
@@ -375,7 +359,6 @@ description: Calm, modern websites for therapists, wellness practitioners and sm
           <li>Domain management</li>
           <li>Small content updates</li>
           <li>General support</li>
-          <li>Peace of mind</li>
         </ul>
 
       </div>
@@ -423,10 +406,6 @@ description: Calm, modern websites for therapists, wellness practitioners and sm
         hello@alexanderwatson.co.uk
       </a>
 
-      <p class="acw-contact-note">
-        Based in the UK.
-      </p>
-
       <a
         class="acw-btn acw-btn-primary acw-contact-button"
         href="mailto:hello@alexanderwatson.co.uk"
@@ -439,43 +418,3 @@ description: Calm, modern websites for therapists, wellness practitioners and sm
   </div>
 
 </section>
-
-<script>
-  const toggle = document.querySelector('.nav__toggle');
-  const nav = document.querySelector('.nav__links');
-
-  if (toggle && nav) {
-
-    toggle.addEventListener('click', () => {
-
-      const isOpen =
-        toggle.getAttribute('aria-expanded') === 'true';
-
-      toggle.setAttribute('aria-expanded', !isOpen);
-
-      nav.hidden = isOpen;
-
-      document.body.classList.toggle(
-        'menu-open',
-        !isOpen
-      );
-    });
-
-    nav.querySelectorAll('a').forEach(link => {
-
-      link.addEventListener('click', () => {
-
-        toggle.setAttribute(
-          'aria-expanded',
-          'false'
-        );
-
-        nav.hidden = true;
-
-        document.body.classList.remove(
-          'menu-open'
-        );
-      });
-    });
-  }
-</script>
