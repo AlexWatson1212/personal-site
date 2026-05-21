@@ -1,8 +1,8 @@
 /*
 ====================================================================
 AlexanderWatson.co.uk — Main CSS
-Calm, premium, emotionally intelligent design studio feel.
-Refined for architectural spacing, restrained hierarchy, and polish.
+Calm, premium, mobile-first website design.
+Restored original hero/about image feel and tightened mobile layout.
 ====================================================================
 */
 
@@ -73,16 +73,19 @@ body.menu-open {
   overflow: hidden;
 }
 
-img {
+img,
+svg {
   display: block;
   max-width: 100%;
+}
+
+img {
   height: auto;
 }
 
 a {
   color: var(--accent-dark);
   text-decoration: none;
-
   transition:
     color var(--transition),
     background var(--transition),
@@ -150,11 +153,9 @@ section {
   margin: -1px;
 
   overflow: hidden;
-
   clip: rect(0, 0, 0, 0);
 
   white-space: nowrap;
-
   border: 0;
 }
 
@@ -166,37 +167,27 @@ h1,
 h2,
 h3 {
   margin: 0 0 0.85rem;
-
   color: var(--text);
-
   font-family: var(--font-heading);
-
   font-weight: 820;
-
   letter-spacing: -0.048em;
 }
 
 h1 {
-  max-width: 11.75ch;
-
-  font-size: clamp(2.65rem, 4.45vw, 4.15rem);
-
+  max-width: 12ch;
+  font-size: clamp(2.45rem, 4.4vw, 4.05rem);
   line-height: 1.02;
 }
 
 h2 {
   max-width: 18ch;
-
   font-size: clamp(1.9rem, 2.75vw, 2.6rem);
-
   line-height: 1.08;
 }
 
 h3 {
   font-size: 1.08rem;
-
   line-height: 1.25;
-
   letter-spacing: -0.032em;
 }
 
@@ -210,7 +201,6 @@ p {
 
 .acw-section {
   padding: 70px 0;
-
   background: var(--surface);
 }
 
@@ -222,27 +212,21 @@ p {
 
 .acw-section-heading {
   max-width: 720px;
-
   margin-bottom: 2rem;
 }
 
 .acw-section-heading h2 {
-  max-width: 16ch;
+  max-width: 17ch;
 }
 
 .acw-eyebrow,
 .acw-section-label {
   display: inline-block;
-
   margin-bottom: 0.85rem;
-
   color: var(--accent-dark);
-
   font-size: 0.72rem;
   font-weight: 850;
-
   text-transform: uppercase;
-
   letter-spacing: 0.18em;
 }
 
@@ -254,53 +238,16 @@ p {
 }
 
 .acw-hero-text {
-  max-width: 50ch;
-
+  max-width: 48ch;
   font-size: 1.04rem;
-
   line-height: 1.72;
 }
 
 .acw-section-text,
 .acw-section-intro {
   max-width: 58ch;
-
   font-size: 1.02rem;
-
   line-height: 1.74;
-}
-
-/* =========================================================
-   TRUST ROW
-========================================================= */
-
-.acw-trust-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-
-  margin-top: 1.4rem;
-}
-
-.acw-trust-row span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0.5rem 0.85rem;
-
-  background: rgba(255,255,255,0.72);
-
-  border: 1px solid rgba(23,35,49,0.08);
-
-  border-radius: 999px;
-
-  color: var(--muted);
-
-  font-size: 0.82rem;
-  font-weight: 700;
-
-  box-shadow: var(--shadow-sm);
 }
 
 /* =========================================================
@@ -311,7 +258,6 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
-
   margin-top: 1.45rem;
 }
 
@@ -321,16 +267,13 @@ p {
   justify-content: center;
 
   min-height: 48px;
-
   padding: 0.82rem 1.14rem;
 
   border: 1px solid transparent;
   border-radius: var(--pill);
 
   cursor: pointer;
-
   font-weight: 800;
-
   line-height: 1.1;
 
   transition:
@@ -347,77 +290,56 @@ p {
 
 .acw-btn-primary {
   background: var(--accent);
-
   color: var(--white);
-
   box-shadow: 0 10px 22px rgba(104,121,96,0.16);
 }
 
 .acw-btn-primary:hover {
   background: var(--accent-dark);
-
   color: var(--white);
 }
 
 .acw-btn-secondary,
 .acw-btn-ghost {
   background: rgba(255,255,255,0.74);
-
   color: var(--text);
-
   border-color: var(--line);
 }
 
 .acw-btn-secondary:hover,
 .acw-btn-ghost:hover {
   background: var(--white);
-
   color: var(--text);
-
   border-color: var(--line-strong);
 }
 
 /* =========================================================
-   CARDS
+   TRUST ROW
 ========================================================= */
 
-.acw-card,
-.acw-contact-box,
-.acw-step {
-  background: rgba(255,255,255,0.94);
-
-  border: 1px solid rgba(23,35,49,0.09);
-
-  border-radius: var(--radius-lg);
-
-  box-shadow: var(--shadow);
+.acw-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.35rem;
 }
 
-.acw-card {
-  padding: 1.55rem;
-}
+.acw-trust-row span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-.acw-card-tag,
-.acw-blog-meta {
-  color: var(--accent-dark);
+  padding: 0.5rem 0.85rem;
 
-  font-weight: 800;
-}
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(23,35,49,0.08);
+  border-radius: var(--pill);
 
-.acw-card-tag {
-  margin-bottom: 0.8rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
 
-  font-size: 0.88rem;
-}
-
-.acw-card-action {
-  display: inline-block;
-
-  margin-top: 0.8rem;
-
-  color: var(--accent-dark);
-
-  font-weight: 800;
+  box-shadow: var(--shadow-sm);
 }
 
 /* =========================================================
@@ -429,10 +351,8 @@ p {
   top: 0;
   z-index: 1000;
 
-  background: rgba(247,242,235,0.86);
-
+  background: rgba(247,242,235,0.88);
   border-bottom: 1px solid rgba(23,35,49,0.07);
-
   box-shadow: 0 8px 30px rgba(23,35,49,0.025);
 
   backdrop-filter: blur(18px);
@@ -449,7 +369,6 @@ p {
   gap: 1.4rem;
 
   min-height: 74px;
-
   width: min(100% - 2.5rem, var(--container));
 
   margin: 0 auto;
@@ -458,9 +377,7 @@ p {
 .nav__brand {
   display: inline-flex;
   align-items: center;
-
   flex: 0 0 auto;
-
   color: var(--text);
 }
 
@@ -470,10 +387,8 @@ p {
 
 .nav__logo {
   display: block;
-
   width: auto;
   height: 48px;
-
   object-fit: contain;
 }
 
@@ -484,15 +399,12 @@ p {
 
   width: 44px;
   height: 44px;
-
   padding: 0;
 
   background: rgba(255,253,249,0.78);
-
   color: var(--text);
 
   border: 1px solid rgba(23,35,49,0.11);
-
   border-radius: var(--radius-sm);
 
   cursor: pointer;
@@ -505,7 +417,6 @@ p {
 
 .nav__toggle:hover {
   background: rgba(255,255,255,0.96);
-
   border-color: rgba(23,35,49,0.16);
 }
 
@@ -517,12 +428,9 @@ p {
 .nav__icon::before,
 .nav__icon::after {
   display: block;
-
   width: 19px;
   height: 2px;
-
   background: currentColor;
-
   border-radius: var(--pill);
 }
 
@@ -533,9 +441,7 @@ p {
 .nav__icon::before,
 .nav__icon::after {
   content: "";
-
   position: absolute;
-
   left: 0;
 }
 
@@ -549,10 +455,10 @@ p {
 
 .nav__links {
   list-style: none;
-
   margin: 0;
   padding: 0;
 }
+
 /* =========================================================
    DESKTOP NAVIGATION
 ========================================================= */
@@ -576,14 +482,12 @@ p {
 
   .nav__links a {
     display: inline-block;
-
     padding: 0.45rem 0;
 
     color: rgba(23,35,49,0.76);
 
     font-size: 0.94rem;
     font-weight: 760;
-
     line-height: 1.2;
 
     border-bottom: 2px solid transparent;
@@ -593,7 +497,6 @@ p {
   .nav__links a:focus-visible,
   .nav__links a[aria-current="page"] {
     color: var(--text);
-
     border-bottom-color: rgba(137,155,127,0.42);
   }
 }
@@ -610,8 +513,7 @@ p {
 
   .site-header .nav {
     justify-content: center;
-
-    min-height: 76px;
+    min-height: 72px;
   }
 
   .nav__brand {
@@ -619,22 +521,19 @@ p {
   }
 
   .nav__logo {
-    height: 54px;
+    height: 50px;
   }
 
   .nav__toggle {
     position: absolute;
-
     right: 0;
   }
 
   .nav__links {
     position: absolute;
-
     top: calc(100% + 1px);
     left: 0;
     right: 0;
-
     z-index: 1001;
 
     padding: 0.45rem 1rem 0.9rem;
@@ -647,9 +546,7 @@ p {
       );
 
     border-bottom: 1px solid rgba(23,35,49,0.08);
-
-    box-shadow:
-      0 16px 36px rgba(23,35,49,0.08);
+    box-shadow: 0 16px 36px rgba(23,35,49,0.08);
   }
 
   .nav__links li {
@@ -662,7 +559,6 @@ p {
 
   .nav__links a {
     display: block;
-
     width: 100%;
 
     padding: 0.95rem 0;
@@ -671,7 +567,6 @@ p {
 
     font-size: 1.08rem;
     font-weight: 800;
-
     line-height: 1.2;
   }
 
@@ -687,7 +582,7 @@ p {
 ========================================================= */
 
 .acw-hero {
-  padding: 64px 0 62px;
+  padding: 58px 0 58px;
 
   background:
     radial-gradient(circle at 12% 8%, rgba(216,193,164,0.28), transparent 34%),
@@ -696,13 +591,10 @@ p {
 
 .acw-hero-grid {
   display: grid;
-
   grid-template-columns:
-    minmax(0, 0.88fr)
-    minmax(360px, 0.94fr);
-
-  gap: 4.25rem;
-
+    minmax(0, 0.9fr)
+    minmax(360px, 0.95fr);
+  gap: 4rem;
   align-items: center;
 }
 
@@ -720,382 +612,10 @@ p {
   max-width: 530px;
 
   aspect-ratio: 3 / 2;
-
   object-fit: cover;
 
   border: 1px solid rgba(23,35,49,0.08);
-
   border-radius: var(--radius-xl);
 
   box-shadow: var(--shadow-lg);
-}
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
-.acw-about-grid {
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 0.95fr)
-    minmax(280px, 390px);
-
-  gap: 3rem;
-
-  align-items: start;
-}
-
-.acw-about-copy {
-  max-width: 720px;
-}
-
-.acw-about-side {
-  display: grid;
-
-  gap: 1rem;
-
-  justify-self: end;
-
-  width: 100%;
-  max-width: 390px;
-
-  margin-top: 0.35rem;
-}
-
-.acw-about-image {
-  width: 100%;
-
-  aspect-ratio: 4 / 3;
-
-  object-fit: cover;
-
-  border: 1px solid rgba(23,35,49,0.08);
-
-  border-radius: var(--radius-xl);
-
-  box-shadow: var(--shadow);
-}
-
-.acw-about-note {
-  padding: 1.25rem;
-
-  background: rgba(255,255,255,0.68);
-
-  border: 1px solid rgba(23,35,49,0.09);
-
-  border-radius: var(--radius-lg);
-
-  box-shadow: var(--shadow-sm);
-}
-
-.acw-about-note p {
-  margin: 0;
-
-  color: var(--muted);
-
-  font-size: 0.96rem;
-
-  line-height: 1.65;
-}
-
-/* =========================================================
-   WHO I WORK WITH
-========================================================= */
-
-.acw-split-grid {
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 0.9fr)
-    minmax(320px, 1fr);
-
-  gap: 3rem;
-
-  align-items: start;
-}
-
-.acw-pill-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.acw-pill-grid span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0.75rem 1rem;
-
-  background: rgba(255,255,255,0.84);
-
-  border: 1px solid rgba(23,35,49,0.08);
-
-  border-radius: 999px;
-
-  color: var(--text);
-
-  font-weight: 700;
-
-  box-shadow: var(--shadow-sm);
-}
-
-/* =========================================================
-   EXAMPLE CARDS
-========================================================= */
-
-.acw-cards {
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 1.15rem;
-
-  margin-top: 1.9rem;
-}
-
-.acw-card-link {
-  position: relative;
-
-  display: block;
-
-  min-height: 100%;
-
-  overflow: hidden;
-
-  color: var(--text);
-
-  transition:
-    transform 0.22s ease,
-    box-shadow 0.22s ease,
-    border-color 0.22s ease;
-}
-
-.acw-card-link::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 0 0 auto 0;
-
-  z-index: 2;
-
-  height: 4px;
-
-  background: rgba(137,155,127,0.68);
-}
-
-.acw-card-sarah::before {
-  background: rgba(185,159,139,0.64);
-}
-
-.acw-card-lianne::before {
-  background: rgba(137,155,127,0.68);
-}
-
-.acw-card-michael::before {
-  background: rgba(111,129,144,0.6);
-}
-
-.acw-card-massage::before {
-  background: rgba(173,140,105,0.68);
-}
-
-.acw-card-link:hover {
-  color: var(--text);
-
-  transform: translateY(-4px);
-
-  box-shadow: var(--shadow-lg);
-}
-
-.acw-card-image {
-  width: 100%;
-
-  aspect-ratio: 4 / 3;
-
-  object-fit: cover;
-
-  border-bottom: 1px solid rgba(23,35,49,0.07);
-}
-
-.acw-card-body {
-  padding: 1.45rem;
-}
-
-/* =========================================================
-   PRICING
-========================================================= */
-
-.acw-pricing-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-
-  gap: 1.25rem;
-
-  margin-top: 2rem;
-}
-
-.acw-price-card {
-  padding: 2rem;
-
-  background: rgba(255,255,255,0.94);
-
-  border: 1px solid rgba(23,35,49,0.08);
-
-  border-radius: var(--radius-xl);
-
-  box-shadow: var(--shadow);
-}
-
-.acw-price-card-featured {
-  border: 1px solid rgba(137,155,127,0.28);
-
-  box-shadow:
-    0 24px 54px rgba(23,35,49,0.08);
-
-  transform: translateY(-2px);
-}
-
-.acw-price-label {
-  margin-bottom: 0.75rem;
-
-  color: var(--accent-dark);
-
-  font-size: 0.78rem;
-  font-weight: 850;
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.16em;
-}
-
-.acw-price-card h3 {
-  margin-bottom: 1rem;
-
-  font-size: clamp(2.4rem, 5vw, 3rem);
-
-  line-height: 1;
-}
-
-.acw-price-intro {
-  margin-bottom: 1.4rem;
-
-  color: var(--muted);
-}
-
-.acw-check-list {
-  display: grid;
-
-  gap: 0.7rem;
-
-  margin: 0;
-
-  padding-left: 1.1rem;
-}
-
-.acw-check-list li {
-  color: var(--muted);
-}
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 960px) {
-
-  .acw-hero-grid,
-  .acw-cards,
-  .acw-pricing-grid,
-  .acw-split-grid,
-  .acw-about-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .acw-hero-grid {
-    gap: 2.4rem;
-  }
-
-  .acw-cards {
-    gap: 1rem;
-  }
-
-  .acw-about-side {
-    justify-self: start;
-
-    max-width: 620px;
-  }
-}
-
-@media (max-width: 640px) {
-
-  .container,
-  .shell,
-  .acw-container {
-    width: min(100% - 1.5rem, var(--container));
-  }
-
-  .site-header .nav {
-    min-height: 70px;
-  }
-
-  .nav__logo {
-    height: 50px;
-  }
-
-  .nav__toggle {
-    width: 42px;
-    height: 42px;
-  }
-
-  .acw-section {
-    padding: 56px 0;
-  }
-
-  .acw-hero {
-    padding: 40px 0 48px;
-  }
-
-  h1 {
-    font-size: clamp(2.2rem, 9vw, 2.85rem);
-  }
-
-  h2 {
-    font-size: clamp(1.82rem, 7vw, 2.22rem);
-  }
-
-  .acw-hero-text,
-  .acw-section-text,
-  .acw-section-intro {
-    max-width: 34ch;
-
-    font-size: 1rem;
-  }
-
-  .acw-btn {
-    width: 100%;
-  }
-
-  .acw-price-card {
-    padding: 1.5rem;
-  }
-
-  .acw-trust-row {
-    gap: 0.5rem;
-  }
-
-  .acw-trust-row span,
-  .acw-pill-grid span {
-    font-size: 0.8rem;
-  }
-
-  .acw-card,
-  .acw-mini-card,
-  .acw-contact-box,
-  .acw-about-note {
-    border-radius: 22px;
-  }
 }
