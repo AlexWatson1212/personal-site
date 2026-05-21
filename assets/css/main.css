@@ -619,3 +619,495 @@ p {
 
   box-shadow: var(--shadow-lg);
 }
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.acw-about-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.95fr)
+    minmax(280px, 390px);
+
+  gap: 3rem;
+
+  align-items: center;
+}
+
+.acw-about-copy {
+  max-width: 720px;
+}
+
+.acw-about-side {
+  display: grid;
+
+  gap: 1rem;
+
+  justify-self: end;
+
+  width: 100%;
+  max-width: 390px;
+}
+
+.acw-about-image {
+  width: 100%;
+
+  aspect-ratio: 4 / 3;
+
+  object-fit: cover;
+
+  border: 1px solid rgba(23,35,49,0.08);
+
+  border-radius: var(--radius-xl);
+
+  box-shadow: var(--shadow);
+}
+
+.acw-about-note {
+  padding: 1.2rem;
+
+  background: rgba(255,255,255,0.72);
+
+  border: 1px solid rgba(23,35,49,0.08);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-about-note p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 0.96rem;
+
+  line-height: 1.65;
+}
+
+/* =========================================================
+   WHO I WORK WITH
+========================================================= */
+
+.acw-split-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(320px, 1fr);
+
+  gap: 3rem;
+
+  align-items: center;
+}
+
+.acw-pill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.acw-pill-grid span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.72rem 1rem;
+
+  background: rgba(255,255,255,0.84);
+
+  border: 1px solid rgba(23,35,49,0.08);
+
+  border-radius: 999px;
+
+  color: var(--text);
+
+  font-weight: 700;
+
+  box-shadow: var(--shadow-sm);
+}
+
+/* =========================================================
+   EXAMPLE CARDS
+========================================================= */
+
+.acw-cards {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 1.15rem;
+
+  margin-top: 1.9rem;
+}
+
+.acw-card-link {
+  position: relative;
+
+  display: block;
+
+  min-height: 100%;
+
+  overflow: hidden;
+
+  color: var(--text);
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.acw-card-link::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0 0 auto 0;
+
+  z-index: 2;
+
+  height: 4px;
+
+  background: rgba(137,155,127,0.68);
+}
+
+.acw-card-sarah::before {
+  background: rgba(185,159,139,0.64);
+}
+
+.acw-card-massage::before {
+  background: rgba(173,140,105,0.68);
+}
+
+.acw-card-michael::before {
+  background: rgba(111,129,144,0.6);
+}
+
+.acw-card-link:hover {
+  color: var(--text);
+
+  transform: translateY(-4px);
+
+  box-shadow: var(--shadow-lg);
+}
+
+.acw-card {
+  overflow: hidden;
+
+  height: 100%;
+
+  padding: 0;
+}
+
+.acw-card-image {
+  width: 100%;
+
+  aspect-ratio: 4 / 3;
+
+  object-fit: cover;
+
+  border-bottom: 1px solid rgba(23,35,49,0.07);
+}
+
+.acw-card-body {
+  padding: 1.45rem;
+}
+
+/* =========================================================
+   PRICING
+========================================================= */
+
+.acw-pricing-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 1.25rem;
+
+  margin-top: 2rem;
+}
+
+.acw-price-card {
+  padding: 2rem;
+
+  background: rgba(255,255,255,0.94);
+
+  border: 1px solid rgba(23,35,49,0.08);
+
+  border-radius: var(--radius-xl);
+
+  box-shadow: var(--shadow);
+}
+
+.acw-price-card-featured {
+  border: 1px solid rgba(137,155,127,0.28);
+
+  box-shadow:
+    0 24px 54px rgba(23,35,49,0.08);
+
+  transform: translateY(-2px);
+}
+
+.acw-price-label {
+  margin-bottom: 0.75rem;
+
+  color: var(--accent-dark);
+
+  font-size: 0.78rem;
+  font-weight: 850;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.16em;
+}
+
+.acw-price-card h3 {
+  margin-bottom: 1rem;
+
+  font-size: clamp(2.4rem, 5vw, 3rem);
+
+  line-height: 1;
+}
+
+.acw-price-intro {
+  margin-bottom: 1.4rem;
+
+  color: var(--muted);
+}
+
+.acw-check-list {
+  display: grid;
+
+  gap: 0.7rem;
+
+  margin: 0;
+
+  padding-left: 1.1rem;
+}
+
+.acw-check-list li {
+  color: var(--muted);
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.acw-contact-box {
+  padding: 2rem;
+}
+
+.acw-contact-kicker {
+  margin-bottom: 0.35rem;
+
+  color: var(--accent-dark);
+
+  font-size: 0.8rem;
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.14em;
+}
+
+.acw-email {
+  display: inline-block;
+
+  margin-bottom: 1rem;
+
+  color: var(--text);
+
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-weight: 800;
+}
+
+.acw-contact-note {
+  color: var(--muted);
+}
+
+.acw-contact-button {
+  margin-top: 1rem;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer {
+  padding: 3.5rem 0 4rem;
+
+  background: var(--surface);
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 1.5rem;
+
+  text-align: center;
+}
+
+.footer-logo {
+  width: 120px;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+}
+
+.footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 46px;
+  height: 46px;
+
+  background: rgba(255,255,255,0.78);
+
+  border: 1px solid rgba(23,35,49,0.08);
+
+  border-radius: 999px;
+
+  color: var(--accent-dark);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.footer-socials a:hover {
+  transform: translateY(-2px);
+
+  background: var(--white);
+
+  box-shadow: var(--shadow);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 960px) {
+
+  .acw-hero-grid,
+  .acw-about-grid,
+  .acw-split-grid,
+  .acw-cards,
+  .acw-pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-hero-grid {
+    gap: 2rem;
+  }
+
+  .acw-about-grid,
+  .acw-split-grid {
+    gap: 2.2rem;
+  }
+
+  .acw-cards {
+    gap: 1rem;
+  }
+
+  .acw-about-side {
+    justify-self: start;
+
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 640px) {
+
+  .container,
+  .shell,
+  .acw-container {
+    width: min(100% - 1.5rem, var(--container));
+  }
+
+  .site-header .nav {
+    min-height: 68px;
+  }
+
+  .nav__logo {
+    height: 46px;
+  }
+
+  .nav__toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .acw-section {
+    padding: 52px 0;
+  }
+
+  .acw-hero {
+    padding: 34px 0 42px;
+  }
+
+  h1 {
+    max-width: 11ch;
+
+    font-size: clamp(2.1rem, 9vw, 2.7rem);
+  }
+
+  h2 {
+    max-width: 13ch;
+
+    font-size: clamp(1.7rem, 7vw, 2.15rem);
+  }
+
+  .acw-hero-text,
+  .acw-section-text,
+  .acw-section-intro {
+    max-width: 34ch;
+
+    font-size: 0.98rem;
+
+    line-height: 1.68;
+  }
+
+  .acw-btn {
+    width: 100%;
+  }
+
+  .acw-card-body,
+  .acw-price-card,
+  .acw-contact-box {
+    padding: 1.35rem;
+  }
+
+  .acw-trust-row {
+    gap: 0.45rem;
+  }
+
+  .acw-trust-row span,
+  .acw-pill-grid span {
+    font-size: 0.76rem;
+  }
+
+  .acw-card,
+  .acw-about-note,
+  .acw-contact-box,
+  .acw-price-card {
+    border-radius: 22px;
+  }
+
+  .footer-logo {
+    width: 108px;
+  }
+
+  .footer-socials a {
+    width: 44px;
+    height: 44px;
+  }
+}
