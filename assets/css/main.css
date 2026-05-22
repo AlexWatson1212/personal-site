@@ -31,7 +31,7 @@ Calm, premium, mobile-first website design.
   --pill: 999px;
 
   --container: 1060px;
-  --narrow: 740px;
+  --narrow: 760px;
 
   --font-heading: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
@@ -784,7 +784,7 @@ p {
 /* BLOG PAGE */
 
 .acw-blog-hero {
-  padding: 76px 0 78px;
+  padding: 76px 0 82px;
   background:
     radial-gradient(circle at 12% 8%, rgba(216,193,164,0.25), transparent 34%),
     linear-gradient(180deg, #fcf8f2 0%, #f7f2eb 100%);
@@ -792,13 +792,13 @@ p {
 
 .acw-blog-hero-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(380px, 0.95fr);
-  gap: 5.5rem;
+  grid-template-columns: minmax(0, 0.95fr) minmax(340px, 0.85fr);
+  gap: 4.5rem;
   align-items: center;
 }
 
 .acw-blog-hero-copy {
-  max-width: 620px;
+  max-width: 600px;
 }
 
 .acw-blog-page-title {
@@ -806,10 +806,26 @@ p {
 }
 
 .acw-blog-page-intro {
-  max-width: 48ch;
+  max-width: 50ch;
   color: var(--muted);
   font-size: 1.05rem;
   line-height: 1.72;
+}
+
+.acw-blog-hero-card {
+  overflow: hidden;
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(23,35,49,0.08);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.acw-blog-hero-card p {
+  margin: 0;
+  padding: 1.15rem 1.25rem 1.25rem;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.65;
 }
 
 .acw-blog-hero-image-wrap {
@@ -820,11 +836,9 @@ p {
 .acw-blog-hero-image {
   width: 100%;
   max-width: 540px;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  border: 1px solid rgba(23,35,49,0.08);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
 }
 
 .acw-blog-search {
@@ -838,7 +852,7 @@ p {
   width: min(100%, 340px);
   min-height: 48px;
   padding: 0.82rem 1rem;
-  background: rgba(255,255,255,0.78);
+  background: rgba(255,255,255,0.82);
   border: 1px solid rgba(23,35,49,0.12);
   border-radius: var(--pill);
   color: var(--text);
@@ -870,7 +884,7 @@ p {
 
 .acw-blog-search-results li {
   padding: 0.9rem 1rem;
-  background: rgba(255,255,255,0.78);
+  background: rgba(255,255,255,0.82);
   border: 1px solid rgba(23,35,49,0.08);
   border-radius: var(--radius-sm);
 }
@@ -881,9 +895,13 @@ p {
 
 .acw-blog-value-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(340px, 1fr);
+  grid-template-columns: minmax(0, 0.8fr) minmax(340px, 1fr);
   gap: 4rem;
   align-items: start;
+}
+
+.acw-blog-value-copy {
+  max-width: 560px;
 }
 
 .acw-blog-value-list {
@@ -1037,6 +1055,95 @@ p {
 
 .acw-blog-cta .acw-btn {
   margin-top: 0.8rem;
+}
+
+/* ARTICLE PAGE */
+
+.acw-post {
+  background: var(--surface);
+}
+
+.acw-post-header {
+  padding: 76px 0 34px;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(216,193,164,0.2), transparent 34%),
+    linear-gradient(180deg, #fcf8f2 0%, #fffdf9 100%);
+}
+
+.acw-post-header-inner {
+  max-width: 860px;
+}
+
+.acw-post-header h1 {
+  max-width: 13ch;
+  margin-bottom: 1rem;
+  font-size: clamp(2.5rem, 5vw, 4.1rem);
+  line-height: 0.98;
+}
+
+.acw-post-description {
+  max-width: 58ch;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.72;
+}
+
+.acw-post-meta {
+  margin-top: 1.2rem;
+  color: var(--accent-dark);
+  font-size: 0.85rem;
+  font-weight: 780;
+}
+
+.acw-post-hero-wrap {
+  max-width: 960px;
+  margin-bottom: 3rem;
+}
+
+.acw-post-hero-image {
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.acw-post-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 0 86px;
+}
+
+.acw-post-content p,
+.acw-post-content li {
+  color: var(--text);
+  font-size: 1.04rem;
+  line-height: 1.82;
+}
+
+.acw-post-content p {
+  margin-bottom: 1.35rem;
+}
+
+.acw-post-content h2 {
+  max-width: 16ch;
+  margin-top: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.acw-post-content h3 {
+  margin-top: 2rem;
+}
+
+.acw-post-content ul,
+.acw-post-content ol {
+  margin: 0 0 1.6rem;
+  padding-left: 1.3rem;
+}
+
+.acw-post-content a {
+  font-weight: 760;
+  border-bottom: 1px solid rgba(104,121,96,0.35);
 }
 
 /* CONTACT */
@@ -1258,6 +1365,29 @@ p {
 
   .acw-blog-cta {
     padding: 2rem 1.35rem;
+  }
+
+  .acw-post-header {
+    padding: 48px 0 28px;
+  }
+
+  .acw-post-hero-wrap {
+    margin-bottom: 2.2rem;
+  }
+
+  .acw-post-hero-image {
+    max-height: 340px;
+    border-radius: 22px;
+  }
+
+  .acw-post-content {
+    padding-bottom: 60px;
+  }
+
+  .acw-post-content p,
+  .acw-post-content li {
+    font-size: 1rem;
+    line-height: 1.76;
   }
 
   .acw-niche-item {

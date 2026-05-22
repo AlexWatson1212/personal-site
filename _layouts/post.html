@@ -3,29 +3,48 @@
 <head>
   {% include head.html %}
 </head>
+
 <body>
   {% include header.html %}
 
   <main id="content" class="site-content">
-    <article class="post">
+    <article class="acw-post">
+
+      <header class="acw-post-header">
+        <div class="acw-container acw-post-header-inner">
+          <p class="acw-section-label">Article</p>
+
+          <h1>{{ page.title }}</h1>
+
+          {% if page.description %}
+            <p class="acw-post-description">
+              {{ page.description }}
+            </p>
+          {% endif %}
+
+          {% if page.date %}
+            <p class="acw-post-meta">
+              {{ page.date | date: "%-d %B %Y" }}
+            </p>
+          {% endif %}
+        </div>
+      </header>
 
       {% if page.hero_image %}
-        <img
-          class="post-hero-image"
-          src="{{ page.hero_image | relative_url }}"
-          alt="{{ page.title }}"
-          loading="eager"
-        >
+        <div class="acw-container acw-post-hero-wrap">
+          <img
+            class="acw-post-hero-image"
+            src="{{ page.hero_image | relative_url }}"
+            alt="{{ page.title }}"
+            loading="eager"
+          >
+        </div>
       {% endif %}
 
-      <h1>{{ page.title }}</h1>
-
-      {% if page.date %}
-        <p class="post-meta">{{ page.date | date: "%B %d, %Y" }}</p>
-      {% endif %}
-
-      <div class="post-content">
-        {{ content }}
+      <div class="acw-container">
+        <div class="acw-post-content">
+          {{ content }}
+        </div>
       </div>
 
     </article>
