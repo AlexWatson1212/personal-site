@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Blog
-description: Notes on calm, clear therapist websites, emotional trust, and creating an online presence that feels human.
+description: Practical notes on calm personal websites, trust-building, positioning, and creating an online presence that feels clear, human, and credible.
 ---
 
 <section class="acw-section acw-blog-hero">
@@ -10,11 +10,11 @@ description: Notes on calm, clear therapist websites, emotional trust, and creat
       <p class="acw-section-label">Blog</p>
 
       <h1 class="acw-blog-page-title">
-        Notes on calm, clear therapist websites.
+        Practical notes on trust, clarity and personal brands.
       </h1>
 
       <p class="acw-blog-page-intro">
-        Reflections on design, trust, emotional safety, and building an online presence that feels genuinely human.
+        Writing for therapists, coaches, wellness practitioners, creatives and small personal brands who want their online presence to feel calm, credible and human.
       </p>
 
       <form class="acw-blog-search" role="search" aria-label="Blog search" onsubmit="return false;">
@@ -23,7 +23,7 @@ description: Notes on calm, clear therapist websites, emotional trust, and creat
         <input
           id="blog-search-input"
           type="search"
-          placeholder="Search posts..."
+          placeholder="Search trust, websites, branding..."
           autocomplete="off"
         >
 
@@ -48,11 +48,46 @@ description: Notes on calm, clear therapist websites, emotional trust, and creat
   </div>
 </section>
 
+<section class="acw-section acw-blog-value-section">
+  <div class="acw-container acw-blog-value-grid">
+    <div>
+      <p class="acw-section-label">What this is about</p>
+      <h2>Helping thoughtful people build trust online.</h2>
+      <p class="acw-section-text">
+        A website is not just a digital brochure. For personal brands, it is often the first moment someone decides whether you feel safe, professional, clear and worth contacting.
+      </p>
+    </div>
+
+    <div class="acw-blog-value-list">
+      <article>
+        <span>01</span>
+        <h3>Clarity before cleverness</h3>
+        <p>People should understand who you help, what you offer and why they can trust you within seconds.</p>
+      </article>
+
+      <article>
+        <span>02</span>
+        <h3>Calm design that builds confidence</h3>
+        <p>Whitespace, hierarchy, tone and visual restraint can make a site feel more grounded and credible.</p>
+      </article>
+
+      <article>
+        <span>03</span>
+        <h3>Positioning that feels human</h3>
+        <p>The aim is not to sound salesy. It is to express your work clearly enough that the right people recognise themselves in it.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section class="acw-section acw-blog-posts-section">
   <div class="acw-container">
     <div class="acw-section-heading">
       <p class="acw-section-label">Recent notes</p>
-      <h2>Thoughtful writing for therapists building trust online.</h2>
+      <h2>Useful writing for calm personal brands.</h2>
+      <p class="acw-section-intro">
+        Practical thoughts on website strategy, emotional trust, positioning, design, and creating an online presence that quietly does its job.
+      </p>
     </div>
 
     {% assign blog_posts = site.posts %}
@@ -95,11 +130,26 @@ description: Notes on calm, clear therapist websites, emotional trust, and creat
     {% else %}
       <div class="acw-blog-empty" id="blogPosts">
         <p class="acw-section-label">Coming soon</p>
-        <h2>The first posts are on their way.</h2>
+        <h2>The first notes are on their way.</h2>
         <p class="acw-section-text">
-          A few thoughtful posts will appear here soon around therapist websites, calm design, and building trust online.
+          A few useful posts will appear here soon around personal websites, calm design, trust, clarity and positioning.
         </p>
       </div>
     {% endif %}
+  </div>
+</section>
+
+<section class="acw-section acw-blog-cta-section">
+  <div class="acw-container">
+    <div class="acw-blog-cta">
+      <p class="acw-section-label">Start here</p>
+      <h2>Want your website to feel clearer, calmer and more trustworthy?</h2>
+      <p>
+        I help personal brands turn scattered ideas into a simple, polished online presence that feels aligned with the work behind it.
+      </p>
+      <a class="acw-btn acw-btn-primary" href="{{ '/' | relative_url }}#contact">
+        Start a conversation
+      </a>
+    </div>
   </div>
 </section>
