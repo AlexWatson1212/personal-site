@@ -33,17 +33,39 @@
       </div>
 
       <ul id="primary-nav" class="nav__links">
-        <li><a href="{{ '/' | relative_url }}#templates" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">Examples</a></li>
-        <li><a href="{{ '/' | relative_url }}#process" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">Process</a></li>
-        <li><a href="{{ '/' | relative_url }}#about" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">About</a></li>
+        <li>
+          <a href="{{ '/' | relative_url }}#templates" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
+            Examples
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/' | relative_url }}#process" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
+            Process
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/' | relative_url }}#about" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
+            About
+          </a>
+        </li>
+
         <li>
           <a
             href="{{ '/blog/' | relative_url }}"
             {% if page.url contains "/blog" %}aria-current="page"{% endif %}
             onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');"
-          >Blog</a>
+          >
+            Blog
+          </a>
         </li>
-        <li><a href="{{ '/' | relative_url }}#contact" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">Contact</a></li>
+
+        <li>
+          <a href="{{ '/' | relative_url }}#contact" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
+            Contact
+          </a>
+        </li>
       </ul>
 
       <a
