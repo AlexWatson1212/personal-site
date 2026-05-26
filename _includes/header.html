@@ -12,23 +12,47 @@
       class="nav__toggle"
       type="button"
       aria-label="Open menu"
-      aria-controls="primary-nav"
       aria-expanded="false"
+      onclick="document.body.classList.toggle('menu-open'); this.setAttribute('aria-expanded', document.body.classList.contains('menu-open') ? 'true' : 'false');"
     >
       <span aria-hidden="true" class="nav__icon"></span>
     </button>
 
-    <ul id="primary-nav" class="nav__links" hidden>
-      <li><a href="{{ '/' | relative_url }}#templates">Examples</a></li>
-      <li><a href="{{ '/' | relative_url }}#process">Process</a></li>
-      <li><a href="{{ '/' | relative_url }}#about">About</a></li>
-      <li>
-        <a
-          href="{{ '/blog/' | relative_url }}"
-          {% if page.url contains "/blog" %}aria-current="page"{% endif %}
-        >Blog</a>
-      </li>
-      <li><a href="{{ '/' | relative_url }}#contact">Contact</a></li>
-    </ul>
+    <div
+      class="nav__overlay"
+      onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');"
+    ></div>
+
+    <div class="nav__panel">
+      <div class="nav__panel-head">
+        <img
+          class="nav__panel-logo"
+          src="{{ '/assets/images/brand/aw-logo.png' | relative_url }}"
+          alt="Alexander Watson — Web Design for Meaningful Work"
+        >
+      </div>
+
+      <ul id="primary-nav" class="nav__links">
+        <li><a href="{{ '/' | relative_url }}#templates" onclick="document.body.classList.remove('menu-open')">Examples</a></li>
+        <li><a href="{{ '/' | relative_url }}#process" onclick="document.body.classList.remove('menu-open')">Process</a></li>
+        <li><a href="{{ '/' | relative_url }}#about" onclick="document.body.classList.remove('menu-open')">About</a></li>
+        <li>
+          <a
+            href="{{ '/blog/' | relative_url }}"
+            {% if page.url contains "/blog" %}aria-current="page"{% endif %}
+            onclick="document.body.classList.remove('menu-open')"
+          >Blog</a>
+        </li>
+        <li><a href="{{ '/' | relative_url }}#contact" onclick="document.body.classList.remove('menu-open')">Contact</a></li>
+      </ul>
+
+      <a
+        href="{{ '/' | relative_url }}#contact"
+        class="nav__cta"
+        onclick="document.body.classList.remove('menu-open')"
+      >
+        Start a website
+      </a>
+    </div>
   </nav>
 </header>
