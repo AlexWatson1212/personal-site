@@ -9,6 +9,7 @@ Calm, premium, mobile-first website design.
   --bg: #f7f2eb;
   --surface: #fffdf9;
   --surface-soft: #ece4d8;
+  --surface-warm: #f1eadf;
 
   --text: #172331;
   --muted: #5e6975;
@@ -179,7 +180,7 @@ p {
 
 .acw-section-soft {
   background:
-    radial-gradient(circle at 12% 10%, rgba(255, 255, 255, 0.22), transparent 34%),
+    radial-gradient(circle at 12% 10%, rgba(255, 255, 255, 0.24), transparent 34%),
     var(--surface-soft);
 }
 
@@ -190,6 +191,18 @@ p {
 
 .acw-section-heading h2 {
   max-width: 17ch;
+}
+
+.acw-narrow .acw-section-heading {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.acw-narrow .acw-section-heading h2,
+.acw-narrow .acw-section-heading .acw-section-intro {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .acw-eyebrow,
@@ -220,6 +233,12 @@ p {
   max-width: 58ch;
   font-size: 1.02rem;
   line-height: 1.74;
+}
+
+.acw-narrow .acw-section-text {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 /* BUTTONS */
@@ -382,10 +401,6 @@ p {
 @media (max-width: 860px) {
   html {
     scroll-padding-top: 84px;
-  }
-
-  body.menu-open {
-    overflow: hidden;
   }
 
   .site-header .nav {
@@ -675,139 +690,7 @@ p {
   line-height: 1.5;
 }
 
-/* ABOUT */
-
-.acw-about-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 390px);
-  gap: 3.6rem;
-  align-items: center;
-}
-
-.acw-about-copy {
-  max-width: 720px;
-}
-
-.acw-about-side {
-  display: grid;
-  gap: 1rem;
-  justify-self: end;
-  width: 100%;
-  max-width: 390px;
-}
-
-.acw-about-image {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border: 1px solid rgba(23, 35, 49, 0.08);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow);
-}
-
-.acw-about-note {
-  padding: 1.2rem;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(23, 35, 49, 0.08);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-}
-
-.acw-about-note p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.96rem;
-  line-height: 1.65;
-}
-
-/* NICHE SECTION */
-
-.acw-niche-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1fr);
-  gap: 3.8rem;
-  align-items: center;
-}
-
-.acw-niche-list {
-  display: grid;
-  background: rgba(255, 255, 255, 0.58);
-  border: 1px solid rgba(23, 35, 49, 0.08);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-}
-
-.acw-niche-item {
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 1rem;
-  align-items: center;
-  padding: 1.15rem 1.25rem;
-  border-bottom: 1px solid rgba(23, 35, 49, 0.08);
-}
-
-.acw-niche-item:last-child {
-  border-bottom: 0;
-}
-
-.acw-niche-item span {
-  color: var(--accent-dark);
-  font-size: 0.78rem;
-  font-weight: 850;
-  letter-spacing: 0.14em;
-}
-
-.acw-niche-item p {
-  margin: 0;
-  color: var(--text);
-  font-weight: 780;
-  line-height: 1.35;
-}
-
-/* OUTCOME SECTION */
-
-.acw-outcome-section {
-  background: var(--surface);
-}
-
-.acw-outcome-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  margin-top: 2rem;
-}
-
-.acw-outcome-card {
-  padding: 1.7rem;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(23, 35, 49, 0.08);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow);
-}
-
-.acw-outcome-card span {
-  display: inline-block;
-  margin-bottom: 1.1rem;
-  color: var(--accent-dark);
-  font-size: 0.78rem;
-  font-weight: 850;
-  letter-spacing: 0.16em;
-}
-
-.acw-outcome-card h3 {
-  margin-bottom: 0.7rem;
-}
-
-.acw-outcome-card p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.96rem;
-  line-height: 1.65;
-}
-/* ==================================================
-   EXAMPLE CARDS
-   ================================================== */
+/* EXAMPLE CARDS */
 
 .acw-cards {
   display: grid;
@@ -896,9 +779,137 @@ p {
   line-height: 1.62;
 }
 
-/* ==================================================
-   PROCESS
-   ================================================== */
+/* ABOUT */
+
+.acw-about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 390px);
+  gap: 3.6rem;
+  align-items: center;
+}
+
+.acw-about-copy {
+  max-width: 720px;
+}
+
+.acw-about-side {
+  display: grid;
+  gap: 1rem;
+  justify-self: end;
+  width: 100%;
+  max-width: 390px;
+}
+
+.acw-about-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid rgba(23, 35, 49, 0.08);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+}
+
+.acw-about-note {
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(23, 35, 49, 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-about-note p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+/* NICHE SECTION */
+
+.acw-niche-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1fr);
+  gap: 3.8rem;
+  align-items: center;
+}
+
+.acw-niche-list {
+  display: grid;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(23, 35, 49, 0.08);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-niche-item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.15rem 1.25rem;
+  border-bottom: 1px solid rgba(23, 35, 49, 0.08);
+}
+
+.acw-niche-item:last-child {
+  border-bottom: 0;
+}
+
+.acw-niche-item span {
+  color: var(--accent-dark);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+}
+
+.acw-niche-item p {
+  margin: 0;
+  color: var(--text);
+  font-weight: 780;
+  line-height: 1.35;
+}
+
+/* OUTCOME / FEEDBACK CARDS */
+
+.acw-outcome-section {
+  background: var(--surface);
+}
+
+.acw-outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.acw-outcome-card {
+  padding: 1.7rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(23, 35, 49, 0.08);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+}
+
+.acw-outcome-card span {
+  display: inline-block;
+  margin-bottom: 1.1rem;
+  color: var(--accent-dark);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+}
+
+.acw-outcome-card h3 {
+  margin-bottom: 0.7rem;
+}
+
+.acw-outcome-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+/* PROCESS / DIY SECTION */
 
 .acw-process-section {
   background: var(--surface);
@@ -939,9 +950,7 @@ p {
   line-height: 1.65;
 }
 
-/* ==================================================
-   PRICING SECTION
-   ================================================== */
+/* PRICING SECTION */
 
 .acw-pricing-grid {
   display: grid;
@@ -966,7 +975,8 @@ p {
   box-shadow: 0 24px 54px rgba(23, 35, 49, 0.08);
 }
 
-.acw-price-badge {
+.acw-price-badge,
+.acw-price-label {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -982,12 +992,7 @@ p {
 }
 
 .acw-price-label {
-  margin-bottom: 0.75rem;
-  color: var(--accent-dark);
-  font-size: 0.78rem;
-  font-weight: 850;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
+  background: rgba(23, 35, 49, 0.04);
 }
 
 .acw-price-card h3 {
@@ -1035,9 +1040,7 @@ p {
   color: var(--text);
 }
 
-/* ==================================================
-   GUARANTEE SECTION
-   ================================================== */
+/* GUARANTEE SECTION */
 
 .acw-guarantee-section {
   background: var(--surface);
@@ -1046,11 +1049,8 @@ p {
 .acw-guarantee-box {
   padding: 2.4rem;
   background:
-    radial-gradient(circle at 50% 0%,
-    rgba(216, 193, 164, 0.18),
-    transparent 42%),
+    radial-gradient(circle at 50% 0%, rgba(216, 193, 164, 0.18), transparent 42%),
     rgba(255, 255, 255, 0.86);
-
   border: 1px solid rgba(23, 35, 49, 0.08);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
@@ -1082,9 +1082,8 @@ p {
   color: var(--text);
   font-weight: 720;
 }
-/* ==================================================
-   CONTACT
-   ================================================== */
+
+/* CONTACT */
 
 .acw-contact-section {
   padding-bottom: 72px;
@@ -1145,15 +1144,13 @@ p {
   font-weight: 800;
 }
 
-/* ==================================================
-   FOOTER
-   ================================================== */
+/* FOOTER */
 
 .site-footer {
   padding: 82px 16px 46px;
   background:
     radial-gradient(circle at 50% 0%, rgba(216, 193, 164, 0.24), transparent 38%),
-    #f1eadf;
+    var(--surface-warm);
   border-top: 1px solid rgba(23, 35, 49, 0.08);
   text-align: center;
 }
@@ -1209,9 +1206,7 @@ p {
   font-size: 0.78rem;
 }
 
-/* ==================================================
-   ACCESSIBILITY
-   ================================================== */
+/* ACCESSIBILITY */
 
 .sr-only {
   position: absolute;
@@ -1224,9 +1219,7 @@ p {
   clip: rect(0, 0, 0, 0);
 }
 
-/* ==================================================
-   RESPONSIVE
-   ================================================== */
+/* RESPONSIVE */
 
 @media (max-width: 960px) {
   .acw-hero-grid,
@@ -1241,10 +1234,7 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .acw-hero-grid {
-    gap: 2.4rem;
-  }
-
+  .acw-hero-grid,
   .acw-about-grid,
   .acw-niche-grid {
     gap: 2.4rem;
@@ -1322,6 +1312,10 @@ p {
     max-width: 34ch;
     font-size: 0.98rem;
     line-height: 1.68;
+  }
+
+  .acw-narrow .acw-section-text {
+    text-align: left;
   }
 
   .acw-btn {
