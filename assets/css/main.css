@@ -1,8 +1,9 @@
-/*
-====================================================================
+ /*
+
 AlexanderWatson.co.uk — Main CSS
 Calm, premium, mobile-first website design.
-====================================================================
+===========================================
+
 */
 
 :root {
@@ -51,7 +52,7 @@ box-sizing: border-box;
 
 html {
 scroll-behavior: smooth;
-scroll-padding-top: 96px;
+scroll-padding-top: 92px;
 }
 
 body {
@@ -91,7 +92,7 @@ transform var(--transition),
 opacity var(--transition);
 }
 
-a {
+a:hover {
 color: var(--text);
 }
 
@@ -100,9 +101,9 @@ input {
 font: inherit;
 }
 
-a,
-button,
-input {
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
 outline: 2px solid var(--accent-dark);
 outline-offset: 4px;
 border-radius: 10px;
@@ -135,7 +136,7 @@ padding-right: 0;
 }
 
 section {
-scroll-margin-top: 96px;
+scroll-margin-top: 92px;
 }
 
 /* TYPOGRAPHY */
@@ -175,7 +176,7 @@ margin: 0 0 1rem;
 /* SECTIONS */
 
 .acw-section {
-padding: 84px 0;
+padding: 88px 0;
 background: var(--surface);
 }
 
@@ -270,7 +271,7 @@ transform var(--transition),
 box-shadow var(--transition);
 }
 
-.acw-btn {
+.acw-btn:hover {
 transform: translateY(-1px);
 }
 
@@ -281,7 +282,7 @@ box-shadow: 0 10px 22px rgba(104, 121, 96, 0.16);
 letter-spacing: -0.01em;
 }
 
-.acw-btn-primary {
+.acw-btn-primary:hover {
 background: var(--accent-dark);
 color: var(--white);
 }
@@ -292,7 +293,7 @@ color: var(--text);
 border-color: var(--line);
 }
 
-.acw-btn-secondary {
+.acw-btn-secondary:hover {
 background: var(--white);
 color: var(--text);
 border-color: var(--line-strong);
@@ -304,9 +305,9 @@ border-color: var(--line-strong);
 position: sticky;
 top: 0;
 z-index: 1000;
-background: rgba(247, 242, 235, 0.9);
-border-bottom: 1px solid rgba(23, 35, 49, 0.07);
-box-shadow: 0 8px 30px rgba(23, 35, 49, 0.025);
+background: rgba(247, 242, 235, 0.78);
+border-bottom: 1px solid rgba(23, 35, 49, 0.055);
+box-shadow: none;
 backdrop-filter: blur(18px);
 -webkit-backdrop-filter: blur(18px);
 }
@@ -317,7 +318,7 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 gap: 1.4rem;
-min-height: 78px;
+min-height: 70px;
 width: min(100% - 2.5rem, var(--container));
 margin: 0 auto;
 }
@@ -330,14 +331,15 @@ flex: 0 0 auto;
 color: var(--text);
 }
 
-.nav__brand {
+.nav__brand:hover {
 color: var(--text);
+opacity: 0.86;
 }
 
 .nav__logo {
 display: block;
 width: auto;
-height: 56px;
+height: 44px;
 object-fit: contain;
 }
 
@@ -367,7 +369,7 @@ justify-content: flex-end;
 .nav__links {
 display: flex;
 align-items: center;
-gap: 1.85rem;
+gap: 1.55rem;
 }
 
 .nav__links li {
@@ -376,20 +378,41 @@ padding: 0;
 }
 
 .nav__links a {
-display: inline-block;
-padding: 0.45rem 0;
-color: rgba(23, 35, 49, 0.76);
-font-size: 0.94rem;
-font-weight: 780;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 0.35rem 0;
+background: transparent;
+color: rgba(23, 35, 49, 0.62);
+border: 0;
+border-bottom: 1px solid transparent;
+border-radius: 0;
+font-size: 0.82rem;
+font-weight: 760;
 line-height: 1.2;
-border-bottom: 2px solid transparent;
+letter-spacing: -0.01em;
 }
 
-.nav__links a,
-.nav__links a,
+.nav__links a:hover,
+.nav__links a:focus-visible,
 .nav__links a[aria-current="page"] {
 color: var(--text);
-border-bottom-color: rgba(137, 155, 127, 0.42);
+border-bottom-color: rgba(137, 155, 127, 0.46);
+}
+
+.nav__links li:last-child a {
+padding: 0.48rem 0.86rem;
+background: rgba(255, 255, 255, 0.62);
+border: 1px solid rgba(23, 35, 49, 0.09);
+border-radius: var(--pill);
+color: var(--text);
+box-shadow: 0 5px 16px rgba(23, 35, 49, 0.035);
+}
+
+.nav__links li:last-child a:hover {
+background: var(--white);
+border-color: rgba(137, 155, 127, 0.24);
+transform: translateY(-1px);
 }
 
 .nav__cta {
@@ -405,7 +428,7 @@ scroll-padding-top: 84px;
 
 .site-header .nav {
 justify-content: center;
-min-height: 72px;
+min-height: 68px;
 }
 
 .nav__brand {
@@ -413,7 +436,7 @@ justify-content: center;
 }
 
 .nav__logo {
-height: 52px;
+height: 44px;
 }
 
 .nav__toggle {
@@ -423,21 +446,22 @@ z-index: 1006;
 display: inline-flex;
 align-items: center;
 justify-content: center;
-width: 44px;
-height: 44px;
+width: 42px;
+height: 42px;
 padding: 0;
-background: rgba(255, 253, 249, 0.88);
+background: rgba(255, 253, 249, 0.78);
 color: var(--text);
-border: 1px solid rgba(23, 35, 49, 0.11);
-border-radius: var(--radius-sm);
+border: 1px solid rgba(23, 35, 49, 0.09);
+border-radius: 14px;
 cursor: pointer;
+box-shadow: 0 4px 14px rgba(23, 35, 49, 0.035);
 }
 
 .nav__icon,
 .nav__icon::before,
 .nav__icon::after {
 display: block;
-width: 19px;
+width: 18px;
 height: 2px;
 background: currentColor;
 border-radius: var(--pill);
@@ -1315,11 +1339,11 @@ width: min(100% - 1.5rem, var(--container));
 }
 
 .site-header .nav {
-min-height: 68px;
+min-height: 66px;
 }
 
 .nav__logo {
-height: 48px;
+height: 42px;
 }
 
 .nav__toggle {
