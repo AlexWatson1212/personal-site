@@ -1,3 +1,4 @@
+```css
 /*
 ====================================================================
 AlexanderWatson.co.uk — Main CSS
@@ -149,7 +150,7 @@ h3 {
 }
 
 h1 {
-  max-width: 11ch;
+  max-width: 12ch;
   font-size: clamp(2.75rem, 4.8vw, 4.45rem);
   line-height: 0.98;
 }
@@ -258,6 +259,7 @@ p {
   background: var(--accent);
   color: var(--white);
   box-shadow: 0 10px 22px rgba(104, 121, 96, 0.16);
+  letter-spacing: -0.01em;
 }
 
 .acw-btn-primary:hover {
@@ -404,21 +406,16 @@ p {
     position: absolute;
     right: 0;
     z-index: 1006;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     width: 44px;
     height: 44px;
     padding: 0;
-
     background: rgba(255, 253, 249, 0.88);
     color: var(--text);
-
     border: 1px solid rgba(23, 35, 49, 0.11);
     border-radius: var(--radius-sm);
-
     cursor: pointer;
   }
 
@@ -472,15 +469,11 @@ p {
     position: fixed;
     inset: 0;
     z-index: 1001;
-
     display: block;
-
     background: #f7f2eb;
-
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-
     transition:
       opacity 0.28s ease,
       visibility 0.28s ease;
@@ -496,27 +489,20 @@ p {
     position: fixed;
     inset: 0;
     z-index: 1002;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-
     min-height: 100vh;
     max-height: 100vh;
     overflow-y: auto;
-
     padding: 112px 26px 38px;
-
     background:
       radial-gradient(circle at 50% 0%, rgba(216, 193, 164, 0.2), transparent 36%),
       #f7f2eb;
-
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-
     transform: translateY(-8px);
-
     transition:
       opacity 0.28s ease,
       visibility 0.28s ease,
@@ -538,31 +524,19 @@ p {
     gap: 0;
   }
 
-  .nav__links li {
-    margin: 0;
-    padding: 0;
-  }
-
   .nav__links a {
     display: block;
     width: 100%;
-
     padding: 18px 0;
-
     border-bottom: 1px solid rgba(23, 35, 49, 0.1);
-
     color: var(--text);
-
     font-size: 1.24rem;
     font-weight: 850;
     letter-spacing: -0.035em;
     line-height: 1.2;
-
     text-align: center;
-
     opacity: 0;
     transform: translateY(8px);
-
     transition:
       opacity 0.28s ease,
       transform 0.28s ease,
@@ -591,20 +565,15 @@ p {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     width: 100%;
     min-height: 58px;
-
     margin-top: 40px;
-
     border-radius: var(--pill);
-
     background: var(--accent);
     color: var(--white);
-
     font-size: 1rem;
     font-weight: 900;
-
+    letter-spacing: -0.01em;
     box-shadow: 0 14px 30px rgba(104, 121, 96, 0.2);
   }
 
@@ -635,6 +604,26 @@ p {
   max-width: 560px;
 }
 
+.acw-hero-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.35rem;
+}
+
+.acw-hero-points span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.72rem;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--accent-dark);
+  border: 1px solid rgba(137, 155, 127, 0.18);
+  border-radius: var(--pill);
+  font-size: 0.78rem;
+  font-weight: 820;
+}
+
 .acw-hero-image-wrap {
   display: flex;
   justify-content: center;
@@ -648,6 +637,43 @@ p {
   border: 1px solid rgba(23, 35, 49, 0.08);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
+}
+
+/* TRUST STRIP */
+
+.acw-trust-strip {
+  padding: 1.2rem 0;
+  background: rgba(255, 253, 249, 0.92);
+  border-top: 1px solid rgba(23, 35, 49, 0.07);
+  border-bottom: 1px solid rgba(23, 35, 49, 0.07);
+}
+
+.acw-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.acw-trust-item {
+  padding: 1rem 1.1rem;
+  background: rgba(247, 242, 235, 0.64);
+  border: 1px solid rgba(23, 35, 49, 0.07);
+  border-radius: var(--radius-lg);
+}
+
+.acw-trust-item strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 850;
+}
+
+.acw-trust-item span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 /* ABOUT */
@@ -739,7 +765,51 @@ p {
   font-weight: 780;
   line-height: 1.35;
 }
-/* EXAMPLE CARDS */
+
+/* OUTCOME SECTION */
+
+.acw-outcome-section {
+  background: var(--surface);
+}
+
+.acw-outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.acw-outcome-card {
+  padding: 1.7rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(23, 35, 49, 0.08);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+}
+
+.acw-outcome-card span {
+  display: inline-block;
+  margin-bottom: 1.1rem;
+  color: var(--accent-dark);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+}
+
+.acw-outcome-card h3 {
+  margin-bottom: 0.7rem;
+}
+
+.acw-outcome-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+```css
+/* ==================================================
+   EXAMPLE CARDS
+   ================================================== */
 
 .acw-cards {
   display: grid;
@@ -787,6 +857,11 @@ p {
   box-shadow: var(--shadow-lg);
 }
 
+.acw-card-link:focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 4px;
+}
+
 .acw-card {
   overflow: hidden;
   height: 100%;
@@ -823,7 +898,9 @@ p {
   line-height: 1.62;
 }
 
-/* PROCESS */
+/* ==================================================
+   PROCESS
+   ================================================== */
 
 .acw-process-section {
   background: var(--surface);
@@ -864,17 +941,18 @@ p {
   line-height: 1.65;
 }
 
-/* PRICING */
+/* ==================================================
+   PRICING SECTION
+   ================================================== */
 
 .acw-pricing-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
   margin-top: 2rem;
 }
 
-.acw-pricing-grid-three {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.acw-pricing-grid-two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .acw-price-card {
@@ -885,10 +963,24 @@ p {
   box-shadow: var(--shadow);
 }
 
-.acw-price-card-featured {
-  border: 1px solid rgba(137, 155, 127, 0.28);
+.acw-price-card-main {
+  border: 2px solid rgba(137, 155, 127, 0.34);
   box-shadow: 0 24px 54px rgba(23, 35, 49, 0.08);
-  transform: translateY(-2px);
+}
+
+.acw-price-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.85rem;
+  padding: 0.42rem 0.75rem;
+  background: rgba(137, 155, 127, 0.14);
+  color: var(--accent-dark);
+  border-radius: var(--pill);
+  font-size: 0.72rem;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 .acw-price-label {
@@ -904,6 +996,15 @@ p {
   margin-bottom: 1rem;
   font-size: clamp(2.2rem, 4vw, 2.75rem);
   line-height: 1;
+}
+
+.acw-price-card h3 span {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
 }
 
 .acw-price-intro {
@@ -922,385 +1023,71 @@ p {
   color: var(--muted);
 }
 
-.acw-care-note {
-  margin-top: 1.25rem;
-  padding: 1.2rem 1.4rem;
-  background: rgba(255, 255, 255, 0.58);
+.acw-offer-note {
+  margin-top: 1.4rem;
+  padding: 1.15rem 1.3rem;
+  background: rgba(255, 255, 255, 0.64);
   border: 1px solid rgba(23, 35, 49, 0.08);
   border-radius: var(--radius-lg);
-}
-
-.acw-care-note p {
-  margin: 0;
   color: var(--muted);
+  line-height: 1.68;
 }
 
-/* BLOG PAGE */
-
-.acw-blog-hero {
-  padding: 76px 0 82px;
-  background:
-    radial-gradient(circle at 12% 8%, rgba(216, 193, 164, 0.25), transparent 34%),
-    linear-gradient(180deg, #fcf8f2 0%, #f7f2eb 100%);
-}
-
-.acw-blog-hero-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(340px, 0.85fr);
-  gap: 4.5rem;
-  align-items: center;
-}
-
-.acw-blog-hero-copy {
-  max-width: 600px;
-}
-
-.acw-blog-page-title {
-  max-width: 12ch;
-}
-
-.acw-blog-page-intro {
-  max-width: 50ch;
-  color: var(--muted);
-  font-size: 1.05rem;
-  line-height: 1.72;
-}
-
-.acw-blog-hero-card {
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(23, 35, 49, 0.08);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
-}
-
-.acw-blog-hero-card p {
-  margin: 0;
-  padding: 1.15rem 1.25rem 1.25rem;
-  color: var(--muted);
-  font-size: 0.96rem;
-  line-height: 1.65;
-}
-
-.acw-blog-hero-image-wrap {
-  display: flex;
-  justify-content: center;
-}
-
-.acw-blog-hero-image {
-  width: 100%;
-  max-width: 540px;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: var(--radius-xl);
-}
-
-.acw-blog-search {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  margin-top: 1.6rem;
-}
-
-.acw-blog-search input {
-  width: min(100%, 340px);
-  min-height: 48px;
-  padding: 0.82rem 1rem;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(23, 35, 49, 0.12);
-  border-radius: var(--pill);
+.acw-offer-note strong {
   color: var(--text);
 }
 
-.acw-blog-search-button {
-  min-height: 48px;
-  background: var(--text);
-  color: var(--white);
-}
+/* ==================================================
+   GUARANTEE SECTION
+   ================================================== */
 
-.acw-blog-search-button:hover {
-  background: var(--accent-dark);
-  color: var(--white);
-}
-
-.acw-blog-search-count {
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.acw-blog-search-results {
-  display: grid;
-  gap: 0.65rem;
-  margin: 1rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.acw-blog-search-results li {
-  padding: 0.9rem 1rem;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(23, 35, 49, 0.08);
-  border-radius: var(--radius-sm);
-}
-
-.acw-blog-value-section {
+.acw-guarantee-section {
   background: var(--surface);
 }
 
-.acw-blog-value-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(340px, 1fr);
-  gap: 4rem;
-  align-items: start;
-}
-
-.acw-blog-value-copy {
-  max-width: 560px;
-}
-
-.acw-blog-value-list {
-  display: grid;
-  gap: 1rem;
-}
-
-.acw-blog-value-list article {
-  padding: 1.35rem 1.45rem;
-  background: rgba(255, 255, 255, 0.86);
-  border: 1px solid rgba(23, 35, 49, 0.08);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-sm);
-}
-
-.acw-blog-value-list span {
-  display: inline-block;
-  margin-bottom: 0.75rem;
-  color: var(--accent-dark);
-  font-size: 0.75rem;
-  font-weight: 850;
-  letter-spacing: 0.16em;
-}
-
-.acw-blog-value-list h3 {
-  margin-bottom: 0.55rem;
-}
-
-.acw-blog-value-list p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.96rem;
-  line-height: 1.65;
-}
-
-.acw-blog-posts-section {
+.acw-guarantee-box {
+  padding: 2.4rem;
   background:
-    radial-gradient(circle at 12% 10%, rgba(255, 255, 255, 0.22), transparent 34%),
-    var(--surface-soft);
-}
+    radial-gradient(circle at 50% 0%,
+    rgba(216, 193, 164, 0.18),
+    transparent 42%),
+    rgba(255, 255, 255, 0.86);
 
-.acw-blog-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.35rem;
-}
-
-.acw-blog-card {
-  transition:
-    transform 0.22s ease,
-    box-shadow 0.22s ease;
-}
-
-.acw-blog-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-.acw-blog-card-image-link {
-  display: block;
-  color: var(--text);
-}
-
-.acw-blog-card-image {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  border-bottom: 1px solid rgba(23, 35, 49, 0.07);
-}
-
-.acw-blog-card-inner {
-  padding: 1.5rem;
-}
-
-.acw-blog-meta {
-  margin-bottom: 0.65rem;
-  color: var(--accent-dark);
-  font-size: 0.78rem;
-  font-weight: 780;
-}
-
-.acw-blog-title {
-  max-width: 15ch;
-  margin-bottom: 0.75rem;
-  font-size: clamp(1.55rem, 2.4vw, 2.05rem);
-  line-height: 1.04;
-}
-
-.acw-blog-title a {
-  color: var(--text);
-}
-
-.acw-blog-title a:hover {
-  color: var(--accent-dark);
-}
-
-.acw-blog-excerpt {
-  margin-bottom: 1rem;
-  color: var(--muted);
-  font-size: 0.96rem;
-  line-height: 1.65;
-}
-
-.acw-blog-readmore {
-  display: inline-flex;
-  align-items: center;
-  color: var(--accent-dark);
-  font-size: 0.92rem;
-  font-weight: 820;
-}
-
-.acw-blog-readmore:hover {
-  color: var(--text);
-}
-
-.acw-blog-empty {
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.86);
-  border: 1px solid rgba(23, 35, 49, 0.08);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow);
-}
-
-.acw-blog-cta-section {
-  background: var(--surface);
-}
-
-.acw-blog-cta {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 3rem;
-  background:
-    radial-gradient(circle at 50% 0%, rgba(216, 193, 164, 0.22), transparent 42%),
-    rgba(255, 255, 255, 0.82);
   border: 1px solid rgba(23, 35, 49, 0.08);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
   text-align: center;
 }
 
-.acw-blog-cta h2,
-.acw-blog-cta p {
+.acw-guarantee-box h2,
+.acw-guarantee-box p {
   margin-left: auto;
   margin-right: auto;
 }
 
-.acw-blog-cta p {
-  max-width: 54ch;
-  color: var(--muted);
+.acw-guarantee-box h2 {
+  max-width: 16ch;
 }
 
-.acw-blog-cta .acw-btn {
-  margin-top: 0.8rem;
-}
-
-/* ARTICLE PAGE */
-
-.acw-post {
-  background: var(--surface);
-}
-
-.acw-post-header {
-  padding: 76px 0 34px;
-  background:
-    radial-gradient(circle at 12% 8%, rgba(216, 193, 164, 0.2), transparent 34%),
-    linear-gradient(180deg, #fcf8f2 0%, #fffdf9 100%);
-}
-
-.acw-post-header-inner {
-  max-width: 860px;
-}
-
-.acw-post-header h1 {
-  max-width: 13ch;
-  margin-bottom: 1rem;
-  font-size: clamp(2.5rem, 5vw, 4.1rem);
-  line-height: 0.98;
-}
-
-.acw-post-description {
+.acw-guarantee-box p {
   max-width: 58ch;
   color: var(--muted);
-  font-size: 1.08rem;
   line-height: 1.72;
 }
 
-.acw-post-meta {
-  margin-top: 1.2rem;
-  color: var(--accent-dark);
-  font-size: 0.85rem;
-  font-weight: 780;
-}
-
-.acw-post-hero-wrap {
-  max-width: 960px;
-  margin-bottom: 3rem;
-}
-
-.acw-post-hero-image {
-  width: 100%;
-  max-height: 520px;
-  object-fit: cover;
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
-}
-
-.acw-post-content {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 0 0 86px;
-}
-
-.acw-post-content p,
-.acw-post-content li {
+.acw-guarantee-note {
+  margin-top: 1.25rem;
+  padding: 1rem 1.15rem;
+  background: rgba(137, 155, 127, 0.1);
+  border: 1px solid rgba(137, 155, 127, 0.18);
+  border-radius: var(--radius-lg);
   color: var(--text);
-  font-size: 1.04rem;
-  line-height: 1.82;
+  font-weight: 720;
 }
-
-.acw-post-content p {
-  margin-bottom: 1.35rem;
-}
-
-.acw-post-content h2 {
-  max-width: 16ch;
-  margin-top: 2.8rem;
-  margin-bottom: 1rem;
-}
-
-.acw-post-content h3 {
-  margin-top: 2rem;
-}
-
-.acw-post-content ul,
-.acw-post-content ol {
-  margin: 0 0 1.6rem;
-  padding-left: 1.3rem;
-}
-
-.acw-post-content a {
-  font-weight: 760;
-  border-bottom: 1px solid rgba(104, 121, 96, 0.35);
-}
-
-/* CONTACT */
+```css
+/* ==================================================
+   CONTACT
+   ================================================== */
 
 .acw-contact-section {
   padding-bottom: 72px;
@@ -1324,13 +1111,46 @@ p {
   border: 1px solid rgba(23, 35, 49, 0.08);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.acw-contact-box p {
+  max-width: 52ch;
+  margin: 0 auto 1.2rem;
+  color: var(--muted);
+  line-height: 1.7;
 }
 
 .acw-contact-button {
   width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
 }
 
-/* FOOTER */
+.acw-mini-proof {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+.acw-mini-proof span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.72rem;
+  background: rgba(137, 155, 127, 0.1);
+  color: var(--accent-dark);
+  border: 1px solid rgba(137, 155, 127, 0.16);
+  border-radius: var(--pill);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+/* ==================================================
+   FOOTER
+   ================================================== */
 
 .site-footer {
   padding: 82px 16px 46px;
@@ -1392,7 +1212,9 @@ p {
   font-size: 0.78rem;
 }
 
-/* ACCESSIBILITY */
+/* ==================================================
+   ACCESSIBILITY
+   ================================================== */
 
 .sr-only {
   position: absolute;
@@ -1405,30 +1227,29 @@ p {
   clip: rect(0, 0, 0, 0);
 }
 
-/* RESPONSIVE */
+/* ==================================================
+   RESPONSIVE
+   ================================================== */
 
 @media (max-width: 960px) {
   .acw-hero-grid,
   .acw-about-grid,
   .acw-niche-grid,
+  .acw-trust-grid,
+  .acw-outcome-grid,
   .acw-cards,
   .acw-process-grid,
   .acw-pricing-grid,
-  .acw-pricing-grid-three,
-  .acw-blog-hero-layout,
-  .acw-blog-value-grid,
-  .acw-blog-grid {
+  .acw-pricing-grid-two {
     grid-template-columns: 1fr;
   }
 
-  .acw-hero-grid,
-  .acw-blog-hero-layout {
+  .acw-hero-grid {
     gap: 2.4rem;
   }
 
   .acw-about-grid,
-  .acw-niche-grid,
-  .acw-blog-value-grid {
+  .acw-niche-grid {
     gap: 2.4rem;
   }
 
@@ -1437,8 +1258,12 @@ p {
     max-width: 620px;
   }
 
-  .acw-blog-hero-image-wrap {
-    justify-content: flex-start;
+  .acw-trust-strip {
+    padding: 1rem 0;
+  }
+
+  .acw-price-card-main {
+    transform: none;
   }
 }
 
@@ -1480,8 +1305,7 @@ p {
     padding: 56px 0;
   }
 
-  .acw-hero,
-  .acw-blog-hero {
+  .acw-hero {
     padding: 42px 0 46px;
   }
 
@@ -1497,8 +1321,7 @@ p {
 
   .acw-hero-text,
   .acw-section-text,
-  .acw-section-intro,
-  .acw-blog-page-intro {
+  .acw-section-intro {
     max-width: 34ch;
     font-size: 0.98rem;
     line-height: 1.68;
@@ -1508,54 +1331,41 @@ p {
     width: 100%;
   }
 
-  .acw-blog-search {
-    align-items: stretch;
-    flex-direction: column;
+  .acw-hero-points {
+    gap: 0.55rem;
   }
 
-  .acw-blog-search input {
-    width: 100%;
+  .acw-hero-points span {
+    font-size: 0.74rem;
   }
 
+  .acw-trust-item,
   .acw-card-body,
   .acw-price-card,
   .acw-contact-box,
   .acw-process-card,
-  .acw-blog-card-inner,
-  .acw-blog-value-list article,
-  .acw-blog-empty {
+  .acw-outcome-card {
     padding: 1.35rem;
   }
 
-  .acw-blog-title {
-    max-width: 13ch;
+  .acw-guarantee-box {
+    padding: 1.6rem;
   }
 
-  .acw-blog-cta {
-    padding: 2rem 1.35rem;
+  .acw-offer-note {
+    padding: 1rem;
   }
 
-  .acw-post-header {
-    padding: 48px 0 28px;
+  .acw-mini-proof {
+    justify-content: flex-start;
   }
 
-  .acw-post-hero-wrap {
-    margin-bottom: 2.2rem;
+  .acw-mini-proof span {
+    font-size: 0.74rem;
   }
 
-  .acw-post-hero-image {
-    max-height: 340px;
-    border-radius: 22px;
-  }
-
-  .acw-post-content {
-    padding-bottom: 60px;
-  }
-
-  .acw-post-content p,
-  .acw-post-content li {
-    font-size: 1rem;
-    line-height: 1.76;
+  .acw-contact-button {
+    max-width: none;
   }
 
   .acw-niche-item {
@@ -1569,9 +1379,9 @@ p {
   .acw-price-card,
   .acw-niche-list,
   .acw-process-card,
-  .acw-blog-value-list article,
-  .acw-blog-empty,
-  .acw-blog-cta {
+  .acw-outcome-card,
+  .acw-guarantee-box,
+  .acw-trust-item {
     border-radius: 22px;
   }
 
