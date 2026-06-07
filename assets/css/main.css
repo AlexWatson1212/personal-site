@@ -153,7 +153,7 @@ h3 {
 
 h1 {
   max-width: 13ch;
-  font-size: clamp(2.65rem, 4.7vw, 4.35rem);
+  font-size: clamp(2.6rem, 4.6vw, 4.25rem);
   line-height: 0.98;
 }
 
@@ -228,6 +228,14 @@ p {
   max-width: 48ch;
   font-size: 1.05rem;
   line-height: 1.72;
+}
+
+.acw-hero-note {
+  margin: 1rem 0 0;
+  color: var(--accent-dark);
+  font-size: 0.84rem;
+  font-weight: 760;
+  line-height: 1.45;
 }
 
 .acw-section-text,
@@ -622,7 +630,6 @@ p {
     transform: translateY(-1px);
   }
 }
-
 /* HOME HERO */
 
 .acw-hero {
@@ -635,13 +642,13 @@ p {
 
 .acw-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(380px, 0.95fr);
-  gap: 5.5rem;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.78fr);
+  gap: 4.4rem;
   align-items: center;
 }
 
 .acw-hero-copy {
-  max-width: 620px;
+  max-width: 640px;
 }
 
 .acw-hero-points {
@@ -674,11 +681,13 @@ p {
 .acw-hero-image-wrap {
   display: flex;
   justify-content: center;
+  align-self: end;
+  padding-top: 2.4rem;
 }
 
 .acw-hero-image {
   width: 100%;
-  max-width: 540px;
+  max-width: 440px;
   aspect-ratio: 3 / 2;
   object-fit: cover;
   border: 1px solid rgba(23, 35, 49, 0.08);
@@ -734,6 +743,7 @@ p {
   font-size: 0.9rem;
   line-height: 1.5;
 }
+
 /* EXAMPLE CARDS */
 
 .acw-cards {
@@ -970,562 +980,353 @@ p {
   font-size: 0.96rem;
   line-height: 1.65;
 }
+/* HOME HERO */
 
-/* PROCESS SECTION */
-
-.acw-process-section {
+.acw-hero {
+  padding: 78px 0 80px;
   background:
-    radial-gradient(circle at 12% 8%, rgba(137, 155, 127, 0.1), transparent 32%),
-    var(--surface);
+    radial-gradient(circle at 12% 8%, rgba(216, 193, 164, 0.28), transparent 34%),
+    radial-gradient(circle at 82% 14%, rgba(137, 155, 127, 0.12), transparent 30%),
+    linear-gradient(180deg, #fcf8f2 0%, #f7f2eb 100%);
 }
 
-.acw-process-grid {
+.acw-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.78fr);
+  gap: 4.4rem;
+  align-items: center;
+}
+
+.acw-hero-copy {
+  max-width: 640px;
+}
+
+.acw-hero-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.35rem;
+}
+
+.acw-hero-points span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.48rem 0.78rem;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--accent-dark);
+  border: 1px solid rgba(137, 155, 127, 0.2);
+  border-radius: var(--pill);
+  box-shadow: 0 6px 16px rgba(23, 35, 49, 0.035);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.acw-hero-points span:first-child {
+  background: rgba(137, 155, 127, 0.14);
+  border-color: rgba(137, 155, 127, 0.3);
+  color: var(--text);
+}
+
+.acw-hero-image-wrap {
+  display: flex;
+  justify-content: center;
+  align-self: end;
+  padding-top: 2.4rem;
+}
+
+.acw-hero-image {
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: 1px solid rgba(23, 35, 49, 0.08);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+/* TRUST STRIP */
+
+.acw-trust-strip {
+  padding: 1.25rem 0;
+  background: rgba(255, 253, 249, 0.94);
+  border-top: 1px solid rgba(23, 35, 49, 0.07);
+  border-bottom: 1px solid rgba(23, 35, 49, 0.07);
+}
+
+.acw-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.acw-trust-item {
+  position: relative;
+  overflow: hidden;
+  padding: 1.1rem 1.2rem;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(247, 242, 235, 0.68));
+  border: 1px solid rgba(23, 35, 49, 0.075);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-trust-item::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: rgba(137, 155, 127, 0.44);
+}
+
+.acw-trust-item strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 880;
+}
+
+.acw-trust-item span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* EXAMPLE CARDS */
+
+.acw-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
   margin-top: 2rem;
 }
 
-.acw-process-card {
+.acw-card-link {
   position: relative;
+  display: block;
+  min-height: 100%;
   overflow: hidden;
-  padding: 1.7rem;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(23, 35, 49, 0.08);
+  color: var(--text);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
 }
 
-.acw-process-card::before {
+.acw-card-link::before {
   content: "";
   position: absolute;
   inset: 0 0 auto 0;
+  z-index: 2;
   height: 4px;
-  background: rgba(137, 155, 127, 0.5);
+  background: rgba(137, 155, 127, 0.68);
 }
 
-.acw-process-card span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 42px;
-  height: 32px;
-  margin-bottom: 1.1rem;
-  padding: 0 0.6rem;
-  background: rgba(137, 155, 127, 0.12);
-  color: var(--accent-dark);
-  border: 1px solid rgba(137, 155, 127, 0.18);
-  border-radius: var(--pill);
-  font-size: 0.78rem;
-  font-weight: 850;
-  letter-spacing: 0.12em;
+.acw-card-sarah::before {
+  background: rgba(185, 159, 139, 0.64);
 }
 
-.acw-process-card h3 {
-  margin-bottom: 0.7rem;
+.acw-card-massage::before {
+  background: rgba(173, 140, 105, 0.68);
 }
 
-.acw-process-card p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.96rem;
-  line-height: 1.65;
+.acw-card-michael::before {
+  background: rgba(111, 129, 144, 0.6);
 }
 
-/* TESTIMONIAL */
-
-.acw-testimonial-section {
-  background:
-    radial-gradient(circle at 50% 0%, rgba(216, 193, 164, 0.2), transparent 40%),
-    var(--surface);
-}
-
-.acw-testimonial-box {
-  padding: 2.4rem;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(247, 242, 235, 0.72));
-  border: 1px solid rgba(23, 35, 49, 0.08);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow);
-  text-align: center;
-}
-
-.acw-testimonial-box blockquote {
-  max-width: 680px;
-  margin: 0 auto 1rem;
+.acw-card-link:hover {
   color: var(--text);
-  font-size: clamp(1.25rem, 2vw, 1.65rem);
-  font-weight: 720;
-  line-height: 1.45;
-  letter-spacing: -0.04em;
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
 }
 
-.acw-testimonial-name {
-  margin: 0;
-  color: var(--accent-dark);
-  font-size: 0.95rem;
-  font-weight: 850;
+.acw-card-link:focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 4px;
 }
 
-/* PRICING SECTION */
-
-.acw-pricing-grid {
-  display: grid;
-  gap: 1.25rem;
-  margin-top: 2rem;
-}
-
-.acw-pricing-grid-two {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.acw-price-card {
-  padding: 2rem;
+.acw-card {
+  overflow: hidden;
+  height: 100%;
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid rgba(23, 35, 49, 0.08);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
 }
 
-.acw-price-card-main {
-  position: relative;
-  overflow: hidden;
-  border: 2px solid rgba(137, 155, 127, 0.36);
-  box-shadow: 0 24px 54px rgba(23, 35, 49, 0.08);
+.acw-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(23, 35, 49, 0.07);
 }
 
-.acw-price-card-main::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 6px;
-  background: linear-gradient(90deg, rgba(137, 155, 127, 0.76), rgba(227, 205, 169, 0.8));
+.acw-card-body {
+  padding: 1.5rem;
 }
 
-.acw-price-badge,
-.acw-price-label {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0.85rem;
-  padding: 0.42rem 0.75rem;
-  background: rgba(137, 155, 127, 0.14);
+.acw-card-tag {
+  margin-bottom: 0.55rem;
   color: var(--accent-dark);
-  border-radius: var(--pill);
   font-size: 0.72rem;
   font-weight: 850;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
 }
 
-.acw-price-label {
-  background: rgba(23, 35, 49, 0.04);
-}
-
-.acw-price-card h3 {
-  margin-bottom: 1rem;
-  font-size: clamp(2.2rem, 4vw, 2.75rem);
-  line-height: 1;
-}
-
-.acw-price-card h3 span {
-  display: block;
-  margin-top: 0.4rem;
+.acw-card-body p {
+  margin: 0;
   color: var(--muted);
   font-size: 0.95rem;
-  font-weight: 650;
-  letter-spacing: -0.01em;
+  line-height: 1.62;
 }
 
-.acw-price-intro {
-  margin-bottom: 1.4rem;
-  color: var(--muted);
-}
+/* ABOUT */
 
-.acw-check-list {
+.acw-about-grid {
   display: grid;
-  gap: 0.7rem;
-  margin: 0;
-  padding-left: 1.1rem;
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 390px);
+  gap: 3.6rem;
+  align-items: center;
 }
 
-.acw-check-list li {
-  color: var(--muted);
+.acw-about-copy {
+  max-width: 720px;
 }
 
-.acw-offer-note {
-  margin-top: 1.4rem;
-  padding: 1.15rem 1.3rem;
-  background:
-    linear-gradient(135deg, rgba(137, 155, 127, 0.12), rgba(255, 255, 255, 0.7));
-  border: 1px solid rgba(137, 155, 127, 0.18);
+.acw-about-side {
+  display: grid;
+  gap: 1rem;
+  justify-self: end;
+  width: 100%;
+  max-width: 390px;
+}
+
+.acw-about-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid rgba(23, 35, 49, 0.08);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+}
+
+.acw-about-note {
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(23, 35, 49, 0.08);
   border-radius: var(--radius-lg);
-  color: var(--muted);
-  line-height: 1.68;
+  box-shadow: var(--shadow-sm);
 }
 
-.acw-offer-note strong {
+.acw-about-note p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.acw-about-note strong {
   display: block;
   margin-bottom: 0.35rem;
   color: var(--text);
 }
-/* GUARANTEE SECTION */
 
-.acw-guarantee-section {
+/* NICHE SECTION */
+
+.acw-niche-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1fr);
+  gap: 3.8rem;
+  align-items: center;
+}
+
+.acw-niche-list {
+  display: grid;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(23, 35, 49, 0.08);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-niche-item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.15rem 1.25rem;
+  border-bottom: 1px solid rgba(23, 35, 49, 0.08);
+}
+
+.acw-niche-item:last-child {
+  border-bottom: 0;
+}
+
+.acw-niche-item span {
+  color: var(--accent-dark);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+}
+
+.acw-niche-item p {
+  margin: 0;
+  color: var(--text);
+  font-weight: 780;
+  line-height: 1.35;
+}
+
+/* OUTCOME / PROBLEM CARDS */
+
+.acw-outcome-section,
+.acw-problems-section {
   background: var(--surface);
 }
 
-.acw-guarantee-box {
-  padding: 2.4rem;
-  background:
-    radial-gradient(circle at 50% 0%, rgba(216, 193, 164, 0.22), transparent 42%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(247, 242, 235, 0.72));
+.acw-outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.acw-outcome-card {
+  position: relative;
+  overflow: hidden;
+  padding: 1.7rem;
+  background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(23, 35, 49, 0.08);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
-  text-align: center;
 }
 
-.acw-guarantee-box h2,
-.acw-guarantee-box p {
-  margin-left: auto;
-  margin-right: auto;
+.acw-outcome-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: rgba(137, 155, 127, 0.44);
 }
 
-.acw-guarantee-box h2 {
-  max-width: 16ch;
-}
-
-.acw-guarantee-box p {
-  max-width: 58ch;
-  color: var(--muted);
-  line-height: 1.72;
-}
-
-.acw-guarantee-note {
-  margin-top: 1.25rem;
-  padding: 1rem 1.15rem;
-  background: rgba(137, 155, 127, 0.12);
-  border: 1px solid rgba(137, 155, 127, 0.22);
-  border-radius: var(--radius-lg);
-  color: var(--text);
-  font-weight: 760;
-}
-
-/* CONTACT */
-
-.acw-contact-section {
-  padding-bottom: 72px;
-}
-
-.acw-contact-section .acw-section-heading {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-.acw-contact-section h2,
-.acw-contact-section .acw-section-intro {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.acw-contact-box {
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(23, 35, 49, 0.08);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-sm);
-  text-align: center;
-}
-
-.acw-contact-box p {
-  max-width: 52ch;
-  margin: 0 auto 1.2rem;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.acw-contact-button {
-  width: 100%;
-  max-width: 360px;
-  margin: 0 auto;
-}
-
-.acw-mini-proof {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.65rem;
-  margin-top: 1.25rem;
-}
-
-.acw-mini-proof span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.45rem 0.72rem;
-  background: rgba(137, 155, 127, 0.1);
+.acw-outcome-card span {
+  display: inline-block;
+  margin-bottom: 1.1rem;
   color: var(--accent-dark);
-  border: 1px solid rgba(137, 155, 127, 0.16);
-  border-radius: var(--pill);
   font-size: 0.78rem;
-  font-weight: 800;
+  font-weight: 850;
+  letter-spacing: 0.16em;
 }
 
-/* FOOTER */
-
-.site-footer {
-  padding: 82px 16px 46px;
-  background:
-    radial-gradient(circle at 50% 0%, rgba(216, 193, 164, 0.24), transparent 38%),
-    var(--surface-warm);
-  border-top: 1px solid rgba(23, 35, 49, 0.08);
-  text-align: center;
+.acw-outcome-card h3 {
+  margin-bottom: 0.7rem;
 }
 
-.footer-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 26px;
-  max-width: var(--container);
-  margin: 0 auto;
-}
-
-.footer-logo {
-  width: min(360px, 84vw);
-  height: auto;
-}
-
-.footer-social {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-}
-
-.footer-social .social {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 54px;
-  height: 54px;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(23, 35, 49, 0.08);
-  border-radius: 999px;
-  color: var(--accent-dark);
-  box-shadow: var(--shadow-sm);
-}
-
-.footer-social .social:hover {
-  transform: translateY(-2px);
-  background: var(--white);
-  box-shadow: var(--shadow);
-}
-
-.footer-social svg {
-  width: 24px;
-  height: 24px;
-}
-
-.footer-copyright {
+.acw-outcome-card p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.78rem;
-}
-
-/* ACCESSIBILITY */
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 960px) {
-  .acw-hero-grid,
-  .acw-about-grid,
-  .acw-niche-grid,
-  .acw-trust-grid,
-  .acw-outcome-grid,
-  .acw-cards,
-  .acw-process-grid,
-  .acw-pricing-grid,
-  .acw-pricing-grid-two {
-    grid-template-columns: 1fr;
-  }
-
-  .acw-hero-grid,
-  .acw-about-grid,
-  .acw-niche-grid {
-    gap: 2.4rem;
-  }
-
-  .acw-about-side {
-    justify-self: start;
-    max-width: 620px;
-  }
-
-  .acw-trust-strip {
-    padding: 1rem 0;
-  }
-
-  .acw-price-card-main {
-    transform: none;
-  }
-}
-
-@media (max-width: 640px) {
-  .container,
-  .shell,
-  .acw-container {
-    width: min(100% - 1.5rem, var(--container));
-  }
-
-  .site-header .nav {
-    min-height: 66px;
-  }
-
-  .nav__logo {
-    height: 42px;
-  }
-
-  .nav__toggle {
-    width: 40px;
-    height: 40px;
-  }
-
-  .nav__panel {
-    padding: 112px 26px 34px;
-  }
-
-  .nav__links a {
-    padding: 18px 0;
-    font-size: 1.24rem;
-  }
-
-  .nav__cta {
-    min-height: 58px;
-    margin-top: 40px;
-  }
-
-  .acw-section {
-    padding: 56px 0;
-  }
-
-  .acw-hero {
-    padding: 42px 0 46px;
-  }
-
-  h1 {
-    max-width: 12ch;
-    font-size: clamp(2.18rem, 9.5vw, 2.9rem);
-  }
-
-  h2 {
-    max-width: 14ch;
-    font-size: clamp(1.75rem, 7vw, 2.2rem);
-  }
-
-  .acw-hero-text,
-  .acw-section-text,
-  .acw-section-intro {
-    max-width: 34ch;
-    font-size: 0.98rem;
-    line-height: 1.68;
-  }
-
-  .acw-narrow .acw-section-text {
-    text-align: left;
-  }
-
-  .acw-btn {
-    width: 100%;
-  }
-
-  .acw-hero-points {
-    gap: 0.55rem;
-  }
-
-  .acw-hero-points span {
-    font-size: 0.74rem;
-  }
-
-  .acw-trust-item,
-  .acw-card-body,
-  .acw-price-card,
-  .acw-contact-box,
-  .acw-process-card,
-  .acw-outcome-card {
-    padding: 1.35rem;
-  }
-
-  .acw-testimonial-box,
-  .acw-guarantee-box {
-    padding: 1.6rem;
-  }
-
-  .acw-testimonial-box blockquote {
-    font-size: 1.18rem;
-  }
-
-  .acw-offer-note {
-    padding: 1rem;
-  }
-
-  .acw-mini-proof {
-    justify-content: flex-start;
-  }
-
-  .acw-mini-proof span {
-    font-size: 0.74rem;
-  }
-
-  .acw-contact-button {
-    max-width: none;
-  }
-
-  .acw-niche-item {
-    grid-template-columns: 40px 1fr;
-    padding: 1rem;
-  }
-
-  .acw-card,
-  .acw-about-note,
-  .acw-contact-box,
-  .acw-price-card,
-  .acw-niche-list,
-  .acw-process-card,
-  .acw-outcome-card,
-  .acw-guarantee-box,
-  .acw-testimonial-box,
-  .acw-trust-item {
-    border-radius: 22px;
-  }
-
-  .site-footer {
-    padding: 64px 16px 36px;
-  }
-
-  .footer-logo {
-    width: min(300px, 88vw);
-  }
-
-  .footer-social .social {
-    width: 48px;
-    height: 48px;
-  }
-
-  .footer-social svg {
-    width: 21px;
-    height: 21px;
-  }
+  font-size: 0.96rem;
+  line-height: 1.65;
 }
