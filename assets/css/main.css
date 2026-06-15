@@ -57,6 +57,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
@@ -271,6 +272,7 @@ p {
   cursor: pointer;
   font-weight: 820;
   line-height: 1.1;
+  text-align: center;
   transition:
     background var(--transition),
     color var(--transition),
@@ -748,6 +750,7 @@ p {
   margin: 0;
   color: var(--muted);
 }
+
 /* TESTIMONIAL */
 
 .acw-testimonial-section {
@@ -782,7 +785,6 @@ p {
   font-size: 0.95rem;
   font-weight: 850;
 }
-
 /* PRICING */
 
 .acw-pricing-grid {
@@ -1102,6 +1104,10 @@ p {
     scroll-padding-top: 84px;
   }
 
+  section {
+    scroll-margin-top: 84px;
+  }
+
   .site-header .nav {
     justify-content: center;
     min-height: 68px;
@@ -1322,6 +1328,10 @@ p {
   h2 {
     max-width: 14ch;
     font-size: clamp(1.75rem, 7vw, 2.2rem);
+  }
+
+  .acw-section-heading h2 {
+    max-width: 14ch;
   }
 
   .acw-hero-text,
