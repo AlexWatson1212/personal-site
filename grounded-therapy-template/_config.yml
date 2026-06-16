@@ -1,0 +1,10 @@
+title: Michael Therapy
+description: A grounded, straightforward space to talk things through.
+
+url: "https://michaeldoe.co.uk"
+baseurl: ""
+
+markdown: kramdown
+
+plugins:
+  - jekyll-seo-tag

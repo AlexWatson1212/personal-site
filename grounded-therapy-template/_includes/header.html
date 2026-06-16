@@ -1,0 +1,68 @@
+<header class="site-header">
+  <div class="container header-inner">
+
+<a
+  href="{{ '/' | relative_url }}"
+  class="site-logo"
+  aria-label="Michael Doe Counselling home"
+>
+  <img
+    src="{{ '/assets/images/michael-doe-logo.webp' | relative_url }}"
+    alt="Michael Doe Counselling"
+    class="header-logo-img"
+  >
+</a>
+
+<input
+  type="checkbox"
+  id="nav-toggle"
+  class="nav-toggle"
+  aria-label="Toggle navigation"
+>
+
+<label
+  for="nav-toggle"
+  class="nav-toggle-label"
+  aria-label="Open menu"
+>
+  <span></span>
+  <span></span>
+  <span></span>
+</label>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <a href="#support">Support</a>
+  <a href="#how-it-works">How it works</a>
+  <a href="#first-session">First session</a>
+  <a href="#about">About</a>
+  <a href="#contact" class="nav-button">Get in touch</a>
+</nav>
+
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const navToggle = document.getElementById('nav-toggle');
+      const navLinks = document.querySelectorAll('.site-nav a');
+
+      function closeMobileNav() {
+        if (navToggle) {
+          navToggle.checked = false;
+        }
+
+        document.body.style.overflow = '';
+      }
+
+      navLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          closeMobileNav();
+        });
+      });
+
+      window.addEventListener('hashchange', function () {
+        closeMobileNav();
+      });
+    });
+  </script>
+
+</header>

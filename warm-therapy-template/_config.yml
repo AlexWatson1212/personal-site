@@ -1,0 +1,34 @@
+title: Sarah James Therapy
+description: A calm, clear space for therapy, reflection, and emotional support.
+
+url: "https://sarahjames-therapy.co.uk/"
+baseurl: ""
+
+permalink: /:title/
+
+future: true
+
+markdown: kramdown
+
+kramdown:
+  input: GFM
+
+plugins:
+  - jekyll-sitemap
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: default
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .bundle
+  - .jekyll-cache
+  - netlify.toml
