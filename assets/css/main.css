@@ -49,7 +49,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 110px;
+  scroll-padding-top: 96px;
 }
 
 body {
@@ -101,7 +101,8 @@ input {
 
 a:focus-visible,
 button:focus-visible,
-input:focus-visible {
+input:focus-visible,
+summary:focus-visible {
   outline: 2px solid var(--accent-dark);
   outline-offset: 4px;
   border-radius: 10px;
@@ -134,7 +135,7 @@ input:focus-visible {
 }
 
 section {
-  scroll-margin-top: 110px;
+  scroll-margin-top: 96px;
 }
 
 /* TYPOGRAPHY */
@@ -150,7 +151,7 @@ h3 {
 }
 
 h1 {
-  max-width: 13ch;
+  max-width: 12.5ch;
   font-size: clamp(3rem, 5vw, 5rem);
   line-height: 0.96;
 }
@@ -174,7 +175,7 @@ p {
 /* SECTIONS */
 
 .acw-section {
-  padding: 88px 0;
+  padding: 84px 0;
   background: var(--surface);
 }
 
@@ -223,17 +224,9 @@ p {
 }
 
 .acw-hero-text {
-  max-width: 50ch;
+  max-width: 44ch;
   font-size: 1.05rem;
   line-height: 1.72;
-}
-
-.acw-hero-note {
-  margin: 1rem 0 0;
-  color: var(--accent-dark);
-  font-size: 0.84rem;
-  font-weight: 760;
-  line-height: 1.45;
 }
 
 .acw-section-text,
@@ -312,9 +305,9 @@ p {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(247, 242, 235, 0.84);
-  border-bottom: 1px solid rgba(23, 35, 49, 0.065);
-  box-shadow: none;
+  background: rgba(255, 253, 249, 0.96);
+  border-bottom: 1px solid rgba(23, 35, 49, 0.08);
+  box-shadow: 0 8px 24px rgba(23, 35, 49, 0.035);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 }
@@ -325,7 +318,7 @@ p {
   align-items: center;
   justify-content: space-between;
   gap: 1.8rem;
-  min-height: 88px;
+  min-height: 78px;
   width: min(100% - 2.5rem, var(--container));
   margin: 0 auto;
 }
@@ -346,7 +339,7 @@ p {
 .nav__logo {
   display: block;
   width: auto;
-  height: 64px;
+  height: 58px;
   object-fit: contain;
 }
 
@@ -376,7 +369,7 @@ p {
   .nav__links {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.45rem;
   }
 
   .nav__links li {
@@ -394,7 +387,7 @@ p {
     border: 0;
     border-bottom: 1px solid transparent;
     border-radius: 0;
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     font-weight: 780;
     line-height: 1.2;
     letter-spacing: -0.01em;
@@ -408,18 +401,20 @@ p {
   }
 
   .nav__links li:last-child a {
-    padding: 0.58rem 1rem;
-    background: rgba(255, 255, 255, 0.66);
-    border: 1px solid rgba(23, 35, 49, 0.09);
-    border-radius: var(--pill);
-    color: var(--text);
-    box-shadow: 0 5px 16px rgba(23, 35, 49, 0.035);
+    padding: 0.4rem 0;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid transparent;
+    border-radius: 0;
+    box-shadow: none;
+    color: rgba(23, 35, 49, 0.66);
   }
 
   .nav__links li:last-child a:hover {
-    background: var(--white);
-    border-color: rgba(137, 155, 127, 0.24);
-    transform: translateY(-1px);
+    background: transparent;
+    border-bottom-color: rgba(137, 155, 127, 0.46);
+    color: var(--text);
+    transform: none;
   }
 
   .nav__cta {
@@ -430,122 +425,52 @@ p {
 /* HERO */
 
 .acw-hero {
-  padding: 88px 0 90px;
+  padding: 76px 0 80px;
   background:
-    radial-gradient(circle at 12% 8%, rgba(216, 193, 164, 0.28), transparent 34%),
-    radial-gradient(circle at 82% 14%, rgba(137, 155, 127, 0.12), transparent 30%),
+    radial-gradient(circle at 12% 8%, rgba(216, 193, 164, 0.22), transparent 34%),
+    radial-gradient(circle at 82% 14%, rgba(137, 155, 127, 0.09), transparent 30%),
     linear-gradient(180deg, #fcf8f2 0%, #f7f2eb 100%);
 }
 
 .acw-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.75fr);
-  gap: 4rem;
+  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.85fr);
+  gap: 4.5rem;
   align-items: center;
 }
 
 .acw-hero-copy {
-  max-width: 680px;
+  max-width: 620px;
 }
 
-.acw-hero-points {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  margin-top: 1.35rem;
-}
-
-.acw-hero-points span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.48rem 0.78rem;
-  background: rgba(255, 255, 255, 0.78);
-  color: var(--accent-dark);
-  border: 1px solid rgba(137, 155, 127, 0.2);
-  border-radius: var(--pill);
-  box-shadow: 0 6px 16px rgba(23, 35, 49, 0.035);
-  font-size: 0.78rem;
-  font-weight: 850;
-}
-
-.acw-hero-points span:first-child {
-  background: rgba(137, 155, 127, 0.14);
-  border-color: rgba(137, 155, 127, 0.3);
-  color: var(--text);
+.acw-hero h1 {
+  max-width: 12.5ch;
 }
 
 .acw-hero-image-wrap {
   display: flex;
   justify-content: center;
-  align-self: start;
-  padding-top: 4.8rem;
+  align-self: center;
 }
 
 .acw-hero-image {
   width: 100%;
-  max-width: 380px;
-  aspect-ratio: 3 / 2;
+  max-width: 460px;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   border: 1px solid rgba(23, 35, 49, 0.08);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
 }
 
-/* TRUST STRIP */
+/* UNUSED / LEGACY HERO ELEMENTS */
 
+.acw-hero-points,
+.acw-hero-note,
 .acw-trust-strip {
-  padding: 1.25rem 0;
-  background: rgba(255, 253, 249, 0.94);
-  border-top: 1px solid rgba(23, 35, 49, 0.07);
-  border-bottom: 1px solid rgba(23, 35, 49, 0.07);
-}
-
-.acw-trust-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.acw-trust-item {
-  position: relative;
-  overflow: hidden;
-  padding: 1.1rem 1.2rem;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.86),
-      rgba(247, 242, 235, 0.68)
-    );
-  border: 1px solid rgba(23, 35, 49, 0.075);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-}
-
-.acw-trust-item::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 4px;
-  background: rgba(137, 155, 127, 0.44);
-}
-
-.acw-trust-item strong {
-  display: block;
-  margin-bottom: 0.25rem;
-  color: var(--text);
-  font-size: 0.88rem;
-  font-weight: 880;
-}
-
-.acw-trust-item span {
-  display: block;
-  color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-/* =========================================================
-   CSS PART 2 — CARDS, SERVICES, ABOUT, PROCESS, PRICING, CONTACT
+  display: none;
+}v/* =========================================================
+   CSS PART 2 — CARDS, SERVICES, ABOUT, PROCESS, PRICING, FAQ, CONTACT
    ========================================================= */
 
 /* EXAMPLE CARDS */
@@ -611,7 +536,7 @@ p {
 
 .acw-services-section {
   background:
-    radial-gradient(circle at 12% 8%, rgba(137, 155, 127, 0.1), transparent 32%),
+    radial-gradient(circle at 12% 8%, rgba(137, 155, 127, 0.08), transparent 32%),
     var(--surface);
 }
 
@@ -643,12 +568,12 @@ p {
 .acw-service-card-featured {
   border: 2px solid rgba(137, 155, 127, 0.28);
   background:
-    radial-gradient(circle at 88% 0%, rgba(216, 193, 164, 0.2), transparent 34%),
+    radial-gradient(circle at 88% 0%, rgba(216, 193, 164, 0.16), transparent 34%),
     rgba(255, 255, 255, 0.96);
 }
 
 .acw-service-card-featured::before {
-  background: linear-gradient(90deg, rgba(137, 155, 127, 0.76), rgba(227, 205, 169, 0.8));
+  background: linear-gradient(90deg, rgba(137, 155, 127, 0.7), rgba(227, 205, 169, 0.76));
 }
 
 .acw-service-card span {
@@ -669,6 +594,7 @@ p {
 }
 
 .acw-service-card p {
+  margin-bottom: 0;
   color: var(--muted);
 }
 
@@ -725,7 +651,7 @@ p {
 
 .acw-process-section {
   background:
-    radial-gradient(circle at 12% 8%, rgba(137, 155, 127, 0.1), transparent 32%),
+    radial-gradient(circle at 12% 8%, rgba(137, 155, 127, 0.08), transparent 32%),
     var(--surface);
 }
 
@@ -821,7 +747,7 @@ p {
 
 .acw-testimonial-section {
   background:
-    radial-gradient(circle at 50% 0%, rgba(216, 193, 164, 0.2), transparent 40%),
+    radial-gradient(circle at 50% 0%, rgba(216, 193, 164, 0.16), transparent 40%),
     var(--surface);
 }
 
@@ -939,87 +865,62 @@ p {
   color: var(--muted);
 }
 
-.acw-offer-note {
-  margin-top: 1.4rem;
-  padding: 1.15rem 1.3rem;
-  background:
-    linear-gradient(135deg, rgba(137, 155, 127, 0.12), rgba(255, 255, 255, 0.7));
-  border: 1px solid rgba(137, 155, 127, 0.18);
-  border-radius: var(--radius-lg);
-  color: var(--muted);
-}
-
-.acw-offer-note strong {
-  display: block;
-  margin-bottom: 0.35rem;
-  color: var(--text);
-}
-
-/* GUARANTEE */
-
-.acw-guarantee-section {
-  background: var(--surface);
-}
-
-.acw-guarantee-box {
-  padding: 2.4rem;
-  background:
-    radial-gradient(circle at 50% 0%, rgba(216, 193, 164, 0.22), transparent 42%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(247, 242, 235, 0.72));
-  border: 1px solid rgba(23, 35, 49, 0.08);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow);
-  text-align: center;
-}
-
-.acw-guarantee-box h2,
-.acw-guarantee-box p {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.acw-guarantee-box h2 {
-  max-width: 16ch;
-}
-
-.acw-guarantee-box p {
-  max-width: 58ch;
-  color: var(--muted);
-}
-
-.acw-guarantee-note {
-  margin-top: 1.25rem;
-  padding: 1rem 1.15rem;
-  background: rgba(137, 155, 127, 0.12);
-  border: 1px solid rgba(137, 155, 127, 0.22);
-  border-radius: var(--radius-lg);
-  color: var(--text);
-  font-weight: 760;
-}
-
-/* FAQ */
+/* FAQ ACCORDION */
 
 .acw-faq-section {
   background: var(--surface);
 }
 
 .acw-faq-grid {
+  display: none;
+}
+
+.acw-faq-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  gap: 0.85rem;
   margin-top: 2rem;
 }
 
-.acw-faq-card {
-  padding: 1.6rem;
-  background: rgba(255, 255, 255, 0.9);
+.acw-faq-item {
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.88);
   border: 1px solid rgba(23, 35, 49, 0.08);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
 }
 
-.acw-faq-card p {
+.acw-faq-item summary {
+  position: relative;
+  cursor: pointer;
+  padding: 1.15rem 3rem 1.15rem 1.25rem;
+  color: var(--text);
+  font-weight: 850;
+  line-height: 1.35;
+  list-style: none;
+}
+
+.acw-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.acw-faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-dark);
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+
+.acw-faq-item[open] summary::after {
+  content: "–";
+}
+
+.acw-faq-item p {
   margin: 0;
+  padding: 0 1.25rem 1.25rem;
   color: var(--muted);
 }
 
@@ -1062,25 +963,14 @@ p {
   margin: 0 auto;
 }
 
-.acw-mini-proof {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.65rem;
-  margin-top: 1.25rem;
-}
+/* UNUSED / LEGACY SECTIONS */
 
-.acw-mini-proof span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.45rem 0.72rem;
-  background: rgba(137, 155, 127, 0.1);
-  color: var(--accent-dark);
-  border: 1px solid rgba(137, 155, 127, 0.16);
-  border-radius: var(--pill);
-  font-size: 0.78rem;
-  font-weight: 800;
+.acw-offer-note,
+.acw-guarantee-section,
+.acw-guarantee-box,
+.acw-guarantee-note,
+.acw-mini-proof {
+  display: none;
 }
 /* =========================================================
    CSS PART 3 — FOOTER, ACCESSIBILITY, RESPONSIVE, MOBILE NAV
@@ -1174,12 +1064,10 @@ p {
 @media (max-width: 960px) {
   .acw-hero-grid,
   .acw-about-grid,
-  .acw-trust-grid,
   .acw-outcome-grid,
   .acw-cards,
   .acw-process-grid,
   .acw-services-grid,
-  .acw-faq-grid,
   .acw-pricing-grid,
   .acw-pricing-grid-two,
   .acw-pricing-grid-three {
@@ -1198,7 +1086,6 @@ p {
 
   .acw-hero-image-wrap {
     justify-content: flex-start;
-    padding-top: 0.4rem;
   }
 
   .acw-hero-image {
@@ -1384,6 +1271,7 @@ p {
   body.menu-open .nav__links li:nth-child(4) a { transition-delay: 0.16s; }
   body.menu-open .nav__links li:nth-child(5) a { transition-delay: 0.2s; }
   body.menu-open .nav__links li:nth-child(6) a { transition-delay: 0.24s; }
+  body.menu-open .nav__links li:nth-child(7) a { transition-delay: 0.28s; }
 
   .nav__links a:hover,
   .nav__links a[aria-current="page"] {
@@ -1452,15 +1340,7 @@ p {
     line-height: 1.68;
   }
 
-  .acw-hero-note {
-    max-width: 34ch;
-    font-size: 0.8rem;
-  }
-
-  .acw-narrow .acw-section-text {
-    text-align: left;
-  }
-
+  .acw-narrow .acw-section-text,
   .acw-narrow .acw-section-heading {
     text-align: left;
   }
@@ -1475,14 +1355,6 @@ p {
     width: 100%;
   }
 
-  .acw-hero-points {
-    gap: 0.55rem;
-  }
-
-  .acw-hero-points span {
-    font-size: 0.74rem;
-  }
-
   .acw-hero-image {
     max-width: 100%;
   }
@@ -1495,7 +1367,6 @@ p {
     gap: 1.25rem;
   }
 
-  .acw-trust-item,
   .acw-card-body,
   .acw-price-card,
   .acw-contact-box,
@@ -1503,25 +1374,22 @@ p {
   .acw-outcome-card,
   .acw-service-card,
   .acw-faq-card,
+  .acw-faq-item,
   .acw-testimonial-box,
-  .acw-guarantee-box {
+  .acw-about-note {
     padding: 1.35rem;
+  }
+
+  .acw-faq-item summary {
+    padding: 1.05rem 3rem 1.05rem 1.15rem;
+  }
+
+  .acw-faq-item p {
+    padding: 0 1.15rem 1.15rem;
   }
 
   .acw-testimonial-box blockquote {
     font-size: 1.18rem;
-  }
-
-  .acw-offer-note {
-    padding: 1rem;
-  }
-
-  .acw-mini-proof {
-    justify-content: flex-start;
-  }
-
-  .acw-mini-proof span {
-    font-size: 0.74rem;
   }
 
   .acw-contact-button {
@@ -1536,9 +1404,8 @@ p {
   .acw-outcome-card,
   .acw-service-card,
   .acw-faq-card,
-  .acw-guarantee-box,
-  .acw-testimonial-box,
-  .acw-trust-item {
+  .acw-faq-item,
+  .acw-testimonial-box {
     border-radius: 22px;
   }
 
