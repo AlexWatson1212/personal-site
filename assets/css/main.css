@@ -1,6 +1,5 @@
 /* =========================================================
    CSS PART 1 — BASE, LAYOUT, HEADER, HERO
-   AlexanderWatson.co.uk
    ========================================================= */
 
 :root {
@@ -8,38 +7,28 @@
   --surface: #fffdf9;
   --surface-soft: #ece4d8;
   --surface-warm: #f1eadf;
-
   --text: #172331;
   --muted: #5e6975;
   --white: #ffffff;
-
   --accent: #899b7f;
   --accent-dark: #687960;
   --warm: #d8c1a4;
   --gold-soft: #e3cda9;
-
   --line: rgba(23, 35, 49, 0.1);
   --line-strong: rgba(23, 35, 49, 0.16);
-
   --shadow-sm: 0 4px 14px rgba(23, 35, 49, 0.035);
   --shadow: 0 14px 34px rgba(23, 35, 49, 0.06);
   --shadow-lg: 0 24px 64px rgba(23, 35, 49, 0.1);
-
   --radius-sm: 14px;
   --radius-lg: 24px;
   --radius-xl: 32px;
   --pill: 999px;
-
   --container: 1060px;
   --narrow: 760px;
-
   --font-heading: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-
   --transition: 0.22s ease;
 }
-
-/* RESET */
 
 *,
 *::before,
@@ -81,13 +70,7 @@ img {
 a {
   color: var(--accent-dark);
   text-decoration: none;
-  transition:
-    color var(--transition),
-    background var(--transition),
-    border-color var(--transition),
-    box-shadow var(--transition),
-    transform var(--transition),
-    opacity var(--transition);
+  transition: color var(--transition), background var(--transition), border-color var(--transition), box-shadow var(--transition), transform var(--transition), opacity var(--transition);
 }
 
 a:hover {
@@ -112,8 +95,6 @@ summary:focus-visible {
   display: none !important;
 }
 
-/* LAYOUT */
-
 .container,
 .shell,
 .acw-container {
@@ -137,8 +118,6 @@ summary:focus-visible {
 section {
   scroll-margin-top: 96px;
 }
-
-/* TYPOGRAPHY */
 
 h1,
 h2,
@@ -172,8 +151,6 @@ p {
   margin: 0 0 1rem;
 }
 
-/* SECTIONS */
-
 .acw-section {
   padding: 84px 0;
   background: var(--surface);
@@ -188,10 +165,6 @@ p {
 .acw-section-heading {
   max-width: 720px;
   margin-bottom: 2.2rem;
-}
-
-.acw-section-heading h2 {
-  max-width: 18ch;
 }
 
 .acw-narrow .acw-section-heading {
@@ -236,14 +209,6 @@ p {
   line-height: 1.74;
 }
 
-.acw-narrow .acw-section-text {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-/* BUTTONS */
-
 .acw-cta-row {
   display: flex;
   flex-wrap: wrap;
@@ -263,12 +228,7 @@ p {
   font-weight: 820;
   line-height: 1.1;
   text-align: center;
-  transition:
-    background var(--transition),
-    color var(--transition),
-    border-color var(--transition),
-    transform var(--transition),
-    box-shadow var(--transition);
+  transition: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
 .acw-btn:hover {
@@ -279,7 +239,6 @@ p {
   background: var(--accent);
   color: var(--white);
   box-shadow: 0 10px 22px rgba(104, 121, 96, 0.16);
-  letter-spacing: -0.01em;
 }
 
 .acw-btn-primary:hover {
@@ -298,8 +257,6 @@ p {
   color: var(--text);
   border-color: var(--line-strong);
 }
-
-/* HEADER */
 
 .site-header {
   position: sticky;
@@ -331,22 +288,13 @@ p {
   color: var(--text);
 }
 
-.nav__brand:hover {
-  color: var(--text);
-  opacity: 0.9;
-}
-
 .nav__logo {
-  display: block;
   width: auto;
   height: 58px;
   object-fit: contain;
 }
 
-.nav__toggle {
-  display: none;
-}
-
+.nav__toggle,
 .nav__overlay {
   display: none;
 }
@@ -356,8 +304,6 @@ p {
   margin: 0;
   padding: 0;
 }
-
-/* DESKTOP NAV */
 
 @media (min-width: 861px) {
   .nav__panel {
@@ -372,25 +318,14 @@ p {
     gap: 1.45rem;
   }
 
-  .nav__links li {
-    margin: 0;
-    padding: 0;
-  }
-
   .nav__links a {
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
     padding: 0.4rem 0;
-    background: transparent;
     color: rgba(23, 35, 49, 0.66);
-    border: 0;
     border-bottom: 1px solid transparent;
-    border-radius: 0;
     font-size: 0.9rem;
     font-weight: 780;
     line-height: 1.2;
-    letter-spacing: -0.01em;
   }
 
   .nav__links a:hover,
@@ -400,29 +335,10 @@ p {
     border-bottom-color: rgba(137, 155, 127, 0.46);
   }
 
-  .nav__links li:last-child a {
-    padding: 0.4rem 0;
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid transparent;
-    border-radius: 0;
-    box-shadow: none;
-    color: rgba(23, 35, 49, 0.66);
-  }
-
-  .nav__links li:last-child a:hover {
-    background: transparent;
-    border-bottom-color: rgba(137, 155, 127, 0.46);
-    color: var(--text);
-    transform: none;
-  }
-
   .nav__cta {
     display: none;
   }
 }
-
-/* HERO */
 
 .acw-hero {
   padding: 76px 0 80px;
@@ -434,7 +350,7 @@ p {
 
 .acw-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.85fr);
+  grid-template-columns: minmax(0, 0.95fr) minmax(340px, 0.85fr);
   gap: 4.5rem;
   align-items: center;
 }
@@ -443,14 +359,9 @@ p {
   max-width: 620px;
 }
 
-.acw-hero h1 {
-  max-width: 12.5ch;
-}
-
 .acw-hero-image-wrap {
   display: flex;
   justify-content: center;
-  align-self: center;
 }
 
 .acw-hero-image {
@@ -463,17 +374,14 @@ p {
   box-shadow: var(--shadow-lg);
 }
 
-/* UNUSED / LEGACY HERO ELEMENTS */
-
 .acw-hero-points,
 .acw-hero-note,
 .acw-trust-strip {
   display: none;
-}v/* =========================================================
+}
+/* =========================================================
    CSS PART 2 — CARDS, SERVICES, ABOUT, PROCESS, PRICING, FAQ, CONTACT
    ========================================================= */
-
-/* EXAMPLE CARDS */
 
 .acw-cards {
   display: grid;
@@ -483,14 +391,11 @@ p {
 }
 
 .acw-card-link {
-  position: relative;
   display: block;
   min-height: 100%;
   color: var(--text);
   border-radius: var(--radius-xl);
-  transition:
-    transform 0.22s ease,
-    box-shadow 0.22s ease;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 
 .acw-card-link:hover {
@@ -532,9 +437,10 @@ p {
   line-height: 1.62;
 }
 
-/* SERVICES */
-
-.acw-services-section {
+.acw-services-section,
+.acw-process-section,
+.acw-fit-section,
+.acw-review-section {
   background:
     radial-gradient(circle at 12% 8%, rgba(137, 155, 127, 0.08), transparent 32%),
     var(--surface);
@@ -547,22 +453,38 @@ p {
   margin-top: 2rem;
 }
 
-.acw-service-card {
+.acw-service-card,
+.acw-process-card,
+.acw-outcome-card,
+.acw-fit-card,
+.acw-review-card {
   position: relative;
   overflow: hidden;
-  padding: 2rem;
+  padding: 1.7rem;
   background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(23, 35, 49, 0.08);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
 }
 
-.acw-service-card::before {
+.acw-service-card {
+  padding: 2rem;
+}
+
+.acw-service-card::before,
+.acw-process-card::before,
+.acw-outcome-card::before,
+.acw-fit-card::before,
+.acw-review-card::before {
   content: "";
   position: absolute;
   inset: 0 0 auto 0;
+  height: 4px;
+  background: rgba(137, 155, 127, 0.44);
+}
+
+.acw-service-card::before {
   height: 5px;
-  background: rgba(137, 155, 127, 0.42);
 }
 
 .acw-service-card-featured {
@@ -576,7 +498,10 @@ p {
   background: linear-gradient(90deg, rgba(137, 155, 127, 0.7), rgba(227, 205, 169, 0.76));
 }
 
-.acw-service-card span {
+.acw-service-card span,
+.acw-process-card span,
+.acw-fit-card span,
+.acw-review-card span {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -593,12 +518,23 @@ p {
   letter-spacing: 0.12em;
 }
 
-.acw-service-card p {
-  margin-bottom: 0;
-  color: var(--muted);
+.acw-outcome-card span {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--accent-dark);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
 }
 
-/* ABOUT */
+.acw-service-card p,
+.acw-process-card p,
+.acw-outcome-card p,
+.acw-fit-card p,
+.acw-review-card p {
+  margin: 0;
+  color: var(--muted);
+}
 
 .acw-about-grid {
   display: grid;
@@ -647,138 +583,15 @@ p {
   color: var(--text);
 }
 
-/* PROCESS */
-
-.acw-process-section {
-  background:
-    radial-gradient(circle at 12% 8%, rgba(137, 155, 127, 0.08), transparent 32%),
-    var(--surface);
-}
-
-.acw-process-grid {
+.acw-process-grid,
+.acw-outcome-grid,
+.acw-fit-grid,
+.acw-review-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
   margin-top: 2rem;
 }
-
-.acw-process-card {
-  position: relative;
-  overflow: hidden;
-  padding: 1.7rem;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(23, 35, 49, 0.08);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow);
-}
-
-.acw-process-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 4px;
-  background: rgba(137, 155, 127, 0.5);
-}
-
-.acw-process-card span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 42px;
-  height: 32px;
-  margin-bottom: 1.1rem;
-  padding: 0 0.6rem;
-  background: rgba(137, 155, 127, 0.12);
-  color: var(--accent-dark);
-  border: 1px solid rgba(137, 155, 127, 0.18);
-  border-radius: var(--pill);
-  font-size: 0.78rem;
-  font-weight: 850;
-  letter-spacing: 0.12em;
-}
-
-.acw-process-card p {
-  margin: 0;
-  color: var(--muted);
-}
-
-/* COMMON PROBLEMS */
-
-.acw-outcome-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  margin-top: 2rem;
-}
-
-.acw-outcome-card {
-  position: relative;
-  overflow: hidden;
-  padding: 1.7rem;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(23, 35, 49, 0.08);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow);
-}
-
-.acw-outcome-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 4px;
-  background: rgba(137, 155, 127, 0.44);
-}
-
-.acw-outcome-card span {
-  display: inline-block;
-  margin-bottom: 1rem;
-  color: var(--accent-dark);
-  font-size: 0.78rem;
-  font-weight: 850;
-  letter-spacing: 0.16em;
-}
-
-.acw-outcome-card p {
-  margin: 0;
-  color: var(--muted);
-}
-
-/* TESTIMONIAL */
-
-.acw-testimonial-section {
-  background:
-    radial-gradient(circle at 50% 0%, rgba(216, 193, 164, 0.16), transparent 40%),
-    var(--surface);
-}
-
-.acw-testimonial-box {
-  padding: 2.4rem;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(247, 242, 235, 0.72));
-  border: 1px solid rgba(23, 35, 49, 0.08);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow);
-  text-align: center;
-}
-
-.acw-testimonial-box blockquote {
-  max-width: 680px;
-  margin: 0 auto 1rem;
-  color: var(--text);
-  font-size: clamp(1.25rem, 2vw, 1.65rem);
-  font-weight: 720;
-  line-height: 1.45;
-  letter-spacing: -0.04em;
-}
-
-.acw-testimonial-name {
-  margin: 0;
-  color: var(--accent-dark);
-  font-size: 0.95rem;
-  font-weight: 850;
-}
-
-/* PRICING */
 
 .acw-pricing-grid {
   display: grid;
@@ -819,8 +632,6 @@ p {
 .acw-price-badge,
 .acw-price-label {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
   margin-bottom: 0.85rem;
   padding: 0.42rem 0.75rem;
   background: rgba(137, 155, 127, 0.14);
@@ -864,8 +675,6 @@ p {
 .acw-check-list li {
   color: var(--muted);
 }
-
-/* FAQ ACCORDION */
 
 .acw-faq-section {
   background: var(--surface);
@@ -924,8 +733,6 @@ p {
   color: var(--muted);
 }
 
-/* CONTACT */
-
 .acw-contact-section {
   padding-bottom: 72px;
 }
@@ -963,20 +770,17 @@ p {
   margin: 0 auto;
 }
 
-/* UNUSED / LEGACY SECTIONS */
-
 .acw-offer-note,
 .acw-guarantee-section,
 .acw-guarantee-box,
 .acw-guarantee-note,
-.acw-mini-proof {
+.acw-mini-proof,
+.acw-testimonial-section {
   display: none;
 }
 /* =========================================================
    CSS PART 3 — FOOTER, ACCESSIBILITY, RESPONSIVE, MOBILE NAV
    ========================================================= */
-
-/* FOOTER */
 
 .site-footer {
   padding: 82px 16px 46px;
@@ -1040,8 +844,6 @@ p {
   font-size: 0.78rem;
 }
 
-/* ACCESSIBILITY */
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1052,8 +854,6 @@ p {
   border: 0;
   clip: rect(0, 0, 0, 0);
 }
-
-/* RESPONSIVE */
 
 @media (max-width: 1060px) {
   .acw-pricing-grid-three {
@@ -1070,7 +870,9 @@ p {
   .acw-services-grid,
   .acw-pricing-grid,
   .acw-pricing-grid-two,
-  .acw-pricing-grid-three {
+  .acw-pricing-grid-three,
+  .acw-fit-grid,
+  .acw-review-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1091,9 +893,11 @@ p {
   .acw-hero-image {
     max-width: 520px;
   }
-}
 
-/* MOBILE NAV */
+  .acw-card {
+    max-width: 620px;
+  }
+}
 
 @media (max-width: 860px) {
   html {
@@ -1143,9 +947,7 @@ p {
     height: 2px;
     background: currentColor;
     border-radius: var(--pill);
-    transition:
-      transform var(--transition),
-      opacity var(--transition);
+    transition: transform var(--transition), opacity var(--transition);
   }
 
   .nav__icon {
@@ -1190,9 +992,7 @@ p {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition:
-      opacity 0.28s ease,
-      visibility 0.28s ease;
+    transition: opacity 0.28s ease, visibility 0.28s ease;
   }
 
   body.menu-open .nav__overlay {
@@ -1219,10 +1019,7 @@ p {
     visibility: hidden;
     pointer-events: none;
     transform: translateY(-8px);
-    transition:
-      opacity 0.28s ease,
-      visibility 0.28s ease,
-      transform 0.28s ease;
+    transition: opacity 0.28s ease, visibility 0.28s ease, transform 0.28s ease;
   }
 
   body.menu-open .nav__panel {
@@ -1253,11 +1050,7 @@ p {
     text-align: center;
     opacity: 0;
     transform: translateY(8px);
-    transition:
-      opacity 0.28s ease,
-      transform 0.28s ease,
-      color var(--transition),
-      border-color var(--transition);
+    transition: opacity 0.28s ease, transform 0.28s ease, color var(--transition), border-color var(--transition);
   }
 
   body.menu-open .nav__links a {
@@ -1314,7 +1107,7 @@ p {
   }
 
   .acw-hero {
-    padding: 48px 0 52px;
+    padding: 42px 0 52px;
   }
 
   h1 {
@@ -1323,48 +1116,36 @@ p {
     line-height: 1;
   }
 
-  h2 {
-    max-width: 14ch;
-    font-size: clamp(1.75rem, 7vw, 2.2rem);
-  }
-
+  h2,
   .acw-section-heading h2 {
-    max-width: 14ch;
+    max-width: 15ch;
+    font-size: clamp(1.75rem, 7vw, 2.2rem);
   }
 
   .acw-hero-text,
   .acw-section-text,
   .acw-section-intro {
-    max-width: 34ch;
+    max-width: 36ch;
     font-size: 0.98rem;
     line-height: 1.68;
-  }
-
-  .acw-narrow .acw-section-text,
-  .acw-narrow .acw-section-heading {
-    text-align: left;
-  }
-
-  .acw-narrow .acw-section-heading h2,
-  .acw-narrow .acw-section-heading .acw-section-intro {
-    margin-left: 0;
-    margin-right: 0;
   }
 
   .acw-btn {
     width: 100%;
   }
 
-  .acw-hero-image {
-    max-width: 100%;
+  .acw-cta-row {
+    gap: 0.7rem;
   }
 
-  .acw-pricing-grid,
-  .acw-pricing-grid-two,
-  .acw-pricing-grid-three {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
+  .acw-hero-image {
+    max-width: 100%;
+    border-radius: 22px;
+  }
+
+  .acw-card-image,
+  .acw-about-image {
+    aspect-ratio: 16 / 11;
   }
 
   .acw-card-body,
@@ -1373,10 +1154,10 @@ p {
   .acw-process-card,
   .acw-outcome-card,
   .acw-service-card,
-  .acw-faq-card,
   .acw-faq-item,
-  .acw-testimonial-box,
-  .acw-about-note {
+  .acw-about-note,
+  .acw-fit-card,
+  .acw-review-card {
     padding: 1.35rem;
   }
 
@@ -1386,10 +1167,6 @@ p {
 
   .acw-faq-item p {
     padding: 0 1.15rem 1.15rem;
-  }
-
-  .acw-testimonial-box blockquote {
-    font-size: 1.18rem;
   }
 
   .acw-contact-button {
@@ -1403,9 +1180,9 @@ p {
   .acw-process-card,
   .acw-outcome-card,
   .acw-service-card,
-  .acw-faq-card,
   .acw-faq-item,
-  .acw-testimonial-box {
+  .acw-fit-card,
+  .acw-review-card {
     border-radius: 22px;
   }
 
