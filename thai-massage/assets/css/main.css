@@ -3,17 +3,22 @@
   --bg-soft: #fffaf4;
   --bg-muted: #e7dccd;
   --bg-cream: #f8f1e8;
+
   --text: #211b17;
   --muted: #6b5f55;
+
   --dark: #11100d;
   --dark-soft: #1f1b17;
+
   --accent: #9c6a3a;
   --accent-dark: #7b4f2a;
   --accent-deep: #5f3b20;
   --accent-soft: #ead5bd;
+
   --border: rgba(33, 27, 23, 0.13);
   --shadow: 0 28px 80px rgba(33, 27, 23, 0.16);
   --shadow-soft: 0 18px 48px rgba(33, 27, 23, 0.09);
+
   --radius: 24px;
   --container: 1180px;
 }
@@ -43,8 +48,8 @@ body.nav-open {
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
 a {
@@ -66,9 +71,9 @@ main {
   top: 0;
   z-index: 1000;
   background: rgba(17, 16, 13, 0.96);
+  border-bottom: 1px solid rgba(156, 106, 58, 0.14);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(156, 106, 58, 0.14);
 }
 
 .header-inner {
@@ -164,7 +169,7 @@ p {
 }
 
 h1 {
-  max-width: 680px;
+  max-width: 720px;
   margin-bottom: 22px;
   color: #fff;
   font-size: clamp(3.2rem, 6vw, 6.2rem);
@@ -220,8 +225,8 @@ p {
 
 .btn-secondary {
   border: 1px solid rgba(255, 255, 255, 0.42);
-  color: #fff;
   background: rgba(255, 255, 255, 0.06);
+  color: #fff;
   backdrop-filter: blur(10px);
 }
 
@@ -423,7 +428,7 @@ p {
   padding: 36px;
   border: 1px solid var(--border);
   border-radius: calc(var(--radius) + 4px);
-  background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,250,244,0.92));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 250, 244, 0.92));
   box-shadow: 0 20px 60px rgba(33, 27, 23, 0.08);
 }
 
@@ -535,7 +540,7 @@ p {
   padding: 58px;
   border: 1px solid rgba(156, 106, 58, 0.26);
   border-radius: calc(var(--radius) + 8px);
-  background: linear-gradient(135deg, rgba(255,255,255,0.11), rgba(255,255,255,0.035));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.035));
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.26);
   opacity: 0;
   visibility: hidden;
@@ -574,11 +579,11 @@ p {
   border: 1px solid rgba(156, 106, 58, 0.34);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
   color: #fff;
   font-size: 2rem;
   line-height: 1;
   cursor: pointer;
+  backdrop-filter: blur(10px);
 }
 
 .review-dots {
@@ -644,7 +649,6 @@ p {
 .mobile-call-bar {
   display: none;
 }
-
 .site-footer {
   position: relative;
   overflow: hidden;
@@ -701,6 +705,7 @@ p {
   font-size: 0.84rem;
   text-align: center;
 }
+
 @media (max-width: 1000px) {
   .prices-grid,
   .about-grid,
