@@ -1,6 +1,5 @@
 /* =========================================================
    CSS PART 1 — BASE, LAYOUT, HEADER, HERO
-   AlexanderWatson.co.uk
    ========================================================= */
 
 :root {
@@ -174,16 +173,6 @@ p {
   margin-bottom: 2.3rem;
 }
 
-.acw-section-label {
-  display: inline-block;
-  margin-bottom: 0.9rem;
-  color: var(--accent-dark);
-  font-size: 0.7rem;
-  font-weight: 850;
-  text-transform: uppercase;
-  letter-spacing: 0.19em;
-}
-
 .acw-hero-text,
 .acw-section-text,
 .acw-section-intro {
@@ -303,13 +292,13 @@ p {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 1.15rem;
+    gap: 1.2rem;
   }
 
   .nav__links {
     display: flex;
     align-items: center;
-    gap: 1.45rem;
+    gap: 1.35rem;
   }
 
   .nav__links a {
@@ -331,7 +320,7 @@ p {
     align-items: center;
     justify-content: center;
     min-height: 38px;
-    padding: 0.58rem 1rem;
+    padding: 0.58rem 1.05rem;
     background: var(--accent);
     color: var(--white);
     border-radius: var(--pill);
@@ -552,8 +541,8 @@ p {
 
 .acw-contact-split {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 430px);
-  gap: 4rem;
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 390px);
+  gap: 3.6rem;
   align-items: center;
 }
 
@@ -568,7 +557,7 @@ p {
 .acw-contact-image-wrap {
   justify-self: end;
   width: 100%;
-  max-width: 430px;
+  max-width: 390px;
 }
 
 .acw-contact-image {
@@ -581,7 +570,7 @@ p {
 }
 
 .site-footer {
-  padding: 82px 16px 46px;
+  padding: 70px 16px 40px;
   background:
     radial-gradient(circle at 50% 0%, rgba(216,193,164,0.24), transparent 38%),
     var(--surface-warm);
@@ -593,13 +582,13 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 26px;
+  gap: 22px;
   max-width: var(--container);
   margin: 0 auto;
 }
 
 .footer-logo {
-  width: min(360px,84vw);
+  width: min(300px,78vw);
   height: auto;
 }
 
@@ -614,8 +603,8 @@ p {
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  width: 48px !important;
-  height: 48px !important;
+  width: 44px !important;
+  height: 44px !important;
   overflow: hidden;
   background: rgba(255,255,255,0.78);
   border: 1px solid rgba(23,35,49,0.08);
@@ -628,12 +617,12 @@ p {
 .footer-social img,
 .footer-social .social svg,
 .footer-social .social img {
-  width: 24px !important;
-  height: 24px !important;
-  max-width: 24px !important;
-  max-height: 24px !important;
-  min-width: 24px !important;
-  min-height: 24px !important;
+  width: 22px !important;
+  height: 22px !important;
+  max-width: 22px !important;
+  max-height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
 }
 
 .footer-copyright {
@@ -885,10 +874,10 @@ p {
   }
 
   .site-footer {
-    padding: 64px 16px 36px;
+    padding: 58px 16px 34px;
   }
 
   .footer-logo {
-    width: min(300px,88vw);
+    width: min(250px,82vw);
   }
 }
