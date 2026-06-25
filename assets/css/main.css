@@ -44,7 +44,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 86px;
+  scroll-padding-top: 70px;
 }
 
 body {
@@ -122,7 +122,7 @@ input:focus-visible {
 }
 
 section {
-  scroll-margin-top: 86px;
+  scroll-margin-top: 70px;
 }
 
 h1,
@@ -337,7 +337,7 @@ p {
 }
 
 .acw-hero {
-  padding: 104px 0 106px;
+  padding: 104px 0 68px;
   background:
     radial-gradient(circle at 12% 8%, rgba(216, 193, 164, 0.3), transparent 34%),
     radial-gradient(circle at 82% 14%, rgba(137, 155, 127, 0.13), transparent 30%),
@@ -371,8 +371,31 @@ p {
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
 }
+
+.acw-trust-strip {
+  padding: 0 0 88px;
+  background: #f7f2eb;
+}
+
+.acw-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+}
+
+.acw-trust-item {
+  padding: 1rem 1.1rem;
+  background: rgba(255,255,255,0.58);
+  border: 1px solid rgba(23,35,49,0.08);
+  border-radius: var(--radius-lg);
+  color: rgba(23,35,49,0.72);
+  font-size: 0.86rem;
+  font-weight: 820;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
 /* =========================================================
-   CSS PART 2 — SECTIONS, PROCESS, ABOUT, EXAMPLES
+   CSS PART 2 — SECTIONS, PROCESS, ABOUT, OFFERS, EXAMPLES
    ========================================================= */
 
 .acw-two-column {
@@ -499,6 +522,83 @@ p {
 .acw-about-note p {
   margin: 0;
   color: var(--muted);
+}
+
+.acw-offer-section {
+  background:
+    radial-gradient(circle at 18% 10%, rgba(216,193,164,0.13), transparent 30%),
+    var(--surface);
+}
+
+.acw-offer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+  margin-top: 2rem;
+}
+
+.acw-offer-card {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(23,35,49,0.08);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+}
+
+.acw-offer-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: rgba(137,155,127,0.5);
+}
+
+.acw-offer-kicker {
+  margin-bottom: 0.65rem;
+  color: var(--accent-dark);
+  font-size: .72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+}
+
+.acw-offer-card h3 {
+  font-size: clamp(1.55rem, 2vw, 2rem);
+}
+
+.acw-price {
+  margin: 0.2rem 0 1.2rem;
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.acw-offer-card ul {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.acw-offer-card li {
+  position: relative;
+  padding-left: 1.15rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.acw-offer-card li::before {
+  content: "";
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 999px;
 }
 
 .acw-cards {
@@ -669,7 +769,9 @@ p {
   .acw-cards,
   .acw-process-grid,
   .acw-two-column,
-  .acw-contact-split {
+  .acw-contact-split,
+  .acw-offer-grid,
+  .acw-trust-grid {
     grid-template-columns: 1fr;
   }
 
@@ -700,15 +802,19 @@ p {
   .acw-hero-image {
     max-width: 520px;
   }
+
+  .acw-trust-strip {
+    padding-bottom: 62px;
+  }
 }
 
 @media (max-width: 860px) {
   html {
-    scroll-padding-top: 74px;
+    scroll-padding-top: 64px;
   }
 
   section {
-    scroll-margin-top: 74px;
+    scroll-margin-top: 64px;
   }
 
   .site-header .nav {
@@ -880,7 +986,20 @@ p {
   }
 
   .acw-hero {
-    padding: 58px 0 64px;
+    padding: 58px 0 40px;
+  }
+
+  .acw-trust-strip {
+    padding: 0 0 58px;
+  }
+
+  .acw-trust-grid {
+    gap: 0.65rem;
+  }
+
+  .acw-trust-item {
+    padding: 0.85rem 1rem;
+    font-size: 0.82rem;
   }
 
   h1 {
@@ -907,7 +1026,8 @@ p {
   }
 
   .acw-card-body,
-  .acw-process-card {
+  .acw-process-card,
+  .acw-offer-card {
     padding: 1.35rem;
   }
 
