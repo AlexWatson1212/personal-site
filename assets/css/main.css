@@ -476,6 +476,22 @@ p {
   color: var(--muted);
 }
 
+/* ==========================================
+   CLARITY / POSITIONING SECTION
+   ========================================== */
+
+.acw-clarity-section {
+  background: var(--surface);
+}
+
+.acw-clarity-section .acw-two-column {
+  align-items: center;
+}
+
+.acw-clarity-section h2 {
+  max-width: 12ch;
+}
+
 .acw-cards {
   display: grid;
   grid-template-columns: repeat(3,1fr);
