@@ -1,5 +1,5 @@
 /* =========================================================
-   CSS PART 1 — BASE, LAYOUT, HEADER, HERO, TRUST STRIP
+   CSS PART 1 — BASE, LAYOUT, HEADER, HERO
    ========================================================= */
 
 :root {
@@ -337,7 +337,7 @@ p {
 }
 
 .acw-hero {
-  padding: 104px 0 58px;
+  padding: 104px 0 96px;
   background:
     radial-gradient(circle at 12% 8%, rgba(216, 193, 164, 0.3), transparent 34%),
     radial-gradient(circle at 82% 14%, rgba(137, 155, 127, 0.13), transparent 30%),
@@ -370,55 +370,6 @@ p {
   border: 1px solid rgba(23,35,49,0.08);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
-}
-
-.acw-trust-strip {
-  padding: 0 0 78px;
-  background:
-    linear-gradient(180deg, #f7f2eb 0%, #f7f2eb 100%);
-}
-
-.acw-trust-panel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.95rem 1.2rem;
-  background: rgba(255,255,255,0.54);
-  border: 1px solid rgba(23,35,49,0.075);
-  border-radius: var(--pill);
-  box-shadow: 0 14px 36px rgba(23,35,49,0.045);
-}
-
-.acw-trust-list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.acw-trust-list li {
-  position: relative;
-  padding: 0 1.15rem;
-  color: rgba(23,35,49,0.68);
-  font-size: 0.84rem;
-  font-weight: 820;
-  line-height: 1.35;
-  white-space: nowrap;
-}
-
-.acw-trust-list li:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 0;
-  width: 1px;
-  height: 18px;
-  background: rgba(23,35,49,0.14);
-  transform: translateY(-50%);
 }
 /* =========================================================
    CSS PART 2 — SECTIONS, PROCESS, ABOUT, OFFERS, EXAMPLES
@@ -696,7 +647,7 @@ p {
   line-height: 1.65;
 }
 /* =========================================================
-   CSS PART 3 — CONTACT, FOOTER, MOBILE
+   CSS PART 3 — CONTACT, FAQ, FOOTER, MOBILE
    ========================================================= */
 
 .acw-contact-split-section {
@@ -847,40 +798,6 @@ p {
 
   .acw-hero-image {
     max-width: 520px;
-  }
-
-  .acw-trust-strip {
-    padding-bottom: 62px;
-  }
-
-  .acw-trust-panel {
-    border-radius: var(--radius-xl);
-  }
-
-  .acw-trust-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
-    gap: 0;
-  }
-
-  .acw-trust-list li {
-    padding: 0.75rem 0.9rem;
-    text-align: center;
-    white-space: normal;
-  }
-
-  .acw-trust-list li:not(:last-child)::after {
-    display: none;
-  }
-
-  .acw-trust-list li:nth-child(odd) {
-    border-right: 1px solid rgba(23,35,49,0.11);
-  }
-
-  .acw-trust-list li:nth-child(1),
-  .acw-trust-list li:nth-child(2) {
-    border-bottom: 1px solid rgba(23,35,49,0.11);
   }
 }
 
@@ -1062,28 +979,7 @@ p {
   }
 
   .acw-hero {
-    padding: 58px 0 34px;
-  }
-
-  .acw-trust-strip {
-    padding: 0 0 58px;
-  }
-
-  .acw-trust-panel {
-    padding: 0.45rem;
-  }
-
-  .acw-trust-list {
-    grid-template-columns: 1fr;
-  }
-
-  .acw-trust-list li {
-    padding: 0.78rem 0.85rem;
-    border-right: 0 !important;
-  }
-
-  .acw-trust-list li:not(:last-child) {
-    border-bottom: 1px solid rgba(23,35,49,0.11);
+    padding: 58px 0 64px;
   }
 
   h1 {
