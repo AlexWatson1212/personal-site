@@ -1,5 +1,5 @@
 /* =========================================================
-   CSS PART 1 — BASE, LAYOUT, HEADER, HERO
+   CSS PART 1 — BASE, LAYOUT, HEADER, HERO, TRUST STRIP
    ========================================================= */
 
 :root {
@@ -337,7 +337,7 @@ p {
 }
 
 .acw-hero {
-  padding: 104px 0 68px;
+  padding: 104px 0 58px;
   background:
     radial-gradient(circle at 12% 8%, rgba(216, 193, 164, 0.3), transparent 34%),
     radial-gradient(circle at 82% 14%, rgba(137, 155, 127, 0.13), transparent 30%),
@@ -373,26 +373,52 @@ p {
 }
 
 .acw-trust-strip {
-  padding: 0 0 88px;
-  background: #f7f2eb;
+  padding: 0 0 78px;
+  background:
+    linear-gradient(180deg, #f7f2eb 0%, #f7f2eb 100%);
 }
 
-.acw-trust-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.85rem;
+.acw-trust-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 1.2rem;
+  background: rgba(255,255,255,0.54);
+  border: 1px solid rgba(23,35,49,0.075);
+  border-radius: var(--pill);
+  box-shadow: 0 14px 36px rgba(23,35,49,0.045);
 }
 
-.acw-trust-item {
-  padding: 1rem 1.1rem;
-  background: rgba(255,255,255,0.58);
-  border: 1px solid rgba(23,35,49,0.08);
-  border-radius: var(--radius-lg);
-  color: rgba(23,35,49,0.72);
-  font-size: 0.86rem;
+.acw-trust-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.acw-trust-list li {
+  position: relative;
+  padding: 0 1.15rem;
+  color: rgba(23,35,49,0.68);
+  font-size: 0.84rem;
   font-weight: 820;
-  text-align: center;
-  box-shadow: var(--shadow-sm);
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.acw-trust-list li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 1px;
+  height: 18px;
+  background: rgba(23,35,49,0.14);
+  transform: translateY(-50%);
 }
 /* =========================================================
    CSS PART 2 — SECTIONS, PROCESS, ABOUT, OFFERS, EXAMPLES
@@ -601,6 +627,14 @@ p {
   border-radius: 999px;
 }
 
+.acw-offer-note {
+  max-width: 64ch;
+  margin-top: 1.25rem;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
 .acw-cards {
   display: grid;
   grid-template-columns: repeat(3,1fr);
@@ -684,6 +718,19 @@ p {
 
 .acw-contact-copy .acw-btn {
   margin-top: 0.8rem;
+}
+
+.acw-contact-email {
+  display: inline-flex;
+  margin: 0.15rem 0 1rem;
+  color: var(--accent-dark);
+  font-weight: 850;
+  border-bottom: 1px solid rgba(104,121,96,0.24);
+}
+
+.acw-contact-email:hover {
+  color: var(--text);
+  border-bottom-color: rgba(23,35,49,0.28);
 }
 
 .acw-contact-image-wrap {
@@ -770,8 +817,7 @@ p {
   .acw-process-grid,
   .acw-two-column,
   .acw-contact-split,
-  .acw-offer-grid,
-  .acw-trust-grid {
+  .acw-offer-grid {
     grid-template-columns: 1fr;
   }
 
@@ -805,6 +851,36 @@ p {
 
   .acw-trust-strip {
     padding-bottom: 62px;
+  }
+
+  .acw-trust-panel {
+    border-radius: var(--radius-xl);
+  }
+
+  .acw-trust-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: 0;
+  }
+
+  .acw-trust-list li {
+    padding: 0.75rem 0.9rem;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .acw-trust-list li:not(:last-child)::after {
+    display: none;
+  }
+
+  .acw-trust-list li:nth-child(odd) {
+    border-right: 1px solid rgba(23,35,49,0.11);
+  }
+
+  .acw-trust-list li:nth-child(1),
+  .acw-trust-list li:nth-child(2) {
+    border-bottom: 1px solid rgba(23,35,49,0.11);
   }
 }
 
@@ -986,20 +1062,28 @@ p {
   }
 
   .acw-hero {
-    padding: 58px 0 40px;
+    padding: 58px 0 34px;
   }
 
   .acw-trust-strip {
     padding: 0 0 58px;
   }
 
-  .acw-trust-grid {
-    gap: 0.65rem;
+  .acw-trust-panel {
+    padding: 0.45rem;
   }
 
-  .acw-trust-item {
-    padding: 0.85rem 1rem;
-    font-size: 0.82rem;
+  .acw-trust-list {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-trust-list li {
+    padding: 0.78rem 0.85rem;
+    border-right: 0 !important;
+  }
+
+  .acw-trust-list li:not(:last-child) {
+    border-bottom: 1px solid rgba(23,35,49,0.11);
   }
 
   h1 {
