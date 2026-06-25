@@ -44,7 +44,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 140px;
+  scroll-padding-top: 86px;
 }
 
 body {
@@ -122,7 +122,7 @@ input:focus-visible {
 }
 
 section {
-  scroll-margin-top: 140px;
+  scroll-margin-top: 86px;
 }
 
 h1,
@@ -390,13 +390,14 @@ p {
 
 .acw-process-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(6, 1fr);
   gap: 1.25rem;
   margin-top: 2rem;
 }
 
 .acw-process-card {
   position: relative;
+  grid-column: span 2;
   overflow: hidden;
   padding: 1.7rem;
   background: rgba(255,255,255,0.92);
@@ -407,6 +408,14 @@ p {
     transform .25s ease,
     box-shadow .25s ease,
     border-color .25s ease;
+}
+
+.acw-process-card:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.acw-process-card:nth-child(5) {
+  grid-column: 4 / span 2;
 }
 
 .acw-process-card:hover {
@@ -490,22 +499,6 @@ p {
 .acw-about-note p {
   margin: 0;
   color: var(--muted);
-}
-
-/* ==========================================
-   CLARITY / POSITIONING SECTION
-   ========================================== */
-
-.acw-clarity-section {
-  background: var(--surface);
-}
-
-.acw-clarity-section .acw-two-column {
-  align-items: center;
-}
-
-.acw-clarity-section h2 {
-  max-width: 12ch;
 }
 
 .acw-cards {
@@ -680,6 +673,12 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .acw-process-card,
+  .acw-process-card:nth-child(4),
+  .acw-process-card:nth-child(5) {
+    grid-column: auto;
+  }
+
   .acw-hero-grid,
   .acw-about-grid,
   .acw-two-column,
@@ -705,11 +704,11 @@ p {
 
 @media (max-width: 860px) {
   html {
-    scroll-padding-top: 100px;
+    scroll-padding-top: 74px;
   }
 
   section {
-    scroll-margin-top: 100px;
+    scroll-margin-top: 74px;
   }
 
   .site-header .nav {
