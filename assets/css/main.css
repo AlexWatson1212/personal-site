@@ -1,11 +1,11 @@
 /* =========================================================
-   CSS PART 1 — BASE, HEADER, HERO, CORE LAYOUT
+   CSS PART 1 — BASE, HEADER, HERO, TYPOGRAPHY
    ========================================================= */
 
 :root {
   --bg: #f7f1e8;
   --surface: #fffdf8;
-  --surface-soft: #ebe1d3;
+  --surface-soft: #e9dfd0;
   --surface-warm: #f1e8dc;
 
   --text: #142233;
@@ -20,12 +20,12 @@
   --line-strong: rgba(20, 34, 51, 0.16);
 
   --shadow-xs: 0 6px 16px rgba(20, 34, 51, 0.035);
-  --shadow-sm: 0 12px 28px rgba(20, 34, 51, 0.055);
-  --shadow: 0 24px 60px rgba(20, 34, 51, 0.085);
-  --shadow-lg: 0 36px 90px rgba(20, 34, 51, 0.13);
+  --shadow-sm: 0 14px 34px rgba(20, 34, 51, 0.06);
+  --shadow: 0 28px 70px rgba(20, 34, 51, 0.09);
+  --shadow-lg: 0 40px 100px rgba(20, 34, 51, 0.13);
 
   --radius-lg: 28px;
-  --radius-xl: 40px;
+  --radius-xl: 42px;
   --pill: 999px;
 
   --container: 1120px;
@@ -121,28 +121,28 @@ section {
 h1,
 h2,
 h3 {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.9rem;
   color: var(--text);
   font-family: var(--font-heading);
-  font-weight: 880;
-  letter-spacing: -0.065em;
+  font-weight: 900;
+  letter-spacing: -0.07em;
 }
 
 h1 {
-  max-width: 9.5ch;
-  font-size: clamp(4.1rem, 8vw, 8rem);
-  line-height: 0.88;
+  max-width: 9ch;
+  font-size: clamp(4.7rem, 8.5vw, 8.4rem);
+  line-height: 0.86;
 }
 
 h2 {
-  max-width: 13ch;
-  font-size: clamp(2.35rem, 4vw, 4.8rem);
-  line-height: 0.96;
+  max-width: 11.5ch;
+  font-size: clamp(2.9rem, 4.9vw, 5.6rem);
+  line-height: 0.9;
 }
 
 h3 {
-  font-size: 1.25rem;
-  line-height: 1.16;
+  font-size: clamp(1.2rem, 1.5vw, 1.42rem);
+  line-height: 1.12;
   letter-spacing: -0.045em;
 }
 
@@ -152,20 +152,20 @@ p {
 
 .acw-section {
   position: relative;
-  padding: 128px 0;
+  padding: 150px 0;
   background: var(--surface);
 }
 
 .acw-section-soft {
   background:
-    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.38), transparent 34%),
-    radial-gradient(circle at 88% 20%, rgba(127, 146, 116, 0.08), transparent 34%),
+    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.42), transparent 36%),
+    radial-gradient(circle at 86% 16%, rgba(127, 146, 116, 0.08), transparent 34%),
     var(--surface-soft);
 }
 
 .acw-section-heading {
-  max-width: 760px;
-  margin-bottom: 3.4rem;
+  max-width: 780px;
+  margin-bottom: 4rem;
 }
 
 .acw-hero-text,
@@ -175,16 +175,16 @@ p {
 }
 
 .acw-hero-text {
-  max-width: 44ch;
-  font-size: clamp(1.08rem, 1.4vw, 1.32rem);
-  line-height: 1.72;
+  max-width: 39ch;
+  font-size: clamp(1.18rem, 1.55vw, 1.45rem);
+  line-height: 1.62;
 }
 
 .acw-section-text,
 .acw-section-intro {
-  max-width: 56ch;
-  font-size: 1.06rem;
-  line-height: 1.78;
+  max-width: 52ch;
+  font-size: clamp(1.04rem, 1.15vw, 1.18rem);
+  line-height: 1.76;
 }
 
 .acw-cta-row {
@@ -199,12 +199,12 @@ p {
   align-items: center;
   justify-content: center;
   min-height: 50px;
-  padding: 0.86rem 1.32rem;
+  padding: 0.86rem 1.35rem;
   border: 1px solid transparent;
   border-radius: var(--pill);
   cursor: pointer;
   font-size: 0.94rem;
-  font-weight: 860;
+  font-weight: 880;
   line-height: 1.1;
   text-align: center;
 }
@@ -302,15 +302,15 @@ p {
   .nav__links a {
     display: inline-flex;
     padding: 0.4rem 0;
-    color: rgba(20, 34, 51, 0.64);
+    color: rgba(20, 34, 51, 0.62);
     border-bottom: 1px solid transparent;
     font-size: 0.88rem;
-    font-weight: 800;
+    font-weight: 820;
   }
 
   .nav__links a:hover {
     color: var(--text);
-    border-bottom-color: rgba(127, 146, 116, 0.46);
+    border-bottom-color: rgba(127, 146, 116, 0.5);
   }
 
   .nav__cta {
@@ -339,7 +339,7 @@ p {
 .acw-hero {
   position: relative;
   overflow: hidden;
-  padding: 138px 0 136px;
+  padding: 150px 0 150px;
   background:
     radial-gradient(circle at 10% 4%, rgba(216, 192, 160, 0.34), transparent 36%),
     radial-gradient(circle at 90% 12%, rgba(127, 146, 116, 0.12), transparent 34%),
@@ -349,7 +349,7 @@ p {
 .acw-hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.76fr);
-  gap: 5.4rem;
+  gap: 5.6rem;
   align-items: center;
 }
 
@@ -370,41 +370,43 @@ p {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border: 1px solid rgba(20, 34, 51, 0.08);
-  border-radius: 42px;
+  border-radius: 44px;
   box-shadow: var(--shadow-lg);
 }
 
-/* Statements and editorial */
+/* =========================================================
+   CSS PART 2 — STATEMENTS, EDITORIAL, CARDS, PROCESS
+   ========================================================= */
 
 .acw-statement {
-  padding: 150px 0;
+  padding: 170px 0;
   background: var(--surface);
 }
 
 .acw-statement-inner {
-  max-width: 920px;
+  max-width: 960px;
 }
 
 .acw-statement h2 {
-  max-width: 12ch;
+  max-width: 10.5ch;
 }
 
 .acw-statement p {
-  max-width: 56ch;
+  max-width: 48ch;
   color: var(--muted);
-  font-size: clamp(1.12rem, 1.8vw, 1.42rem);
-  line-height: 1.72;
+  font-size: clamp(1.18rem, 1.8vw, 1.48rem);
+  line-height: 1.7;
 }
 
 .acw-editorial-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(340px, 0.92fr);
-  gap: 5.2rem;
+  grid-template-columns: minmax(0, 0.88fr) minmax(340px, 0.92fr);
+  gap: 5.6rem;
   align-items: center;
 }
 
 .acw-editorial-copy {
-  max-width: 660px;
+  max-width: 640px;
 }
 
 .acw-editorial-media,
@@ -422,7 +424,7 @@ p {
   width: 100%;
   object-fit: cover;
   border: 1px solid rgba(20, 34, 51, 0.08);
-  border-radius: 40px;
+  border-radius: 42px;
   box-shadow: var(--shadow-lg);
 }
 
@@ -432,35 +434,31 @@ p {
 }
 
 .acw-pause {
-  padding: 150px 0;
+  padding: 165px 0;
   background: var(--navy);
   text-align: center;
 }
 
 .acw-pause h2 {
-  max-width: 13ch;
+  max-width: 12ch;
   margin: 0 auto;
   color: var(--white);
-  font-size: clamp(3rem, 7vw, 7rem);
-  line-height: 0.9;
+  font-size: clamp(3.4rem, 7vw, 7.4rem);
+  line-height: 0.88;
 }
-
-/* =========================================================
-   CSS PART 2 — CARDS, PROCESS, OFFERS, EXAMPLES, ABOUT
-   ========================================================= */
 
 .acw-blueprint-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem;
-  margin-top: 2.2rem;
+  gap: 1.3rem;
+  margin-top: 2.4rem;
 }
 
 .acw-blueprint-card {
   position: relative;
   overflow: hidden;
-  min-height: 220px;
-  padding: 1.75rem;
+  min-height: 226px;
+  padding: 1.85rem;
   background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.84));
   border: 1px solid rgba(20, 34, 51, 0.08);
   border-radius: 34px;
@@ -489,13 +487,13 @@ p {
 .acw-blueprint-card p {
   margin: 0;
   color: var(--muted);
-  line-height: 1.68;
+  line-height: 1.66;
 }
 
 .acw-process-layout {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(340px, 0.86fr);
-  gap: 4.6rem;
+  gap: 5rem;
   align-items: center;
 }
 
@@ -505,8 +503,8 @@ p {
 
 .acw-process-list {
   display: grid;
-  gap: 0.7rem;
-  margin: 2.2rem 0 0;
+  gap: 0.72rem;
+  margin: 2.4rem 0 0;
   padding: 0;
   list-style: none;
 }
@@ -515,7 +513,7 @@ p {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 0.95rem 1rem;
+  padding: 0.98rem 1.08rem;
   background: rgba(255,255,255,0.72);
   border: 1px solid rgba(20, 34, 51, 0.07);
   border-radius: 999px;
@@ -535,21 +533,25 @@ p {
   line-height: 1.25;
 }
 
+/* =========================================================
+   CSS PART 3 — OFFERS, EXAMPLES, ABOUT, FAQ, CONTACT, FOOTER, MOBILE
+   ========================================================= */
+
 .acw-offer-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.35rem;
-  margin-top: 2.2rem;
+  margin-top: 2.4rem;
 }
 
 .acw-offer-card {
   position: relative;
   overflow: hidden;
   min-height: 300px;
-  padding: 2.25rem;
+  padding: 2.35rem;
   background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.84));
   border: 1px solid rgba(20, 34, 51, 0.08);
-  border-radius: 36px;
+  border-radius: 38px;
   box-shadow: var(--shadow-sm);
 }
 
@@ -561,7 +563,7 @@ p {
 
 .acw-card-label {
   display: inline-flex;
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.9rem;
   color: var(--accent-dark);
   font-size: .72rem;
   font-weight: 950;
@@ -570,12 +572,12 @@ p {
 }
 
 .acw-offer-card h3 {
-  max-width: 15ch;
-  font-size: clamp(1.85rem, 2.5vw, 2.55rem);
+  max-width: 14ch;
+  font-size: clamp(2rem, 2.6vw, 2.7rem);
 }
 
 .acw-offer-card p {
-  max-width: 44ch;
+  max-width: 42ch;
   color: var(--muted);
   line-height: 1.72;
 }
@@ -595,7 +597,7 @@ p {
 
 .acw-showcase {
   display: grid;
-  gap: 3.2rem;
+  gap: 3.6rem;
 }
 
 .acw-showcase-copy {
@@ -603,21 +605,22 @@ p {
 }
 
 .acw-showcase-copy p {
-  max-width: 58ch;
+  max-width: 54ch;
   color: var(--muted);
-  font-size: 1.08rem;
+  font-size: 1.12rem;
+  line-height: 1.76;
 }
 
 .acw-showcase-image img {
   aspect-ratio: 16 / 9;
-  border-radius: 46px;
+  border-radius: 48px;
 }
 
 .acw-cards {
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  gap: 1.25rem;
-  margin-top: 2.2rem;
+  gap: 1.3rem;
+  margin-top: 2.4rem;
 }
 
 .acw-card-link {
@@ -656,20 +659,20 @@ p {
 }
 
 .acw-card-body {
-  padding: 1.55rem;
+  padding: 1.6rem;
 }
 
 .acw-card-body p {
   margin: 0;
   color: var(--muted);
-  font-size: .95rem;
+  font-size: .96rem;
   line-height: 1.65;
 }
 
 .acw-about-grid {
   display: grid;
   grid-template-columns: minmax(0,1fr) minmax(300px,410px);
-  gap: 4.6rem;
+  gap: 5rem;
   align-items: center;
 }
 
@@ -678,7 +681,7 @@ p {
 }
 
 .acw-about-copy h2 {
-  max-width: 15ch;
+  max-width: 14ch;
 }
 
 .acw-about-side {
@@ -694,10 +697,10 @@ p {
 }
 
 .acw-about-note {
-  padding: 1.3rem;
+  padding: 1.35rem;
   background: rgba(255,255,255,0.74);
   border: 1px solid rgba(20,34,51,0.08);
-  border-radius: 26px;
+  border-radius: 28px;
   box-shadow: var(--shadow-xs);
 }
 
@@ -705,10 +708,6 @@ p {
   margin: 0;
   color: var(--muted);
 }
-
-/* =========================================================
-   CSS PART 3 — FAQ, CONTACT, FOOTER, LINKS PAGE, MOBILE
-   ========================================================= */
 
 .acw-faq-wrap {
   max-width: 820px;
@@ -772,7 +771,7 @@ p {
 .acw-contact-split {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(300px, 420px);
-  gap: 4.2rem;
+  gap: 4.6rem;
   align-items: center;
 }
 
@@ -781,7 +780,7 @@ p {
 }
 
 .acw-contact-copy h2 {
-  max-width: 12ch;
+  max-width: 11ch;
 }
 
 .acw-contact-email {
@@ -919,7 +918,7 @@ p {
   .acw-process-layout,
   .acw-about-grid,
   .acw-contact-split {
-    gap: 2.8rem;
+    gap: 3rem;
   }
 
   .acw-editorial-media,
@@ -1118,31 +1117,31 @@ p {
   }
 
   .acw-section {
-    padding: 82px 0;
+    padding: 92px 0;
   }
 
   .acw-hero {
-    padding: 76px 0 86px;
+    padding: 82px 0 96px;
   }
 
   h1 {
-    max-width: 11ch;
-    font-size: clamp(2.8rem, 13vw, 4.1rem);
-    line-height: 0.94;
+    max-width: 10.5ch;
+    font-size: clamp(3.2rem, 15vw, 4.6rem);
+    line-height: 0.9;
   }
 
   h2 {
-    max-width: 13ch;
-    font-size: clamp(2.05rem, 10vw, 3rem);
-    line-height: 0.98;
+    max-width: 11.5ch;
+    font-size: clamp(2.25rem, 11vw, 3.35rem);
+    line-height: 0.94;
   }
 
   .acw-hero-text,
   .acw-section-text,
   .acw-section-intro {
-    max-width: 36ch;
-    font-size: .98rem;
-    line-height: 1.7;
+    max-width: 35ch;
+    font-size: 1rem;
+    line-height: 1.68;
   }
 
   .acw-cta-row {
@@ -1155,12 +1154,12 @@ p {
 
   .acw-statement,
   .acw-pause {
-    padding: 92px 0;
+    padding: 104px 0;
   }
 
   .acw-pause h2 {
-    max-width: 12ch;
-    font-size: clamp(2.4rem, 13vw, 4rem);
+    max-width: 11ch;
+    font-size: clamp(2.6rem, 13vw, 4.2rem);
   }
 
   .acw-cards,
@@ -1172,7 +1171,7 @@ p {
   .acw-blueprint-card,
   .acw-offer-card {
     min-height: auto;
-    padding: 1.45rem;
+    padding: 1.55rem;
     border-radius: 28px;
   }
 
