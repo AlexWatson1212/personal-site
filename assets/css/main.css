@@ -1,5 +1,5 @@
 /* =========================================================
-   CSS PART 1 — BASE, HEADER, HERO
+   CSS PART 1 — BASE, HEADER, HERO, CORE LAYOUT
    ========================================================= */
 
 :root {
@@ -14,7 +14,6 @@
 
   --accent: #7f9274;
   --accent-dark: #5f7458;
-  --sand: #d8c0a0;
   --navy: #142233;
 
   --line: rgba(20, 34, 51, 0.09);
@@ -137,8 +136,8 @@ h1 {
 
 h2 {
   max-width: 13ch;
-  font-size: clamp(2.35rem, 4.3vw, 5.15rem);
-  line-height: 0.93;
+  font-size: clamp(2.35rem, 4vw, 4.8rem);
+  line-height: 0.96;
 }
 
 h3 {
@@ -151,24 +150,9 @@ p {
   margin: 0 0 1rem;
 }
 
-.acw-label {
-  display: inline-flex;
-  margin: 0 0 1.05rem;
-  padding: 0.45rem 0.72rem;
-  background: rgba(20, 34, 51, 0.055);
-  color: var(--text);
-  border: 1px solid rgba(20, 34, 51, 0.075);
-  border-radius: var(--pill);
-  font-size: 0.72rem;
-  font-weight: 950;
-  letter-spacing: 0.11em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
 .acw-section {
   position: relative;
-  padding: 124px 0;
+  padding: 128px 0;
   background: var(--surface);
 }
 
@@ -181,7 +165,7 @@ p {
 
 .acw-section-heading {
   max-width: 760px;
-  margin-bottom: 3rem;
+  margin-bottom: 3.4rem;
 }
 
 .acw-hero-text,
@@ -191,15 +175,15 @@ p {
 }
 
 .acw-hero-text {
-  max-width: 54ch;
-  font-size: clamp(1rem, 1.2vw, 1.16rem);
-  line-height: 1.8;
+  max-width: 44ch;
+  font-size: clamp(1.08rem, 1.4vw, 1.32rem);
+  line-height: 1.72;
 }
 
 .acw-section-text,
 .acw-section-intro {
-  max-width: 62ch;
-  font-size: 1.04rem;
+  max-width: 56ch;
+  font-size: 1.06rem;
   line-height: 1.78;
 }
 
@@ -251,6 +235,8 @@ p {
   color: var(--text);
   border-color: var(--line-strong);
 }
+
+/* Header */
 
 .site-header {
   position: sticky;
@@ -348,10 +334,12 @@ p {
   }
 }
 
+/* Hero */
+
 .acw-hero {
   position: relative;
   overflow: hidden;
-  padding: 132px 0 128px;
+  padding: 138px 0 136px;
   background:
     radial-gradient(circle at 10% 4%, rgba(216, 192, 160, 0.34), transparent 36%),
     radial-gradient(circle at 90% 12%, rgba(127, 146, 116, 0.12), transparent 34%),
@@ -360,13 +348,13 @@ p {
 
 .acw-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.78fr);
-  gap: 5.2rem;
+  grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.76fr);
+  gap: 5.4rem;
   align-items: center;
 }
 
 .acw-hero-copy {
-  max-width: 800px;
+  max-width: 780px;
 }
 
 .acw-hero-image-wrap {
@@ -386,47 +374,37 @@ p {
   box-shadow: var(--shadow-lg);
 }
 
-/* =========================================================
-   CSS PART 2 — STATEMENTS, EDITORIAL SECTIONS, CARDS
-   ========================================================= */
+/* Statements and editorial */
 
 .acw-statement {
-  padding: 132px 0;
+  padding: 150px 0;
   background: var(--surface);
 }
 
 .acw-statement-inner {
-  max-width: 900px;
+  max-width: 920px;
 }
 
 .acw-statement h2 {
   max-width: 12ch;
 }
 
-.acw-statement p:not(.acw-label) {
-  max-width: 58ch;
+.acw-statement p {
+  max-width: 56ch;
   color: var(--muted);
-  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  font-size: clamp(1.12rem, 1.8vw, 1.42rem);
   line-height: 1.72;
 }
 
 .acw-editorial-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(340px, 0.92fr);
-  gap: 5rem;
+  gap: 5.2rem;
   align-items: center;
 }
 
-.acw-editorial-grid-reverse {
-  grid-template-columns: minmax(340px, 0.92fr) minmax(0, 0.9fr);
-}
-
-.acw-editorial-grid-reverse .acw-editorial-copy {
-  order: 2;
-}
-
 .acw-editorial-copy {
-  max-width: 680px;
+  max-width: 660px;
 }
 
 .acw-editorial-media,
@@ -448,48 +426,28 @@ p {
   box-shadow: var(--shadow-lg);
 }
 
-.acw-editorial-media img {
+.acw-editorial-media img,
+.acw-process-image img {
   aspect-ratio: 4 / 3;
 }
 
-.acw-media-large img {
-  aspect-ratio: 5 / 4;
-}
-
 .acw-pause {
-  padding: 132px 0;
+  padding: 150px 0;
   background: var(--navy);
   text-align: center;
 }
 
 .acw-pause h2 {
-  max-width: 14ch;
+  max-width: 13ch;
   margin: 0 auto;
   color: var(--white);
   font-size: clamp(3rem, 7vw, 7rem);
   line-height: 0.9;
 }
 
-.acw-pause p {
-  max-width: 620px;
-  margin: 1.4rem auto 0;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 1.1rem;
-}
-
-.acw-pause-light {
-  background:
-    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.34), transparent 36%),
-    var(--surface-soft);
-}
-
-.acw-pause-light h2 {
-  color: var(--text);
-}
-
-.acw-pause-light p {
-  color: var(--muted);
-}
+/* =========================================================
+   CSS PART 2 — CARDS, PROCESS, OFFERS, EXAMPLES, ABOUT
+   ========================================================= */
 
 .acw-blueprint-grid {
   display: grid;
@@ -501,9 +459,9 @@ p {
 .acw-blueprint-card {
   position: relative;
   overflow: hidden;
-  min-height: 250px;
+  min-height: 220px;
   padding: 1.75rem;
-  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.82));
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.84));
   border: 1px solid rgba(20, 34, 51, 0.08);
   border-radius: 34px;
   box-shadow: var(--shadow-sm);
@@ -534,49 +492,39 @@ p {
   line-height: 1.68;
 }
 
-.acw-process-heading {
-  max-width: 760px;
-  margin-bottom: 3.2rem;
-}
-
-.acw-process-heading p:not(.acw-label) {
-  max-width: 62ch;
-  color: var(--muted);
-  font-size: 1.08rem;
-}
-
 .acw-process-layout {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(340px, 0.86fr);
-  gap: 4rem;
+  gap: 4.6rem;
   align-items: center;
+}
+
+.acw-process-copy {
+  max-width: 720px;
 }
 
 .acw-process-list {
   display: grid;
-  gap: 0.85rem;
-  margin: 0;
+  gap: 0.7rem;
+  margin: 2.2rem 0 0;
   padding: 0;
   list-style: none;
 }
 
 .acw-process-list li {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  column-gap: 1rem;
-  row-gap: 0.15rem;
-  align-items: start;
-  padding: 1.15rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.95rem 1rem;
   background: rgba(255,255,255,0.72);
   border: 1px solid rgba(20, 34, 51, 0.07);
-  border-radius: 22px;
+  border-radius: 999px;
   box-shadow: var(--shadow-xs);
 }
 
 .acw-process-list span {
-  grid-row: 1 / 3;
   color: var(--accent-dark);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 920;
   letter-spacing: 0.1em;
 }
@@ -585,17 +533,6 @@ p {
   color: var(--text);
   font-weight: 880;
   line-height: 1.25;
-}
-
-.acw-process-list em {
-  color: var(--muted);
-  font-style: normal;
-  font-size: 0.93rem;
-  line-height: 1.5;
-}
-
-.acw-process-image img {
-  aspect-ratio: 4 / 3;
 }
 
 .acw-offer-grid {
@@ -608,7 +545,7 @@ p {
 .acw-offer-card {
   position: relative;
   overflow: hidden;
-  min-height: 340px;
+  min-height: 300px;
   padding: 2.25rem;
   background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.84));
   border: 1px solid rgba(20, 34, 51, 0.08);
@@ -622,8 +559,7 @@ p {
     linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.86));
 }
 
-.acw-offer-label,
-.acw-card-body small {
+.acw-card-label {
   display: inline-flex;
   margin-bottom: 0.85rem;
   color: var(--accent-dark);
@@ -638,14 +574,8 @@ p {
   font-size: clamp(1.85rem, 2.5vw, 2.55rem);
 }
 
-.acw-price {
-  margin: 0.2rem 0 1.2rem;
-  color: var(--text);
-  font-size: 1.06rem;
-  font-weight: 900;
-}
-
 .acw-offer-card p {
+  max-width: 44ch;
   color: var(--muted);
   line-height: 1.72;
 }
@@ -665,15 +595,15 @@ p {
 
 .acw-showcase {
   display: grid;
-  gap: 3rem;
+  gap: 3.2rem;
 }
 
 .acw-showcase-copy {
-  max-width: 760px;
+  max-width: 780px;
 }
 
-.acw-showcase-copy p:not(.acw-label) {
-  max-width: 62ch;
+.acw-showcase-copy p {
+  max-width: 58ch;
   color: var(--muted);
   font-size: 1.08rem;
 }
@@ -739,12 +669,12 @@ p {
 .acw-about-grid {
   display: grid;
   grid-template-columns: minmax(0,1fr) minmax(300px,410px);
-  gap: 4.4rem;
+  gap: 4.6rem;
   align-items: center;
 }
 
 .acw-about-copy {
-  max-width: 760px;
+  max-width: 720px;
 }
 
 .acw-about-copy h2 {
@@ -781,7 +711,7 @@ p {
    ========================================================= */
 
 .acw-faq-wrap {
-  max-width: 860px;
+  max-width: 820px;
 }
 
 .acw-faq-list {
@@ -851,7 +781,7 @@ p {
 }
 
 .acw-contact-copy h2 {
-  max-width: 13ch;
+  max-width: 12ch;
 }
 
 .acw-contact-email {
@@ -975,135 +905,13 @@ p {
   font-size: .78rem;
 }
 
-/* Links page */
-
-.acw-links-page {
-  position: relative;
-  isolation: isolate;
-  min-height: calc(100vh - 82px);
-  padding: 78px 0 96px;
-  background:
-    radial-gradient(circle at 18% 8%, rgba(216,192,160,0.3), transparent 34%),
-    radial-gradient(circle at 82% 12%, rgba(127,146,116,0.13), transparent 32%),
-    linear-gradient(180deg, #fcf8f1 0%, #f7f1e8 100%);
-}
-
-.acw-links-wrap {
-  position: relative;
-  z-index: 2;
-  max-width: 720px;
-}
-
-.acw-links-intro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto 2rem;
-  text-align: center;
-}
-
-.acw-links-portrait {
-  width: 104px;
-  height: 104px;
-  margin-bottom: 1.25rem;
-  object-fit: cover;
-  border: 1px solid rgba(20,34,51,0.1);
-  border-radius: 999px;
-  box-shadow: var(--shadow);
-}
-
-.acw-links-intro h1 {
-  max-width: 13ch;
-  margin-inline: auto;
-  font-size: clamp(2.6rem, 7vw, 4.7rem);
-}
-
-.acw-links-text {
-  max-width: 50ch;
-  margin: 0 auto;
-  color: var(--muted);
-  font-size: 1.02rem;
-  line-height: 1.72;
-}
-
-.acw-links-list {
-  display: grid;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.acw-link-card {
-  position: relative;
-  z-index: 1;
-  display: block;
-  overflow: hidden;
-  padding: 1.45rem 1.55rem;
-  background: rgba(255,255,255,0.88);
-  border: 1px solid rgba(20,34,51,0.08);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-sm);
-  color: var(--text);
-  cursor: pointer;
-}
-
-.acw-link-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 4px;
-  background: rgba(127,146,116,0.48);
-  pointer-events: none;
-}
-
-.acw-link-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(127,146,116,0.22);
-  box-shadow: var(--shadow);
-  color: var(--text);
-}
-
-.acw-link-label {
-  display: inline-flex;
-  margin-bottom: 0.5rem;
-  color: var(--accent-dark);
-  font-size: 0.72rem;
-  font-weight: 950;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.acw-link-card strong {
-  display: block;
-  margin-bottom: 0.35rem;
-  color: var(--text);
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  line-height: 1.18;
-  letter-spacing: -0.04em;
-}
-
-.acw-link-card p {
-  margin: 0;
-  max-width: 58ch;
-  color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-/* Mobile */
-
 @media (max-width: 1040px) {
   .acw-hero-grid,
   .acw-editorial-grid,
-  .acw-editorial-grid-reverse,
   .acw-process-layout,
   .acw-about-grid,
   .acw-contact-split {
     grid-template-columns: 1fr;
-  }
-
-  .acw-editorial-grid-reverse .acw-editorial-copy {
-    order: initial;
   }
 
   .acw-hero-grid,
@@ -1310,11 +1118,11 @@ p {
   }
 
   .acw-section {
-    padding: 76px 0;
+    padding: 82px 0;
   }
 
   .acw-hero {
-    padding: 72px 0 78px;
+    padding: 76px 0 86px;
   }
 
   h1 {
@@ -1347,7 +1155,7 @@ p {
 
   .acw-statement,
   .acw-pause {
-    padding: 86px 0;
+    padding: 92px 0;
   }
 
   .acw-pause h2 {
@@ -1366,6 +1174,10 @@ p {
     min-height: auto;
     padding: 1.45rem;
     border-radius: 28px;
+  }
+
+  .acw-process-list li {
+    border-radius: 22px;
   }
 
   .acw-card-body {
@@ -1398,4 +1210,5 @@ p {
     gap: 0.7rem;
   }
 }
+
 
