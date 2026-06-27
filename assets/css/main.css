@@ -3,33 +3,34 @@ PART 1 — BASE, TYPE, HEADER, HERO
 ========================================================= */
 
 :root {
-  --bg: #f7f1e8;
+  --bg: #f6efe4;
   --surface: #fffdf8;
-  --surface-soft: #e9dfd0;
+  --surface-soft: #e8ddcd;
   --surface-quiet: #faf6ee;
-  --surface-warm: #f1e8dc;
+  --surface-warm: #efe4d4;
 
-  --text: #142233;
+  --text: #102033;
   --muted: #65717d;
   --white: #ffffff;
 
-  --accent: #7f9274;
-  --accent-dark: #5f7458;
-  --navy: #142233;
+  --accent: #7b8f70;
+  --accent-dark: #536b4d;
+  --navy: #102033;
 
-  --line: rgba(20, 34, 51, 0.09);
-  --line-strong: rgba(20, 34, 51, 0.16);
+  --line: rgba(16, 32, 51, 0.09);
+  --line-strong: rgba(16, 32, 51, 0.16);
 
-  --shadow-xs: 0 6px 16px rgba(20, 34, 51, 0.035);
-  --shadow-sm: 0 14px 34px rgba(20, 34, 51, 0.06);
-  --shadow: 0 24px 58px rgba(20, 34, 51, 0.08);
-  --shadow-lg: 0 28px 70px rgba(20, 34, 51, 0.11);
+  --shadow-xs: 0 6px 16px rgba(16, 32, 51, 0.035);
+  --shadow-sm: 0 16px 36px rgba(16, 32, 51, 0.06);
+  --shadow: 0 26px 64px rgba(16, 32, 51, 0.085);
+  --shadow-lg: 0 32px 82px rgba(16, 32, 51, 0.13);
 
   --radius-lg: 28px;
-  --radius-xl: 42px;
+  --radius-xl: 46px;
   --pill: 999px;
 
   --container: 1120px;
+  --measure: 660px;
 
   --font-heading: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
@@ -107,7 +108,7 @@ summary:focus-visible {
 .acw-container,
 .container,
 .shell {
-  width: min(100% - 2.6rem, var(--container));
+  width: min(100% - 2.8rem, var(--container));
   margin: 0 auto;
 }
 
@@ -125,26 +126,26 @@ h3 {
   margin: 0 0 0.92rem;
   color: var(--text);
   font-family: var(--font-heading);
-  font-weight: 850;
-  letter-spacing: -0.045em;
+  font-weight: 880;
+  letter-spacing: -0.055em;
 }
 
 h1 {
-  max-width: 9ch;
-  font-size: clamp(5rem, 8.8vw, 8.6rem);
-  line-height: 0.84;
+  max-width: 8.7ch;
+  font-size: clamp(5.2rem, 8.6vw, 8.9rem);
+  line-height: 0.82;
 }
 
 h2 {
   max-width: 11ch;
-  font-size: clamp(3rem, 5vw, 5.7rem);
+  font-size: clamp(3.1rem, 4.9vw, 5.8rem);
   line-height: 0.88;
 }
 
 h3 {
-  font-size: clamp(1.25rem, 1.6vw, 1.5rem);
+  font-size: clamp(1.25rem, 1.6vw, 1.52rem);
   line-height: 1.08;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.038em;
 }
 
 p {
@@ -157,33 +158,35 @@ p {
   display: inline-flex;
   margin: 0 0 1rem;
   color: var(--accent-dark);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 900;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.17em;
   line-height: 1;
   text-transform: uppercase;
 }
 
 .acw-section {
   position: relative;
-  padding: 156px 0;
+  padding: 160px 0;
   background: var(--surface);
 }
 
 .acw-section-soft {
   background:
     radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.42), transparent 36%),
-    radial-gradient(circle at 86% 16%, rgba(127, 146, 116, 0.08), transparent 34%),
+    radial-gradient(circle at 86% 16%, rgba(123, 143, 112, 0.09), transparent 34%),
     var(--surface-soft);
 }
 
 .acw-section-quiet {
-  background: var(--surface-quiet);
+  background:
+    radial-gradient(circle at 92% 8%, rgba(123, 143, 112, 0.055), transparent 30%),
+    var(--surface-quiet);
 }
 
 .acw-section-heading {
   max-width: 780px;
-  margin-bottom: 4.2rem;
+  margin-bottom: 4.4rem;
 }
 
 .acw-hero-text,
@@ -193,9 +196,9 @@ p {
 }
 
 .acw-hero-text {
-  max-width: 41ch;
-  font-size: clamp(1.2rem, 1.6vw, 1.5rem);
-  line-height: 1.58;
+  max-width: 40ch;
+  font-size: clamp(1.18rem, 1.55vw, 1.45rem);
+  line-height: 1.6;
 }
 
 .acw-section-text,
@@ -217,12 +220,12 @@ p {
   align-items: center;
   justify-content: center;
   min-height: 50px;
-  padding: 0.86rem 1.35rem;
+  padding: 0.88rem 1.38rem;
   border: 1px solid transparent;
   border-radius: var(--pill);
   cursor: pointer;
   font-size: 0.94rem;
-  font-weight: 820;
+  font-weight: 840;
   line-height: 1.1;
   text-align: center;
 }
@@ -234,7 +237,7 @@ p {
 .acw-btn-primary {
   background: var(--accent);
   color: var(--white);
-  box-shadow: 0 12px 26px rgba(95, 116, 88, 0.2);
+  box-shadow: 0 14px 30px rgba(83, 107, 77, 0.22);
 }
 
 .acw-btn-primary:hover {
@@ -258,8 +261,8 @@ p {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(247, 241, 232, 0.88);
-  border-bottom: 1px solid rgba(20, 34, 51, 0.06);
+  background: rgba(246, 239, 228, 0.88);
+  border-bottom: 1px solid rgba(16, 32, 51, 0.06);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
@@ -271,7 +274,7 @@ p {
   justify-content: space-between;
   gap: 1.8rem;
   min-height: 82px;
-  width: min(100% - 2.6rem, var(--container));
+  width: min(100% - 2.8rem, var(--container));
   margin: 0 auto;
 }
 
@@ -317,15 +320,15 @@ p {
   .nav__links a {
     display: inline-flex;
     padding: 0.4rem 0;
-    color: rgba(20, 34, 51, 0.62);
+    color: rgba(16, 32, 51, 0.62);
     border-bottom: 1px solid transparent;
-    font-size: 0.88rem;
+    font-size: 0.86rem;
     font-weight: 760;
   }
 
   .nav__links a:hover {
     color: var(--text);
-    border-bottom-color: rgba(127, 146, 116, 0.5);
+    border-bottom-color: rgba(123, 143, 112, 0.5);
   }
 
   .nav__cta {
@@ -337,9 +340,9 @@ p {
     background: var(--accent);
     color: var(--white);
     border-radius: var(--pill);
-    font-size: 0.88rem;
-    font-weight: 820;
-    box-shadow: 0 10px 22px rgba(95, 116, 88, 0.18);
+    font-size: 0.86rem;
+    font-weight: 840;
+    box-shadow: 0 10px 22px rgba(83, 107, 77, 0.18);
   }
 
   .nav__cta:hover {
@@ -352,11 +355,11 @@ p {
 .acw-hero {
   position: relative;
   overflow: hidden;
-  padding: 158px 0 132px;
+  padding: 164px 0 138px;
   background:
-    radial-gradient(circle at 10% 4%, rgba(216, 192, 160, 0.34), transparent 36%),
-    radial-gradient(circle at 90% 12%, rgba(127, 146, 116, 0.12), transparent 34%),
-    linear-gradient(180deg, #fcf8f1 0%, #f7f1e8 100%);
+    radial-gradient(circle at 8% 2%, rgba(218, 192, 157, 0.35), transparent 36%),
+    radial-gradient(circle at 92% 10%, rgba(123, 143, 112, 0.13), transparent 34%),
+    linear-gradient(180deg, #fcf8f1 0%, #f6efe4 100%);
 }
 
 .acw-hero::after {
@@ -366,13 +369,13 @@ p {
   right: 0;
   bottom: 0;
   height: 1px;
-  background: rgba(20, 34, 51, 0.06);
+  background: rgba(16, 32, 51, 0.06);
 }
 
 .acw-hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.76fr);
-  gap: 5.8rem;
+  gap: 6rem;
   align-items: center;
 }
 
@@ -384,7 +387,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 0.55rem;
-  margin-top: 1.4rem;
+  margin-top: 1.45rem;
 }
 
 .acw-hero-proof span {
@@ -393,9 +396,9 @@ p {
   min-height: 34px;
   padding: 0.48rem 0.78rem;
   background: rgba(255, 255, 255, 0.66);
-  border: 1px solid rgba(20, 34, 51, 0.08);
+  border: 1px solid rgba(16, 32, 51, 0.08);
   border-radius: var(--pill);
-  color: rgba(20, 34, 51, 0.68);
+  color: rgba(16, 32, 51, 0.68);
   font-size: 0.82rem;
   font-weight: 760;
   line-height: 1;
@@ -413,16 +416,16 @@ p {
   max-width: 500px;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border: 1px solid rgba(20, 34, 51, 0.08);
-  border-radius: 44px;
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 46px;
   box-shadow: var(--shadow-lg);
 }
 
 .acw-trust-strip {
   padding: 24px 0;
-  background: rgba(255, 253, 248, 0.88);
-  border-top: 1px solid rgba(20, 34, 51, 0.06);
-  border-bottom: 1px solid rgba(20, 34, 51, 0.06);
+  background: rgba(255, 253, 248, 0.9);
+  border-top: 1px solid rgba(16, 32, 51, 0.06);
+  border-bottom: 1px solid rgba(16, 32, 51, 0.06);
 }
 
 .acw-trust-strip-grid {
@@ -434,10 +437,10 @@ p {
 
 .acw-trust-strip p {
   margin: 0;
-  color: rgba(20, 34, 51, 0.62);
-  font-size: 0.78rem;
+  color: rgba(16, 32, 51, 0.62);
+  font-size: 0.76rem;
   font-weight: 850;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 /* =========================================================
@@ -445,8 +448,10 @@ PART 2 — MAIN SECTIONS + LINKS PAGE
 ========================================================= */
 
 .acw-statement {
-  padding: 180px 0;
-  background: var(--surface);
+  padding: 184px 0;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(123, 143, 112, 0.045), transparent 34%),
+    var(--surface);
 }
 
 .acw-statement-inner {
@@ -454,11 +459,11 @@ PART 2 — MAIN SECTIONS + LINKS PAGE
 }
 
 .acw-statement h2 {
-  max-width: 10ch;
+  max-width: 11ch;
 }
 
 .acw-statement p:not(.acw-section-number) {
-  max-width: 48ch;
+  max-width: 49ch;
   color: var(--muted);
   font-size: clamp(1.22rem, 1.85vw, 1.52rem);
   line-height: 1.68;
@@ -489,8 +494,8 @@ PART 2 — MAIN SECTIONS + LINKS PAGE
 .acw-contact-image {
   width: 100%;
   object-fit: cover;
-  border: 1px solid rgba(20, 34, 51, 0.08);
-  border-radius: 42px;
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 44px;
   box-shadow: var(--shadow-lg);
 }
 
@@ -510,27 +515,27 @@ PART 2 — MAIN SECTIONS + LINKS PAGE
   display: inline-flex;
   padding: 0.5rem 0.78rem;
   background: rgba(255, 255, 255, 0.62);
-  border: 1px solid rgba(20, 34, 51, 0.08);
+  border: 1px solid rgba(16, 32, 51, 0.08);
   border-radius: var(--pill);
-  color: rgba(20, 34, 51, 0.7);
+  color: rgba(16, 32, 51, 0.7);
   font-size: 0.82rem;
   font-weight: 760;
 }
 
 .acw-pause {
-  padding: 170px 0;
+  padding: 172px 0;
   background:
-    radial-gradient(circle at 50% 0%, rgba(127, 146, 116, 0.18), transparent 38%),
-    var(--navy);
+    radial-gradient(circle at 50% 0%, rgba(123, 143, 112, 0.18), transparent 38%),
+    linear-gradient(180deg, #102033 0%, #0d1b2c 100%);
   text-align: center;
 }
 
 .acw-pause p {
   margin-bottom: 1.2rem;
   color: rgba(255, 255, 255, 0.66);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 850;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.17em;
   text-transform: uppercase;
 }
 
@@ -552,22 +557,23 @@ PART 2 — MAIN SECTIONS + LINKS PAGE
 .acw-blueprint-card {
   position: relative;
   overflow: hidden;
-  min-height: 230px;
+  min-height: 238px;
   padding: 1.9rem;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(20, 34, 51, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(16, 32, 51, 0.08);
   border-radius: 34px;
   box-shadow: var(--shadow-sm);
 }
 
 .acw-blueprint-card::before,
 .acw-offer-card::before,
-.acw-link-card::before {
+.acw-link-card::before,
+.acw-value-panel::before {
   content: "";
   position: absolute;
   inset: 0 0 auto 0;
   height: 4px;
-  background: linear-gradient(90deg, rgba(127, 146, 116, 0.64), rgba(216, 192, 160, 0.55));
+  background: linear-gradient(90deg, rgba(123, 143, 112, 0.64), rgba(218, 192, 157, 0.55));
   pointer-events: none;
 }
 
@@ -611,7 +617,7 @@ PART 2 — MAIN SECTIONS + LINKS PAGE
   gap: 1rem;
   padding: 0.98rem 1.08rem;
   background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(20, 34, 51, 0.07);
+  border: 1px solid rgba(16, 32, 51, 0.07);
   border-radius: 999px;
   box-shadow: var(--shadow-xs);
 }
@@ -629,6 +635,38 @@ PART 2 — MAIN SECTIONS + LINKS PAGE
   line-height: 1.25;
 }
 
+.acw-value-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.78fr);
+  gap: 5rem;
+  align-items: center;
+}
+
+.acw-value-copy {
+  max-width: 690px;
+}
+
+.acw-value-panel {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(2rem, 4vw, 3.2rem);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(218, 192, 157, 0.2), transparent 34%),
+    rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 42px;
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-value-panel p {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  font-weight: 820;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
 .acw-offer-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -639,18 +677,18 @@ PART 2 — MAIN SECTIONS + LINKS PAGE
 .acw-offer-card {
   position: relative;
   overflow: hidden;
-  min-height: 360px;
-  padding: 2.4rem;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(20, 34, 51, 0.08);
+  min-height: 370px;
+  padding: 2.45rem;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(16, 32, 51, 0.08);
   border-radius: 38px;
   box-shadow: var(--shadow-sm);
 }
 
 .acw-offer-card-featured {
   background:
-    radial-gradient(circle at 20% 0%, rgba(216, 192, 160, 0.25), transparent 36%),
-    rgba(255, 255, 255, 0.92);
+    radial-gradient(circle at 20% 0%, rgba(218, 192, 157, 0.25), transparent 36%),
+    rgba(255, 255, 255, 0.94);
 }
 
 .acw-offer-card h3 {
@@ -675,7 +713,7 @@ PART 2 — MAIN SECTIONS + LINKS PAGE
 .acw-offer-card li {
   position: relative;
   padding-left: 1.25rem;
-  color: rgba(20, 34, 51, 0.74);
+  color: rgba(16, 32, 51, 0.74);
   font-size: 0.95rem;
   font-weight: 720;
   line-height: 1.5;
@@ -697,12 +735,12 @@ PART 2 — MAIN SECTIONS + LINKS PAGE
   margin-top: 0.85rem;
   color: var(--accent-dark);
   font-weight: 820;
-  border-bottom: 1px solid rgba(95, 116, 88, 0.28);
+  border-bottom: 1px solid rgba(83, 107, 77, 0.28);
 }
 
 .acw-offer-card a:hover {
   color: var(--text);
-  border-bottom-color: rgba(20, 34, 51, 0.28);
+  border-bottom-color: rgba(16, 32, 51, 0.28);
 }
 
 .acw-showcase {
@@ -748,7 +786,7 @@ PART 2 — MAIN SECTIONS + LINKS PAGE
   overflow: hidden;
   height: 100%;
   background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(20, 34, 51, 0.08);
+  border: 1px solid rgba(16, 32, 51, 0.08);
   border-radius: 34px;
   box-shadow: var(--shadow-sm);
   transition:
@@ -759,7 +797,7 @@ PART 2 — MAIN SECTIONS + LINKS PAGE
 
 .acw-card-link:hover .acw-card {
   box-shadow: var(--shadow);
-  border-color: rgba(127, 146, 116, 0.24);
+  border-color: rgba(123, 143, 112, 0.24);
 }
 
 .acw-card-image {
@@ -796,8 +834,8 @@ PART 2 — MAIN SECTIONS + LINKS PAGE
   overflow: hidden;
   padding: 96px 0 120px;
   background:
-    radial-gradient(circle at 18% 0%, rgba(216, 192, 160, 0.26), transparent 34%),
-    radial-gradient(circle at 90% 18%, rgba(127, 146, 116, 0.12), transparent 32%),
+    radial-gradient(circle at 18% 0%, rgba(218, 192, 157, 0.26), transparent 34%),
+    radial-gradient(circle at 90% 18%, rgba(123, 143, 112, 0.12), transparent 32%),
     linear-gradient(180deg, #fcf8f1 0%, var(--bg) 100%);
 }
 
@@ -818,7 +856,7 @@ PART 2 — MAIN SECTIONS + LINKS PAGE
   aspect-ratio: 4 / 3;
   margin-bottom: 2rem;
   object-fit: cover;
-  border: 1px solid rgba(20, 34, 51, 0.08);
+  border: 1px solid rgba(16, 32, 51, 0.08);
   border-radius: 42px;
   box-shadow: var(--shadow-lg);
 }
@@ -858,9 +896,9 @@ PART 2 — MAIN SECTIONS + LINKS PAGE
   overflow: hidden;
   padding: 1.55rem 1.55rem 1.45rem;
   background:
-    radial-gradient(circle at 100% 0%, rgba(216, 192, 160, 0.18), transparent 34%),
+    radial-gradient(circle at 100% 0%, rgba(218, 192, 157, 0.18), transparent 34%),
     rgba(255, 255, 255, 0.84);
-  border: 1px solid rgba(20, 34, 51, 0.08);
+  border: 1px solid rgba(16, 32, 51, 0.08);
   border-radius: 30px;
   color: var(--text);
   box-shadow: var(--shadow-sm);
@@ -869,7 +907,7 @@ PART 2 — MAIN SECTIONS + LINKS PAGE
 .acw-link-card:hover {
   transform: translateY(-4px);
   background: rgba(255, 255, 255, 0.94);
-  border-color: rgba(127, 146, 116, 0.24);
+  border-color: rgba(123, 143, 112, 0.24);
   box-shadow: var(--shadow);
 }
 
@@ -935,7 +973,7 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, MOBILE
 .acw-about-note {
   padding: 1.35rem;
   background: rgba(255, 255, 255, 0.74);
-  border: 1px solid rgba(20, 34, 51, 0.08);
+  border: 1px solid rgba(16, 32, 51, 0.08);
   border-radius: 28px;
   box-shadow: var(--shadow-xs);
 }
@@ -957,7 +995,7 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, MOBILE
 .acw-faq-item {
   overflow: hidden;
   background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(20, 34, 51, 0.08);
+  border: 1px solid rgba(16, 32, 51, 0.08);
   border-radius: 22px;
   box-shadow: var(--shadow-xs);
 }
@@ -1000,7 +1038,7 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, MOBILE
 
 .acw-contact-split-section {
   background:
-    radial-gradient(circle at 72% 18%, rgba(127, 146, 116, 0.13), transparent 32%),
+    radial-gradient(circle at 72% 18%, rgba(123, 143, 112, 0.13), transparent 32%),
     var(--surface);
 }
 
@@ -1024,12 +1062,12 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, MOBILE
   margin: 0.15rem 0 0.5rem;
   color: var(--accent-dark);
   font-weight: 820;
-  border-bottom: 1px solid rgba(95, 116, 88, 0.28);
+  border-bottom: 1px solid rgba(83, 107, 77, 0.28);
 }
 
 .acw-contact-email:hover {
   color: var(--text);
-  border-bottom-color: rgba(20, 34, 51, 0.28);
+  border-bottom-color: rgba(16, 32, 51, 0.28);
 }
 
 .acw-contact-image-wrap {
@@ -1045,9 +1083,9 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, MOBILE
 .site-footer {
   padding: 76px 16px 34px;
   background:
-    radial-gradient(circle at 50% 0%, rgba(216, 192, 160, 0.22), transparent 38%),
+    radial-gradient(circle at 50% 0%, rgba(218, 192, 157, 0.22), transparent 38%),
     var(--surface-warm);
-  border-top: 1px solid rgba(20, 34, 51, 0.08);
+  border-top: 1px solid rgba(16, 32, 51, 0.08);
   text-align: center;
 }
 
@@ -1093,7 +1131,7 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, MOBILE
   height: 42px !important;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(20, 34, 51, 0.08);
+  border: 1px solid rgba(16, 32, 51, 0.08);
   border-radius: 999px;
   color: var(--accent-dark);
   box-shadow: var(--shadow-xs);
@@ -1103,7 +1141,7 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, MOBILE
   transform: translateY(-2px);
   background: var(--white);
   color: var(--text);
-  border-color: rgba(127, 146, 116, 0.22);
+  border-color: rgba(123, 143, 112, 0.22);
   box-shadow: var(--shadow-sm);
 }
 
@@ -1131,7 +1169,8 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, MOBILE
   .acw-process-layout,
   .acw-about-grid,
   .acw-contact-split,
-  .acw-links-wrap {
+  .acw-links-wrap,
+  .acw-value-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
@@ -1204,7 +1243,7 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, MOBILE
     padding: 0;
     background: rgba(255, 253, 248, 0.78);
     color: var(--text);
-    border: 1px solid rgba(20, 34, 51, 0.09);
+    border: 1px solid rgba(16, 32, 51, 0.09);
     border-radius: 14px;
     cursor: pointer;
     box-shadow: var(--shadow-xs);
@@ -1259,7 +1298,7 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, MOBILE
     inset: 0;
     z-index: 1001;
     display: block;
-    background: #f7f1e8;
+    background: #f6efe4;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -1284,8 +1323,8 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, MOBILE
     overflow-y: auto;
     padding: 112px 26px 38px;
     background:
-      radial-gradient(circle at 50% 0%, rgba(216, 192, 160, 0.22), transparent 36%),
-      #f7f1e8;
+      radial-gradient(circle at 50% 0%, rgba(218, 192, 157, 0.22), transparent 36%),
+      #f6efe4;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -1311,7 +1350,7 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, MOBILE
     display: block;
     width: 100%;
     padding: 18px 0;
-    border-bottom: 1px solid rgba(20, 34, 51, 0.1);
+    border-bottom: 1px solid rgba(16, 32, 51, 0.1);
     color: var(--text);
     font-size: 1.24rem;
     font-weight: 820;
@@ -1332,7 +1371,7 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, MOBILE
     color: var(--white);
     font-size: 1rem;
     font-weight: 850;
-    box-shadow: 0 14px 30px rgba(95, 116, 88, 0.22);
+    box-shadow: 0 14px 30px rgba(83, 107, 77, 0.22);
   }
 }
 
@@ -1344,22 +1383,22 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, MOBILE
   }
 
   .acw-section {
-    padding: 92px 0;
+    padding: 94px 0;
   }
 
   .acw-hero {
-    padding: 82px 0 96px;
+    padding: 82px 0 92px;
   }
 
   h1 {
     max-width: 10.5ch;
-    font-size: clamp(3.2rem, 15vw, 4.6rem);
+    font-size: clamp(3.15rem, 14.5vw, 4.55rem);
     line-height: 0.9;
   }
 
   h2 {
     max-width: 11.5ch;
-    font-size: clamp(2.25rem, 11vw, 3.35rem);
+    font-size: clamp(2.22rem, 10.8vw, 3.35rem);
     line-height: 0.94;
   }
 
@@ -1379,9 +1418,17 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, MOBILE
     width: 100%;
   }
 
+  .acw-hero-proof {
+    gap: 0.45rem;
+  }
+
+  .acw-hero-proof span {
+    font-size: 0.78rem;
+  }
+
   .acw-statement,
   .acw-pause {
-    padding: 104px 0;
+    padding: 106px 0;
   }
 
   .acw-pause h2 {
@@ -1410,7 +1457,8 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, MOBILE
   }
 
   .acw-blueprint-card,
-  .acw-offer-card {
+  .acw-offer-card,
+  .acw-value-panel {
     min-height: auto;
     padding: 1.55rem;
     border-radius: 28px;
