@@ -430,6 +430,7 @@ p {
   inset: 0 0 auto 0;
   height: 4px;
   background: rgba(137,155,127,0.5);
+  pointer-events: none;
 }
 
 .acw-process-card span {
@@ -530,6 +531,7 @@ p {
   inset: 0 0 auto 0;
   height: 4px;
   background: rgba(137,155,127,0.5);
+  pointer-events: none;
 }
 
 .acw-offer-kicker {
@@ -595,6 +597,7 @@ p {
 
 .acw-card-link {
   position: relative;
+  z-index: 1;
   display: block;
   min-height: 100%;
   color: var(--text);
@@ -650,6 +653,8 @@ p {
 /* Links page */
 
 .acw-links-page {
+  position: relative;
+  isolation: isolate;
   min-height: calc(100vh - 78px);
   padding: 78px 0 96px;
   background:
@@ -659,6 +664,8 @@ p {
 }
 
 .acw-links-wrap {
+  position: relative;
+  z-index: 2;
   max-width: 720px;
 }
 
@@ -696,7 +703,7 @@ p {
 }
 
 .acw-links-text {
-  max-width: 48ch;
+  max-width: 50ch;
   margin: 0 auto;
   color: var(--muted);
   font-size: 1.02rem;
@@ -711,6 +718,7 @@ p {
 
 .acw-link-card {
   position: relative;
+  z-index: 1;
   display: block;
   overflow: hidden;
   padding: 1.45rem 1.55rem;
@@ -719,6 +727,7 @@ p {
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
   color: var(--text);
+  cursor: pointer;
 }
 
 .acw-link-card::before {
@@ -727,6 +736,7 @@ p {
   inset: 0 0 auto 0;
   height: 4px;
   background: rgba(137,155,127,0.48);
+  pointer-events: none;
 }
 
 .acw-link-card:hover {
@@ -840,6 +850,8 @@ p {
 }
 
 .footer-social {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -847,6 +859,8 @@ p {
 }
 
 .footer-social .social {
+  position: relative;
+  z-index: 2;
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
@@ -858,6 +872,14 @@ p {
   border-radius: 999px;
   color: var(--accent-dark);
   box-shadow: var(--shadow-sm);
+}
+
+.footer-social .social:hover {
+  transform: translateY(-2px);
+  background: var(--white);
+  color: var(--text);
+  border-color: rgba(137,155,127,0.22);
+  box-shadow: var(--shadow);
 }
 
 .footer-social svg,
