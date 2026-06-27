@@ -1,5 +1,3 @@
-<!-- _includes/header.html -->
-
 <header class="site-header" role="banner">
   <nav class="nav" role="navigation" aria-label="Main navigation">
 
@@ -30,11 +28,35 @@
 
     <div class="nav__panel">
       <ul id="primary-nav" class="nav__links">
-        <li><a href="{{ '/' | relative_url }}#blueprint" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">Blueprint</a></li>
-        <li><a href="{{ '/' | relative_url }}#process" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">Process</a></li>
-        <li><a href="{{ '/' | relative_url }}#work" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">Work</a></li>
-        <li><a href="{{ '/' | relative_url }}#examples" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">Examples</a></li>
-        <li><a href="{{ '/' | relative_url }}#about" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">About</a></li>
+        <li>
+          <a href="{{ '/' | relative_url }}#blueprint" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
+            Blueprint
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/' | relative_url }}#process" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
+            Process
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/' | relative_url }}#work" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
+            Services
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/' | relative_url }}#examples" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
+            Examples
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/' | relative_url }}#about" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
+            About
+          </a>
+        </li>
       </ul>
 
       <a
@@ -42,10 +64,9 @@
         class="nav__cta"
         onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');"
       >
-        Start a project
+        Start with clarity
       </a>
     </div>
 
   </nav>
 </header>
-
