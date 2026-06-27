@@ -1,469 +1,51 @@
----
-layout: default
-title: Brand Clarity & Websites for Therapists
-description: Clear, trustworthy brand clarity and websites for therapists, counsellors, coaches and helping professionals.
----
+<!-- _includes/header.html -->
 
-<section class="acw-hero acw-reveal">
-  <div class="acw-container acw-hero-grid">
+<header class="site-header" role="banner">
+  <nav class="nav" role="navigation" aria-label="Main navigation">
 
-    <div class="acw-hero-copy">
-      <p class="acw-kicker">Brand clarity for meaningful work</p>
-
-      <h1>Clarity first. Website second.</h1>
-
-      <p class="acw-hero-text">
-        I help therapists, counsellors, coaches and helping professionals turn scattered ideas
-        into a clear brand, a calm message and a website people can trust.
-      </p>
-
-      <div class="acw-cta-row">
-        <a class="acw-btn acw-btn-primary" href="#contact">Start with clarity</a>
-        <a class="acw-btn acw-btn-secondary" href="#process">View the process</a>
-      </div>
-    </div>
-
-    <div class="acw-hero-image-wrap">
+    <a class="nav__brand" href="{{ '/' | relative_url }}" aria-label="Alexander Watson home">
       <img
-        class="acw-hero-image"
-        src="{{ '/assets/images/brand/alex-watson-hero.webp' | relative_url }}"
-        alt="Calm workspace with laptop, notebook and brand clarity materials"
-        loading="eager"
-        fetchpriority="high"
+        class="nav__logo"
+        src="{{ '/assets/images/brand/aw-logo.png' | relative_url }}"
+        alt="Alexander Watson"
       >
-    </div>
+    </a>
 
-  </div>
-</section>
+    <button
+      class="nav__toggle"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+      onclick="document.body.classList.toggle('menu-open'); this.setAttribute('aria-expanded', document.body.classList.contains('menu-open') ? 'true' : 'false');"
+    >
+      <span aria-hidden="true" class="nav__icon"></span>
+    </button>
 
-<section class="acw-statement acw-reveal">
-  <div class="acw-container acw-statement-inner">
-    <p class="acw-kicker">The real problem</p>
-    <h2>Most people do not need a better logo first.</h2>
-    <p>
-      They need to understand what they want to say, who they want to reach,
-      what makes their work distinct and why someone should trust them.
-    </p>
-  </div>
-</section>
+    <div
+      class="nav__overlay"
+      aria-hidden="true"
+      onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');"
+    ></div>
 
-<section id="blueprint" class="acw-section acw-section-soft acw-reveal">
-  <div class="acw-container acw-editorial-grid">
+    <div class="nav__panel">
+      <ul id="primary-nav" class="nav__links">
+        <li><a href="{{ '/' | relative_url }}#blueprint" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">Blueprint</a></li>
+        <li><a href="{{ '/' | relative_url }}#process" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">Process</a></li>
+        <li><a href="{{ '/' | relative_url }}#work" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">Work</a></li>
+        <li><a href="{{ '/' | relative_url }}#examples" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">Examples</a></li>
+        <li><a href="{{ '/' | relative_url }}#about" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">About</a></li>
+      </ul>
 
-    <div class="acw-editorial-copy">
-      <p class="acw-kicker">The Blueprint</p>
-      <h2>The thinking before the website.</h2>
-
-      <p class="acw-section-text">
-        Before any website is designed, we create a clear foundation for the brand.
-        This gives the project direction before decisions are made about visuals,
-        pages, copy or layout.
-      </p>
-
-      <p class="acw-section-text">
-        The Blueprint clarifies the message. The website expresses it.
-      </p>
-    </div>
-
-    <figure class="acw-editorial-media acw-media-large">
-      <img
-        src="{{ '/assets/images/brand/brand-blueprint-desk.webp' | relative_url }}"
-        alt="Premium brand clarity workbook and planning notes on a desk"
-        loading="lazy"
+      <a
+        href="{{ '/' | relative_url }}#contact"
+        class="nav__cta"
+        onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');"
       >
-    </figure>
-
-  </div>
-</section>
-
-<section class="acw-section acw-reveal">
-  <div class="acw-container">
-
-    <div class="acw-section-heading">
-      <p class="acw-kicker">Six decisions</p>
-      <h2>What the Blueprint clarifies.</h2>
-      <p class="acw-section-intro">
-        A calm, structured way to turn uncertainty into clear decisions.
-      </p>
-    </div>
-
-    <div class="acw-blueprint-grid">
-
-      <article class="acw-blueprint-card">
-        <span>01</span>
-        <h3>Identity</h3>
-        <p>Your story, values, purpose and the kind of practitioner you are becoming.</p>
-      </article>
-
-      <article class="acw-blueprint-card">
-        <span>02</span>
-        <h3>Audience</h3>
-        <p>Who you help, what they are struggling with and what they are looking for.</p>
-      </article>
-
-      <article class="acw-blueprint-card">
-        <span>03</span>
-        <h3>Positioning</h3>
-        <p>What makes your work distinct, memorable and easy to understand.</p>
-      </article>
-
-      <article class="acw-blueprint-card">
-        <span>04</span>
-        <h3>Voice</h3>
-        <p>How your brand should sound across your website, bio and online presence.</p>
-      </article>
-
-      <article class="acw-blueprint-card">
-        <span>05</span>
-        <h3>Trust</h3>
-        <p>The experience, credentials and signals that help people feel safe.</p>
-      </article>
-
-      <article class="acw-blueprint-card">
-        <span>06</span>
-        <h3>Visual direction</h3>
-        <p>The mood, imagery, colours, typography and atmosphere of the brand.</p>
-      </article>
-
-    </div>
-
-  </div>
-</section>
-
-<section class="acw-marquee-statement acw-reveal">
-  <div class="acw-container">
-    <h2>Clarity changes everything.</h2>
-  </div>
-</section>
-
-<section class="acw-section acw-reveal">
-  <div class="acw-container acw-editorial-grid acw-editorial-grid-reverse">
-
-    <div class="acw-editorial-copy">
-      <p class="acw-kicker">Creative direction</p>
-      <h2>Do not start with decoration.</h2>
-
-      <p class="acw-section-text">
-        A website should not be a collection of nice-looking pages. It should be a clear
-        expression of the person, practice or organisation behind it.
-      </p>
-
-      <p class="acw-section-text">
-        The brand comes first. Then the website has something real to express.
-      </p>
-    </div>
-
-    <figure class="acw-editorial-media">
-      <img
-        src="{{ '/assets/images/brand/brand-guidelines-desk.webp' | relative_url }}"
-        alt="Brand guidelines, colour palette and typography samples on a desk"
-        loading="lazy"
-      >
-    </figure>
-
-  </div>
-</section>
-
-<section id="process" class="acw-section acw-section-soft acw-reveal">
-  <div class="acw-container">
-
-    <div class="acw-process-heading">
-      <p class="acw-kicker">The process</p>
-      <h2>A calm process from clarity to launch.</h2>
-      <p>
-        Understand the person. Define the message. Shape the visual direction.
-        Then build the website around trust.
-      </p>
-    </div>
-
-    <div class="acw-process-layout">
-
-      <ol class="acw-process-list">
-        <li><span>01</span><strong>Discovery conversation</strong><em>We understand your work, goals and audience.</em></li>
-        <li><span>02</span><strong>Brand Clarity Blueprint</strong><em>We define identity, audience, positioning and trust.</em></li>
-        <li><span>03</span><strong>Positioning and messaging</strong><em>We make the offer easy to understand.</em></li>
-        <li><span>04</span><strong>Visual direction</strong><em>We shape the mood, palette, type and imagery.</em></li>
-        <li><span>05</span><strong>Website structure</strong><em>We plan pages, flow and next steps.</em></li>
-        <li><span>06</span><strong>Design, build and launch</strong><em>We turn the clarity into a finished website.</em></li>
-      </ol>
-
-      <figure class="acw-process-image">
-        <img
-          src="{{ '/assets/images/brand/process-planning-board.webp' | relative_url }}"
-          alt="Six-step brand clarity process board with notes, sticky notes and sitemap sketches"
-          loading="lazy"
-        >
-      </figure>
-
-    </div>
-
-  </div>
-</section>
-
-<section id="work" class="acw-section acw-reveal">
-  <div class="acw-container">
-
-    <div class="acw-section-heading">
-      <p class="acw-kicker">Ways to work together</p>
-      <h2>Start with the foundation. Build from there.</h2>
-      <p class="acw-section-intro">
-        You can begin with the clarity work on its own, or use it as the foundation
-        for a complete website.
-      </p>
-    </div>
-
-    <div class="acw-offer-grid">
-
-      <article class="acw-offer-card acw-offer-card-featured">
-        <div class="acw-offer-label">Clarity first</div>
-        <h3>Brand Clarity Blueprint</h3>
-        <p class="acw-price">The foundation</p>
-        <p>
-          A focused strategy document that clarifies your identity, audience,
-          positioning, voice, trust signals and visual direction.
-        </p>
-        <a href="mailto:hello@alexanderwatson.co.uk?subject=Brand%20Clarity%20Blueprint%20Enquiry">Ask about the Blueprint</a>
-      </article>
-
-      <article class="acw-offer-card">
-        <div class="acw-offer-label">Complete presence</div>
-        <h3>Blueprint + Website</h3>
-        <p class="acw-price">The full expression</p>
-        <p>
-          A calm, professional website built from the Blueprint, with clear structure,
-          trustworthy messaging and a confident visual direction.
-        </p>
-        <a href="mailto:hello@alexanderwatson.co.uk?subject=Blueprint%20and%20Website%20Enquiry">Ask about a website</a>
-      </article>
-
-    </div>
-
-  </div>
-</section>
-
-<section class="acw-section acw-section-soft acw-reveal">
-  <div class="acw-container acw-editorial-grid">
-
-    <div class="acw-editorial-copy">
-      <p class="acw-kicker">Website strategy</p>
-      <h2>Built around trust, not noise.</h2>
-
-      <p class="acw-section-text">
-        For therapists and helping professionals, the website needs to feel safe,
-        human and clear. It should help someone understand who you are and whether
-        you might be the right person to contact.
-      </p>
-    </div>
-
-    <figure class="acw-editorial-media">
-      <img
-        src="{{ '/assets/images/brand/website-strategy-mockup.webp' | relative_url }}"
-        alt="Laptop showing a clean website strategy, page plan and wireframe structure"
-        loading="lazy"
-      >
-    </figure>
-
-  </div>
-</section>
-
-<section class="acw-section acw-reveal">
-  <div class="acw-container acw-showcase">
-
-    <div class="acw-showcase-copy">
-      <p class="acw-kicker">The outcome</p>
-      <h2>From Blueprint to website.</h2>
-      <p>
-        The clarity work becomes the structure, words and visual direction of the final site.
-        Nothing is random. Every page has a job to do.
-      </p>
-    </div>
-
-    <figure class="acw-showcase-image">
-      <img
-        src="{{ '/assets/images/brand/blueprint-website-devices.webp' | relative_url }}"
-        alt="Laptop, tablet and phone showing a calm therapy website concept beside a brand clarity blueprint"
-        loading="lazy"
-      >
-    </figure>
-
-  </div>
-</section>
-
-<section id="examples" class="acw-section acw-section-soft acw-reveal">
-  <div class="acw-container">
-
-    <div class="acw-section-heading">
-      <p class="acw-kicker">Examples</p>
-      <h2>What clarity looks like online.</h2>
-      <p class="acw-section-intro">
-        Different practices need different expressions. The aim is always the same:
-        clear, calm and trustworthy communication.
-      </p>
-    </div>
-
-    <div class="acw-cards">
-
-      <a class="acw-card-link" href="https://warm-therapy-template.alexanderwatson.co.uk/" target="_blank" rel="noopener">
-        <article class="acw-card">
-          <img class="acw-card-image" src="{{ '/assets/images/brand/sarah-james.webp' | relative_url }}" alt="Warm therapy website example" loading="lazy">
-          <div class="acw-card-body">
-            <span>Warm</span>
-            <h3>Warm Therapy Template</h3>
-            <p>A soft, grounded website designed to feel professional, warm and easy to contact.</p>
-          </div>
-        </article>
+        Start a project
       </a>
-
-      <a class="acw-card-link" href="https://grounded-therapy-template.alexanderwatson.co.uk/" target="_blank" rel="noopener">
-        <article class="acw-card">
-          <img class="acw-card-image" src="{{ '/assets/images/brand/michael-therapy.webp' | relative_url }}" alt="Grounded therapy website example" loading="lazy">
-          <div class="acw-card-body">
-            <span>Grounded</span>
-            <h3>Grounded Therapy Template</h3>
-            <p>A clean, steady website focused on reassurance, clarity and simple next steps.</p>
-          </div>
-        </article>
-      </a>
-
-      <a class="acw-card-link" href="https://thai-massage-template.alexanderwatson.co.uk/" target="_blank" rel="noopener">
-        <article class="acw-card">
-          <img class="acw-card-image" src="{{ '/assets/images/brand/massage-therapy.webp' | relative_url }}" alt="Wellness website example" loading="lazy">
-          <div class="acw-card-body">
-            <span>Wellbeing</span>
-            <h3>Wellness Studio Template</h3>
-            <p>A warm, welcoming design for bodywork, massage and wellbeing services.</p>
-          </div>
-        </article>
-      </a>
-
     </div>
 
-  </div>
-</section>
-
-<section id="about" class="acw-section acw-reveal">
-  <div class="acw-container acw-about-grid">
-
-    <div class="acw-about-copy">
-      <p class="acw-kicker">About Alexander</p>
-      <h2>I realised most therapists do not have a website problem. They have a clarity problem.</h2>
-
-      <p class="acw-section-text">
-        I sit between marketing, branding, website design and counselling.
-      </p>
-
-      <p class="acw-section-text">
-        My background is in marketing, branding and communication. I have a degree in Marketing Psychology
-        and over ten years of experience helping businesses think about how they are seen, understood and trusted.
-      </p>
-
-      <p class="acw-section-text">
-        I am also training as a counsellor, which has deepened my interest in trust,
-        emotional safety, human behaviour and meaningful communication.
-      </p>
-    </div>
-
-    <div class="acw-about-side">
-      <img
-        class="acw-about-image"
-        src="{{ '/assets/images/brand/about-portrait.webp' | relative_url }}"
-        alt="Portrait of Alexander Watson"
-        loading="lazy"
-      >
-
-      <div class="acw-about-note">
-        <p>
-          The aim is simple: help people understand who you are, how you work
-          and whether you might be the right person to contact.
-        </p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section class="acw-marquee-statement acw-marquee-statement-soft acw-reveal">
-  <div class="acw-container">
-    <h2>Your competitive advantage is clarity.</h2>
-    <p>
-      The website, brand guidelines and visual identity are the outcome.
-      The value is the clarity underneath them.
-    </p>
-  </div>
-</section>
-
-<section id="faq" class="acw-section acw-reveal">
-  <div class="acw-container acw-faq-wrap">
-
-    <div class="acw-section-heading">
-      <p class="acw-kicker">FAQ</p>
-      <h2>Questions people often ask.</h2>
-    </div>
-
-    <div class="acw-faq-list">
-
-      <details class="acw-faq-item">
-        <summary>Do I need an existing website?</summary>
-        <p>No. Some people come with an existing website, while others are starting completely from scratch.</p>
-      </details>
-
-      <details class="acw-faq-item">
-        <summary>Can I start with the Blueprint only?</summary>
-        <p>Yes. The clarity work can be valuable on its own before you invest in a full website.</p>
-      </details>
-
-      <details class="acw-faq-item">
-        <summary>What if I do not know what I want to say?</summary>
-        <p>That is usually the reason people begin this process. The work is designed to uncover that clarity.</p>
-      </details>
-
-      <details class="acw-faq-item">
-        <summary>Can you help with the wording?</summary>
-        <p>Yes. Messaging and communication are central to the process, not an afterthought.</p>
-      </details>
-
-      <details class="acw-faq-item">
-        <summary>Do you only work with therapists?</summary>
-        <p>Therapists and counsellors are the main focus, but I also work with coaches, wellbeing practitioners and other helping professionals.</p>
-      </details>
-
-    </div>
-
-  </div>
-</section>
-
-<section id="contact" class="acw-section acw-contact-split-section acw-reveal">
-  <div class="acw-container acw-contact-split">
-
-    <div class="acw-contact-copy">
-      <p class="acw-kicker">Start with clarity</p>
-      <h2>Send me what you have. I’ll help you find the next step.</h2>
-
-      <p class="acw-section-text">
-        Send me your current website, your idea or a few notes about your practice.
-        I’ll reply with a calm, honest next step.
-      </p>
-
-      <a class="acw-contact-email" href="mailto:hello@alexanderwatson.co.uk?subject=Brand%20Clarity%20Enquiry">
-        hello@alexanderwatson.co.uk
-      </a>
-
-      <div class="acw-cta-row">
-        <a class="acw-btn acw-btn-primary" href="mailto:hello@alexanderwatson.co.uk?subject=Brand%20Clarity%20Enquiry">
-          Contact
-        </a>
-      </div>
-    </div>
-
-    <div class="acw-contact-image-wrap">
-      <img
-        class="acw-contact-image"
-        src="{{ '/assets/images/brand/contact-conversation.webp' | relative_url }}"
-        alt="Calm desk setup for a brand clarity conversation"
-        loading="lazy"
-      >
-    </div>
-
-  </div>
-</section>
+  </nav>
+</header>
 

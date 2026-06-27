@@ -6,10 +6,11 @@
   --bg: #f7f1e8;
   --surface: #fffdf8;
   --surface-soft: #e9dfd0;
+  --surface-quiet: #faf6ee;
   --surface-warm: #f1e8dc;
 
   --text: #142233;
-  --muted: #66717d;
+  --muted: #65717d;
   --white: #ffffff;
 
   --accent: #7f9274;
@@ -121,29 +122,29 @@ section {
 h1,
 h2,
 h3 {
-  margin: 0 0 0.9rem;
+  margin: 0 0 0.92rem;
   color: var(--text);
   font-family: var(--font-heading);
-  font-weight: 900;
-  letter-spacing: -0.07em;
+  font-weight: 920;
+  letter-spacing: -0.075em;
 }
 
 h1 {
   max-width: 9ch;
-  font-size: clamp(4.7rem, 8.5vw, 8.4rem);
-  line-height: 0.86;
+  font-size: clamp(5rem, 8.8vw, 8.6rem);
+  line-height: 0.84;
 }
 
 h2 {
-  max-width: 11.5ch;
-  font-size: clamp(2.9rem, 4.9vw, 5.6rem);
-  line-height: 0.9;
+  max-width: 11ch;
+  font-size: clamp(3rem, 5vw, 5.7rem);
+  line-height: 0.88;
 }
 
 h3 {
-  font-size: clamp(1.2rem, 1.5vw, 1.42rem);
-  line-height: 1.12;
-  letter-spacing: -0.045em;
+  font-size: clamp(1.25rem, 1.6vw, 1.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.055em;
 }
 
 p {
@@ -152,7 +153,7 @@ p {
 
 .acw-section {
   position: relative;
-  padding: 150px 0;
+  padding: 156px 0;
   background: var(--surface);
 }
 
@@ -163,9 +164,13 @@ p {
     var(--surface-soft);
 }
 
+.acw-section-quiet {
+  background: var(--surface-quiet);
+}
+
 .acw-section-heading {
   max-width: 780px;
-  margin-bottom: 4rem;
+  margin-bottom: 4.2rem;
 }
 
 .acw-hero-text,
@@ -175,15 +180,15 @@ p {
 }
 
 .acw-hero-text {
-  max-width: 39ch;
-  font-size: clamp(1.18rem, 1.55vw, 1.45rem);
-  line-height: 1.62;
+  max-width: 36ch;
+  font-size: clamp(1.2rem, 1.6vw, 1.5rem);
+  line-height: 1.58;
 }
 
 .acw-section-text,
 .acw-section-intro {
-  max-width: 52ch;
-  font-size: clamp(1.04rem, 1.15vw, 1.18rem);
+  max-width: 50ch;
+  font-size: clamp(1.05rem, 1.15vw, 1.18rem);
   line-height: 1.76;
 }
 
@@ -191,7 +196,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
-  margin-top: 2rem;
+  margin-top: 2.1rem;
 }
 
 .acw-btn {
@@ -236,13 +241,11 @@ p {
   border-color: var(--line-strong);
 }
 
-/* Header */
-
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(247, 241, 232, 0.86);
+  background: rgba(247, 241, 232, 0.88);
   border-bottom: 1px solid rgba(20, 34, 51, 0.06);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -264,7 +267,6 @@ p {
   display: inline-flex;
   align-items: center;
   flex: 0 0 auto;
-  color: var(--text);
 }
 
 .nav__logo {
@@ -334,12 +336,10 @@ p {
   }
 }
 
-/* Hero */
-
 .acw-hero {
   position: relative;
   overflow: hidden;
-  padding: 150px 0 150px;
+  padding: 158px 0 158px;
   background:
     radial-gradient(circle at 10% 4%, rgba(216, 192, 160, 0.34), transparent 36%),
     radial-gradient(circle at 90% 12%, rgba(127, 146, 116, 0.12), transparent 34%),
@@ -349,7 +349,7 @@ p {
 .acw-hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.76fr);
-  gap: 5.6rem;
+  gap: 5.8rem;
   align-items: center;
 }
 
@@ -379,7 +379,7 @@ p {
    ========================================================= */
 
 .acw-statement {
-  padding: 170px 0;
+  padding: 180px 0;
   background: var(--surface);
 }
 
@@ -388,20 +388,20 @@ p {
 }
 
 .acw-statement h2 {
-  max-width: 10.5ch;
+  max-width: 10ch;
 }
 
 .acw-statement p {
-  max-width: 48ch;
+  max-width: 46ch;
   color: var(--muted);
-  font-size: clamp(1.18rem, 1.8vw, 1.48rem);
-  line-height: 1.7;
+  font-size: clamp(1.22rem, 1.85vw, 1.52rem);
+  line-height: 1.68;
 }
 
 .acw-editorial-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.88fr) minmax(340px, 0.92fr);
-  gap: 5.6rem;
+  gap: 5.8rem;
   align-items: center;
 }
 
@@ -434,32 +434,32 @@ p {
 }
 
 .acw-pause {
-  padding: 165px 0;
+  padding: 170px 0;
   background: var(--navy);
   text-align: center;
 }
 
 .acw-pause h2 {
-  max-width: 12ch;
+  max-width: 11.5ch;
   margin: 0 auto;
   color: var(--white);
-  font-size: clamp(3.4rem, 7vw, 7.4rem);
-  line-height: 0.88;
+  font-size: clamp(3.5rem, 7.2vw, 7.6rem);
+  line-height: 0.86;
 }
 
 .acw-blueprint-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.3rem;
-  margin-top: 2.4rem;
+  gap: 1.35rem;
+  margin-top: 2.5rem;
 }
 
 .acw-blueprint-card {
   position: relative;
   overflow: hidden;
-  min-height: 226px;
-  padding: 1.85rem;
-  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.84));
+  min-height: 230px;
+  padding: 1.9rem;
+  background: rgba(255,255,255,0.9);
   border: 1px solid rgba(20, 34, 51, 0.08);
   border-radius: 34px;
   box-shadow: var(--shadow-sm);
@@ -477,7 +477,7 @@ p {
 
 .acw-blueprint-card span {
   display: inline-flex;
-  margin-bottom: 1.35rem;
+  margin-bottom: 1.4rem;
   color: var(--accent-dark);
   font-size: 0.76rem;
   font-weight: 920;
@@ -493,7 +493,7 @@ p {
 .acw-process-layout {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(340px, 0.86fr);
-  gap: 5rem;
+  gap: 5.2rem;
   align-items: center;
 }
 
@@ -504,7 +504,7 @@ p {
 .acw-process-list {
   display: grid;
   gap: 0.72rem;
-  margin: 2.4rem 0 0;
+  margin: 2.5rem 0 0;
   padding: 0;
   list-style: none;
 }
@@ -532,7 +532,6 @@ p {
   font-weight: 880;
   line-height: 1.25;
 }
-
 /* =========================================================
    CSS PART 3 — OFFERS, EXAMPLES, ABOUT, FAQ, CONTACT, FOOTER, MOBILE
    ========================================================= */
@@ -541,15 +540,15 @@ p {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.35rem;
-  margin-top: 2.4rem;
+  margin-top: 2.5rem;
 }
 
 .acw-offer-card {
   position: relative;
   overflow: hidden;
   min-height: 300px;
-  padding: 2.35rem;
-  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.84));
+  padding: 2.4rem;
+  background: rgba(255,255,255,0.9);
   border: 1px solid rgba(20, 34, 51, 0.08);
   border-radius: 38px;
   box-shadow: var(--shadow-sm);
@@ -557,8 +556,8 @@ p {
 
 .acw-offer-card-featured {
   background:
-    radial-gradient(circle at 20% 0%, rgba(216,192,160,0.23), transparent 36%),
-    linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.86));
+    radial-gradient(circle at 20% 0%, rgba(216,192,160,0.25), transparent 36%),
+    rgba(255,255,255,0.92);
 }
 
 .acw-card-label {
@@ -572,12 +571,12 @@ p {
 }
 
 .acw-offer-card h3 {
-  max-width: 14ch;
-  font-size: clamp(2rem, 2.6vw, 2.7rem);
+  max-width: 13ch;
+  font-size: clamp(2.1rem, 2.7vw, 2.8rem);
 }
 
 .acw-offer-card p {
-  max-width: 42ch;
+  max-width: 40ch;
   color: var(--muted);
   line-height: 1.72;
 }
@@ -597,7 +596,7 @@ p {
 
 .acw-showcase {
   display: grid;
-  gap: 3.6rem;
+  gap: 3.8rem;
 }
 
 .acw-showcase-copy {
@@ -605,7 +604,7 @@ p {
 }
 
 .acw-showcase-copy p {
-  max-width: 54ch;
+  max-width: 52ch;
   color: var(--muted);
   font-size: 1.12rem;
   line-height: 1.76;
@@ -619,8 +618,8 @@ p {
 .acw-cards {
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  gap: 1.3rem;
-  margin-top: 2.4rem;
+  gap: 1.35rem;
+  margin-top: 2.5rem;
 }
 
 .acw-card-link {
@@ -659,7 +658,7 @@ p {
 }
 
 .acw-card-body {
-  padding: 1.6rem;
+  padding: 1.65rem;
 }
 
 .acw-card-body p {
@@ -672,7 +671,7 @@ p {
 .acw-about-grid {
   display: grid;
   grid-template-columns: minmax(0,1fr) minmax(300px,410px);
-  gap: 5rem;
+  gap: 5.2rem;
   align-items: center;
 }
 
@@ -681,7 +680,7 @@ p {
 }
 
 .acw-about-copy h2 {
-  max-width: 14ch;
+  max-width: 13ch;
 }
 
 .acw-about-side {
@@ -771,7 +770,7 @@ p {
 .acw-contact-split {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(300px, 420px);
-  gap: 4.6rem;
+  gap: 4.8rem;
   align-items: center;
 }
 
@@ -780,7 +779,7 @@ p {
 }
 
 .acw-contact-copy h2 {
-  max-width: 11ch;
+  max-width: 10ch;
 }
 
 .acw-contact-email {
