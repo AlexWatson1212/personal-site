@@ -372,7 +372,7 @@ p {
   box-shadow: var(--shadow-lg);
 }
 /* =========================================================
-   CSS PART 2 — SECTIONS, PROCESS, ABOUT, OFFERS, EXAMPLES
+   CSS PART 2 — SECTIONS, PROCESS, ABOUT, OFFERS, EXAMPLES, LINKS PAGE
    ========================================================= */
 
 .acw-two-column {
@@ -645,6 +645,123 @@ p {
   color: var(--muted);
   font-size: .95rem;
   line-height: 1.65;
+}
+
+/* Links page */
+
+.acw-links-page {
+  min-height: calc(100vh - 78px);
+  padding: 78px 0 96px;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(216,193,164,0.3), transparent 34%),
+    radial-gradient(circle at 82% 12%, rgba(137,155,127,0.13), transparent 32%),
+    linear-gradient(180deg, #fcf8f2 0%, #f7f2eb 100%);
+}
+
+.acw-links-wrap {
+  max-width: 720px;
+}
+
+.acw-links-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.acw-links-portrait {
+  width: 104px;
+  height: 104px;
+  margin-bottom: 1.25rem;
+  object-fit: cover;
+  border: 1px solid rgba(23,35,49,0.1);
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+}
+
+.acw-links-kicker {
+  margin: 0 0 0.7rem;
+  color: var(--accent-dark);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.acw-links-intro h1 {
+  max-width: 13ch;
+  margin-inline: auto;
+  font-size: clamp(2.6rem, 7vw, 4.7rem);
+}
+
+.acw-links-text {
+  max-width: 48ch;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.72;
+}
+
+.acw-links-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.acw-link-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 1.45rem 1.55rem;
+  background: rgba(255,255,255,0.88);
+  border: 1px solid rgba(23,35,49,0.08);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+  color: var(--text);
+}
+
+.acw-link-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: rgba(137,155,127,0.48);
+}
+
+.acw-link-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(137,155,127,0.22);
+  box-shadow: var(--shadow-lg);
+  color: var(--text);
+}
+
+.acw-link-label {
+  display: inline-flex;
+  margin-bottom: 0.5rem;
+  color: var(--accent-dark);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.acw-link-card strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  line-height: 1.18;
+  letter-spacing: -0.04em;
+}
+
+.acw-link-card p {
+  margin: 0;
+  max-width: 58ch;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 /* =========================================================
    CSS PART 3 — CONTACT, FAQ, FOOTER, MOBILE
@@ -1009,6 +1126,35 @@ p {
   .acw-process-card,
   .acw-offer-card {
     padding: 1.35rem;
+  }
+
+  .acw-links-page {
+    min-height: calc(100vh - 68px);
+    padding: 48px 0 64px;
+  }
+
+  .acw-links-portrait {
+    width: 92px;
+    height: 92px;
+  }
+
+  .acw-links-intro h1 {
+    max-width: 12ch;
+    font-size: clamp(2.15rem, 10vw, 2.9rem);
+  }
+
+  .acw-links-text {
+    max-width: 32ch;
+    font-size: 0.96rem;
+  }
+
+  .acw-link-card {
+    padding: 1.25rem;
+    border-radius: 24px;
+  }
+
+  .acw-link-card strong {
+    font-size: 1.12rem;
   }
 
   .site-footer {
