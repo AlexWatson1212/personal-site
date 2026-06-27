@@ -22,8 +22,8 @@ PART 1 — BASE, TYPE, HEADER, HERO
 
 --shadow-xs: 0 6px 16px rgba(20, 34, 51, 0.035);
 --shadow-sm: 0 14px 34px rgba(20, 34, 51, 0.06);
---shadow: 0 28px 70px rgba(20, 34, 51, 0.09);
---shadow-lg: 0 40px 100px rgba(20, 34, 51, 0.13);
+--shadow: 0 24px 58px rgba(20, 34, 51, 0.08);
+--shadow-lg: 0 28px 70px rgba(20, 34, 51, 0.11);
 
 --radius-lg: 28px;
 --radius-xl: 42px;
@@ -125,8 +125,8 @@ h3 {
 margin: 0 0 0.92rem;
 color: var(--text);
 font-family: var(--font-heading);
-font-weight: 920;
-letter-spacing: -0.075em;
+font-weight: 850;
+letter-spacing: -0.045em;
 }
 
 h1 {
@@ -144,7 +144,7 @@ line-height: 0.88;
 h3 {
 font-size: clamp(1.25rem, 1.6vw, 1.5rem);
 line-height: 1.08;
-letter-spacing: -0.055em;
+letter-spacing: -0.035em;
 }
 
 p {
@@ -158,7 +158,7 @@ display: inline-flex;
 margin: 0 0 1rem;
 color: var(--accent-dark);
 font-size: 0.72rem;
-font-weight: 950;
+font-weight: 900;
 letter-spacing: 0.16em;
 line-height: 1;
 text-transform: uppercase;
@@ -222,7 +222,7 @@ border: 1px solid transparent;
 border-radius: var(--pill);
 cursor: pointer;
 font-size: 0.94rem;
-font-weight: 880;
+font-weight: 820;
 line-height: 1.1;
 text-align: center;
 }
@@ -320,7 +320,7 @@ padding: 0.4rem 0;
 color: rgba(20, 34, 51, 0.62);
 border-bottom: 1px solid transparent;
 font-size: 0.88rem;
-font-weight: 820;
+font-weight: 760;
 }
 
 .nav__links a:hover {
@@ -338,7 +338,7 @@ background: var(--accent);
 color: var(--white);
 border-radius: var(--pill);
 font-size: 0.88rem;
-font-weight: 880;
+font-weight: 820;
 box-shadow: 0 10px 22px rgba(95, 116, 88, 0.18);
 }
 
@@ -386,7 +386,6 @@ border: 1px solid rgba(20, 34, 51, 0.08);
 border-radius: 44px;
 box-shadow: var(--shadow-lg);
 }
-
 /* =========================================================
 PART 2 — MAIN SECTIONS
 ========================================================= */
@@ -456,7 +455,7 @@ text-align: center;
 margin-bottom: 1.2rem;
 color: rgba(255,255,255,0.66);
 font-size: 0.82rem;
-font-weight: 900;
+font-weight: 850;
 letter-spacing: 0.16em;
 text-transform: uppercase;
 }
@@ -502,7 +501,7 @@ display: inline-flex;
 margin-bottom: 1.4rem;
 color: var(--accent-dark);
 font-size: 0.76rem;
-font-weight: 920;
+font-weight: 850;
 letter-spacing: 0.12em;
 }
 
@@ -545,19 +544,15 @@ box-shadow: var(--shadow-xs);
 .acw-process-list span {
 color: var(--accent-dark);
 font-size: 0.72rem;
-font-weight: 920;
+font-weight: 850;
 letter-spacing: 0.1em;
 }
 
 .acw-process-list strong {
 color: var(--text);
-font-weight: 880;
+font-weight: 820;
 line-height: 1.25;
 }
-
-/* =========================================================
-PART 3 — CARDS, FOOTER, MOBILE
-========================================================= */
 
 .acw-offer-grid {
 display: grid;
@@ -598,7 +593,7 @@ line-height: 1.72;
 display: inline-flex;
 margin-top: 0.85rem;
 color: var(--accent-dark);
-font-weight: 880;
+font-weight: 820;
 border-bottom: 1px solid rgba(95,116,88,0.28);
 }
 
@@ -680,6 +675,9 @@ color: var(--muted);
 font-size: .96rem;
 line-height: 1.65;
 }
+/* =========================================================
+PART 3 — ABOUT, FAQ, CONTACT, FOOTER, MOBILE
+========================================================= */
 
 .acw-about-grid {
 display: grid;
@@ -743,7 +741,7 @@ position: relative;
 cursor: pointer;
 padding: 1.18rem 3rem 1.18rem 1.25rem;
 color: var(--text);
-font-weight: 880;
+font-weight: 820;
 line-height: 1.3;
 list-style: none;
 }
@@ -760,7 +758,7 @@ right: 1.25rem;
 transform: translateY(-50%);
 color: var(--accent-dark);
 font-size: 1.25rem;
-font-weight: 800;
+font-weight: 760;
 }
 
 .acw-faq-item[open] summary::after {
@@ -799,7 +797,7 @@ max-width: 10ch;
 display: inline-flex;
 margin: 0.15rem 0 0.5rem;
 color: var(--accent-dark);
-font-weight: 880;
+font-weight: 820;
 border-bottom: 1px solid rgba(95,116,88,0.28);
 }
 
@@ -859,7 +857,7 @@ gap: 0.8rem 1.2rem;
 .footer-links a,
 .footer-email {
 color: var(--accent-dark);
-font-weight: 820;
+font-weight: 760;
 border-bottom: 1px solid rgba(95,116,88,0.22);
 }
 
@@ -1099,8 +1097,8 @@ padding: 18px 0;
 border-bottom: 1px solid rgba(20,34,51,0.1);
 color: var(--text);
 font-size: 1.24rem;
-font-weight: 880;
-letter-spacing: -0.04em;
+font-weight: 820;
+letter-spacing: -0.025em;
 line-height: 1.2;
 text-align: center;
 }
@@ -1116,7 +1114,7 @@ border-radius: var(--pill);
 background: var(--accent);
 color: var(--white);
 font-size: 1rem;
-font-weight: 900;
+font-weight: 850;
 box-shadow: 0 14px 30px rgba(95,116,88,0.22);
 }
 }
