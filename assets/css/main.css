@@ -387,7 +387,7 @@ border-radius: 44px;
 box-shadow: var(--shadow-lg);
 }
 /* =========================================================
-PART 2 — MAIN SECTIONS
+PART 2 — MAIN SECTIONS + LINKS PAGE
 ========================================================= */
 
 .acw-statement {
@@ -487,7 +487,8 @@ box-shadow: var(--shadow-sm);
 }
 
 .acw-blueprint-card::before,
-.acw-offer-card::before {
+.acw-offer-card::before,
+.acw-link-card::before {
 content: "";
 position: absolute;
 inset: 0 0 auto 0;
@@ -675,6 +676,119 @@ color: var(--muted);
 font-size: .96rem;
 line-height: 1.65;
 }
+
+/* Links page */
+
+.acw-links-page {
+position: relative;
+overflow: hidden;
+padding: 96px 0 120px;
+background:
+radial-gradient(circle at 18% 0%, rgba(216,192,160,0.26), transparent 34%),
+radial-gradient(circle at 90% 18%, rgba(127,146,116,0.12), transparent 32%),
+linear-gradient(180deg, #fcf8f1 0%, var(--bg) 100%);
+}
+
+.acw-links-wrap {
+display: grid;
+grid-template-columns: minmax(0, 0.92fr) minmax(340px, 0.68fr);
+gap: 4.8rem;
+align-items: center;
+}
+
+.acw-links-intro {
+max-width: 720px;
+}
+
+.acw-links-portrait {
+width: 100%;
+max-width: 560px;
+aspect-ratio: 4 / 3;
+margin-bottom: 2rem;
+object-fit: cover;
+border: 1px solid rgba(20,34,51,0.08);
+border-radius: 42px;
+box-shadow: var(--shadow-lg);
+}
+
+.acw-links-kicker {
+margin: 0 0 1rem;
+color: var(--accent-dark);
+font-size: 0.76rem;
+font-weight: 850;
+letter-spacing: 0.14em;
+text-transform: uppercase;
+}
+
+.acw-links-intro h1 {
+max-width: 8.8ch;
+margin-bottom: 1.4rem;
+font-size: clamp(4.2rem, 8vw, 7.6rem);
+line-height: 0.86;
+}
+
+.acw-links-text {
+max-width: 52ch;
+margin: 0;
+color: var(--muted);
+font-size: clamp(1.05rem, 1.2vw, 1.2rem);
+line-height: 1.72;
+}
+
+.acw-links-list {
+display: grid;
+gap: 1rem;
+}
+
+.acw-link-card {
+position: relative;
+display: block;
+overflow: hidden;
+padding: 1.55rem 1.55rem 1.45rem;
+background:
+radial-gradient(circle at 100% 0%, rgba(216,192,160,0.18), transparent 34%),
+rgba(255,255,255,0.84);
+border: 1px solid rgba(20,34,51,0.08);
+border-radius: 30px;
+color: var(--text);
+box-shadow: var(--shadow-sm);
+}
+
+.acw-link-card:hover {
+transform: translateY(-4px);
+background: rgba(255,255,255,0.94);
+border-color: rgba(127,146,116,0.24);
+box-shadow: var(--shadow);
+}
+
+.acw-link-label {
+display: block;
+margin-bottom: 0.78rem;
+color: var(--accent-dark);
+font-size: 0.72rem;
+font-weight: 850;
+letter-spacing: 0.13em;
+line-height: 1;
+text-transform: uppercase;
+}
+
+.acw-link-card strong {
+display: block;
+margin-bottom: 0.55rem;
+color: var(--text);
+font-size: clamp(1.38rem, 2vw, 1.8rem);
+font-weight: 850;
+letter-spacing: -0.04em;
+line-height: 1.04;
+}
+
+.acw-link-card p {
+max-width: 38ch;
+margin: 0;
+color: var(--muted);
+font-size: 0.98rem;
+line-height: 1.62;
+}
 /* =========================================================
 PART 3 — ABOUT, FAQ, CONTACT, FOOTER, MOBILE
 ========================================================= */
@@ -817,9 +931,9 @@ aspect-ratio: 4 / 3;
 }
 
 .site-footer {
-padding: 82px 16px 42px;
+padding: 76px 16px 34px;
 background:
-radial-gradient(circle at 50% 0%, rgba(216,192,160,0.26), transparent 38%),
+radial-gradient(circle at 50% 0%, rgba(216,192,160,0.22), transparent 38%),
 var(--surface-warm);
 border-top: 1px solid rgba(20,34,51,0.08);
 text-align: center;
@@ -829,57 +943,42 @@ text-align: center;
 display: flex;
 flex-direction: column;
 align-items: center;
-gap: 22px;
+gap: 18px;
 max-width: var(--container);
 margin: 0 auto;
 }
 
 .footer-logo {
-width: min(310px,78vw);
+width: min(280px,76vw);
 height: auto;
 }
 
 .footer-tagline {
-max-width: 520px;
+max-width: 440px;
 margin: 0;
 color: var(--muted);
-font-size: 0.98rem;
-line-height: 1.65;
+font-size: 0.95rem;
+line-height: 1.62;
 }
 
-.footer-links {
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-gap: 0.8rem 1.2rem;
-}
-
-.footer-links a,
+.footer-links,
 .footer-email {
-color: var(--accent-dark);
-font-weight: 760;
-border-bottom: 1px solid rgba(95,116,88,0.22);
-}
-
-.footer-links a:hover,
-.footer-email:hover {
-color: var(--text);
-border-bottom-color: rgba(20,34,51,0.26);
+display: none;
 }
 
 .footer-social {
 display: flex;
 align-items: center;
 justify-content: center;
-gap: 14px;
+gap: 12px;
 }
 
 .footer-social .social {
 display: inline-flex !important;
 align-items: center;
 justify-content: center;
-width: 44px !important;
-height: 44px !important;
+width: 42px !important;
+height: 42px !important;
 overflow: hidden;
 background: rgba(255,255,255,0.78);
 border: 1px solid rgba(20,34,51,0.08);
@@ -900,18 +999,18 @@ box-shadow: var(--shadow-sm);
 .footer-social img,
 .footer-social .social svg,
 .footer-social .social img {
-width: 22px !important;
-height: 22px !important;
-max-width: 22px !important;
-max-height: 22px !important;
-min-width: 22px !important;
-min-height: 22px !important;
+width: 21px !important;
+height: 21px !important;
+max-width: 21px !important;
+max-height: 21px !important;
+min-width: 21px !important;
+min-height: 21px !important;
 }
 
 .footer-copyright {
 margin: 0;
 color: var(--muted);
-font-size: .78rem;
+font-size: .76rem;
 }
 
 @media (max-width: 1040px) {
@@ -919,7 +1018,8 @@ font-size: .78rem;
 .acw-editorial-grid,
 .acw-process-layout,
 .acw-about-grid,
-.acw-contact-split {
+.acw-contact-split,
+.acw-links-wrap {
 grid-template-columns: 1fr;
 }
 
@@ -927,7 +1027,8 @@ grid-template-columns: 1fr;
 .acw-editorial-grid,
 .acw-process-layout,
 .acw-about-grid,
-.acw-contact-split {
+.acw-contact-split,
+.acw-links-wrap {
 gap: 3rem;
 }
 
@@ -950,6 +1051,14 @@ max-width: 560px;
 .acw-cards,
 .acw-blueprint-grid {
 grid-template-columns: 1fr 1fr;
+}
+
+.acw-links-intro {
+max-width: 760px;
+}
+
+.acw-links-list {
+max-width: 760px;
 }
 }
 
@@ -1198,7 +1307,8 @@ padding: 1.35rem;
 .acw-showcase-image img,
 .acw-about-image,
 .acw-contact-image,
-.acw-hero-image {
+.acw-hero-image,
+.acw-links-portrait {
 border-radius: 28px;
 }
 
@@ -1206,16 +1316,47 @@ border-radius: 28px;
 aspect-ratio: 4 / 3;
 }
 
+.acw-links-page {
+padding: 54px 0 76px;
+}
+
+.acw-links-wrap {
+gap: 2rem;
+}
+
+.acw-links-portrait {
+margin-bottom: 1.35rem;
+}
+
+.acw-links-intro h1 {
+max-width: 9.8ch;
+font-size: clamp(3.05rem, 15vw, 4.4rem);
+line-height: 0.9;
+}
+
+.acw-links-text {
+font-size: 1rem;
+line-height: 1.68;
+}
+
+.acw-link-card {
+padding: 1.35rem;
+border-radius: 26px;
+}
+
+.acw-link-card strong {
+font-size: 1.35rem;
+}
+
 .site-footer {
-padding: 64px 16px 34px;
+padding: 58px 16px 30px;
 }
 
 .footer-logo {
-width: min(250px,82vw);
+width: min(230px,80vw);
 }
 
-.footer-links {
-flex-direction: column;
-gap: 0.7rem;
+.footer-tagline {
+max-width: 32ch;
 }
 }
