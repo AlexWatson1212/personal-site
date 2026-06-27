@@ -432,7 +432,7 @@ p {
 .acw-blueprint-card {
   position: relative;
   overflow: hidden;
-  min-height: 245px;
+  min-height: 230px;
   padding: 1.65rem;
   background: rgba(255,255,255,0.92);
   border: 1px solid rgba(23,35,49,0.08);
@@ -474,9 +474,10 @@ p {
   line-height: 1.64;
 }
 
-.acw-split-statement {
+.acw-image-statement {
   background:
-    linear-gradient(90deg, var(--surface-soft) 0%, var(--surface-soft) 50%, var(--surface) 50%, var(--surface) 100%);
+    radial-gradient(circle at 18% 8%, rgba(216,193,164,0.16), transparent 34%),
+    var(--surface);
 }
 
 .acw-process-panel {
@@ -529,7 +530,7 @@ p {
 .acw-offer-card {
   position: relative;
   overflow: hidden;
-  min-height: 300px;
+  min-height: 310px;
   padding: 2rem;
   background: rgba(255,255,255,0.9);
   border: 1px solid rgba(23,35,49,0.08);
@@ -573,10 +574,22 @@ p {
   font-weight: 900;
 }
 
-.acw-offer-card p:last-child {
-  margin: 0;
+.acw-offer-card p {
   color: var(--muted);
   line-height: 1.7;
+}
+
+.acw-offer-card a {
+  display: inline-flex;
+  margin-top: 0.8rem;
+  color: var(--accent-dark);
+  font-weight: 850;
+  border-bottom: 1px solid rgba(104,121,96,0.24);
+}
+
+.acw-offer-card a:hover {
+  color: var(--text);
+  border-bottom-color: rgba(23,35,49,0.28);
 }
 
 .acw-cards {
@@ -670,6 +683,7 @@ p {
   margin: 0;
   color: var(--muted);
 }
+
 /* =========================================================
    CSS PART 3 — FAQ, CONTACT, LINKS PAGE, FOOTER, MOBILE
    ========================================================= */
@@ -980,10 +994,6 @@ p {
 
   .acw-feature-grid-reverse .acw-feature-copy {
     order: initial;
-  }
-
-  .acw-split-statement {
-    background: var(--surface-soft);
   }
 
   .acw-hero-grid,
