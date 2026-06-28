@@ -541,6 +541,74 @@ margin-top: 2.35rem;
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+/* =========================================================
+BEFORE / AFTER
+========================================================= */
+
+.acw-before-after-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+  margin-top: 2.8rem;
+}
+
+.acw-before-after-card {
+  position: relative;
+  padding: 2rem;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(16,32,51,.08);
+  border-radius: 30px;
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-before-after-card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:4px;
+  background:linear-gradient(
+      90deg,
+      rgba(123,143,112,.55),
+      rgba(218,192,157,.45)
+  );
+}
+
+.acw-before-after-card span{
+  display:inline-flex;
+  margin-bottom:1rem;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.acw-before-after-card p{
+  margin:0;
+  color:var(--muted);
+  font-size:1.05rem;
+  line-height:1.75;
+}
+
+.acw-before-after-card-after{
+  background:
+    radial-gradient(circle at top right,
+      rgba(123,143,112,.08),
+      transparent 40%),
+    rgba(255,255,255,.96);
+}
+
+.acw-before-after-card-after span{
+  color:var(--accent-dark);
+}
+
+@media (max-width:700px){
+
+  .acw-before-after-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
 .acw-offer-grid {
 grid-template-columns: repeat(2, minmax(0, 1fr));
 }
