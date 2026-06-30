@@ -1,74 +1,72 @@
 <header class="site-header" role="banner">
   <nav class="nav" role="navigation" aria-label="Main navigation">
 
-<a class="nav__brand" href="{{ '/' | relative_url }}" aria-label="Alexander Watson home">
-  <img
-    class="nav__logo"
-    src="{{ '/assets/images/brand/aw-logo.png' | relative_url }}"
-    alt="Alexander Watson"
-  >
-</a>
+    <a class="nav__brand" href="{{ '/' | relative_url }}" aria-label="Alexander Watson home">
+      <img
+        class="nav__logo"
+        src="{{ '/assets/images/brand/aw-logo.png' | relative_url }}"
+        alt="Alexander Watson"
+      >
+    </a>
 
-<button
-  class="nav__toggle"
-  type="button"
-  aria-label="Open menu"
-  aria-expanded="false"
-  aria-controls="primary-nav"
-  onclick="document.body.classList.toggle('menu-open'); this.setAttribute('aria-expanded', document.body.classList.contains('menu-open') ? 'true' : 'false');"
->
-  <span aria-hidden="true" class="nav__icon"></span>
-</button>
+    <button
+      class="nav__toggle"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+      onclick="document.body.classList.toggle('menu-open'); this.setAttribute('aria-expanded', document.body.classList.contains('menu-open') ? 'true' : 'false');"
+    >
+      <span aria-hidden="true" class="nav__icon"></span>
+    </button>
 
-<div
-  class="nav__overlay"
-  aria-hidden="true"
-  onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');"
-></div>
+    <div
+      class="nav__overlay"
+      aria-hidden="true"
+      onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');"
+    ></div>
 
-<div class="nav__panel">
-  <ul id="primary-nav" class="nav__links">
-    <li>
-      <a href="{{ '/' | relative_url }}#blueprint" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
-        Blueprint
+    <div class="nav__panel">
+      <ul id="primary-nav" class="nav__links">
+        <li>
+          <a href="{{ '/' | relative_url }}#blueprint" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
+            Blueprint
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/' | relative_url }}#process" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
+            Process
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/' | relative_url }}#work" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
+            Services
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/' | relative_url }}#examples" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
+            Concept websites
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/' | relative_url }}#about" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
+            About
+          </a>
+        </li>
+      </ul>
+
+      <a
+        href="{{ '/' | relative_url }}#contact"
+        class="nav__cta"
+        onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');"
+      >
+        Start with clarity
       </a>
-    </li>
-
-    <li>
-      <a href="{{ '/' | relative_url }}#process" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
-        Process
-      </a>
-    </li>
-
-    <li>
-      <a href="{{ '/' | relative_url }}#work" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
-        Services
-      </a>
-    </li>
-
-    <li>
-      <a href="{{ '/' | relative_url }}#examples" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
-        Examples
-      </a>
-    </li>
-
-    <li>
-      <a href="{{ '/' | relative_url }}#about" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
-        About
-      </a>
-    </li>
-  </ul>
-
-  <a
-    href="{{ '/' | relative_url }}#contact"
-    class="nav__cta"
-    onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');"
-  >
-    Start with clarity
-  </a>
-</div>
+    </div>
 
   </nav>
 </header>
-
-
