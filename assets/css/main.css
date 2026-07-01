@@ -1,5 +1,10 @@
 /* =========================================================
-PART 1 — BASE, TYPE, HEADER, HERO
+ALEXANDER WATSON — MAIN STYLESHEET
+Base, layout, homepage, contact page, links page, footer, mobile
+========================================================= */
+
+/* =========================================================
+1. ROOT, RESET, BASE
 ========================================================= */
 
 :root {
@@ -122,6 +127,10 @@ section {
   scroll-margin-top: 86px;
 }
 
+/* =========================================================
+2. TYPOGRAPHY
+========================================================= */
+
 h1,
 h2,
 h3 {
@@ -169,6 +178,40 @@ p {
   text-transform: uppercase;
 }
 
+.acw-hero-text,
+.acw-section-text,
+.acw-section-intro {
+  color: var(--muted);
+}
+
+.acw-hero-text {
+  max-width: 43ch;
+  margin-top: 1.25rem;
+  font-size: clamp(1.06rem, 1.22vw, 1.18rem);
+  line-height: 1.68;
+}
+
+.acw-section-text,
+.acw-section-intro {
+  max-width: 52ch;
+  font-size: clamp(1.02rem, 1.1vw, 1.13rem);
+  line-height: 1.78;
+}
+
+.acw-hero-line {
+  max-width: 34ch;
+  margin: 1.35rem 0 0;
+  color: var(--text);
+  font-size: clamp(1.08rem, 1.25vw, 1.22rem);
+  font-weight: 820;
+  letter-spacing: -0.025em;
+  line-height: 1.35;
+}
+
+/* =========================================================
+3. SECTIONS, BUTTONS, GENERAL LAYOUT
+========================================================= */
+
 .acw-section {
   position: relative;
   padding: 160px 0;
@@ -190,31 +233,11 @@ p {
 
 .acw-section-heading {
   max-width: 820px;
-  margin-bottom: 3.7rem;
+  margin-bottom: clamp(2.2rem, 4vw, 3.4rem);
 }
 
 .acw-section-heading h2 {
   max-width: 13.5ch;
-}
-
-.acw-hero-text,
-.acw-section-text,
-.acw-section-intro {
-  color: var(--muted);
-}
-
-.acw-hero-text {
-  max-width: 43ch;
-  margin-top: 1.25rem;
-  font-size: clamp(1.06rem, 1.22vw, 1.18rem);
-  line-height: 1.68;
-}
-
-.acw-section-text,
-.acw-section-intro {
-  max-width: 52ch;
-  font-size: clamp(1.02rem, 1.1vw, 1.13rem);
-  line-height: 1.78;
 }
 
 .acw-cta-row {
@@ -266,6 +289,10 @@ p {
   border-color: var(--line-strong);
 }
 
+/* =========================================================
+4. HEADER / NAVIGATION
+========================================================= */
+
 .site-header {
   position: sticky;
   top: 0;
@@ -313,10 +340,6 @@ p {
 }
 
 @media (min-width: 861px) {
-  .acw-hero-copy h1 {
-    max-width: 12.4ch;
-  }
-
   .nav__panel {
     display: flex;
     align-items: center;
@@ -365,6 +388,10 @@ p {
   }
 }
 
+/* =========================================================
+5. HERO
+========================================================= */
+
 .acw-hero {
   position: relative;
   overflow: hidden;
@@ -396,6 +423,10 @@ p {
   max-width: 820px;
 }
 
+.acw-hero-copy h1 {
+  max-width: 12.4ch;
+}
+
 .acw-hero-image-wrap {
   display: flex;
   justify-content: center;
@@ -412,8 +443,43 @@ p {
   border-radius: 40px;
   box-shadow: var(--shadow-lg);
 }
+
+/* Refined homepage hero */
+
+.acw-hero-refined {
+  padding: clamp(76px, 9vw, 132px) 0 clamp(78px, 8vw, 118px);
+}
+
+.acw-hero-refined .acw-hero-grid {
+  grid-template-columns: minmax(0, 0.86fr) minmax(420px, 0.92fr);
+  gap: clamp(2.6rem, 5vw, 5.2rem);
+}
+
+.acw-hero-refined .acw-hero-copy {
+  max-width: 680px;
+}
+
+.acw-hero-refined h1 {
+  max-width: 12.6ch;
+}
+
+.acw-hero-refined .acw-hero-text {
+  max-width: 39ch;
+}
+
+.acw-hero-refined .acw-hero-image-wrap {
+  justify-content: flex-end;
+}
+
+.acw-hero-refined .acw-hero-image {
+  max-width: 640px;
+  aspect-ratio: 16 / 10;
+  border-radius: 44px;
+  object-fit: cover;
+  object-position: center;
+}
 /* =========================================================
-PART 2 — MAIN SECTIONS, PROCESS, MODULAR OFFERS
+6. STATEMENT / EDITORIAL / PROCESS / VALUE SECTIONS
 ========================================================= */
 
 .acw-statement {
@@ -508,129 +574,6 @@ PART 2 — MAIN SECTIONS, PROCESS, MODULAR OFFERS
   font-weight: 760;
 }
 
-.acw-blueprint-grid,
-.acw-offer-grid,
-.acw-cards {
-  display: grid;
-  gap: 1.35rem;
-  margin-top: 2.35rem;
-}
-
-.acw-blueprint-grid,
-.acw-cards {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.acw-cards-two {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  max-width: 820px;
-}
-
-.acw-offer-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: stretch;
-}
-
-.acw-offer-grid-four {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.acw-before-after-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.4rem;
-  margin-top: 2.8rem;
-}
-
-.acw-before-after-card,
-.acw-blueprint-card,
-.acw-offer-card,
-.acw-value-panel,
-.acw-card,
-.acw-stage-step,
-.acw-choice-panel {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(16, 32, 51, 0.08);
-  box-shadow: var(--shadow-sm);
-}
-
-.acw-before-after-card,
-.acw-blueprint-card,
-.acw-offer-card,
-.acw-value-panel,
-.acw-stage-step,
-.acw-choice-panel {
-  position: relative;
-  overflow: hidden;
-}
-
-.acw-before-after-card {
-  padding: 2.15rem;
-  border-radius: 30px;
-}
-
-.acw-before-after-card::before,
-.acw-blueprint-card::before,
-.acw-offer-card::before,
-.acw-value-panel::before,
-.acw-stage-step::before,
-.acw-choice-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 4px;
-  background: linear-gradient(90deg, rgba(123, 143, 112, 0.58), rgba(218, 192, 157, 0.5));
-  pointer-events: none;
-}
-
-.acw-before-after-card span {
-  display: inline-flex;
-  margin-bottom: 1rem;
-  color: var(--text);
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.acw-before-after-card p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 1.05rem;
-  line-height: 1.75;
-}
-
-.acw-before-after-card-after {
-  background:
-    radial-gradient(circle at top right, rgba(123, 143, 112, 0.08), transparent 40%),
-    rgba(255, 255, 255, 0.96);
-}
-
-.acw-before-after-card-after span {
-  color: var(--accent-dark);
-}
-
-.acw-blueprint-card {
-  min-height: 236px;
-  padding: 1.8rem;
-  border-radius: 30px;
-}
-
-.acw-blueprint-card span {
-  display: inline-flex;
-  margin-bottom: 1.2rem;
-  color: var(--accent-dark);
-  font-size: 0.74rem;
-  font-weight: 850;
-  letter-spacing: 0.12em;
-}
-
-.acw-blueprint-card p,
-.acw-offer-card p,
-.acw-card-body p {
-  color: var(--muted);
-}
-
 .acw-process-list {
   display: grid;
   gap: 0.78rem;
@@ -683,6 +626,282 @@ PART 2 — MAIN SECTIONS, PROCESS, MODULAR OFFERS
   line-height: 1.2;
   text-wrap: balance;
 }
+
+/* =========================================================
+7. SHARED CARDS / GRIDS
+========================================================= */
+
+.acw-blueprint-grid,
+.acw-offer-grid,
+.acw-cards {
+  display: grid;
+  gap: 1.35rem;
+  margin-top: 2.35rem;
+}
+
+.acw-blueprint-grid,
+.acw-cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.acw-cards-two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 820px;
+}
+
+.acw-cards-centered {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.acw-before-after-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+  margin-top: 2.8rem;
+}
+
+.acw-before-after-card,
+.acw-blueprint-card,
+.acw-offer-card,
+.acw-value-panel,
+.acw-card,
+.acw-stage-step,
+.acw-choice-panel {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-before-after-card,
+.acw-blueprint-card,
+.acw-offer-card,
+.acw-value-panel,
+.acw-stage-step,
+.acw-choice-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.acw-before-after-card::before,
+.acw-blueprint-card::before,
+.acw-offer-card::before,
+.acw-value-panel::before,
+.acw-stage-step::before,
+.acw-choice-panel::before,
+.acw-link-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(123, 143, 112, 0.58), rgba(218, 192, 157, 0.5));
+  pointer-events: none;
+}
+
+.acw-before-after-card {
+  padding: 2.15rem;
+  border-radius: 30px;
+}
+
+.acw-before-after-card span {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  color: var(--text);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.acw-before-after-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.acw-before-after-card-after {
+  background:
+    radial-gradient(circle at top right, rgba(123, 143, 112, 0.08), transparent 40%),
+    rgba(255, 255, 255, 0.96);
+}
+
+.acw-before-after-card-after span {
+  color: var(--accent-dark);
+}
+
+.acw-blueprint-card {
+  min-height: 236px;
+  padding: 1.8rem;
+  border-radius: 30px;
+}
+
+.acw-blueprint-card span {
+  display: inline-flex;
+  margin-bottom: 1.2rem;
+  color: var(--accent-dark);
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+
+.acw-blueprint-card p,
+.acw-offer-card p,
+.acw-card-body p {
+  color: var(--muted);
+}
+
+/* =========================================================
+8. MODULAR SERVICES / OFFERS
+========================================================= */
+
+.acw-services-overview {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(218, 192, 157, 0.16), transparent 32%),
+    radial-gradient(circle at 88% 10%, rgba(123, 143, 112, 0.08), transparent 34%),
+    var(--surface);
+}
+
+.acw-offer-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.acw-offer-grid-four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.acw-offer-grid-distinct {
+  gap: 1rem;
+}
+
+.acw-offer-card {
+  display: flex;
+  min-height: 470px;
+  padding: 2rem;
+  flex-direction: column;
+  border-radius: 36px;
+}
+
+.acw-offer-grid-distinct .acw-offer-card {
+  min-height: 500px;
+}
+
+.acw-offer-card-featured,
+.acw-offer-card-clarity {
+  border-color: rgba(83, 107, 77, 0.24);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.14), transparent 38%),
+    rgba(255, 255, 255, 0.96);
+}
+
+.acw-offer-card-identity {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(218, 192, 157, 0.22), transparent 38%),
+    rgba(255, 253, 248, 0.96);
+}
+
+.acw-offer-card-website {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(16, 32, 51, 0.045), transparent 38%),
+    rgba(255, 255, 255, 0.96);
+}
+
+.acw-offer-card-care {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(232, 221, 205, 0.64), transparent 38%),
+    rgba(250, 246, 238, 0.96);
+}
+
+.acw-offer-card h3 {
+  max-width: 13.5ch;
+  font-size: clamp(1.52rem, 1.7vw, 2rem);
+}
+
+.acw-offer-grid-distinct .acw-offer-card h3 {
+  max-width: 11.5ch;
+}
+
+.acw-offer-card ul {
+  display: grid;
+  gap: 0.58rem;
+  margin: 1.3rem 0 1.4rem;
+  padding: 0;
+  list-style: none;
+}
+
+.acw-offer-card li {
+  position: relative;
+  padding-left: 1.25rem;
+  color: rgba(16, 32, 51, 0.74);
+  font-size: 0.91rem;
+  font-weight: 720;
+  line-height: 1.5;
+}
+
+.acw-offer-card li::before {
+  content: "";
+  position: absolute;
+  top: 0.62em;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.acw-offer-card a {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: auto;
+  color: var(--accent-dark);
+  font-weight: 820;
+  border-bottom: 1px solid rgba(83, 107, 77, 0.28);
+}
+
+.acw-price {
+  margin-top: auto;
+  padding-top: 1rem;
+  color: var(--text) !important;
+  font-size: 1rem;
+  font-weight: 850;
+}
+
+.acw-offer-grid-distinct .acw-price {
+  display: inline-flex;
+  width: fit-content;
+  margin: auto 0 1rem;
+  padding: 0.5rem 0.82rem;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: var(--pill);
+  color: var(--text) !important;
+  font-size: 1.06rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.acw-pricing-note {
+  max-width: 66ch;
+  margin: 2rem 0 0;
+  padding: 1.2rem 1.35rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 24px;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.7;
+  box-shadow: var(--shadow-xs);
+}
+
+.acw-services-overview .acw-pricing-note {
+  display: none;
+}
+
+/* =========================================================
+9. STAGE FLOW / CHOICE PANEL
+========================================================= */
 
 .acw-stage-flow {
   display: grid;
@@ -746,71 +965,6 @@ PART 2 — MAIN SECTIONS, PROCESS, MODULAR OFFERS
   box-shadow: var(--shadow-xs);
 }
 
-.acw-offer-card {
-  display: flex;
-  min-height: 470px;
-  padding: 2rem;
-  flex-direction: column;
-  border-radius: 36px;
-}
-
-.acw-offer-card-featured {
-  border-color: rgba(83, 107, 77, 0.24);
-  background:
-    radial-gradient(circle at 20% 0%, rgba(218, 192, 157, 0.24), transparent 36%),
-    rgba(255, 255, 255, 0.96);
-}
-
-.acw-offer-card h3 {
-  max-width: 13.5ch;
-  font-size: clamp(1.52rem, 1.7vw, 2rem);
-}
-
-.acw-offer-card ul {
-  display: grid;
-  gap: 0.58rem;
-  margin: 1.3rem 0 1.4rem;
-  padding: 0;
-  list-style: none;
-}
-
-.acw-offer-card li {
-  position: relative;
-  padding-left: 1.25rem;
-  color: rgba(16, 32, 51, 0.74);
-  font-size: 0.91rem;
-  font-weight: 720;
-  line-height: 1.5;
-}
-
-.acw-offer-card li::before {
-  content: "";
-  position: absolute;
-  top: 0.62em;
-  left: 0;
-  width: 7px;
-  height: 7px;
-  background: var(--accent);
-  border-radius: 50%;
-}
-
-.acw-offer-card a {
-  display: inline-flex;
-  width: fit-content;
-  margin-top: auto;
-  color: var(--accent-dark);
-  font-weight: 820;
-  border-bottom: 1px solid rgba(83, 107, 77, 0.28);
-}
-
-.acw-price {
-  margin-top: auto;
-  padding-top: 1rem;
-  color: var(--text) !important;
-  font-size: 1rem;
-  font-weight: 850;
-}
-
 .acw-choice-panel {
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(320px, 1fr);
@@ -820,8 +974,22 @@ PART 2 — MAIN SECTIONS, PROCESS, MODULAR OFFERS
   border-radius: 34px;
 }
 
+.acw-choice-panel-wide {
+  margin-top: 1.6rem;
+  padding: clamp(1.7rem, 3.4vw, 2.8rem);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.1), transparent 34%),
+    rgba(255, 255, 255, 0.94);
+  border-radius: 34px;
+}
+
 .acw-choice-panel h3 {
   font-size: clamp(1.6rem, 2.3vw, 2.35rem);
+}
+
+.acw-choice-panel-wide h3 {
+  max-width: 14ch;
+  margin-bottom: 0.9rem;
 }
 
 .acw-choice-panel p {
@@ -831,6 +999,10 @@ PART 2 — MAIN SECTIONS, PROCESS, MODULAR OFFERS
 .acw-choice-list {
   display: grid;
   gap: 0.7rem;
+}
+
+.acw-choice-panel-wide .acw-choice-list {
+  align-self: center;
 }
 
 .acw-choice-list p {
@@ -846,21 +1018,8 @@ PART 2 — MAIN SECTIONS, PROCESS, MODULAR OFFERS
 .acw-choice-list strong {
   color: var(--text);
 }
-
-.acw-pricing-note {
-  max-width: 66ch;
-  margin: 2rem 0 0;
-  padding: 1.2rem 1.35rem;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(16, 32, 51, 0.08);
-  border-radius: 24px;
-  color: var(--muted);
-  font-size: 0.96rem;
-  line-height: 1.7;
-  box-shadow: var(--shadow-xs);
-}
 /* =========================================================
-PART 3 — EXAMPLES, ABOUT, FAQ, CONTACT, MOBILE
+10. SHOWCASE / EXAMPLE CARDS
 ========================================================= */
 
 .acw-showcase {
@@ -919,6 +1078,10 @@ PART 3 — EXAMPLES, ABOUT, FAQ, CONTACT, MOBILE
   text-transform: uppercase;
 }
 
+/* =========================================================
+11. ABOUT
+========================================================= */
+
 .acw-about-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(300px, 410px);
@@ -960,6 +1123,10 @@ PART 3 — EXAMPLES, ABOUT, FAQ, CONTACT, MOBILE
   margin: 0;
   color: var(--muted);
 }
+
+/* =========================================================
+12. FAQ
+========================================================= */
 
 .acw-faq-wrap {
   max-width: 820px;
@@ -1014,6 +1181,10 @@ PART 3 — EXAMPLES, ABOUT, FAQ, CONTACT, MOBILE
   line-height: 1.68;
 }
 
+/* =========================================================
+13. HOMEPAGE CONTACT SECTION
+========================================================= */
+
 .acw-contact-split-section {
   background:
     radial-gradient(circle at 72% 18%, rgba(123, 143, 112, 0.12), transparent 32%),
@@ -1050,6 +1221,10 @@ PART 3 — EXAMPLES, ABOUT, FAQ, CONTACT, MOBILE
   border-bottom-color: rgba(16, 32, 51, 0.28);
 }
 
+.acw-contact-split-section .acw-contact-email {
+  display: none;
+}
+
 .acw-contact-note {
   max-width: 54ch;
   margin-top: 1.45rem;
@@ -1067,6 +1242,356 @@ PART 3 — EXAMPLES, ABOUT, FAQ, CONTACT, MOBILE
 .acw-contact-image {
   aspect-ratio: 4 / 3;
 }
+
+/* =========================================================
+14. CONTACT PAGE / FORM
+========================================================= */
+
+.acw-contact-page {
+  min-height: calc(100vh - 82px);
+  padding: 126px 0;
+  background:
+    radial-gradient(circle at 8% 5%, rgba(218, 192, 157, 0.18), transparent 38%),
+    linear-gradient(90deg, #fcf8f1 0%, #f6efe4 45%, #faf8f4 100%);
+}
+
+.acw-contact-page-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 0.72fr);
+  gap: 5.4rem;
+  align-items: center;
+}
+
+.acw-contact-page-copy {
+  max-width: 720px;
+}
+
+.acw-contact-page-copy h1 {
+  max-width: 12.5ch;
+}
+
+.acw-contact-page-emphasis {
+  color: var(--text);
+  font-weight: 760;
+}
+
+.acw-contact-page-note {
+  max-width: 48ch;
+  margin-top: 2rem;
+  padding: 1.25rem 1.35rem;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 24px;
+  box-shadow: var(--shadow-xs);
+}
+
+.acw-contact-page-note p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.acw-contact-form-card {
+  position: relative;
+  padding: clamp(2.1rem, 3.5vw, 3rem);
+  background: #ffffff;
+  border: 1px solid rgba(16, 32, 51, 0.12);
+  border-radius: 38px;
+  box-shadow:
+    0 30px 70px rgba(16, 32, 51, 0.10),
+    0 8px 20px rgba(16, 32, 51, 0.05);
+}
+
+.acw-form-heading {
+  margin-bottom: 2rem;
+}
+
+.acw-form-heading .acw-section-number {
+  margin-bottom: 0.85rem;
+}
+
+.acw-form-heading h2 {
+  max-width: 14ch;
+  margin-bottom: 0.7rem;
+  font-size: clamp(1.8rem, 2.4vw, 2.7rem);
+  line-height: 1;
+}
+
+.acw-form-heading p {
+  max-width: 34ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.acw-contact-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.acw-contact-form label {
+  color: var(--text);
+  font-size: 0.84rem;
+  font-weight: 840;
+}
+
+.acw-contact-form input,
+.acw-contact-form textarea {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  background: #fffdf8;
+  border: 1px solid rgba(16, 32, 51, 0.15);
+  border-radius: 17px;
+  color: var(--text);
+  font: inherit;
+}
+
+.acw-contact-form textarea {
+  resize: vertical;
+}
+
+.acw-contact-form input:focus,
+.acw-contact-form textarea:focus {
+  border-color: rgba(83, 107, 77, 0.58);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(123, 143, 112, 0.13);
+}
+
+.acw-contact-form button {
+  width: 100%;
+  margin-top: 0.65rem;
+}
+
+.acw-form-reassurance {
+  max-width: 34ch;
+  margin: 0.2rem auto 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+/* =========================================================
+15. FOOTER
+========================================================= */
+
+.site-footer {
+  padding: 76px 16px 34px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(218, 192, 157, 0.22), transparent 38%),
+    var(--surface-warm);
+  border-top: 1px solid rgba(16, 32, 51, 0.08);
+  text-align: center;
+}
+
+.footer-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.footer-logo {
+  width: min(280px, 76vw);
+  height: auto;
+}
+
+.footer-tagline {
+  max-width: 440px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.62;
+}
+
+.footer-evidence {
+  max-width: 520px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+
+.footer-links,
+.footer-email {
+  display: none;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.footer-social .social {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 42px !important;
+  height: 42px !important;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 999px;
+  color: var(--accent-dark);
+  box-shadow: var(--shadow-xs);
+}
+
+.footer-social .social:hover {
+  transform: translateY(-2px);
+  background: var(--white);
+  color: var(--text);
+  border-color: rgba(123, 143, 112, 0.22);
+  box-shadow: var(--shadow-sm);
+}
+
+.footer-social svg,
+.footer-social img,
+.footer-social .social svg,
+.footer-social .social img {
+  width: 21px !important;
+  height: 21px !important;
+  max-width: 21px !important;
+  max-height: 21px !important;
+  min-width: 21px !important;
+  min-height: 21px !important;
+}
+
+.footer-copyright {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+/* =========================================================
+16. LINKS PAGE
+========================================================= */
+
+.acw-links-page {
+  min-height: calc(100vh - 82px);
+  padding: clamp(4rem, 8vw, 7rem) 0 clamp(5rem, 8vw, 7rem);
+  background:
+    radial-gradient(circle at 18% 0%, rgba(218, 192, 157, 0.22), transparent 34%),
+    radial-gradient(circle at 86% 14%, rgba(123, 143, 112, 0.10), transparent 32%),
+    linear-gradient(180deg, #fcf8f1 0%, var(--bg) 100%);
+}
+
+.acw-links-shell {
+  max-width: 760px;
+  text-align: center;
+}
+
+.acw-links-hero {
+  display: grid;
+  justify-items: center;
+  margin: 0 auto 2.4rem;
+}
+
+.acw-links-avatar {
+  width: 112px;
+  height: 112px;
+  margin-bottom: 1.25rem;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.78);
+  border-radius: 999px;
+  box-shadow: 0 18px 38px rgba(16, 32, 51, 0.12);
+}
+
+.acw-links-kicker {
+  margin: 0 0 0.9rem;
+  color: var(--accent-dark);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.17em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.acw-links-hero h1 {
+  max-width: 10ch;
+  margin: 0 auto 1rem;
+  font-size: clamp(3.1rem, 7.2vw, 5.6rem);
+  line-height: 0.92;
+}
+
+.acw-links-text {
+  max-width: 44ch;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.15vw, 1.15rem);
+  line-height: 1.72;
+}
+
+.acw-links-list {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.acw-link-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 1.35rem 1.45rem;
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 28px;
+  color: var(--text);
+  text-align: left;
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-link-card-primary {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(218, 192, 157, 0.18), transparent 34%),
+    rgba(255, 255, 255, 0.92);
+}
+
+.acw-link-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(123, 143, 112, 0.24);
+  box-shadow: var(--shadow);
+}
+
+.acw-link-label {
+  display: block;
+  margin-bottom: 0.72rem;
+  color: var(--accent-dark);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.acw-link-card strong {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--text);
+  font-size: clamp(1.28rem, 2vw, 1.7rem);
+  font-weight: 880;
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+}
+
+.acw-link-card p {
+  max-width: 44ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.58;
+}
+
+/* =========================================================
+17. RESPONSIVE
+========================================================= */
 
 @media (max-width: 1180px) {
   .acw-offer-grid-four {
@@ -1088,9 +1613,14 @@ PART 3 — EXAMPLES, ABOUT, FAQ, CONTACT, MOBILE
   .acw-process-layout,
   .acw-about-grid,
   .acw-contact-split,
-  .acw-value-grid {
+  .acw-value-grid,
+  .acw-contact-page-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
+  }
+
+  .acw-hero-refined .acw-hero-grid {
+    grid-template-columns: 1fr;
   }
 
   .acw-editorial-media,
@@ -1101,12 +1631,17 @@ PART 3 — EXAMPLES, ABOUT, FAQ, CONTACT, MOBILE
     max-width: 680px;
   }
 
-  .acw-hero-image-wrap {
+  .acw-hero-image-wrap,
+  .acw-hero-refined .acw-hero-image-wrap {
     justify-content: flex-start;
   }
 
   .acw-hero-image {
     max-width: 520px;
+  }
+
+  .acw-hero-refined .acw-hero-image {
+    max-width: 760px;
   }
 
   .acw-cards,
@@ -1285,6 +1820,15 @@ PART 3 — EXAMPLES, ABOUT, FAQ, CONTACT, MOBILE
     font-weight: 850;
     box-shadow: 0 14px 30px rgba(83, 107, 77, 0.22);
   }
+
+  .acw-contact-page {
+    min-height: auto;
+    padding: 78px 0 88px;
+  }
+
+  .acw-contact-form-card {
+    border-radius: 28px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -1302,6 +1846,10 @@ PART 3 — EXAMPLES, ABOUT, FAQ, CONTACT, MOBILE
     padding: 76px 0 82px;
   }
 
+  .acw-hero-refined {
+    padding: 64px 0 72px;
+  }
+
   h1 {
     max-width: 12.5ch;
     font-size: clamp(2.58rem, 10.9vw, 3.75rem);
@@ -1314,9 +1862,14 @@ PART 3 — EXAMPLES, ABOUT, FAQ, CONTACT, MOBILE
     line-height: 0.98;
   }
 
+  .acw-hero-refined h1 {
+    max-width: 11.8ch;
+  }
+
   .acw-section-heading h2,
   .acw-about-copy h2,
-  .acw-contact-copy h2 {
+  .acw-contact-copy h2,
+  .acw-form-heading h2 {
     max-width: 13ch;
   }
 
@@ -1326,6 +1879,16 @@ PART 3 — EXAMPLES, ABOUT, FAQ, CONTACT, MOBILE
     max-width: 36ch;
     font-size: 1rem;
     line-height: 1.68;
+  }
+
+  .acw-hero-refined .acw-hero-text {
+    max-width: 34ch;
+    margin-top: 1rem;
+  }
+
+  .acw-hero-line {
+    max-width: 30ch;
+    font-size: 1.02rem;
   }
 
   .acw-cta-row {
@@ -1361,10 +1924,26 @@ PART 3 — EXAMPLES, ABOUT, FAQ, CONTACT, MOBILE
     border-radius: 26px;
   }
 
+  .acw-offer-grid-distinct .acw-offer-card {
+    min-height: auto;
+  }
+
+  .acw-offer-grid-distinct .acw-price {
+    margin-top: 0.8rem;
+  }
+
   .acw-pricing-note,
   .acw-modular-note {
     padding: 1.05rem 1.15rem;
     border-radius: 22px;
+  }
+
+  .acw-choice-panel-wide h3 {
+    max-width: 12ch;
+  }
+
+  .acw-choice-list p {
+    padding: 0.85rem 0.9rem;
   }
 
   .acw-process-list li {
@@ -1388,385 +1967,19 @@ PART 3 — EXAMPLES, ABOUT, FAQ, CONTACT, MOBILE
     border-radius: 26px;
   }
 
+  .acw-hero-refined .acw-hero-image {
+    aspect-ratio: 4 / 3;
+    border-radius: 26px;
+  }
+
   .acw-showcase-image img {
     aspect-ratio: 4 / 3;
   }
-}
-/* =========================================================
-ADD BACK — CONTACT PAGE, FORM, FOOTER, LINKS PAGE, EXTRA MOBILE
-Paste this at the very bottom of your current CSS file.
-========================================================= */
 
-/* Contact page */
-
-.acw-contact-page {
-  min-height: calc(100vh - 82px);
-  padding: 126px 0;
-  background:
-    radial-gradient(circle at 8% 5%, rgba(218, 192, 157, 0.18), transparent 38%),
-    linear-gradient(90deg, #fcf8f1 0%, #f6efe4 45%, #faf8f4 100%);
-}
-
-.acw-contact-page-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 0.72fr);
-  gap: 5.4rem;
-  align-items: center;
-}
-
-.acw-contact-page-copy {
-  max-width: 720px;
-}
-
-.acw-contact-page-copy h1 {
-  max-width: 12.5ch;
-}
-
-.acw-contact-page-emphasis {
-  color: var(--text);
-  font-weight: 760;
-}
-
-.acw-contact-page-note {
-  max-width: 48ch;
-  margin-top: 2rem;
-  padding: 1.25rem 1.35rem;
-  background: rgba(255, 255, 255, 0.58);
-  border: 1px solid rgba(16, 32, 51, 0.08);
-  border-radius: 24px;
-  box-shadow: var(--shadow-xs);
-}
-
-.acw-contact-page-note p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.7;
-}
-
-.acw-contact-form-card {
-  position: relative;
-  padding: clamp(2.1rem, 3.5vw, 3rem);
-  background: #ffffff;
-  border: 1px solid rgba(16, 32, 51, 0.12);
-  border-radius: 38px;
-  box-shadow:
-    0 30px 70px rgba(16, 32, 51, 0.10),
-    0 8px 20px rgba(16, 32, 51, 0.05);
-}
-
-.acw-form-heading {
-  margin-bottom: 2rem;
-}
-
-.acw-form-heading .acw-section-number {
-  margin-bottom: 0.85rem;
-}
-
-.acw-form-heading h2 {
-  max-width: 14ch;
-  margin-bottom: 0.7rem;
-  font-size: clamp(1.8rem, 2.4vw, 2.7rem);
-  line-height: 1;
-}
-
-.acw-form-heading p {
-  max-width: 34ch;
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.96rem;
-  line-height: 1.65;
-}
-
-.acw-contact-form {
-  display: grid;
-  gap: 1rem;
-}
-
-.acw-contact-form label {
-  color: var(--text);
-  font-size: 0.84rem;
-  font-weight: 840;
-}
-
-.acw-contact-form input,
-.acw-contact-form textarea {
-  width: 100%;
-  padding: 0.95rem 1rem;
-  background: #fffdf8;
-  border: 1px solid rgba(16, 32, 51, 0.15);
-  border-radius: 17px;
-  color: var(--text);
-  font: inherit;
-}
-
-.acw-contact-form textarea {
-  resize: vertical;
-}
-
-.acw-contact-form input:focus,
-.acw-contact-form textarea:focus {
-  border-color: rgba(83, 107, 77, 0.58);
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(123, 143, 112, 0.13);
-}
-
-.acw-contact-form button {
-  width: 100%;
-  margin-top: 0.65rem;
-}
-
-.acw-form-reassurance {
-  max-width: 34ch;
-  margin: 0.2rem auto 0;
-  color: var(--muted);
-  font-size: 0.82rem;
-  line-height: 1.55;
-  text-align: center;
-}
-
-/* Footer */
-
-.site-footer {
-  padding: 76px 16px 34px;
-  background:
-    radial-gradient(circle at 50% 0%, rgba(218, 192, 157, 0.22), transparent 38%),
-    var(--surface-warm);
-  border-top: 1px solid rgba(16, 32, 51, 0.08);
-  text-align: center;
-}
-
-.footer-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
-  max-width: var(--container);
-  margin: 0 auto;
-}
-
-.footer-logo {
-  width: min(280px, 76vw);
-  height: auto;
-}
-
-.footer-tagline {
-  max-width: 440px;
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.62;
-}
-
-.footer-evidence {
-  max-width: 520px;
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.84rem;
-  line-height: 1.7;
-}
-
-.footer-links,
-.footer-email {
-  display: none;
-}
-
-.footer-social {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-
-.footer-social .social {
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  width: 42px !important;
-  height: 42px !important;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(16, 32, 51, 0.08);
-  border-radius: 999px;
-  color: var(--accent-dark);
-  box-shadow: var(--shadow-xs);
-}
-
-.footer-social .social:hover {
-  transform: translateY(-2px);
-  background: var(--white);
-  color: var(--text);
-  border-color: rgba(123, 143, 112, 0.22);
-  box-shadow: var(--shadow-sm);
-}
-
-.footer-social svg,
-.footer-social img,
-.footer-social .social svg,
-.footer-social .social img {
-  width: 21px !important;
-  height: 21px !important;
-  max-width: 21px !important;
-  max-height: 21px !important;
-  min-width: 21px !important;
-  min-height: 21px !important;
-}
-
-.footer-copyright {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.76rem;
-}
-
-/* Links page */
-
-.acw-links-page {
-  min-height: calc(100vh - 82px);
-  padding: clamp(4rem, 8vw, 7rem) 0 clamp(5rem, 8vw, 7rem);
-  background:
-    radial-gradient(circle at 18% 0%, rgba(218, 192, 157, 0.22), transparent 34%),
-    radial-gradient(circle at 86% 14%, rgba(123, 143, 112, 0.10), transparent 32%),
-    linear-gradient(180deg, #fcf8f1 0%, var(--bg) 100%);
-}
-
-.acw-links-shell {
-  max-width: 760px;
-  text-align: center;
-}
-
-.acw-links-hero {
-  display: grid;
-  justify-items: center;
-  margin: 0 auto 2.4rem;
-}
-
-.acw-links-avatar {
-  width: 112px;
-  height: 112px;
-  margin-bottom: 1.25rem;
-  object-fit: cover;
-  border: 4px solid rgba(255, 255, 255, 0.78);
-  border-radius: 999px;
-  box-shadow: 0 18px 38px rgba(16, 32, 51, 0.12);
-}
-
-.acw-links-kicker {
-  margin: 0 0 0.9rem;
-  color: var(--accent-dark);
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.17em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.acw-links-hero h1 {
-  max-width: 10ch;
-  margin: 0 auto 1rem;
-  font-size: clamp(3.1rem, 7.2vw, 5.6rem);
-  line-height: 0.92;
-}
-
-.acw-links-text {
-  max-width: 44ch;
-  margin: 0 auto;
-  color: var(--muted);
-  font-size: clamp(1rem, 1.15vw, 1.15rem);
-  line-height: 1.72;
-}
-
-.acw-links-list {
-  display: grid;
-  gap: 0.9rem;
-  max-width: 620px;
-  margin: 0 auto;
-}
-
-.acw-link-card {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  padding: 1.35rem 1.45rem;
-  background: rgba(255, 255, 255, 0.84);
-  border: 1px solid rgba(16, 32, 51, 0.08);
-  border-radius: 28px;
-  color: var(--text);
-  text-align: left;
-  box-shadow: var(--shadow-sm);
-}
-
-.acw-link-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 4px;
-  background: linear-gradient(90deg, rgba(123, 143, 112, 0.58), rgba(218, 192, 157, 0.5));
-  pointer-events: none;
-}
-
-.acw-link-card-primary {
-  background:
-    radial-gradient(circle at 100% 0%, rgba(218, 192, 157, 0.18), transparent 34%),
-    rgba(255, 255, 255, 0.92);
-}
-
-.acw-link-card:hover {
-  transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.96);
-  border-color: rgba(123, 143, 112, 0.24);
-  box-shadow: var(--shadow);
-}
-
-.acw-link-label {
-  display: block;
-  margin-bottom: 0.72rem;
-  color: var(--accent-dark);
-  font-size: 0.68rem;
-  font-weight: 900;
-  letter-spacing: 0.14em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.acw-link-card strong {
-  display: block;
-  margin-bottom: 0.45rem;
-  color: var(--text);
-  font-size: clamp(1.28rem, 2vw, 1.7rem);
-  font-weight: 880;
-  letter-spacing: -0.045em;
-  line-height: 1.02;
-}
-
-.acw-link-card p {
-  max-width: 44ch;
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.58;
-}
-
-/* Additional responsive rules from previous full CSS */
-
-@media (max-width: 1040px) {
-  .acw-contact-page-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-}
-
-@media (max-width: 860px) {
-  .acw-contact-page {
-    min-height: auto;
-    padding: 78px 0 88px;
+  .acw-contact-split-section .acw-cta-row {
+    margin-top: 1.5rem;
   }
 
-  .acw-contact-form-card {
-    border-radius: 28px;
-  }
-}
-
-@media (max-width: 700px) {
   .acw-contact-form-card {
     padding: 1.35rem;
   }
@@ -1776,7 +1989,6 @@ Paste this at the very bottom of your current CSS file.
   }
 
   .acw-form-heading h2 {
-    max-width: 13ch;
     font-size: clamp(1.75rem, 8vw, 2.35rem);
   }
 
