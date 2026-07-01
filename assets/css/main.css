@@ -1,294 +1,336 @@
 /* =========================================================
 ALEXANDER WATSON — MAIN STYLESHEET
-Base, layout, homepage, contact page, links page, footer, mobile
+Clarity First • Website Second
 ========================================================= */
+
 
 /* =========================================================
-1. ROOT, RESET, BASE
+1. ROOT
 ========================================================= */
 
-:root {
-  --bg: #f6efe4;
-  --surface: #fffdf8;
-  --surface-soft: #e8ddcd;
-  --surface-quiet: #faf6ee;
-  --surface-warm: #efe4d4;
+:root{
 
-  --text: #102033;
-  --muted: #65717d;
-  --white: #ffffff;
+  --bg:#f6efe4;
+  --surface:#fffdf8;
+  --surface-soft:#e8ddcd;
+  --surface-quiet:#faf6ee;
+  --surface-warm:#efe4d4;
 
-  --accent: #7b8f70;
-  --accent-dark: #536b4d;
-  --navy: #102033;
+  --text:#102033;
+  --muted:#65717d;
 
-  --line: rgba(16, 32, 51, 0.09);
-  --line-strong: rgba(16, 32, 51, 0.16);
+  --white:#ffffff;
 
-  --shadow-xs: 0 6px 16px rgba(16, 32, 51, 0.035);
-  --shadow-sm: 0 16px 36px rgba(16, 32, 51, 0.06);
-  --shadow: 0 26px 64px rgba(16, 32, 51, 0.085);
-  --shadow-lg: 0 32px 82px rgba(16, 32, 51, 0.13);
+  --accent:#7b8f70;
+  --accent-dark:#536b4d;
 
-  --radius-lg: 28px;
-  --radius-xl: 46px;
-  --pill: 999px;
+  --line:rgba(16,32,51,.09);
+  --line-strong:rgba(16,32,51,.16);
 
-  --container: 1120px;
-  --measure: 660px;
+  --shadow-xs:0 6px 16px rgba(16,32,51,.035);
+  --shadow-sm:0 16px 36px rgba(16,32,51,.06);
+  --shadow:0 26px 64px rgba(16,32,51,.085);
+  --shadow-lg:0 34px 90px rgba(16,32,51,.12);
 
-  --font-heading: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --radius:28px;
+  --radius-lg:42px;
+  --pill:999px;
 
-  --transition: 0.24s ease;
+  --container:1120px;
+
+  --font-heading:"Inter",system-ui,sans-serif;
+  --font-body:"Inter",system-ui,sans-serif;
+
+  --transition:.25s ease;
+
 }
+
+
+/* =========================================================
+2. RESET
+========================================================= */
 
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
+*::after{
+  box-sizing:border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 86px;
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:82px;
 }
 
-body {
-  margin: 0;
-  overflow-x: hidden;
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.72;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+body{
+
+  margin:0;
+
+  overflow-x:hidden;
+
+  background:var(--bg);
+
+  color:var(--text);
+
+  font-family:var(--font-body);
+
+  font-size:16px;
+
+  line-height:1.72;
+
+  -webkit-font-smoothing:antialiased;
+
+  text-rendering:optimizeLegibility;
+
 }
 
-body.menu-open {
-  overflow: hidden;
+body.menu-open{
+  overflow:hidden;
 }
 
-img,
-svg {
-  display: block;
-  max-width: 100%;
+img{
+  display:block;
+  max-width:100%;
+  height:auto;
 }
 
-img {
-  height: auto;
+svg{
+  display:block;
 }
 
-a {
-  color: var(--accent-dark);
-  text-decoration: none;
+a{
+
+  color:var(--accent-dark);
+
+  text-decoration:none;
+
   transition:
-    color var(--transition),
-    background var(--transition),
-    border-color var(--transition),
-    box-shadow var(--transition),
-    transform var(--transition),
-    opacity var(--transition);
+  color var(--transition),
+  background var(--transition),
+  border-color var(--transition),
+  transform var(--transition),
+  opacity var(--transition);
+
 }
 
-a:hover {
-  color: var(--text);
+a:hover{
+  color:var(--text);
 }
 
 button,
 input,
-textarea {
-  font: inherit;
+textarea{
+  font:inherit;
 }
 
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-summary:focus-visible {
-  outline: 2px solid var(--accent-dark);
-  outline-offset: 4px;
-  border-radius: 12px;
+button{
+  cursor:pointer;
 }
+
+:focus-visible{
+
+  outline:2px solid var(--accent-dark);
+
+  outline-offset:4px;
+
+}
+
+
+/* =========================================================
+3. GLOBAL LAYOUT
+========================================================= */
 
 .acw-container,
 .container,
-.shell {
-  width: min(100% - 2.8rem, var(--container));
-  margin: 0 auto;
+.shell{
+
+  width:min(100% - 2.8rem,var(--container));
+
+  margin-inline:auto;
+
 }
 
-.site-content {
-  min-height: 60vh;
+.site-content{
+  min-height:60vh;
 }
 
-section {
-  scroll-margin-top: 86px;
+section{
+  scroll-margin-top:82px;
 }
+
 
 /* =========================================================
-2. TYPOGRAPHY
+4. TYPOGRAPHY
 ========================================================= */
 
 h1,
 h2,
-h3 {
-  margin: 0 0 0.92rem;
-  color: var(--text);
-  font-family: var(--font-heading);
-  font-weight: 880;
-  letter-spacing: -0.055em;
-  text-wrap: balance;
+h3{
+
+  margin:0 0 .9rem;
+
+  color:var(--text);
+
+  font-family:var(--font-heading);
+
+  font-weight:880;
+
+  letter-spacing:-.055em;
+
+  text-wrap:balance;
+
 }
 
-h1 {
-  max-width: 11.8ch;
-  font-size: clamp(3.65rem, 5.9vw, 6.25rem);
-  line-height: 0.94;
+h1{
+
+  max-width:11.5ch;
+
+  font-size:clamp(3.45rem,5.4vw,5.9rem);
+
+  line-height:.95;
+
 }
 
-h2 {
-  max-width: 11.8ch;
-  font-size: clamp(2.8rem, 4.15vw, 4.95rem);
-  line-height: 0.96;
+h2{
+
+  max-width:12ch;
+
+  font-size:clamp(2.75rem,4vw,4.8rem);
+
+  line-height:.98;
+
 }
 
-h3 {
-  font-size: clamp(1.22rem, 1.48vw, 1.45rem);
-  line-height: 1.12;
-  letter-spacing: -0.038em;
-  text-wrap: balance;
+h3{
+
+  font-size:clamp(1.22rem,1.45vw,1.5rem);
+
+  line-height:1.15;
+
 }
 
-p {
-  margin: 0 0 1rem;
+p{
+  margin:0 0 1rem;
 }
 
-.acw-eyebrow,
+.acw-section{
+
+  position:relative;
+
+  padding:150px 0;
+
+  background:var(--surface);
+
+}
+
+.acw-section-soft{
+
+  background:
+  radial-gradient(circle at 12% 0%,rgba(255,255,255,.45),transparent 36%),
+  radial-gradient(circle at 88% 16%,rgba(123,143,112,.08),transparent 34%),
+  var(--surface-soft);
+
+}
+
+.acw-section-quiet{
+
+  background:
+  radial-gradient(circle at 90% 10%,rgba(123,143,112,.05),transparent 30%),
+  var(--surface-quiet);
+
+}
+
 .acw-section-number,
-.acw-card-label {
-  display: inline-flex;
-  margin: 0 0 1rem;
-  color: var(--accent-dark);
-  font-size: 0.68rem;
-  font-weight: 900;
-  letter-spacing: 0.17em;
-  line-height: 1;
-  text-transform: uppercase;
-}
+.acw-card-label,
+.acw-eyebrow{
 
-.acw-hero-text,
-.acw-section-text,
-.acw-section-intro {
-  color: var(--muted);
-}
+  display:inline-flex;
 
-.acw-hero-text {
-  max-width: 43ch;
-  margin-top: 1.25rem;
-  font-size: clamp(1.06rem, 1.22vw, 1.18rem);
-  line-height: 1.68;
+  margin-bottom:1rem;
+
+  color:var(--accent-dark);
+
+  font-size:.68rem;
+
+  font-weight:900;
+
+  letter-spacing:.17em;
+
+  text-transform:uppercase;
+
 }
 
 .acw-section-text,
-.acw-section-intro {
-  max-width: 52ch;
-  font-size: clamp(1.02rem, 1.1vw, 1.13rem);
-  line-height: 1.78;
+.acw-section-intro,
+.acw-hero-text{
+
+  color:var(--muted);
+
 }
 
-.acw-hero-line {
-  max-width: 34ch;
-  margin: 1.35rem 0 0;
-  color: var(--text);
-  font-size: clamp(1.08rem, 1.25vw, 1.22rem);
-  font-weight: 820;
-  letter-spacing: -0.025em;
-  line-height: 1.35;
+.acw-section-text,
+.acw-section-intro{
+
+  max-width:52ch;
+
+  font-size:clamp(1.02rem,1.08vw,1.12rem);
+
+  line-height:1.78;
+
 }
 
-/* =========================================================
-3. SECTIONS, BUTTONS, GENERAL LAYOUT
-========================================================= */
+.acw-btn{
 
-.acw-section {
-  position: relative;
-  padding: 160px 0;
-  background: var(--surface);
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  min-height:50px;
+
+  padding:.9rem 1.4rem;
+
+  border-radius:999px;
+
+  border:1px solid transparent;
+
+  font-weight:820;
+
 }
 
-.acw-section-soft {
-  background:
-    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.42), transparent 36%),
-    radial-gradient(circle at 86% 16%, rgba(123, 143, 112, 0.09), transparent 34%),
-    var(--surface-soft);
+.acw-btn-primary{
+
+  background:var(--accent);
+
+  color:white;
+
+  box-shadow:0 12px 26px rgba(83,107,77,.18);
+
 }
 
-.acw-section-quiet {
-  background:
-    radial-gradient(circle at 92% 8%, rgba(123, 143, 112, 0.055), transparent 30%),
-    var(--surface-quiet);
+.acw-btn-primary:hover{
+
+  background:var(--accent-dark);
+
+  color:white;
+
 }
 
-.acw-section-heading {
-  max-width: 820px;
-  margin-bottom: clamp(2.2rem, 4vw, 3.4rem);
+.acw-btn-secondary{
+
+  background:rgba(255,255,255,.82);
+
+  color:var(--text);
+
+  border-color:var(--line);
+
 }
 
-.acw-section-heading h2 {
-  max-width: 13.5ch;
-}
+.acw-btn-secondary:hover{
 
-.acw-cta-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
-  margin-top: 2.25rem;
-}
+  background:white;
 
-.acw-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 50px;
-  padding: 0.88rem 1.38rem;
-  border: 1px solid transparent;
-  border-radius: var(--pill);
-  cursor: pointer;
-  font-size: 0.94rem;
-  font-weight: 840;
-  line-height: 1.1;
-  text-align: center;
 }
-
-.acw-btn:hover {
-  transform: translateY(-2px);
-}
-
-.acw-btn-primary {
-  background: var(--accent);
-  color: var(--white);
-  box-shadow: 0 14px 30px rgba(83, 107, 77, 0.22);
-}
-
-.acw-btn-primary:hover {
-  background: var(--accent-dark);
-  color: var(--white);
-}
-
-.acw-btn-secondary {
-  background: rgba(255, 255, 255, 0.76);
-  color: var(--text);
-  border-color: var(--line);
-}
-
-.acw-btn-secondary:hover {
-  background: var(--white);
-  color: var(--text);
-  border-color: var(--line-strong);
-}
-
 /* =========================================================
 4. HEADER / NAVIGATION
 ========================================================= */
@@ -387,7 +429,6 @@ p {
     transform: translateY(-1px);
   }
 }
-
 /* =========================================================
 5. HERO
 ========================================================= */
@@ -396,42 +437,35 @@ p {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 86% 14%, rgba(123, 143, 112, 0.08), transparent 32%),
-    radial-gradient(circle at 8% 6%, rgba(218, 192, 157, 0.18), transparent 34%),
+    radial-gradient(circle at 86% 18%, rgba(123, 143, 112, 0.09), transparent 34%),
+    radial-gradient(circle at 8% 6%, rgba(218, 192, 157, 0.16), transparent 36%),
     linear-gradient(180deg, #fcf8f1 0%, #f6efe4 100%);
+}
+
+.acw-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/assets/images/brand/alex-watson-logo-mark.svg") no-repeat right -120px center;
+  background-size: min(520px, 54vw);
+  opacity: 0.035;
+  pointer-events: none;
 }
 
 .acw-hero::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
+  inset-inline: 0;
   bottom: 0;
   height: 1px;
   background: rgba(16, 32, 51, 0.06);
 }
-/* =========================================================
-5. HERO (continued)
-========================================================= */
 
 .acw-hero-cover {
-  position: relative;
-  min-height: min(760px, calc(100vh - 82px));
+  min-height: min(620px, calc(100vh - 82px));
   display: flex;
   align-items: center;
-  padding: clamp(88px, 10vw, 140px) 0;
-}
-
-.acw-hero-cover::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    url("/assets/images/brand/alex-watson-logo-mark.svg")
-    no-repeat right -120px center;
-  background-size: 620px;
-  opacity: 0.045;
-  pointer-events: none;
+  padding: clamp(74px, 8vw, 112px) 0;
 }
 
 .acw-hero-cover-inner {
@@ -440,56 +474,48 @@ p {
 }
 
 .acw-hero-cover-copy {
-  max-width: 700px;
+  max-width: 650px;
 }
 
 .acw-hero-cover .acw-eyebrow {
-  margin-bottom: 1rem;
+  margin-bottom: 1.05rem;
 }
 
 .acw-hero-cover h1 {
-  max-width: 11.5ch;
+  max-width: 13ch;
   margin-bottom: 1.15rem;
-  font-size: clamp(3.4rem, 5vw, 5.4rem);
-  line-height: 0.93;
-  letter-spacing: -0.06em;
+  font-size: clamp(2.9rem, 4.35vw, 4.65rem);
+  line-height: 0.98;
+  letter-spacing: -0.058em;
 }
 
 .acw-hero-cover .acw-hero-text {
-  max-width: 40ch;
+  max-width: 47ch;
   margin-top: 0;
-  font-size: clamp(1.08rem, 1.2vw, 1.18rem);
+  color: var(--muted);
+  font-size: clamp(1.02rem, 1.08vw, 1.12rem);
   line-height: 1.72;
 }
 
 .acw-hero-cover .acw-hero-line {
-  margin-top: 1.35rem;
-  font-size: 1.08rem;
-  font-weight: 780;
+  max-width: 40ch;
+  margin-top: 1.2rem;
   color: var(--text);
+  font-size: 1.04rem;
+  font-weight: 780;
+  letter-spacing: -0.02em;
+  line-height: 1.42;
 }
 
 .acw-hero-cover .acw-cta-row {
-  margin-top: 2rem;
-}
-
-/* subtle divider */
-
-.acw-hero-scroll {
-  position: absolute;
-  bottom: 42px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 42px;
-  height: 42px;
-  border: 1px solid rgba(16, 32, 51, 0.08);
-  border-radius: 999px;
-  background: rgba(255,255,255,.55);
-  backdrop-filter: blur(10px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 1.8rem;
 }
 
 /* =========================================================
-6. STATEMENT / EDITORIAL
+6. STATEMENT / EDITORIAL / PROCESS / VALUE
 ========================================================= */
 
 .acw-statement {
@@ -508,172 +534,285 @@ p {
 .acw-statement p:not(.acw-section-number) {
   max-width: 50ch;
   color: var(--muted);
-  font-size: clamp(1.12rem,1.5vw,1.34rem);
+  font-size: clamp(1.12rem, 1.5vw, 1.34rem);
   line-height: 1.72;
 }
 
 .acw-editorial-grid,
 .acw-process-layout,
 .acw-value-grid {
-  display:grid;
-  align-items:center;
-  gap:5rem;
+  display: grid;
+  align-items: center;
+  gap: 5rem;
 }
 
-.acw-editorial-grid{
-  grid-template-columns:1fr .92fr;
+.acw-editorial-grid {
+  grid-template-columns: 1fr 0.92fr;
 }
 
-.acw-process-layout{
-  grid-template-columns:1fr .82fr;
+.acw-process-layout {
+  grid-template-columns: 1fr 0.82fr;
 }
 
-.acw-value-grid{
-  grid-template-columns:1fr .8fr;
+.acw-value-grid {
+  grid-template-columns: 1fr 0.8fr;
+}
+
+.acw-editorial-copy,
+.acw-process-copy,
+.acw-value-copy {
+  max-width: 720px;
+}
+
+.acw-editorial-media,
+.acw-process-image,
+.acw-showcase-image {
+  width: 100%;
+  margin: 0;
 }
 
 .acw-editorial-media img,
 .acw-process-image img,
 .acw-showcase-image img,
 .acw-contact-image,
-.acw-about-image{
-  width:100%;
-  border-radius:34px;
-  border:1px solid rgba(16,32,51,.08);
-  box-shadow:var(--shadow);
+.acw-about-image {
+  width: 100%;
+  object-fit: cover;
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 34px;
+  box-shadow: var(--shadow);
 }
 
-.acw-mini-list{
-  display:flex;
-  flex-wrap:wrap;
-  gap:.55rem;
-  margin-top:1.4rem;
+.acw-editorial-media img,
+.acw-process-image img {
+  aspect-ratio: 4 / 3;
 }
 
-.acw-mini-list span{
-  padding:.5rem .8rem;
-  background:rgba(255,255,255,.72);
-  border-radius:999px;
-  border:1px solid rgba(16,32,51,.07);
-  font-size:.78rem;
-  font-weight:760;
+.acw-mini-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1.4rem;
 }
 
+.acw-mini-list span {
+  display: inline-flex;
+  padding: 0.5rem 0.8rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(16, 32, 51, 0.07);
+  border-radius: 999px;
+  color: rgba(16, 32, 51, 0.68);
+  font-size: 0.78rem;
+  font-weight: 760;
+}
 /* =========================================================
-7. CARDS
+7. CARDS / GRIDS
 ========================================================= */
 
 .acw-blueprint-grid,
 .acw-offer-grid,
-.acw-cards{
-  display:grid;
-  gap:1.35rem;
+.acw-cards {
+  display: grid;
+  gap: 1.35rem;
+  margin-top: 2.35rem;
 }
 
-.acw-blueprint-grid{
-  grid-template-columns:repeat(3,1fr);
+.acw-blueprint-grid,
+.acw-cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.acw-cards-two{
-  grid-template-columns:repeat(2,1fr);
+.acw-cards-two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 820px;
 }
 
-.acw-before-after-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:1.35rem;
+.acw-cards-centered {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.acw-before-after-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.35rem;
+  margin-top: 2.8rem;
 }
 
 .acw-before-after-card,
 .acw-blueprint-card,
 .acw-offer-card,
 .acw-choice-panel,
-.acw-value-panel{
-  background:rgba(255,255,255,.92);
-  border:1px solid rgba(16,32,51,.08);
-  border-radius:28px;
-  box-shadow:var(--shadow-sm);
+.acw-value-panel,
+.acw-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 28px;
+  box-shadow: var(--shadow-sm);
 }
 
-.acw-before-after-card{
-  padding:2rem;
+.acw-before-after-card,
+.acw-blueprint-card,
+.acw-offer-card,
+.acw-choice-panel,
+.acw-value-panel {
+  position: relative;
+  overflow: hidden;
 }
 
-.acw-blueprint-card{
-  padding:1.8rem;
-  min-height:220px;
+.acw-before-after-card::before,
+.acw-blueprint-card::before,
+.acw-offer-card::before,
+.acw-choice-panel::before,
+.acw-value-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(123, 143, 112, 0.55), rgba(218, 192, 157, 0.45));
+  pointer-events: none;
+}
+
+.acw-before-after-card {
+  padding: 2rem;
+}
+
+.acw-blueprint-card {
+  min-height: 220px;
+  padding: 1.8rem;
 }
 
 .acw-blueprint-card span,
-.acw-before-after-card span{
-  display:inline-flex;
-  margin-bottom:1rem;
-  color:var(--accent-dark);
-  font-size:.72rem;
-  font-weight:850;
-  letter-spacing:.12em;
+.acw-before-after-card span {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  color: var(--accent-dark);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .acw-blueprint-card p,
-.acw-before-after-card p{
-  color:var(--muted);
+.acw-before-after-card p,
+.acw-offer-card p,
+.acw-card-body p {
+  color: var(--muted);
+}
+
+.acw-before-after-card p {
+  margin: 0;
+  font-size: 1.04rem;
+  line-height: 1.75;
 }
 
 /* =========================================================
-8. OFFER GRID
+8. MODULAR SERVICES / OFFERS
 ========================================================= */
 
-.acw-offer-grid-four{
-  grid-template-columns:repeat(4,1fr);
+.acw-services-overview {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(218, 192, 157, 0.16), transparent 32%),
+    radial-gradient(circle at 88% 10%, rgba(123, 143, 112, 0.08), transparent 34%),
+    var(--surface);
 }
 
-.acw-offer-card{
-  display:flex;
-  flex-direction:column;
-  min-height:470px;
-  padding:2rem;
+.acw-offer-grid {
+  align-items: stretch;
 }
 
-.acw-offer-card h3{
-  max-width:11ch;
+.acw-offer-grid-four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.acw-offer-card ul{
-  display:grid;
-  gap:.6rem;
-  margin:1.3rem 0;
-  padding:0;
-  list-style:none;
+.acw-offer-grid-distinct {
+  gap: 1rem;
 }
 
-.acw-offer-card li{
-  position:relative;
-  padding-left:1.2rem;
+.acw-offer-card {
+  display: flex;
+  min-height: 470px;
+  padding: 2rem;
+  flex-direction: column;
+  border-radius: 32px;
 }
 
-.acw-offer-card li::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:.65em;
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:var(--accent);
+.acw-offer-card-clarity {
+  border-color: rgba(83, 107, 77, 0.24);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.13), transparent 38%),
+    rgba(255, 255, 255, 0.96);
 }
 
-.acw-price{
-  margin-top:auto;
-  padding-top:1rem;
-  font-size:1.05rem;
-  font-weight:900;
+.acw-offer-card-identity {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(218, 192, 157, 0.2), transparent 38%),
+    rgba(255, 253, 248, 0.96);
 }
 
-.acw-offer-card a{
-  margin-top:1rem;
-  width:fit-content;
-  font-weight:820;
+.acw-offer-card-website {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(16, 32, 51, 0.04), transparent 38%),
+    rgba(255, 255, 255, 0.96);
 }
+
+.acw-offer-card-care {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(232, 221, 205, 0.62), transparent 38%),
+    rgba(250, 246, 238, 0.96);
+}
+
+.acw-offer-card h3 {
+  max-width: 11.5ch;
+  font-size: clamp(1.48rem, 1.65vw, 1.92rem);
+}
+
+.acw-offer-card ul {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1.3rem 0 1.4rem;
+  padding: 0;
+  list-style: none;
+}
+
+.acw-offer-card li {
+  position: relative;
+  padding-left: 1.2rem;
+  color: rgba(16, 32, 51, 0.74);
+  font-size: 0.91rem;
+  font-weight: 720;
+  line-height: 1.5;
+}
+
+.acw-offer-card li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.acw-price {
+  margin-top: auto;
+  padding-top: 1rem;
+  color: var(--text) !important;
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.acw-offer-card a {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 1rem;
+  color: var(--accent-dark);
+  font-weight: 820;
+  border-bottom: 1px solid rgba(83, 107, 77, 0.28);
+}
+
 /* =========================================================
 9. CHOICE PANEL / PROCESS / VALUE
 ========================================================= */
@@ -805,10 +944,7 @@ p {
 .acw-card {
   overflow: hidden;
   height: 100%;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(16, 32, 51, 0.08);
   border-radius: 32px;
-  box-shadow: var(--shadow-sm);
 }
 
 .acw-card-link:hover .acw-card {
@@ -835,11 +971,6 @@ p {
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
-
-.acw-card-body p {
-  color: var(--muted);
-}
-
 /* =========================================================
 11. ABOUT
 ========================================================= */
@@ -1004,6 +1135,7 @@ p {
 .acw-contact-image {
   aspect-ratio: 4 / 3;
 }
+
 /* =========================================================
 14. CONTACT PAGE / FORM
 ========================================================= */
@@ -1388,15 +1520,15 @@ p {
     max-width: 680px;
   }
 
+  .acw-hero::before {
+    background-size: 440px;
+    background-position: right -160px center;
+    opacity: 0.032;
+  }
+
   .acw-hero-cover {
     min-height: auto;
     padding: 88px 0 82px;
-  }
-
-  .acw-hero-cover::before {
-    background-size: 440px;
-    background-position: right -160px center;
-    opacity: 0.035;
   }
 
   .acw-hero-cover h1 {
@@ -1596,24 +1728,25 @@ p {
     padding: 1.35rem;
   }
 
-  .acw-hero-cover {
-    padding: 70px 0 74px;
+  .acw-hero::before {
+    background-size: 300px;
+    background-position: right -145px top 42px;
+    opacity: 0.03;
   }
 
-  .acw-hero-cover::before {
-    background-size: 320px;
-    background-position: right -145px top 46px;
-    opacity: 0.035;
+  .acw-hero-cover {
+    min-height: auto;
+    padding: 64px 0 68px;
   }
 
   .acw-hero-cover h1 {
     max-width: 12ch;
-    font-size: clamp(2.55rem, 12vw, 3.75rem);
-    line-height: 0.98;
+    font-size: clamp(2.35rem, 10.5vw, 3.35rem);
+    line-height: 1;
   }
 
   .acw-hero-cover .acw-hero-text {
-    font-size: 1rem;
+    font-size: 0.98rem;
     line-height: 1.65;
   }
 
