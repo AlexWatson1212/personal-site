@@ -266,12 +266,6 @@ p {
   border-color: var(--line-strong);
 }
 
-.acw-hero-proof,
-.acw-trust-strip,
-#proof {
-  display: none;
-}
-
 .site-header {
   position: sticky;
   top: 0;
@@ -321,14 +315,6 @@ p {
 @media (min-width: 861px) {
   .acw-hero-copy h1 {
     max-width: 12.4ch;
-  }
-
-  .acw-statement h2,
-  .acw-showcase-copy h2,
-  .acw-about-copy h2,
-  .acw-contact-copy h2,
-  .acw-contact-page-copy h1 {
-    max-width: 14.5ch;
   }
 
   .nav__panel {
@@ -427,7 +413,7 @@ p {
   box-shadow: var(--shadow-lg);
 }
 /* =========================================================
-PART 2 — MAIN SECTIONS, PROCESS, OFFERS, EXAMPLES
+PART 2 — MAIN SECTIONS, PROCESS, MODULAR OFFERS
 ========================================================= */
 
 .acw-statement {
@@ -535,9 +521,18 @@ PART 2 — MAIN SECTIONS, PROCESS, OFFERS, EXAMPLES
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.acw-cards-two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 820px;
+}
+
 .acw-offer-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: stretch;
+}
+
+.acw-offer-grid-four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .acw-before-after-grid {
@@ -547,26 +542,45 @@ PART 2 — MAIN SECTIONS, PROCESS, OFFERS, EXAMPLES
   margin-top: 2.8rem;
 }
 
-.acw-before-after-card {
-  position: relative;
-  overflow: hidden;
-  padding: 2.15rem;
+.acw-before-after-card,
+.acw-blueprint-card,
+.acw-offer-card,
+.acw-value-panel,
+.acw-card,
+.acw-stage-step,
+.acw-choice-panel {
   background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(16, 32, 51, 0.08);
-  border-radius: 30px;
   box-shadow: var(--shadow-sm);
 }
 
-.acw-before-after-card::before {
+.acw-before-after-card,
+.acw-blueprint-card,
+.acw-offer-card,
+.acw-value-panel,
+.acw-stage-step,
+.acw-choice-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.acw-before-after-card {
+  padding: 2.15rem;
+  border-radius: 30px;
+}
+
+.acw-before-after-card::before,
+.acw-blueprint-card::before,
+.acw-offer-card::before,
+.acw-value-panel::before,
+.acw-stage-step::before,
+.acw-choice-panel::before {
   content: "";
   position: absolute;
   inset: 0 0 auto 0;
   height: 4px;
-  background: linear-gradient(
-    90deg,
-    rgba(123, 143, 112, 0.55),
-    rgba(218, 192, 157, 0.45)
-  );
+  background: linear-gradient(90deg, rgba(123, 143, 112, 0.58), rgba(218, 192, 157, 0.5));
+  pointer-events: none;
 }
 
 .acw-before-after-card span {
@@ -596,53 +610,10 @@ PART 2 — MAIN SECTIONS, PROCESS, OFFERS, EXAMPLES
   color: var(--accent-dark);
 }
 
-.acw-blueprint-card,
-.acw-offer-card,
-.acw-value-panel,
-.acw-card {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(16, 32, 51, 0.08);
-  box-shadow: var(--shadow-sm);
-}
-
-.acw-blueprint-card,
-.acw-offer-card,
-.acw-value-panel {
-  position: relative;
-  overflow: hidden;
-}
-
 .acw-blueprint-card {
   min-height: 236px;
   padding: 1.8rem;
   border-radius: 30px;
-}
-
-.acw-offer-card {
-  display: flex;
-  min-height: 442px;
-  padding: 2.12rem;
-  flex-direction: column;
-  border-radius: 36px;
-}
-
-.acw-offer-card-featured {
-  border-color: rgba(83, 107, 77, 0.24);
-  background:
-    radial-gradient(circle at 20% 0%, rgba(218, 192, 157, 0.24), transparent 36%),
-    rgba(255, 255, 255, 0.96);
-}
-
-.acw-blueprint-card::before,
-.acw-offer-card::before,
-.acw-link-card::before,
-.acw-value-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 4px;
-  background: linear-gradient(90deg, rgba(123, 143, 112, 0.58), rgba(218, 192, 157, 0.5));
-  pointer-events: none;
 }
 
 .acw-blueprint-card span {
@@ -695,10 +666,6 @@ PART 2 — MAIN SECTIONS, PROCESS, OFFERS, EXAMPLES
   line-height: 1.35;
 }
 
-.acw-process-image img {
-  max-height: 420px;
-}
-
 .acw-value-panel {
   padding: clamp(2rem, 4vw, 3.2rem);
   background:
@@ -717,9 +684,86 @@ PART 2 — MAIN SECTIONS, PROCESS, OFFERS, EXAMPLES
   text-wrap: balance;
 }
 
+.acw-stage-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  gap: 1rem;
+  align-items: stretch;
+  margin-top: 2.35rem;
+}
+
+.acw-stage-step {
+  min-height: 210px;
+  padding: 1.65rem;
+  border-radius: 30px;
+}
+
+.acw-stage-step span {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  color: var(--accent-dark);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.acw-stage-step strong {
+  display: block;
+  margin-bottom: 0.7rem;
+  color: var(--text);
+  font-size: 1.25rem;
+  font-weight: 880;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.acw-stage-step p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.62;
+}
+
+.acw-stage-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-dark);
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+.acw-modular-note {
+  max-width: 64ch;
+  margin: 2rem 0 0;
+  padding: 1.2rem 1.35rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 24px;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.7;
+  box-shadow: var(--shadow-xs);
+}
+
+.acw-offer-card {
+  display: flex;
+  min-height: 470px;
+  padding: 2rem;
+  flex-direction: column;
+  border-radius: 36px;
+}
+
+.acw-offer-card-featured {
+  border-color: rgba(83, 107, 77, 0.24);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(218, 192, 157, 0.24), transparent 36%),
+    rgba(255, 255, 255, 0.96);
+}
+
 .acw-offer-card h3 {
   max-width: 13.5ch;
-  font-size: clamp(1.6rem, 2.05vw, 2.2rem);
+  font-size: clamp(1.52rem, 1.7vw, 2rem);
 }
 
 .acw-offer-card ul {
@@ -734,7 +778,7 @@ PART 2 — MAIN SECTIONS, PROCESS, OFFERS, EXAMPLES
   position: relative;
   padding-left: 1.25rem;
   color: rgba(16, 32, 51, 0.74);
-  font-size: 0.93rem;
+  font-size: 0.91rem;
   font-weight: 720;
   line-height: 1.5;
 }
@@ -767,6 +811,42 @@ PART 2 — MAIN SECTIONS, PROCESS, OFFERS, EXAMPLES
   font-weight: 850;
 }
 
+.acw-choice-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(320px, 1fr);
+  gap: 2.2rem;
+  margin-top: 1.4rem;
+  padding: clamp(1.6rem, 3vw, 2.4rem);
+  border-radius: 34px;
+}
+
+.acw-choice-panel h3 {
+  font-size: clamp(1.6rem, 2.3vw, 2.35rem);
+}
+
+.acw-choice-panel p {
+  color: var(--muted);
+}
+
+.acw-choice-list {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.acw-choice-list p {
+  margin: 0;
+  padding: 0.95rem 1rem;
+  background: rgba(250, 246, 238, 0.88);
+  border: 1px solid rgba(16, 32, 51, 0.07);
+  border-radius: 18px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.acw-choice-list strong {
+  color: var(--text);
+}
+
 .acw-pricing-note {
   max-width: 66ch;
   margin: 2rem 0 0;
@@ -779,6 +859,9 @@ PART 2 — MAIN SECTIONS, PROCESS, OFFERS, EXAMPLES
   line-height: 1.7;
   box-shadow: var(--shadow-xs);
 }
+/* =========================================================
+PART 3 — EXAMPLES, ABOUT, FAQ, CONTACT, MOBILE
+========================================================= */
 
 .acw-showcase {
   display: grid;
@@ -835,9 +918,6 @@ PART 2 — MAIN SECTIONS, PROCESS, OFFERS, EXAMPLES
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
-/* =========================================================
-PART 3 — ABOUT, FAQ, CONTACT, FOOTER, LINKS, MOBILE
-========================================================= */
 
 .acw-about-grid {
   display: grid;
@@ -988,6 +1068,335 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, LINKS, MOBILE
   aspect-ratio: 4 / 3;
 }
 
+@media (max-width: 1180px) {
+  .acw-offer-grid-four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .acw-stage-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .acw-stage-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 1040px) {
+  .acw-hero-grid,
+  .acw-editorial-grid,
+  .acw-process-layout,
+  .acw-about-grid,
+  .acw-contact-split,
+  .acw-value-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .acw-editorial-media,
+  .acw-process-image,
+  .acw-about-side,
+  .acw-contact-image-wrap {
+    justify-self: start;
+    max-width: 680px;
+  }
+
+  .acw-hero-image-wrap {
+    justify-content: flex-start;
+  }
+
+  .acw-hero-image {
+    max-width: 520px;
+  }
+
+  .acw-cards,
+  .acw-blueprint-grid,
+  .acw-offer-grid,
+  .acw-cards-two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .acw-choice-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  html {
+    scroll-padding-top: 68px;
+  }
+
+  section {
+    scroll-margin-top: 68px;
+  }
+
+  .site-header .nav {
+    justify-content: center;
+    min-height: 68px;
+  }
+
+  .nav__brand {
+    justify-content: center;
+  }
+
+  .nav__logo {
+    height: 44px;
+  }
+
+  .nav__toggle {
+    position: absolute;
+    right: 0;
+    z-index: 1006;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    background: rgba(255, 253, 248, 0.78);
+    color: var(--text);
+    border: 1px solid rgba(16, 32, 51, 0.09);
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: var(--shadow-xs);
+  }
+
+  .nav__icon,
+  .nav__icon::before,
+  .nav__icon::after {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: currentColor;
+    border-radius: var(--pill);
+    transition: transform var(--transition), opacity var(--transition);
+  }
+
+  .nav__icon {
+    position: relative;
+  }
+
+  .nav__icon::before,
+  .nav__icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .nav__icon::before {
+    top: -6px;
+  }
+
+  .nav__icon::after {
+    top: 6px;
+  }
+
+  body.menu-open .nav__icon {
+    background: transparent;
+  }
+
+  body.menu-open .nav__icon::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  body.menu-open .nav__icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  .nav__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1001;
+    display: block;
+    background: #f6efe4;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.28s ease, visibility 0.28s ease;
+  }
+
+  body.menu-open .nav__overlay {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .nav__panel {
+    position: fixed;
+    inset: 0;
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    padding: 112px 26px 38px;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(218, 192, 157, 0.22), transparent 36%),
+      #f6efe4;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 0.28s ease, visibility 0.28s ease, transform 0.28s ease;
+  }
+
+  body.menu-open .nav__panel {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav__links {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav__links a {
+    display: block;
+    width: 100%;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(16, 32, 51, 0.1);
+    color: var(--text);
+    font-size: 1.24rem;
+    font-weight: 820;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .nav__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 58px;
+    margin-top: 40px;
+    border-radius: var(--pill);
+    background: var(--accent);
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 850;
+    box-shadow: 0 14px 30px rgba(83, 107, 77, 0.22);
+  }
+}
+
+@media (max-width: 700px) {
+  .acw-container,
+  .container,
+  .shell {
+    width: min(100% - 1.5rem, var(--container));
+  }
+
+  .acw-section {
+    padding: 88px 0;
+  }
+
+  .acw-hero {
+    padding: 76px 0 82px;
+  }
+
+  h1 {
+    max-width: 12.5ch;
+    font-size: clamp(2.58rem, 10.9vw, 3.75rem);
+    line-height: 0.96;
+  }
+
+  h2 {
+    max-width: 13ch;
+    font-size: clamp(2.08rem, 9.2vw, 3rem);
+    line-height: 0.98;
+  }
+
+  .acw-section-heading h2,
+  .acw-about-copy h2,
+  .acw-contact-copy h2 {
+    max-width: 13ch;
+  }
+
+  .acw-hero-text,
+  .acw-section-text,
+  .acw-section-intro {
+    max-width: 36ch;
+    font-size: 1rem;
+    line-height: 1.68;
+  }
+
+  .acw-cta-row {
+    gap: 0.65rem;
+  }
+
+  .acw-btn {
+    width: 100%;
+  }
+
+  .acw-statement {
+    padding: 96px 0;
+  }
+
+  .acw-before-after-grid,
+  .acw-cards,
+  .acw-cards-two,
+  .acw-blueprint-grid,
+  .acw-offer-grid,
+  .acw-offer-grid-four,
+  .acw-stage-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-blueprint-card,
+  .acw-offer-card,
+  .acw-value-panel,
+  .acw-before-after-card,
+  .acw-stage-step,
+  .acw-choice-panel {
+    min-height: auto;
+    padding: 1.45rem;
+    border-radius: 26px;
+  }
+
+  .acw-pricing-note,
+  .acw-modular-note {
+    padding: 1.05rem 1.15rem;
+    border-radius: 22px;
+  }
+
+  .acw-process-list li {
+    border-radius: 20px;
+  }
+
+  .acw-process-image {
+    display: none;
+  }
+
+  .acw-card-body {
+    padding: 1.35rem;
+  }
+
+  .acw-editorial-media img,
+  .acw-process-image img,
+  .acw-showcase-image img,
+  .acw-about-image,
+  .acw-contact-image,
+  .acw-hero-image {
+    border-radius: 26px;
+  }
+
+  .acw-showcase-image img {
+    aspect-ratio: 4 / 3;
+  }
+}
+/* =========================================================
+ADD BACK — CONTACT PAGE, FORM, FOOTER, LINKS PAGE, EXTRA MOBILE
+Paste this at the very bottom of your current CSS file.
+========================================================= */
+
 /* Contact page */
 
 .acw-contact-page {
@@ -1115,6 +1524,8 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, LINKS, MOBILE
   line-height: 1.55;
   text-align: center;
 }
+
+/* Footer */
 
 .site-footer {
   padding: 76px 16px 34px;
@@ -1284,6 +1695,15 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, LINKS, MOBILE
   box-shadow: var(--shadow-sm);
 }
 
+.acw-link-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(123, 143, 112, 0.58), rgba(218, 192, 157, 0.5));
+  pointer-events: none;
+}
+
 .acw-link-card-primary {
   background:
     radial-gradient(circle at 100% 0%, rgba(218, 192, 157, 0.18), transparent 34%),
@@ -1326,206 +1746,16 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, LINKS, MOBILE
   line-height: 1.58;
 }
 
+/* Additional responsive rules from previous full CSS */
+
 @media (max-width: 1040px) {
-  .acw-hero-grid,
-  .acw-editorial-grid,
-  .acw-process-layout,
-  .acw-about-grid,
-  .acw-contact-split,
-  .acw-value-grid,
   .acw-contact-page-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-
-  .acw-editorial-media,
-  .acw-process-image,
-  .acw-about-side,
-  .acw-contact-image-wrap {
-    justify-self: start;
-    max-width: 680px;
-  }
-
-  .acw-hero-image-wrap {
-    justify-content: flex-start;
-  }
-
-  .acw-hero-image {
-    max-width: 520px;
-  }
-
-  .acw-cards,
-  .acw-blueprint-grid,
-  .acw-offer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 860px) {
-  html {
-    scroll-padding-top: 68px;
-  }
-
-  section {
-    scroll-margin-top: 68px;
-  }
-
-  .site-header .nav {
-    justify-content: center;
-    min-height: 68px;
-  }
-
-  .nav__brand {
-    justify-content: center;
-  }
-
-  .nav__logo {
-    height: 44px;
-  }
-
-  .nav__toggle {
-    position: absolute;
-    right: 0;
-    z-index: 1006;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    padding: 0;
-    background: rgba(255, 253, 248, 0.78);
-    color: var(--text);
-    border: 1px solid rgba(16, 32, 51, 0.09);
-    border-radius: 14px;
-    cursor: pointer;
-    box-shadow: var(--shadow-xs);
-  }
-
-  .nav__icon,
-  .nav__icon::before,
-  .nav__icon::after {
-    display: block;
-    width: 18px;
-    height: 2px;
-    background: currentColor;
-    border-radius: var(--pill);
-    transition: transform var(--transition), opacity var(--transition);
-  }
-
-  .nav__icon {
-    position: relative;
-  }
-
-  .nav__icon::before,
-  .nav__icon::after {
-    content: "";
-    position: absolute;
-    left: 0;
-  }
-
-  .nav__icon::before {
-    top: -6px;
-  }
-
-  .nav__icon::after {
-    top: 6px;
-  }
-
-  body.menu-open .nav__icon {
-    background: transparent;
-  }
-
-  body.menu-open .nav__icon::before {
-    top: 0;
-    transform: rotate(45deg);
-  }
-
-  body.menu-open .nav__icon::after {
-    top: 0;
-    transform: rotate(-45deg);
-  }
-
-  .nav__overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 1001;
-    display: block;
-    background: #f6efe4;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.28s ease, visibility 0.28s ease;
-  }
-
-  body.menu-open .nav__overlay {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
-
-  .nav__panel {
-    position: fixed;
-    inset: 0;
-    z-index: 1002;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    min-height: 100vh;
-    max-height: 100vh;
-    overflow-y: auto;
-    padding: 112px 26px 38px;
-    background:
-      radial-gradient(circle at 50% 0%, rgba(218, 192, 157, 0.22), transparent 36%),
-      #f6efe4;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: translateY(-8px);
-    transition: opacity 0.28s ease, visibility 0.28s ease, transform 0.28s ease;
-  }
-
-  body.menu-open .nav__panel {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-
-  .nav__links {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .nav__links a {
-    display: block;
-    width: 100%;
-    padding: 18px 0;
-    border-bottom: 1px solid rgba(16, 32, 51, 0.1);
-    color: var(--text);
-    font-size: 1.24rem;
-    font-weight: 820;
-    letter-spacing: -0.025em;
-    line-height: 1.2;
-    text-align: center;
-  }
-
-  .nav__cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 58px;
-    margin-top: 40px;
-    border-radius: var(--pill);
-    background: var(--accent);
-    color: var(--white);
-    font-size: 1rem;
-    font-weight: 850;
-    box-shadow: 0 14px 30px rgba(83, 107, 77, 0.22);
-  }
-
   .acw-contact-page {
     min-height: auto;
     padding: 78px 0 88px;
@@ -1537,105 +1767,6 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, LINKS, MOBILE
 }
 
 @media (max-width: 700px) {
-  .acw-container,
-  .container,
-  .shell {
-    width: min(100% - 1.5rem, var(--container));
-  }
-
-  .acw-section {
-    padding: 88px 0;
-  }
-
-  .acw-hero {
-    padding: 76px 0 82px;
-  }
-
-  h1 {
-    max-width: 12.5ch;
-    font-size: clamp(2.58rem, 10.9vw, 3.75rem);
-    line-height: 0.96;
-  }
-
-  h2 {
-    max-width: 13ch;
-    font-size: clamp(2.08rem, 9.2vw, 3rem);
-    line-height: 0.98;
-  }
-
-  .acw-section-heading h2,
-  .acw-about-copy h2,
-  .acw-contact-copy h2,
-  .acw-contact-page-copy h1 {
-    max-width: 13ch;
-  }
-
-  .acw-hero-text,
-  .acw-section-text,
-  .acw-section-intro {
-    max-width: 36ch;
-    font-size: 1rem;
-    line-height: 1.68;
-  }
-
-  .acw-cta-row {
-    gap: 0.65rem;
-  }
-
-  .acw-btn {
-    width: 100%;
-  }
-
-  .acw-statement {
-    padding: 96px 0;
-  }
-
-  .acw-before-after-grid,
-  .acw-cards,
-  .acw-blueprint-grid,
-  .acw-offer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .acw-blueprint-card,
-  .acw-offer-card,
-  .acw-value-panel,
-  .acw-before-after-card {
-    min-height: auto;
-    padding: 1.45rem;
-    border-radius: 26px;
-  }
-
-  .acw-pricing-note {
-    padding: 1.05rem 1.15rem;
-    border-radius: 22px;
-  }
-
-  .acw-process-list li {
-    border-radius: 20px;
-  }
-
-  .acw-process-image {
-    display: none;
-  }
-
-  .acw-card-body {
-    padding: 1.35rem;
-  }
-
-  .acw-editorial-media img,
-  .acw-process-image img,
-  .acw-showcase-image img,
-  .acw-about-image,
-  .acw-contact-image,
-  .acw-hero-image {
-    border-radius: 26px;
-  }
-
-  .acw-showcase-image img {
-    aspect-ratio: 4 / 3;
-  }
-
   .acw-contact-form-card {
     padding: 1.35rem;
   }
@@ -1659,38 +1790,22 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, LINKS, MOBILE
   }
 
   .acw-links-avatar {
-    width: 88px;
-    height: 88px;
-    margin-bottom: 1rem;
-  }
-
-  .acw-links-hero {
-    margin-bottom: 1.8rem;
+    width: 96px;
+    height: 96px;
   }
 
   .acw-links-hero h1 {
-    max-width: 10ch;
-    font-size: clamp(2.8rem, 12vw, 3.75rem);
-    line-height: 0.94;
-  }
-
-  .acw-links-text {
-    max-width: 32ch;
-    font-size: 1rem;
-    line-height: 1.68;
-  }
-
-  .acw-links-list {
-    gap: 0.75rem;
+    max-width: 11ch;
+    font-size: clamp(2.45rem, 12vw, 3.7rem);
   }
 
   .acw-link-card {
-    padding: 1.25rem;
+    padding: 1.15rem;
     border-radius: 24px;
   }
 
   .acw-link-card strong {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
 
   .site-footer {
@@ -1698,11 +1813,6 @@ PART 3 — ABOUT, FAQ, CONTACT, FOOTER, LINKS, MOBILE
   }
 
   .footer-logo {
-    width: min(230px, 80vw);
-  }
-
-  .footer-tagline,
-  .footer-evidence {
-    max-width: 32ch;
+    width: min(235px, 72vw);
   }
 }
