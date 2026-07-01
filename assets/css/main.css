@@ -2028,3 +2028,53 @@ p {
     width: min(235px, 72vw);
   }
 }
+/* =========================================================
+HERO BALANCE PATCH — DESKTOP + MOBILE
+========================================================= */
+
+/* Give the desktop headline more width so it does not stack too aggressively */
+@media (min-width: 1041px) {
+  .acw-hero-refined .acw-hero-grid {
+    grid-template-columns: minmax(0, 0.95fr) minmax(460px, 0.9fr);
+    gap: clamp(3rem, 5vw, 5.5rem);
+  }
+
+  .acw-hero-refined .acw-hero-copy {
+    max-width: 760px;
+  }
+
+  .acw-hero-refined h1 {
+    max-width: 15.5ch;
+    font-size: clamp(4rem, 5.25vw, 6.1rem);
+  }
+
+  .acw-hero-refined .acw-hero-text {
+    max-width: 43ch;
+  }
+
+  .acw-hero-refined .acw-hero-image {
+    max-width: 620px;
+  }
+}
+
+/* Keep mobile punchy, but reduce the over-stacked feeling slightly */
+@media (max-width: 700px) {
+  .acw-hero-refined h1 {
+    max-width: 12.8ch;
+  }
+
+  .acw-hero-refined .acw-hero-image {
+    margin-top: 0.4rem;
+  }
+}
+
+/* Make the service cards feel a little cleaner on mobile */
+@media (max-width: 700px) {
+  .acw-offer-card h3 {
+    max-width: 13ch;
+  }
+
+  .acw-offer-grid-distinct .acw-offer-card h3 {
+    max-width: 13ch;
+  }
+}
