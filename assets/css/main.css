@@ -264,126 +264,17 @@ p {
   gap: 0.85rem;
   margin-top: 2.25rem;
 }
-
 /* =========================================================
-5. HEADER / NAVIGATION
-========================================================= */
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(246, 239, 228, 0.88);
-  border-bottom: 1px solid rgba(16, 32, 51, 0.06);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
-
-.site-header .nav {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.8rem;
-  min-height: 82px;
-  width: min(100% - 2.8rem, var(--container));
-  margin: 0 auto;
-}
-
-.nav__brand {
-  z-index: 1004;
-  display: inline-flex;
-  align-items: center;
-  flex: 0 0 auto;
-}
-
-.nav__logo {
-  display: block;
-  width: auto;
-  height: 58px;
-  object-fit: contain;
-}
-
-.nav__toggle,
-.nav__overlay {
-  display: none;
-}
-
-.nav__links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-@media (min-width: 861px) {
-  .nav__panel {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 1.35rem;
-  }
-
-  .nav__links {
-    display: flex;
-    align-items: center;
-    gap: 1.35rem;
-  }
-
-  .nav__links a {
-    display: inline-flex;
-    padding: 0.4rem 0;
-    color: rgba(16, 32, 51, 0.62);
-    border-bottom: 1px solid transparent;
-    font-size: 0.86rem;
-    font-weight: 760;
-  }
-
-  .nav__links a:hover {
-    color: var(--text);
-    border-bottom-color: rgba(123, 143, 112, 0.5);
-  }
-
-  .nav__cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 40px;
-    padding: 0.62rem 1.08rem;
-    background: var(--accent);
-    color: var(--white);
-    border-radius: var(--pill);
-    font-size: 0.86rem;
-    font-weight: 840;
-    box-shadow: 0 10px 22px rgba(83, 107, 77, 0.18);
-  }
-
-  .nav__cta:hover {
-    background: var(--accent-dark);
-    color: var(--white);
-    transform: translateY(-1px);
-  }
-}
-/* =========================================================
-6. HERO
+5. HERO
 ========================================================= */
 
 .acw-hero {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 86% 18%, rgba(123, 143, 112, 0.08), transparent 34%),
-    radial-gradient(circle at 8% 6%, rgba(218, 192, 157, 0.15), transparent 36%),
+    radial-gradient(circle at 88% 18%, rgba(123, 143, 112, 0.08), transparent 34%),
+    radial-gradient(circle at 10% 6%, rgba(218, 192, 157, 0.16), transparent 38%),
     linear-gradient(180deg, #fcf8f1 0%, #f6efe4 100%);
-}
-
-.acw-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("/assets/images/brand/alex-watson-logo-mark.svg") no-repeat right -120px center;
-  background-size: min(520px, 54vw);
-  opacity: 0.025;
-  pointer-events: none;
 }
 
 .acw-hero::after {
@@ -396,66 +287,86 @@ p {
 }
 
 .acw-hero-cover {
-  min-height: 600px;
+  min-height: 640px;
   display: flex;
   align-items: center;
-  padding: clamp(74px, 8vw, 112px) 0;
+  padding: clamp(72px, 8vw, 110px) 0;
 }
 
 .acw-hero-cover-inner {
   position: relative;
   z-index: 2;
+
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(420px, 0.82fr);
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: center;
 }
 
 .acw-hero-cover-copy {
-  max-width: 700px;
+  max-width: 620px;
 }
 
 .acw-hero-cover .acw-eyebrow {
-  margin-bottom: 1.05rem;
+  margin-bottom: 1rem;
 }
 
 .acw-hero-cover h1 {
-  max-width: 14ch;
-  margin-bottom: 1.15rem;
-  font-size: clamp(2.85rem, 4.2vw, 4.55rem);
-  line-height: 0.99;
-  letter-spacing: -0.058em;
+  max-width: 13.5ch;
+  margin-bottom: 1.35rem;
+  font-size: clamp(3rem, 4.5vw, 4.8rem);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
 }
 
 .acw-hero-cover .acw-hero-text {
-  max-width: 48ch;
-  margin-top: 0;
+  max-width: 46ch;
+  margin: 0;
   color: var(--muted);
-  font-size: clamp(1.02rem, 1.08vw, 1.12rem);
+  font-size: clamp(1.05rem, 1.1vw, 1.16rem);
   line-height: 1.72;
 }
 
-.acw-hero-cover .acw-hero-line {
-  max-width: 40ch;
-  margin-top: 1.15rem;
-  color: var(--text);
-  font-size: 1.02rem;
-  font-weight: 760;
-  letter-spacing: -0.02em;
-  line-height: 1.42;
+.acw-hero-cover .acw-cta-row {
+  margin-top: 2rem;
 }
 
-.acw-hero-cover .acw-cta-row {
-  margin-top: 1.8rem;
+/* ---------- Desktop Hero Illustration ---------- */
+
+.acw-hero-visual {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+}
+
+.acw-hero-visual img {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+
+  border-radius: 34px;
+
+  border: 1px solid rgba(16, 32, 51, 0.08);
+
+  background: white;
+
+  box-shadow:
+    0 30px 80px rgba(16, 32, 51, 0.10),
+    0 10px 30px rgba(16, 32, 51, 0.05);
 }
 
 /* =========================================================
-7. STATEMENT / EDITORIAL / PROCESS / VALUE
+6. INTRO / STATEMENT
 ========================================================= */
 
 .acw-statement {
-  padding: 150px 0;
+  padding: 145px 0;
   background: var(--surface);
 }
 
 .acw-statement-inner {
-  max-width: 920px;
+  max-width: 900px;
 }
 
 .acw-statement h2 {
@@ -463,82 +374,124 @@ p {
 }
 
 .acw-statement p:not(.acw-section-number) {
-  max-width: 50ch;
+  max-width: 48ch;
   color: var(--muted);
-  font-size: clamp(1.12rem, 1.5vw, 1.34rem);
-  line-height: 1.72;
+  font-size: clamp(1.14rem, 1.5vw, 1.35rem);
+  line-height: 1.74;
 }
+
+/* =========================================================
+7. EDITORIAL / PROCESS
+========================================================= */
 
 .acw-editorial-grid,
 .acw-process-layout,
 .acw-value-grid {
-  display: grid;
-  align-items: center;
-  gap: 5rem;
+
+  display:grid;
+
+  align-items:center;
+
+  gap:5rem;
+
 }
 
-.acw-editorial-grid {
-  grid-template-columns: 1fr 0.92fr;
+.acw-editorial-grid{
+
+  grid-template-columns:1fr .92fr;
+
 }
 
-.acw-process-layout {
-  grid-template-columns: 1fr 0.82fr;
+.acw-process-layout{
+
+  grid-template-columns:1fr .82fr;
+
 }
 
-.acw-value-grid {
-  grid-template-columns: 1fr 0.8fr;
+.acw-value-grid{
+
+  grid-template-columns:1fr .82fr;
+
 }
 
 .acw-editorial-copy,
 .acw-process-copy,
-.acw-value-copy {
-  max-width: 720px;
+.acw-value-copy{
+
+  max-width:720px;
+
 }
 
 .acw-editorial-media,
 .acw-process-image,
-.acw-showcase-image {
-  width: 100%;
-  margin: 0;
+.acw-showcase-image{
+
+  margin:0;
+
 }
 
 .acw-editorial-media img,
 .acw-process-image img,
 .acw-showcase-image img,
 .acw-contact-image,
-.acw-about-image {
-  width: 100%;
-  object-fit: cover;
-  border: 1px solid rgba(16, 32, 51, 0.08);
-  border-radius: 34px;
-  box-shadow: var(--shadow);
+.acw-about-image{
+
+  width:100%;
+
+  border-radius:34px;
+
+  object-fit:cover;
+
+  border:1px solid rgba(16,32,51,.08);
+
+  box-shadow:var(--shadow);
+
 }
 
 .acw-editorial-media img,
-.acw-process-image img {
-  aspect-ratio: 4 / 3;
-}
+.acw-process-image img{
 
-.acw-mini-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-  margin-top: 1.4rem;
-}
+  aspect-ratio:4/3;
 
-.acw-mini-list span {
-  display: inline-flex;
-  padding: 0.5rem 0.8rem;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(16, 32, 51, 0.07);
-  border-radius: var(--pill);
-  color: rgba(16, 32, 51, 0.68);
-  font-size: 0.78rem;
-  font-weight: 760;
 }
 
 /* =========================================================
-8. CARDS / GRIDS
+8. MINI TAGS
+========================================================= */
+
+.acw-mini-list{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:.6rem;
+
+  margin-top:1.5rem;
+
+}
+
+.acw-mini-list span{
+
+  display:inline-flex;
+
+  padding:.5rem .82rem;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,.72);
+
+  border:1px solid rgba(16,32,51,.08);
+
+  color:rgba(16,32,51,.68);
+
+  font-size:.78rem;
+
+  font-weight:760;
+
+}
+/* =========================================================
+9. CARDS / GRIDS
 ========================================================= */
 
 .acw-blueprint-grid,
@@ -638,8 +591,9 @@ p {
   font-size: 1.04rem;
   line-height: 1.75;
 }
+
 /* =========================================================
-9. MODULAR SERVICES / OFFERS
+10. MODULAR SERVICES / OFFERS
 ========================================================= */
 
 .acw-services-overview {
@@ -745,7 +699,7 @@ p {
 }
 
 /* =========================================================
-10. CHOICE PANEL / PROCESS / VALUE
+11. CHOICE PANEL / PROCESS / VALUE
 ========================================================= */
 
 .acw-choice-panel {
@@ -844,7 +798,7 @@ p {
 }
 
 /* =========================================================
-11. SHOWCASE / EXAMPLE CARDS
+12. SHOWCASE / EXAMPLE CARDS
 ========================================================= */
 
 .acw-showcase {
@@ -902,9 +856,8 @@ p {
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
-
 /* =========================================================
-12. ABOUT
+13. ABOUT
 ========================================================= */
 
 .acw-about-grid {
@@ -950,7 +903,7 @@ p {
 }
 
 /* =========================================================
-13. FAQ
+14. FAQ
 ========================================================= */
 
 .acw-faq-wrap {
@@ -1005,8 +958,9 @@ p {
   color: var(--muted);
   line-height: 1.68;
 }
+
 /* =========================================================
-14. HOMEPAGE CONTACT SECTION
+15. HOMEPAGE CONTACT SECTION
 ========================================================= */
 
 .acw-contact-split-section {
@@ -1068,7 +1022,7 @@ p {
 }
 
 /* =========================================================
-15. CONTACT PAGE / FORM
+16. CONTACT PAGE / FORM
 ========================================================= */
 
 .acw-contact-page {
@@ -1198,7 +1152,7 @@ p {
 }
 
 /* =========================================================
-16. FOOTER
+17. FOOTER
 ========================================================= */
 
 .site-footer {
@@ -1293,7 +1247,7 @@ p {
 }
 
 /* =========================================================
-17. LINKS PAGE
+18. LINKS PAGE
 ========================================================= */
 
 .acw-links-page {
@@ -1414,7 +1368,7 @@ p {
 }
 
 /* =========================================================
-18. RESPONSIVE
+19. RESPONSIVE
 ========================================================= */
 
 @media (max-width: 1180px) {
@@ -1429,6 +1383,15 @@ p {
 
   .acw-choice-panel {
     grid-template-columns: 1fr;
+  }
+
+  .acw-hero-cover-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 0.74fr);
+    gap: 3.2rem;
+  }
+
+  .acw-hero-visual img {
+    max-width: 460px;
   }
 }
 
@@ -1451,15 +1414,9 @@ p {
     max-width: 680px;
   }
 
-  .acw-hero::before {
-    background-size: 440px;
-    background-position: right -160px center;
-    opacity: 0.022;
-  }
-
   .acw-hero-cover {
     min-height: auto;
-    padding: 88px 0 82px;
+    padding: 82px 0 78px;
   }
 
   .acw-hero-cover h1 {
@@ -1659,15 +1616,17 @@ p {
     padding: 1.35rem;
   }
 
-  .acw-hero::before {
-    background-size: 300px;
-    background-position: right -145px top 42px;
-    opacity: 0.022;
-  }
-
   .acw-hero-cover {
     min-height: auto;
     padding: 64px 0 68px;
+  }
+
+  .acw-hero-cover-inner {
+    display: block;
+  }
+
+  .acw-hero-visual {
+    display: none;
   }
 
   .acw-hero-cover h1 {
