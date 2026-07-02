@@ -144,7 +144,7 @@ section {
 h1,
 h2,
 h3 {
-  margin: 0 0 0.9rem;
+  margin: 0 0 0.8rem;
   color: var(--text);
   font-family: var(--font-heading);
   font-weight: 880;
@@ -153,20 +153,20 @@ h3 {
 }
 
 h1 {
-  max-width: 11.5ch;
-  font-size: clamp(3.45rem, 5.4vw, 5.9rem);
-  line-height: 0.95;
+  max-width: 12.5ch;
+  font-size: clamp(3.15rem, 5vw, 5.2rem);
+  line-height: 0.96;
 }
 
 h2 {
-  max-width: 12ch;
-  font-size: clamp(2.75rem, 4vw, 4.8rem);
+  max-width: 13ch;
+  font-size: clamp(2.5rem, 3.8vw, 4.3rem);
   line-height: 0.98;
 }
 
 h3 {
-  font-size: clamp(1.22rem, 1.45vw, 1.5rem);
-  line-height: 1.15;
+  font-size: clamp(1.18rem, 1.35vw, 1.42rem);
+  line-height: 1.18;
 }
 
 p {
@@ -175,32 +175,41 @@ p {
 
 .acw-section {
   position: relative;
-  padding: 150px 0;
+  padding: 108px 0;
   background: var(--surface);
 }
 
 .acw-section-soft {
   background:
-    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.45), transparent 36%),
-    radial-gradient(circle at 88% 16%, rgba(123, 143, 112, 0.08), transparent 34%),
+    radial-gradient(circle at 12% 0%, rgba(255,255,255,.45), transparent 36%),
+    radial-gradient(circle at 88% 16%, rgba(123,143,112,.08), transparent 34%),
     var(--surface-soft);
 }
 
 .acw-section-quiet {
   background:
-    radial-gradient(circle at 90% 10%, rgba(123, 143, 112, 0.05), transparent 30%),
+    radial-gradient(circle at 90% 10%, rgba(123,143,112,.05), transparent 30%),
     var(--surface-quiet);
+}
+
+.acw-section-heading {
+  max-width: 760px;
+  margin-bottom: 3rem;
+}
+
+.acw-section-heading h2 {
+  margin-bottom: 1rem;
 }
 
 .acw-section-number,
 .acw-card-label,
 .acw-eyebrow {
   display: inline-flex;
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
   color: var(--accent-dark);
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   font-weight: 900;
-  letter-spacing: 0.17em;
+  letter-spacing: 0.16em;
   line-height: 1;
   text-transform: uppercase;
 }
@@ -213,22 +222,28 @@ p {
 
 .acw-section-text,
 .acw-section-intro {
-  max-width: 52ch;
-  font-size: clamp(1.02rem, 1.08vw, 1.12rem);
-  line-height: 1.78;
+  max-width: 50ch;
+  font-size: clamp(1rem, 1.05vw, 1.08rem);
+  line-height: 1.72;
 }
 
 .acw-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 50px;
-  padding: 0.9rem 1.4rem;
+  min-height: 48px;
+  padding: 0.85rem 1.35rem;
   border: 1px solid transparent;
   border-radius: var(--pill);
   font-weight: 820;
   line-height: 1.1;
   text-align: center;
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
 }
 
 .acw-btn:hover {
@@ -238,7 +253,7 @@ p {
 .acw-btn-primary {
   background: var(--accent);
   color: var(--white);
-  box-shadow: 0 12px 26px rgba(83, 107, 77, 0.18);
+  box-shadow: 0 10px 24px rgba(83,107,77,.16);
 }
 
 .acw-btn-primary:hover {
@@ -247,22 +262,21 @@ p {
 }
 
 .acw-btn-secondary {
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255,255,255,.82);
   color: var(--text);
   border-color: var(--line);
 }
 
 .acw-btn-secondary:hover {
   background: var(--white);
-  color: var(--text);
   border-color: var(--line-strong);
 }
 
 .acw-cta-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.85rem;
-  margin-top: 2.25rem;
+  gap: 0.8rem;
+  margin-top: 2rem;
 }
 /* =========================================================
 5. HEADER / NAVIGATION
@@ -386,18 +400,20 @@ p {
 }
 
 .acw-hero-cover {
-  min-height: 640px;
+  min-height: 560px;
   display: flex;
   align-items: center;
-  padding: clamp(72px, 8vw, 110px) 0;
+  padding: clamp(56px, 6vw, 84px) 0;
 }
 
 .acw-hero-cover-inner {
   position: relative;
   z-index: 2;
+
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(420px, 0.82fr);
-  gap: clamp(3rem, 6vw, 6rem);
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.9fr);
+  gap: clamp(3rem, 5vw, 5rem);
+
   align-items: center;
 }
 
@@ -406,27 +422,31 @@ p {
 }
 
 .acw-hero-cover .acw-eyebrow {
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
 }
 
 .acw-hero-cover h1 {
-  max-width: 13.5ch;
-  margin-bottom: 1.35rem;
-  font-size: clamp(3rem, 4.5vw, 4.8rem);
+  max-width: 12.4ch;
+  margin-bottom: 1rem;
+
+  font-size: clamp(2.9rem, 4.3vw, 4.5rem);
   line-height: 0.96;
   letter-spacing: -0.06em;
 }
 
 .acw-hero-cover .acw-hero-text {
-  max-width: 46ch;
+  max-width: 43ch;
+
   margin: 0;
+
   color: var(--muted);
-  font-size: clamp(1.05rem, 1.1vw, 1.16rem);
-  line-height: 1.72;
+
+  font-size: clamp(1rem, 1.05vw, 1.12rem);
+  line-height: 1.68;
 }
 
 .acw-hero-cover .acw-cta-row {
-  margin-top: 2rem;
+  margin-top: 1.75rem;
 }
 
 .acw-hero-visual {
@@ -438,14 +458,122 @@ p {
 
 .acw-hero-visual img {
   display: block;
+
   width: 100%;
-  max-width: 560px;
+  max-width: 520px;
+
+  border-radius: 30px;
+
   border: 1px solid rgba(16, 32, 51, 0.08);
-  border-radius: 34px;
-  background: white;
+
+  background: var(--white);
+
   box-shadow:
-    0 30px 80px rgba(16, 32, 51, 0.10),
-    0 10px 30px rgba(16, 32, 51, 0.05);
+    0 24px 60px rgba(16, 32, 51, 0.08),
+    0 8px 20px rgba(16, 32, 51, 0.05);
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width:1040px){
+
+  .acw-hero-cover{
+    min-height:auto;
+    padding:64px 0;
+  }
+
+  .acw-hero-cover-inner{
+    grid-template-columns:1fr;
+    gap:2rem;
+  }
+
+  .acw-hero-cover-copy{
+    max-width:680px;
+  }
+
+  .acw-hero-visual{
+    justify-content:flex-start;
+  }
+
+  .acw-hero-visual img{
+    max-width:560px;
+  }
+
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width:860px){
+
+  .acw-hero-cover{
+    padding:38px 0 52px;
+  }
+
+  .acw-hero-cover-inner{
+    gap:1.5rem;
+  }
+
+  .acw-hero-cover h1{
+    max-width:11.4ch;
+    margin-bottom:.9rem;
+
+    font-size:clamp(2.15rem,9.5vw,2.9rem);
+
+    line-height:1;
+  }
+
+  .acw-hero-cover .acw-hero-text{
+    max-width:34ch;
+
+    font-size:.95rem;
+
+    line-height:1.58;
+  }
+
+  .acw-hero-cover .acw-cta-row{
+    gap:.7rem;
+    margin-top:1.35rem;
+  }
+
+  .acw-hero-cover .acw-btn{
+    width:100%;
+  }
+
+  .acw-hero-visual{
+    display:block;
+    margin-top:.4rem;
+  }
+
+  .acw-hero-visual img{
+    width:100%;
+    max-width:none;
+
+    max-height:240px;
+
+    object-fit:cover;
+    object-position:center;
+
+    border-radius:22px;
+  }
+
+}
+
+/* ---------- Small Phones ---------- */
+
+@media (max-width:560px){
+
+  .acw-hero-cover{
+    padding-top:30px;
+  }
+
+  .acw-hero-cover h1{
+    font-size:clamp(2rem,10vw,2.6rem);
+  }
+
+  .acw-hero-visual img{
+    max-height:210px;
+  }
+
 }
 
 /* =========================================================
