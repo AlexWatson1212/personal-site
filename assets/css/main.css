@@ -265,6 +265,105 @@ p {
   margin-top: 2.25rem;
 }
 /* =========================================================
+5. HEADER / NAVIGATION
+========================================================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(246, 239, 228, 0.9);
+  border-bottom: 1px solid rgba(16, 32, 51, 0.06);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.site-header .nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.8rem;
+  min-height: 78px;
+  width: min(100% - 2.8rem, var(--container));
+  margin: 0 auto;
+}
+
+.nav__brand {
+  z-index: 1004;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.nav__logo {
+  display: block;
+  width: auto;
+  height: 46px;
+  max-width: 150px;
+  object-fit: contain;
+}
+
+.nav__toggle,
+.nav__overlay {
+  display: none;
+}
+
+.nav__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 861px) {
+  .nav__panel {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.35rem;
+  }
+
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .nav__links a {
+    display: inline-flex;
+    padding: 0.4rem 0;
+    color: rgba(16, 32, 51, 0.62);
+    border-bottom: 1px solid transparent;
+    font-size: 0.84rem;
+    font-weight: 760;
+  }
+
+  .nav__links a:hover {
+    color: var(--text);
+    border-bottom-color: rgba(123, 143, 112, 0.5);
+  }
+
+  .nav__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 0.58rem 1rem;
+    background: var(--accent);
+    color: var(--white);
+    border-radius: var(--pill);
+    font-size: 0.84rem;
+    font-weight: 840;
+    box-shadow: 0 10px 22px rgba(83, 107, 77, 0.16);
+  }
+
+  .nav__cta:hover {
+    background: var(--accent-dark);
+    color: var(--white);
+    transform: translateY(-1px);
+  }
+}
+/* =========================================================
 5. HERO
 ========================================================= */
 
