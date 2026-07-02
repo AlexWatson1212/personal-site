@@ -3,48 +3,43 @@ ALEXANDER WATSON — MAIN STYLESHEET
 Clarity First • Website Second
 ========================================================= */
 
-
 /* =========================================================
 1. ROOT
 ========================================================= */
 
-:root{
+:root {
+  --bg: #f6efe4;
+  --surface: #fffdf8;
+  --surface-soft: #e8ddcd;
+  --surface-quiet: #faf6ee;
+  --surface-warm: #efe4d4;
 
-  --bg:#f6efe4;
-  --surface:#fffdf8;
-  --surface-soft:#e8ddcd;
-  --surface-quiet:#faf6ee;
-  --surface-warm:#efe4d4;
+  --text: #102033;
+  --muted: #65717d;
+  --white: #ffffff;
 
-  --text:#102033;
-  --muted:#65717d;
+  --accent: #7b8f70;
+  --accent-dark: #536b4d;
 
-  --white:#ffffff;
+  --line: rgba(16, 32, 51, 0.09);
+  --line-strong: rgba(16, 32, 51, 0.16);
 
-  --accent:#7b8f70;
-  --accent-dark:#536b4d;
+  --shadow-xs: 0 6px 16px rgba(16, 32, 51, 0.035);
+  --shadow-sm: 0 16px 36px rgba(16, 32, 51, 0.06);
+  --shadow: 0 26px 64px rgba(16, 32, 51, 0.085);
+  --shadow-lg: 0 34px 90px rgba(16, 32, 51, 0.12);
 
-  --line:rgba(16,32,51,.09);
-  --line-strong:rgba(16,32,51,.16);
+  --radius: 28px;
+  --radius-lg: 42px;
+  --pill: 999px;
 
-  --shadow-xs:0 6px 16px rgba(16,32,51,.035);
-  --shadow-sm:0 16px 36px rgba(16,32,51,.06);
-  --shadow:0 26px 64px rgba(16,32,51,.085);
-  --shadow-lg:0 34px 90px rgba(16,32,51,.12);
+  --container: 1120px;
 
-  --radius:28px;
-  --radius-lg:42px;
-  --pill:999px;
+  --font-heading: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 
-  --container:1120px;
-
-  --font-heading:"Inter",system-ui,sans-serif;
-  --font-body:"Inter",system-ui,sans-serif;
-
-  --transition:.25s ease;
-
+  --transition: 0.25s ease;
 }
-
 
 /* =========================================================
 2. RESET
@@ -52,88 +47,76 @@ Clarity First • Website Second
 
 *,
 *::before,
-*::after{
-  box-sizing:border-box;
+*::after {
+  box-sizing: border-box;
 }
 
-html{
-  scroll-behavior:smooth;
-  scroll-padding-top:82px;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 82px;
 }
 
-body{
-
-  margin:0;
-
-  overflow-x:hidden;
-
-  background:var(--bg);
-
-  color:var(--text);
-
-  font-family:var(--font-body);
-
-  font-size:16px;
-
-  line-height:1.72;
-
-  -webkit-font-smoothing:antialiased;
-
-  text-rendering:optimizeLegibility;
-
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.72;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-body.menu-open{
-  overflow:hidden;
+body.menu-open {
+  overflow: hidden;
 }
 
-img{
-  display:block;
-  max-width:100%;
-  height:auto;
+img,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
-svg{
-  display:block;
+img {
+  height: auto;
 }
 
-a{
-
-  color:var(--accent-dark);
-
-  text-decoration:none;
-
+a {
+  color: var(--accent-dark);
+  text-decoration: none;
   transition:
-  color var(--transition),
-  background var(--transition),
-  border-color var(--transition),
-  transform var(--transition),
-  opacity var(--transition);
-
+    color var(--transition),
+    background var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition),
+    opacity var(--transition);
 }
 
-a:hover{
-  color:var(--text);
+a:hover {
+  color: var(--text);
 }
 
 button,
 input,
-textarea{
-  font:inherit;
+textarea {
+  font: inherit;
 }
 
-button{
-  cursor:pointer;
+button {
+  cursor: pointer;
 }
 
-:focus-visible{
-
-  outline:2px solid var(--accent-dark);
-
-  outline-offset:4px;
-
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 4px;
+  border-radius: 12px;
 }
-
 
 /* =========================================================
 3. GLOBAL LAYOUT
@@ -141,210 +124,149 @@ button{
 
 .acw-container,
 .container,
-.shell{
-
-  width:min(100% - 2.8rem,var(--container));
-
-  margin-inline:auto;
-
+.shell {
+  width: min(100% - 2.8rem, var(--container));
+  margin-inline: auto;
 }
 
-.site-content{
-  min-height:60vh;
+.site-content {
+  min-height: 60vh;
 }
 
-section{
-  scroll-margin-top:82px;
+section {
+  scroll-margin-top: 82px;
 }
-
 
 /* =========================================================
-4. TYPOGRAPHY
+4. TYPOGRAPHY / GENERAL SECTIONS / BUTTONS
 ========================================================= */
 
 h1,
 h2,
-h3{
-
-  margin:0 0 .9rem;
-
-  color:var(--text);
-
-  font-family:var(--font-heading);
-
-  font-weight:880;
-
-  letter-spacing:-.055em;
-
-  text-wrap:balance;
-
+h3 {
+  margin: 0 0 0.9rem;
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-weight: 880;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
 }
 
-h1{
-
-  max-width:11.5ch;
-
-  font-size:clamp(3.45rem,5.4vw,5.9rem);
-
-  line-height:.95;
-
+h1 {
+  max-width: 11.5ch;
+  font-size: clamp(3.45rem, 5.4vw, 5.9rem);
+  line-height: 0.95;
 }
 
-h2{
-
-  max-width:12ch;
-
-  font-size:clamp(2.75rem,4vw,4.8rem);
-
-  line-height:.98;
-
+h2 {
+  max-width: 12ch;
+  font-size: clamp(2.75rem, 4vw, 4.8rem);
+  line-height: 0.98;
 }
 
-h3{
-
-  font-size:clamp(1.22rem,1.45vw,1.5rem);
-
-  line-height:1.15;
-
+h3 {
+  font-size: clamp(1.22rem, 1.45vw, 1.5rem);
+  line-height: 1.15;
 }
 
-p{
-  margin:0 0 1rem;
+p {
+  margin: 0 0 1rem;
 }
 
-.acw-section{
-
-  position:relative;
-
-  padding:150px 0;
-
-  background:var(--surface);
-
+.acw-section {
+  position: relative;
+  padding: 150px 0;
+  background: var(--surface);
 }
 
-.acw-section-soft{
-
+.acw-section-soft {
   background:
-  radial-gradient(circle at 12% 0%,rgba(255,255,255,.45),transparent 36%),
-  radial-gradient(circle at 88% 16%,rgba(123,143,112,.08),transparent 34%),
-  var(--surface-soft);
-
+    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.45), transparent 36%),
+    radial-gradient(circle at 88% 16%, rgba(123, 143, 112, 0.08), transparent 34%),
+    var(--surface-soft);
 }
 
-.acw-section-quiet{
-
+.acw-section-quiet {
   background:
-  radial-gradient(circle at 90% 10%,rgba(123,143,112,.05),transparent 30%),
-  var(--surface-quiet);
-
+    radial-gradient(circle at 90% 10%, rgba(123, 143, 112, 0.05), transparent 30%),
+    var(--surface-quiet);
 }
 
 .acw-section-number,
 .acw-card-label,
-.acw-eyebrow{
-
-  display:inline-flex;
-
-  margin-bottom:1rem;
-
-  color:var(--accent-dark);
-
-  font-size:.68rem;
-
-  font-weight:900;
-
-  letter-spacing:.17em;
-
-  text-transform:uppercase;
-
+.acw-eyebrow {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  color: var(--accent-dark);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.17em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .acw-section-text,
 .acw-section-intro,
-.acw-hero-text{
-
-  color:var(--muted);
-
+.acw-hero-text {
+  color: var(--muted);
 }
 
 .acw-section-text,
-.acw-section-intro{
-
-  max-width:52ch;
-
-  font-size:clamp(1.02rem,1.08vw,1.12rem);
-
-  line-height:1.78;
-
+.acw-section-intro {
+  max-width: 52ch;
+  font-size: clamp(1.02rem, 1.08vw, 1.12rem);
+  line-height: 1.78;
 }
 
-.acw-btn{
-
-  display:inline-flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  min-height:50px;
-
-  padding:.9rem 1.4rem;
-
-  border-radius:999px;
-
-  border:1px solid transparent;
-
-  font-weight:820;
-
+.acw-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0.9rem 1.4rem;
+  border: 1px solid transparent;
+  border-radius: var(--pill);
+  font-weight: 820;
+  line-height: 1.1;
+  text-align: center;
 }
 
-.acw-btn-primary{
-
-  background:var(--accent);
-
-  color:white;
-
-  box-shadow:0 12px 26px rgba(83,107,77,.18);
-
+.acw-btn:hover {
+  transform: translateY(-2px);
 }
 
-.acw-btn-primary:hover{
-
-  background:var(--accent-dark);
-
-  color:white;
-
+.acw-btn-primary {
+  background: var(--accent);
+  color: var(--white);
+  box-shadow: 0 12px 26px rgba(83, 107, 77, 0.18);
 }
 
-.acw-btn-secondary{
-
-  background:rgba(255,255,255,.82);
-
-  color:var(--text);
-
-  border-color:var(--line);
-
+.acw-btn-primary:hover {
+  background: var(--accent-dark);
+  color: var(--white);
 }
 
-.acw-btn-secondary:hover{
-
-  background:white;
-
+.acw-btn-secondary {
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--text);
+  border-color: var(--line);
 }
 
-.acw-cta-row{
-
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:.85rem;
-
-  margin-top:2.25rem;
-
+.acw-btn-secondary:hover {
+  background: var(--white);
+  color: var(--text);
+  border-color: var(--line-strong);
 }
+
+.acw-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2.25rem;
+}
+
 /* =========================================================
-4. HEADER / NAVIGATION
+5. HEADER / NAVIGATION
 ========================================================= */
 
 .site-header {
@@ -442,15 +364,15 @@ p{
   }
 }
 /* =========================================================
-5. HERO
+6. HERO
 ========================================================= */
 
 .acw-hero {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 86% 18%, rgba(123, 143, 112, 0.09), transparent 34%),
-    radial-gradient(circle at 8% 6%, rgba(218, 192, 157, 0.16), transparent 36%),
+    radial-gradient(circle at 86% 18%, rgba(123, 143, 112, 0.08), transparent 34%),
+    radial-gradient(circle at 8% 6%, rgba(218, 192, 157, 0.15), transparent 36%),
     linear-gradient(180deg, #fcf8f1 0%, #f6efe4 100%);
 }
 
@@ -460,7 +382,7 @@ p{
   inset: 0;
   background: url("/assets/images/brand/alex-watson-logo-mark.svg") no-repeat right -120px center;
   background-size: min(520px, 54vw);
-  opacity: 0.035;
+  opacity: 0.025;
   pointer-events: none;
 }
 
@@ -474,7 +396,7 @@ p{
 }
 
 .acw-hero-cover {
-  min-height: min(620px, calc(100vh - 82px));
+  min-height: 600px;
   display: flex;
   align-items: center;
   padding: clamp(74px, 8vw, 112px) 0;
@@ -486,7 +408,7 @@ p{
 }
 
 .acw-hero-cover-copy {
-  max-width: 650px;
+  max-width: 700px;
 }
 
 .acw-hero-cover .acw-eyebrow {
@@ -494,15 +416,15 @@ p{
 }
 
 .acw-hero-cover h1 {
-  max-width: 13ch;
+  max-width: 14ch;
   margin-bottom: 1.15rem;
-  font-size: clamp(2.9rem, 4.35vw, 4.65rem);
-  line-height: 0.98;
+  font-size: clamp(2.85rem, 4.2vw, 4.55rem);
+  line-height: 0.99;
   letter-spacing: -0.058em;
 }
 
 .acw-hero-cover .acw-hero-text {
-  max-width: 47ch;
+  max-width: 48ch;
   margin-top: 0;
   color: var(--muted);
   font-size: clamp(1.02rem, 1.08vw, 1.12rem);
@@ -511,23 +433,20 @@ p{
 
 .acw-hero-cover .acw-hero-line {
   max-width: 40ch;
-  margin-top: 1.2rem;
+  margin-top: 1.15rem;
   color: var(--text);
-  font-size: 1.04rem;
-  font-weight: 780;
+  font-size: 1.02rem;
+  font-weight: 760;
   letter-spacing: -0.02em;
   line-height: 1.42;
 }
 
 .acw-hero-cover .acw-cta-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
   margin-top: 1.8rem;
 }
 
 /* =========================================================
-6. STATEMENT / EDITORIAL / PROCESS / VALUE
+7. STATEMENT / EDITORIAL / PROCESS / VALUE
 ========================================================= */
 
 .acw-statement {
@@ -612,13 +531,14 @@ p{
   padding: 0.5rem 0.8rem;
   background: rgba(255, 255, 255, 0.72);
   border: 1px solid rgba(16, 32, 51, 0.07);
-  border-radius: 999px;
+  border-radius: var(--pill);
   color: rgba(16, 32, 51, 0.68);
   font-size: 0.78rem;
   font-weight: 760;
 }
+
 /* =========================================================
-7. CARDS / GRIDS
+8. CARDS / GRIDS
 ========================================================= */
 
 .acw-blueprint-grid,
@@ -718,9 +638,8 @@ p{
   font-size: 1.04rem;
   line-height: 1.75;
 }
-
 /* =========================================================
-8. MODULAR SERVICES / OFFERS
+9. MODULAR SERVICES / OFFERS
 ========================================================= */
 
 .acw-services-overview {
@@ -826,7 +745,7 @@ p{
 }
 
 /* =========================================================
-9. CHOICE PANEL / PROCESS / VALUE
+10. CHOICE PANEL / PROCESS / VALUE
 ========================================================= */
 
 .acw-choice-panel {
@@ -925,7 +844,7 @@ p{
 }
 
 /* =========================================================
-10. SHOWCASE / EXAMPLE CARDS
+11. SHOWCASE / EXAMPLE CARDS
 ========================================================= */
 
 .acw-showcase {
@@ -983,8 +902,9 @@ p{
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
+
 /* =========================================================
-11. ABOUT
+12. ABOUT
 ========================================================= */
 
 .acw-about-grid {
@@ -1030,7 +950,7 @@ p{
 }
 
 /* =========================================================
-12. FAQ
+13. FAQ
 ========================================================= */
 
 .acw-faq-wrap {
@@ -1085,9 +1005,8 @@ p{
   color: var(--muted);
   line-height: 1.68;
 }
-
 /* =========================================================
-13. HOMEPAGE CONTACT SECTION
+14. HOMEPAGE CONTACT SECTION
 ========================================================= */
 
 .acw-contact-split-section {
@@ -1149,7 +1068,7 @@ p{
 }
 
 /* =========================================================
-14. CONTACT PAGE / FORM
+15. CONTACT PAGE / FORM
 ========================================================= */
 
 .acw-contact-page {
@@ -1279,7 +1198,7 @@ p{
 }
 
 /* =========================================================
-15. FOOTER
+16. FOOTER
 ========================================================= */
 
 .site-footer {
@@ -1374,7 +1293,7 @@ p{
 }
 
 /* =========================================================
-16. LINKS PAGE
+17. LINKS PAGE
 ========================================================= */
 
 .acw-links-page {
@@ -1495,7 +1414,7 @@ p{
 }
 
 /* =========================================================
-17. RESPONSIVE
+18. RESPONSIVE
 ========================================================= */
 
 @media (max-width: 1180px) {
@@ -1535,7 +1454,7 @@ p{
   .acw-hero::before {
     background-size: 440px;
     background-position: right -160px center;
-    opacity: 0.032;
+    opacity: 0.022;
   }
 
   .acw-hero-cover {
@@ -1544,8 +1463,8 @@ p{
   }
 
   .acw-hero-cover h1 {
-    max-width: 12.5ch;
-    font-size: clamp(2.9rem, 8vw, 4.7rem);
+    max-width: 13ch;
+    font-size: clamp(2.85rem, 8vw, 4.55rem);
   }
 
   .acw-cards,
@@ -1743,7 +1662,7 @@ p{
   .acw-hero::before {
     background-size: 300px;
     background-position: right -145px top 42px;
-    opacity: 0.03;
+    opacity: 0.022;
   }
 
   .acw-hero-cover {
@@ -1752,7 +1671,7 @@ p{
   }
 
   .acw-hero-cover h1 {
-    max-width: 12ch;
+    max-width: 12.5ch;
     font-size: clamp(2.35rem, 10.5vw, 3.35rem);
     line-height: 1;
   }
