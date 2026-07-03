@@ -27,45 +27,56 @@
     ></div>
 
     <div class="nav__panel">
+
       <ul id="primary-nav" class="nav__links">
+
         <li>
-          <a href="{{ '/' | relative_url }}#blueprint" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
-            Blueprint
+          <a href="{{ '/' | relative_url }}">Home</a>
+        </li>
+
+        <li>
+          <a href="{{ '/process/' | relative_url }}">Process</a>
+        </li>
+
+        <li>
+          <a href="{{ '/website-design-for-therapists/' | relative_url }}">
+            Website Design
           </a>
         </li>
 
         <li>
-          <a href="{{ '/' | relative_url }}#process" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
-            Process
+          <a href="{{ '/branding-for-therapists/' | relative_url }}">
+            Brand Clarity
           </a>
         </li>
 
         <li>
-          <a href="{{ '/' | relative_url }}#work" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
-            Services
+          <a href="{{ '/work/' | relative_url }}">
+            Work
           </a>
         </li>
 
         <li>
-          <a href="{{ '/' | relative_url }}#examples" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
-            Concept websites
+          <a href="{{ '/blog/' | relative_url }}">
+            Library
           </a>
         </li>
 
         <li>
-          <a href="{{ '/' | relative_url }}#about" onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');">
+          <a href="{{ '/about/' | relative_url }}">
             About
           </a>
         </li>
+
       </ul>
 
       <a
         href="{{ '/contact/' | relative_url }}"
         class="nav__cta"
-        onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');"
       >
         Start with clarity
       </a>
+
     </div>
 
   </nav>
