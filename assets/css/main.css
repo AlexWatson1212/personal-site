@@ -1596,63 +1596,13 @@ p {
   color: var(--text);
 }
 
-.client-work-header {
-  border-bottom: 1px solid var(--line);
-  background: rgba(246, 239, 228, 0.92);
-}
-
-.client-work-nav {
-  width: min(100% - 2.8rem, 980px);
-  min-height: 78px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-.client-work-logo img {
-  height: 46px;
-  width: auto;
-}
-
-.client-work-links {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  font-size: 0.72rem;
-  font-weight: 850;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.client-work-links a {
-  color: var(--muted);
-}
-
-.client-work-links a:hover,
-.client-work-links a[aria-current="page"] {
-  color: var(--text);
-}
-
 .client-work-shell {
-  width: min(100% - 2.8rem, 980px);
+  width: min(100% - 2.8rem, 1100px);
   margin: 0 auto;
   padding: 56px 0 90px;
 }
 
-.client-work-footer {
-  width: min(100% - 2.8rem, 760px);
-  margin: 0 auto;
-  padding: 52px 0 80px;
-  border-top: 1px solid var(--line);
-  text-align: center;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
 .client-doc {
-  --doc-paper: #f7f5f0;
   --doc-ink: #211e1b;
   --doc-soft: #56514a;
   --doc-moss: #7b8f70;
@@ -1660,7 +1610,7 @@ p {
   --doc-rule: #dad5c9;
   --doc-rule-strong: #b9b2a3;
 
-  max-width: 760px;
+  max-width: 780px;
   margin: 0 auto;
   color: var(--doc-ink);
   font-family: var(--font-body);
@@ -1669,13 +1619,29 @@ p {
 
 .client-doc .doc-cover {
   text-align: center;
-  padding: 60px 24px 50px;
+  padding: 70px 24px 58px;
 }
 
 .client-doc .doc-logo {
-  height: 42px;
+  height: 46px;
   width: auto;
-  margin: 0 auto 24px;
+  margin: 0 auto 26px;
+}
+
+.client-doc .doc-project {
+  margin-bottom: 0.7rem;
+  color: var(--doc-soft);
+  font-size: 0.78rem;
+  font-weight: 760;
+}
+
+.client-doc .doc-document-count {
+  margin-top: 0.75rem;
+  color: var(--doc-clay);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .client-doc .doc-mark,
@@ -1764,10 +1730,19 @@ p {
 }
 
 .client-doc .doc-card {
+  display: block;
+  margin-bottom: 0.9rem;
   padding: 1.35rem;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.58);
   border: 1px solid var(--line);
+  color: var(--doc-ink);
+}
+
+.client-doc .doc-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(123, 143, 112, 0.24);
+  box-shadow: var(--shadow-xs);
 }
 
 .client-doc .doc-card-moss {
@@ -1791,19 +1766,75 @@ p {
   border: 1px solid rgba(16, 32, 51, 0.1);
 }
 
+/* Client document bottom navigation */
+
+.client-doc-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 64px auto 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--doc-rule);
+}
+
+.client-doc-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.72);
+  color: var(--doc-soft);
+  font-size: 0.82rem;
+  font-weight: 820;
+}
+
+.client-doc-nav a:hover {
+  background: var(--white);
+  color: var(--doc-ink);
+  transform: translateY(-2px);
+}
+
+/* Client footer inside documents */
+
+.client-work-footer {
+  width: min(100% - 2.8rem, 760px);
+  margin: 0 auto;
+  padding: 52px 0 80px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Hide the old client header if still present */
+
+.client-work-header {
+  display: none;
+}
+
 @media (max-width: 760px) {
-  .client-work-nav {
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 18px 0;
+  .client-work-shell {
+    width: min(100% - 1.6rem, 1100px);
+    padding-top: 28px;
   }
 
-  .client-work-links {
-    gap: 0.7rem;
+  .client-doc .doc-cover {
+    padding: 44px 12px 38px;
   }
 
   .client-doc .doc-grid-two {
     grid-template-columns: 1fr;
+  }
+
+  .client-doc-nav {
+    flex-direction: column;
+  }
+
+  .client-doc-nav a {
+    justify-content: center;
+    width: 100%;
   }
 }
 
