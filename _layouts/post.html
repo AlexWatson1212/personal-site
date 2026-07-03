@@ -35,17 +35,35 @@
           <img
             class="acw-post-hero-image"
             src="{{ page.hero_image | relative_url }}"
-            alt="{{ page.title }}"
+            alt="{{ page.hero_alt | default: page.title }}"
             loading="eager"
           >
         </div>
       {% endif %}
 
-      <div class="acw-container">
+      <div class="acw-container acw-post-layout">
         <div class="acw-post-content">
           {{ content }}
         </div>
       </div>
+
+      <section class="acw-post-footer-cta">
+        <div class="acw-container">
+          <div class="acw-blog-cta">
+            <p class="acw-section-label">Start here</p>
+
+            <h2>Want your therapy website to feel clearer and easier to trust?</h2>
+
+            <p>
+              I help therapists, counsellors and psychologists turn scattered ideas into clear positioning, thoughtful messaging and a website that reflects the work behind it.
+            </p>
+
+            <a class="acw-btn acw-btn-primary" href="{{ '/contact/' | relative_url }}">
+              Start with clarity
+            </a>
+          </div>
+        </div>
+      </section>
 
     </article>
   </main>
