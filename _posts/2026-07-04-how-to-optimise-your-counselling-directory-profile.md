@@ -1,330 +1,314 @@
 ---
 layout: post
-title: "How to Optimise Your Counselling Directory Profile (Without Sounding Like Everyone Else)"
+title: "How to Optimise Your Counselling Directory Profile"
 date: 2026-07-04
-tags: [counselling directory, therapist marketing, therapist website, private practice, seo]
-description: "Learn how to create a Counselling Directory profile that helps the right clients recognise themselves in your practice through clarity, trust and thoughtful communication."
-hero_image: /assets/images/blog/counselling-directory.webp
+tags: [counselling directory, therapist marketing, private practice, therapist website, seo]
+description: "A thoughtful guide to creating a Counselling Directory profile that helps the right clients recognise themselves in your practice."
+hero_image: /assets/images/library/counselling-directory.webp
 ---
 
-For many therapists, a Counselling Directory profile is the first introduction a prospective client has to their practice.
+For many therapists, private practice begins with a Counselling Directory profile.
 
-It often comes before your website.
+It's trusted.
 
-Before an email.
+Well established.
 
-Before a phone call.
+And often the first place a prospective client comes across your work.
 
-Sometimes before a client has even decided whether they are ready to begin therapy.
-
-That makes it one of the most important pieces of writing you'll ever publish.
-
-Yet it's often treated as something to complete in an afternoon before moving on to the "real work" of seeing clients.
-
-The result is a directory filled with profiles that are kind, thoughtful and entirely sincere—but remarkably similar.
-
-Many begin with qualifications.
-
-Many list every modality.
-
-Many describe therapy using language that makes perfect sense to other therapists but asks prospective clients to work hard to understand what actually happens in the room.
-
-This article isn't about making your profile more persuasive.
-
-I don't think that's the right goal.
-
-It's about making it clearer.
-
-Helping the right client recognise themselves more quickly.
-
-Helping them understand your practice without exaggeration or marketing tricks.
-
-Because people rarely choose a therapist because someone wrote a clever profile.
-
-They choose because something about it quietly feels like the right fit.
-
-## The Recognition Principle
-
-Everything in this article comes back to one simple idea.
-
-> Clients rarely choose a therapist because they compare credentials.
->
-> They choose because they recognise themselves in the way a therapist describes their experience.
-
-That moment of recognition happens surprisingly quickly.
-
-Someone searching Counselling Directory is rarely reading profiles with complete attention.
-
-They're often anxious.
-
-Emotionally tired.
-
-Overwhelmed.
-
-Perhaps searching late in the evening after another difficult day.
-
-They're not looking for the most impressive therapist.
-
-They're looking for the first therapist who makes them think:
-
-*"This person understands what I'm going through."*
-
-Recognition comes first.
-
-Trust follows.
-
-Only then does someone decide whether to make contact.
-
-Once you understand this sequence, almost every decision about writing your profile becomes easier.
-
-## Why your Counselling Directory profile matters
-
-Counselling Directory remains one of the most valuable sources of enquiries for therapists in private practice.
-
-It has earned trust over many years and introduces thousands of people to therapy every day.
+For many practices it continues to bring valuable enquiries for years.
 
 I recommend having a profile there.
 
-In fact, for many therapists it will continue to be one of the most productive places to receive enquiries.
+But I also think we sometimes underestimate what that profile is actually doing.
 
-But the profile carries far more responsibility than its length suggests.
+It's easy to see it as an administrative task.
 
-A potential client isn't reading it casually.
+Upload a photograph.
 
-They're trying to reduce uncertainty.
+Write a biography.
 
-They may already have looked at six or seven other therapists.
+List your qualifications.
 
-They may be wondering whether therapy is even right for them.
+Tick a few boxes.
 
-Every sentence either makes that decision feel slightly easier or slightly more difficult.
+Publish.
 
-This isn't about persuading someone to become a client.
+In reality, it is usually the first conversation someone has with your practice.
 
-It's about making it easier for the right client to recognise that your practice might genuinely help them.
+Long before they visit your website.
 
-## How clients actually choose a therapist online
+Long before they send an email.
 
-One of the biggest misconceptions about therapist marketing is that clients compare therapists in the way therapists compare training.
+Long before they've decided whether they're ready for therapy at all.
 
-We imagine someone carefully reading every qualification, every modality and every paragraph before making a logical decision.
+That makes it one of the most important pieces of writing you'll ever produce.
 
-Most people don't.
+Not because it needs to persuade people.
 
-Research into web usability has consistently shown that people scan web pages rather than reading them word for word.
+Because it needs to help people understand you.
 
-Instead they look for signals.
+---
 
-Words.
+## Most profiles aren't poor.
 
-Phrases.
+They're just difficult to remember.
 
-Ideas that immediately feel relevant.
+Spend half an hour reading therapist profiles and something interesting begins to happen.
 
-Imagine someone searching for support with anxiety.
+They slowly merge together.
 
-They're unlikely to remember whether one therapist described themselves as integrative while another described themselves as humanistic.
+Not because the therapists lack experience.
 
-What they *will* remember is the profile that described anxiety in a way that felt uncomfortably familiar.
+Quite the opposite.
 
-The therapist who seemed to understand their experience.
+Most profiles are warm.
 
-The therapist whose writing felt calm rather than clinical.
+Thoughtful.
 
-That doesn't happen because one profile contains better marketing.
+Ethical.
 
-It happens because one profile creates recognition before asking for trust.
+Professionally written.
 
-## The Trust Sequence
+The difficulty is that many of them begin in almost exactly the same place.
 
-One framework I often use when reviewing therapist websites also applies perfectly to directory profiles.
+> I provide a safe, confidential and non-judgemental space.
 
-Every profile is communicating three things.
+> I am an integrative therapist working with anxiety, depression, relationships and self-esteem.
 
-Always in this order.
+> Together we can explore your thoughts and feelings...
 
-### 1. Recognition
+None of those sentences are wrong.
 
-*"Does this sound like someone who understands people like me?"*
+Many are completely true.
 
-### 2. Trust
+The problem is that they could belong to almost anyone.
 
-*"Do I feel safe enough to believe they could help?"*
+Imagine meeting eight therapists in one afternoon.
 
-### 3. Action
+If every conversation began with exactly the same introduction, remembering any individual person would become surprisingly difficult.
 
-*"Would I feel comfortable getting in touch?"*
+Online, the same thing happens.
 
-Many therapist profiles accidentally reverse this order.
+People aren't choosing between one profile and nothing.
 
-They begin with credentials.
+They're often comparing several therapists in the same evening.
 
-Move into theory.
+Your profile doesn't exist in isolation.
 
-Finish with contact details.
+It exists alongside dozens of other thoughtful, well-intentioned profiles.
 
-The reader experiences the opposite journey.
+Clarity becomes important because similarity is so common.
 
-They need recognition first.
+---
 
-Credentials become meaningful afterwards.
+## The Recognition Principle
 
-Once someone feels understood, they're far more interested in your experience, qualifications and approach because those details now answer a question they're already emotionally invested in.
+One idea sits underneath almost everything I write about therapist websites.
 
-## Lead with the client's experience, not your CV
+It matters just as much here.
 
-One of the simplest improvements you can make is changing how your profile begins.
+People rarely choose a therapist because they're persuaded.
 
-Many therapists naturally open with something like this:
+They choose because they recognise themselves.
 
-> I am a BACP-registered integrative counsellor with over ten years' experience working with anxiety, depression, relationship difficulties, bereavement and self-esteem.
+Before someone becomes interested in your qualifications...
 
-There is nothing incorrect about that sentence.
+Before they begin wondering how you work...
 
-It's accurate.
+Before they decide whether to send an email...
 
-Professional.
+They're usually asking themselves one quiet question.
 
-Entirely appropriate.
+> **Does this person seem to understand what I'm living through?**
 
-Unfortunately, it could describe hundreds of therapists.
+That question often determines whether they keep reading.
 
-Now compare it with this:
+Notice what isn't happening.
 
-> If anxiety has gradually started making your world feel smaller—avoiding places, overthinking conversations or constantly expecting something to go wrong—you don't have to continue carrying it alone.
+They're not trying to identify the "best" therapist.
 
-The second introduction doesn't claim greater expertise.
+They're trying to identify someone who feels as though they might understand them.
 
-It simply begins where the client already is.
+Recognition comes first.
 
-Once someone recognises themselves, they're naturally more interested in who you are and how you work.
+Trust grows afterwards.
 
-Your qualifications haven't become less important.
+That's why I don't think the purpose of a Counselling Directory profile is persuasion.
 
-They've simply moved to the point where the reader is actually ready to hear them.
+I think it's recognition.
 
-## Remember who you're writing for
+Helping the right person quietly think:
 
-Most therapists spend years learning the language of counselling.
+*"I feel understood here."*
 
-That's exactly as it should be.
+Everything else becomes easier once that happens.
 
-Professional language matters in supervision, training and clinical discussion.
+---
 
-Clients, however, aren't therapists.
+> **Remember**
+>
+> Your profile doesn't need to persuade every visitor.
+>
+> It only needs to help the right person recognise themselves.
 
-Terms such as:
+---
 
-- Integrative
-- Person-centred
-- Psychodynamic
-- Humanistic
-- Relational
-- Somatic
-- Parts work
+## Why this matters
 
-may all be entirely appropriate.
+Imagine someone searching for a therapist late in the evening.
 
-But they're rarely where a prospective client begins.
+Perhaps they've been thinking about therapy for months.
 
-Most clients don't arrive thinking:
+Perhaps they've searched before but closed the laptop without contacting anyone.
 
-*"I'm looking for a humanistic therapist."*
+Perhaps tonight feels different.
 
-They arrive thinking:
+They open one profile.
 
-*"I can't stop worrying."*
+Then another.
 
-*"My relationship is falling apart."*
+Then another.
 
-*"I don't know why I feel like this anymore."*
+After a while, everything starts to blur.
 
-The role of your profile is to bridge that gap.
+Not because the therapists aren't experienced.
 
-Rather than assuming people understand therapeutic language, explain your work using everyday language first.
+Because they're all trying to answer roughly the same questions in roughly the same way.
 
-You can always introduce your modality afterwards.
+This is where many therapists unintentionally make things harder.
 
-For example:
+They try to explain everything.
 
-Instead of saying:
+Every qualification.
 
-> I offer an integrative approach drawing upon person-centred and psychodynamic principles.
+Every modality.
 
-You might write:
+Every presenting issue.
 
-> I adapt how we work together depending on what feels most helpful for you. Rather than following one fixed way of working, therapy develops around your needs while drawing on person-centred and psychodynamic ideas.
+Every training course.
 
-The meaning is the same.
+Every way they might be able to help.
 
-The experience of reading it is very different.
+It's generous.
 
-Clients understand the practical outcome before they're introduced to the professional terminology.
+It's honest.
 
-## A useful question to ask yourself
+It also asks a lot of someone who may already feel overwhelmed.
 
-Whenever you're unsure about a sentence, ask:
+Sometimes the kindest thing we can do is make understanding easier.
 
-> **Would someone with no counselling background understand this immediately?**
+---
 
-If the answer is no, the sentence probably isn't wrong.
+## People don't read profiles the way we imagine
 
-It just hasn't been translated yet.
+Research into how people use websites has shown something remarkably consistent over the years.
 
-Professional knowledge shouldn't be hidden.
+Most of us don't read web pages from beginning to end.
 
-It should be made accessible.
+We scan.
 
-That small shift in mindset often changes the entire tone of a profile and makes it significantly easier for prospective clients to understand whether your practice feels right for them.
-## Why trying to appeal to everyone usually makes your profile weaker
+We pause when something feels relevant.
 
-Many therapists feel uncomfortable choosing a clearer focus for their profile.
+We skip over what doesn't.
 
-It's an understandable concern.
+That becomes even more true when we're anxious or making an emotionally important decision.
 
-You may genuinely work with anxiety, depression, bereavement, trauma, relationship difficulties, low self-esteem and life transitions.
+A prospective client isn't usually analysing every sentence.
 
-You don't want to exclude someone who could benefit from working with you.
+They're asking questions almost without realising it.
 
-But there is an important difference between **who you can work with** and **what someone notices first.**
+Can this person help someone like me?
 
-Imagine walking into a library where every book had exactly the same title.
+Do I feel comfortable here?
 
-Finding the right one would become surprisingly difficult.
+Should I keep reading?
 
-Counselling Directory works in much the same way.
+Your opening paragraph doesn't need to explain your entire practice.
 
-Clients are often comparing several therapists within minutes.
+It only needs to answer those questions well enough for someone to stay with you.
 
-They aren't trying to understand everything about every therapist.
+That changes how we think about writing.
 
-They're simply looking for the first sign that someone understands *their* experience.
+Long lists become less important.
 
-That is why specificity creates clarity.
+Clear language becomes more important.
 
-Not because you become more specialised.
+Helping someone feel recognised becomes more important than trying to sound comprehensive.
 
-Because you become easier to recognise.
+Because clarity survives the scan.
 
-For example, compare these two introductions.
+---
 
-> I work with anxiety, depression, stress, bereavement, self-esteem, work-related stress, relationship issues and life transitions.
+## It isn't about being the best therapist
 
-Now compare it with:
+This is probably the biggest misconception I come across.
 
-> Much of my work is with people living with anxiety that has gradually become part of everyday life. Together we explore what's keeping those patterns in place while helping you regain confidence in situations that currently feel overwhelming. I also work with bereavement, relationship difficulties and major life changes.
+We often imagine prospective clients trying to identify the most qualified therapist.
 
-Nothing has actually been removed.
+Most aren't.
 
-The second version simply establishes a centre of gravity.
+They're trying to identify the therapist who feels most likely to understand them.
 
-It gives the reader somewhere to connect before widening the picture.
+Qualifications matter.
 
-Recognition happens faster because the profile has a clear direction.
+Experience matters.
 
-## Your profile isn't a list of services
+Professional registration matters.
 
-One mistake I see repeatedly is therapists treating their profile like a brochure.
+Those things create confidence.
+
+But they're rarely the reason someone keeps reading.
+
+People don't usually choose a therapist because they're the most impressive.
+
+They choose the therapist who feels like the right fit.
+
+Your profile isn't there to prove your value.
+
+It's there to begin a relationship.
+
+And relationships rarely begin with persuasion.
+
+They begin with understanding.
+## Write for the person who is reading, not the profession you've joined
+
+One of the biggest shifts you can make is surprisingly simple.
+
+Write for the person looking for therapy.
+
+Not for another therapist.
+
+That doesn't mean hiding your training or avoiding professional language altogether.
+
+It means remembering where your reader is starting from.
+
+Most people don't arrive on Counselling Directory because they're interested in counselling theory.
+
+They're there because something in their life has become difficult.
+
+Perhaps anxiety has gradually started taking over.
+
+Perhaps they're grieving.
+
+Perhaps they're lying awake wondering why they can't seem to cope in the way they used to.
+
+They aren't searching for a particular modality.
+
+They're searching for relief.
+
+That's an important distinction.
+
+If the first thing they have to do is translate professional language into everyday language, you've already made understanding harder than it needs to be.
+
+Your knowledge should never become a barrier to connection.
+
+It should quietly make connection easier.
+
+---
+
+## Information isn't the same as understanding
+
+Many therapist profiles contain plenty of information.
 
 Qualifications.
 
@@ -332,620 +316,867 @@ Memberships.
 
 Modalities.
 
+Training.
+
 Presenting issues.
 
-Training courses.
+None of those things are unnecessary.
 
-Every piece of information is accurate.
+But information alone rarely helps someone feel understood.
 
-Very little of it helps someone imagine what therapy with you actually feels like.
+Compare these two openings.
 
-A profile should answer questions like:
+> I am a BACP registered integrative counsellor offering person-centred and psychodynamic therapy for anxiety, depression, relationships and self-esteem.
 
-- What kind of difficulties do you understand particularly well?
-- What might change through therapy?
-- How do people often describe working with you?
-- What is important to you in the therapeutic relationship?
+Now compare it with this.
 
-Those answers tell prospective clients far more than another list of credentials ever could.
+> You may have become so used to carrying everything on your own that asking for help now feels unfamiliar. Perhaps you've spent months telling yourself things will improve, only to find the same patterns returning again and again.
 
-Your qualifications absolutely matter.
+The second version tells you very little about the therapist.
 
-They establish professional trust.
+But it tells the reader something much more important.
 
-They simply shouldn't carry the whole weight of communicating your practice.
+*"This person understands what life feels like."*
 
-## Avoid counselling jargon wherever possible
+That's the beginning of trust.
 
-Every profession develops its own language.
+The qualifications still matter.
 
-Therapy is no different.
+They simply become meaningful at a different point in the conversation.
 
-Words such as:
+---
 
-- holding space
-- therapeutic alliance
-- process
-- unconditional positive regard
-- relational depth
-- containment
+> **Pause for a moment**
+>
+> Read the opening paragraph of your own profile.
+>
+> Does it begin with you?
+>
+> Or does it begin with the person you're hoping to help?
 
-have important meanings within the profession.
+---
 
-Outside the profession they often create uncertainty rather than understanding.
+## You don't have to describe everyone
 
-This doesn't mean you should avoid professional language altogether.
+One of the most common worries therapists have is this:
 
-It means you should translate it.
+*"If I'm too specific, people will assume I only work with that issue."*
 
-For example:
+I understand the concern.
 
-Instead of:
+Most therapists can work with a much wider range of people than their profile could ever describe.
 
-> I provide a safe, non-judgemental space where we can explore your process together.
+But being clear isn't the same as being restrictive.
 
-Consider:
+Think about walking into a bookshop.
 
-> Therapy offers a place where you don't have to pretend you're coping. Together we can make sense of what's happening, understand the patterns that keep returning and begin finding different ways forward.
+The books are organised into sections.
 
-The second version communicates the same intention.
+History.
 
-It simply uses language your prospective client already understands.
+Travel.
 
-## Your photograph communicates before your words do
+Psychology.
 
-Before someone reads a single paragraph, they've already formed an impression.
+Fiction.
 
-Research into online trust consistently shows that people make rapid judgements about credibility and warmth from photographs.
+Those labels don't stop you reading books from another section.
 
-That doesn't mean your headshot needs to look expensive.
+They simply make it easier to know where to begin.
 
-In fact, highly polished corporate photography often feels slightly out of place on a therapist's profile.
+Your profile works in much the same way.
 
-Instead, aim for something that feels genuine.
+When you try to describe every possible client equally, the writing often loses its centre.
 
-Generally this means:
+Nothing stands out because everything has the same importance.
 
-- Natural lighting.
-- A simple background.
-- Comfortable clothing.
-- Direct but relaxed eye contact.
-- A calm expression that feels authentic rather than posed.
+Instead, ask yourself a different question.
 
-Clients aren't looking for perfection.
+> **What work feels most like me?**
 
-They're trying to imagine sitting opposite you.
+Not:
 
-A photograph that feels approachable often does more for trust than one that simply looks professional.
+> **What am I capable of doing?**
 
-## Don't leave practical questions unanswered
+Those answers are often different.
 
-Sometimes therapists spend hours refining their biography and then leave practical information vague.
+Perhaps people consistently come to you because they struggle with anxiety.
 
-Things like:
+Perhaps because they're grieving.
 
-- Fees.
-- Session length.
-- Online availability.
-- Face-to-face locations.
-- Evening appointments.
+Perhaps because they've spent years looking after everyone else.
 
-From the therapist's perspective these details can feel secondary.
+Perhaps because they feel lost after a major life change.
 
-For clients they often determine whether making contact feels realistic.
+That doesn't become a limit.
 
-For example, compare:
+It becomes an anchor.
 
-> Please enquire regarding availability.
+Everything else can naturally sit around it.
 
-with:
+---
 
-> I currently offer daytime online sessions and limited Tuesday evening appointments.
+## Your profile isn't a list of services
 
-The second removes uncertainty.
-
-The same applies to fees.
-
-Some therapists avoid publishing them because they worry it feels transactional.
-
-In reality, transparency usually reduces anxiety.
-
-Clients appreciate knowing whether therapy is financially realistic before beginning an emotionally significant conversation.
-
-Clarity is rarely a disadvantage.
-
-## Make the first step feel smaller
-
-Getting in touch with a therapist is difficult.
-
-Not because filling in a contact form is complicated.
-
-Because emotionally it represents a significant step.
-
-Your profile can quietly reduce that pressure.
-
-Rather than ending with something abrupt like:
-
-> Contact me to arrange your first appointment.
-
-Try acknowledging what that first step actually feels like.
-
-For example:
-
-> If you're unsure whether we'd be a good fit, you're welcome to get in touch. We can have an initial conversation before deciding whether working together feels right for both of us.
-
-Nothing about that sentence pressures someone.
-
-It simply reduces the emotional weight of making contact.
-
-Often that's enough.
-
-## Review your profile regularly
-
-Your practice changes.
-
-So should your profile.
-
-Perhaps you discover you particularly enjoy working with grief.
-
-Perhaps ADHD becomes a larger part of your practice.
-
-Perhaps years of experience change how you describe therapy itself.
-
-Many profiles quietly become outdated because they're edited one paragraph at a time.
-
-Instead, every six to twelve months, read the entire profile from beginning to end.
-
-Ask yourself:
-
-> If I were starting my practice today, would I write it like this?
-
-If the answer is no, you've probably grown.
-
-Your profile should grow with you.
-
-## The limits of a directory profile
-
-Counselling Directory is excellent at helping people discover therapists.
-
-That is exactly what it was designed to do.
-
-What it cannot do is communicate the full depth of an individual practice.
-
-Every profile shares the same layout.
-
-The same structure.
-
-The same space.
-
-That's one of its strengths.
-
-It also creates limitations.
-
-As your practice develops, many prospective clients begin searching for your name after reading your profile.
-
-They want to know a little more before making contact.
-
-That's where your website becomes important.
-
-Not because your directory profile has failed.
-
-Because it has succeeded.
-
-Its job was never to explain everything.
-
-Its job was simply to help the right client decide they wanted to learn more.
-
-A good website allows that conversation to continue.
-
-Rather than replacing your Counselling Directory profile, it complements it.
-
-The strongest private practices don't choose between the two.
-
-They allow each to do the job it was designed for.
-## A practical review checklist
-
-Before you publish or update your profile, work through this checklist.
-
-### Opening
-
-- Does the first paragraph describe the client's experience before your qualifications?
-- Would someone recognise themselves within the first few sentences?
-- Have you avoided generic introductions?
-
-### Language
-
-- Is every sentence understandable without counselling training?
-- Have you replaced unnecessary jargon with everyday language?
-- Does your writing sound like you rather than a textbook?
-
-### Focus
-
-- Is there a clear theme running through the profile?
-- Have you highlighted the work you most enjoy rather than trying to describe everything equally?
-- Does the profile feel coherent from beginning to end?
-
-### Trust
-
-- Is your photograph approachable and authentic?
-- Are your qualifications easy to find without dominating the page?
-- Are your fees, availability and practical details complete?
-
-### Contact
-
-- Does getting in touch feel straightforward?
-- Have you reduced unnecessary uncertainty?
-- Does the closing paragraph feel welcoming rather than promotional?
-
-If you can answer "yes" to each of these questions, your profile is already ahead of many others on the directory.
-
-## Common mistakes therapists make
-
-After reviewing hundreds of therapist websites and profiles, the same patterns appear repeatedly.
-
-### Writing for other therapists
-
-Training changes how we naturally describe therapy.
-
-That's valuable in supervision, academic work and professional discussion.
-
-It becomes a problem when prospective clients are expected to understand that same language.
-
-Clients aren't looking for an accurate description of your theoretical orientation.
-
-They're looking for evidence that you understand them.
-
-Professional language has its place.
-
-Public-facing writing isn't usually it.
-
-### Trying to sound professional
-
-Many therapists unintentionally remove their own personality.
-
-Profiles become formal.
-
-Carefully written.
-
-Perfectly correct.
-
-And strangely anonymous.
-
-Professionalism doesn't require distance.
-
-Sometimes the most reassuring sentence on a profile is also the simplest.
-
-People aren't looking for impressive writing.
-
-They're looking for another human being.
-
-### Saying everything equally
-
-Many profiles read like lists.
-
-Every presenting issue.
-
-Every training course.
+Many therapist profiles gradually become collections of information.
 
 Every qualification.
 
-Every modality.
+Every training course.
 
-Every service.
+Every presenting issue.
 
-The result isn't clarity.
+Every way you might be able to help.
 
-It's cognitive overload.
+The intention is generous.
 
-A clearer profile doesn't necessarily contain less information.
+The effect is often overwhelming.
 
-It simply gives the most important information greater emphasis.
+A profile isn't trying to prove how much you know.
 
-### Forgetting the emotional context
+It's helping someone imagine what it might feel like to work with you.
 
-Someone searching for therapy isn't browsing in the same way they might compare restaurants or hotels.
+Those are different things.
 
-They may be exhausted.
+Instead of asking:
 
-Ashamed.
+> **What should I include?**
 
-Confused.
+Try asking:
 
-Anxious.
+> **What will someone understand about me after reading this?**
 
-They may have spent months deciding whether to seek help.
+Perhaps they'll leave thinking:
 
-Your profile isn't simply communicating information.
+*"She seems calm."*
 
-It's meeting someone at a difficult moment in their life.
+*"He understands anxiety."*
 
-Writing with that awareness naturally changes the tone.
+*"I think I'd feel comfortable talking to them."*
 
-## Your profile is only one part of your online presence
+Those impressions are far more likely to influence someone's decision than remembering where you completed your diploma.
 
-One of the biggest misconceptions about therapist marketing is that every platform should do the same job.
+People don't remember lists.
 
-They shouldn't.
+They remember how something made them feel.
 
-Each serves a different purpose.
+---
 
-### Counselling Directory
+## Translate therapy into everyday language
 
-Helps people discover you.
+Therapy has its own vocabulary.
 
-### Your website
+Words like:
 
-Helps people understand you.
+- containment
+- process
+- holding space
+- therapeutic alliance
+- relational depth
 
-### Google
+have real meaning within the profession.
 
-Helps people find you independently.
+Outside the profession they often create distance.
 
-### Google Business Profile
+That doesn't mean they're wrong.
 
-Provides reassurance through reviews, location and visibility.
+It simply means they may not be the clearest words available.
 
-### Referrals
+A useful habit is to imagine explaining your work to a friend who has never had therapy.
 
-Reinforce your professional reputation.
+Would you naturally say:
 
-When these all communicate consistently, they strengthen one another.
+> "We'll explore your process together."
 
-Someone might discover you through Counselling Directory.
+Or would you say something more like:
 
-Search for your name.
+> "We'll spend time understanding what's been happening and why the same patterns keep returning."
 
-Visit your website.
+The second isn't less professional.
 
-Read one or two articles.
+It's simply easier to understand.
 
-Check your Google reviews.
+That's an important difference.
 
-Then make contact.
+Good writing isn't about using simpler words.
 
-Every step builds confidence.
+It's about making complex ideas feel accessible.
 
-None of those touchpoints needs to persuade.
+---
 
-They simply need to tell the same story.
+## Let your personality remain visible
 
-## This is why I begin with Practice Clarity
+One of the unintended consequences of trying to sound professional is that many therapist profiles lose the therapist.
 
-People often assume they're struggling with writing.
+Read enough directory profiles and they begin to feel anonymous.
 
-Usually they're struggling with something much earlier.
+Not because the therapists lack warmth.
 
-They're trying to describe a practice they haven't yet fully defined.
+Because their individual voice has slowly disappeared beneath professional language.
 
-Questions like these often haven't been answered clearly.
+Your profile doesn't need to be informal.
 
-- Who do I most enjoy working with?
-- What do clients consistently value about working with me?
-- What do I want to become known for?
-- What feels distinctive about my approach?
-- Why do clients choose to continue working with me?
+It doesn't need to tell your life story.
 
-Without those answers, writing becomes difficult.
+But it should sound like you.
 
-Every paragraph feels uncertain.
+If someone met you after reading your profile, they shouldn't feel they've met a completely different person.
+
+The calmness.
+
+The thoughtfulness.
+
+The curiosity.
+
+The quiet humour.
+
+Whatever people naturally experience when they sit with you should already be present in your writing.
+
+Because therapy begins long before the first session.
+
+In many ways, it begins with the feeling someone has while reading your profile.
+## Your photograph is part of the conversation
+
+Long before someone reads your first sentence...
+
+They've already formed an impression.
+
+Not a final judgement.
+
+Just a first feeling.
+
+Does this person seem approachable?
+
+Do they seem calm?
+
+Could I imagine talking to them?
+
+Your photograph can't answer those questions completely.
+
+But it often shapes whether someone continues reading.
+
+That doesn't mean you need an expensive photoshoot.
+
+Or a perfectly edited headshot.
+
+In fact, photographs that feel overly polished can sometimes create distance rather than trust.
+
+Therapy is an unusually human profession.
+
+People aren't looking for someone who looks impressive.
+
+They're looking for someone who feels real.
+
+Generally, the strongest therapist photographs have a few things in common.
+
+- Natural light.
+- A simple background.
+- Comfortable clothing.
+- Direct but relaxed eye contact.
+- An expression that feels genuine rather than carefully posed.
+
+Ask yourself one question.
+
+> **Does this photograph feel like the person someone will actually meet?**
+
+If the answer is yes, you've probably chosen well.
+
+---
+
+## Remove unnecessary uncertainty
+
+By the time someone reaches your profile, they've already made countless small decisions.
+
+Whether to search.
+
+Whether to keep reading.
+
+Whether therapy might even be right for them.
+
+Your profile shouldn't ask them to make even more decisions if it doesn't have to.
+
+This is where practical information becomes surprisingly important.
+
+Questions such as:
+
+- What do sessions cost?
+- Are you currently accepting new clients?
+- Do you work online?
+- Where are you based?
+- Do you offer evening appointments?
+
+might seem straightforward.
+
+To someone considering therapy for the first time, they can feel significant.
+
+The easier you make those answers to find, the less emotional effort someone has to spend looking for them.
+
+Clarity reduces friction.
+
+For example, compare these two statements.
+
+> Please enquire regarding availability.
+
+Now compare it with:
+
+> I currently offer online sessions throughout the week together with a small number of weekday evening appointments.
+
+The second doesn't say much more.
+
+It simply removes uncertainty.
+
+The same applies to fees.
+
+Many therapists worry that publishing their fee feels transactional.
+
+In my experience, it usually has the opposite effect.
+
+It feels open.
+
+Transparent.
+
+Respectful of someone's time.
+
+People appreciate knowing whether therapy is financially realistic before beginning what may already feel like a vulnerable conversation.
+
+---
+
+> **Remember**
+>
+> Every unanswered practical question asks someone to make another decision.
+>
+> Good communication quietly removes unnecessary decisions.
+
+---
+
+## Make the first step feel smaller
+
+For many prospective clients, sending that first email is harder than attending the first session.
+
+It represents something.
+
+Perhaps admitting they need help.
+
+Perhaps saying something aloud for the first time.
+
+Perhaps simply allowing themselves to hope that things could be different.
+
+Your closing paragraph has an opportunity to acknowledge that.
+
+Instead of writing:
+
+> Contact me to arrange your first appointment.
+
+Consider something closer to how you might speak in person.
+
+For example:
+
+> If you're unsure whether we'd be the right fit, you're very welcome to get in touch. We can begin with an initial conversation and decide together whether working together feels right.
+
+There's no pressure.
+
+No urgency.
+
+No assumption that they'll become a client.
+
+Just an invitation to begin a conversation.
+
+That small difference often makes the first step feel much more manageable.
+
+---
+
+## Let your profile grow with your practice
+
+Many therapists write their profile once.
+
+Then spend years growing while the profile stays exactly the same.
+
+Private practice isn't static.
+
+Neither are you.
+
+The work you enjoy often becomes clearer.
+
+You begin noticing patterns.
+
+Certain conversations energise you.
+
+Clients describe your work in ways you hadn't fully recognised before.
+
+Your profile should evolve alongside those discoveries.
+
+Once or twice each year, read it from beginning to end.
+
+Not as an editor.
+
+As a therapist.
+
+Ask yourself:
+
+> **Does this still sound like the practice I have today?**
+
+If the answer is no, don't worry.
+
+That's usually a sign you've developed.
+
+Your profile deserves to develop with you.
+
+---
+
+## Where a directory profile reaches its natural limit
+
+Counselling Directory is excellent at helping people discover therapists.
+
+That's exactly what it's designed to do.
+
+But discovery and understanding aren't the same thing.
+
+Every therapist works within the same structure.
+
+The same headings.
+
+The same layout.
+
+The same amount of space.
+
+That's one of the strengths of a directory.
+
+It also creates its natural limitation.
+
+As your practice develops, there comes a point where a profile simply isn't large enough to communicate everything that matters.
+
+Many therapists notice the same pattern.
+
+A prospective client discovers them on Counselling Directory.
+
+Then searches for their name.
+
+Visits their website.
+
+Reads another page.
+
+Perhaps reads an article.
+
+Only then decides whether to make contact.
+
+That's not because the directory has failed.
+
+It's because it has done its job.
+
+The profile answered the first question.
+
+> **Could this therapist understand me?**
+
+Now the client wants to answer another.
+
+> **Who are they?**
+
+A website allows that conversation to continue.
+
+Not by repeating your profile.
+
+By expanding it.
+
+Sharing your thinking.
+
+Explaining your approach.
+
+Helping someone understand what working with you actually feels like.
+
+The strongest private practices don't choose between a directory profile and a website.
+
+They allow each to do the job it was designed for.
+
+---
+
+## Why everything comes back to Practice Clarity
+
+People often tell me they're struggling to write their website.
+
+Or their directory profile.
+
+Or their About page.
+
+Most of the time, writing isn't really the problem.
+
+Writing is simply revealing something else.
+
+Uncertainty.
+
+Questions like these often haven't been answered yet.
+
+- Who do I do my best work with?
+- What conversations leave me feeling most energised?
+- What do clients consistently value?
+- What do I hope people experience when they work with me?
+- What kind of practice am I gradually building?
+
+Without clear answers, writing becomes surprisingly difficult.
+
+Every paragraph feels almost right.
 
 Every sentence gets rewritten.
 
-Every page feels unfinished.
+Nothing quite settles.
 
-This is why my work doesn't begin with websites.
+This is why I don't begin with websites.
 
 Or SEO.
 
 Or branding.
 
-It begins with understanding the practice itself.
+I begin with understanding the practice itself.
 
-Once that becomes clear, almost every piece of communication becomes easier.
+Because once the practice becomes clearer...
 
-Your directory profile.
+everything else becomes easier.
+
+Your Counselling Directory profile.
 
 Your website.
 
 Your Google Business Profile.
 
-Your social media.
+Referrals.
 
-Even the conversations you have during an initial consultation.
+Even those first conversations with prospective clients.
 
-Clarity isn't the finishing touch.
+The words were never really the difficult part.
 
-It's the foundation everything else is built upon.
+They were simply waiting for the thinking behind them to become clear.
+## Common mistakes I see again and again
 
-## You don't need better marketing
+Most therapist profiles don't struggle because the therapist lacks experience.
 
-This surprises many therapists.
+They struggle because the profile is trying to achieve too many things at once.
 
-Most don't actually need to become better marketers.
+After reviewing hundreds of therapist websites and directory profiles, I've noticed the same patterns appearing repeatedly.
 
-They don't need to post every day on Instagram.
+Not because therapists are careless.
 
-They don't need sales funnels.
+Quite the opposite.
 
-They don't need persuasive copywriting techniques.
+Most of these profiles have been written by thoughtful people trying to be accurate, ethical and inclusive.
 
-They certainly don't need to become someone they're not.
+The result is often writing that is entirely true, but surprisingly difficult to connect with.
 
-What most practices need is much simpler.
+### Writing for colleagues
 
-They need clearer communication.
+Training changes how we naturally talk about therapy.
 
-When people understand your practice more easily:
+It gives us language that helps us think carefully about our work.
 
-- the right clients recognise themselves sooner
-- referrals become more consistent
-- your website becomes easier to write
-- SEO becomes more natural
-- enquiries become better matched
+That's valuable.
 
-Nothing manipulative has happened.
+But prospective clients aren't therapists.
 
-People simply understand your work more clearly.
+They don't need to understand your theoretical orientation before they understand whether they'll feel comfortable talking to you.
 
-That benefits everyone involved.
+If someone needs counselling training to understand a sentence, it's probably worth rewriting.
+
+Not because the sentence is wrong.
+
+Because your reader is somewhere else.
+
+### Trying to sound more professional than you naturally are
+
+Professionalism doesn't have to sound formal.
+
+Some of the strongest therapists I know speak very simply.
+
+They don't simplify the work.
+
+They simplify the language.
+
+Your profile shouldn't sound like a university assignment.
+
+Nor should it sound like marketing.
+
+It should sound like the thoughtful, grounded person someone will actually meet.
+
+If a prospective client met you after reading your profile, it shouldn't feel like meeting somebody different.
+
+### Trying to describe everything
+
+One of the easiest ways to make a profile less memorable is trying to include absolutely everything.
+
+Every qualification.
+
+Every issue.
+
+Every approach.
+
+Every possibility.
+
+It often comes from kindness.
+
+You don't want someone to think you couldn't help them.
+
+Ironically, the result is often the opposite.
+
+The profile becomes harder to picture because it has no centre.
+
+Clarity isn't about saying less.
+
+It's about helping people understand what matters most.
+
+### Forgetting the person reading
+
+This is probably the biggest one.
+
+Someone reading your profile isn't casually browsing.
+
+They may have spent weeks deciding whether to look for therapy.
+
+Perhaps months.
+
+Perhaps years.
+
+They may already have opened ten different profiles.
+
+Closed them all.
+
+Then tried again another evening.
+
+Your writing meets someone at a vulnerable point in their life.
+
+It's worth writing with that in mind.
+
+---
+
+> **Something I often remind myself**
+>
+> Every enquiry you've never received began with someone quietly deciding not to keep reading.
+>
+> The goal isn't to persuade them.
+>
+> It's to make understanding feel easier.
+
+---
+
+## Your profile is part of a bigger conversation
+
+One of the reasons I don't think too much about "marketing" is because most therapists are already communicating far more than they realise.
+
+Your Counselling Directory profile communicates something.
+
+Your website communicates something.
+
+Your Google Business Profile communicates something.
+
+The way you answer an email communicates something.
+
+Even the way another professional describes you in a referral communicates something.
+
+Prospective clients move between all of these.
+
+They rarely experience only one.
+
+A journey might look something like this.
+
+```text
+Counselling Directory
+
+↓
+
+Google search
+
+↓
+
+Website
+
+↓
+
+About page
+
+↓
+
+Contact
+```
+
+Each step answers a slightly different question.
+
+The directory says:
+
+*"This therapist exists."*
+
+Your website says:
+
+*"This is how they think."*
+
+Your About page says:
+
+*"This is the person behind the practice."*
+
+By the time someone gets in touch, they often feel as though they've already met you.
+
+Not because you've persuaded them.
+
+Because every part of your online presence tells the same story.
+
+That's what clarity looks like.
+
+---
+
+## A practical review checklist
+
+Before you update your profile, spend ten minutes working through these questions.
+
+### Recognition
+
+- Does the opening describe the client's experience before describing me?
+- Would someone recognise themselves within the first few sentences?
+- Is there one clear thread running through the profile?
+
+### Clarity
+
+- Have I translated counselling language into everyday language?
+- Would somebody outside the profession understand every paragraph?
+- Does this sound like me?
+
+### Trust
+
+- Does my photograph feel warm and approachable?
+- Are my qualifications easy to find without dominating the page?
+- Have I explained my approach in plain English?
+
+### Practical information
+
+- Are my fees easy to find?
+- Is my availability current?
+- Have I explained online and face-to-face sessions?
+- Is it obvious how someone can contact me?
+
+### First contact
+
+- Does the final paragraph reduce pressure?
+- Have I made the first step feel manageable?
+- Does the profile end with warmth rather than persuasion?
+
+You don't need a perfect score.
+
+You simply need a profile that feels a little clearer than it did yesterday.
+
+---
+
 ## Frequently asked questions
 
 ### Should I mention every issue I work with?
 
-Probably not.
+Usually not.
 
-Most therapists are capable of working with a broad range of presenting issues, and that's worth acknowledging. But giving every issue equal prominence makes it harder for prospective clients to recognise where you might be the strongest fit.
+Lead with the work that feels most representative of your practice.
 
-Instead, lead with the areas of work that feel most representative of your practice, then briefly mention the wider range of clients you support.
+You can always mention the wider range of clients you support later.
 
-Clarity isn't about excluding people.
-
-It's about making it easier for the right people to recognise themselves.
+Recognition becomes much easier when people know where to place you.
 
 ---
 
-### Will having a clearer focus reduce the number of enquiries I receive?
+### Will becoming more specific reduce enquiries?
 
-Often the opposite happens.
+Possibly.
 
-A clearer profile may generate fewer enquiries from people who aren't quite the right fit, while increasing enquiries from people who are.
+But it often improves them.
 
-Most therapists aren't trying to maximise enquiries.
+A clearer profile tends to attract people who already recognise something of themselves in your writing.
 
-They're trying to attract enquiries that are more likely to become meaningful therapeutic relationships.
-
-Those are two very different goals.
+Those conversations often begin from a stronger place.
 
 ---
 
-### Should I list my qualifications first?
+### Should qualifications come first?
 
-Your qualifications matter.
+They're important.
 
-They establish professional credibility and reassure prospective clients that they're looking at someone appropriately trained.
+They establish confidence.
 
-They simply don't need to be the first thing someone reads.
+But confidence usually follows recognition.
 
-Recognition creates attention.
-
-Qualifications reinforce trust.
-
-Present them in that order.
+Most prospective clients want to know whether you understand them before they want to know where you trained.
 
 ---
 
-### How often should I update my profile?
+### How often should I review my profile?
 
-At least once or twice each year.
+At least once each year.
 
-Your practice evolves over time.
+Your practice changes.
 
-You develop new interests.
+Your profile should change with it.
 
-Gain experience.
-
-Notice patterns in the clients you most enjoy working with.
-
-Your profile should evolve alongside your practice rather than becoming a snapshot of who you were several years ago.
+If you've grown as a therapist, your writing should reflect that.
 
 ---
 
-### Is a website still worth having if I already receive enquiries through Counselling Directory?
+### Do I still need a website?
 
-In many cases, yes.
+I think so.
 
-A Counselling Directory profile helps people discover you.
+Not because Counselling Directory isn't valuable.
 
-A website helps them understand you.
+It is.
 
-As your practice grows, prospective clients often begin searching for your name before making contact.
+But a directory profile introduces your practice.
 
-A website allows you to answer questions that simply don't fit within the structure of a directory profile.
+A website allows someone to spend time with it.
 
-The two work best together rather than replacing one another.
+That's a different job.
 
-## Final thoughts
+The two work best together.
 
-A Counselling Directory profile isn't simply somewhere to list your qualifications.
+---
 
-It's often the first conversation someone has with your practice.
+## One final thought
 
-Long before they contact you.
+People sometimes ask me what makes a good therapist profile.
 
-Long before they know anything about your approach.
+I don't think it's clever writing.
 
-Long before you've had the opportunity to build trust in person.
+Or perfect SEO.
 
-Every sentence either makes it easier or harder for someone to understand whether you might be the right therapist for them.
+Or finding exactly the right words.
 
-That's why I don't think writing a better profile starts with finding better words.
+I think it's something much simpler.
 
-It starts much earlier.
+When someone finishes reading your profile...
 
-It starts by becoming clearer about your practice itself.
+...they should feel slightly less alone than they did before they opened it.
 
-Who you work best with.
+Not because you've solved anything.
 
-How you understand the difficulties your clients bring.
+Not because you've convinced them.
 
-What people consistently value about working with you.
+Simply because, for a few moments, they felt understood.
 
-When those things become clear, writing becomes surprisingly straightforward.
+If your writing can do that before you've exchanged a single email...
 
-Your directory profile improves.
+you've already begun building the relationship that therapy itself depends upon.
 
-Your website becomes easier to structure.
+Everything else comes afterwards.
 
-Your Google presence becomes more consistent.
+---
 
-Your referrals become easier to understand.
+## Related reading
 
-Almost every piece of communication becomes simpler because they're all describing the same practice.
+If this article resonated with you, you may also enjoy:
 
-Clarity comes before design.
+- **Beyond Counselling Directory: How to Build a More Sustainable Private Practice**
+- **What Makes Someone Trust a Therapist Online?**
+- **The Therapist Website Planning Guide**
+- **Why Therapist Websites Fail**
+- **Ethical SEO for Therapists**
+- **Should Therapists Specialise?**
+- **What Every Therapy Homepage Should Communicate?**
+
+Each explores a different part of the same idea.
+
+Helping the right clients understand your practice more clearly.
+
+Because clarity comes before websites.
 
 Before SEO.
 
 Before marketing.
 
-Because none of those disciplines can create clarity if it isn't already there.
-
-They can only communicate it.
-
-## Key takeaways
-
-If you remember only a few ideas from this article, let them be these:
-
-- Your profile exists to help the right client recognise themselves.
-- Lead with the client's experience before your qualifications.
-- Write for clients, not other therapists.
-- Explain your approach in everyday language.
-- Choose clarity over trying to appeal to everyone.
-- Complete every section thoughtfully, including practical information.
-- Treat your profile as part of a wider online presence rather than your entire marketing strategy.
-- Review it regularly as your practice develops.
-- Remember that better writing usually begins with greater clarity.
-
-## Related reading
-
-If you're working on strengthening your online presence, these articles build naturally on the ideas explored here:
-
-- **Beyond Counselling Directory: How to Build a More Sustainable Private Practice**
-- **What Makes Someone Trust a Therapist Online?**
-- **Why Therapist Websites Fail**
-- **The Therapist Website Planning Guide**
-- **Ethical SEO for Therapists**
-- **Should Therapists Specialise?**
-- **What Every Therapy Homepage Should Communicate**
-
-Each explores a different part of the same underlying idea:
-
-Helping the right clients understand your practice more clearly.
-
----
-
-> **If you've reached the point where your Counselling Directory profile no longer feels large enough to communicate your practice, that usually isn't a writing problem.**
->
-> It's often a clarity problem first.
->
-> That's where I begin.
+It begins with understanding the practice itself.
