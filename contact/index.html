@@ -1,10 +1,10 @@
 ---
 layout: default
 title: Contact
-description: Start a Brand Clarity project with Alexander Watson.
+description: Tell me about your therapy practice and start with a Practice Clarity conversation before any website work begins.
 ---
 
-<section class="acw-contact-page">
+<section class="acw-section acw-contact-page">
   <div class="acw-container acw-contact-page-grid">
 
     <div class="acw-contact-page-copy">
@@ -12,25 +12,21 @@ description: Start a Brand Clarity project with Alexander Watson.
 
       <h1>Tell me about your practice.</h1>
 
-      <p class="acw-hero-text">
-        Whether you already have a website or you're starting from scratch,
-        send me a few details about your practice and what you're hoping to achieve.
+      <p class="acw-page-intro">
+        Whether you already have a website or you are starting from scratch, send me a few details about your practice and what you are hoping to make clearer.
       </p>
 
-      <p class="acw-hero-text acw-contact-page-emphasis">
-        If we work together, we will begin with understanding your practice —
-        not designing your website.
+      <p class="acw-section-text">
+        If we work together, we will begin with understanding your practice — not choosing colours, layouts or templates.
       </p>
 
-      <p class="acw-hero-text">
-        I'll reply personally with the next step I'd recommend. If I do not think
-        I am the right fit, I will say so.
+      <p class="acw-section-text">
+        I will reply personally with the simplest next step I would recommend. If I do not think I am the right fit, I will say so.
       </p>
 
       <div class="acw-contact-page-note">
         <p>
-          Most projects begin with a Practice Clarity Blueprint. Once I understand
-          your practice, I'll recommend the simplest next step.
+          Most projects begin with a Practice Clarity Blueprint: a short, structured process to understand who you help, what you want clients to recognise, and what your website needs to communicate.
         </p>
       </div>
     </div>
@@ -39,26 +35,54 @@ description: Start a Brand Clarity project with Alexander Watson.
       <div class="acw-form-heading">
         <p class="acw-section-number">Start here</p>
         <h2>Complete this short form.</h2>
-        <p>I'll reply personally. No mailing list, no pressure, no obligation.</p>
+        <p>
+          No mailing list. No pressure. No obligation. Just a clear first step.
+        </p>
       </div>
 
       <form action="https://formspree.io/f/xpwybnnb" method="POST" class="acw-contact-form">
 
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" autocomplete="name" required>
+        <div class="acw-form-field">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            autocomplete="name"
+            required
+          >
+        </div>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" autocomplete="email" required>
+        <div class="acw-form-field">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            required
+          >
+        </div>
 
-        <label for="message">Tell me a little about your practice</label>
-        <textarea id="message" name="message" rows="7" required></textarea>
+        <div class="acw-form-field">
+          <label for="message">Tell me a little about your practice</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="7"
+            placeholder="For example: where you are in your practice, whether you already have a website, and what feels unclear or difficult to communicate."
+            required
+          ></textarea>
+        </div>
+
+        <input type="hidden" name="_subject" value="New enquiry from Alexander Watson website">
 
         <button type="submit" class="acw-btn acw-btn-primary">
           Send message
         </button>
 
         <p class="acw-form-reassurance">
-          I'll always let you know honestly if I don't think I'm the right fit.
+          I will always reply honestly if I do not think I am the right fit.
         </p>
 
       </form>
