@@ -1851,7 +1851,8 @@ p {
 
   .acw-blueprint-grid,
   .acw-before-after-grid,
-  .acw-blog-grid {
+  .acw-blog-grid,
+  .acw-library-feature-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1878,7 +1879,8 @@ p {
   .acw-value-grid,
   .acw-contact-page-grid,
   .acw-blog-hero-layout,
-  .acw-blog-value-grid {
+  .acw-blog-value-grid,
+  .acw-library-about-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
@@ -1889,6 +1891,10 @@ p {
   .acw-contact-image-wrap,
   .acw-blog-hero-card {
     justify-self: start;
+    max-width: 680px;
+  }
+
+  .acw-library-about-grid > div:first-child {
     max-width: 680px;
   }
 
@@ -2031,26 +2037,19 @@ p {
     top: 0;
     right: 0;
     z-index: 1002;
-
     display: grid;
     align-content: start;
     gap: 1.4rem;
-
     width: min(86vw, 360px);
     height: 100dvh;
-
     padding: 92px 1.35rem 1.35rem;
-
     background: rgba(255, 253, 248, 0.98);
     border-left: 1px solid rgba(16, 32, 51, 0.08);
     box-shadow: -20px 0 60px rgba(16, 32, 51, 0.14);
-
     overflow-y: auto;
     overflow-x: hidden;
-
     transform: translate3d(100%, 0, 0);
     transition: transform var(--transition);
-
     overscroll-behavior: contain;
     touch-action: pan-y;
     will-change: transform;
@@ -2107,7 +2106,8 @@ p {
   .acw-cards,
   .acw-cards-two,
   .acw-before-after-grid,
-  .acw-blog-grid {
+  .acw-blog-grid,
+  .acw-library-feature-grid {
     grid-template-columns: 1fr;
   }
 
@@ -2148,6 +2148,16 @@ p {
   }
 
   .acw-blog-search-button {
+    width: 100%;
+  }
+
+  .acw-library-topic-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .acw-library-topic-grid a {
+    justify-content: flex-start;
     width: 100%;
   }
 
@@ -2209,13 +2219,19 @@ p {
 
   .acw-blog-hero-card,
   .acw-blog-cta,
-  .acw-blog-empty {
+  .acw-blog-empty,
+  .acw-library-feature-card {
     border-radius: 28px;
   }
 
   .acw-blog-card-inner,
-  .acw-blog-value-list article {
+  .acw-blog-value-list article,
+  .acw-library-feature-card > div {
     padding: 1.25rem;
+  }
+
+  .acw-library-about img {
+    border-radius: 28px;
   }
 }
 
