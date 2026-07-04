@@ -17,17 +17,35 @@
 >
 
 <link rel="canonical" href="{{ page.url | absolute_url }}">
-
-<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+<meta name="baseurl" content="{{ site.baseurl }}">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-  rel="stylesheet"
->
 
-<!-- Favicons -->
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+  onload="this.onload=null;this.rel='stylesheet'"
+>
+<noscript>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+</noscript>
+
+{% if page.url == "/" %}
+<link
+  rel="preload"
+  as="image"
+  href="{{ '/assets/images/brand/practice-clarity-blueprint-hero.webp' | relative_url }}"
+  fetchpriority="high"
+>
+{% endif %}
+
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
 <link rel="icon" type="image/x-icon" href="{{ '/assets/images/brand/favicon.ico' | relative_url }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/brand/favicon-32x32.png' | relative_url }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/brand/favicon-16x16.png' | relative_url }}">
@@ -48,10 +66,7 @@
 >
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta property="og:site_name" content="{{ site.title }}">
-<meta
-  property="og:image"
-  content="{{ '/assets/images/brand/social-preview.webp' | absolute_url }}"
->
+<meta property="og:image" content="{{ '/assets/images/brand/social-preview.webp' | absolute_url }}">
 <meta property="og:image:alt" content="Alexander Watson — Web Design for Therapists">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -65,8 +80,5 @@
   name="twitter:description"
   content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% else %}{{ site.description | escape }}{% endif %}"
 >
-<meta
-  name="twitter:image"
-  content="{{ '/assets/images/brand/social-preview.webp' | absolute_url }}"
->
+<meta name="twitter:image" content="{{ '/assets/images/brand/social-preview.webp' | absolute_url }}">
 <meta name="twitter:image:alt" content="Alexander Watson — Web Design for Therapists">

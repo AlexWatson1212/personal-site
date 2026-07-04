@@ -1,5 +1,6 @@
 /* =========================================================
 ALEXANDER WATSON — MAIN STYLESHEET
+Optimised version
 Clarity First • Website Second
 ========================================================= */
 
@@ -27,9 +28,9 @@ Clarity First • Website Second
   --shadow-xs: 0 6px 16px rgba(16, 32, 51, 0.035);
   --shadow-sm: 0 16px 36px rgba(16, 32, 51, 0.06);
   --shadow: 0 26px 64px rgba(16, 32, 51, 0.085);
-  --shadow-lg: 0 34px 90px rgba(16, 32, 51, 0.12);
 
   --radius: 28px;
+  --radius-md: 32px;
   --radius-lg: 42px;
   --pill: 999px;
 
@@ -138,7 +139,7 @@ section {
 }
 
 /* =========================================================
-4. TYPOGRAPHY / GENERAL SECTIONS / BUTTONS
+4. TYPOGRAPHY / SECTIONS / BUTTONS
 ========================================================= */
 
 h1,
@@ -181,14 +182,14 @@ p {
 
 .acw-section-soft {
   background:
-    radial-gradient(circle at 12% 0%, rgba(255,255,255,.45), transparent 36%),
-    radial-gradient(circle at 88% 16%, rgba(123,143,112,.08), transparent 34%),
+    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.45), transparent 36%),
+    radial-gradient(circle at 88% 16%, rgba(123, 143, 112, 0.08), transparent 34%),
     var(--surface-soft);
 }
 
 .acw-section-quiet {
   background:
-    radial-gradient(circle at 90% 10%, rgba(123,143,112,.05), transparent 30%),
+    radial-gradient(circle at 90% 10%, rgba(123, 143, 112, 0.05), transparent 30%),
     var(--surface-quiet);
 }
 
@@ -202,6 +203,7 @@ p {
 }
 
 .acw-section-number,
+.acw-section-label,
 .acw-card-label,
 .acw-eyebrow {
   display: inline-flex;
@@ -253,7 +255,7 @@ p {
 .acw-btn-primary {
   background: var(--accent);
   color: var(--white);
-  box-shadow: 0 10px 24px rgba(83,107,77,.16);
+  box-shadow: 0 10px 24px rgba(83, 107, 77, 0.16);
 }
 
 .acw-btn-primary:hover {
@@ -262,7 +264,7 @@ p {
 }
 
 .acw-btn-secondary {
-  background: rgba(255,255,255,.82);
+  background: rgba(255, 255, 255, 0.82);
   color: var(--text);
   border-color: var(--line);
 }
@@ -278,6 +280,7 @@ p {
   gap: 0.8rem;
   margin-top: 2rem;
 }
+
 /* =========================================================
 5. HEADER / NAVIGATION
 ========================================================= */
@@ -377,6 +380,7 @@ p {
     transform: translateY(-1px);
   }
 }
+
 /* =========================================================
 6. HERO
 ========================================================= */
@@ -400,20 +404,18 @@ p {
 }
 
 .acw-hero-cover {
-  min-height: 560px;
   display: flex;
   align-items: center;
+  min-height: 560px;
   padding: clamp(56px, 6vw, 84px) 0;
 }
 
 .acw-hero-cover-inner {
   position: relative;
   z-index: 2;
-
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(420px, 0.9fr);
   gap: clamp(3rem, 5vw, 5rem);
-
   align-items: center;
 }
 
@@ -421,14 +423,9 @@ p {
   max-width: 620px;
 }
 
-.acw-hero-cover .acw-eyebrow {
-  margin-bottom: 0.9rem;
-}
-
 .acw-hero-cover h1 {
   max-width: 12.4ch;
   margin-bottom: 1rem;
-
   font-size: clamp(2.9rem, 4.3vw, 4.5rem);
   line-height: 0.96;
   letter-spacing: -0.06em;
@@ -436,11 +433,8 @@ p {
 
 .acw-hero-cover .acw-hero-text {
   max-width: 43ch;
-
   margin: 0;
-
   color: var(--muted);
-
   font-size: clamp(1rem, 1.05vw, 1.12rem);
   line-height: 1.68;
 }
@@ -457,624 +451,476 @@ p {
 }
 
 .acw-hero-visual img {
-  display: block;
-
   width: 100%;
   max-width: 520px;
-
-  border-radius: 30px;
-
   border: 1px solid rgba(16, 32, 51, 0.08);
-
+  border-radius: 30px;
   background: var(--white);
-
   box-shadow:
     0 24px 60px rgba(16, 32, 51, 0.08),
     0 8px 20px rgba(16, 32, 51, 0.05);
 }
+/* =========================================================
+ALEXANDER WATSON — MAIN STYLESHEET
+Optimised version
+Clarity First • Website Second
+========================================================= */
 
-/* ---------- Tablet ---------- */
+/* =========================================================
+1. ROOT
+========================================================= */
 
-@media (max-width:1040px){
+:root {
+  --bg: #f6efe4;
+  --surface: #fffdf8;
+  --surface-soft: #e8ddcd;
+  --surface-quiet: #faf6ee;
+  --surface-warm: #efe4d4;
 
-  .acw-hero-cover{
-    min-height:auto;
-    padding:64px 0;
-  }
+  --text: #102033;
+  --muted: #65717d;
+  --white: #ffffff;
 
-  .acw-hero-cover-inner{
-    grid-template-columns:1fr;
-    gap:2rem;
-  }
+  --accent: #7b8f70;
+  --accent-dark: #536b4d;
 
-  .acw-hero-cover-copy{
-    max-width:680px;
-  }
+  --line: rgba(16, 32, 51, 0.09);
+  --line-strong: rgba(16, 32, 51, 0.16);
 
-  .acw-hero-visual{
-    justify-content:flex-start;
-  }
+  --shadow-xs: 0 6px 16px rgba(16, 32, 51, 0.035);
+  --shadow-sm: 0 16px 36px rgba(16, 32, 51, 0.06);
+  --shadow: 0 26px 64px rgba(16, 32, 51, 0.085);
 
-  .acw-hero-visual img{
-    max-width:560px;
-  }
+  --radius: 28px;
+  --radius-md: 32px;
+  --radius-lg: 42px;
+  --pill: 999px;
 
-}
+  --container: 1120px;
 
-/* ---------- Mobile ---------- */
+  --font-heading: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 
-@media (max-width:860px){
-
-  .acw-hero-cover{
-    padding:38px 0 52px;
-  }
-
-  .acw-hero-cover-inner{
-    gap:1.5rem;
-  }
-
-  .acw-hero-cover h1{
-    max-width:11.4ch;
-    margin-bottom:.9rem;
-
-    font-size:clamp(2.15rem,9.5vw,2.9rem);
-
-    line-height:1;
-  }
-
-  .acw-hero-cover .acw-hero-text{
-    max-width:34ch;
-
-    font-size:.95rem;
-
-    line-height:1.58;
-  }
-
-  .acw-hero-cover .acw-cta-row{
-    gap:.7rem;
-    margin-top:1.35rem;
-  }
-
-  .acw-hero-cover .acw-btn{
-    width:100%;
-  }
-
-  .acw-hero-visual{
-    display:block;
-    margin-top:.4rem;
-  }
-
-  .acw-hero-visual img{
-    width:100%;
-    max-width:none;
-
-    max-height:240px;
-
-    object-fit:cover;
-    object-position:center;
-
-    border-radius:22px;
-  }
-
-}
-
-/* ---------- Small Phones ---------- */
-
-@media (max-width:560px){
-
-  .acw-hero-cover{
-    padding-top:30px;
-  }
-
-  .acw-hero-cover h1{
-    font-size:clamp(2rem,10vw,2.6rem);
-  }
-
-  .acw-hero-visual img{
-    max-height:210px;
-  }
-
+  --transition: 0.25s ease;
 }
 
 /* =========================================================
-7. INTRO / STATEMENT
+2. RESET
 ========================================================= */
 
-.acw-statement {
-  padding: 145px 0;
-  background: var(--surface);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.acw-statement-inner {
-  max-width: 900px;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 82px;
 }
 
-.acw-statement h2 {
-  max-width: 12ch;
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.72;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-.acw-statement p:not(.acw-section-number) {
-  max-width: 48ch;
-  color: var(--muted);
-  font-size: clamp(1.14rem, 1.5vw, 1.35rem);
-  line-height: 1.74;
-}
-
-/* =========================================================
-8. EDITORIAL / PROCESS
-========================================================= */
-
-.acw-editorial-grid,
-.acw-process-layout,
-.acw-value-grid {
-
-  display:grid;
-
-  align-items:center;
-
-  gap:5rem;
-
-}
-
-.acw-editorial-grid{
-
-  grid-template-columns:1fr .92fr;
-
-}
-
-.acw-process-layout{
-
-  grid-template-columns:1fr .82fr;
-
-}
-
-.acw-value-grid{
-
-  grid-template-columns:1fr .82fr;
-
-}
-
-.acw-editorial-copy,
-.acw-process-copy,
-.acw-value-copy{
-
-  max-width:720px;
-
-}
-
-.acw-editorial-media,
-.acw-process-image,
-.acw-showcase-image{
-
-  margin:0;
-
-}
-
-.acw-editorial-media img,
-.acw-process-image img,
-.acw-showcase-image img,
-.acw-contact-image,
-.acw-about-image{
-
-  width:100%;
-
-  border-radius:34px;
-
-  object-fit:cover;
-
-  border:1px solid rgba(16,32,51,.08);
-
-  box-shadow:var(--shadow);
-
-}
-
-.acw-editorial-media img,
-.acw-process-image img{
-
-  aspect-ratio:4/3;
-
-}
-
-/* =========================================================
-9. MINI TAGS
-========================================================= */
-
-.acw-mini-list{
-
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:.6rem;
-
-  margin-top:1.5rem;
-
-}
-
-.acw-mini-list span{
-
-  display:inline-flex;
-
-  padding:.5rem .82rem;
-
-  border-radius:999px;
-
-  background:rgba(255,255,255,.72);
-
-  border:1px solid rgba(16,32,51,.08);
-
-  color:rgba(16,32,51,.68);
-
-  font-size:.78rem;
-
-  font-weight:760;
-
-}
-/* =========================================================
-10. CARDS / GRIDS
-========================================================= */
-
-.acw-blueprint-grid,
-.acw-offer-grid,
-.acw-cards {
-  display: grid;
-  gap: 1.35rem;
-  margin-top: 2.35rem;
-}
-
-.acw-blueprint-grid,
-.acw-cards {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.acw-cards-two {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  max-width: 820px;
-}
-
-.acw-cards-centered {
-  max-width: 860px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.acw-before-after-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.35rem;
-  margin-top: 2.8rem;
-}
-
-.acw-before-after-card,
-.acw-blueprint-card,
-.acw-offer-card,
-.acw-choice-panel,
-.acw-value-panel,
-.acw-card {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(16, 32, 51, 0.08);
-  border-radius: 28px;
-  box-shadow: var(--shadow-sm);
-}
-
-.acw-before-after-card,
-.acw-blueprint-card,
-.acw-offer-card,
-.acw-choice-panel,
-.acw-value-panel {
-  position: relative;
+body.menu-open {
   overflow: hidden;
 }
 
-.acw-before-after-card::before,
-.acw-blueprint-card::before,
-.acw-offer-card::before,
-.acw-choice-panel::before,
-.acw-value-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 4px;
-  background: linear-gradient(90deg, rgba(123, 143, 112, 0.55), rgba(218, 192, 157, 0.45));
-  pointer-events: none;
+img,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
-.acw-before-after-card {
-  padding: 2rem;
+img {
+  height: auto;
 }
 
-.acw-blueprint-card {
-  min-height: 220px;
-  padding: 1.8rem;
-}
-
-.acw-blueprint-card span,
-.acw-before-after-card span {
-  display: inline-flex;
-  margin-bottom: 1rem;
+a {
   color: var(--accent-dark);
-  font-size: 0.72rem;
-  font-weight: 850;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    color var(--transition),
+    background var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition),
+    opacity var(--transition);
 }
 
-.acw-blueprint-card p,
-.acw-before-after-card p,
-.acw-offer-card p,
-.acw-card-body p {
-  color: var(--muted);
+a:hover {
+  color: var(--text);
 }
 
-.acw-before-after-card p {
-  margin: 0;
-  font-size: 1.04rem;
-  line-height: 1.75;
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 4px;
+  border-radius: 12px;
 }
 
 /* =========================================================
-11. MODULAR SERVICES / OFFERS
+3. GLOBAL LAYOUT
 ========================================================= */
 
-.acw-services-overview {
-  background:
-    radial-gradient(circle at 12% 8%, rgba(218, 192, 157, 0.16), transparent 32%),
-    radial-gradient(circle at 88% 10%, rgba(123, 143, 112, 0.08), transparent 34%),
-    var(--surface);
+.acw-container,
+.container,
+.shell {
+  width: min(100% - 2.8rem, var(--container));
+  margin-inline: auto;
 }
 
-.acw-offer-grid {
-  align-items: stretch;
+.site-content {
+  min-height: 60vh;
 }
 
-.acw-offer-grid-four {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.acw-offer-grid-distinct {
-  gap: 1rem;
-}
-
-.acw-offer-card {
-  display: flex;
-  min-height: 470px;
-  padding: 2rem;
-  flex-direction: column;
-  border-radius: 32px;
-}
-
-.acw-offer-card-clarity {
-  border-color: rgba(83, 107, 77, 0.24);
-  background:
-    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.13), transparent 38%),
-    rgba(255, 255, 255, 0.96);
-}
-
-.acw-offer-card-identity {
-  background:
-    radial-gradient(circle at 100% 0%, rgba(218, 192, 157, 0.2), transparent 38%),
-    rgba(255, 253, 248, 0.96);
-}
-
-.acw-offer-card-website {
-  background:
-    radial-gradient(circle at 100% 0%, rgba(16, 32, 51, 0.04), transparent 38%),
-    rgba(255, 255, 255, 0.96);
-}
-
-.acw-offer-card-care {
-  background:
-    radial-gradient(circle at 100% 0%, rgba(232, 221, 205, 0.62), transparent 38%),
-    rgba(250, 246, 238, 0.96);
-}
-
-.acw-offer-card h3 {
-  max-width: 11.5ch;
-  font-size: clamp(1.48rem, 1.65vw, 1.92rem);
-}
-
-.acw-offer-card ul {
-  display: grid;
-  gap: 0.6rem;
-  margin: 1.3rem 0 1.4rem;
-  padding: 0;
-  list-style: none;
-}
-
-.acw-offer-card li {
-  position: relative;
-  padding-left: 1.2rem;
-  color: rgba(16, 32, 51, 0.74);
-  font-size: 0.91rem;
-  font-weight: 720;
-  line-height: 1.5;
-}
-
-.acw-offer-card li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.65em;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-
-.acw-price {
-  margin-top: auto;
-  padding-top: 1rem;
-  color: var(--text) !important;
-  font-size: 1.05rem;
-  font-weight: 900;
-}
-
-.acw-offer-card a {
-  display: inline-flex;
-  width: fit-content;
-  margin-top: 1rem;
-  color: var(--accent-dark);
-  font-weight: 820;
-  border-bottom: 1px solid rgba(83, 107, 77, 0.28);
+section {
+  scroll-margin-top: 82px;
 }
 
 /* =========================================================
-12. CHOICE PANEL / PROCESS / VALUE
+4. TYPOGRAPHY / SECTIONS / BUTTONS
 ========================================================= */
 
-.acw-choice-panel {
-  display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(320px, 1fr);
-  gap: 2.2rem;
-  margin-top: 1.6rem;
-  padding: clamp(1.7rem, 3.4vw, 2.8rem);
-  background:
-    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.1), transparent 34%),
-    rgba(255, 255, 255, 0.94);
-  border-radius: 34px;
-}
-
-.acw-choice-panel h3 {
-  max-width: 14ch;
-  margin-bottom: 0.9rem;
-  font-size: clamp(1.6rem, 2.3vw, 2.35rem);
-}
-
-.acw-choice-panel p {
-  color: var(--muted);
-}
-
-.acw-choice-list {
-  display: grid;
-  gap: 0.7rem;
-  align-self: center;
-}
-
-.acw-choice-list p {
-  margin: 0;
-  padding: 0.95rem 1rem;
-  background: rgba(250, 246, 238, 0.88);
-  border: 1px solid rgba(16, 32, 51, 0.07);
-  border-radius: 18px;
-  color: var(--muted);
-  line-height: 1.55;
-}
-
-.acw-choice-list strong {
+h1,
+h2,
+h3 {
+  margin: 0 0 0.8rem;
   color: var(--text);
-}
-
-.acw-process-list {
-  display: grid;
-  gap: 0.78rem;
-  max-width: 580px;
-  margin: 2.25rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.acw-process-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1.28rem 1.35rem;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(16, 32, 51, 0.07);
-  border-radius: 24px;
-  box-shadow: var(--shadow-xs);
-}
-
-.acw-process-list span {
-  flex: 0 0 auto;
-  min-width: 2.1rem;
-  color: var(--accent-dark);
-  font-size: 0.72rem;
-  font-weight: 850;
-  letter-spacing: 0.1em;
-}
-
-.acw-process-list strong {
-  color: var(--text);
-  font-weight: 820;
-  line-height: 1.35;
-}
-
-.acw-value-panel {
-  padding: clamp(2rem, 4vw, 3.2rem);
-  background:
-    radial-gradient(circle at 100% 0%, rgba(218, 192, 157, 0.2), transparent 34%),
-    rgba(255, 255, 255, 0.86);
-  border-radius: 40px;
-}
-
-.acw-value-panel p {
-  margin: 0;
-  color: var(--text);
-  font-size: clamp(1.28rem, 1.82vw, 1.82rem);
-  font-weight: 820;
-  letter-spacing: -0.04em;
-  line-height: 1.2;
+  font-family: var(--font-heading);
+  font-weight: 880;
+  letter-spacing: -0.055em;
   text-wrap: balance;
 }
 
+h1 {
+  max-width: 12.5ch;
+  font-size: clamp(3.15rem, 5vw, 5.2rem);
+  line-height: 0.96;
+}
+
+h2 {
+  max-width: 13ch;
+  font-size: clamp(2.5rem, 3.8vw, 4.3rem);
+  line-height: 0.98;
+}
+
+h3 {
+  font-size: clamp(1.18rem, 1.35vw, 1.42rem);
+  line-height: 1.18;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+.acw-section {
+  position: relative;
+  padding: 108px 0;
+  background: var(--surface);
+}
+
+.acw-section-soft {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.45), transparent 36%),
+    radial-gradient(circle at 88% 16%, rgba(123, 143, 112, 0.08), transparent 34%),
+    var(--surface-soft);
+}
+
+.acw-section-quiet {
+  background:
+    radial-gradient(circle at 90% 10%, rgba(123, 143, 112, 0.05), transparent 30%),
+    var(--surface-quiet);
+}
+
+.acw-section-heading {
+  max-width: 760px;
+  margin-bottom: 3rem;
+}
+
+.acw-section-heading h2 {
+  margin-bottom: 1rem;
+}
+
+.acw-section-number,
+.acw-section-label,
+.acw-card-label,
+.acw-eyebrow {
+  display: inline-flex;
+  margin-bottom: 0.9rem;
+  color: var(--accent-dark);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.acw-section-text,
+.acw-section-intro,
+.acw-hero-text {
+  color: var(--muted);
+}
+
+.acw-section-text,
+.acw-section-intro {
+  max-width: 50ch;
+  font-size: clamp(1rem, 1.05vw, 1.08rem);
+  line-height: 1.72;
+}
+
+.acw-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.85rem 1.35rem;
+  border: 1px solid transparent;
+  border-radius: var(--pill);
+  font-weight: 820;
+  line-height: 1.1;
+  text-align: center;
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+.acw-btn:hover {
+  transform: translateY(-2px);
+}
+
+.acw-btn-primary {
+  background: var(--accent);
+  color: var(--white);
+  box-shadow: 0 10px 24px rgba(83, 107, 77, 0.16);
+}
+
+.acw-btn-primary:hover {
+  background: var(--accent-dark);
+  color: var(--white);
+}
+
+.acw-btn-secondary {
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--text);
+  border-color: var(--line);
+}
+
+.acw-btn-secondary:hover {
+  background: var(--white);
+  border-color: var(--line-strong);
+}
+
+.acw-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
 /* =========================================================
-13. SHOWCASE / EXAMPLE CARDS
+5. HEADER / NAVIGATION
 ========================================================= */
 
-.acw-showcase {
-  display: grid;
-  gap: 3.4rem;
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(246, 239, 228, 0.9);
+  border-bottom: 1px solid rgba(16, 32, 51, 0.06);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
-.acw-showcase-copy {
-  max-width: 780px;
+.site-header .nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.8rem;
+  min-height: 78px;
+  width: min(100% - 2.8rem, var(--container));
+  margin: 0 auto;
 }
 
-.acw-showcase-image img {
-  aspect-ratio: 16 / 9;
-  border-radius: 44px;
-}
-
-.acw-card-link {
-  display: block;
-  min-height: 100%;
-  color: var(--text);
-  border-radius: 32px;
-}
-
-.acw-card-link:hover {
-  transform: translateY(-5px);
-}
-
-.acw-card {
-  overflow: hidden;
-  height: 100%;
-  border-radius: 32px;
-}
-
-.acw-card-link:hover .acw-card {
-  box-shadow: var(--shadow);
-  border-color: rgba(123, 143, 112, 0.24);
-}
-
-.acw-card-image {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-}
-
-.acw-card-body {
-  padding: 1.5rem;
-}
-
-.acw-card-body span {
+.nav__brand {
+  z-index: 1004;
   display: inline-flex;
-  margin-bottom: 0.65rem;
-  color: var(--accent-dark);
-  font-size: 0.68rem;
-  font-weight: 850;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.nav__logo {
+  display: block;
+  width: auto;
+  height: 46px;
+  max-width: 150px;
+  object-fit: contain;
+}
+
+.nav__toggle,
+.nav__overlay {
+  display: none;
+}
+
+.nav__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 861px) {
+  .nav__panel {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.35rem;
+  }
+
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .nav__links a {
+    display: inline-flex;
+    padding: 0.4rem 0;
+    color: rgba(16, 32, 51, 0.62);
+    border-bottom: 1px solid transparent;
+    font-size: 0.84rem;
+    font-weight: 760;
+  }
+
+  .nav__links a:hover {
+    color: var(--text);
+    border-bottom-color: rgba(123, 143, 112, 0.5);
+  }
+
+  .nav__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 0.58rem 1rem;
+    background: var(--accent);
+    color: var(--white);
+    border-radius: var(--pill);
+    font-size: 0.84rem;
+    font-weight: 840;
+    box-shadow: 0 10px 22px rgba(83, 107, 77, 0.16);
+  }
+
+  .nav__cta:hover {
+    background: var(--accent-dark);
+    color: var(--white);
+    transform: translateY(-1px);
+  }
+}
+
+/* =========================================================
+6. HERO
+========================================================= */
+
+.acw-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(123, 143, 112, 0.08), transparent 34%),
+    radial-gradient(circle at 10% 6%, rgba(218, 192, 157, 0.16), transparent 38%),
+    linear-gradient(180deg, #fcf8f1 0%, #f6efe4 100%);
+}
+
+.acw-hero::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(16, 32, 51, 0.06);
+}
+
+.acw-hero-cover {
+  display: flex;
+  align-items: center;
+  min-height: 560px;
+  padding: clamp(56px, 6vw, 84px) 0;
+}
+
+.acw-hero-cover-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.9fr);
+  gap: clamp(3rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.acw-hero-cover-copy {
+  max-width: 620px;
+}
+
+.acw-hero-cover h1 {
+  max-width: 12.4ch;
+  margin-bottom: 1rem;
+  font-size: clamp(2.9rem, 4.3vw, 4.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+}
+
+.acw-hero-cover .acw-hero-text {
+  max-width: 43ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.05vw, 1.12rem);
+  line-height: 1.68;
+}
+
+.acw-hero-cover .acw-cta-row {
+  margin-top: 1.75rem;
+}
+
+.acw-hero-visual {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+}
+
+.acw-hero-visual img {
+  width: 100%;
+  max-width: 520px;
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 30px;
+  background: var(--white);
+  box-shadow:
+    0 24px 60px rgba(16, 32, 51, 0.08),
+    0 8px 20px rgba(16, 32, 51, 0.05);
 }
 /* =========================================================
 14. ABOUT
@@ -1112,8 +958,7 @@ p {
 .acw-about-note {
   padding: 1.35rem;
   background: rgba(255, 255, 255, 0.74);
-  border: 1px solid rgba(16, 32, 51, 0.08);
-  border-radius: 28px;
+  border-radius: var(--radius);
   box-shadow: var(--shadow-xs);
 }
 
@@ -1138,7 +983,6 @@ p {
 .acw-faq-item {
   overflow: hidden;
   background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(16, 32, 51, 0.08);
   border-radius: 22px;
   box-shadow: var(--shadow-xs);
 }
@@ -1278,7 +1122,6 @@ p {
   margin-top: 2rem;
   padding: 1.25rem 1.35rem;
   background: rgba(255, 255, 255, 0.58);
-  border: 1px solid rgba(16, 32, 51, 0.08);
   border-radius: 24px;
   box-shadow: var(--shadow-xs);
 }
@@ -1293,11 +1136,11 @@ p {
 .acw-contact-form-card {
   position: relative;
   padding: clamp(2.1rem, 3.5vw, 3rem);
-  background: #ffffff;
+  background: var(--white);
   border: 1px solid rgba(16, 32, 51, 0.12);
   border-radius: 38px;
   box-shadow:
-    0 30px 70px rgba(16, 32, 51, 0.10),
+    0 30px 70px rgba(16, 32, 51, 0.1),
     0 8px 20px rgba(16, 32, 51, 0.05);
 }
 
@@ -1339,11 +1182,10 @@ p {
 .acw-contact-form textarea {
   width: 100%;
   padding: 0.95rem 1rem;
-  background: #fffdf8;
+  background: var(--surface);
   border: 1px solid rgba(16, 32, 51, 0.15);
   border-radius: 17px;
   color: var(--text);
-  font: inherit;
 }
 
 .acw-contact-form textarea {
@@ -1435,7 +1277,7 @@ p {
   overflow: hidden;
   background: rgba(255, 255, 255, 0.78);
   border: 1px solid rgba(16, 32, 51, 0.08);
-  border-radius: 999px;
+  border-radius: var(--pill);
   color: var(--accent-dark);
   box-shadow: var(--shadow-xs);
 }
@@ -1475,7 +1317,7 @@ p {
   padding: clamp(4rem, 8vw, 7rem) 0 clamp(5rem, 8vw, 7rem);
   background:
     radial-gradient(circle at 18% 0%, rgba(218, 192, 157, 0.22), transparent 34%),
-    radial-gradient(circle at 86% 14%, rgba(123, 143, 112, 0.10), transparent 32%),
+    radial-gradient(circle at 86% 14%, rgba(123, 143, 112, 0.1), transparent 32%),
     linear-gradient(180deg, #fcf8f1 0%, var(--bg) 100%);
 }
 
@@ -1496,7 +1338,7 @@ p {
   margin-bottom: 1.25rem;
   object-fit: cover;
   border: 4px solid rgba(255, 255, 255, 0.78);
-  border-radius: 999px;
+  border-radius: var(--pill);
   box-shadow: 0 18px 38px rgba(16, 32, 51, 0.12);
 }
 
@@ -1533,16 +1375,12 @@ p {
 }
 
 .acw-link-card {
-  position: relative;
   display: block;
-  overflow: hidden;
   padding: 1.35rem 1.45rem;
   background: rgba(255, 255, 255, 0.84);
-  border: 1px solid rgba(16, 32, 51, 0.08);
-  border-radius: 28px;
+  border-radius: var(--radius);
   color: var(--text);
   text-align: left;
-  box-shadow: var(--shadow-sm);
 }
 
 .acw-link-card-primary {
@@ -1618,13 +1456,13 @@ p {
 }
 
 .client-doc .doc-cover {
-  text-align: center;
   padding: 70px 24px 58px;
+  text-align: center;
 }
 
 .client-doc .doc-logo {
-  height: 46px;
   width: auto;
+  height: 46px;
   margin: 0 auto 26px;
 }
 
@@ -1701,9 +1539,9 @@ p {
 }
 
 .client-doc .doc-rule {
+  margin: 52px 0;
   border: 0;
   border-top: 1px solid var(--doc-rule);
-  margin: 52px 0;
 }
 
 .client-doc .doc-rule-strong {
@@ -1713,8 +1551,8 @@ p {
 .client-doc .doc-quote {
   margin: 26px 0;
   padding: 22px 26px;
-  border-left: 3px solid var(--accent);
   background: rgba(123, 143, 112, 0.07);
+  border-left: 3px solid var(--accent);
   border-radius: 0 18px 18px 0;
 }
 
@@ -1733,9 +1571,9 @@ p {
   display: block;
   margin-bottom: 0.9rem;
   padding: 1.35rem;
-  border-radius: 20px;
   background: rgba(255, 255, 255, 0.58);
   border: 1px solid var(--line);
+  border-radius: 20px;
   color: var(--doc-ink);
 }
 
@@ -1762,11 +1600,9 @@ p {
 .client-doc .doc-swatch {
   width: 34px;
   height: 34px;
-  border-radius: 999px;
   border: 1px solid rgba(16, 32, 51, 0.1);
+  border-radius: var(--pill);
 }
-
-/* Client document bottom navigation */
 
 .client-doc-nav {
   display: flex;
@@ -1782,76 +1618,37 @@ p {
   align-items: center;
   min-height: 44px;
   padding: 0.75rem 1rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
   background: rgba(255, 253, 248, 0.72);
+  border: 1px solid var(--line);
+  border-radius: var(--pill);
   color: var(--doc-soft);
   font-size: 0.82rem;
   font-weight: 820;
 }
 
 .client-doc-nav a:hover {
+  transform: translateY(-2px);
   background: var(--white);
   color: var(--doc-ink);
-  transform: translateY(-2px);
 }
-
-/* Client footer inside documents */
 
 .client-work-footer {
   width: min(100% - 2.8rem, 760px);
   margin: 0 auto;
   padding: 52px 0 80px;
   border-top: 1px solid var(--line);
-  text-align: center;
   color: var(--muted);
   font-size: 0.9rem;
+  text-align: center;
 }
-
-/* Hide the old client header if still present */
 
 .client-work-header {
   display: none;
 }
 
-@media (max-width: 760px) {
-  .client-work-shell {
-    width: min(100% - 1.6rem, 1100px);
-    padding-top: 28px;
-  }
-
-  .client-doc .doc-cover {
-    padding: 44px 12px 38px;
-  }
-
-  .client-doc .doc-grid-two {
-    grid-template-columns: 1fr;
-  }
-
-  .client-doc-nav {
-    flex-direction: column;
-  }
-
-  .client-doc-nav a {
-    justify-content: center;
-    width: 100%;
-  }
-}
-
 /* =========================================================
 21. BLOG / THERAPIST GROWTH LIBRARY
 ========================================================= */
-
-.acw-section-label {
-  display: inline-flex;
-  margin-bottom: 0.9rem;
-  color: var(--accent-dark);
-  font-size: 0.66rem;
-  font-weight: 900;
-  letter-spacing: 0.16em;
-  line-height: 1;
-  text-transform: uppercase;
-}
 
 .acw-blog-hero {
   background:
@@ -1860,15 +1657,26 @@ p {
     linear-gradient(180deg, #fcf8f1 0%, var(--bg) 100%);
 }
 
-.acw-blog-hero-layout {
+.acw-blog-hero-layout,
+.acw-blog-value-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
   gap: clamp(3rem, 5vw, 5rem);
   align-items: center;
 }
 
-.acw-blog-hero-copy {
+.acw-blog-value-grid {
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1fr);
+  align-items: start;
+}
+
+.acw-blog-hero-copy,
+.acw-blog-value-copy {
   max-width: 720px;
+}
+
+.acw-blog-value-copy {
+  max-width: 680px;
 }
 
 .acw-blog-page-title {
@@ -1899,7 +1707,7 @@ p {
   padding: 0.85rem 1rem;
   background: rgba(255, 253, 248, 0.9);
   border: 1px solid rgba(16, 32, 51, 0.12);
-  border-radius: 999px;
+  border-radius: var(--pill);
   color: var(--text);
 }
 
@@ -1944,9 +1752,7 @@ p {
 .acw-blog-hero-card {
   padding: 1rem;
   background: rgba(255, 255, 255, 0.76);
-  border: 1px solid rgba(16, 32, 51, 0.08);
   border-radius: 34px;
-  box-shadow: var(--shadow);
 }
 
 .acw-blog-hero-image {
@@ -1968,17 +1774,6 @@ p {
   background: var(--surface);
 }
 
-.acw-blog-value-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1fr);
-  gap: clamp(3rem, 5vw, 5rem);
-  align-items: start;
-}
-
-.acw-blog-value-copy {
-  max-width: 680px;
-}
-
 .acw-blog-value-copy h2 {
   max-width: 12ch;
 }
@@ -1989,21 +1784,10 @@ p {
 }
 
 .acw-blog-value-list article {
-  position: relative;
-  overflow: hidden;
   padding: 1.45rem;
   background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(16, 32, 51, 0.08);
   border-radius: 26px;
   box-shadow: var(--shadow-xs);
-}
-
-.acw-blog-value-list article::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 4px;
-  background: linear-gradient(90deg, rgba(123, 143, 112, 0.55), rgba(218, 192, 157, 0.45));
 }
 
 .acw-blog-value-list span {
@@ -2103,9 +1887,7 @@ p {
   max-width: 720px;
   padding: clamp(2rem, 4vw, 3rem);
   background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(16, 32, 51, 0.08);
   border-radius: 34px;
-  box-shadow: var(--shadow-sm);
 }
 
 .acw-blog-empty h2 {
@@ -2124,9 +1906,7 @@ p {
   background:
     radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.1), transparent 34%),
     rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(16, 32, 51, 0.08);
   border-radius: 38px;
-  box-shadow: var(--shadow-sm);
 }
 
 .acw-blog-cta h2 {
@@ -2141,55 +1921,6 @@ p {
 .acw-blog-cta .acw-btn {
   margin-top: 1rem;
 }
-
-@media (max-width: 1040px) {
-  .acw-blog-hero-layout,
-  .acw-blog-value-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .acw-blog-hero-card {
-    max-width: 620px;
-  }
-
-  .acw-blog-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 860px) {
-  .acw-blog-page-title {
-    max-width: 11.5ch;
-    font-size: clamp(2.35rem, 10vw, 3.3rem);
-  }
-
-  .acw-blog-search {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .acw-blog-search-button {
-    width: 100%;
-  }
-
-  .acw-blog-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 560px) {
-  .acw-blog-hero-card,
-  .acw-blog-cta,
-  .acw-blog-empty {
-    border-radius: 28px;
-  }
-
-  .acw-blog-card-inner,
-  .acw-blog-value-list article {
-    padding: 1.25rem;
-  }
-}
-
 /* =========================================================
 22. RESPONSIVE
 ========================================================= */
@@ -2224,7 +1955,9 @@ p {
   .acw-about-grid,
   .acw-contact-split,
   .acw-value-grid,
-  .acw-contact-page-grid {
+  .acw-contact-page-grid,
+  .acw-blog-hero-layout,
+  .acw-blog-value-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
@@ -2239,16 +1972,16 @@ p {
 
   .acw-hero-cover {
     min-height: auto;
-    padding: 76px 0 72px;
+    padding: 64px 0;
   }
 
   .acw-hero-cover-inner {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
   }
 
   .acw-hero-cover-copy {
-    max-width: 640px;
+    max-width: 680px;
   }
 
   .acw-hero-cover h1 {
@@ -2266,8 +1999,13 @@ p {
 
   .acw-cards,
   .acw-offer-grid,
-  .acw-cards-two {
+  .acw-cards-two,
+  .acw-blog-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .acw-blog-hero-card {
+    max-width: 620px;
   }
 }
 
@@ -2305,9 +2043,8 @@ p {
     padding: 0;
     background: rgba(255, 255, 255, 0.72);
     border: 1px solid rgba(16, 32, 51, 0.08);
-    border-radius: 999px;
+    border-radius: var(--pill);
     color: var(--text);
-    cursor: pointer;
   }
 
   .nav__hamburger,
@@ -2317,8 +2054,10 @@ p {
     width: 18px;
     height: 2px;
     background: currentColor;
-    border-radius: 999px;
-    transition: transform var(--transition), opacity var(--transition);
+    border-radius: var(--pill);
+    transition:
+      transform var(--transition),
+      opacity var(--transition);
   }
 
   .nav__hamburger {
@@ -2444,7 +2183,8 @@ p {
   .acw-offer-grid-four,
   .acw-cards,
   .acw-cards-two,
-  .acw-before-after-grid {
+  .acw-before-after-grid,
+  .acw-blog-grid {
     grid-template-columns: 1fr;
   }
 
@@ -2457,13 +2197,10 @@ p {
   }
 
   .acw-hero-cover {
-    min-height: auto;
     padding: 42px 0 60px;
   }
 
   .acw-hero-cover-inner {
-    display: grid;
-    grid-template-columns: 1fr;
     gap: 1.6rem;
   }
 
@@ -2518,14 +2255,53 @@ p {
     object-position: center;
     border-radius: 26px;
     box-shadow:
-      0 18px 44px rgba(16, 32, 51, 0.10),
+      0 18px 44px rgba(16, 32, 51, 0.1),
       0 6px 18px rgba(16, 32, 51, 0.04);
+  }
+
+  .acw-blog-page-title {
+    max-width: 11.5ch;
+    font-size: clamp(2.35rem, 10vw, 3.3rem);
+  }
+
+  .acw-blog-search {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .acw-blog-search-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .client-work-shell {
+    width: min(100% - 1.6rem, 1100px);
+    padding-top: 28px;
+  }
+
+  .client-doc .doc-cover {
+    padding: 44px 12px 38px;
+  }
+
+  .client-doc .doc-grid-two {
+    grid-template-columns: 1fr;
+  }
+
+  .client-doc-nav {
+    flex-direction: column;
+  }
+
+  .client-doc-nav a {
+    justify-content: center;
+    width: 100%;
   }
 }
 
 @media (max-width: 560px) {
   .acw-eyebrow,
   .acw-section-number,
+  .acw-section-label,
   .acw-card-label {
     font-size: 0.63rem;
     letter-spacing: 0.14em;
@@ -2562,5 +2338,84 @@ p {
   .acw-hero-visual img {
     max-height: 260px;
     border-radius: 22px;
+  }
+
+  .acw-blog-hero-card,
+  .acw-blog-cta,
+  .acw-blog-empty {
+    border-radius: 28px;
+  }
+
+  .acw-blog-card-inner,
+  .acw-blog-value-list article {
+    padding: 1.25rem;
+  }
+}
+
+/* =========================================================
+23. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .acw-btn:hover,
+  .nav__cta:hover,
+  .acw-card-link:hover,
+  .acw-link-card:hover,
+  .client-doc .doc-card:hover,
+  .client-doc-nav a:hover,
+  .footer-social .social:hover {
+    transform: none;
+  }
+}
+
+/* =========================================================
+24. PRINT
+========================================================= */
+
+@media print {
+  .site-header,
+  .site-footer,
+  .nav__toggle,
+  .nav__overlay,
+  .client-doc-nav {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .acw-section,
+  .acw-contact-page,
+  .acw-links-page,
+  .client-work-shell {
+    padding: 24px 0;
+    background: #ffffff !important;
+  }
+
+  a {
+    color: #000000;
+    text-decoration: underline;
+  }
+
+  .acw-card,
+  .acw-offer-card,
+  .acw-blueprint-card,
+  .acw-before-after-card,
+  .client-doc .doc-page {
+    box-shadow: none;
   }
 }

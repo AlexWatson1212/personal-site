@@ -1,53 +1,95 @@
 (function () {
-  const INPUT = document.querySelector('#blog-search-input');
-  const BTN   = document.querySelector('#blog-search-button');
-  const LIST  = document.querySelector('#blog-search-results');
-  const COUNT = document.querySelector('#blog-search-count');
+  const input = document.querySelector('#blog-search-input');
+  const button = document.querySelector('#blog-search-button');
+  const list = document.querySelector('#blog-search-results');
+  const count = document.querySelector('#blog-search-count');
 
-  if (!INPUT || !LIST) return; // not on the blog page
+  if (!input || !list) return;
 
-  let INDEX = [];
+  let index = [];
 
-  // Fetch the index
-  fetch((document.querySelector('meta[name="baseurl"]')?.content || '') + '/search.json', {cache: 'no-store'})
-    .then(r => r.json())
-    .then(data => { INDEX = data; })
-    .catch(() => { /* silent fail; just leaves INDEX empty */ });
+  const baseUrl = document.querySelector('meta[name="baseurl"]')?.content || '';
 
-  function parseQuery(q) {
-    // Supports emotion:grief, tag:boundaries, key:value pairs; remaining terms are keywords
-    const parts = q.trim().toLowerCase().split(/\s+/);
+  fetch(baseUrl + '/search.json', { cache: 'force-cache' })
+    .then(function (response) {
+      if (!response.ok) throw new Error('Search index unavailable');
+      return response.json();
+    })
+    .then(function (data) {
+      index = Array.isArray(data) ? data : [];
+      if (input.value.trim()) runSearch();
+    })
+    .catch(function () {
+      index = [];
+    });
+
+  function escapeHTML(value) {
+    return String(value || '').replace(/[&<>"']/g, function (char) {
+      return {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      }[char];
+    });
+  }
+
+  function escapeRegExp(value) {
+    return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function parseQuery(query) {
+    const parts = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
     const filters = { emotion: [], tag: [] };
     const terms = [];
-    parts.forEach(p => {
-      const m = p.match(/^(\w+):(.*)$/);
-      if (m) {
-        const key = m[1];
-        const val = m[2];
-        if (key === 'emotion') filters.emotion.push(val);
-        else if (key === 'tag' || key === 'tags') filters.tag.push(val);
-        else { terms.push(p); }
-      } else {
-        terms.push(p);
+
+    parts.forEach(function (part) {
+      const match = part.match(/^(\w+):(.*)$/);
+
+      if (!match) {
+        terms.push(part);
+        return;
       }
+
+      const key = match[1];
+      const value = match[2];
+
+      if (key === 'emotion') filters.emotion.push(value);
+      else if (key === 'tag' || key === 'tags') filters.tag.push(value);
+      else terms.push(part);
     });
+
     return { terms, filters };
   }
 
-  function matches(post, { terms, filters }) {
-    // Filter by emotions/tags if provided
+  function matches(post, parsed) {
+    const terms = parsed.terms;
+    const filters = parsed.filters;
+
     if (filters.emotion.length) {
-      const emos = (post.emotions || []).map(e => String(e).toLowerCase());
-      if (!filters.emotion.every(x => emos.includes(x))) return false;
+      const emotions = (post.emotions || []).map(function (emotion) {
+        return String(emotion).toLowerCase();
+      });
+
+      if (!filters.emotion.every(function (emotion) {
+        return emotions.includes(emotion);
+      })) return false;
     }
+
     if (filters.tag.length) {
-      const tags = (post.tags || []).map(t => String(t).toLowerCase());
-      if (!filters.tag.every(x => tags.includes(x))) return false;
+      const tags = (post.tags || []).map(function (tag) {
+        return String(tag).toLowerCase();
+      });
+
+      if (!filters.tag.every(function (tag) {
+        return tags.includes(tag);
+      })) return false;
     }
 
     if (!terms.length) return true;
 
-    const hay = [
+    const haystack = [
       post.title,
       post.description,
       (post.tags || []).join(' '),
@@ -55,93 +97,133 @@
       post.content
     ].join(' ').toLowerCase();
 
-    // ALL terms must appear (AND search)
-    return terms.every(t => hay.includes(t));
+    return terms.every(function (term) {
+      return haystack.includes(term);
+    });
   }
 
   function highlight(text, terms) {
-    if (!terms.length) return escapeHTML(text);
-    // collapse duplicates, ignore stop-words-length 1
-    const uniq = [...new Set(terms.filter(t => t.length > 1))];
-    let s = escapeHTML(text);
-    uniq.forEach(t => {
-      const re = new RegExp(`(${escapeRegExp(t)})`, 'gi');
-      s = s.replace(re, '<mark>$1</mark>');
+    let safe = escapeHTML(text);
+    const uniqueTerms = Array.from(new Set(terms.filter(function (term) {
+      return term.length > 1;
+    })));
+
+    uniqueTerms.forEach(function (term) {
+      const pattern = new RegExp('(' + escapeRegExp(term) + ')', 'gi');
+      safe = safe.replace(pattern, '<mark>$1</mark>');
     });
-    return s;
+
+    return safe;
   }
 
-  function escapeHTML(s) {
-    return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  }
-  function escapeRegExp(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function snippet(content, terms, length) {
+    const text = String(content || '');
+    const maxLength = length || 220;
 
-  function snippet(content, terms, len = 220) {
-    const text = content || '';
-    if (!terms.length) return escapeHTML(text.slice(0, len)) + (text.length > len ? '…' : '');
-    // find first hit
-    const lc = text.toLowerCase();
-    let idx = -1;
-    for (const t of terms) {
-      const i = lc.indexOf(t.toLowerCase());
-      if (i !== -1 && (idx === -1 || i < idx)) idx = i;
+    if (!terms.length) {
+      return escapeHTML(text.slice(0, maxLength)) + (text.length > maxLength ? '…' : '');
     }
-    let start = Math.max(0, idx - Math.floor(len / 3));
-    let end   = Math.min(text.length, start + len);
-    if (end - start < len) start = Math.max(0, end - len);
+
+    const lower = text.toLowerCase();
+    let indexOfFirstHit = -1;
+
+    terms.forEach(function (term) {
+      const position = lower.indexOf(term.toLowerCase());
+      if (position !== -1 && (indexOfFirstHit === -1 || position < indexOfFirstHit)) {
+        indexOfFirstHit = position;
+      }
+    });
+
+    const start = Math.max(0, indexOfFirstHit - Math.floor(maxLength / 3));
+    const end = Math.min(text.length, start + maxLength);
     const slice = text.slice(start, end);
+
     return (start > 0 ? '…' : '') + highlight(slice, terms) + (end < text.length ? '…' : '');
   }
 
   function render(results, query) {
-    LIST.innerHTML = '';
-    if (COUNT) COUNT.textContent = results.length + (query ? ` result${results.length !== 1 ? 's' : ''}` : '');
+    list.innerHTML = '';
+
+    if (count) {
+      count.textContent = results.length + (query ? ' result' + (results.length === 1 ? '' : 's') : '');
+    }
+
     if (!results.length) {
-      LIST.innerHTML = `<li class="search-empty">No results.</li>`;
+      list.innerHTML = '<li class="search-empty">No results.</li>';
       return;
     }
-    const { terms } = parseQuery(query);
-    const frag = document.createDocumentFragment();
-    results.forEach(p => {
-      const li = document.createElement('li');
-      li.className = 'search-result';
-      li.innerHTML = `
-        <a class="search-title" href="${p.url}">${highlight(p.title, terms)}</a>
-        <p class="search-snippet">${snippet(p.content || p.description || '', terms)}</p>
+
+    const parsed = parseQuery(query);
+    const fragment = document.createDocumentFragment();
+
+    results.slice(0, 24).forEach(function (post) {
+      const item = document.createElement('li');
+      const tags = post.tags || [];
+      const emotions = post.emotions || [];
+
+      item.className = 'search-result';
+      item.innerHTML = `
+        <a class="search-title" href="${escapeHTML(post.url)}">${highlight(post.title, parsed.terms)}</a>
+        <p class="search-snippet">${snippet(post.content || post.description || '', parsed.terms)}</p>
         <p class="search-meta">
-          ${p.date ? new Date(p.date).toLocaleDateString() : ''}
-          ${p.tags?.length ? ' • ' + p.tags.map(t => `<span class="chip">${escapeHTML(t)}</span>`).join(' ') : ''}
-          ${p.emotions?.length ? ' • ' + p.emotions.map(e => `<span class="chip emo">${escapeHTML(e)}</span>`).join(' ') : ''}
-        </p>`;
-      frag.appendChild(li);
+          ${post.date ? escapeHTML(new Date(post.date).toLocaleDateString()) : ''}
+          ${tags.length ? ' • ' + tags.map(function (tag) {
+            return `<span class="chip">${escapeHTML(tag)}</span>`;
+          }).join(' ') : ''}
+          ${emotions.length ? ' • ' + emotions.map(function (emotion) {
+            return `<span class="chip emo">${escapeHTML(emotion)}</span>`;
+          }).join(' ') : ''}
+        </p>
+      `;
+
+      fragment.appendChild(item);
     });
-    LIST.appendChild(frag);
+
+    list.appendChild(fragment);
   }
 
   function runSearch() {
-    const q = (INPUT.value || '').trim();
-    const parsed = parseQuery(q);
-    const res = INDEX.filter(p => matches(p, parsed))
-                     // simple score: title hit > description > content
-                     .map(p => {
-                        let score = 0;
-                        const qq = (parsed.terms || []).join(' ').toLowerCase();
-                        if (qq) {
-                          if (p.title?.toLowerCase().includes(qq)) score += 3;
-                          if ((p.description || '').toLowerCase().includes(qq)) score += 2;
-                          if ((p.content || '').toLowerCase().includes(qq)) score += 1;
-                        }
-                        return { p, score };
-                      })
-                     .sort((a,b) => b.score - a.score)
-                     .map(x => x.p);
-    render(res, q);
+    const query = input.value.trim();
+    const parsed = parseQuery(query);
+
+    const results = index
+      .filter(function (post) {
+        return matches(post, parsed);
+      })
+      .map(function (post) {
+        let score = 0;
+        const joinedTerms = parsed.terms.join(' ').toLowerCase();
+
+        if (joinedTerms) {
+          if (post.title?.toLowerCase().includes(joinedTerms)) score += 3;
+          if ((post.description || '').toLowerCase().includes(joinedTerms)) score += 2;
+          if ((post.content || '').toLowerCase().includes(joinedTerms)) score += 1;
+        }
+
+        return { post, score };
+      })
+      .sort(function (a, b) {
+        return b.score - a.score;
+      })
+      .map(function (item) {
+        return item.post;
+      });
+
+    render(results, query);
   }
 
-  INPUT.addEventListener('input', runSearch);
-  BTN && BTN.addEventListener('click', (e) => { e.preventDefault(); runSearch(); });
+  input.addEventListener('input', runSearch);
 
-  // Run once if there’s a prefilled query (e.g., from link ?q=foo)
-  const urlQ = new URLSearchParams(location.search).get('q');
-  if (urlQ) { INPUT.value = urlQ; runSearch(); }
+  if (button) {
+    button.addEventListener('click', function (event) {
+      event.preventDefault();
+      runSearch();
+    });
+  }
+
+  const urlQuery = new URLSearchParams(window.location.search).get('q');
+
+  if (urlQuery) {
+    input.value = urlQuery;
+  }
 })();

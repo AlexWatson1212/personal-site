@@ -1,18 +1,30 @@
-title: "Alex Watson"
-description: "Calm, clear websites for therapists that help the right clients feel safe enough to reach out."
+title: "Alexander Watson"
+description: "Helping therapists become easier to trust online through thoughtful positioning, clear messaging and websites that genuinely reflect the work behind them."
 
 url: "https://alexanderwatson.co.uk"
 baseurl: ""
 
+lang: en-GB
+timezone: Europe/London
+
 markdown: kramdown
+
 kramdown:
   input: GFM
 
 future: true
+
 permalink: /:title/
 
 plugins:
   - jekyll-sitemap
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      image: "/assets/images/brand/og-image.jpg"
 
 exclude:
   - README.md
@@ -24,3 +36,5 @@ exclude:
   - .bundle
   - .jekyll-cache
   - _site
+  - package.json
+  - package-lock.json

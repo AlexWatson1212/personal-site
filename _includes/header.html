@@ -6,6 +6,9 @@
         class="nav__logo"
         src="{{ '/assets/images/brand/aw-logo.png' | relative_url }}"
         alt="Alexander Watson"
+        width="150"
+        height="46"
+        decoding="async"
       >
     </a>
 
@@ -14,47 +17,20 @@
       type="button"
       aria-label="Open menu"
       aria-expanded="false"
-      aria-controls="primary-nav"
-      onclick="document.body.classList.toggle('menu-open'); this.setAttribute('aria-expanded', document.body.classList.contains('menu-open') ? 'true' : 'false');"
+      aria-controls="primary-nav-panel"
     >
       <span aria-hidden="true" class="nav__hamburger"></span>
     </button>
 
-    <div
-      class="nav__overlay"
-      aria-hidden="true"
-      onclick="document.body.classList.remove('menu-open'); document.querySelector('.nav__toggle').setAttribute('aria-expanded', 'false');"
-    ></div>
+    <div class="nav__overlay" aria-hidden="true"></div>
 
-    <div class="nav__panel">
+    <div id="primary-nav-panel" class="nav__panel">
       <ul id="primary-nav" class="nav__links">
-
-        <li>
-          <a href="{{ '/' | relative_url }}">Home</a>
-        </li>
-
-        <li>
-          <a href="{{ '/process/' | relative_url }}">Process</a>
-        </li>
-
-        <li>
-          <a href="{{ '/website-design-for-therapists/' | relative_url }}">
-            Website Design
-          </a>
-        </li>
-
-        <li>
-          <a href="{{ '/blog/' | relative_url }}">
-            Library
-          </a>
-        </li>
-
-        <li>
-          <a href="{{ '/about/' | relative_url }}">
-            About
-          </a>
-        </li>
-
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        <li><a href="{{ '/process/' | relative_url }}">Process</a></li>
+        <li><a href="{{ '/website-design-for-therapists/' | relative_url }}">Website Design</a></li>
+        <li><a href="{{ '/blog/' | relative_url }}">Library</a></li>
+        <li><a href="{{ '/about/' | relative_url }}">About</a></li>
       </ul>
 
       <a href="{{ '/contact/' | relative_url }}" class="nav__cta">
