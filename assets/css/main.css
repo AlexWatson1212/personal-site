@@ -53,13 +53,21 @@ Practice Clarity First • Thoughtful Websites Second
 }
 
 html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-padding-top: 82px;
+  overscroll-behavior-x: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
+  width: 100%;
+  max-width: 100%;
   margin: 0;
   overflow-x: hidden;
+  overscroll-behavior-x: none;
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
@@ -67,6 +75,7 @@ body {
   line-height: 1.72;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  touch-action: pan-y;
 }
 
 body.menu-open {
@@ -1754,6 +1763,7 @@ p {
 ========================================================= */
 
 @media (max-width: 1180px) {
+
   .acw-offer-grid-four {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1779,6 +1789,7 @@ p {
 }
 
 @media (max-width: 1040px) {
+
   .acw-editorial-grid,
   .acw-process-layout,
   .acw-about-grid,
@@ -1830,8 +1841,15 @@ p {
 }
 
 @media (max-width: 860px) {
+
   html {
     scroll-padding-top: 68px;
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+    touch-action: pan-y;
   }
 
   section {
@@ -1932,21 +1950,33 @@ p {
     top: 0;
     right: 0;
     z-index: 1002;
+
     display: grid;
     align-content: start;
     gap: 1.4rem;
+
     width: min(86vw, 360px);
-    height: 100vh;
+    height: 100dvh;
+
     padding: 92px 1.35rem 1.35rem;
+
     background: rgba(255, 253, 248, 0.98);
     border-left: 1px solid rgba(16, 32, 51, 0.08);
     box-shadow: -20px 0 60px rgba(16, 32, 51, 0.14);
-    transform: translateX(100%);
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    transform: translate3d(100%, 0, 0);
     transition: transform var(--transition);
+
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+    will-change: transform;
   }
 
   body.menu-open .nav__panel {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   .nav__links {
@@ -2063,6 +2093,7 @@ p {
 }
 
 @media (max-width: 560px) {
+
   .acw-eyebrow,
   .acw-section-number,
   .acw-section-label,
