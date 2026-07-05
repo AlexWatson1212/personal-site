@@ -1180,3 +1180,5 @@ Before SEO.
 Before marketing.
 
 It begins with understanding the practice itself.
+
+Author note: Most of the ideas in this article come from reviewing therapist websites and having Practice Clarity conversations with therapists at different stages of private practice. Again and again, the challenge isn't writing. It's finding the words for work that is already thoughtful and meaningful.

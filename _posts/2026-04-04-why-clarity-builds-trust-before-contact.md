@@ -4,7 +4,7 @@ title: "Why clarity builds trust before contact"
 date: 2026-04-04
 tags: [web design, therapists, clarity]
 description: "Why a clear therapist website helps build trust before a client ever sends a message."
-hero_image: /assets/images/blog/clarity-builds-trust.webp
+hero_image: /assets/images/library/clarity-builds-trust.webp
 ---
 
 Before someone gets in touch, they are already deciding how safe your website feels.

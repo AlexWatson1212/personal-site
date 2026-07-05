@@ -4,7 +4,7 @@ title: "What makes a therapist website feel calm?"
 date: 2026-04-04
 tags: [web design, therapists, trust]
 description: "A few simple things that make a therapist website feel calmer, clearer, and easier to trust."
-hero_image: /assets/images/blog/calm-therapist-website.webp
+hero_image: /assets/images/library/calm-therapist-website.webp
 ---
 
 A calm therapist website usually does less, not more.

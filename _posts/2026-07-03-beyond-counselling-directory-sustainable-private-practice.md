@@ -4,7 +4,7 @@ title: "Beyond Counselling Directory: How to Build a More Sustainable Private Pr
 date: 2026-07-03
 tags: [marketing, therapists, private practice, counselling directory, seo]
 description: "Why Counselling Directory should be one part of a wider marketing strategy, and how clarity helps therapists build a more sustainable private practice."
-hero_image: /assets/images/blog/beyond-counselling-directory.webp
+hero_image: /assets/images/library/beyond-counselling-directory.webp
 ---
 
 For many therapists, Counselling Directory is where private practice begins.
