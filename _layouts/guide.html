@@ -57,14 +57,13 @@
         </div>
       </header>
 
-      <section class="acw-section acw-guide-body-section">
+      <section class="acw-guide-body-section">
         <div class="acw-container acw-guide-layout">
 
           {% if page.toc %}
             <aside class="acw-guide-sidebar" aria-label="Guide contents">
               <div class="acw-guide-sidebar-card">
                 <p class="acw-section-label">In this guide</p>
-
                 <nav class="acw-guide-toc">
                   {{ page.toc }}
                 </nav>
@@ -82,7 +81,6 @@
       {% if page.related_articles %}
         <section class="acw-section acw-guide-related-section">
           <div class="acw-container">
-
             <div class="acw-section-heading">
               <p class="acw-section-label">Keep reading</p>
               <h2>Related articles.</h2>
@@ -94,13 +92,8 @@
 
                 {% if related %}
                   <article class="acw-card acw-blog-card">
-
                     {% if related.hero_image %}
-                      <a
-                        class="acw-blog-card-image-link"
-                        href="{{ related.url | relative_url }}"
-                        aria-label="Read {{ related.title }}"
-                      >
+                      <a class="acw-blog-card-image-link" href="{{ related.url | relative_url }}">
                         <img
                           class="acw-blog-card-image"
                           src="{{ related.hero_image | relative_url }}"
@@ -129,12 +122,10 @@
                         Read article
                       </a>
                     </div>
-
                   </article>
                 {% endif %}
               {% endfor %}
             </div>
-
           </div>
         </section>
       {% endif %}
@@ -163,7 +154,5 @@
   </main>
 
   {% include footer.html %}
-
-  <script src="{{ '/assets/js/search.js' | relative_url }}" defer></script>
 </body>
 </html>

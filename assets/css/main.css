@@ -1809,6 +1809,300 @@ p {
 }
 
 /* =========================================================
+21B. GUIDE LAYOUT
+========================================================= */
+
+.acw-guide {
+  background: var(--surface);
+}
+
+.acw-guide-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(4.8rem, 7vw, 7.5rem) 0 clamp(3.8rem, 6vw, 6.5rem);
+  background:
+    radial-gradient(circle at 12% 4%, rgba(218, 192, 157, 0.18), transparent 36%),
+    radial-gradient(circle at 88% 16%, rgba(123, 143, 112, 0.1), transparent 34%),
+    linear-gradient(180deg, #fcf8f1 0%, var(--bg) 100%);
+  border-bottom: 1px solid rgba(16, 32, 51, 0.07);
+}
+
+.acw-guide-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 520px);
+  gap: clamp(3rem, 5vw, 5.5rem);
+  align-items: center;
+}
+
+.acw-guide-hero-copy {
+  max-width: 720px;
+}
+
+.acw-guide-title {
+  max-width: 11.5ch;
+  margin-bottom: 1rem;
+  font-size: clamp(3rem, 5vw, 5.4rem);
+  line-height: 0.94;
+  letter-spacing: -0.065em;
+}
+
+.acw-guide-description {
+  max-width: 48ch;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.18vw, 1.2rem);
+  line-height: 1.72;
+}
+
+.acw-guide-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.45rem;
+  color: var(--accent-dark);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.acw-guide-meta span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.acw-guide-meta span + span::before {
+  content: "·";
+  margin-right: 0.65rem;
+  color: rgba(16, 32, 51, 0.28);
+}
+
+.acw-guide-hero-media {
+  margin: 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 36px;
+  box-shadow: var(--shadow);
+}
+
+.acw-guide-hero-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 28px;
+}
+
+.acw-guide-body-section {
+  padding: clamp(4.8rem, 7vw, 7rem) 0;
+  background:
+    radial-gradient(circle at 88% 4%, rgba(123, 143, 112, 0.045), transparent 32%),
+    var(--surface);
+}
+
+.acw-guide-layout {
+  display: grid;
+  grid-template-columns: minmax(210px, 250px) minmax(0, 760px);
+  gap: clamp(3rem, 5vw, 5.4rem);
+  align-items: start;
+}
+
+.acw-guide-layout:not(:has(.acw-guide-sidebar)) {
+  display: block;
+  max-width: 820px;
+}
+
+.acw-guide-sidebar {
+  position: sticky;
+  top: 110px;
+}
+
+.acw-guide-sidebar-card {
+  padding: 1.35rem;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 28px;
+  box-shadow: var(--shadow-xs);
+}
+
+.acw-guide-toc ul {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.acw-guide-toc a {
+  display: block;
+  color: rgba(16, 32, 51, 0.68);
+  font-size: 0.88rem;
+  font-weight: 760;
+  line-height: 1.35;
+}
+
+.acw-guide-toc a:hover {
+  color: var(--text);
+}
+
+.acw-guide-content {
+  max-width: 760px;
+  color: var(--text);
+}
+
+.acw-guide-content > *:first-child {
+  margin-top: 0;
+}
+
+.acw-guide-content p,
+.acw-guide-content li {
+  color: var(--muted);
+  font-size: clamp(1rem, 1.04vw, 1.08rem);
+  line-height: 1.84;
+}
+
+.acw-guide-content p {
+  margin: 0 0 1.35rem;
+}
+
+.acw-guide-content strong {
+  color: var(--text);
+  font-weight: 820;
+}
+
+.acw-guide-content h2 {
+  max-width: 12.5ch;
+  margin: 4.8rem 0 1.15rem;
+  font-size: clamp(2.45rem, 4.2vw, 4.35rem);
+  line-height: 0.96;
+  letter-spacing: -0.065em;
+}
+
+.acw-guide-content h3 {
+  max-width: 20ch;
+  margin: 3rem 0 1rem;
+  font-size: clamp(1.45rem, 2vw, 2.05rem);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+}
+
+.acw-guide-content ul,
+.acw-guide-content ol {
+  margin: 1rem 0 1.8rem;
+  padding-left: 1.25rem;
+}
+
+.acw-guide-content li + li {
+  margin-top: 0.55rem;
+}
+
+.acw-guide-content a {
+  color: var(--accent-dark);
+  font-weight: 760;
+  border-bottom: 1px solid rgba(83, 107, 77, 0.28);
+}
+
+.acw-guide-content a:hover {
+  color: var(--text);
+  border-bottom-color: rgba(16, 32, 51, 0.28);
+}
+
+.acw-guide-content img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 3.2rem 0;
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 34px;
+  box-shadow: var(--shadow);
+}
+
+.acw-guide-content blockquote,
+.acw-guide-content .acw-callout,
+.acw-guide-content .callout {
+  position: relative;
+  overflow: hidden;
+  margin: 3.2rem 0;
+  padding: clamp(1.6rem, 3vw, 2.4rem);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(218, 192, 157, 0.17), transparent 36%),
+    rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 34px;
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-guide-content blockquote::before,
+.acw-guide-content .acw-callout::before,
+.acw-guide-content .callout::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(123, 143, 112, 0.55), rgba(218, 192, 157, 0.45));
+}
+
+.acw-guide-content blockquote p {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(1.12rem, 1.45vw, 1.35rem);
+  font-weight: 760;
+  letter-spacing: -0.025em;
+  line-height: 1.55;
+}
+
+.acw-guide-content hr {
+  width: 100%;
+  height: 1px;
+  margin: 4rem 0;
+  background: rgba(16, 32, 51, 0.1);
+  border: 0;
+}
+
+.acw-guide-content .acw-checklist,
+.acw-guide-content .checklist {
+  display: grid;
+  gap: 0.7rem;
+  margin: 2rem 0 2.4rem;
+  padding: 0;
+  list-style: none;
+}
+
+.acw-guide-content .acw-checklist li,
+.acw-guide-content .checklist li {
+  position: relative;
+  margin: 0;
+  padding: 1rem 1rem 1rem 2.6rem;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 20px;
+  box-shadow: var(--shadow-xs);
+}
+
+.acw-guide-content .acw-checklist li::before,
+.acw-guide-content .checklist li::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 1.55rem;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.acw-guide-related-section {
+  background:
+    radial-gradient(circle at 90% 8%, rgba(123, 143, 112, 0.06), transparent 30%),
+    var(--surface-quiet);
+}
+
+.acw-guide-footer-cta {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(218, 192, 157, 0.18), transparent 34%),
+    var(--surface);
+}
+
+/* =========================================================
 22. FOOTER
 ========================================================= */
 
@@ -2039,7 +2333,9 @@ p {
   .acw-blog-hero-layout,
   .acw-post-hero-layout,
   .acw-blog-value-grid,
-  .acw-library-about-grid {
+  .acw-library-about-grid,
+  .acw-guide-hero-inner,
+  .acw-guide-layout {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
@@ -2049,13 +2345,27 @@ p {
   .acw-about-side,
   .acw-contact-image-wrap,
   .acw-blog-hero-card,
-  .acw-post-hero-media {
+  .acw-post-hero-media,
+  .acw-guide-hero-media {
     justify-self: start;
     max-width: 680px;
   }
 
   .acw-library-about-grid > div:first-child {
     max-width: 680px;
+  }
+
+  .acw-guide-sidebar {
+    position: static;
+    max-width: 680px;
+  }
+
+  .acw-guide-sidebar-card {
+    padding: 1.2rem;
+  }
+
+  .acw-guide-content {
+    max-width: 780px;
   }
 
   .acw-hero-cover {
@@ -2090,7 +2400,6 @@ p {
     max-width: 780px;
   }
 }
-
 @media (max-width: 860px) {
 
   html {
@@ -2318,37 +2627,51 @@ p {
     gap: 2rem;
   }
 
-  .acw-post-title {
+  .acw-post-title,
+  .acw-guide-title {
     max-width: 12ch;
     font-size: clamp(2.55rem, 11vw, 3.65rem);
   }
 
-  .acw-post-description {
+  .acw-post-description,
+  .acw-guide-description {
     font-size: 1.02rem;
   }
 
-  .acw-post-hero-media {
+  .acw-post-hero-media,
+  .acw-guide-hero-media {
     width: 100%;
     max-width: none;
     padding: 0.75rem;
     border-radius: 28px;
   }
 
-  .acw-post-hero-image {
+  .acw-post-hero-image,
+  .acw-guide-hero-image {
     aspect-ratio: 16 / 10;
     border-radius: 22px;
+  }
+
+  .acw-guide-hero {
+    padding: 4rem 0 3.2rem;
+  }
+
+  .acw-guide-body-section {
+    padding: 4rem 0;
   }
 
   .acw-post-main-inner {
     max-width: none;
   }
 
-  .acw-post-content h2 {
+  .acw-post-content h2,
+  .acw-guide-content h2 {
     margin-top: 3.6rem;
     font-size: clamp(2.1rem, 10vw, 3.45rem);
   }
 
-  .acw-post-content h3 {
+  .acw-post-content h3,
+  .acw-guide-content h3 {
     margin-top: 2.4rem;
     font-size: clamp(1.35rem, 6vw, 1.85rem);
   }
@@ -2356,7 +2679,11 @@ p {
   .acw-post-content img,
   .acw-post-content blockquote,
   .acw-post-content .acw-callout,
-  .acw-post-content .callout {
+  .acw-post-content .callout,
+  .acw-guide-content img,
+  .acw-guide-content blockquote,
+  .acw-guide-content .acw-callout,
+  .acw-guide-content .callout {
     border-radius: 26px;
   }
 
@@ -2400,7 +2727,6 @@ p {
     border-radius: 28px;
   }
 }
-
 @media (max-width: 560px) {
 
   .acw-eyebrow,
@@ -2437,6 +2763,7 @@ p {
 
   .acw-blog-hero-card,
   .acw-post-hero-media,
+  .acw-guide-hero-media,
   .acw-blog-cta,
   .acw-blog-empty,
   .acw-library-feature-card,
@@ -2455,30 +2782,48 @@ p {
   }
 
   .acw-post-content p,
-  .acw-post-content li {
+  .acw-post-content li,
+  .acw-guide-content p,
+  .acw-guide-content li {
     font-size: 1rem;
     line-height: 1.78;
   }
 
-  .acw-post-content h2 {
+  .acw-post-content h2,
+  .acw-guide-content h2 {
     margin-top: 3rem;
   }
 
-  .acw-post-content img {
+  .acw-post-content img,
+  .acw-guide-content img {
     margin: 2.2rem 0;
     border-radius: 24px;
   }
 
   .acw-post-content blockquote,
   .acw-post-content .acw-callout,
-  .acw-post-content .callout {
+  .acw-post-content .callout,
+  .acw-guide-content blockquote,
+  .acw-guide-content .acw-callout,
+  .acw-guide-content .callout {
     margin: 2.4rem 0;
     border-radius: 24px;
   }
 
   .acw-post-content .acw-checklist li,
-  .acw-post-content .checklist li {
+  .acw-post-content .checklist li,
+  .acw-guide-content .acw-checklist li,
+  .acw-guide-content .checklist li {
     border-radius: 18px;
+  }
+
+  .acw-guide-meta {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .acw-guide-meta span + span::before {
+    content: none;
   }
 }
 /* =========================================================
