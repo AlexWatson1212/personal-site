@@ -2,9 +2,18 @@
 layout: post
 title: "What makes a therapist website feel calm?"
 date: 2026-04-04
+category: Therapist Websites
 tags: [web design, therapists, trust]
 description: "A few simple things that make a therapist website feel calmer, clearer, and easier to trust."
+intro: "A calm therapist website does not try to impress someone into getting in touch. It gives them enough space, clarity and reassurance to feel safe taking the next step."
+read_time: 6 minute read
 hero_image: /assets/images/library/calm-therapist-website.webp
+hero_alt: "A calm, softly lit workspace representing a clear and trustworthy therapist website."
+slug: calm-therapist-website
+related:
+  - therapist-websites
+  - ethical-seo
+  - therapist-copywriting
 ---
 
 A calm therapist website usually does less, not more.
