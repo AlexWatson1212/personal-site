@@ -1,0 +1,169 @@
+<!-- _layouts/guide.html -->
+
+<!doctype html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+
+<body>
+  {% include header.html %}
+
+  <main id="content" class="site-content">
+    <article class="acw-guide">
+
+      <header class="acw-guide-hero">
+        <div class="acw-container acw-guide-hero-inner">
+
+          <div class="acw-guide-hero-copy">
+            <p class="acw-section-label">
+              {{ page.kicker | default: "Foundation Guide" }}
+            </p>
+
+            <h1 class="acw-guide-title">
+              {{ page.title }}
+            </h1>
+
+            {% if page.description %}
+              <p class="acw-guide-description">
+                {{ page.description }}
+              </p>
+            {% endif %}
+
+            <div class="acw-guide-meta">
+              {% if page.read_time %}
+                <span>{{ page.read_time }}</span>
+              {% endif %}
+
+              {% if page.updated %}
+                <span>Updated {{ page.updated | date: "%-d %B %Y" }}</span>
+              {% elsif page.date %}
+                <span>Updated {{ page.date | date: "%-d %B %Y" }}</span>
+              {% endif %}
+            </div>
+          </div>
+
+          {% if page.hero_image %}
+            <figure class="acw-guide-hero-media">
+              <img
+                class="acw-guide-hero-image"
+                src="{{ page.hero_image | relative_url }}"
+                alt="{{ page.hero_alt | default: page.title }}"
+                loading="eager"
+              >
+            </figure>
+          {% endif %}
+
+        </div>
+      </header>
+
+      <section class="acw-section acw-guide-body-section">
+        <div class="acw-container acw-guide-layout">
+
+          {% if page.toc %}
+            <aside class="acw-guide-sidebar" aria-label="Guide contents">
+              <div class="acw-guide-sidebar-card">
+                <p class="acw-section-label">In this guide</p>
+
+                <nav class="acw-guide-toc">
+                  {{ page.toc }}
+                </nav>
+              </div>
+            </aside>
+          {% endif %}
+
+          <div class="acw-guide-content">
+            {{ content }}
+          </div>
+
+        </div>
+      </section>
+
+      {% if page.related_articles %}
+        <section class="acw-section acw-guide-related-section">
+          <div class="acw-container">
+
+            <div class="acw-section-heading">
+              <p class="acw-section-label">Keep reading</p>
+              <h2>Related articles.</h2>
+            </div>
+
+            <div class="acw-blog-grid">
+              {% for item in page.related_articles %}
+                {% assign related = site.posts | where: "slug", item | first %}
+
+                {% if related %}
+                  <article class="acw-card acw-blog-card">
+
+                    {% if related.hero_image %}
+                      <a
+                        class="acw-blog-card-image-link"
+                        href="{{ related.url | relative_url }}"
+                        aria-label="Read {{ related.title }}"
+                      >
+                        <img
+                          class="acw-blog-card-image"
+                          src="{{ related.hero_image | relative_url }}"
+                          alt="{{ related.title }}"
+                          loading="lazy"
+                        >
+                      </a>
+                    {% endif %}
+
+                    <div class="acw-blog-card-inner">
+                      <p class="acw-blog-meta">
+                        {{ related.date | date: "%-d %B %Y" }}
+                      </p>
+
+                      <h3 class="acw-blog-title">
+                        <a href="{{ related.url | relative_url }}">
+                          {{ related.title }}
+                        </a>
+                      </h3>
+
+                      <p class="acw-blog-excerpt">
+                        {{ related.description | default: related.excerpt | strip_html | truncatewords: 24 }}
+                      </p>
+
+                      <a class="acw-blog-readmore" href="{{ related.url | relative_url }}">
+                        Read article
+                      </a>
+                    </div>
+
+                  </article>
+                {% endif %}
+              {% endfor %}
+            </div>
+
+          </div>
+        </section>
+      {% endif %}
+
+      <section class="acw-section acw-guide-footer-cta">
+        <div class="acw-container">
+          <div class="acw-blog-cta">
+            <p class="acw-section-label">Practice Clarity</p>
+
+            <h2>
+              Want your therapy website to feel clearer and easier to trust?
+            </h2>
+
+            <p>
+              I help therapists understand what makes their practice distinctive before we ever think about design.
+            </p>
+
+            <a class="acw-btn acw-btn-primary" href="{{ '/contact/' | relative_url }}">
+              Start with clarity
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  {% include footer.html %}
+
+  <script src="{{ '/assets/js/search.js' | relative_url }}" defer></script>
+</body>
+</html>
