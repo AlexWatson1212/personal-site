@@ -10,11 +10,17 @@
   <main id="content" class="site-content">
     <article class="acw-post">
 
-      <header class="acw-post-hero">
-        <div class="acw-container acw-post-hero-inner">
+      <header class="acw-section acw-post-hero">
+        <div class="acw-container acw-post-hero-layout">
 
           <div class="acw-post-hero-copy">
-            <p class="acw-section-label">Article</p>
+            <p class="acw-section-label">
+              {% if page.category %}
+                {{ page.category }}
+              {% else %}
+                Article
+              {% endif %}
+            </p>
 
             <h1 class="acw-post-title">
               {{ page.title }}
@@ -26,11 +32,19 @@
               </p>
             {% endif %}
 
-            {% if page.date %}
-              <p class="acw-post-meta">
-                {{ page.date | date: "%-d %B %Y" }}
-              </p>
-            {% endif %}
+            <div class="acw-post-meta-row">
+              {% if page.date %}
+                <p class="acw-post-meta">
+                  {{ page.date | date: "%-d %B %Y" }}
+                </p>
+              {% endif %}
+
+              {% if page.read_time %}
+                <p class="acw-post-meta">
+                  {{ page.read_time }}
+                </p>
+              {% endif %}
+            </div>
           </div>
 
           {% if page.hero_image %}
@@ -47,18 +61,80 @@
         </div>
       </header>
 
-      <section class="acw-section acw-post-body-section">
-        <div class="acw-container acw-post-layout">
+      {% if page.intro %}
+        <section class="acw-section acw-post-intro-section">
+          <div class="acw-container acw-post-intro-inner">
+            <p class="acw-post-intro">
+              {{ page.intro }}
+            </p>
+          </div>
+        </section>
+      {% endif %}
 
+      <section class="acw-section acw-post-main">
+        <div class="acw-container acw-post-main-inner">
           <div class="acw-post-content">
             {{ content }}
           </div>
-
         </div>
       </section>
 
+      {% if page.related %}
+        <section class="acw-section acw-post-related-section">
+          <div class="acw-container">
+            <div class="acw-section-heading">
+              <p class="acw-section-label">Keep reading</p>
+              <h2>Related guides</h2>
+            </div>
+
+            <div class="acw-blog-grid">
+              {% for item in page.related %}
+                {% assign related_post = site.posts | where: "slug", item | first %}
+
+                {% if related_post %}
+                  <article class="acw-blog-card">
+                    {% if related_post.hero_image %}
+                      <a class="acw-blog-card-image-link" href="{{ related_post.url | relative_url }}">
+                        <img
+                          class="acw-blog-card-image"
+                          src="{{ related_post.hero_image | relative_url }}"
+                          alt="{{ related_post.hero_alt | default: related_post.title }}"
+                          loading="lazy"
+                        >
+                      </a>
+                    {% endif %}
+
+                    <div class="acw-blog-card-inner">
+                      <p class="acw-blog-meta">
+                        {{ related_post.date | date: "%-d %B %Y" }}
+                      </p>
+
+                      <h3 class="acw-blog-title">
+                        <a href="{{ related_post.url | relative_url }}">
+                          {{ related_post.title }}
+                        </a>
+                      </h3>
+
+                      {% if related_post.description %}
+                        <p class="acw-blog-excerpt">
+                          {{ related_post.description }}
+                        </p>
+                      {% endif %}
+
+                      <a class="acw-blog-readmore" href="{{ related_post.url | relative_url }}">
+                        Read guide
+                      </a>
+                    </div>
+                  </article>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </section>
+      {% endif %}
+
       <section class="acw-section acw-post-footer-cta">
-        <div class="acw-container">
+        <div class="acw-container acw-post-cta-inner">
           <div class="acw-blog-cta">
             <p class="acw-section-label">Start here</p>
 
