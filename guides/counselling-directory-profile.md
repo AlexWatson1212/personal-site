@@ -8,7 +8,7 @@ description: "A complete guide to writing a Counselling Directory profile that h
 category: Private Practice
 
 guide: true
-featured: true
+featured: false
 featured_order: 2
 
 slug: counselling-directory-profile
