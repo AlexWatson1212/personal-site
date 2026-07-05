@@ -10,52 +10,65 @@
   <main id="content" class="site-content">
     <article class="acw-post">
 
-      <header class="acw-post-header">
-        <div class="acw-container acw-post-header-inner">
-          <p class="acw-section-label">Article</p>
+      <header class="acw-post-hero">
+        <div class="acw-container acw-post-hero-inner">
 
-          <h1>{{ page.title }}</h1>
+          <div class="acw-post-hero-copy">
+            <p class="acw-section-label">Article</p>
 
-          {% if page.description %}
-            <p class="acw-post-description">
-              {{ page.description }}
-            </p>
+            <h1 class="acw-post-title">
+              {{ page.title }}
+            </h1>
+
+            {% if page.description %}
+              <p class="acw-post-description">
+                {{ page.description }}
+              </p>
+            {% endif %}
+
+            {% if page.date %}
+              <p class="acw-post-meta">
+                {{ page.date | date: "%-d %B %Y" }}
+              </p>
+            {% endif %}
+          </div>
+
+          {% if page.hero_image %}
+            <figure class="acw-post-hero-media">
+              <img
+                class="acw-post-hero-image"
+                src="{{ page.hero_image | relative_url }}"
+                alt="{{ page.hero_alt | default: page.title }}"
+                loading="eager"
+              >
+            </figure>
           {% endif %}
 
-          {% if page.date %}
-            <p class="acw-post-meta">
-              {{ page.date | date: "%-d %B %Y" }}
-            </p>
-          {% endif %}
         </div>
       </header>
 
-      {% if page.hero_image %}
-        <div class="acw-container acw-post-hero-wrap">
-          <img
-            class="acw-post-hero-image"
-            src="{{ page.hero_image | relative_url }}"
-            alt="{{ page.hero_alt | default: page.title }}"
-            loading="eager"
-          >
-        </div>
-      {% endif %}
+      <section class="acw-section acw-post-body-section">
+        <div class="acw-container acw-post-layout">
 
-      <div class="acw-container acw-post-layout">
-        <div class="acw-post-content">
-          {{ content }}
-        </div>
-      </div>
+          <div class="acw-post-content">
+            {{ content }}
+          </div>
 
-      <section class="acw-post-footer-cta">
+        </div>
+      </section>
+
+      <section class="acw-section acw-post-footer-cta">
         <div class="acw-container">
           <div class="acw-blog-cta">
             <p class="acw-section-label">Start here</p>
 
-            <h2>Want your therapy website to feel clearer and easier to trust?</h2>
+            <h2>
+              Want your therapy website to feel clearer and easier to trust?
+            </h2>
 
             <p>
-              I help therapists, counsellors and psychologists turn scattered ideas into clear positioning, thoughtful messaging and a website that reflects the work behind it.
+              I help therapists, counsellors and psychologists turn scattered ideas into clear positioning,
+              thoughtful messaging and a website that reflects the work behind it.
             </p>
 
             <a class="acw-btn acw-btn-primary" href="{{ '/contact/' | relative_url }}">
