@@ -66,7 +66,7 @@ permalink: /library/
         Everything begins with one idea: before a therapist can build a website people trust, they need to understand what their practice actually communicates.
       </p>
 
-      <a class="acw-btn acw-btn-primary" href="{{ '/guides/the-mirror-principle-practice-clarity/' | relative_url }}">
+      <a class="acw-btn acw-btn-primary" href="{{ '/guides/mirror-principle/' | relative_url }}">
         Start with The Mirror Principle
       </a>
     </div>
@@ -89,15 +89,19 @@ permalink: /library/
     <div class="acw-library-feature-grid">
 
       <article class="acw-library-feature-card">
-        <a href="{{ '/guides/the-mirror-principle-practice-clarity/' | relative_url }}" class="acw-library-feature-image-link">
-          <img src="{{ '/assets/images/library/practice-clarity-guide.webp' | relative_url }}" alt="Notebook and notes showing early Practice Clarity planning" loading="lazy">
+        <a href="{{ '/guides/mirror-principle/' | relative_url }}" class="acw-library-feature-image-link">
+          <img
+            src="{{ '/assets/images/library/practice-clarity-guide.webp' | relative_url }}"
+            alt="Notebook and notes showing early Practice Clarity planning"
+            loading="lazy"
+          >
         </a>
 
         <div>
           <p class="acw-library-category">Guide One</p>
 
           <h3>
-            <a href="{{ '/guides/the-mirror-principle-practice-clarity/' | relative_url }}">
+            <a href="{{ '/guides/mirror-principle/' | relative_url }}">
               The Mirror Principle
             </a>
           </h3>
@@ -106,13 +110,19 @@ permalink: /library/
             What does your website reflect about the kind of therapy you offer?
           </p>
 
-          <a href="{{ '/guides/the-mirror-principle-practice-clarity/' | relative_url }}">Read guide →</a>
+          <a href="{{ '/guides/mirror-principle/' | relative_url }}">
+            Read guide →
+          </a>
         </div>
       </article>
 
       <article class="acw-library-feature-card">
         <a href="{{ '/guides/the-waiting-room-principle/' | relative_url }}" class="acw-library-feature-image-link">
-          <img src="{{ '/assets/images/library/ethical-seo-guide.webp' | relative_url }}" alt="Search results and handwritten SEO planning notes" loading="lazy">
+          <img
+            src="{{ '/assets/images/library/ethical-seo-guide.webp' | relative_url }}"
+            alt="Search results and handwritten SEO planning notes"
+            loading="lazy"
+          >
         </a>
 
         <div>
@@ -128,13 +138,19 @@ permalink: /library/
             How do the right people discover you before they are ready to make contact?
           </p>
 
-          <a href="{{ '/guides/the-waiting-room-principle/' | relative_url }}">Read guide →</a>
+          <a href="{{ '/guides/the-waiting-room-principle/' | relative_url }}">
+            Read guide →
+          </a>
         </div>
       </article>
 
       <article class="acw-library-feature-card">
         <a href="{{ '/guides/the-recognition-principle/' | relative_url }}" class="acw-library-feature-image-link">
-          <img src="{{ '/assets/images/library/how-clients-choose.webp' | relative_url }}" alt="Two printed therapist websites laid side by side with subtle trust annotations" loading="lazy">
+          <img
+            src="{{ '/assets/images/library/how-clients-choose.webp' | relative_url }}"
+            alt="Two printed therapist websites laid side by side with subtle trust annotations"
+            loading="lazy"
+          >
         </a>
 
         <div>
@@ -150,13 +166,19 @@ permalink: /library/
             Why people choose the therapist they recognise something of themselves in.
           </p>
 
-          <a href="{{ '/guides/the-recognition-principle/' | relative_url }}">Read guide →</a>
+          <a href="{{ '/guides/the-recognition-principle/' | relative_url }}">
+            Read guide →
+          </a>
         </div>
       </article>
 
       <article class="acw-library-feature-card">
         <a href="{{ '/guides/counselling-directory-profile/' | relative_url }}" class="acw-library-feature-image-link">
-          <img src="{{ '/assets/images/library/counselling-directory.webp' | relative_url }}" alt="Directory profile beside an independent therapist website" loading="lazy">
+          <img
+            src="{{ '/assets/images/library/counselling-directory.webp' | relative_url }}"
+            alt="Directory profile beside an independent therapist website"
+            loading="lazy"
+          >
         </a>
 
         <div>
@@ -172,7 +194,9 @@ permalink: /library/
             How to make your profile clearer, warmer and more connected to your wider online presence.
           </p>
 
-          <a href="{{ '/guides/counselling-directory-profile/' | relative_url }}">Read guide →</a>
+          <a href="{{ '/guides/counselling-directory-profile/' | relative_url }}">
+            Read guide →
+          </a>
         </div>
       </article>
 
@@ -180,7 +204,6 @@ permalink: /library/
 
   </div>
 </section>
-
 <section class="acw-section acw-section-soft acw-library-framework">
   <div class="acw-container">
 
@@ -196,7 +219,7 @@ permalink: /library/
 
     <div class="acw-library-framework-grid">
 
-      <a class="acw-library-framework-step" href="{{ '/guides/the-mirror-principle-practice-clarity/' | relative_url }}">
+      <a class="acw-library-framework-step" href="{{ '/guides/mirror-principle/' | relative_url }}">
         <span>01</span>
         <h3>The Mirror Principle</h3>
         <p>Clarify what your website reflects.</p>
@@ -252,23 +275,38 @@ permalink: /library/
           >
 
             {% if post.hero_image %}
-              <a class="acw-blog-card-image-link" href="{{ post.url | relative_url }}" aria-label="Read {{ post.title }}">
-                <img class="acw-blog-card-image" src="{{ post.hero_image | relative_url }}" alt="{{ post.title }}" loading="lazy">
+              <a class="acw-blog-card-image-link"
+                 href="{{ post.url | relative_url }}"
+                 aria-label="Read {{ post.title }}">
+                <img
+                  class="acw-blog-card-image"
+                  src="{{ post.hero_image | relative_url }}"
+                  alt="{{ post.title }}"
+                  loading="lazy">
               </a>
             {% endif %}
 
             <div class="acw-blog-card-inner">
-              <p class="acw-blog-meta">{{ post.date | date: "%-d %B %Y" }}</p>
+
+              <p class="acw-blog-meta">
+                {{ post.date | date: "%-d %B %Y" }}
+              </p>
 
               <h2 class="acw-blog-title">
-                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                <a href="{{ post.url | relative_url }}">
+                  {{ post.title }}
+                </a>
               </h2>
 
               <p class="acw-blog-excerpt">
                 {{ post.description | default: post.excerpt | strip_html | truncatewords: 24 }}
               </p>
 
-              <a class="acw-blog-readmore" href="{{ post.url | relative_url }}">Read article</a>
+              <a class="acw-blog-readmore"
+                 href="{{ post.url | relative_url }}">
+                Read article
+              </a>
+
             </div>
 
           </article>
@@ -278,18 +316,20 @@ permalink: /library/
     {% else %}
 
       <div class="acw-blog-empty">
+
         <h2>The library is being built.</h2>
 
         <p>
-          I'm currently writing a series of in-depth guides on Practice Clarity, therapist websites and ethical online visibility.
+          I'm currently writing a series of in-depth guides on Practice Clarity,
+          therapist websites and ethical online visibility.
         </p>
+
       </div>
 
     {% endif %}
 
   </div>
 </section>
-
 <section class="acw-section acw-library-topics">
   <div class="acw-container">
 
@@ -299,12 +339,12 @@ permalink: /library/
       <h2>Explore by subject.</h2>
 
       <p class="acw-section-intro">
-        Find articles by the specific part of your online presence you want to improve.
+        Find guides and articles by the specific part of your online presence you'd like to improve.
       </p>
     </div>
 
     <div class="acw-library-topic-grid">
-      <a href="{{ '/guides/the-mirror-principle-practice-clarity/' | relative_url }}">Practice Clarity</a>
+      <a href="{{ '/guides/mirror-principle/' | relative_url }}">Practice Clarity</a>
       <a href="{{ '/guides/the-waiting-room-principle/' | relative_url }}">Ethical Visibility</a>
       <a href="{{ '/guides/the-recognition-principle/' | relative_url }}">Client Recognition</a>
       <a href="{{ '/guides/counselling-directory-profile/' | relative_url }}">Counselling Directory</a>
@@ -321,31 +361,37 @@ permalink: /library/
     <div>
       <img
         src="{{ '/assets/images/library/library-writing.webp' | relative_url }}"
-        alt="Calm writing desk with notes, notebook and therapist website planning"
+        alt="Calm writing desk with notebook, coffee and therapist website planning"
         loading="lazy"
       >
     </div>
 
     <div>
+
       <p class="acw-section-label">Why this library exists</p>
 
       <h2>Clarity before visibility.</h2>
 
       <p class="acw-section-text">
-        Most advice about therapist marketing focuses on getting more clicks.
+        Most advice about therapist marketing begins with algorithms, rankings
+        or getting more clicks.
       </p>
 
       <p class="acw-section-text">
-        I think that's the wrong starting point.
+        I believe that's the wrong place to start.
       </p>
 
       <p class="acw-section-text">
-        Clients decide whether to contact a therapist long before they compare qualifications or fees. They notice whether someone feels understandable, thoughtful and trustworthy.
+        Long before someone compares qualifications, fees or availability,
+        they're deciding whether a therapist feels understandable,
+        thoughtful and trustworthy.
       </p>
 
       <p class="acw-section-text">
-        Everything here explores how therapists can communicate more clearly without becoming louder.
+        Every guide in this library explores how therapists can communicate
+        more clearly without becoming louder.
       </p>
+
     </div>
 
   </div>
@@ -355,16 +401,37 @@ permalink: /library/
   <div class="acw-container">
 
     <div class="acw-library-reading-card">
+
       <p class="acw-section-label">Recommended reading path</p>
 
       <h2>Read the guides in order.</h2>
 
       <ol>
-        <li><a href="{{ '/guides/the-mirror-principle/' | relative_url }}">The Mirror Principle</a></li>
-        <li><a href="{{ '/guides/the-waiting-room-principle/' | relative_url }}">The Waiting Room Principle</a></li>
-        <li><a href="{{ '/guides/the-recognition-principle/' | relative_url }}">The Recognition Principle</a></li>
-        <li><a href="{{ '/guides/counselling-directory-profile/' | relative_url }}">Counselling Directory Profile</a></li>
+        <li>
+          <a href="{{ '/guides/mirror-principle/' | relative_url }}">
+            The Mirror Principle
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/guides/the-waiting-room-principle/' | relative_url }}">
+            The Waiting Room Principle
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/guides/the-recognition-principle/' | relative_url }}">
+            The Recognition Principle
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/guides/counselling-directory-profile/' | relative_url }}">
+            Counselling Directory Profile
+          </a>
+        </li>
       </ol>
+
     </div>
 
   </div>
@@ -374,6 +441,7 @@ permalink: /library/
   <div class="acw-container">
 
     <div class="acw-blog-cta">
+
       <p class="acw-section-label">Practice Clarity</p>
 
       <h2>
@@ -381,12 +449,15 @@ permalink: /library/
       </h2>
 
       <p>
-        I help therapists understand what makes their practice distinctive before we ever think about design.
+        I help therapists understand what makes their practice distinctive
+        before we ever think about design, copywriting or SEO.
       </p>
 
-      <a class="acw-btn acw-btn-primary" href="{{ '/contact/' | relative_url }}">
+      <a class="acw-btn acw-btn-primary"
+         href="{{ '/contact/' | relative_url }}">
         Start with clarity
       </a>
+
     </div>
 
   </div>
