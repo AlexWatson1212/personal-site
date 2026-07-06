@@ -16,7 +16,8 @@ permalink: /library/
       </h1>
 
       <p class="acw-blog-page-intro">
-        Practical guides on Practice Clarity, ethical SEO, therapist websites and trust before first contact.
+        A calm, growing library on Practice Clarity, ethical visibility,
+        therapist websites and trust before first contact.
       </p>
 
       <form class="acw-blog-search" role="search" aria-label="Library search" onsubmit="return false;">
@@ -48,7 +49,8 @@ permalink: /library/
       >
 
       <p>
-        A growing knowledge library for therapists who want to communicate more clearly, become easier to trust and build a sustainable private practice.
+        For therapists who want their online presence to feel clearer,
+        quieter and easier for the right people to trust.
       </p>
     </aside>
 
@@ -63,7 +65,9 @@ permalink: /library/
       <h2>Start with Practice Clarity.</h2>
 
       <p>
-        Everything begins with one idea: before a therapist can build a website people trust, they need to understand what their practice actually communicates.
+        Before a therapist can build a website people trust, they need to
+        understand what their practice actually communicates. Everything in
+        this library begins there.
       </p>
 
       <a class="acw-btn acw-btn-primary" href="{{ '/guides/mirror-principle/' | relative_url }}">
@@ -82,7 +86,8 @@ permalink: /library/
       <h2>Foundation guides.</h2>
 
       <p class="acw-section-intro">
-        The core principles behind clearer therapist websites, ethical visibility and trust before first contact.
+        The core principles behind clearer therapist websites, ethical visibility
+        and trust before first contact.
       </p>
     </div>
 
@@ -204,6 +209,7 @@ permalink: /library/
 
   </div>
 </section>
+
 <section class="acw-section acw-section-soft acw-library-framework">
   <div class="acw-container">
 
@@ -257,7 +263,8 @@ permalink: /library/
       <h2>Explore the library.</h2>
 
       <p class="acw-section-intro">
-        Practical writing to help therapists build clearer websites, stronger positioning and greater confidence online.
+        Practical writing to help therapists build clearer websites, stronger
+        positioning and greater confidence online.
       </p>
     </div>
 
@@ -268,26 +275,28 @@ permalink: /library/
       <div class="acw-blog-grid" id="blogPosts">
         {% for post in blog_posts %}
           <article
-            class="acw-card acw-blog-card"
+            class="acw-blog-card"
             data-title="{{ post.title | downcase | escape }}"
             data-description="{{ post.description | default: post.excerpt | strip_html | downcase | escape }}"
             data-category="{{ post.category | default: post.categories | join: ' ' | downcase | escape }}"
           >
 
             {% if post.hero_image %}
-              <a class="acw-blog-card-image-link"
-                 href="{{ post.url | relative_url }}"
-                 aria-label="Read {{ post.title }}">
+              <a
+                class="acw-blog-card-image-link"
+                href="{{ post.url | relative_url }}"
+                aria-label="Read {{ post.title }}"
+              >
                 <img
                   class="acw-blog-card-image"
                   src="{{ post.hero_image | relative_url }}"
                   alt="{{ post.title }}"
-                  loading="lazy">
+                  loading="lazy"
+                >
               </a>
             {% endif %}
 
             <div class="acw-blog-card-inner">
-
               <p class="acw-blog-meta">
                 {{ post.date | date: "%-d %B %Y" }}
               </p>
@@ -302,11 +311,9 @@ permalink: /library/
                 {{ post.description | default: post.excerpt | strip_html | truncatewords: 24 }}
               </p>
 
-              <a class="acw-blog-readmore"
-                 href="{{ post.url | relative_url }}">
-                Read article
+              <a class="acw-blog-readmore" href="{{ post.url | relative_url }}">
+                Read article →
               </a>
-
             </div>
 
           </article>
@@ -316,20 +323,19 @@ permalink: /library/
     {% else %}
 
       <div class="acw-blog-empty">
-
         <h2>The library is being built.</h2>
 
         <p>
           I'm currently writing a series of in-depth guides on Practice Clarity,
           therapist websites and ethical online visibility.
         </p>
-
       </div>
 
     {% endif %}
 
   </div>
 </section>
+
 <section class="acw-section acw-library-topics">
   <div class="acw-container">
 
@@ -339,7 +345,8 @@ permalink: /library/
       <h2>Explore by subject.</h2>
 
       <p class="acw-section-intro">
-        Find guides and articles by the specific part of your online presence you'd like to improve.
+        Find guides and articles by the specific part of your online presence
+        you'd like to improve.
       </p>
     </div>
 
@@ -367,7 +374,6 @@ permalink: /library/
     </div>
 
     <div>
-
       <p class="acw-section-label">Why this library exists</p>
 
       <h2>Clarity before visibility.</h2>
@@ -383,15 +389,14 @@ permalink: /library/
 
       <p class="acw-section-text">
         Long before someone compares qualifications, fees or availability,
-        they're deciding whether a therapist feels understandable,
-        thoughtful and trustworthy.
+        they're deciding whether a therapist feels understandable, thoughtful
+        and trustworthy.
       </p>
 
       <p class="acw-section-text">
         Every guide in this library explores how therapists can communicate
         more clearly without becoming louder.
       </p>
-
     </div>
 
   </div>
@@ -401,7 +406,6 @@ permalink: /library/
   <div class="acw-container">
 
     <div class="acw-library-reading-card">
-
       <p class="acw-section-label">Recommended reading path</p>
 
       <h2>Read the guides in order.</h2>
@@ -431,7 +435,6 @@ permalink: /library/
           </a>
         </li>
       </ol>
-
     </div>
 
   </div>
@@ -441,7 +444,6 @@ permalink: /library/
   <div class="acw-container">
 
     <div class="acw-blog-cta">
-
       <p class="acw-section-label">Practice Clarity</p>
 
       <h2>
@@ -453,11 +455,9 @@ permalink: /library/
         before we ever think about design, copywriting or SEO.
       </p>
 
-      <a class="acw-btn acw-btn-primary"
-         href="{{ '/contact/' | relative_url }}">
+      <a class="acw-btn acw-btn-primary" href="{{ '/contact/' | relative_url }}">
         Start with clarity
       </a>
-
     </div>
 
   </div>
