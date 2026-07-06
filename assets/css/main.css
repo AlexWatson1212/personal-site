@@ -2042,6 +2042,7 @@ p {
     font-size: clamp(1.8rem, 10vw, 2.6rem);
   }
 }
+
 /* =========================================================
 21B. GUIDE LAYOUT
 ========================================================= */
@@ -2140,7 +2141,8 @@ p {
   display: block;
 }
 
-.acw-guide-content-wrap {
+.acw-guide-content-wrap,
+.acw-guide-content {
   max-width: 820px;
 }
 
@@ -2171,10 +2173,6 @@ p {
   font-size: 0.88rem;
   font-weight: 760;
   line-height: 1.35;
-}
-
-.acw-guide-content {
-  max-width: 820px;
 }
 
 .acw-guide-content > *:first-child {
@@ -2237,20 +2235,46 @@ p {
   border-bottom: 1px solid rgba(83, 107, 77, 0.28);
 }
 
-.acw-guide-content img {
-  width: 100%;
-  margin: 3.2rem 0;
-  border: 1px solid rgba(16, 32, 51, 0.08);
-  border-radius: 34px;
-  box-shadow: var(--shadow);
+.acw-guide-content a:hover {
+  color: var(--text);
+  border-bottom-color: rgba(16, 32, 51, 0.28);
 }
 
 .acw-guide-content hr {
   width: 100%;
   height: 1px;
-  margin: 4rem 0;
+  margin: 4.5rem 0;
   background: rgba(16, 32, 51, 0.1);
   border: 0;
+}
+
+.acw-guide-intro-panel {
+  margin: 2.4rem 0 3rem;
+  padding: clamp(1.8rem, 3vw, 2.6rem);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.1), transparent 34%),
+    rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 36px;
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-guide-intro-panel p {
+  max-width: 54ch;
+  margin-bottom: 1rem;
+  color: var(--muted);
+}
+
+.acw-guide-intro-panel p:last-child {
+  margin-bottom: 0;
+}
+
+.acw-guide-intro-lead {
+  color: var(--text) !important;
+  font-size: clamp(1.35rem, 2vw, 1.95rem) !important;
+  font-weight: 840;
+  letter-spacing: -0.045em;
+  line-height: 1.18 !important;
 }
 
 .acw-guide-content blockquote,
@@ -2278,8 +2302,8 @@ p {
   background: linear-gradient(90deg, rgba(123, 143, 112, 0.55), rgba(218, 192, 157, 0.45));
 }
 
-.acw-guide-content blockquote p,
-.acw-guide-content .acw-quote {
+.acw-guide-content blockquote p {
+  margin: 0;
   color: var(--text);
   font-size: clamp(1.18rem, 1.55vw, 1.42rem);
   font-weight: 760;
@@ -2287,19 +2311,154 @@ p {
   line-height: 1.55;
 }
 
-.acw-guide-content .acw-diagram {
-  text-align: center;
+.acw-pullquote {
+  margin: clamp(3rem, 6vw, 5rem) 0;
+  padding: clamp(1.5rem, 3vw, 2.4rem) 0;
+  border-top: 1px solid rgba(16, 32, 51, 0.12);
+  border-bottom: 1px solid rgba(16, 32, 51, 0.12);
+  color: var(--text);
+  font-size: clamp(1.55rem, 3vw, 2.65rem);
+  font-weight: 860;
+  letter-spacing: -0.06em;
+  line-height: 1.03;
+  text-wrap: balance;
 }
 
-.acw-guide-content .acw-nav {
-  margin: 2.6rem 0 3.2rem;
+.acw-pullquote p,
+.acw-guide-content .acw-pullquote p {
+  max-width: 14ch;
+  margin: 0;
+  color: var(--text);
+  font: inherit;
+  line-height: inherit;
+}
+
+.acw-guide-figure,
+.acw-guide-diagram {
+  overflow: hidden;
+  margin: clamp(3rem, 6vw, 5rem) 0;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 38px;
+  box-shadow: var(--shadow);
+}
+
+.acw-guide-figure img,
+.acw-guide-diagram img,
+.acw-guide-content .acw-guide-figure img,
+.acw-guide-content .acw-guide-diagram img {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.acw-guide-figure img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.acw-guide-diagram {
+  padding: clamp(1.2rem, 2.4vw, 2rem);
   background:
-    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.1), transparent 34%),
-    rgba(250, 246, 238, 0.96);
+    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.08), transparent 34%),
+    rgba(250, 246, 238, 0.92);
+}
+
+.acw-guide-diagram img {
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  background: transparent;
+}
+
+.acw-library-roadmap {
+  display: grid;
+  gap: 0.9rem;
+  margin: 3rem 0;
+}
+
+.acw-library-roadmap > div {
+  position: relative;
+  padding: 1.35rem 1.45rem 1.35rem 1.65rem;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 24px;
+  box-shadow: var(--shadow-xs);
+}
+
+.acw-library-roadmap > div::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.35rem;
+  bottom: 1.35rem;
+  width: 4px;
+  background: linear-gradient(180deg, rgba(123, 143, 112, 0.65), rgba(218, 192, 157, 0.55));
+  border-radius: var(--pill);
+}
+
+.acw-library-roadmap span {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--accent-dark);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.acw-library-roadmap strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--text);
+  font-size: clamp(1.2rem, 1.7vw, 1.55rem);
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.acw-library-roadmap p {
+  max-width: 48ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.acw-reflection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2.4rem 0 3.4rem;
+}
+
+.acw-reflection-grid .acw-callout,
+.acw-guide-content .acw-reflection-grid .acw-callout {
+  display: flex;
+  align-items: center;
+  min-height: 180px;
+  margin: 0;
+  padding: 1.45rem;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.06), transparent 34%),
+    rgba(255, 255, 255, 0.82);
+  border-radius: 26px;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 760;
+  line-height: 1.55;
+}
+
+.acw-guide-content .acw-checklist,
+.acw-guide-content .checklist {
+  margin: 3rem 0;
 }
 
 .acw-guide-content .acw-checklist ul,
-.acw-guide-content .acw-checklist ol {
+.acw-guide-content .acw-checklist ol,
+.acw-guide-content .checklist ul,
+.acw-guide-content .checklist ol {
   display: grid;
   gap: 0.7rem;
   margin: 1.25rem 0 0;
@@ -2307,7 +2466,8 @@ p {
   list-style: none;
 }
 
-.acw-guide-content .acw-checklist li {
+.acw-guide-content .acw-checklist li,
+.acw-guide-content .checklist li {
   position: relative;
   margin: 0;
   padding: 1rem 1rem 1rem 2.55rem;
@@ -2317,7 +2477,8 @@ p {
   box-shadow: var(--shadow-xs);
 }
 
-.acw-guide-content .acw-checklist li::before {
+.acw-guide-content .acw-checklist li::before,
+.acw-guide-content .checklist li::before {
   content: "";
   position: absolute;
   left: 1rem;
@@ -2353,6 +2514,10 @@ p {
   .acw-guide-sidebar-card {
     max-width: 100%;
   }
+
+  .acw-reflection-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 640px) {
@@ -2368,13 +2533,38 @@ p {
     font-size: clamp(2.65rem, 15vw, 4rem);
   }
 
+  .acw-guide-content p,
+  .acw-guide-content li {
+    font-size: 1rem;
+    line-height: 1.78;
+  }
+
   .acw-guide-content h1 {
     font-size: clamp(2.35rem, 13vw, 3.3rem);
   }
 
   .acw-guide-content h2 {
+    max-width: 11ch;
     margin-top: 4rem;
     font-size: clamp(2.15rem, 11vw, 3.2rem);
+  }
+
+  .acw-pullquote {
+    font-size: clamp(1.45rem, 10vw, 2.25rem);
+  }
+
+  .acw-guide-figure,
+  .acw-guide-diagram {
+    border-radius: 28px;
+  }
+
+  .acw-guide-figure img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .acw-reflection-grid .acw-callout,
+  .acw-guide-content .acw-reflection-grid .acw-callout {
+    min-height: auto;
   }
 }
 
