@@ -17,28 +17,32 @@
 
           <div class="acw-guide-hero-copy">
             <p class="acw-section-label">
-              {{ page.kicker | default: "Foundation Guide" }}
+              {{ page.kicker | default: "Practice Clarity" }}
             </p>
 
             <h1 class="acw-guide-title">
               {{ page.title }}
             </h1>
 
-            {% if page.description %}
-              <p class="acw-guide-description">
+            {% if page.subtitle %}
+              <p class="acw-guide-subtitle">
+                {{ page.subtitle }}
+              </p>
+            {% elsif page.description %}
+              <p class="acw-guide-subtitle">
                 {{ page.description }}
               </p>
             {% endif %}
 
             <div class="acw-guide-meta">
-              {% if page.read_time %}
+              {% if page.reading_time %}
+                <span>{{ page.reading_time }}</span>
+              {% elsif page.read_time %}
                 <span>{{ page.read_time }}</span>
               {% endif %}
 
-              {% if page.updated %}
-                <span>Updated {{ page.updated | date: "%-d %B %Y" }}</span>
-              {% elsif page.date %}
-                <span>Updated {{ page.date | date: "%-d %B %Y" }}</span>
+              {% if page.category %}
+                <span>{{ page.category }}</span>
               {% endif %}
             </div>
           </div>
@@ -48,7 +52,7 @@
               <img
                 class="acw-guide-hero-image"
                 src="{{ page.hero_image | relative_url }}"
-                alt="{{ page.hero_alt | default: page.title }}"
+                alt="{{ page.hero_image_alt | default: page.hero_alt | default: page.title }}"
                 loading="eager"
               >
             </figure>
@@ -58,7 +62,7 @@
       </header>
 
       <section class="acw-guide-body-section">
-        <div class="acw-container acw-guide-layout">
+        <div class="acw-container acw-guide-body-inner">
 
           {% if page.toc %}
             <aside class="acw-guide-sidebar" aria-label="Guide contents">
@@ -71,8 +75,10 @@
             </aside>
           {% endif %}
 
-          <div class="acw-guide-content">
-            {{ content }}
+          <div class="acw-guide-content-wrap">
+            <div class="acw-guide-content">
+              {{ content }}
+            </div>
           </div>
 
         </div>
@@ -83,12 +89,15 @@
           <div class="acw-container">
             <div class="acw-section-heading">
               <p class="acw-section-label">Keep reading</p>
-              <h2>Related articles.</h2>
+              <h2>Continue the Practice Clarity library.</h2>
             </div>
 
             <div class="acw-blog-grid">
               {% for item in page.related_articles %}
-                {% assign related = site.posts | where: "slug", item | first %}
+                {% assign related = site.guides | where: "title", item | first %}
+                {% unless related %}
+                  {% assign related = site.posts | where: "title", item | first %}
+                {% endunless %}
 
                 {% if related %}
                   <article class="acw-card acw-blog-card">
@@ -105,7 +114,7 @@
 
                     <div class="acw-blog-card-inner">
                       <p class="acw-blog-meta">
-                        {{ related.date | date: "%-d %B %Y" }}
+                        {{ related.category | default: "Practice Clarity" }}
                       </p>
 
                       <h3 class="acw-blog-title">
@@ -115,11 +124,11 @@
                       </h3>
 
                       <p class="acw-blog-excerpt">
-                        {{ related.description | default: related.excerpt | strip_html | truncatewords: 24 }}
+                        {{ related.description | default: related.subtitle | default: related.excerpt | strip_html | truncatewords: 24 }}
                       </p>
 
                       <a class="acw-blog-readmore" href="{{ related.url | relative_url }}">
-                        Read article
+                        Read guide
                       </a>
                     </div>
                   </article>
