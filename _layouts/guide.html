@@ -62,7 +62,7 @@
       </header>
 
       <section class="acw-guide-body-section">
-        <div class="acw-container acw-guide-body-inner">
+        <div class="acw-container acw-guide-body-inner{% unless page.toc %} acw-guide-body-inner--single{% endunless %}">
 
           {% if page.toc %}
             <aside class="acw-guide-sidebar" aria-label="Guide contents">

@@ -35,7 +35,7 @@ defaults:
       path: ""
       type: "guides"
     values:
-      layout: article
+      layout: guide
       category: "Practice Clarity"
       image: "/assets/images/brand/og-image.jpg"
 

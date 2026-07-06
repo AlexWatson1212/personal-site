@@ -1902,7 +1902,7 @@ p {
   align-items: start;
 }
 
-.acw-guide-body-inner:not(:has(.acw-guide-sidebar)) {
+.acw-guide-body-inner--single {
   display: block;
 }
 
