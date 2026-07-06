@@ -1,5 +1,3 @@
-Filename: guides/the-waiting-room-principle.md
-
 ---
 layout: guide
 
