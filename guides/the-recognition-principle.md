@@ -19,7 +19,7 @@ featured_order: 4
 
 slug: recognition-principle
 
-permalink: /guides/recognition-principle/
+permalink: /guides/the-recognition-principle/
 
 hero_image: /assets/images/library/recognition-principle.webp
 hero_alt: "A quiet reading space with an open notebook and soft morning light, symbolising the moment someone recognises themselves in what they read."
