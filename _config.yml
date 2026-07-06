@@ -16,6 +16,11 @@ future: true
 
 permalink: /:title/
 
+collections:
+  guides:
+    output: true
+    permalink: /guides/:name/
+
 plugins:
   - jekyll-sitemap
 
@@ -24,6 +29,14 @@ defaults:
     scope:
       path: ""
     values:
+      image: "/assets/images/brand/og-image.jpg"
+  -
+    scope:
+      path: ""
+      type: "guides"
+    values:
+      layout: article
+      category: "Practice Clarity"
       image: "/assets/images/brand/og-image.jpg"
 
 exclude:
