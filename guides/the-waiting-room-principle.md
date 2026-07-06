@@ -18,7 +18,7 @@ featured_order: 2
 
 slug: waiting-room-principle
 
-permalink: /guides/waiting-room-principle/
+permalink: /guides/the-waiting-room-principle/
 
 hero_image: /assets/images/library/ethical-seo-guide.webp
 hero_alt: "A warmly lit path leading towards an open doorway, symbolising the journey from searching for help to finding it."
