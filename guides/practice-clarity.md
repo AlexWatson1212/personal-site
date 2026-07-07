@@ -1,148 +1,203 @@
 ---
 layout: default
 title: Practice Clarity
-description: Nine principles for building trust before therapy begins.
-permalink: /guides/practice-clarity/
+description: Nine principles for building trust before therapy begins — a practical philosophy for therapists who want their website to feel as thoughtful as their work.
+permalink: /practice-clarity/
 ---
 
-<section class="acw-framework-page">
-  <div class="acw-container acw-framework-shell">
+<section class="acw-practice-clarity-hero">
+  <div class="acw-container acw-practice-clarity-hero-inner">
 
-    <header class="acw-framework-hero">
+    <div class="acw-practice-clarity-copy">
       <p class="acw-section-label">Practice Clarity</p>
 
-      <h1>Nine principles for building trust before therapy begins.</h1>
+      <h1>Nine Principles for Building Trust Before Therapy Begins</h1>
 
-      <p class="acw-framework-intro">
-        Practice Clarity is a calm framework for therapists who want their website
-        to feel as thoughtful, clear and trustworthy as the work behind it.
+      <p class="acw-practice-clarity-lead">
+        A practical philosophy for therapists who want their website to feel
+        as thoughtful as their work.
       </p>
 
-      <p class="acw-framework-text">
-        It follows the journey someone takes before therapy begins: from searching,
-        to arriving, to recognising themselves, to trusting enough to make contact.
+      <p class="acw-practice-clarity-intro">
+        Most therapist websites do not fail because they are unattractive.
+        They fail because uncertainty quietly accumulates. Practice Clarity
+        is a framework for reducing that uncertainty, one principle at a time.
       </p>
-    </header>
 
-    <section class="acw-framework-map" aria-label="Practice Clarity journey">
-      <h2>The journey</h2>
-
-      <div class="acw-framework-steps">
-        <div class="acw-framework-step">
-          <span>01</span>
-          <strong>Practice</strong>
-          <p>Understand your work before you describe it.</p>
-        </div>
-
-        <div class="acw-framework-step">
-          <span>02</span>
-          <strong>Visibility</strong>
-          <p>Help the right people find you without becoming salesy.</p>
-        </div>
-
-        <div class="acw-framework-step">
-          <span>03</span>
-          <strong>Arrival</strong>
-          <p>Shape what happens in the first few seconds after someone lands.</p>
-        </div>
-
-        <div class="acw-framework-step">
-          <span>04</span>
-          <strong>Recognition</strong>
-          <p>Help people feel that you understand someone like them.</p>
-        </div>
-
-        <div class="acw-framework-step">
-          <span>05</span>
-          <strong>Trust</strong>
-          <p>Reduce uncertainty through consistency, clarity and care.</p>
-        </div>
-
-        <div class="acw-framework-step">
-          <span>06</span>
-          <strong>Enquiry</strong>
-          <p>Make the first step feel possible, simple and human.</p>
-        </div>
+      <div class="acw-cta-row">
+        <a href="#principles" class="acw-btn acw-btn-primary">Explore the principles</a>
+        <a href="#journey" class="acw-btn acw-btn-secondary">See the journey</a>
       </div>
-    </section>
+    </div>
 
-    <section class="acw-framework-principles">
-      <p class="acw-section-label">The principles</p>
+    <figure class="acw-practice-clarity-card">
+      <img
+        src="{{ '/assets/images/guides/practice-clarity.webp' | relative_url }}"
+        alt="A calm desk scene representing clarity, reflection and trust"
+        loading="eager"
+      >
+    </figure>
 
-      <div class="acw-principle-grid">
+  </div>
+</section>
 
-        <a class="acw-principle-card" href="/guides/the-mirror-principle-practice-clarity/">
-          <span>Guide 1</span>
-          <h2>The Mirror Principle</h2>
+<section id="journey" class="acw-practice-clarity-section">
+  <div class="acw-container">
+
+    <div class="acw-practice-clarity-section-heading">
+      <p class="acw-section-label">The Journey</p>
+      <h2>Every principle reduces uncertainty.</h2>
+      <p>
+        The framework moves from understanding your practice, to helping people
+        find you, to helping them feel safe enough to stay and make contact.
+      </p>
+    </div>
+
+    <div class="acw-practice-clarity-map">
+      <div>
+        <span>01</span>
+        <strong>Practice</strong>
+        <p>Understand what your work actually offers.</p>
+      </div>
+
+      <div>
+        <span>02</span>
+        <strong>Visibility</strong>
+        <p>Help the right people discover you.</p>
+      </div>
+
+      <div>
+        <span>03</span>
+        <strong>Arrival</strong>
+        <p>Make the first few seconds feel safe and clear.</p>
+      </div>
+
+      <div>
+        <span>04</span>
+        <strong>Recognition</strong>
+        <p>Help people recognise themselves in your words.</p>
+      </div>
+
+      <div>
+        <span>05</span>
+        <strong>Trust</strong>
+        <p>Build confidence through consistency and simplicity.</p>
+      </div>
+
+      <div>
+        <span>06</span>
+        <strong>Enquiry</strong>
+        <p>Make asking for help feel like the easiest next step.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="principles" class="acw-practice-clarity-section acw-practice-clarity-section-soft">
+  <div class="acw-container">
+
+    <div class="acw-practice-clarity-section-heading">
+      <p class="acw-section-label">The Principles</p>
+      <h2>The full foundation guide.</h2>
+      <p>
+        Read the principles in order, or begin with the part of your website
+        that currently feels least clear.
+      </p>
+    </div>
+
+    <div class="acw-practice-clarity-parts">
+
+      <div class="acw-practice-clarity-part">
+        <p class="acw-practice-clarity-part-label">Part I</p>
+        <h3>Understanding Your Practice</h3>
+
+        <a href="{{ '/guides/mirror-principle/' | relative_url }}" class="acw-principle-card">
+          <span>Guide One</span>
+          <strong>The Mirror Principle</strong>
           <p>Understand yourself before you describe yourself.</p>
         </a>
+      </div>
 
-        <a class="acw-principle-card" href="/guides/the-waiting-room-principle/">
-          <span>Guide 2</span>
-          <h2>The Waiting Room Principle</h2>
+      <div class="acw-practice-clarity-part">
+        <p class="acw-practice-clarity-part-label">Part II</p>
+        <h3>Helping People Find You</h3>
+
+        <a href="{{ '/guides/waiting-room-principle/' | relative_url }}" class="acw-principle-card">
+          <span>Guide Two</span>
+          <strong>The Waiting Room Principle</strong>
           <p>Reduce the distance between needing help and finding it.</p>
         </a>
-
-        <a class="acw-principle-card" href="/guides/the-first-conversation-principle/">
-          <span>Guide 3</span>
-          <h2>The First Conversation Principle</h2>
-          <p>Trust begins before first contact.</p>
-        </a>
-
-        <a class="acw-principle-card" href="/guides/the-recognition-principle/">
-          <span>Guide 4</span>
-          <h2>The Recognition Principle</h2>
-          <p>People choose therapists they recognise themselves in.</p>
-        </a>
-
-        <div class="acw-principle-card acw-principle-card--soon">
-          <span>Guide 5</span>
-          <h2>The Homepage Principle</h2>
-          <p>Every homepage answers one question: am I in the right place?</p>
-        </div>
-
-        <div class="acw-principle-card acw-principle-card--soon">
-          <span>Guide 6</span>
-          <h2>The About Principle</h2>
-          <p>People are not looking for your biography. They are looking for themselves in your story.</p>
-        </div>
-
-        <div class="acw-principle-card acw-principle-card--soon">
-          <span>Guide 7</span>
-          <h2>The Simplicity Principle</h2>
-          <p>Every unnecessary decision creates emotional effort.</p>
-        </div>
-
-        <div class="acw-principle-card acw-principle-card--soon">
-          <span>Guide 8</span>
-          <h2>The Consistency Principle</h2>
-          <p>Trust grows when every touchpoint tells the same story.</p>
-        </div>
-
-        <div class="acw-principle-card acw-principle-card--soon">
-          <span>Guide 9</span>
-          <h2>The Enquiry Principle</h2>
-          <p>The easiest step should be asking for help.</p>
-        </div>
-
       </div>
-    </section>
 
-    <section class="acw-framework-closing">
+      <div class="acw-practice-clarity-part">
+        <p class="acw-practice-clarity-part-label">Part III</p>
+        <h3>Helping People Stay</h3>
+
+        <div class="acw-principle-grid">
+          <a href="{{ '/guides/first-conversation-principle/' | relative_url }}" class="acw-principle-card">
+            <span>Guide Three</span>
+            <strong>The First Conversation Principle</strong>
+            <p>Trust begins before first contact.</p>
+          </a>
+
+          <a href="{{ '/guides/recognition-principle/' | relative_url }}" class="acw-principle-card">
+            <span>Guide Four</span>
+            <strong>The Recognition Principle</strong>
+            <p>People choose therapists they recognise themselves in.</p>
+          </a>
+
+          <a href="{{ '/guides/homepage-principle/' | relative_url }}" class="acw-principle-card">
+            <span>Guide Five</span>
+            <strong>The Homepage Principle</strong>
+            <p>Every homepage answers one question: am I in the right place?</p>
+          </a>
+
+          <a href="{{ '/guides/about-principle/' | relative_url }}" class="acw-principle-card">
+            <span>Guide Six</span>
+            <strong>The About Principle</strong>
+            <p>People are looking for themselves in your story.</p>
+          </a>
+
+          <a href="{{ '/guides/simplicity-principle/' | relative_url }}" class="acw-principle-card">
+            <span>Guide Seven</span>
+            <strong>The Simplicity Principle</strong>
+            <p>Every unnecessary decision creates emotional effort.</p>
+          </a>
+
+          <a href="{{ '/guides/consistency-principle/' | relative_url }}" class="acw-principle-card">
+            <span>Guide Eight</span>
+            <strong>The Consistency Principle</strong>
+            <p>Trust grows when every touchpoint tells the same story.</p>
+          </a>
+
+          <a href="{{ '/guides/enquiry-principle/' | relative_url }}" class="acw-principle-card">
+            <span>Guide Nine</span>
+            <strong>The Enquiry Principle</strong>
+            <p>The easiest step should be asking for help.</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="acw-practice-clarity-section">
+  <div class="acw-container">
+    <div class="acw-practice-clarity-closing">
+      <p class="acw-section-label">The Philosophy</p>
+      <h2>Clarity is not decoration. It is care.</h2>
       <p>
-        Most therapist websites do not fail because they are unattractive.
-        They fail because uncertainty quietly accumulates.
+        A clear therapist website does not pressure people. It helps them
+        understand where they are, whether they feel safe, and what they can
+        do next.
       </p>
 
-      <p>
-        Practice Clarity is a way of reducing that uncertainty, one principle
-        at a time.
-      </p>
-
-      <a class="acw-button" href="/guides/the-mirror-principle-practice-clarity/">
+      <a href="{{ '/guides/mirror-principle/' | relative_url }}" class="acw-btn acw-btn-primary">
         Start with The Mirror Principle
       </a>
-    </section>
-
+    </div>
   </div>
 </section>

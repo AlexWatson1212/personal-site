@@ -2,24 +2,18 @@
 layout: guide
 
 title: "The Mirror Principle"
-
-description: "The foundation for every therapist website. Discover why most therapists struggle to explain what they do, why clarity comes before websites, and how every website simply reflects the thinking that already exists."
-
+description: "The foundation of Practice Clarity. Why therapist websites do not create clarity — they reflect the clarity that already exists."
 excerpt: >
   Most therapists don't have a website problem.
-  They have a clarity problem.
-  This guide introduces the Mirror Principle—the idea that every
-  website reflects the clarity that already exists—and lays the
-  foundation for everything else in the Practice Clarity Library.
+  They have a clarity problem. The Mirror Principle explains why every
+  therapist website reflects the thinking underneath it.
 
 category: Practice Clarity
 level: Foundation
-
 featured: true
 featured_order: 1
 
 slug: mirror-principle
-
 permalink: /guides/mirror-principle/
 
 hero_image: /assets/images/library/mirror-principle.webp
@@ -27,25 +21,68 @@ hero_alt: "A simple wooden framed mirror beside an open notebook in soft morning
 image: /assets/images/library/mirror-principle.webp
 
 read_time: 18 min read
-
 updated: 2026-07-06
-
 canonical_url: https://alexanderwatson.co.uk/guides/mirror-principle/
 
 intro: >
   Before you think about websites, copywriting or SEO,
-  you first need clarity about the practice you're trying
-  to describe. This guide introduces the Mirror Principle—
-  the idea that every therapist website reflects the thinking
-  that already exists—and the philosophy that underpins every
-  other guide in this library.
+  you first need clarity about the practice you're trying to describe.
 
 related:
-  - ethical-seo-for-therapists
-  - therapist-website-guide
-  - therapist-copywriting
-  - counselling-directory-profile
+  - waiting-room-principle
+  - first-conversation-principle
+  - recognition-principle
 ---
+
+<nav class="acw-guide-breadcrumb" aria-label="Breadcrumb">
+  <a href="{{ '/' | relative_url }}">Home</a>
+  <span>/</span>
+  <a href="{{ '/practice-clarity/' | relative_url }}">Practice Clarity</a>
+  <span>/</span>
+  <strong>The Mirror Principle</strong>
+</nav>
+
+<section class="acw-guide-chapter-intro">
+  <p class="acw-section-label">Practice Clarity</p>
+
+  <p class="acw-guide-series">Nine Principles for Building Trust Before Therapy Begins</p>
+
+  <div class="acw-guide-chapter-grid">
+    <div>
+      <p class="acw-guide-kicker">Guide One of Nine</p>
+      <h1>The Mirror Principle</h1>
+      <p class="acw-guide-deck">
+        Understand yourself before you describe yourself.
+      </p>
+    </div>
+
+    <aside class="acw-guide-progress-card">
+      <p>Where you are</p>
+      <ol>
+        <li class="is-current">The Mirror Principle</li>
+        <li>The Waiting Room Principle</li>
+        <li>The First Conversation Principle</li>
+        <li>The Recognition Principle</li>
+        <li>The Homepage Principle</li>
+        <li>The About Principle</li>
+        <li>The Simplicity Principle</li>
+        <li>The Consistency Principle</li>
+        <li>The Enquiry Principle</li>
+      </ol>
+    </aside>
+  </div>
+</section>
+
+<div class="acw-guide-anchor-panel">
+  <p>Jump to</p>
+  <a href="#problem">The problem beneath the website</a>
+  <a href="#definers-block">Definer's Block</a>
+  <a href="#pattern">The pattern</a>
+  <a href="#mirror-principle">The Mirror Principle</a>
+  <a href="#practice-clarity">Practice Clarity</a>
+  <a href="#reflection">Reflection questions</a>
+  <a href="#next">Continue reading</a>
+</div>
 
 # Practice Clarity
 
@@ -98,6 +135,8 @@ If you're new to the library, start here.
 - Why every guide in this library begins with understanding rather than design.
 
 ---
+
+<section id="problem"></section>
 
 # Part One  
 ## The problem beneath the website
@@ -212,6 +251,8 @@ That was the point I stopped paying attention only to the words and started payi
 
 ---
 
+<section id="definers-block"></section>
+
 # Part Two  
 ## Definer's Block
 
@@ -294,6 +335,8 @@ And it's why I no longer begin with copywriting.
 I begin with clarity.
 
 ---
+
+<section id="pattern"></section>
 
 # Part Three  
 ## The pattern
@@ -456,6 +499,8 @@ It's simply what happens when understanding becomes easier to recognise.
 
 ---
 
+<section id="mirror-principle"></section>
+
 # Part Four  
 ## The Mirror Principle
 
@@ -570,6 +615,8 @@ They were simply waiting for something underneath them to become clear.
 </figure>
 
 ---
+
+<section id="practice-clarity"></section>
 
 # Part Five  
 ## Practice Clarity
@@ -737,23 +784,23 @@ One idea naturally leads to the next.
 
 <div class="acw-library-roadmap">
 
-<div>
-  <span>Foundation 1</span>
+<a href="{{ '/guides/mirror-principle/' | relative_url }}" class="is-current">
+  <span>Guide One</span>
   <strong>The Mirror Principle</strong>
   <p>A website reflects whatever clarity already exists.</p>
-</div>
+</a>
 
-<div>
-  <span>Foundation 2</span>
+<a href="{{ '/guides/waiting-room-principle/' | relative_url }}">
+  <span>Guide Two</span>
   <strong>The Waiting Room Principle</strong>
-  <p>Ethical visibility shortens the distance between needing help and finding it.</p>
-</div>
+  <p>Reduce the distance between needing help and finding it.</p>
+</a>
 
-<div>
-  <span>Foundation 3</span>
+<a href="{{ '/guides/first-conversation-principle/' | relative_url }}">
+  <span>Guide Three</span>
   <strong>The First Conversation Principle</strong>
-  <p>A website is the beginning of a conversation, not a brochure.</p>
-</div>
+  <p>Trust begins before first contact.</p>
+</a>
 
 </div>
 
@@ -764,6 +811,8 @@ Not replacing what came before.
 Building upon it.
 
 ---
+
+<section id="reflection"></section>
 
 ## Reflection questions
 
@@ -853,27 +902,46 @@ Every improvement you make afterwards becomes easier once you recognise what the
 
 ---
 
-## Continue the Foundation Library
+## Key ideas to remember
 
-This guide is **Part One** of the Practice Clarity Library.
+<div class="acw-callout acw-checklist">
 
-If the Mirror Principle asks:
+<strong>If you remember nothing else, remember this.</strong>
 
-**What is your website reflecting?**
+- Most therapists don't have a website problem. They have a clarity problem.
+- Writing difficulties are often thinking difficulties in disguise.
+- Definer's Block is normal. It isn't a lack of expertise.
+- A website does not create clarity.
+- It reflects whatever clarity already exists.
+- Better design makes existing clarity easier to see.
+- It cannot create clarity that isn't there.
+- Every guide in this library builds from this principle.
 
-The next guide asks a different question:
+</div>
 
-**How do the right people discover it in the first place?**
+---
 
-That's where the Waiting Room Principle begins.
+<section id="next"></section>
 
-### Continue with
+## Continue reading
 
-## Ethical SEO for Therapists
+<div class="acw-guide-next-card">
 
-### The Waiting Room Principle
+<p class="acw-section-label">Next Principle</p>
 
-*How becoming easier to find can be an ethical act when clarity comes first.*
+<h2>The Waiting Room Principle</h2>
+
+<p>
+If the Mirror Principle asks, <strong>what is your website reflecting?</strong>,
+the next guide asks a different question:
+<strong>how do the right people discover it in the first place?</strong>
+</p>
+
+<a href="{{ '/guides/waiting-room-principle/' | relative_url }}" class="acw-btn acw-btn-primary">
+  Continue to Guide Two
+</a>
+
+</div>
 
 ---
 
@@ -896,50 +964,3 @@ It's intended to give you a different way of seeing.
 Once you begin looking at your website as a reflection rather than a marketing tool, different questions naturally emerge.
 
 Those questions become the foundation for every guide that follows.
-
----
-
-## Key ideas to remember
-
-<div class="acw-callout acw-checklist">
-
-<strong>If you remember nothing else, remember this.</strong>
-
-- Most therapists don't have a website problem. They have a clarity problem.
-- Writing difficulties are often thinking difficulties in disguise.
-- Definer's Block is normal. It isn't a lack of expertise.
-- A website does not create clarity.
-- It reflects whatever clarity already exists.
-- Better design makes existing clarity easier to see.
-- It cannot create clarity that isn't there.
-- Every guide in this library builds from this principle.
-
-</div>
-
----
-
-## Where to go next
-
-Now that you've explored the Mirror Principle, the next question isn't:
-
-*"How do I build a better website?"*
-
-It's:
-
-*"How do the right people discover it in the first place?"*
-
-That's where the next guide begins.
-
-**Ethical SEO for Therapists** introduces **The Waiting Room Principle**, exploring why becoming easier to find isn't about manipulating search engines, but about reducing the distance between somebody needing help and discovering your practice.
-
-From there, the library moves naturally into:
-
-1. **The Mirror Principle** — understanding your practice.
-2. **The Waiting Room Principle** — becoming easier to find.
-3. **The First Conversation Principle** — what happens when somebody arrives.
-4. **The Recognition Principle** — helping people recognise themselves in your work.
-5. The remaining Foundation Guides, which build the practical skills of creating a calm, trustworthy online presence.
-
-Each guide builds on the last.
-
-Together, they form the Practice Clarity Library.
