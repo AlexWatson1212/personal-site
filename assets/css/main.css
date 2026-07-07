@@ -2759,6 +2759,51 @@ p {
     border-radius: 30px;
   }
 }
+/* Add inside 21B. GUIDE LAYOUT */
+
+.acw-guide-content .acw-checklist ul,
+.acw-guide-content .acw-checklist ol {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.acw-guide-content .acw-checklist li {
+  color: var(--muted);
+  line-height: 1.65;
+}
+.acw-guide-content .acw-callout ol,
+.acw-guide-content .acw-callout ul {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.acw-guide-content .acw-callout li {
+  color: var(--muted);
+  line-height: 1.65;
+}
+/* Add inside 21B only if your callout lists feel cramped */
+
+.acw-guide-content .acw-callout ol,
+.acw-guide-content .acw-callout ul {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.acw-guide-content .acw-callout li {
+  color: var(--muted);
+  line-height: 1.65;
+}
+.acw-guide-content .acw-callout ol,
+.acw-guide-content .acw-callout ul {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.acw-guide-content .acw-callout li {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
 /* =========================================================
 21C. PRACTICE CLARITY INDEX
 ========================================================= */
