@@ -47,75 +47,41 @@ related:
 </nav>
 
 <section class="acw-guide-chapter-intro">
+  <p class="acw-section-label">Practice Clarity</p>
 
-<p class="acw-section-label">
-Practice Clarity
-</p>
+  <p class="acw-guide-series">
+    Nine Principles for Building Trust Before Therapy Begins
+  </p>
 
-<p class="acw-guide-series">
-Nine Principles for Building Trust Before Therapy Begins
-</p>
+  <div class="acw-guide-chapter-grid">
+    <div>
+      <p class="acw-guide-kicker">Principle One of Nine</p>
 
-<div class="acw-guide-chapter-grid">
+      <h1>The Mirror Principle</h1>
 
-<div>
+      <p class="acw-guide-deck">
+        Understand yourself before you describe yourself.
+      </p>
 
-<p class="acw-guide-kicker">
-Principle One of Nine
-</p>
+      <p class="acw-guide-meta">
+        18 min read · Foundation principle
+      </p>
+    </div>
 
-<h1>
-The Mirror Principle
-</h1>
-
-<p class="acw-guide-deck">
-Understand yourself before you describe yourself.
-</p>
-
-<p class="acw-guide-meta">
-18 min read · Foundation principle
-</p>
-
-</div>
-
-<aside class="acw-guide-progress-card">
-
-<p>
-Where you are
-</p>
-
-<ol>
-<li class="is-current">The Mirror Principle</li>
-<li>The Waiting Room Principle</li>
-<li>The Threshold Principle</li>
-<li>The Recognition Principle</li>
-<li>The Homepage Principle</li>
-<li>The About Principle</li>
-<li>The Simplicity Principle</li>
-<li>The Consistency Principle</li>
-<li>The Enquiry Principle</li>
-</ol>
-
-</aside>
-
-</div>
-
+    {% include practice-clarity-progress.html %}
+  </div>
 </section>
 
 <div class="acw-guide-anchor-panel">
+  <p>Jump to</p>
 
-<p>
-Jump to
-</p>
-
-<a href="#problem">The problem beneath the website</a>
-<a href="#definers-block">Definer's Block</a>
-<a href="#pattern">The pattern</a>
-<a href="#principle">The Mirror Principle</a>
-<a href="#practice-clarity">Practice Clarity</a>
-<a href="#reflection">Reflection questions</a>
-<a href="#next">Continue reading</a>
-
+  <a href="#problem">The problem beneath the website</a>
+  <a href="#definers-block">Definer's Block</a>
+  <a href="#pattern">The pattern</a>
+  <a href="#principle">The Mirror Principle</a>
+  <a href="#practice-clarity">Practice Clarity</a>
+  <a href="#reflection">Reflection</a>
+  <a href="#next">Continue reading</a>
 </div>
 
 # Practice Clarity
@@ -363,13 +329,17 @@ It has remarkably little to do with writing.
 
 It has almost everything to do with clarity.
 
-If you've ever rewritten your homepage half a dozen times, changed your About page every few months, or found yourself unable to answer the question,
+If you've ever rewritten your homepage half a dozen times...
+
+changed your About page every few months...
+
+or found yourself unable to answer the question,
 
 *"What makes your work different?"*
 
 there's a good chance you weren't looking for better words.
 
-You were trying to answer a question that had never been asked directly before.
+You were trying to answer a question that had never been consciously answered before.
 
 That's a very different problem.
 
@@ -379,15 +349,19 @@ I begin with clarity.
 
 <div class="acw-callout acw-framework">
 
-<strong>How this connects to Practice Clarity</strong>
+<strong>Connection to Principle Two</strong>
 
 The Mirror Principle explains why clarity matters.
 
-The next principle asks a different question:
+The Waiting Room Principle asks the next question.
 
-<strong>What does someone experience when they first arrive at your practice?</strong>
+<strong>
 
-Once clarity exists, the experience of encountering it becomes just as important.
+Once clarity exists...
+
+how easily can somebody actually discover it?
+
+</strong>
 
 </div>
 
@@ -397,13 +371,13 @@ Once clarity exists, the experience of encountering it becomes just as important
 
 # The pattern
 
-## The pattern kept repeating
+## The same pattern kept repeating
 
 Once I started looking for it, I began seeing the same pattern everywhere.
 
 Not as one obvious problem.
 
-As lots of different problems that seemed to have the same root.
+As lots of different problems with the same underlying cause.
 
 One therapist described her work like this:
 
@@ -431,7 +405,9 @@ Always carried.
 
 Always held everything together.
 
-Until one day, they quietly realised they couldn't anymore.
+Until one day...
+
+they quietly realised they couldn't anymore.
 
 That description never appeared on her website.
 
@@ -443,28 +419,16 @@ Almost as though claiming it would somehow exclude everyone else.
 
 Yet it was the only thing she'd said all afternoon that a prospective client could genuinely recognise themselves in.
 
-Another therapist apologised before telling me what he specialised in.
+That was the moment I realised...
 
-Not afterwards.
+the problem wasn't writing.
 
-Before.
-
-Almost as though having a focus was something he hadn't quite earned permission to admit.
-
-Then there was the experienced psychodynamic therapist whose homepage opened with her modality.
-
-The problem wasn't psychodynamic therapy.
-
-The problem was that the people she most wanted to help weren't searching for a modality.
-
-They were searching for someone who understood what life currently felt like.
-
-Her homepage answered a question they hadn't asked yet.
+It was recognising what already existed.
 <div class="acw-pullquote">
 
 Most therapist websites don't fail because the therapist lacks insight.
 
-They fail because that insight never quite makes the journey into words.
+They fail because that insight never becomes recognisable to someone else.
 
 </div>
 
@@ -472,21 +436,21 @@ Every conversation looked different.
 
 One appeared to be about confidence.
 
-One looked like marketing.
+Another looked like marketing.
 
 One sounded like copywriting.
 
-One seemed to be about training.
+Another seemed to be about positioning.
 
-But the same pattern kept appearing.
+But underneath them all, the same pattern kept appearing.
 
 The therapist understood their work privately.
 
-The website did not make that understanding recognisable.
+The website did not help another person understand it publicly.
 
 ---
 
-## What they actually had in common
+## What they all had in common
 
 Every one of those therapists understood their work with remarkable fluency.
 
@@ -494,13 +458,13 @@ Ask them in supervision what they believed about change.
 
 Ask what patterns they noticed across clients.
 
-Ask what sort of therapeutic relationship they naturally built.
+Ask which conversations they naturally found themselves having.
 
 The answers came easily.
 
 Often with extraordinary precision.
 
-Certainly with more precision than anything written on their websites.
+Certainly with more precision than anything written on their website.
 
 What none of them had ever really been asked to do was close the distance between that private understanding and somebody else's understanding.
 
@@ -524,11 +488,13 @@ That distance is real.
 
 Once you begin noticing it, you see it everywhere.
 
-It's the distance between understanding and communication.
+It is the distance between understanding and communication.
 
 Between lived experience and language.
 
-When therapists become clearer about what they're really trying to say, their enquiries often begin changing too.
+When therapists become clearer about what they are really trying to say, something interesting happens.
+
+Their enquiries often change.
 
 Not necessarily because more people get in touch.
 
@@ -536,7 +502,9 @@ Because different people do.
 
 People who already recognise themselves.
 
-People who arrive with a clearer idea of what working together might feel like.
+People who already feel understood.
+
+People who arrive with a clearer sense of what working together might feel like.
 
 That isn't persuasion.
 
@@ -548,7 +516,7 @@ It's simply what happens when understanding becomes easier to recognise.
 
 <strong>The Practice Clarity Framework</strong>
 
-Every principle in Practice Clarity builds on the same progression.
+Every principle in Practice Clarity follows the same progression.
 
 <div class="acw-framework-flow">
 
@@ -576,9 +544,9 @@ Enquiry
 
 </div>
 
-The Mirror Principle introduces the first step.
+The Mirror Principle begins with understanding.
 
-The remaining principles simply continue the journey.
+Everything that follows builds from there.
 
 </div>
 
@@ -596,7 +564,7 @@ The remaining principles simply continue the journey.
 
 # The Mirror Principle
 
-## The discovery that changed everything
+## The observation that changed everything
 
 For months I thought I was designing websites.
 
@@ -604,15 +572,13 @@ I wasn't.
 
 I was uncovering clarity.
 
-The same pattern appeared often enough that I eventually stopped seeing isolated problems.
+Eventually I stopped seeing isolated website problems.
 
-I wrote one sentence in the margin of my notebook that has shaped every conversation I've had since.
+I started seeing one underlying pattern.
 
-Not because it sounded clever.
+That pattern could be summarised in a single sentence.
 
-Because it explained almost every difficult website project I'd ever worked on.
-
-I called it **The Mirror Principle**.
+One sentence that quietly explained almost every difficult website project I had ever worked on.
 
 <div class="acw-callout acw-framework">
 
@@ -624,17 +590,17 @@ It reflects whatever clarity already exists.
 
 </div>
 
-That single sentence quietly changed everything.
+That sentence changed how I approached every project.
 
-It explained why some websites felt trustworthy before you'd even finished reading them.
+It explained why beautifully designed websites could still feel anonymous.
 
-It explained why beautifully designed websites could still feel strangely anonymous.
+Why changing colours, typography or photography rarely solved the real problem.
 
-It explained why changing colours, typography or photography rarely solved the deeper problem.
+Why some simple websites immediately felt trustworthy.
 
-Because the website was never creating the understanding.
+Because the website had never been creating the understanding.
 
-It was simply reflecting it.
+It had only been reflecting it.
 
 Imagine standing in front of a mirror.
 
@@ -644,85 +610,31 @@ If your hair is untidy, buying a more expensive mirror changes nothing.
 
 The mirror faithfully reflects whatever already exists.
 
-Websites behave exactly the same way.
+Websites behave in exactly the same way.
 
-Better design can make existing clarity easier to see.
+Better design can reveal existing clarity more effectively.
 
 It cannot manufacture clarity that isn't already there.
 
 <div class="acw-pullquote">
 
-A website cannot create understanding.
+A website never creates understanding.
 
-It can only reveal it.
+It simply reveals it.
 
 </div>
-Once you've seen this, it's remarkably difficult to unsee.
 
-You begin recognising it everywhere.
-
-You visit therapist websites and sense something feels unsettled long before you can explain why.
-
-You read homepages listing twenty presenting issues, yet somehow saying almost nothing.
-
-You notice websites that look expensive, yet leave you with no sense of the person behind them.
-
-Gradually you realise the problem isn't visual.
-
-It isn't technical.
-
-It isn't even the writing.
-
-It's the thinking underneath the writing that hasn't quite settled yet.
-
-That realisation changed the way I work forever.
-
-I stopped asking clients what they wanted their website to say.
-
-I started asking questions about the practice itself.
-
-Who do you consistently do your best work with?
-
-Which conversations leave you feeling energised?
-
-What do clients thank you for that never appears on your website?
-
-What have years of sitting with people quietly taught you about change?
-
-Those answers rarely arrive immediately.
-
-But when they do, the writing becomes surprisingly straightforward.
-
-Because the words were never the difficult part.
-
-They were simply waiting for something underneath them to become clear.
-
-<div class="acw-callout acw-framework">
-
-<strong>This is where Practice Clarity begins.</strong>
-
-Once you recognise that your website is a mirror rather than a marketing tool, every other question changes.
+Once you recognise this, the questions you ask begin to change.
 
 You stop asking:
 
-<em>How do I improve my website?</em>
+*"How do I improve my website?"*
 
 You begin asking:
 
-<em>What is my website actually reflecting?</em>
+*"What is my website actually reflecting?"*
 
-Every remaining principle simply explores one consequence of that question.
-
-</div>
-
-<figure class="acw-guide-figure">
-  <img
-    src="{{ '/assets/images/library/mirror-principle-midguide.webp' | relative_url }}"
-    alt="A wooden framed mirror resting against a pale wall beside an open notebook."
-    loading="lazy"
-  >
-</figure>
-
+That is where Practice Clarity begins.
 ---
 
 <section id="practice-clarity"></section>
@@ -737,13 +649,13 @@ Some do.
 
 But not first.
 
-First they need a clearer understanding of the practice they're trying to describe.
+First they need a clearer understanding of the practice they are trying to describe.
 
 Everything else becomes easier after that.
 
 That is Practice Clarity.
 
-Before we think about websites...
+Before websites.
 
 Before copywriting.
 
@@ -755,37 +667,37 @@ Before photography.
 
 Before design.
 
-We have to answer a quieter question.
+There is a quieter question.
 
-**What, exactly, are we trying to describe?**
+**What, exactly, am I trying to help another person understand?**
 
-Everything else grows from that answer.
+Everything else grows from the answer.
 
 ---
 
-## Why this matters more than you think
+## Clarity changes more than your website
 
-It's tempting to think of clarity as something that only affects a homepage.
+It is tempting to think clarity only affects a homepage.
 
 Or an About page.
 
-Or perhaps the first paragraph of a directory profile.
+Or the wording of a directory profile.
 
-In reality, clarity touches everything.
+In reality, clarity reaches much further.
 
-It influences how you describe your work in conversation.
+It changes how confidently you describe your work.
 
-How confidently you answer enquiries.
+How naturally you answer enquiries.
 
-Which clients recognise themselves in your practice.
+Which clients recognise themselves.
 
 How colleagues refer people to you.
 
-Even how you make decisions about the future.
+How you make decisions about the future of your practice.
 
-The clearer your understanding becomes, the simpler many other decisions become too.
+The clearer your understanding becomes, the fewer decisions require guesswork.
 
-That's because clarity isn't communication.
+That is because clarity is not communication.
 
 Communication is simply one expression of clarity.
 
@@ -795,41 +707,43 @@ The words follow afterwards.
 
 ---
 
-## Practice Clarity isn't a writing process
+## Practice Clarity is not a marketing framework
 
-People sometimes assume Practice Clarity is a copywriting framework.
+People sometimes assume Practice Clarity is a copywriting system.
 
 It isn't.
 
-Others assume it's about branding.
+Others assume it is about branding.
 
 It isn't that either.
 
-Practice Clarity is simply the ongoing process of understanding your own practice deeply enough that describing it becomes easier.
+Practice Clarity is the ongoing process of understanding your own practice deeply enough that another person can understand it too.
 
-Not perfect.
+Not perfectly.
 
-Not finished forever.
+Not permanently.
 
-Simply easier.
+Simply more honestly.
 
-Because once you understand something clearly, you rarely need persuasive language to explain it.
+Because once something becomes genuinely clear...
 
-You need ordinary language.
+it rarely needs persuasive language.
+
+It usually needs simpler language.
 
 That distinction matters.
 
-Persuasion tries to overcome uncertainty.
+Persuasion attempts to overcome uncertainty.
 
-Clarity removes it.
+Clarity quietly removes it.
 
 <div class="acw-callout acw-framework">
 
 <strong>Practice Clarity</strong>
 
-The ongoing process of understanding your own practice well enough that somebody else can understand it too.
+The ongoing practice of understanding your work deeply enough that another person can understand it too.
 
-The goal isn't to sound different.
+The goal is not to sound impressive.
 
 The goal is to become recognisable.
 
@@ -837,76 +751,40 @@ The goal is to become recognisable.
 
 <div class="acw-pullquote">
 
-The goal isn't to sound different.
+The goal is not to sound different.
 
 The goal is to become recognisable.
 
 </div>
----
-
-## What changes when clarity arrives?
-
-One of the most interesting things I've noticed is that therapists rarely describe the change as becoming better at marketing.
-
-That's almost never how it feels.
-
-Instead they say things like:
-
-*"I finally know what I'm trying to say."*
-
-*"Writing suddenly became easier."*
-
-*"I stopped worrying about what everyone else was doing."*
-
-Sometimes the website changes dramatically.
-
-Sometimes it hardly changes at all.
-
-The biggest difference usually isn't visible.
-
-It's internal.
-
-Decisions become simpler.
-
-Pages become shorter.
-
-Language becomes calmer.
-
-You stop trying to sound like every therapist.
-
-You begin sounding like yourself.
-
-Ironically, that's often the moment prospective clients begin recognising themselves too.
 
 ---
 
 ## Why this principle comes first
 
-Everything else in Practice Clarity quietly depends on what you've just read.
+Every other principle in Practice Clarity quietly depends on this one.
 
-The Waiting Room Principle explores what happens when somebody first discovers your practice.
+The Waiting Room Principle explores how people discover your practice.
 
-The Threshold Principle explores what happens during the first few moments after they arrive.
+The Threshold Principle explores the first moments after they arrive.
 
-Recognition explores why the right people instantly feel understood.
+Recognition explores how the right people begin to feel understood.
 
 Homepage, About, Simplicity, Consistency and Enquiry all build on the same foundation.
 
-None of them make sense unless the website already reflects genuine clarity.
+None of them make sense unless your website is already reflecting genuine clarity.
 
-That's why the Mirror Principle comes first.
+That is why the Mirror Principle comes first.
 
-Not because it's the most practical.
+Not because it is the most practical.
 
 Because every other principle quietly assumes it.
-
 ---
 
 <section id="reflection"></section>
 
 # Reflection
 
-Before moving on, spend a few minutes with these questions.
+Before moving on, spend a few quiet minutes with these questions.
 
 Don't answer them quickly.
 
@@ -918,11 +796,11 @@ Simply notice what comes to mind.
 
 When somebody asks,
 
-<em>"What do you do?"</em>
+*"What do you do?"*
 
-which part of your answer feels effortless?
+which part of your answer feels effortless...
 
-Which part still feels uncertain?
+and which part still feels uncertain?
 
 </div>
 
@@ -954,93 +832,14 @@ what is it reflecting today?
 
 ---
 
-# If you remember one thing
-
-<div class="acw-callout acw-framework">
-
-A website never creates clarity.
-
-It simply reveals the clarity that already exists.
-
-</div>
+{% include practice-clarity-remember.html
+text="A website never creates clarity. It simply reveals the clarity that already exists." %}
 
 ---
 
-# Continue through Practice Clarity
+<section id="next"></section>
 
-<div class="acw-principle-navigation">
-
-<div class="acw-principle-current">
-
-<p class="acw-section-label">
-You are here
-</p>
-
-<h3>
-Principle One
-</h3>
-
-<p>
-
-<strong>The Mirror Principle</strong>
-
-</p>
-
-<p>
-
-Understand yourself before you describe yourself.
-
-</p>
-
-</div>
-
-<div class="acw-principle-next">
-
-<p class="acw-section-label">
-
-Continue to Principle Two
-
-</p>
-
-<h2>
-
-The Waiting Room Principle
-
-</h2>
-
-<p>
-
-Once your practice becomes clearer...
-
-the next question naturally follows.
-
-<strong>
-
-What is it actually like to arrive here?
-
-</strong>
-
-</p>
-
-<p>
-
-Long before someone contacts you, they've already started forming an impression of your practice.
-
-The Waiting Room Principle explores that experience.
-
-</p>
-
-<a
-href="{{ '/guides/waiting-room-principle/' | relative_url }}"
-class="acw-btn acw-btn-primary">
-
-Continue to Principle Two
-
-</a>
-
-</div>
-
-</div>
+{% include practice-clarity-navigation.html %}
 
 ---
 
@@ -1062,66 +861,12 @@ It was clarity.
 
 Eventually one sentence kept explaining almost every difficult website project I worked on.
 
-**A website does not create clarity.**
-
-**It reflects whatever clarity already exists.**
+> **A website does not create clarity.**
+>
+> **It reflects whatever clarity already exists.**
 
 Everything in Practice Clarity grew from that observation.
 
 ---
 
-<div class="acw-library-roadmap">
-
-<h2>The Practice Clarity Framework</h2>
-
-<p>
-
-You're here.
-
-Eight principles remain.
-
-Each one builds naturally upon the last.
-
-</p>
-
-<ol>
-
-<li class="is-current">
-<strong>1.</strong> The Mirror Principle
-</li>
-
-<li>
-2. The Waiting Room Principle
-</li>
-
-<li>
-3. The Threshold Principle
-</li>
-
-<li>
-4. The Recognition Principle
-</li>
-
-<li>
-5. The Homepage Principle
-</li>
-
-<li>
-6. The About Principle
-</li>
-
-<li>
-7. The Simplicity Principle
-</li>
-
-<li>
-8. The Consistency Principle
-</li>
-
-<li>
-9. The Enquiry Principle
-</li>
-
-</ol>
-
-</div>
+{% include practice-clarity-roadmap.html %}

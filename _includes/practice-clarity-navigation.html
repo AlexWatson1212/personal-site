@@ -1,0 +1,86 @@
+{% assign principles = site.guides
+  | where: "category", "Practice Clarity"
+  | sort: "featured_order" %}
+
+{% assign current_index = -1 %}
+
+{% for principle in principles %}
+  {% if principle.url == page.url %}
+    {% assign current_index = forloop.index0 %}
+  {% endif %}
+{% endfor %}
+
+{% assign previous_index = current_index | minus: 1 %}
+{% assign next_index = current_index | plus: 1 %}
+
+{% assign previous = principles[previous_index] %}
+{% assign next = principles[next_index] %}
+
+<section class="acw-principle-navigation">
+
+  {% if previous %}
+  <div class="acw-principle-navigation-card">
+
+    <p class="acw-section-label">
+      Previous Principle
+    </p>
+
+    <h3>
+      {{ previous.title }}
+    </h3>
+
+    {% if previous.intro %}
+      <p>{{ previous.intro }}</p>
+    {% elsif previous.excerpt %}
+      <p>{{ previous.excerpt | strip_html | truncate: 120 }}</p>
+    {% endif %}
+
+    <a href="{{ previous.url | relative_url }}">
+      ← Read {{ previous.title }}
+    </a>
+
+  </div>
+  {% endif %}
+
+  <div class="acw-principle-navigation-card acw-principle-navigation-current">
+
+    <p class="acw-section-label">
+      You are here
+    </p>
+
+    <h3>
+      {{ page.title }}
+    </h3>
+
+    <p>
+      Principle {{ page.featured_order }} of {{ principles.size }}
+    </p>
+
+  </div>
+
+  {% if next %}
+  <div class="acw-principle-navigation-card">
+
+    <p class="acw-section-label">
+      Continue to Principle {{ next.featured_order }}
+    </p>
+
+    <h3>
+      {{ next.title }}
+    </h3>
+
+    {% if next.intro %}
+      <p>{{ next.intro }}</p>
+    {% elsif next.excerpt %}
+      <p>{{ next.excerpt | strip_html | truncate: 120 }}</p>
+    {% endif %}
+
+    <a class="acw-btn acw-btn-primary"
+       href="{{ next.url | relative_url }}">
+      Continue Reading →
+    </a>
+
+  </div>
+  {% endif %}
+
+</section>
