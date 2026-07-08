@@ -2,14 +2,16 @@
 layout: guide
 
 title: "The About Principle"
-description: "People are not looking for your biography. They are looking for themselves in your story. The sixth Practice Clarity principle."
+description: "The sixth Practice Clarity principle. Why people are not looking for your biography, but for enough of you to imagine beginning therapy."
+
 excerpt: >
   A therapist About page is not a professional autobiography.
-  It is the page where a prospective client decides whether the person
-  behind the practice feels clear, human and safe enough to contact.
+  It is the page where a prospective client quietly decides whether
+  the person behind the practice feels clear, human and safe enough to contact.
 
 category: Practice Clarity
 level: Foundation
+
 featured: true
 featured_order: 6
 
@@ -21,13 +23,16 @@ hero_alt: "A calm therapist About page draft beside a portrait, notebook and sof
 image: /assets/images/library/about-principle.webp
 
 read_time: 20 min read
-updated: 2026-07-07
+updated: 2026-07-08
+
 canonical_url: https://alexanderwatson.co.uk/practice-clarity/about-principle/
 
 intro: >
-  People are not looking for your full biography.
-  They are looking for enough of you to decide whether contact feels possible.
-  This guide explores how a therapist About page can build trust without becoming self-focused.
+  Once someone feels they are in the right place,
+  they naturally begin asking another question.
+  Who is this therapist?
+  The About Principle explores how to answer that question with clarity,
+  humanity and appropriate boundaries.
 
 related:
   - mirror-principle
@@ -39,249 +44,323 @@ related:
 ---
 
 <nav class="acw-guide-breadcrumb" aria-label="Breadcrumb">
-  <a href="{{ '/' | relative_url }}">Home</a>
-  <span>/</span>
-  <a href="{{ '/practice-clarity/' | relative_url }}">Practice Clarity</a>
-  <span>/</span>
-  <strong>The About Principle</strong>
+
+<a href="{{ '/' | relative_url }}">Home</a>
+
+<span>/</span>
+
+<a href="{{ '/practice-clarity/' | relative_url }}">
+Practice Clarity
+</a>
+
+<span>/</span>
+
+<strong>
+The About Principle
+</strong>
+
 </nav>
 
 <section class="acw-guide-chapter-intro">
-  <p class="acw-section-label">Practice Clarity</p>
 
-  <p class="acw-guide-series">Nine Principles for Building Trust Before Therapy Begins</p>
+<p class="acw-section-label">
+Practice Clarity
+</p>
 
-  <div class="acw-guide-chapter-grid">
-    <div>
-      <p class="acw-guide-kicker">Guide Six of Nine</p>
-      <h1>The About Principle</h1>
-      <p class="acw-guide-deck">
-        People are not looking for your biography. They are looking for themselves in your story.
-      </p>
-    </div>
+<p class="acw-guide-series">
+Nine Principles for Building Trust Before Therapy Begins
+</p>
 
-    <aside class="acw-guide-progress-card">
-      <p>Where you are</p>
-      <ol>
-        <li class="is-complete">The Mirror Principle</li>
-        <li class="is-complete">The Waiting Room Principle</li>
-        <li class="is-complete">The Threshold Principle</li>
-        <li class="is-complete">The Recognition Principle</li>
-        <li class="is-complete">The Homepage Principle</li>
-        <li class="is-current">The About Principle</li>
-        <li>The Simplicity Principle</li>
-        <li>The Consistency Principle</li>
-        <li>The Enquiry Principle</li>
-      </ol>
-    </aside>
-  </div>
+<div class="acw-guide-chapter-grid">
+
+<div>
+
+<p class="acw-guide-kicker">
+Principle Six of Nine
+</p>
+
+<h1>
+The About Principle
+</h1>
+
+<p class="acw-guide-deck">
+People are not looking for your biography.
+They are looking for enough of you to imagine beginning therapy.
+</p>
+
+<p class="acw-guide-meta">
+20 min read
+</p>
+
+</div>
+
+{% include practice-clarity-progress.html %}
+
+</div>
+
 </section>
 
 <div class="acw-guide-anchor-panel">
-  <p>Jump to</p>
-  <a href="#question">The real About page question</a>
-  <a href="#principle">The About Principle</a>
-  <a href="#story">Your story in service of theirs</a>
-  <a href="#mistakes">Common mistakes</a>
-  <a href="#structure">A simple structure</a>
-  <a href="#reflection">Reflection questions</a>
-  <a href="#next">Continue reading</a>
+
+<p>
+
+Jump to
+
+</p>
+
+<a href="#question">The real About page question</a>
+
+<a href="#principle">The About Principle</a>
+
+<a href="#story">Your story in service of theirs</a>
+
+<a href="#mistakes">Common mistakes</a>
+
+<a href="#structure">A simple structure</a>
+
+<a href="#reflection">Reflection</a>
+
+<a href="#next">Continue reading</a>
+
 </div>
 
-# The About Principle
+# Practice Clarity
 
-## People are not looking for your biography. They are looking for themselves in your story.
+## The About Principle
+
+### Why people are not looking for your biography.
 
 <div class="acw-guide-intro-panel">
 
 <p class="acw-guide-intro-lead">
-A therapist About page is not really about the therapist.
+
+By the time someone reaches your About page, something important has already happened.
+
 </p>
 
 <p>
-At least, not in the way many people assume.
+
+They have found your website.
+
 </p>
 
 <p>
-A prospective client is not usually looking for your full life story.
+
+They have stayed.
+
 </p>
 
 <p>
-They are looking for enough of you to decide whether speaking to you feels possible.
+
+They have recognised something of themselves.
+
+</p>
+
+<p>
+
+They have begun to feel they may be in the right place.
+
+</p>
+
+<p>
+
+Now another quiet question appears.
+
+</p>
+
+<p class="acw-guide-emphasis">
+
+<strong>
+
+Who is this therapist?
+
+</strong>
+
 </p>
 
 </div>
 
 <div class="acw-callout acw-framework">
 
-<strong>Foundation Guide</strong>
+<strong>
 
-This guide introduces <strong>The About Principle</strong>.
+The About Principle builds directly on the Homepage Principle.
 
-It builds on <a href="{{ '/practice-clarity/homepage-principle/' | relative_url }}">The Homepage Principle</a>.
+</strong>
 
-If the Homepage Principle asks, <strong>am I in the right place?</strong>, this guide asks:
+The homepage helps someone feel they are in the right place.
 
-<strong>Who is this person, and can I imagine talking to them?</strong>
+The About page helps them imagine speaking to the person behind that place.
+
+Its purpose is not to tell your whole story.
+
+Its purpose is to reduce enough uncertainty that contact begins to feel possible.
 
 </div>
 
 ---
 
-## In this guide you'll discover
+## In this principle you'll discover
 
-- Why most therapist About pages become too self-focused or too guarded.
+- Why most therapist About pages become either too formal or too personal.
 - What prospective clients are really looking for.
-- Why your story should serve the reader’s decision.
+- Why your story should always serve the reader's decision.
 - How to sound human without oversharing.
-- What belongs on a therapist About page.
-- How the About page prepares the ground for contact.
+- A simple framework for creating a calm About page.
+- How the About page prepares the way for contact.
 
 ---
 
 <section id="question"></section>
 
-# Part One  
-## The real About page question
+# The real About page question
 
-## The question beneath the biography
+## A biography is not what people came for
 
-When someone clicks your About page, they are not simply asking:
-
-*"What is this therapist's background?"*
-
-They are asking something quieter.
-
-*"Can I imagine talking to this person?"*
-
-That is the real question.
-
-They may want to know your qualifications.
-
-They may want to understand your experience.
-
-They may want to see your face.
-
-They may want to know how you work.
-
-But underneath all of that sits a more emotional assessment.
-
-Do they seem safe?
-
-Do they seem clear?
-
-Do they seem human?
-
-Do they seem grounded?
-
-Do they seem like someone I could sit with?
-
-A therapist About page carries a strange responsibility.
-
-It needs to make the therapist visible without making the page self-absorbed.
-
-It needs to build trust without performing warmth.
-
-It needs to show enough humanity without turning into a personal confession.
-
-It needs to be professional, but not distant.
-
-Personal, but not overexposed.
-
-Clear, but not mechanical.
-
-That balance is difficult.
-
-Which is why so many therapist About pages feel either too formal or too revealing.
-
-Too guarded or too familiar.
-
-Too generic or too focused on the therapist’s own journey.
-
-The About Principle helps resolve that tension.
-
----
-
-## People are not looking for everything about you
-
-It is natural to assume that an About page should answer:
+It is easy to assume that an About page exists to answer one question.
 
 *"Who am I?"*
 
-But for a therapist website, that is only partly true.
+But that is rarely the question the visitor is asking.
 
-A stronger question is:
+By the time they reach this page, they have usually already decided your work may be relevant.
 
-*"What does someone need to know about me in order to feel clearer about whether to make contact?"*
+Now they are wondering something much more personal.
 
-That small shift changes everything.
+*"Can I imagine talking to this person?"*
 
-It means your About page does not need to include every detail.
+That question changes everything.
 
-It does not need to explain your entire career.
+They may want to know your qualifications.
 
-It does not need to justify every choice.
+Your experience.
 
-It does not need to prove that you are interesting.
+Your professional background.
 
-It needs to help the reader understand the person behind the practice.
+Your approach.
 
-Enough to reduce uncertainty.
+Your values.
 
-Enough to deepen trust.
+All of those things matter.
 
-Enough to make contact feel a little more possible.
+But underneath them sits a quieter assessment.
+
+Do they seem calm?
+
+Do they seem thoughtful?
+
+Do they seem genuine?
+
+Do they seem grounded?
+
+Do they feel like someone who could understand me?
+
+The About page is where those questions begin finding answers.
+
+Not through performance.
+
+Not through clever writing.
+
+Through quiet clarity.
+
+<figure class="acw-guide-figure">
+  <img
+    src="{{ '/assets/images/library/about-reflection.webp' | relative_url }}"
+    alt="A thoughtful portrait beside an open notebook in soft morning light."
+    loading="lazy"
+  >
+</figure>
+
+---
+
+## An About page carries a different responsibility
+
+A homepage introduces the practice.
+
+An About page introduces the person.
+
+Those are not the same thing.
+
+The homepage creates orientation.
+
+The About page begins relationship.
+
+Not the therapeutic relationship itself.
+
+Just the possibility of one.
+
+That is why writing an About page often feels surprisingly difficult.
+
+It asks you to become visible without making yourself the centre of attention.
+
+To feel human without oversharing.
+
+To build trust without performing warmth.
+
+To communicate confidence without sounding distant.
+
+Finding that balance is the real work of an About page.
+
+It is also why so many therapist About pages quietly miss the mark.
+
+Some become professional biographies.
+
+Others become personal memoirs.
+
+Neither helps the visitor answer the question they actually arrived with.
+
+*"Could I imagine talking to this person?"*
 
 <div class="acw-pullquote">
 
-Your About page is not where you tell your whole story.
+People are not looking for your whole story.
 
-It is where your story becomes useful to the person considering contact.
+They are looking for enough of you to decide whether beginning a conversation feels possible.
 
 </div>
 
 ---
-
 <section id="principle"></section>
 
-# Part Two  
-## The About Principle
+# The About Principle
 
 ## The page where trust becomes personal
 
-The Homepage Principle helps someone decide whether they may be in the right place.
+For a long time I thought an About page existed to introduce the therapist.
 
-The About page often helps them decide whether the person behind that place feels right.
+That is partly true.
 
-That is a different kind of trust.
+But eventually I realised something more interesting was happening.
 
-A homepage can create relevance.
+People were not reading About pages because they wanted information.
 
-An About page creates relationship.
+They were reading because they wanted reassurance.
 
-Not the therapeutic relationship itself.
+Not reassurance that the therapist had qualifications.
 
-Not yet.
+Or years of experience.
 
-But the first faint possibility of one.
+Or professional memberships.
 
-This is why About pages matter so much in therapy.
+Those things matter.
 
-A person is not choosing a platform.
+But they are rarely the reason someone chooses to make contact.
 
-They are not choosing a product.
+People read About pages because they are trying to answer a much quieter question.
 
-They are not choosing a technique in isolation.
+*"What would it feel like to meet this person?"*
 
-They are choosing a human being to speak to about things that may feel private, painful or difficult to name.
+That question changes everything.
 
-So the About page becomes a bridge.
+It means the About page is no longer simply descriptive.
 
-Between the practice and the person.
+It becomes relational.
 
-Between the service and the relationship.
+The visitor is no longer evaluating a website.
 
-Between information and contact.
+They are beginning to imagine another human being.
+
+Eventually I found myself describing that shift in one sentence.
 
 <div class="acw-callout acw-framework">
 
@@ -289,335 +368,480 @@ Between information and contact.
 
 People are not looking for your biography.
 
-They are looking for themselves in your story.
-
-A clear About page uses your background, values and way of working to help the right person imagine contact.
+They are looking for enough of you to imagine beginning therapy.
 
 </div>
 
-The goal is not to make yourself the centre of the page.
+That single observation changed how I approached every About page.
 
-The goal is to make your presence useful.
+Not because therapists needed to reveal more.
+
+Because they often needed to reveal less.
+
+More thoughtfully.
 
 ---
 
-## Your story should reduce uncertainty
+## Trust grows through humanity
 
-A good therapist About page reduces uncertainty in several ways.
+Trust does not grow because someone knows every detail of your career.
 
-It helps someone understand:
+Nor because they know where you studied.
 
-- what kind of person you seem to be
-- why you work the way you do
-- what kind of relationship you offer
-- what experience or training grounds your work
-- whether your tone feels right for them
-- whether contact feels emotionally possible
+Or every qualification you have collected.
 
-Notice what is not on that list.
+Trust grows because the therapist begins to feel real.
 
-It is not about telling people everything.
+Not overly familiar.
 
-It is not about sounding impressive.
+Not overly polished.
 
-It is not about making yourself unusually memorable.
+Simply real.
 
-It is not about performing authenticity.
+That distinction matters.
 
-The About page works best when it feels quietly aligned.
+Professional credibility opens the possibility of trust.
 
-The reader should leave with a clearer sense of you.
+Humanity deepens it.
 
-But also, ideally, a clearer sense of themselves.
+Think about the therapists you have trusted most yourself.
+
+It probably wasn't because you knew their biography.
+
+It was because something about their way of being felt grounded.
+
+Calm.
+
+Consistent.
+
+Thoughtful.
+
+Your About page should communicate those qualities.
+
+Not by claiming them.
+
+By quietly reflecting them.
+
+<div class="acw-pullquote">
+
+People rarely trust therapists because they know everything about them.
+
+They trust therapists because enough feels quietly true.
+
+</div>
 
 ---
 
 <section id="story"></section>
 
-# Part Three  
-## Your story in service of theirs
+# Your story in service of theirs
 
-## The reader is still asking about themselves
+## The visitor is still the central character
 
-Even on your About page, the visitor is still partly asking about themselves.
+One of the easiest mistakes to make is forgetting whose journey the website is describing.
 
-They are wondering:
+The About page is about the therapist.
 
-*"Would this person understand someone like me?"*
+But it still exists for the visitor.
 
-*"Would I feel judged?"*
+That distinction changes how everything is written.
 
-*"Would I be able to speak honestly?"*
+Your story matters.
 
-*"Would they rush me?"*
+Your values matter.
 
-*"Would they know what to do with what I bring?"*
+Your approach matters.
 
-That means your story has to meet their story.
+Your experience matters.
 
-If your About page only lists your background, it may feel professional but distant.
+But every one of those details should quietly help another person answer one question.
 
-If it only shares your personal journey, it may feel intimate but unclear.
+*"Would this therapist be right for me?"*
 
-The strongest About pages connect the two.
+The About page is not an autobiography.
 
-They show how your experience, values and way of working matter to the person reading.
+It is a bridge.
 
-Not in a forced way.
+It connects the visitor's uncertainty with the therapist's humanity.
 
-Not by making everything about the client.
+When that bridge becomes too focused on the therapist...
 
-But by keeping the reader’s uncertainty in view.
-
-For example, instead of simply writing:
-
-*"I trained as an integrative counsellor after a career in education."*
-
-You might write:
-
-*"Before training as a counsellor, I worked in education, where I became increasingly interested in how people carry pressure, expectation and self-doubt long before they ask for help."*
-
-The second version tells us more.
-
-Not because it gives more facts.
-
-Because it connects biography to understanding.
-
-That is what an About page should do.
+the visitor quietly disappears from the page.
 
 ---
 
-## Biography becomes meaningful when it reveals understanding
+## Why your story matters
 
-A qualification matters.
+Some therapists respond by removing themselves almost entirely.
 
-But what did it teach you about people?
+The page becomes little more than qualifications.
 
-A previous career matters.
-
-But how does it shape the way you listen?
-
-A personal value matters.
-
-But how does it affect the client’s experience of therapy?
-
-A modality matters.
-
-But what does it mean in the room?
-
-A professional membership matters.
-
-But how does it reassure the person reading?
-
-Biography becomes meaningful when it helps the visitor understand how you work.
-
-Otherwise it is just information.
-
-Useful, perhaps.
-
-But not yet trust-building.
-
-<div class="acw-pullquote">
-
-The strongest About pages do not simply say who the therapist is.
-
-They reveal what the therapist has learned to notice.
-
-</div>
-
-That is where the About page becomes more than a profile.
-
-It becomes part of the Practice Clarity journey.
-
----
-
-## Humanity without oversharing
-
-Therapists are often told to be authentic online.
-
-That advice is not wrong.
-
-But it is incomplete.
-
-Authenticity does not mean sharing everything.
-
-It means allowing the page to feel congruent.
-
-Human.
-
-Clear.
-
-True.
-
-A therapist can sound human without disclosing deeply personal material.
-
-They can show warmth through tone.
-
-Clarity through structure.
-
-Values through language.
-
-Groundedness through what they choose to name.
-
-Care through how the page is paced.
-
-You do not have to turn your About page into a memoir to make it feel human.
-
-In therapy, careful boundaries can build trust.
-
-The same is true online.
-
-A good About page gives enough of you.
-
-Not all of you.
-
----
-
-<section id="mistakes"></section>
-
-# Part Four  
-## Common About page mistakes
-
-## 1. Starting with credentials too soon
-
-Many About pages begin with:
-
-*"I am a qualified, registered, integrative counsellor..."*
-
-There is nothing wrong with this information.
-
-But it rarely creates connection immediately.
-
-It can be more effective to begin with the kind of therapeutic experience you offer.
-
-Then support that with credentials.
-
-For example:
-
-*"My work is calm, reflective and collaborative. I help people slow down enough to understand the patterns they have been living inside for a long time."*
-
-After that, qualifications have somewhere to land.
-
-They reassure rather than dominate.
-
----
-
-## 2. Writing a professional CV
-
-Some About pages read like a résumé.
+Professional memberships.
 
 Training.
 
-Roles.
+Modalities.
 
-Experience.
+Insurance.
 
-Courses.
+Everything is technically correct.
 
-Registrations.
+Yet nothing feels personal.
 
-Specialisms.
+The opposite can happen too.
 
-All of this can be relevant.
+The About page becomes a memoir.
 
-But a prospective client is not hiring an employee.
+Long descriptions of childhood.
 
-They are deciding whether to speak.
+Personal healing journeys.
 
-A CV shows competence.
+Family history.
 
-An About page should show competence and presence.
+Turning points.
 
-If the page only lists facts, the reader may trust your training but still not know whether they can imagine sitting with you.
+Again, none of those things are automatically wrong.
 
-That missing feeling matters.
+But they can quietly shift the focus away from the person who is still deciding whether to ask for help.
+
+The strongest About pages usually sit somewhere between those two extremes.
+
+They reveal enough.
+
+Without asking the visitor to hold unnecessary detail.
+
+They communicate personality.
+
+Without becoming performative.
+
+They explain values.
+
+Without becoming philosophical essays.
+
+That balance is surprisingly difficult.
+
+It is also where trust often begins.
+
+<div class="acw-callout acw-framework">
+
+<strong>A useful question</strong>
+
+Every paragraph on your About page should quietly answer:
+
+<strong>
+
+How does this help someone decide whether working together feels right?
+
+</strong>
+
+If it doesn't help answer that question, it may not need to be there.
+
+</div>
+
+---
+
+## Values communicate more than facts
+
+Facts matter.
+
+People often want to know:
+
+- your qualifications
+- your experience
+- your memberships
+- your approach
+- where you work
+
+Those are important.
+
+But facts rarely become memorable on their own.
+
+Values do.
+
+Not values listed as bullet points.
+
+Values demonstrated through the way you write.
+
+Someone finishes reading your About page and thinks:
+
+*"This therapist seems thoughtful."*
+
+Or:
+
+*"They seem calm."*
+
+Or:
+
+*"They seem to understand complexity."*
+
+Those impressions usually matter more than whether you completed a particular training course in 2018.
+
+Facts establish credibility.
+
+Values establish relationship.
+
+The best About pages communicate both.
+
+<figure class="acw-guide-figure">
+  <img
+    src="{{ '/assets/images/library/about-writing.webp' | relative_url }}"
+    alt="A notebook, pencil and simple therapist portrait beside soft natural window light."
+    loading="lazy"
+  >
+</figure>
+
+---
+
+## What people remember
+
+Very few prospective clients finish reading an About page remembering every detail.
+
+They rarely remember:
+
+- every qualification
+- every certificate
+- every professional organisation
+- every training course
+
+What they remember is much simpler.
+
+How the therapist felt.
+
+Calm.
+
+Warm.
+
+Thoughtful.
+
+Grounded.
+
+Gentle.
+
+Clear.
+
+Those impressions are not created by trying to sound warm.
+
+They emerge naturally when the page reflects genuine clarity.
+
+The Mirror Principle taught us that websites reflect understanding.
+
+The About Principle extends that idea.
+
+An About page reflects the person behind the understanding.
+
+Not perfectly.
+
+Not completely.
+
+Simply honestly enough for somebody to imagine beginning a conversation.
+
+<div class="acw-pullquote">
+
+An About page should leave someone remembering how you felt...
+
+not simply what you wrote.
+
+</div>
+
+---
+<section id="mistakes"></section>
+
+# Common About page mistakes
+
+## 1. Writing a CV instead of an introduction
+
+Many therapist About pages begin like this:
+
+*"I qualified in..."*
+
+*"I hold a diploma in..."*
+
+*"I am accredited by..."*
+
+*"I have completed training in..."*
+
+None of that is wrong.
+
+Eventually, most visitors will want to know those things.
+
+But they rarely arrive on your About page looking for qualifications first.
+
+They are looking for the person behind them.
+
+Professional credibility matters.
+
+Human connection usually matters first.
+
+Qualifications answer:
+
+*"Can this person practise?"*
+
+The About page should also answer:
+
+*"Could I imagine talking to them?"*
+
+Those are different questions.
+
+The strongest About pages answer both.
+
+---
+
+## 2. Trying to sound professional
+
+Professionalism matters.
+
+But professionalism and formality are not the same thing.
+
+Some About pages become so formal that the therapist almost disappears.
+
+Everything is technically correct.
+
+Everything sounds appropriate.
+
+Yet nothing feels human.
+
+The visitor finishes reading without any real sense of the person behind the words.
+
+That is not because the therapist lacks warmth.
+
+It is because the writing has quietly hidden it.
+
+A therapist does not need to become informal.
+
+They simply need to sound like themselves.
+
+Clear.
+
+Thoughtful.
+
+Grounded.
+
+Professional.
+
+Human.
+
+Those qualities happily exist together.
 
 ---
 
 ## 3. Oversharing personal history
 
-The opposite problem is oversharing.
+The opposite problem is becoming too personal.
 
-Some About pages include so much personal story that the emotional focus becomes unclear.
+Some About pages begin describing:
 
-The reader may begin to wonder:
+childhood experiences...
 
-*"Am I supposed to look after this person?"*
+family history...
 
-Or:
+their own therapy...
 
-*"Is there enough space here for me?"*
+major life events...
 
-This is especially important in therapy.
+or detailed personal struggles.
 
-Personal material can be powerful when used carefully.
+Again, none of those things are automatically inappropriate.
 
-But it should always serve the reader’s clarity.
+Sometimes they genuinely help.
 
-Not the therapist’s need to be understood.
+The question is never:
 
-A useful question is:
+*"Is this true?"*
 
-*"Does this detail help a prospective client feel safer, clearer or more able to decide?"*
+The better question is:
 
-If not, it may not belong on the page.
+*"Does this help the visitor decide whether working together feels right?"*
 
----
+That single question quietly changes what belongs.
 
-## 4. Sounding like every other therapist
+An About page is not a memoir.
 
-Many About pages include sentences like:
+It is not a confessional.
 
-*"I offer a safe, confidential and non-judgemental space."*
+It is not a personal blog.
 
-Again, these things may be true.
+Its purpose is to reduce uncertainty for someone considering therapy.
 
-But they are also expected.
+Everything else is secondary.
 
-They rarely help someone understand your particular way of being with clients.
+<div class="acw-callout acw-framework">
 
-A stronger About page makes the general specific.
+<strong>A simple test</strong>
 
-What does safety feel like with you?
+Every personal detail should earn its place.
 
-What does non-judgement look like in practice?
+Not because it makes you more interesting.
 
-What kind of pace do you tend to work at?
+Because it makes the visitor's decision clearer.
 
-What do clients often come to understand over time?
-
-What do you believe therapy can make possible?
-
-Those answers help someone feel the difference between you and a generic therapist profile.
+</div>
 
 ---
 
-## 5. Making the reader work too hard
+## 4. Speaking only about yourself
 
-Some About pages are thoughtful but unstructured.
+It sounds obvious.
 
-They move between biography, philosophy, training, approach and personal values without a clear path.
+It is an About page.
 
-The reader has to organise the meaning for themselves.
+Of course it should be about you.
 
-That creates effort.
+But the strongest About pages continue speaking to the visitor.
 
-And effort becomes uncertainty.
+Not constantly.
 
-A good About page should feel like a calm introduction.
+Just often enough to remind them why they are reading.
 
-Not a scattered collection of details.
+Instead of saying:
 
-Not a speech.
+*"I believe therapy is..."*
 
-Not a defensive explanation.
+You might gently connect that belief to the client's experience.
 
-A calm introduction.
+Instead of describing your philosophy in isolation...
+
+show how that philosophy shapes the experience of working together.
+
+The visitor is still quietly asking:
+
+*"What will this mean for me?"*
+
+A thoughtful About page keeps answering that question.
+
+---
+
+## 5. Trying to become memorable
+
+Some About pages try very hard to stand out.
+
+A surprising opening.
+
+An unusual anecdote.
+
+A dramatic personal story.
+
+A clever metaphor.
+
+Occasionally these work.
+
+Often they distract.
+
+People rarely remember therapists because they were entertaining.
+
+They remember therapists because they felt genuine.
+
+Clarity lasts longer than cleverness.
+
+Authenticity lasts longer than novelty.
+
+The goal is not to become unforgettable.
+
+It is to become believable.
 
 <figure class="acw-guide-figure">
   <img
-    src="{{ '/assets/images/library/about-principle-desk.webp' | relative_url }}"
-    alt="A calm About page draft beside a notebook, portrait and pencil in soft morning light."
+    src="{{ '/assets/images/library/about-portrait-writing.webp' | relative_url }}"
+    alt="A simple portrait beside a notebook and handwritten pages in warm morning light."
     loading="lazy"
   >
 </figure>
@@ -626,346 +850,256 @@ A calm introduction.
 
 <section id="structure"></section>
 
-# Part Five  
-## A simple About page structure
+# A simple About page structure
 
-## The calm About page framework
+## Your About page only needs a few things
 
-An About page does not need to be complicated.
+Like every other principle in Practice Clarity, simplicity usually creates more trust than complexity.
 
-It needs to answer the reader’s emotional and practical questions in a sensible order.
+A calm About page often answers just five questions.
 
 <div class="acw-callout acw-framework">
 
-<strong>A clear therapist About page should usually answer:</strong>
+<strong>A clear About page usually answers five questions.</strong>
 
-1. What kind of therapeutic presence do you offer?
-2. Who do you tend to help?
-3. What has shaped the way you work?
-4. What training and experience grounds your practice?
-5. What might it feel like to contact you?
+1. Who are you?
+
+2. How do you think about therapy?
+
+3. What is it like to work with you?
+
+4. Why do you approach your work this way?
+
+5. What should someone do next?
 
 </div>
 
-This structure keeps the page human without making it loose.
+Notice what is missing.
 
-It gives the reader enough of you.
+There is no requirement to explain everything.
 
-But it keeps their decision at the centre.
+No pressure to justify every decision.
 
----
+No expectation that someone should know your whole story.
 
-## Section one: your therapeutic presence
+The About page exists to introduce the therapist.
 
-Begin with the experience of working with you.
+Not exhaustively.
 
-Not necessarily your job title.
-
-Not necessarily your qualifications.
-
-The reader wants to know what kind of person they might be contacting.
-
-Are you warm?
-
-Direct?
-
-Reflective?
-
-Steady?
-
-Collaborative?
-
-Gentle?
-
-Challenging?
-
-Calm?
-
-You do not need to describe yourself with a long list of adjectives.
-
-You can show it through the way you write.
-
-For example:
-
-*"I work in a calm, reflective way, helping people slow down enough to notice what has become difficult to see from inside their own life."*
-
-That sentence gives the reader a feel for the work.
-
-It says more than a title alone.
+Just honestly enough.
 
 ---
 
-## Section two: who you tend to help
+## The About page belongs inside the wider journey
 
-Next, connect your presence to the people you work with.
+One reason many About pages struggle is because they are expected to carry too much responsibility.
 
-This is where recognition returns.
+They don't have to.
 
-You might write about:
+The homepage has already created orientation.
 
-- people who appear to be coping but feel overwhelmed underneath
-- people repeating relationship patterns they do not understand
-- people who struggle with anxiety, self-doubt or shame
-- people who find it hard to know what they feel
-- people who have spent years adapting to others
+Recognition has already begun.
 
-The point is not to include everyone.
+Trust has already started forming.
 
-The point is to give the right people something to recognise.
+The About page simply deepens those experiences.
 
-This section helps the reader connect your story to their own.
+It does not start from zero.
 
----
+That is why every page in Practice Clarity has one primary responsibility.
 
-## Section three: what shaped your way of working
+The homepage helps someone feel they are in the right place.
 
-This is where biography can become meaningful.
+The About page helps them imagine the relationship.
 
-You might mention:
+Service pages deepen understanding.
 
-- previous work
-- professional experience
-- personal values
-- what drew you to therapy
-- what you have learned through practice
-- what continues to matter to you
+Fee pages reduce practical uncertainty.
 
-But each detail should earn its place.
+The contact page removes friction.
 
-Not because it happened.
+When each page performs one clear role...
 
-Because it helps the reader understand your work.
+the website becomes remarkably calm.
 
-A useful pattern is:
+<div class="acw-pullquote">
 
-*"My background in ___ shaped my interest in ___, which now informs the way I work with ___."*
+Your About page is not trying to tell your whole story.
 
-That keeps biography connected to clarity.
+It is helping someone imagine the first conversation.
+
+</div>
 
 ---
 
-## Section four: training and credibility
+# The About page in the wider journey
 
-Credentials belong on an About page.
+## The questions continue becoming more personal
 
-They just do not need to carry the whole page.
+Notice how the Practice Clarity journey keeps evolving.
 
-Include what helps people feel safe and informed.
+The Mirror Principle asked:
 
-For example:
+*"What is your website reflecting?"*
 
-- qualification level
-- professional registration
-- insurance, where relevant
-- specialist training
-- supervision
-- ethical framework
-- experience with particular client groups
+The Waiting Room Principle asked:
 
-This section should feel grounding.
+*"Can the right people discover it?"*
 
-Not overwhelming.
+The Threshold Principle asked:
 
-The reader should not have to decode a wall of acronyms.
+*"Do they feel safe enough to stay?"*
 
-Explain enough to reassure.
+The Recognition Principle asked:
 
-Then move on.
+*"Do they recognise themselves?"*
 
----
+The Homepage Principle asked:
 
-## Section five: contact
+*"Am I in the right place?"*
 
-The About page should not simply end.
+Now the About Principle asks:
 
-It should guide.
+*"Who is this therapist?"*
 
-By the end of the page, someone may be closer to making contact than they were before.
+Each question becomes a little more personal.
 
-Do not make them search.
+A little more relational.
 
-A calm closing might say:
+A little closer to the experience of therapy itself.
 
-*"If something here feels familiar, you are welcome to send a short enquiry. We can begin by seeing whether working together feels like the right fit."*
+The About page is where the practice begins feeling human.
 
-That kind of ending does not pressure.
+Not because it contains personal stories.
 
-It gives permission.
+Because it allows the therapist's way of being to become quietly visible.
 
-It makes the next step visible.
+That naturally prepares the next principle.
 
----
+Once someone feels they know the therapist...
 
-# Part Six  
-## The About page in the wider journey
+another question appears.
 
-## The About page deepens trust
-
-By the time someone reads your About page, several things may have already happened.
-
-They found you.
-
-They arrived.
-
-They felt oriented.
-
-They recognised something of themselves.
-
-They wondered whether they were in the right place.
-
-Now they are wondering whether you are the right person.
-
-That is why the About page is not isolated.
-
-It belongs within the wider Practice Clarity journey.
-
-The Mirror Principle asks what your website reflects.
-
-The Waiting Room Principle asks how people discover it.
-
-The Threshold Principle asks whether arrival feels safe.
-
-The Recognition Principle asks whether the visitor recognises themselves.
-
-The Homepage Principle asks whether they feel in the right place.
-
-The About Principle asks whether the person behind the practice feels possible to contact.
-
-Each guide reduces another layer of uncertainty.
-
-The About page does its work when the therapist becomes clearer, not louder.
-
-More human, not more exposed.
-
-More grounded, not more impressive.
-
----
-
-## The About page prepares the next principle
-
-Once someone has enough sense of who you are, the next obstacle is often not lack of information.
-
-It is too much effort.
-
-Too many choices.
-
-Too many pages.
-
-Too many words.
-
-Too many routes.
-
-Too much to decode.
+*"Why does the website suddenly feel so easy to use?"*
 
 That is where the Simplicity Principle begins.
 
-Because every unnecessary decision creates emotional effort.
-
-And when someone is considering therapy, emotional effort matters.
-
 <div class="acw-callout acw-framework">
 
-<strong>The central idea of this guide</strong>
+<strong>The central idea of this principle</strong>
 
-A therapist About page should not simply explain who you are.
+An About page does not exist to tell your whole story.
 
-It should help the right person understand whether contacting you feels possible.
+It exists to help someone quietly imagine beginning theirs with you.
 
 </div>
 
+---
 ---
 
 <section id="reflection"></section>
 
-## Reflection questions
+# Reflection
 
-Before moving on, spend a few minutes with these questions.
+Before moving on, spend a few quiet minutes with these questions.
 
-There are no right answers.
+Don't worry about finding perfect answers.
 
-They are simply invitations to notice what your About page is currently doing.
+Simply notice what your current About page is communicating.
 
 <div class="acw-reflection-grid">
 
 <div class="acw-callout acw-exercise">
-Does your About page help someone imagine talking to you, or does it mainly list your background?
+
+If somebody finished reading your About page...
+
+would they know more facts about you—
+
+or would they feel they knew you a little better?
+
 </div>
 
 <div class="acw-callout acw-exercise">
-Which parts of your story genuinely help a prospective client feel clearer, safer or more understood?
+
+Which parts of your About page genuinely help someone decide whether working together feels right?
+
 </div>
 
 <div class="acw-callout acw-exercise">
-Where does your About page sound human without losing appropriate boundaries?
+
+Is there anything included simply because you thought an About page was expected to contain it?
+
 </div>
 
 <div class="acw-callout acw-exercise">
-Does the page end with a clear and calm next step?
+
+If your About page disappeared tomorrow...
+
+what would a prospective client no longer understand about you?
+
 </div>
 
 </div>
 
 ---
 
-## Key ideas to remember
-
-<div class="acw-callout acw-checklist">
-
-<strong>If you remember nothing else, remember this.</strong>
-
-- A therapist About page is not a full biography.
-- The reader is asking whether they can imagine talking to you.
-- Your story should serve their clarity.
-- Humanity does not require oversharing.
-- Credentials reassure best when placed in context.
-- A good About page shows presence as well as competence.
-- The page should make contact feel possible.
-- The next challenge is simplicity.
-
-</div>
+{% include practice-clarity-remember.html
+text="People are not looking for your whole story. They are looking for enough of you to imagine beginning a conversation." %}
 
 ---
 
 <section id="next"></section>
 
-## Continue reading
-
-<div class="acw-guide-next-card">
-
-<p class="acw-section-label">Next Principle</p>
-
-<h2>The Simplicity Principle</h2>
-
-<p>
-If the About Principle asks, <strong>can I imagine talking to this person?</strong>,
-the next guide asks:
-<strong>how much effort does the website ask of someone who is already carrying enough?</strong>
-</p>
-
-<a href="{{ '/practice-clarity/simplicity-principle/' | relative_url }}" class="acw-btn acw-btn-primary">
-  Continue to Guide Seven
-</a>
-
-</div>
+{% include practice-clarity-navigation.html %}
 
 ---
 
-## About this guide
+# About this principle
 
-The About Principle grew from seeing how often therapist About pages swing between two extremes.
+The About Principle emerged from watching how prospective clients actually use therapist websites.
 
-Some become too formal.
+Most people do not begin with the About page.
 
-Others become too personal.
+They arrive there after something else has already happened.
 
-Both usually come from the same good intention: wanting to be trusted.
+They have found the website.
 
-But trust does not grow simply because a therapist shares more information.
+They have stayed.
 
-It grows when the right information is offered in the right order, with enough clarity, humanity and restraint.
+They have recognised something of themselves.
 
-A strong About page does not make the therapist the centre of the website.
+They have begun to feel they may be in the right place.
 
-It helps the person reading feel a little clearer about whether contact might be possible.
+Only then do they quietly wonder:
 
-That is the work.
+*"Who is this therapist?"*
+
+That question completely changes the purpose of an About page.
+
+It is no longer a biography.
+
+It is not a CV.
+
+It is not a life story.
+
+It becomes the page where a visitor imagines what it might feel like to sit across from another human being.
+
+The strongest About pages rarely reveal everything.
+
+They reveal enough.
+
+Enough honesty.
+
+Enough clarity.
+
+Enough humanity.
+
+Enough consistency.
+
+Enough that beginning therapy no longer feels like stepping into the unknown.
+
+That is all the page ever needed to do.
+
+---
+
+{% include practice-clarity-roadmap.html %}

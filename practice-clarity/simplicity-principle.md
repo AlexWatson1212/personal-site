@@ -2,14 +2,16 @@
 layout: guide
 
 title: "The Simplicity Principle"
-description: "Every unnecessary decision creates emotional effort. The seventh Practice Clarity principle for calmer, clearer therapist websites."
+description: "The seventh Practice Clarity principle. Why every unnecessary decision creates emotional effort, and why simplicity is an act of care."
+
 excerpt: >
-  A therapist website should not ask someone who is already carrying enough
-  to make unnecessary decisions. Simplicity reduces emotional effort and
-  makes the next step feel possible.
+  Simplicity is not about making a therapist website minimal.
+  It is about removing unnecessary effort so someone already carrying enough
+  can continue towards therapy with greater ease.
 
 category: Practice Clarity
 level: Foundation
+
 featured: true
 featured_order: 7
 
@@ -17,17 +19,19 @@ slug: simplicity-principle
 permalink: /practice-clarity/simplicity-principle/
 
 hero_image: /assets/images/library/simplicity-principle.webp
-hero_alt: "A calm, minimal desk with a single sheet of paper, soft light and generous space."
+hero_alt: "A calm desk with a single sheet of paper, generous space and soft morning light."
 image: /assets/images/library/simplicity-principle.webp
 
 read_time: 18 min read
-updated: 2026-07-07
+updated: 2026-07-08
+
 canonical_url: https://alexanderwatson.co.uk/practice-clarity/simplicity-principle/
 
 intro: >
-  Simplicity is not about making a therapist website plain.
-  It is about reducing unnecessary emotional effort so the right person can
-  understand where they are, what matters and what they can do next.
+  Once someone understands who you are,
+  the website has one further responsibility.
+  It should never ask them to carry more than they already are.
+  Simplicity removes unnecessary effort so trust can continue growing.
 
 related:
   - homepage-principle
@@ -37,259 +41,314 @@ related:
 ---
 
 <nav class="acw-guide-breadcrumb" aria-label="Breadcrumb">
-  <a href="{{ '/' | relative_url }}">Home</a>
-  <span>/</span>
-  <a href="{{ '/practice-clarity/' | relative_url }}">Practice Clarity</a>
-  <span>/</span>
-  <strong>The Simplicity Principle</strong>
+
+<a href="{{ '/' | relative_url }}">Home</a>
+
+<span>/</span>
+
+<a href="{{ '/practice-clarity/' | relative_url }}">
+Practice Clarity
+</a>
+
+<span>/</span>
+
+<strong>
+The Simplicity Principle
+</strong>
+
 </nav>
 
 <section class="acw-guide-chapter-intro">
-  <p class="acw-section-label">Practice Clarity</p>
 
-  <p class="acw-guide-series">Nine Principles for Building Trust Before Therapy Begins</p>
+<p class="acw-section-label">
+Practice Clarity
+</p>
 
-  <div class="acw-guide-chapter-grid">
-    <div>
-      <p class="acw-guide-kicker">Guide Seven of Nine</p>
-      <h1>The Simplicity Principle</h1>
-      <p class="acw-guide-deck">
-        Every unnecessary decision creates emotional effort.
-      </p>
-    </div>
+<p class="acw-guide-series">
+Nine Principles for Building Trust Before Therapy Begins
+</p>
 
-    <aside class="acw-guide-progress-card">
-      <p>Where you are</p>
-      <ol>
-        <li class="is-complete">The Mirror Principle</li>
-        <li class="is-complete">The Waiting Room Principle</li>
-        <li class="is-complete">The Threshold Principle</li>
-        <li class="is-complete">The Recognition Principle</li>
-        <li class="is-complete">The Homepage Principle</li>
-        <li class="is-complete">The About Principle</li>
-        <li class="is-current">The Simplicity Principle</li>
-        <li>The Consistency Principle</li>
-        <li>The Enquiry Principle</li>
-      </ol>
-    </aside>
-  </div>
+<div class="acw-guide-chapter-grid">
+
+<div>
+
+<p class="acw-guide-kicker">
+Principle Seven of Nine
+</p>
+
+<h1>
+The Simplicity Principle
+</h1>
+
+<p class="acw-guide-deck">
+Every unnecessary decision creates emotional effort.
+</p>
+
+<p class="acw-guide-meta">
+18 min read
+</p>
+
+</div>
+
+{% include practice-clarity-progress.html %}
+
+</div>
+
 </section>
 
 <div class="acw-guide-anchor-panel">
-  <p>Jump to</p>
-  <a href="#effort">Emotional effort</a>
-  <a href="#principle">The principle</a>
-  <a href="#choices">Too many choices</a>
-  <a href="#mistakes">Common mistakes</a>
-  <a href="#structure">Simplifying a website</a>
-  <a href="#reflection">Reflection questions</a>
-  <a href="#next">Continue reading</a>
+
+<p>
+Jump to
+</p>
+
+<a href="#effort">Emotional effort</a>
+<a href="#principle">The Simplicity Principle</a>
+<a href="#choices">Too many choices</a>
+<a href="#mistakes">Common mistakes</a>
+<a href="#structure">A simple structure</a>
+<a href="#reflection">Reflection</a>
+<a href="#next">Continue reading</a>
+
 </div>
 
-# The Simplicity Principle
+# Practice Clarity
 
-## Every unnecessary decision creates emotional effort.
+## The Simplicity Principle
+
+### Every unnecessary decision creates emotional effort.
 
 <div class="acw-guide-intro-panel">
 
 <p class="acw-guide-intro-lead">
-Simplicity is not about making a therapist website empty.
+
+By now the visitor understands something about your practice.
+
 </p>
 
 <p>
-It is about making it easier to approach.
+
+They have found you.
+
 </p>
 
 <p>
-A person considering therapy may already feel anxious, overwhelmed, ashamed, uncertain or tired.
+
+They have stayed.
+
 </p>
 
 <p>
-Your website should not quietly add to what they are carrying.
+
+They have recognised themselves.
+
+</p>
+
+<p>
+
+They have begun to trust you.
+
+</p>
+
+<p>
+
+Now the website has one more responsibility.
+
+</p>
+
+<p class="acw-guide-emphasis">
+
+<strong>
+
+Do not make this harder than it needs to be.
+
+</strong>
+
 </p>
 
 </div>
 
 <div class="acw-callout acw-framework">
 
-<strong>Foundation Guide</strong>
+<strong>
 
-This guide introduces <strong>The Simplicity Principle</strong>.
+The Simplicity Principle builds directly on the About Principle.
 
-It builds on <a href="{{ '/practice-clarity/about-principle/' | relative_url }}">The About Principle</a>.
+</strong>
 
-If the About Principle asks, <strong>can I imagine talking to this person?</strong>, this guide asks:
+The About page helps someone imagine beginning a conversation.
 
-<strong>How much effort does the website ask of someone who is already carrying enough?</strong>
+The Simplicity Principle asks a quieter question.
+
+<strong>
+
+How much unnecessary effort does the website still ask them to carry?
+
+</strong>
+
+Simplicity is not about making a website smaller.
+
+It is about making the journey lighter.
 
 </div>
 
 ---
 
-## In this guide you'll discover
+## In this principle you'll discover
 
-- Why simplicity is an ethical design choice.
-- Why too many options create emotional effort.
-- How therapist websites accidentally overwhelm people.
-- Why clarity depends on subtraction.
-- What to simplify first.
-- How simplicity prepares the ground for consistency.
+- Why simplicity is an ethical design decision.
+- Why unnecessary choice quietly creates emotional effort.
+- How therapist websites accidentally overwhelm visitors.
+- Why simplicity is about sequence rather than reduction.
+- A framework for simplifying every page.
+- How simplicity prepares the way for consistency.
 
 ---
 
 <section id="effort"></section>
 
-# Part One  
-## Emotional effort
+# Emotional effort
 
 ## The hidden weight of small decisions
 
-Most websites ask visitors to make decisions.
+Most websites ask people to make decisions.
 
 Where should I click?
 
 Which page should I read first?
 
-Is this service relevant to me?
+Should I read the About page?
 
-Do I need counselling or psychotherapy?
+Or the anxiety page?
 
-Should I email or book?
+Or the fees?
 
-What does this phrase mean?
+Or the FAQ?
 
-Where are the fees?
+Should I email?
 
-Is this online, in person, or both?
+Should I call?
 
-Does this therapist work with people like me?
+Should I wait?
 
-On some websites, those questions are easy to answer.
+Each decision appears tiny.
 
-On others, they quietly accumulate.
+Most designers hardly notice them.
 
-Each one may seem small.
+But someone approaching therapy is rarely visiting your website from a place of complete emotional capacity.
 
-But together they create effort.
+They may already feel overwhelmed.
 
-For someone casually browsing, that may not matter much.
+Anxious.
 
-For someone considering therapy, it matters a lot.
+Ashamed.
 
-Because they may already be using most of their available energy just to begin.
+Confused.
 
-They may have delayed this for months.
+Exhausted.
 
-They may feel embarrassed.
+Or simply uncertain.
 
-They may not know what they need.
+Beginning therapy already requires courage.
 
-They may be frightened of choosing the wrong person.
+Your website should not quietly require even more.
 
-They may be tired of explaining themselves.
+Every unnecessary decision asks for a little more emotional energy.
 
-They may be reading late at night, on a phone, while feeling far from clear.
+One decision is manageable.
 
-In that state, every unnecessary decision becomes heavier.
+Twenty decisions become exhausting.
 
-Not because the person is incapable.
+That accumulation is almost invisible.
 
-Because the context is emotionally loaded.
+Yet people feel it immediately.
 
 <div class="acw-pullquote">
 
-A therapist website should reduce effort, not quietly add to it.
+A therapist website should reduce emotional effort, not quietly increase it.
 
 </div>
 
-That is the beginning of the Simplicity Principle.
-
 ---
 
-## Simplicity is care
+## Simplicity is an act of care
 
-Simplicity is often treated as an aesthetic preference.
-
-Minimal layouts.
-
-Clean typography.
+Simplicity is often mistaken for a visual style.
 
 White space.
 
-Fewer colours.
+Minimal layouts.
 
-Those things can help.
+Muted colours.
 
-But simplicity is deeper than visual style.
+Clean typography.
 
-Simplicity is care expressed through structure.
+Those things may contribute.
+
+But they are not simplicity itself.
+
+True simplicity is structural.
+
+It is the thoughtful removal of unnecessary effort.
 
 It says:
 
-You do not have to work hard to understand this.
+*"You don't have to work hard to understand this."*
 
-You do not have to decode what I mean.
+*"You don't have to guess what comes next."*
 
-You do not have to choose between ten unclear options.
+*"You don't have to organise the experience by yourself."*
 
-You do not have to search for the next step.
+That is why simplicity belongs inside Practice Clarity.
 
-You can take this one piece at a time.
+It is not merely a design preference.
 
-For therapist websites, that matters.
+It is another expression of care.
 
-Because the visitor is not only evaluating information.
-
-They are evaluating whether contact feels emotionally possible.
-
-A simple website does not guarantee trust.
-
-But a complicated one can easily interrupt it.
+<figure class="acw-guide-figure">
+  <img
+    src="{{ '/assets/images/library/simplicity-space.webp' | relative_url }}"
+    alt="A minimal writing desk with generous space, a notebook and soft morning light."
+    loading="lazy"
+  >
+</figure>
 
 ---
-
 <section id="principle"></section>
 
-# Part Two  
-## The Simplicity Principle
+# The Simplicity Principle
 
-## The cost of unnecessary choice
+## Simplicity is about reducing effort
 
-Therapist websites often become complicated for understandable reasons.
+For a long time I thought simplicity meant saying less.
 
-The therapist wants to be thorough.
+Fewer pages.
 
-They want to be inclusive.
+Shorter paragraphs.
 
-They want to explain the work properly.
+Less content.
 
-They want to reassure people.
+Cleaner layouts.
 
-They want to mention every service.
+Sometimes those things help.
 
-They want to avoid leaving anything out.
+But eventually I realised they were describing the appearance of simplicity rather than its purpose.
 
-Those intentions are good.
+The real question is not:
 
-But the result can be overwhelming.
+*"Is this website simple?"*
 
-A homepage with too many sections.
+It is:
 
-A menu with too many options.
+*"How much work does this website ask the visitor to do?"*
 
-A service page trying to explain every possible issue.
+That changes everything.
 
-Several buttons competing for attention.
+Because simplicity is no longer measured by how much content exists.
 
-A contact process that feels unclear.
+It is measured by how much unnecessary effort remains.
 
-A page that says everything but guides nothing.
-
-The problem is not usually a lack of care.
-
-It is care without hierarchy.
-
-Everything matters, so nothing leads.
+Eventually I found myself describing that idea in one sentence.
 
 <div class="acw-callout acw-framework">
 
@@ -297,367 +356,460 @@ Everything matters, so nothing leads.
 
 Every unnecessary decision creates emotional effort.
 
-A clear therapist website reduces that effort by showing people what matters, what comes next and what can wait.
+A calm website quietly removes decisions that never needed to exist.
 
 </div>
 
-Simplicity does not mean removing depth.
+That sentence changed how I looked at therapist websites.
 
-It means giving depth a clear path.
+Instead of asking what should be added...
+
+I started asking what the visitor should never have to carry.
 
 ---
 
-## Simplicity is not reduction for its own sake
+## Emotional effort accumulates
 
-Some people hear simplicity and think:
+Most unnecessary effort feels insignificant on its own.
 
-Make it shorter.
+One extra click.
 
-Remove detail.
+One unfamiliar phrase.
 
-Use fewer pages.
+One repeated explanation.
 
-Say less.
+One unclear heading.
 
-Sometimes that helps.
+One hidden fee.
 
-But not always.
+One button that competes with another.
 
-A short page can still be confusing.
+None of those things seems especially important.
 
-A minimal design can still feel cold.
+Yet together they create something larger.
 
-A simple website is not necessarily small.
+The visitor never consciously counts them.
 
-It is well ordered.
+They simply begin feeling slightly less certain.
 
-It gives the visitor what they need when they need it.
+Slightly less confident.
 
-It lets important things stand out.
+Slightly more tired.
 
-It creates a clear relationship between pages.
+Eventually they leave.
 
-It removes repeated, competing or unnecessary decisions.
+Not because the therapist felt wrong.
 
-It makes the path feel coherent.
+Because the journey quietly became heavier than it needed to be.
 
-The goal is not less content.
+That is what simplicity protects against.
 
-The goal is less friction.
+Not complexity of thought.
+
+Unnecessary complexity of experience.
+
+<div class="acw-pullquote">
+
+Simplicity is not about removing depth.
+
+It is about removing unnecessary weight.
+
+</div>
 
 ---
 
 <section id="choices"></section>
 
-# Part Three  
-## Too many choices
+# Too many choices
 
-## Choice is not always empowering
+## More choice is not always more helpful
 
-There is a common assumption in website design that more choice is better.
+Website design often assumes that giving people more options is generous.
+
+More pages.
+
+More services.
 
 More links.
 
 More buttons.
 
-More services.
-
-More pages.
-
-More routes.
+More routes through the website.
 
 More information.
 
-But when someone is already uncertain, too much choice can become another burden.
+That assumption sounds sensible.
 
-Should I read the About page first?
+In practice, it often creates the opposite experience.
 
-Or the anxiety page?
+Imagine someone already feeling overwhelmed.
 
-Or the FAQ?
-
-Or the blog?
-
-Or the fees?
-
-Or the contact page?
-
-Should I book a consultation?
-
-Send a message?
-
-Call?
-
-Use the form?
-
-Ask a question?
-
-Wait?
-
-The visitor may not consciously think all of this.
-
-But the feeling is real.
-
-Too many possible routes can make the next step feel less possible.
-
-The website becomes a maze.
-
-Not because anything is wrong with the content.
-
-Because the path is unclear.
-
----
-
-## A calm website chooses for the reader
-
-This does not mean controlling the reader.
-
-It means guiding them.
-
-A clear website makes editorial decisions.
-
-It says:
-
-Start here.
-
-Then this.
-
-Then this.
-
-This is important now.
-
-This can wait.
-
-This is the next step.
-
-That is not manipulation.
-
-It is orientation.
-
-People often feel safer when a website has made thoughtful decisions on their behalf.
-
-Not because they are being pushed.
-
-Because they are being held by the structure.
-
-A therapist understands this intuitively in the room.
-
-Too many directions at once can overwhelm.
-
-A good session has pace.
-
-Space.
-
-Sequence.
-
-The same is true of a website.
-
-<div class="acw-pullquote">
-
-Simplicity is what happens when the website stops asking the visitor to organise the experience alone.
-
-</div>
-
----
-
-<section id="mistakes"></section>
-
-# Part Four  
-## Common simplicity mistakes
-
-## 1. A menu with too many options
-
-Navigation should not feel like a filing cabinet.
-
-If the menu contains too many similar items, the visitor has to decide where to begin.
-
-Home.
-
-About.
-
-Services.
+Now ask them to choose between:
 
 Counselling.
 
 Psychotherapy.
 
+Integrative therapy.
+
+Person-centred therapy.
+
+Online therapy.
+
+In-person therapy.
+
 Anxiety.
 
 Trauma.
 
-Fees.
+Self-esteem.
 
-FAQ.
+Relationships.
 
 Blog.
 
 Resources.
 
-Contact.
-
-Each one may have a purpose.
-
-But together they can blur.
-
-A therapist website usually needs a very simple navigation:
-
-- Home
-- About
-- Therapy
-- Fees
-- Resources
-- Contact
-
-Even fewer may be enough.
-
-The menu should answer:
-
-*"Where can I go?"*
-
-Not:
-
-*"Where has every possible page been stored?"*
-
----
-
-## 2. Multiple calls to action
-
-A page becomes harder to use when every section asks for something different.
-
-Book now.
-
-Read more.
-
-Learn more.
-
-Explore services.
-
-Download this.
-
-Join the list.
-
-Contact me.
-
-View fees.
-
-Start here.
-
-Ask a question.
-
-Each button may seem helpful.
-
-Together, they create noise.
-
-A therapist website should usually have one primary next step.
-
-Contact.
-
-Enquire.
-
-Book an introductory call.
-
-Whatever fits the practice.
-
-Secondary links can exist.
-
-But they should not compete.
-
-The visitor should always know which action matters most.
-
----
-
-## 3. Too much explanation too early
-
-Therapists often want to explain properly.
-
-That makes sense.
-
-Therapy is nuanced.
-
-People are complex.
-
-The work deserves care.
-
-But too much explanation too early can make the website feel heavy.
-
-A visitor does not need the full theory of your approach before they know whether they feel safe enough to stay.
-
-They need enough to continue.
-
-Depth should unfold.
-
-Not arrive all at once.
-
----
-
-## 4. Similar pages saying similar things
-
-As websites grow, pages often begin repeating one another.
-
-The homepage explains the approach.
-
-The About page explains the approach.
-
-The services page explains the approach.
-
-The FAQ explains the approach.
-
-The result is not reinforcement.
-
-It is dilution.
-
-Each page should have a clear job.
-
-The homepage orients.
-
-The About page humanises.
-
-The service page explains the work.
-
-The fees page reduces practical uncertainty.
-
-The contact page makes enquiry easier.
-
-When every page tries to do everything, the whole site becomes less clear.
-
----
-
-## 5. Hiding practical information
-
-Simplicity is not only about fewer words.
-
-It is also about making practical information easy to find.
+FAQs.
 
 Fees.
 
-Location.
+About.
 
-Availability.
+Contact.
 
-Online or in-person.
+Nothing is individually confusing.
 
-Session length.
+Together they become exhausting.
 
-How to enquire.
+Not because people cannot decide.
 
-What happens next.
+Because they should not have to decide quite so much.
 
-These details reduce uncertainty.
+---
 
-If they are hidden, the visitor has to work harder.
+## Good structure makes decisions unnecessary
 
-Sometimes therapists avoid practical clarity because they worry it feels transactional.
+The strongest therapist websites quietly make many decisions on behalf of the visitor.
 
-But vague practical information often creates more emotional effort than clear information.
+Not controlling decisions.
 
-Clarity is not cold.
+Helpful ones.
 
-It can be kind.
+They gently say:
+
+*"Start here."*
+
+*"Read this next."*
+
+*"You don't need that page yet."*
+
+*"This explanation can wait."*
+
+*"When you're ready, here's what happens."*
+
+That guidance feels almost invisible.
+
+Which is exactly why it works.
+
+People rarely notice thoughtful structure.
+
+They simply experience the website as calm.
+
+That is the goal.
+
+Not fewer pages.
+
+Not less information.
+
+Less unnecessary thinking.
+
+<div class="acw-callout acw-framework">
+
+<strong>Practice Clarity perspective</strong>
+
+People should spend their emotional energy deciding whether therapy feels right.
+
+Not figuring out how your website works.
+
+</div>
+
+---
+
+## Sequence matters more than quantity
+
+Many therapist websites contain exactly the right information.
+
+The difficulty is rarely the content.
+
+It is the order.
+
+Imagine explaining your qualifications before the visitor knows whether the practice is relevant.
+
+Imagine describing your fees before they understand how you work.
+
+Imagine presenting five different ways to make contact before explaining what happens afterwards.
+
+Nothing is wrong.
+
+It simply arrives too soon.
+
+Good websites unfold.
+
+Each page prepares the next.
+
+Each section answers one question before introducing another.
+
+The visitor never feels rushed.
+
+They never feel left behind.
+
+They simply keep moving.
+
+That is simplicity in practice.
 
 <figure class="acw-guide-figure">
   <img
-    src="{{ '/assets/images/library/simplicity-principle-desk.webp' | relative_url }}"
-    alt="A simple therapist website plan on paper with unnecessary options crossed out in pencil."
+    src="{{ '/assets/images/library/simplicity-path.webp' | relative_url }}"
+    alt="A simple path through a quiet garden with gentle curves leading naturally forward."
+    loading="lazy"
+  >
+</figure>
+
+---
+
+## Simplicity creates confidence
+
+When a website becomes easier to understand...
+
+people often describe a surprising feeling.
+
+They become more confident.
+
+Not because they suddenly know everything.
+
+Because they no longer feel lost.
+
+Confidence grows when uncertainty becomes smaller.
+
+That has been true throughout Practice Clarity.
+
+The Mirror Principle reduced uncertainty about the practice.
+
+The Waiting Room Principle reduced uncertainty about discovery.
+
+The Threshold Principle reduced uncertainty about arrival.
+
+Recognition reduced uncertainty about being understood.
+
+The Homepage Principle reduced uncertainty about belonging.
+
+The About Principle reduced uncertainty about the therapist.
+
+Now simplicity reduces uncertainty about the journey itself.
+
+The visitor no longer wonders:
+
+*"Where do I go next?"*
+
+The website has already answered.
+
+That quiet reduction in effort is what allows trust to continue growing.
+
+<div class="acw-pullquote">
+
+A calm website is one where the next step always feels obvious.
+
+</div>
+
+---
+<section id="mistakes"></section>
+
+# Common simplicity mistakes
+
+## 1. Mistaking simplicity for minimalism
+
+Some websites become so minimal that they stop being useful.
+
+Almost no information.
+
+Very little explanation.
+
+Tiny navigation.
+
+A handful of beautifully spaced sentences.
+
+It looks calm.
+
+But the visitor is left asking more questions than before.
+
+That is not simplicity.
+
+It is absence.
+
+Simplicity is not removing necessary information.
+
+It is removing unnecessary effort.
+
+Those are very different things.
+
+A simple website can still be rich.
+
+Detailed.
+
+Thoughtful.
+
+Comprehensive.
+
+The difference is that nothing feels difficult to find or understand.
+
+---
+
+## 2. Explaining everything immediately
+
+Another common mistake is trying to answer every possible question on the homepage.
+
+Every service.
+
+Every approach.
+
+Every qualification.
+
+Every policy.
+
+Every practical detail.
+
+The intention is generous.
+
+The result is often overwhelming.
+
+Visitors rarely need everything immediately.
+
+They need the next thing.
+
+The homepage introduces.
+
+The About page develops relationship.
+
+Service pages deepen understanding.
+
+Fee pages answer practical questions.
+
+Contact pages remove friction.
+
+Every page has its own responsibility.
+
+When one page tries to perform every role...
+
+simplicity disappears.
+
+---
+
+## 3. Creating unnecessary choices
+
+Imagine opening a homepage and seeing:
+
+- Book now
+- Read more
+- Meet me
+- Learn about therapy
+- Explore services
+- Read the blog
+- FAQs
+- Contact
+- Online therapy
+- In-person therapy
+
+All before you've even understood where you are.
+
+Nothing is individually wrong.
+
+Together they ask too much.
+
+Every additional choice creates another tiny decision.
+
+Good design removes decisions that do not need to exist.
+
+Not by controlling the visitor.
+
+By gently guiding them.
+
+---
+
+## 4. Repeating information
+
+Many therapist websites unknowingly repeat themselves.
+
+The same introduction appears on the homepage...
+
+the About page...
+
+service pages...
+
+the contact page...
+
+and even blog posts.
+
+Repetition feels safe when writing.
+
+It feels tiring when reading.
+
+Visitors begin wondering whether they have already read this section.
+
+Instead of adding reassurance...
+
+repetition creates friction.
+
+Each page should make its own contribution.
+
+Not repeat the last one.
+
+---
+
+## 5. Designing for yourself
+
+Perhaps the most common mistake of all.
+
+The therapist already understands their own practice.
+
+They know where every page lives.
+
+They know what every menu item means.
+
+They know the journey.
+
+Their prospective client does not.
+
+Simplicity asks us to borrow the visitor's perspective.
+
+To see the website with fresh eyes.
+
+To notice every moment where someone unfamiliar has to stop and think.
+
+Those pauses matter.
+
+Because they quietly accumulate.
+
+<div class="acw-callout acw-framework">
+
+<strong>A useful question</strong>
+
+Whenever someone pauses on your website, ask yourself:
+
+<strong>
+
+"Is this pause helping understanding...
+
+or is it simply unnecessary effort?"
+
+</strong>
+
+</div>
+
+<figure class="acw-guide-figure">
+  <img
+    src="{{ '/assets/images/library/simplicity-choices.webp' | relative_url }}"
+    alt="A clean desk with only a notebook, pencil and one clear path forward."
     loading="lazy"
   >
 </figure>
@@ -666,317 +818,256 @@ It can be kind.
 
 <section id="structure"></section>
 
-# Part Five  
-## Simplifying a therapist website
+# A simple structure
 
-## The simplicity audit
+## Every page should have one primary responsibility
 
-A useful way to simplify a therapist website is to stop asking:
+One of the biggest shifts in Practice Clarity is recognising that pages should not compete with one another.
 
-*"What else should I add?"*
+Each page exists to do one thing well.
 
-And start asking:
+The homepage creates orientation.
 
-*"What effort can I remove?"*
+The About page builds relationship.
 
-This changes the whole process.
+Service pages deepen understanding.
 
-Instead of adding more reassurance, you remove confusion.
+Fee pages remove practical uncertainty.
 
-Instead of adding more explanation, you improve sequence.
+The contact page makes enquiry feel straightforward.
 
-Instead of adding more pages, you clarify the job of each page.
+When every page understands its own role...
 
-Instead of adding more buttons, you make the next step obvious.
+the whole website becomes simpler.
 
-<div class="acw-callout acw-framework">
+Not because there is less content.
 
-<strong>A simple therapist website should usually make clear:</strong>
+Because each piece of content appears exactly when it becomes useful.
 
-1. Who this is for.
-2. What kind of help is available.
-3. Who the therapist is.
-4. How the work happens.
-5. What it costs.
-6. What to do next.
+---
+
+## Simplicity is thoughtful sequencing
+
+Many people assume simplicity is achieved through editing.
+
+Sometimes it is.
+
+More often it is achieved through sequencing.
+
+The right sentence.
+
+On the wrong page.
+
+Creates confusion.
+
+The right explanation.
+
+At the wrong moment.
+
+Creates effort.
+
+The right information.
+
+In the wrong order.
+
+Creates uncertainty.
+
+Nothing needs rewriting.
+
+It simply needs rearranging.
+
+That is why simplicity belongs so late in Practice Clarity.
+
+The earlier principles establish what should be communicated.
+
+This principle considers how that communication unfolds.
+
+<div class="acw-pullquote">
+
+Simplicity is rarely about saying less.
+
+It is about saying the right thing at the right moment.
 
 </div>
 
-That does not mean every detail belongs on the homepage.
-
-It means the visitor should not have to search hard for any of it.
-
 ---
 
-## Simplify the navigation
+# Simplicity in the wider journey
 
-Begin with the menu.
+## The website begins feeling effortless
 
-Ask:
+By now the visitor is carrying far less uncertainty than when they first arrived.
 
-- Does every item need to be visible?
-- Are any labels unclear?
-- Are two pages doing the same job?
-- Is Contact easy to find?
-- Would someone know where to start?
+They understand the practice.
 
-Simple navigation creates immediate relief.
+They found it.
 
-It tells the visitor the site has been thought through.
+They stayed.
 
----
+They recognised themselves.
 
-## Simplify the page structure
+They feel they are in the right place.
 
-Then look at each page.
+They have begun imagining the therapist.
 
-Ask:
+Now something else begins happening.
 
-- What is this page responsible for?
-- What is the first question it needs to answer?
-- What should the visitor understand by the end?
-- What is the next step?
-- What can be moved elsewhere?
+The website itself starts disappearing.
 
-Every page should have one primary job.
+Not literally.
 
-When a page knows its job, writing becomes easier.
+Experientially.
 
-Design becomes calmer.
+The visitor is no longer thinking about menus.
 
-The reader feels less lost.
+Or buttons.
 
----
+Or navigation.
 
-## Simplify the language
+Or structure.
 
-Therapy language can become abstract quickly.
+They are simply moving through the experience.
 
-Process.
+That is what simplicity achieves.
 
-Holding.
+The website stops drawing attention to itself.
 
-Containment.
+It quietly supports the relationship instead.
 
-Congruence.
+That naturally prepares the next principle.
 
-Attachment.
+Because once every page feels simple...
 
-Somatic awareness.
+another question emerges.
 
-Relational depth.
+*"Why does everything feel so coherent?"*
 
-Parts.
-
-Trauma-informed.
-
-These words may be meaningful.
-
-But they should not be used as shortcuts.
-
-If a word requires translation, consider whether the visitor needs it yet.
-
-Simple language does not mean simplistic thinking.
-
-It means clear thinking made accessible.
-
----
-
-## Simplify the next step
-
-Finally, simplify contact.
-
-A visitor should know:
-
-- how to get in touch
-- what to include
-- when they might hear back
-- whether there is an introductory call
-- whether there is pressure to commit
-- what happens after they enquire
-
-This is where simplicity becomes especially important.
-
-The moment of enquiry is emotionally charged.
-
-Do not make it harder than it needs to be.
-
----
-
-# Part Six  
-## Simplicity in the wider journey
-
-## Simplicity protects trust
-
-By this point in the Practice Clarity journey, the reader has already moved through several layers.
-
-They found you.
-
-They arrived.
-
-They recognised something.
-
-They wondered whether they were in the right place.
-
-They began to understand who you are.
-
-Now the website has to protect that trust.
-
-Complexity can weaken it.
-
-Not dramatically.
-
-Quietly.
-
-A confusing menu.
-
-A hidden fee.
-
-A crowded page.
-
-A vague next step.
-
-A paragraph that requires too much translation.
-
-A service structure that feels unclear.
-
-Each one adds a small amount of friction.
-
-The visitor may not notice one.
-
-But they feel the accumulation.
-
-The Simplicity Principle is about preventing that accumulation.
-
-Because trust is not only built by what you say.
-
-It is also built by what you do not make the visitor carry.
-
----
-
-## Simplicity prepares consistency
-
-Once a website becomes simpler, another question appears.
-
-Do all the parts feel like they belong together?
-
-Does the homepage sound like the About page?
-
-Does the visual style match the tone?
-
-Does the enquiry process reflect the same calmness as the writing?
-
-Does every touchpoint tell the same story?
-
-That is where the next guide begins.
-
-The Consistency Principle.
-
-Because trust grows when every touchpoint tells the same story.
+That is where the Consistency Principle begins.
 
 <div class="acw-callout acw-framework">
 
-<strong>The central idea of this guide</strong>
+<strong>The central idea of this principle</strong>
 
-Simplicity is not about removing meaning.
+Simplicity is not the absence of information.
 
-It is about removing unnecessary effort so the right person can keep moving towards contact.
+It is the absence of unnecessary effort.
 
 </div>
 
+---
 ---
 
 <section id="reflection"></section>
 
-## Reflection questions
+# Reflection
 
-Before moving on, spend a few minutes with these questions.
+Before moving on, spend a few quiet minutes with these questions.
 
-There are no right answers.
+Don't think about your website as its creator.
 
-They are simply invitations to notice where your website may be asking too much.
+Try to experience it as someone arriving there for the very first time.
 
 <div class="acw-reflection-grid">
 
 <div class="acw-callout acw-exercise">
-Where does your website ask someone to make a decision that could be made easier for them?
+
+Where does your website currently ask visitors to make decisions they shouldn't have to make?
+
 </div>
 
 <div class="acw-callout acw-exercise">
-Does every page have one clear job, or are several pages trying to do everything?
+
+If you removed one page, one section or one choice tomorrow...
+
+would anything important actually be lost?
+
 </div>
 
 <div class="acw-callout acw-exercise">
-What information might someone struggle to find when they are already anxious or tired?
+
+At which point does your website begin feeling effortless?
+
+Or does it never quite reach that point?
+
 </div>
 
 <div class="acw-callout acw-exercise">
-What could you remove, rename or reorder to reduce emotional effort?
+
+If somebody already feeling anxious visited your website today...
+
+what unnecessary effort could you quietly remove for them?
+
 </div>
 
 </div>
 
 ---
 
-## Key ideas to remember
-
-<div class="acw-callout acw-checklist">
-
-<strong>If you remember nothing else, remember this.</strong>
-
-- Every unnecessary decision creates emotional effort.
-- Simplicity is care expressed through structure.
-- More choice does not always make a website more helpful.
-- Each page should have one clear job.
-- Practical clarity reduces uncertainty.
-- Simple language is not simplistic thinking.
-- The contact step should be especially easy.
-- Simplicity protects trust.
-
-</div>
+{% include practice-clarity-remember.html
+text="Simplicity is not the absence of information. It is the absence of unnecessary effort." %}
 
 ---
 
 <section id="next"></section>
 
-## Continue reading
-
-<div class="acw-guide-next-card">
-
-<p class="acw-section-label">Next Principle</p>
-
-<h2>The Consistency Principle</h2>
-
-<p>
-If the Simplicity Principle asks, <strong>how much effort does this website create?</strong>,
-the next guide asks:
-<strong>does every touchpoint tell the same story?</strong>
-</p>
-
-<a href="{{ '/practice-clarity/consistency-principle/' | relative_url }}" class="acw-btn acw-btn-primary">
-  Continue to Guide Eight
-</a>
-
-</div>
+{% include practice-clarity-navigation.html %}
 
 ---
 
-## About this guide
+# About this principle
 
-The Simplicity Principle grew from noticing that many therapist websites were not unclear because they lacked information.
+The Simplicity Principle emerged from a pattern I kept noticing while reviewing therapist websites.
 
-They were unclear because too much information was arriving without enough order.
+The problems were rarely dramatic.
 
-The therapist had tried to be helpful.
+There were no obvious mistakes.
 
-But the visitor was still left making too many decisions.
+No glaring design failures.
 
-Simplicity is not about stripping away the depth of the work.
+Instead, there were dozens of tiny moments where the visitor had to stop and think.
 
-It is about respecting the emotional state of the person approaching it.
+Which page should I read?
 
-A simple therapist website does not feel thin.
+What does this mean?
 
-It feels considerate.
+Why is this repeated?
 
-It helps someone keep going.
+Where do I click next?
+
+None of those moments felt significant on their own.
+
+Together, they quietly increased the emotional weight of the experience.
+
+That matters because people looking for therapy rarely arrive with unlimited emotional capacity.
+
+Many are already carrying uncertainty.
+
+Overwhelm.
+
+Anxiety.
+
+Shame.
+
+Exhaustion.
+
+A therapist website should never add to that burden unnecessarily.
+
+The most effective websites are rarely the ones with the fewest pages.
+
+They are the ones where every page, every sentence and every decision has a clear purpose.
+
+Visitors move naturally from one step to the next.
+
+Not because they are being persuaded.
+
+Because nothing unnecessary interrupts the journey.
+
+That is the real meaning of simplicity.
+
+Not reduction.
+
+Careful attention to where effort truly belongs.
+
+---
+
+{% include practice-clarity-roadmap.html %}

@@ -2,26 +2,29 @@
 layout: guide
 
 title: "The Threshold Principle"
-description: "Why the first few seconds of a therapist website matter. The third Practice Clarity principle for helping people feel safe enough to stay."
+description: "The third Practice Clarity principle. Why the first few seconds of a therapist website matter, and how to help people feel safe enough to stay."
+
 excerpt: >
   The first few seconds after someone lands on your website are not neutral.
   They decide whether a person feels oriented, reassured and safe enough to keep reading.
 
 category: Practice Clarity
 level: Foundation
+
 featured: true
 featured_order: 3
 
 slug: threshold-principle
-permalink: /practice-clarity/threshold-principle/
+permalink: /guides/threshold-principle/
 
 hero_image: /assets/images/library/threshold-principle.webp
 hero_alt: "A calm doorway with soft morning light, symbolising the moment someone arrives and decides whether to step inside."
 image: /assets/images/library/threshold-principle.webp
 
 read_time: 18 min read
-updated: 2026-07-07
-canonical_url: https://alexanderwatson.co.uk/practice-clarity/threshold-principle/
+updated: 2026-07-08
+
+canonical_url: https://alexanderwatson.co.uk/guides/threshold-principle/
 
 intro: >
   Discovery is only the beginning. Once someone arrives on your website,
@@ -32,7 +35,6 @@ related:
   - mirror-principle
   - waiting-room-principle
   - recognition-principle
-  - homepage-principle
 ---
 
 <nav class="acw-guide-breadcrumb" aria-label="Breadcrumb">
@@ -46,48 +48,46 @@ related:
 <section class="acw-guide-chapter-intro">
   <p class="acw-section-label">Practice Clarity</p>
 
-  <p class="acw-guide-series">Nine Principles for Building Trust Before Therapy Begins</p>
+  <p class="acw-guide-series">
+    Nine Principles for Building Trust Before Therapy Begins
+  </p>
 
   <div class="acw-guide-chapter-grid">
     <div>
-      <p class="acw-guide-kicker">Guide Three of Nine</p>
+      <p class="acw-guide-kicker">Principle Three of Nine</p>
+
       <h1>The Threshold Principle</h1>
+
       <p class="acw-guide-deck">
         Trust begins in the first few seconds after someone arrives.
       </p>
+
+      <p class="acw-guide-meta">
+        18 min read
+      </p>
     </div>
 
-    <aside class="acw-guide-progress-card">
-      <p>Where you are</p>
-      <ol>
-        <li class="is-complete">The Mirror Principle</li>
-        <li class="is-complete">The Waiting Room Principle</li>
-        <li class="is-current">The Threshold Principle</li>
-        <li>The Recognition Principle</li>
-        <li>The Homepage Principle</li>
-        <li>The About Principle</li>
-        <li>The Simplicity Principle</li>
-        <li>The Consistency Principle</li>
-        <li>The Enquiry Principle</li>
-      </ol>
-    </aside>
+    {% include practice-clarity-progress.html %}
   </div>
 </section>
 
 <div class="acw-guide-anchor-panel">
   <p>Jump to</p>
+
   <a href="#arrival">The moment of arrival</a>
   <a href="#threshold">The threshold</a>
   <a href="#safety">Safety before detail</a>
   <a href="#signals">Threshold signals</a>
   <a href="#mistakes">Common mistakes</a>
-  <a href="#questions">Reflection questions</a>
+  <a href="#reflection">Reflection</a>
   <a href="#next">Continue reading</a>
 </div>
 
-# The Threshold Principle
+# Practice Clarity
 
-## Why the first few seconds decide whether someone feels safe enough to stay.
+## The Threshold Principle
+
+### Why the first few seconds decide whether someone feels safe enough to stay.
 
 <div class="acw-guide-intro-panel">
 
@@ -104,28 +104,32 @@ They are wondering whether this is the right place, whether you might understand
 </p>
 
 <p>
-The first few seconds are not about persuasion. They are about orientation.
+The first few seconds are not about persuasion.
+</p>
+
+<p class="acw-guide-emphasis">
+<strong>They are about orientation.</strong>
 </p>
 
 </div>
 
 <div class="acw-callout acw-framework">
 
-<strong>Foundation Guide</strong>
+<strong>The Threshold Principle builds directly on the Waiting Room Principle.</strong>
 
-This guide introduces <strong>The Threshold Principle</strong>.
+The Waiting Room Principle asks how the right people discover your practice.
 
-It builds directly on <a href="{{ '/practice-clarity/mirror-principle/' | relative_url }}">The Mirror Principle</a> and <a href="{{ '/practice-clarity/waiting-room-principle/' | relative_url }}">The Waiting Room Principle</a>.
+The Threshold Principle asks what happens once they arrive.
 
-If the Mirror Principle asks <strong>what is your website reflecting?</strong>, and the Waiting Room Principle asks <strong>how do the right people discover it?</strong>, this guide asks:
+Finding you is only the beginning.
 
-<strong>What happens when they arrive?</strong>
+The next question is whether someone feels safe enough to stay.
 
 </div>
 
 ---
 
-## In this guide you'll discover
+## In this principle you'll discover
 
 - Why arrival matters more than attention.
 - What the threshold of a therapist website really is.
@@ -138,8 +142,7 @@ If the Mirror Principle asks <strong>what is your website reflecting?</strong>, 
 
 <section id="arrival"></section>
 
-# Part One  
-## The moment of arrival
+# The moment of arrival
 
 ## Discovery is only the beginning
 
@@ -258,14 +261,13 @@ It is to help someone feel safe enough to keep reading.
 
 </div>
 
-That is the beginning of the Threshold Principle.
+That is where the Threshold Principle begins.
 
 ---
 
 <section id="threshold"></section>
 
-# Part Two  
-## The threshold
+# The threshold
 
 ## The space before trust
 
@@ -353,7 +355,7 @@ A lot.
 
 But the threshold is not only the homepage.
 
-The threshold is the visitor’s first felt experience of your practice online.
+The threshold is the visitor's first felt experience of your practice online.
 
 It might happen on your homepage.
 
@@ -361,7 +363,7 @@ It might happen on a service page.
 
 It might happen on an About page.
 
-It might happen on a guide they found through Google.
+It might happen on a principle they found through Google.
 
 It might happen on your mobile menu.
 
@@ -383,8 +385,7 @@ A threshold is an experience.
 
 <section id="safety"></section>
 
-# Part Three  
-## Safety before detail
+# Safety before detail
 
 ## People need orientation before information
 
@@ -498,8 +499,7 @@ But they forget to help the visitor arrive.
 
 <section id="signals"></section>
 
-# Part Four  
-## Threshold signals
+# Threshold signals
 
 ## What someone notices first
 
@@ -643,12 +643,11 @@ It makes the next step feel possible.
 
 <section id="mistakes"></section>
 
-# Part Five  
-## Common threshold mistakes
+# Common threshold mistakes
 
 ## 1. Starting with professional language
 
-Many therapist websites open with the therapist’s modality.
+Many therapist websites open with the therapist's modality.
 
 Person-centred counselling.
 
@@ -680,7 +679,7 @@ A visitor is more likely to arrive thinking:
 
 *"I need someone to talk to."*
 
-The closer your first words are to the visitor’s lived experience, the less translation they have to do.
+The closer your first words are to the visitor's lived experience, the less translation they have to do.
 
 ---
 
@@ -706,7 +705,7 @@ Specificity does not mean excluding everyone else.
 
 It means giving the right people something real to recognise.
 
-That is why the next guide is The Recognition Principle.
+That is why the next principle is The Recognition Principle.
 
 The threshold helps someone stay.
 
@@ -814,8 +813,7 @@ There is a difference.
 
 ---
 
-# Part Six  
-## The first conversation
+# The first conversation
 
 ## The website begins speaking before you do
 
@@ -837,7 +835,7 @@ They have sensed whether the website feels calm or pressured.
 
 They have imagined, however briefly, what it might be like to contact you.
 
-This is why I originally called this guide The First Conversation Principle.
+This is why I originally called this The First Conversation Principle.
 
 That name still contains something true.
 
@@ -893,7 +891,7 @@ Together, they create a calmer path from needing help to making contact.
 
 <div class="acw-callout acw-framework">
 
-<strong>The central idea of this guide</strong>
+<strong>The central idea of this principle</strong>
 
 The first few seconds after someone arrives on your website are not about impressing them.
 
@@ -903,15 +901,15 @@ They are about helping them feel oriented, reassured and safe enough to continue
 
 ---
 
-<section id="questions"></section>
+<section id="reflection"></section>
 
-## Reflection questions
+# Reflection
 
-Before moving on, sit with these questions for a few minutes.
+Before moving on, spend a few quiet minutes with these questions.
 
 There are no right answers.
 
-They are designed to help you notice what your own website currently asks of someone at the point of arrival.
+Simply notice what your website currently asks of someone at the point of arrival.
 
 <div class="acw-reflection-grid">
 
@@ -935,52 +933,20 @@ Is the next step clear without being pushy?
 
 ---
 
-## Key ideas to remember
-
-<div class="acw-callout acw-checklist">
-
-<strong>If you remember nothing else, remember this.</strong>
-
-- Discovery is only the beginning.
-- The first few seconds after arrival are not neutral.
-- People need orientation before information.
-- Reassurance means reducing unnecessary uncertainty.
-- A therapist website should feel clear before it feels impressive.
-- Threshold signals include clarity, calm, specificity, humanity and direction.
-- The threshold helps someone stay.
-- Recognition helps them feel understood.
-
-</div>
+{% include practice-clarity-remember.html
+text="The first few seconds after someone arrives are not about impressing them. They are about helping them feel safe enough to continue." %}
 
 ---
 
 <section id="next"></section>
 
-## Continue reading
-
-<div class="acw-guide-next-card">
-
-<p class="acw-section-label">Next Principle</p>
-
-<h2>The Recognition Principle</h2>
-
-<p>
-If the Threshold Principle asks, <strong>does this feel safe enough to stay?</strong>,
-the next guide asks:
-<strong>do I recognise myself in this therapist's words?</strong>
-</p>
-
-<a href="{{ '/practice-clarity/recognition-principle/' | relative_url }}" class="acw-btn acw-btn-primary">
-  Continue to Guide Four
-</a>
-
-</div>
+{% include practice-clarity-navigation.html %}
 
 ---
 
-## About this guide
+# About this principle
 
-This guide grew from noticing how quickly people respond to the feeling of a therapist website.
+The Threshold Principle grew from noticing how quickly people respond to the feeling of a therapist website.
 
 Not just what it says.
 
@@ -990,7 +956,7 @@ Some websites contain useful information but make the visitor work too hard to f
 
 Others say very little but immediately feel calm, specific and human.
 
-The Threshold Principle is an attempt to name that first moment.
+The Threshold Principle names that first moment.
 
 The small but important space between arriving and deciding to stay.
 
@@ -999,3 +965,7 @@ For therapists, that space matters.
 Because people are not only looking for information.
 
 They are looking for the first signs that contact might feel possible.
+
+---
+
+{% include practice-clarity-roadmap.html %}

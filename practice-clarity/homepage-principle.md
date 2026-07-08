@@ -2,32 +2,34 @@
 layout: guide
 
 title: "The Homepage Principle"
-description: "Every therapist homepage answers one question before any other: am I in the right place? The fifth Practice Clarity principle."
+description: "The fifth Practice Clarity principle. Every therapist homepage answers one question before any other: am I in the right place?"
+
 excerpt: >
-  A therapist homepage is not a shop window, a brochure or a summary of everything you do.
+  A therapist homepage is not a brochure or a summary of everything you do.
   It is the page that helps someone decide whether they are in the right place.
 
 category: Practice Clarity
 level: Foundation
+
 featured: true
 featured_order: 5
 
 slug: homepage-principle
-permalink: /practice-clarity/homepage-principle/
+permalink: /guides/homepage-principle/
 
 hero_image: /assets/images/library/homepage-principle.webp
 hero_alt: "A calm homepage layout shown on a laptop beside a notebook in soft natural light."
 image: /assets/images/library/homepage-principle.webp
 
 read_time: 20 min read
-updated: 2026-07-07
-canonical_url: https://alexanderwatson.co.uk/practice-clarity/homepage-principle/
+updated: 2026-07-08
+
+canonical_url: https://alexanderwatson.co.uk/guides/homepage-principle/
 
 intro: >
-  Every therapist homepage answers one question before any other:
-  am I in the right place? This guide explores why the homepage is not
-  simply an introduction, but the page responsible for orienting, reassuring
-  and guiding the right person towards contact.
+  Once someone recognises themselves in your work,
+  your homepage has one responsibility above all others.
+  To help them feel they are in the right place.
 
 related:
   - mirror-principle
@@ -38,233 +40,275 @@ related:
 ---
 
 <nav class="acw-guide-breadcrumb" aria-label="Breadcrumb">
-  <a href="{{ '/' | relative_url }}">Home</a>
-  <span>/</span>
-  <a href="{{ '/practice-clarity/' | relative_url }}">Practice Clarity</a>
-  <span>/</span>
-  <strong>The Homepage Principle</strong>
+
+<a href="{{ '/' | relative_url }}">Home</a>
+
+<span>/</span>
+
+<a href="{{ '/practice-clarity/' | relative_url }}">
+Practice Clarity
+</a>
+
+<span>/</span>
+
+<strong>
+The Homepage Principle
+</strong>
+
 </nav>
 
 <section class="acw-guide-chapter-intro">
-  <p class="acw-section-label">Practice Clarity</p>
 
-  <p class="acw-guide-series">Nine Principles for Building Trust Before Therapy Begins</p>
+<p class="acw-section-label">
+Practice Clarity
+</p>
 
-  <div class="acw-guide-chapter-grid">
-    <div>
-      <p class="acw-guide-kicker">Guide Five of Nine</p>
-      <h1>The Homepage Principle</h1>
-      <p class="acw-guide-deck">
-        Every homepage answers one question: am I in the right place?
-      </p>
-    </div>
+<p class="acw-guide-series">
+Nine Principles for Building Trust Before Therapy Begins
+</p>
 
-    <aside class="acw-guide-progress-card">
-      <p>Where you are</p>
-      <ol>
-        <li class="is-complete">The Mirror Principle</li>
-        <li class="is-complete">The Waiting Room Principle</li>
-        <li class="is-complete">The Threshold Principle</li>
-        <li class="is-complete">The Recognition Principle</li>
-        <li class="is-current">The Homepage Principle</li>
-        <li>The About Principle</li>
-        <li>The Simplicity Principle</li>
-        <li>The Consistency Principle</li>
-        <li>The Enquiry Principle</li>
-      </ol>
-    </aside>
-  </div>
+<div class="acw-guide-chapter-grid">
+
+<div>
+
+<p class="acw-guide-kicker">
+Principle Five of Nine
+</p>
+
+<h1>
+The Homepage Principle
+</h1>
+
+<p class="acw-guide-deck">
+Every homepage answers one question:
+am I in the right place?
+</p>
+
+<p class="acw-guide-meta">
+20 min read
+</p>
+
+</div>
+
+{% include practice-clarity-progress.html %}
+
+</div>
+
 </section>
 
 <div class="acw-guide-anchor-panel">
-  <p>Jump to</p>
-  <a href="#question">The homepage question</a>
-  <a href="#role">What a homepage is for</a>
-  <a href="#sequence">The homepage sequence</a>
-  <a href="#mistakes">Common mistakes</a>
-  <a href="#structure">A simple structure</a>
-  <a href="#reflection">Reflection questions</a>
-  <a href="#next">Continue reading</a>
+
+<p>
+Jump to
+</p>
+
+<a href="#question">The homepage question</a>
+
+<a href="#role">What a homepage is for</a>
+
+<a href="#sequence">The homepage sequence</a>
+
+<a href="#mistakes">Common mistakes</a>
+
+<a href="#structure">A simple structure</a>
+
+<a href="#reflection">Reflection</a>
+
+<a href="#next">Continue reading</a>
+
 </div>
 
-# The Homepage Principle
+# Practice Clarity
 
-## Every homepage answers one question: am I in the right place?
+## The Homepage Principle
+
+### Every homepage answers one quiet question before any other.
 
 <div class="acw-guide-intro-panel">
 
 <p class="acw-guide-intro-lead">
-A therapist homepage is not a brochure.
+
+Recognition has already happened.
+
 </p>
 
 <p>
-It is not a place to prove everything.
+
+Someone has found your website.
+
 </p>
 
 <p>
-It is not a storage container for every service, qualification, modality and detail.
+
+They have stayed.
+
 </p>
 
 <p>
-A therapist homepage has one primary responsibility:
+
+They have begun to recognise something of themselves in your words.
+
 </p>
 
 <p>
-To help the right person feel, <em>yes, I may be in the right place.</em>
+
+Now they are asking one simple question.
+
+</p>
+
+<p class="acw-guide-emphasis">
+
+<strong>
+
+Am I in the right place?
+
+</strong>
+
 </p>
 
 </div>
 
 <div class="acw-callout acw-framework">
 
-<strong>Foundation Guide</strong>
+<strong>
 
-This guide introduces <strong>The Homepage Principle</strong>.
+The Homepage Principle builds directly on the Recognition Principle.
 
-It builds on <a href="{{ '/practice-clarity/threshold-principle/' | relative_url }}">The Threshold Principle</a> and <a href="{{ '/practice-clarity/recognition-principle/' | relative_url }}">The Recognition Principle</a>.
+</strong>
 
-If the Threshold Principle asks, <strong>does this feel safe enough to stay?</strong>, and the Recognition Principle asks, <strong>do I recognise myself here?</strong>, this guide asks:
+Recognition helps someone feel understood.
 
-<strong>Am I in the right place?</strong>
+The homepage helps them feel oriented.
+
+It gathers everything that came before into one calm experience.
+
+Its purpose is not to explain everything.
+
+Its purpose is to reassure the right person that they are exactly where they need to be.
 
 </div>
 
 ---
 
-## In this guide you'll discover
+## In this principle you'll discover
 
 - Why the homepage carries so much emotional responsibility.
-- Why a homepage should orient before it explains.
-- What most therapist homepages try to do too soon.
-- The difference between information and reassurance.
-- A simple structure for a clearer therapist homepage.
-- Why the homepage should guide people rather than overwhelm them.
+- Why orientation always comes before explanation.
+- Why information is different from reassurance.
+- Why most therapist homepages try to do too much.
+- A simple sequence for creating a calmer homepage.
+- Why the homepage prepares every page that follows.
 
 ---
 
 <section id="question"></section>
 
-# Part One  
-## The homepage question
+# The homepage question
 
-## The question every homepage answers
+## Every homepage answers a question
 
-Every homepage answers a question.
+Recognition changes something important.
 
-Usually not the question the therapist thinks it answers.
+Until now, the visitor has been asking:
 
-A therapist might think their homepage is answering:
+*"Do I recognise myself here?"*
 
-*"What do I offer?"*
+The moment recognition begins...
 
-Or:
-
-*"What are my qualifications?"*
-
-Or:
-
-*"What kind of therapy do I practise?"*
-
-Or:
-
-*"How do I explain my services?"*
-
-Those questions matter.
-
-But they are not the first question a visitor is asking.
-
-The visitor is asking something simpler.
-
-More emotional.
-
-More immediate.
+another question quietly replaces it.
 
 *"Am I in the right place?"*
 
-That question sits underneath everything.
+That question sits underneath everything else.
 
-It is present before someone reads your fees.
+Before someone reads your fees.
 
-Before they understand your modality.
+Before they understand your approach.
 
-Before they look at your training.
+Before they compare qualifications.
 
-Before they decide whether to contact you.
+Before they decide whether to make contact.
 
-If the homepage does not answer that first question clearly enough, everything else becomes harder to receive.
+They are trying to orient themselves.
 
-The visitor may still read.
+Not simply within your website.
 
-They may still scroll.
+Within the possibility of beginning therapy.
 
-They may even agree with what you have written.
+That is why the homepage matters so much.
 
-But if the page does not help them feel oriented, they remain slightly uncertain.
+Not because it contains the most information.
 
-And uncertainty is tiring.
+Because it shapes the first coherent experience of your practice.
 
-Especially for someone already considering therapy.
+A homepage is successful when uncertainty becomes slightly smaller after reading it.
+
+That is a far better measure than whether it looks impressive.
 
 ---
 
-## The homepage is a moment of orientation
+## The homepage is a place of orientation
 
-Think of arriving somewhere unfamiliar.
+Imagine arriving somewhere unfamiliar.
 
-You do not immediately need a full explanation of the building.
+You do not immediately want a detailed explanation of the building.
 
-You need to know whether you are in the right place.
+You first want to know that you have arrived where you intended.
 
 You look for signs.
 
-Names.
+A reception desk.
 
 Light.
 
-A reception desk.
+Some indication that everything is where it should be.
 
-A person who seems to know what is happening.
+Only then do you begin exploring.
 
-A sense that you have arrived somewhere coherent.
+A therapist homepage performs the same emotional task.
 
-Only after that do you want detail.
+It tells the visitor:
 
-A homepage works the same way.
+You are here.
 
-It is the reception area of your website.
+You have arrived.
 
-Not because it should feel bland or administrative.
+This practice may be relevant to you.
 
-Because it performs the same emotional function.
+You can slow down.
 
-It helps someone arrive.
+You do not have to work everything out immediately.
 
-It gives them their bearings.
+That is why a homepage should orient before it explains.
 
-It tells them what kind of place this is.
+Because orientation reduces uncertainty.
 
-It offers enough reassurance for them to continue.
+Explanation only helps once someone feels ready to receive it.
 
 <div class="acw-pullquote">
 
-The homepage does not need to say everything.
+A homepage is not the place where someone learns everything.
 
-It needs to help someone know where they are.
+It is the place where they realise they may already be in the right place.
 
 </div>
 
-That is the beginning of the Homepage Principle.
+<figure class="acw-guide-figure">
+  <img
+    src="{{ '/assets/images/library/homepage-arrival.webp' | relative_url }}"
+    alt="A calm workspace with a simple homepage wireframe, notebook and soft morning light."
+    loading="lazy"
+  >
+</figure>
 
 ---
-
 <section id="role"></section>
 
-# Part Two  
-## What a homepage is for
+# What a homepage is for
 
 ## A homepage should not carry the whole practice
 
-One of the most common problems with therapist homepages is that they are asked to do too much.
+One of the most common problems with therapist homepages is that they are asked to do far too much.
 
 They try to introduce the therapist.
 
@@ -274,43 +318,39 @@ List every issue.
 
 Describe every service.
 
-Prove credibility.
+Demonstrate credibility.
 
 Explain therapy.
-
-Name the location.
 
 Mention online work.
 
 Share fees.
 
-Include testimonials where appropriate.
+Answer every question.
 
-Offer reassurance.
-
-Encourage contact.
-
-Link everywhere.
+Link to every page.
 
 Say everything.
 
-The result is often a page that contains a lot of information but does not create much clarity.
+The result is often a homepage full of information that somehow still feels unclear.
 
 Nothing is necessarily wrong.
 
-But everything competes.
+But everything competes for attention.
 
-The visitor has to sort the page for themselves.
+The visitor has to organise the page for themselves.
 
 They have to decide what matters.
 
-They have to translate professional language.
+Translate unfamiliar language.
 
-They have to work out where to go next.
+Work out what to read next.
 
-That is too much responsibility to place on someone who may already be anxious, tired or uncertain.
+Decide whether they belong.
 
-A homepage should not make the visitor organise your practice.
+That is far too much work for someone who may already feel anxious, overwhelmed or uncertain.
+
+A homepage should not ask the visitor to organise your practice.
 
 It should organise the experience for them.
 
@@ -318,110 +358,99 @@ It should organise the experience for them.
 
 ## The homepage is a guide
 
-A good therapist homepage is less like a poster and more like a quiet guide.
+The best therapist homepages do not perform.
 
-It says:
+They guide.
 
-You are here.
+Almost quietly.
 
-This is who I help.
+They say:
 
-This is what might be happening for you.
+*"You are here."*
 
-This is how I work.
+*"This may be relevant to you."*
 
-This is what you can read next.
+*"This is the kind of experience I understand."*
 
-This is how to make contact when you are ready.
+*"This is how I tend to work."*
 
-It does not rush.
+*"When you're ready, this is what happens next."*
 
-It does not flood.
+Nothing is forced.
 
-It does not perform.
+Nothing is rushed.
 
-It simply helps someone move from uncertainty towards understanding.
+Nothing feels as though it is trying to convince.
 
-That is why the homepage is so important.
+The page simply reduces uncertainty one step at a time.
 
-Not because it is the most impressive page.
+That is why I think of a homepage as a guide rather than a brochure.
 
-Because it is often the page that decides whether the rest of the website gets a chance.
+Brochures present information.
+
+Guides help people move.
 
 <div class="acw-callout acw-framework">
 
 <strong>The Homepage Principle</strong>
 
-Every homepage answers one question before any other:
+A homepage exists to answer one question before any other.
 
-<strong>Am I in the right place?</strong>
+<strong>
 
-A clear homepage reduces uncertainty by orienting the visitor, reflecting their experience and guiding them towards the next step.
+Am I in the right place?
+
+</strong>
+
+Everything else exists to support that answer.
 
 </div>
-
-A homepage is successful when the right person feels more settled after arriving than they did before.
-
-That is a better measure than whether the page looks impressive.
 
 ---
 
 <section id="sequence"></section>
 
-# Part Three  
-## The homepage sequence
+# The homepage sequence
 
-## Order matters
+## Order matters more than content
 
-The order of a homepage matters more than most people realise.
+One of the biggest surprises in Practice Clarity is that the problem is rarely missing content.
 
-The same information can either calm or overwhelm depending on when it appears.
+Most therapist homepages already contain the right information.
 
-For example, fees are useful.
+The problem is usually the order.
 
-But they may not belong in the first sentence.
+The exact same information can either reduce uncertainty...
+
+or create it...
+
+depending on when it appears.
 
 Qualifications matter.
 
-But they may not be the first thing a distressed visitor needs.
+But perhaps not in the first sentence.
 
-A list of issues can be helpful.
+Fees matter.
 
-But if it appears before the visitor feels understood, it may feel generic.
+But perhaps not before the visitor understands who the practice is for.
 
-Order creates emotional pacing.
+Professional memberships matter.
 
-A homepage should not simply contain the right things.
+But perhaps not before recognition has begun.
 
-It should introduce them in the right order.
+The homepage is not simply a collection of sections.
 
-At the beginning, the visitor needs orientation.
+It is an experience unfolding over time.
 
-Then recognition.
+That experience has a natural rhythm.
 
-Then trust.
-
-Then direction.
-
-That sequence matters.
-
-If you ask for contact before recognition, the page can feel pushy.
-
-If you give detail before orientation, the page can feel heavy.
-
-If you list credentials before lived experience, the page can feel distant.
-
-If you offer warmth without clarity, the page can feel vague.
-
-The homepage is not just content.
-
-It is choreography.
+If you interrupt that rhythm, the visitor has to work much harder than they should.
 
 ---
 
-## The four homepage movements
+## Four movements
 
-A clear therapist homepage usually moves through four stages.
+Most clear therapist homepages quietly move through four stages.
 
 ### 1. Orientation
 
@@ -431,80 +460,138 @@ Who is this for?
 
 What kind of help is available?
 
-The opening section should make this clear quickly.
+The visitor should be able to answer those questions within seconds.
 
-Not aggressively.
+Not perfectly.
 
-Not mechanically.
+Simply well enough to stop scanning and begin reading.
 
-Simply enough for the right person to stop scanning and begin reading.
+---
 
 ### 2. Recognition
 
-Does this sound like me?
+Now something changes.
 
-Does this therapist understand something about my experience?
+The visitor begins asking:
 
-This is where specific, human language matters.
+*"Does this sound like me?"*
 
-Recognition turns a homepage from general information into personal relevance.
+This is where lived experience becomes far more valuable than professional terminology.
+
+Recognition turns a website into something personal.
+
+---
 
 ### 3. Trust
 
-Can I imagine this person helping me?
+Only after recognition has begun does the visitor naturally start thinking about trust.
 
-Do they seem thoughtful?
+Who is this therapist?
 
-Do they seem grounded?
+How do they think?
 
-Do they seem clear?
+Do they feel calm?
 
-Trust grows through tone, structure, visual calm, professional credibility and practical transparency.
+Grounded?
+
+Experienced?
+
+Transparent?
+
+Trust grows gradually.
+
+It rarely appears because of one impressive sentence.
+
+It grows because every part of the homepage quietly supports the same experience.
+
+---
 
 ### 4. Direction
 
-What can I do next?
+Finally, the visitor begins wondering what happens next.
 
-Read more.
+Should I read more?
 
-Learn about the approach.
+Look at the About page?
 
-View fees.
+Read about fees?
 
-Make an enquiry.
+Send an enquiry?
+
+The homepage does not need to answer every question.
+
+It simply needs to make the next step obvious.
 
 A homepage without direction leaves people hovering.
 
-A good homepage helps the next step feel possible.
+A homepage with clear direction allows the journey to continue naturally.
 
 <div class="acw-pullquote">
 
-A homepage should not push people towards contact.
+A homepage should never push someone towards contact.
 
-It should make contact feel possible.
+It should simply make the next step feel possible.
 
 </div>
 
 ---
 
+## The homepage is choreography
+
+People often think homepage design is mostly visual.
+
+I think it is closer to choreography.
+
+Each section prepares the next.
+
+Orientation prepares recognition.
+
+Recognition prepares trust.
+
+Trust prepares action.
+
+If those arrive out of sequence, something begins to feel slightly uncomfortable.
+
+The visitor may never consciously notice why.
+
+They simply leave.
+
+Not because anything was wrong.
+
+Because the experience demanded more effort than they had available.
+
+Good homepage design is rarely about adding more.
+
+It is usually about arranging what already exists into a calmer sequence.
+
+<figure class="acw-guide-diagram">
+  <img
+    src="{{ '/assets/images/library/homepage-sequence.webp' | relative_url }}"
+    alt="A simple four-stage diagram showing Orientation, Recognition, Trust and Direction."
+    loading="lazy"
+  >
+</figure>
+
+---
 <section id="mistakes"></section>
 
-# Part Four  
-## Common homepage mistakes
+# Common homepage mistakes
 
-## 1. Opening with a vague welcome
+## 1. Opening with a welcome instead of orientation
 
-Many therapist homepages begin with a sentence like:
+Many therapist homepages begin with:
 
 *"Welcome to my website."*
 
-There is nothing offensive about this.
+There is nothing wrong with those words.
 
-But it does very little.
+They are simply answering a question nobody is asking.
 
-The visitor already knows they are on your website.
+The visitor already knows they have arrived on your website.
 
-What they need to know is whether this page is relevant to them.
+What they are trying to understand is something much more important.
+
+*"Is this relevant to me?"*
 
 A stronger opening does not need to be dramatic.
 
@@ -512,188 +599,176 @@ It simply needs to orient.
 
 For example:
 
-*"Therapy for people who appear to be coping, but feel overwhelmed underneath."*
+*"Therapy for adults who appear to be coping but privately feel overwhelmed."*
 
 Or:
 
-*"Counselling in Stockport for anxiety, self-doubt and the pressure to hold everything together."*
+*"Counselling for anxiety, self-doubt and the quiet pressure of holding everything together."*
 
-Or:
+Those sentences do more than introduce the practice.
 
-*"A calm, reflective space for adults who feel stuck, anxious or disconnected from themselves."*
-
-These sentences do more than welcome.
-
-They help someone locate themselves.
+They immediately reduce uncertainty.
 
 ---
 
-## 2. Trying to sound like every therapist
+## 2. Trying to include everyone
 
-Many therapists write their homepage by unconsciously blending into the language they have seen elsewhere.
-
-Safe.
-
-Confidential.
-
-Non-judgemental.
-
-Warm.
-
-Empathic.
-
-Supportive.
-
-Experienced.
-
-These words may all be true.
-
-But they are also expected.
-
-They rarely create recognition by themselves.
-
-The issue is not that these words are wrong.
-
-The issue is that they are incomplete.
-
-They describe the minimum someone hopes therapy will be.
-
-They do not yet describe your particular understanding of the people you help.
-
-A homepage becomes stronger when it moves from expected qualities to observed reality.
-
-Not only:
-
-*"I offer a safe and confidential space."*
-
-But:
-
-*"Many of the people I work with are used to being the reliable one. They can look capable from the outside while feeling exhausted, anxious or disconnected underneath."*
-
-That kind of sentence gives the visitor something to recognise.
-
----
-
-## 3. Listing too many issues too soon
-
-A long list of issues can make a homepage feel comprehensive.
-
-But it can also make it feel impersonal.
+Many homepages quietly become lists.
 
 Anxiety.
 
 Depression.
 
-Trauma.
-
 Stress.
 
-Bereavement.
+Trauma.
 
 Relationships.
 
+Bereavement.
+
 Self-esteem.
 
-Work problems.
+Family difficulties.
+
+Work stress.
+
+Burnout.
 
 Life transitions.
 
-Family issues.
+Every item may be accurate.
 
-The list may be accurate.
+Yet something still feels strangely impersonal.
 
-But accuracy is not the same as connection.
+Why?
 
-If someone has to find themselves in a long list, the homepage has not yet done the deeper work.
+Because visitors rarely experience themselves as categories.
 
-A better approach is to group experiences around patterns.
+They experience themselves as people.
+
+The homepage should describe patterns of experience rather than simply listing presenting issues.
 
 For example:
 
-- feeling anxious or constantly on edge
-- seeming fine while privately struggling
-- repeating relationship patterns you do not fully understand
-- feeling disconnected from yourself or other people
-- carrying pressure for so long it has started to feel normal
+*"Perhaps you're the person everyone else depends on, while privately wondering how much longer you can keep holding everything together."*
 
-That kind of language is still broad.
-
-But it is more recognisable.
+That sentence often creates far more recognition than ten bullet points ever could.
 
 ---
 
-## 4. Making the homepage about the therapist too soon
+## 3. Explaining yourself before understanding them
 
-A therapist homepage should include the therapist.
+A common homepage structure looks like this:
 
-But not too early.
+*"I am an integrative therapist with..."*
 
-Many pages begin with:
+*"I qualified in..."*
 
-*"I am a qualified integrative counsellor with..."*
+*"My approach combines..."*
 
-This may be important.
+None of that information is unhelpful.
 
-But it answers the therapist’s question before it answers the visitor’s.
+It simply arrives too early.
 
-The visitor is usually not asking:
+At the beginning of the journey, the visitor is still asking:
 
-*"Who are you in full?"*
+*"Can you understand me?"*
 
-They are asking:
+Not:
 
-*"Can you help with this?"*
+*"Can I understand you?"*
 
-A homepage should begin by meeting the visitor’s world.
+Your story becomes far more meaningful once the visitor already feels recognised.
 
-Then introduce the therapist as the person who may be able to help.
+That is why the About Principle follows this one.
 
-That small shift changes the emotional feel of the page.
+The homepage begins with their world.
 
-The therapist is still present.
-
-But the visitor feels considered first.
+The About page gently introduces yours.
 
 ---
 
-## 5. Giving no clear next step
+## 4. Making everything equally important
 
-Some homepages end softly but vaguely.
+Sometimes every section appears to have exactly the same weight.
 
-They explain therapy.
+Large headings.
 
-They describe the approach.
+Large paragraphs.
 
-They feel warm enough.
+Large buttons.
 
-But they do not clearly show what someone can do next.
+Multiple calls to action.
 
-This matters.
+Nothing stands out because everything is trying to.
 
-A person considering therapy may already feel hesitant.
+The visitor has to decide where to begin.
 
-They may not want to search for the contact page.
+That decision creates effort.
 
-They may not know whether to email, call or book.
+Good homepage design quietly removes unnecessary decisions.
 
-They may not know what happens after an enquiry.
+It gently says:
 
-A clear next step is not pushy.
+*"Start here."*
 
-It is kind.
+Then:
 
-It reduces effort.
+*"Now this."*
 
-It makes the path visible.
+Then:
 
-The Enquiry Principle explores this later in the library.
+*"When you're ready, here's the next step."*
 
-But the homepage should already begin that work.
+That sequencing feels almost invisible.
+
+Which is exactly why it works.
+
+---
+
+## 5. Ending without direction
+
+Some homepages simply stop.
+
+They finish explaining the therapist...
+
+and then nothing happens.
+
+No obvious next page.
+
+No invitation to continue.
+
+No indication of what happens after an enquiry.
+
+The visitor is left hovering.
+
+Not because they have rejected therapy.
+
+Because the path disappeared.
+
+Direction is not pressure.
+
+Direction is kindness.
+
+It quietly reduces uncertainty about what happens next.
+
+<div class="acw-callout acw-framework">
+
+<strong>Homepage clarity</strong>
+
+Every section should make the next step feel easier than the previous one.
+
+Not through persuasion.
+
+Through orientation.
+
+</div>
 
 <figure class="acw-guide-figure">
   <img
-    src="{{ '/assets/images/library/homepage-principle-desk.webp' | relative_url }}"
-    alt="A calm homepage wireframe on paper beside a laptop and notebook in soft morning light."
+    src="{{ '/assets/images/library/homepage-wireframe.webp' | relative_url }}"
+    alt="A calm homepage wireframe sketched on paper beside a notebook and pencil."
     loading="lazy"
   >
 </figure>
@@ -702,329 +777,256 @@ But the homepage should already begin that work.
 
 <section id="structure"></section>
 
-# Part Five  
-## A simple homepage structure
+# A simple structure
 
-## The calm homepage framework
+## A homepage does not need to be complicated
 
-A therapist homepage does not need to be complicated.
+One of the biggest myths about therapist websites is that effective homepages are complex.
 
-In fact, it usually becomes stronger when it becomes simpler.
+They usually aren't.
 
-Here is a simple structure.
+The strongest homepages often become simpler over time.
+
+Not because they contain less.
+
+Because they become clearer about what belongs where.
+
+A homepage only needs to answer a handful of questions.
 
 <div class="acw-callout acw-framework">
 
-<strong>A clear therapist homepage should usually answer:</strong>
+<strong>A calm homepage usually answers five questions.</strong>
 
 1. Who is this for?
+
 2. What might they be experiencing?
-3. How can therapy help?
-4. What kind of therapist are you?
-5. What can they do next?
+
+3. How might therapy help?
+
+4. Who is the therapist?
+
+5. What happens next?
 
 </div>
 
-That is enough.
+Notice what is missing.
 
-Not because nothing else matters.
+Nothing about saying everything.
 
-Because everything else can be placed where it belongs.
+Nothing about proving expertise immediately.
 
-Your About page can carry more of your story.
+Nothing about listing every possible issue.
 
-Your services pages can explain specific offers.
+The homepage creates orientation.
 
-Your FAQ can answer practical questions.
-
-Your contact page can guide the enquiry.
-
-Your homepage does not need to hold everything.
-
-It needs to help people move.
+The rest of the website gradually deepens understanding.
 
 ---
 
-## Section one: orientation
+## Every page has its own responsibility
 
-The first screen should answer the visitor’s immediate question.
+One of the reasons Practice Clarity exists is because therapists often expect one page to carry the weight of an entire practice.
 
-Am I in the right place?
+Instead, every page should perform one primary job.
 
-This usually means naming:
+The homepage creates orientation.
 
-- the kind of person you help
-- the broad difficulty or experience
-- the form of support available
-- the location or online availability if relevant
+The About page develops relationship.
 
-A good opening is clear enough to orient but spacious enough not to overwhelm.
+Service pages deepen understanding.
 
-It should not feel like a slogan.
+Fee pages reduce practical uncertainty.
 
-It should feel like a doorway.
+The contact page removes friction from making an enquiry.
 
----
+When each page knows its responsibility...
 
-## Section two: recognition
+the whole website becomes calmer.
 
-After orientation, the homepage should help the visitor recognise something of themselves.
+Not because there is less information.
 
-This is where observed language matters.
+Because the information appears exactly when it becomes useful.
 
-Not:
+<div class="acw-pullquote">
 
-*"I work with anxiety and stress."*
+A homepage should never carry the whole practice.
 
-But perhaps:
+It should simply begin the journey well.
 
-*"You may look like you are managing, while privately feeling tense, tired or unable to switch off."*
-
-Recognition helps the page become personal.
-
-It tells the visitor:
-
-*"This is not just a list of services. This person understands something about the experience underneath."*
+</div>
 
 ---
 
-## Section three: the work
+# The homepage in the wider journey
 
-Once the visitor feels oriented and recognised, they are more ready to understand how you work.
+## Every principle prepares the next
 
-This is where you can introduce:
+By now the journey should feel familiar.
 
-- your therapeutic approach
-- the kind of relationship you offer
-- what sessions may help with
-- how you think about change
-- what therapy with you tends to feel like
+The Mirror Principle asked:
 
-This section should still be written in human language.
+*"What is your website reflecting?"*
 
-The goal is not to prove expertise.
+The Waiting Room Principle asked:
 
-The goal is to help the visitor imagine working with you.
+*"Can the right people discover it?"*
 
----
+The Threshold Principle asked:
 
-## Section four: credibility
+*"Do they feel safe enough to stay?"*
 
-Credentials matter.
+The Recognition Principle asked:
 
-But they usually work best once the visitor already feels some relevance.
+*"Do they recognise themselves?"*
 
-This section might include:
+The Homepage Principle gathers those ideas together into one practical experience.
 
-- qualifications
-- registrations
-- experience
-- specialist training
-- professional memberships
-- ethical commitments
+The homepage becomes the place where clarity, visibility, arrival and recognition all quietly meet.
 
-The point is not to overwhelm the visitor with proof.
+Not through clever design.
 
-It is to quietly reassure them that the person they have begun to trust is properly trained, grounded and accountable.
+Through thoughtful sequencing.
 
----
+That naturally prepares the next question.
 
-## Section five: direction
+Once someone feels they are in the right place...
 
-The homepage should end by making the next step clear.
+they begin wondering something much more personal.
 
-Not aggressive.
+*"Who is this therapist?"*
 
-Not salesy.
-
-Clear.
-
-For example:
-
-*"If you would like to explore whether working together feels right, you are welcome to send a short enquiry."*
-
-Then explain what happens next.
-
-Do they receive a reply?
-
-Is there a consultation?
-
-Can they ask questions first?
-
-Is there any pressure to commit?
-
-The clearer this feels, the less emotional effort is required.
-
----
-
-# Part Six  
-## The homepage as part of the wider journey
-
-## The homepage does not work alone
-
-The homepage is important.
-
-But it does not work in isolation.
-
-It is part of the wider Practice Clarity journey.
-
-The Mirror Principle asks what your website reflects.
-
-The Waiting Room Principle asks how people discover it.
-
-The Threshold Principle asks whether arrival feels safe enough to continue.
-
-The Recognition Principle asks whether the visitor recognises themselves.
-
-The Homepage Principle brings those questions together on one page.
-
-That is why the homepage is not simply a design problem.
-
-It is a clarity problem.
-
-A sequencing problem.
-
-A trust problem.
-
-A human problem.
-
-A homepage becomes effective when it reduces uncertainty at each step.
-
-Not all at once.
-
-Carefully.
-
-In order.
-
----
-
-## The homepage prepares the About page
-
-Once someone feels they may be in the right place, their next question often becomes:
-
-*"Who is this person?"*
-
-That is where the About page begins.
-
-But the About page works best when the homepage has already done its job.
-
-If the homepage has oriented the visitor, the About page can deepen trust.
-
-If the homepage has created recognition, the About page can make the therapist feel more human.
-
-If the homepage has reduced uncertainty, the About page can help the visitor imagine contact.
-
-That is why the next guide is The About Principle.
-
-Because people are not looking for your biography.
-
-They are looking for themselves in your story.
+That is where the About Principle begins.
 
 <div class="acw-callout acw-framework">
 
-<strong>The central idea of this guide</strong>
+<strong>The central idea of this principle</strong>
 
-A homepage does not need to explain everything.
+A homepage does not exist to explain everything.
 
-It needs to help the right person feel:
+It exists to help the right person quietly realise:
 
-<strong>I may be in the right place.</strong>
+<strong>
+
+I think I'm in the right place.
+
+</strong>
 
 </div>
 
+---
 ---
 
 <section id="reflection"></section>
 
-## Reflection questions
+# Reflection
 
-Before moving on, spend a few minutes with these questions.
+Before moving on, spend a few quiet minutes with these questions.
 
-There are no right answers.
+Don't rush to answer them.
 
-They are simply invitations to notice what your homepage is currently doing.
+Simply notice what your homepage currently asks a visitor to do.
 
 <div class="acw-reflection-grid">
 
 <div class="acw-callout acw-exercise">
-Within the first five seconds, does your homepage clearly tell someone who your work is for?
+
+Within the first five seconds, would someone understand who your practice is for?
+
 </div>
 
 <div class="acw-callout acw-exercise">
-Does your homepage begin with the visitor’s world, or with your professional details?
+
+Does your homepage begin by helping the visitor orient themselves...
+
+or by explaining you?
+
 </div>
 
 <div class="acw-callout acw-exercise">
-Where does your homepage help someone think, <em>this sounds like me</em>?
+
+Which sentence on your homepage is most likely to make someone quietly think:
+
+*"That's me."*
+
 </div>
 
 <div class="acw-callout acw-exercise">
-Is the next step clear, calm and easy to find?
+
+If someone left your homepage after one minute...
+
+would they feel more certain than when they arrived?
+
 </div>
 
 </div>
 
 ---
 
-## Key ideas to remember
-
-<div class="acw-callout acw-checklist">
-
-<strong>If you remember nothing else, remember this.</strong>
-
-- Every homepage answers one question: am I in the right place?
-- The homepage should orient before it explains.
-- Information is not the same as reassurance.
-- The homepage should guide the visitor through a sequence.
-- Broad language often weakens recognition.
-- Your homepage does not need to say everything.
-- The About page can deepen what the homepage begins.
-- A clear homepage reduces uncertainty one step at a time.
-
-</div>
+{% include practice-clarity-remember.html
+text="A homepage does not exist to explain everything. It exists to help the right person quietly realise they are in the right place." %}
 
 ---
 
 <section id="next"></section>
 
-## Continue reading
-
-<div class="acw-guide-next-card">
-
-<p class="acw-section-label">Next Principle</p>
-
-<h2>The About Principle</h2>
-
-<p>
-If the Homepage Principle asks, <strong>am I in the right place?</strong>,
-the next guide asks:
-<strong>who is this person, and can I imagine talking to them?</strong>
-</p>
-
-<a href="{{ '/practice-clarity/about-principle/' | relative_url }}" class="acw-btn acw-btn-primary">
-  Continue to Guide Six
-</a>
-
-</div>
+{% include practice-clarity-navigation.html %}
 
 ---
 
-## About this guide
+# About this principle
 
-The Homepage Principle grew from seeing how often therapist websites put the right information in the wrong order.
+The Homepage Principle emerged from noticing something surprisingly consistent.
 
-Many homepages contain warmth, training, care and useful detail.
+Many therapist homepages contained all the right information.
 
-But they still leave the visitor working too hard to understand whether the page is for them.
+Qualifications.
 
-A homepage becomes clearer when it stops trying to prove everything at once.
+Approaches.
 
-Its first responsibility is simpler.
+Professional memberships.
 
-Help someone arrive.
+Services.
 
-Help them recognise relevance.
+Fees.
 
-Help them feel oriented enough to continue.
+Contact details.
 
-When that happens, the rest of the website has a chance to do its work.
+Nothing important was missing.
+
+Yet something still felt difficult.
+
+Visitors often had to work too hard to answer one simple question.
+
+*"Am I in the right place?"*
+
+That question sits underneath almost every homepage visit.
+
+Long before somebody decides whether they like the design.
+
+Long before they compare qualifications.
+
+Long before they read the About page.
+
+They are simply trying to orient themselves.
+
+The strongest homepages rarely achieve this by saying more.
+
+They achieve it by arranging information more thoughtfully.
+
+Orientation first.
+
+Recognition second.
+
+Trust afterwards.
+
+Direction when the visitor is ready.
+
+The Homepage Principle is really about sequencing.
+
+Not because sequence makes websites more elegant.
+
+Because sequence makes uncertainty easier to carry.
+
+---
+
+{% include practice-clarity-roadmap.html %}

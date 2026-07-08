@@ -2,14 +2,16 @@
 layout: guide
 
 title: "The Consistency Principle"
-description: "Trust grows when every touchpoint tells the same story. The eighth Practice Clarity principle for therapist websites."
+description: "The eighth Practice Clarity principle. Why trust grows when every interaction feels like it belongs to the same thoughtful practice."
+
 excerpt: >
   Consistency is not about making everything identical.
-  It is about creating the feeling that every interaction belongs
-  to the same thoughtful, trustworthy practice.
+  It is about helping every interaction feel like it belongs
+  to the same calm, trustworthy practice.
 
 category: Practice Clarity
 level: Foundation
+
 featured: true
 featured_order: 8
 
@@ -17,17 +19,18 @@ slug: consistency-principle
 permalink: /practice-clarity/consistency-principle/
 
 hero_image: /assets/images/library/consistency-principle.webp
-hero_alt: "A calm arrangement of matching notebooks, paper, typography and natural materials in soft morning light."
+hero_alt: "A calm arrangement of matching notebooks, paper and natural materials in soft morning light."
 image: /assets/images/library/consistency-principle.webp
 
 read_time: 18 min read
-updated: 2026-07-07
+updated: 2026-07-08
+
 canonical_url: https://alexanderwatson.co.uk/practice-clarity/consistency-principle/
 
 intro: >
-  Consistency is not only about colours, fonts or logos.
-  It is about helping every part of your practice feel coherent,
-  familiar and trustworthy before therapy begins.
+  Simplicity helps people move through your website effortlessly.
+  Consistency helps every interaction feel connected.
+  Together they create the quiet predictability from which trust grows.
 
 related:
   - simplicity-principle
@@ -37,1177 +40,1033 @@ related:
 ---
 
 <nav class="acw-guide-breadcrumb" aria-label="Breadcrumb">
-  <a href="{{ '/' | relative_url }}">Home</a>
-  <span>/</span>
-  <a href="{{ '/practice-clarity/' | relative_url }}">Practice Clarity</a>
-  <span>/</span>
-  <strong>The Consistency Principle</strong>
+
+<a href="{{ '/' | relative_url }}">Home</a>
+
+<span>/</span>
+
+<a href="{{ '/practice-clarity/' | relative_url }}">
+Practice Clarity
+</a>
+
+<span>/</span>
+
+<strong>
+The Consistency Principle
+</strong>
+
 </nav>
 
 <section class="acw-guide-chapter-intro">
-  <p class="acw-section-label">Practice Clarity</p>
 
-  <p class="acw-guide-series">Nine Principles for Building Trust Before Therapy Begins</p>
+<p class="acw-section-label">
+Practice Clarity
+</p>
 
-  <div class="acw-guide-chapter-grid">
-    <div>
-      <p class="acw-guide-kicker">Guide Eight of Nine</p>
-      <h1>The Consistency Principle</h1>
-      <p class="acw-guide-deck">
-        Trust grows when every touchpoint tells the same story.
-      </p>
-    </div>
+<p class="acw-guide-series">
+Nine Principles for Building Trust Before Therapy Begins
+</p>
 
-    <aside class="acw-guide-progress-card">
-      <p>Where you are</p>
-      <ol>
-        <li class="is-complete">The Mirror Principle</li>
-        <li class="is-complete">The Waiting Room Principle</li>
-        <li class="is-complete">The Threshold Principle</li>
-        <li class="is-complete">The Recognition Principle</li>
-        <li class="is-complete">The Homepage Principle</li>
-        <li class="is-complete">The About Principle</li>
-        <li class="is-complete">The Simplicity Principle</li>
-        <li class="is-current">The Consistency Principle</li>
-        <li>The Enquiry Principle</li>
-      </ol>
-    </aside>
-  </div>
+<div class="acw-guide-chapter-grid">
+
+<div>
+
+<p class="acw-guide-kicker">
+Principle Eight of Nine
+</p>
+
+<h1>
+The Consistency Principle
+</h1>
+
+<p class="acw-guide-deck">
+Trust grows when every touchpoint tells the same story.
+</p>
+
+<p class="acw-guide-meta">
+18 min read
+</p>
+
+</div>
+
+{% include practice-clarity-progress.html %}
+
+</div>
+
 </section>
 
 <div class="acw-guide-anchor-panel">
-  <p>Jump to</p>
-  <a href="#prediction">Trust is prediction</a>
-  <a href="#principle">The principle</a>
-  <a href="#layers">Six layers of consistency</a>
-  <a href="#mistakes">Common mistakes</a>
-  <a href="#audit">The consistency audit</a>
-  <a href="#reflection">Reflection questions</a>
-  <a href="#next">Continue reading</a>
+
+<p>
+Jump to
+</p>
+
+<a href="#coherence">Emotional coherence</a>
+
+<a href="#principle">The Consistency Principle</a>
+
+<a href="#layers">Six layers of consistency</a>
+
+<a href="#mistakes">Common mistakes</a>
+
+<a href="#audit">The consistency audit</a>
+
+<a href="#reflection">Reflection</a>
+
+<a href="#next">Continue reading</a>
+
 </div>
 
-<h1>The Consistency Principle</h1>
+# Practice Clarity
 
-<h2>Trust grows when every touchpoint tells the same story.</h2>
+## The Consistency Principle
+
+### Trust grows when every touchpoint tells the same story.
 
 <div class="acw-guide-intro-panel">
 
-  <p class="acw-guide-intro-lead">
-    Consistency is not really about branding.
-  </p>
+<p class="acw-guide-intro-lead">
 
-  <p>
-    It is about predictability.
-  </p>
+By now the website feels easy to move through.
 
-  <p>
-    A person begins to trust a therapist when each interaction feels coherent with the last.
-  </p>
+</p>
 
-  <p>
-    The website, the enquiry email, the consultation and the therapy itself should all feel like they belong to the same thoughtful practice.
-  </p>
+<p>
+
+The visitor understands the practice.
+
+</p>
+
+<p>
+
+They recognise themselves.
+
+</p>
+
+<p>
+
+They feel they are in the right place.
+
+</p>
+
+<p>
+
+They can imagine speaking with the therapist.
+
+</p>
+
+<p>
+
+Now something quieter begins happening.
+
+</p>
+
+<p class="acw-guide-emphasis">
+
+<strong>
+
+Everything starts feeling as though it belongs together.
+
+</strong>
+
+</p>
 
 </div>
 
 <div class="acw-callout acw-framework">
 
-  <strong>Foundation Guide</strong>
+<strong>
 
-  <p>
-    This guide introduces <strong>The Consistency Principle</strong>.
-  </p>
+The Consistency Principle builds directly on the Simplicity Principle.
 
-  <p>
-    It builds on <a href="{{ '/practice-clarity/simplicity-principle/' | relative_url }}">The Simplicity Principle</a>.
-  </p>
+</strong>
 
-  <p>
-    If the Simplicity Principle asks, <strong>how much effort does this website create?</strong>, this guide asks:
-  </p>
+Simplicity removes unnecessary effort.
 
-  <p>
-    <strong>Does every touchpoint tell the same story?</strong>
-  </p>
+Consistency removes unnecessary doubt.
+
+Every page...
+
+every email...
+
+every photograph...
+
+every practical detail...
+
+should quietly reinforce the same impression.
+
+Trust grows because the experience becomes increasingly predictable.
 
 </div>
 
-<hr>
+---
 
-<h2>In this guide you'll discover</h2>
+## In this principle you'll discover
 
-<ul>
-  <li>Why consistency creates trust.</li>
-  <li>Why branding is only a small part of consistency.</li>
-  <li>The hidden cost of mixed signals.</li>
-  <li>Why therapist websites should feel emotionally coherent.</li>
-  <li>The six places consistency matters.</li>
-  <li>How consistency prepares someone for enquiry.</li>
-</ul>
+- Why consistency creates trust.
+- Why branding is only one small part of consistency.
+- Why mixed signals quietly weaken confidence.
+- The six layers of consistency.
+- How emotional coherence influences trust.
+- Why consistency naturally prepares enquiry.
 
-<hr>
+---
 
-<section id="prediction"></section>
+<section id="coherence"></section>
 
-<h1>Part One</h1>
-<h2>Trust is prediction</h2>
+# Emotional coherence
 
-<h2>People relax when things feel coherent</h2>
+## Trust grows through familiarity
 
-<p>
-  Trust is not created because people know everything.
-</p>
+People often assume trust grows because we learn more.
 
-<p>
-  Trust grows because people begin to predict what will happen next.
-</p>
+Sometimes it does.
 
-<p>
-  When something feels predictable, the nervous system has less work to do.
-</p>
+But another process is happening at the same time.
 
-<p>
-  Imagine someone arriving on a therapist's website.
-</p>
+As each interaction feels consistent with the last...
 
-<p>
-  The homepage feels calm.
-</p>
+our need to keep reassessing quietly begins to disappear.
 
-<p>
-  The About page sounds thoughtful.
-</p>
+The homepage feels thoughtful.
 
-<p>
-  The photography feels natural.
-</p>
+The About page feels thoughtful.
 
-<p>
-  The enquiry form feels simple.
-</p>
+The photography feels thoughtful.
 
-<p>
-  The reply they receive sounds like the person they imagined from the website.
-</p>
+The navigation feels thoughtful.
 
-<p>
-  Then the consultation begins, and the therapist feels much as they expected.
-</p>
+The enquiry process feels thoughtful.
 
-<p>
-  Nothing jars.
-</p>
+Eventually the visitor stops evaluating each individual part.
 
-<p>
-  Nothing suddenly changes tone.
-</p>
+Instead they begin trusting the experience as a whole.
 
-<p>
-  Nothing makes them wonder whether the website was an act.
-</p>
+That shift matters.
 
-<p>
-  That is not boring.
-</p>
+Because trust is rarely built by one exceptional moment.
 
-<p>
-  It is reassuring.
-</p>
+It is built by many small moments that quietly agree with one another.
 
 <div class="acw-pullquote">
-  Trust grows when the next experience feels connected to the last one.
-</div>
 
-<p>
-  This is what consistency does.
-</p>
-
-<p>
-  It reduces the need to keep reassessing.
-</p>
-
-<p>
-  It lets a person feel that the practice they are approaching is coherent.
-</p>
-
-<p>
-  Not perfect.
-</p>
-
-<p>
-  Coherent.
-</p>
-
-<h2>Every inconsistency creates a small question</h2>
-
-<p>
-  Now imagine something different.
-</p>
-
-<p>
-  The website is calm, warm and carefully written.
-</p>
-
-<p>
-  The photography feels soft and human.
-</p>
-
-<p>
-  The homepage speaks gently about taking time and working at the client's pace.
-</p>
-
-<p>
-  Then the enquiry response arrives.
-</p>
-
-<p>
-  It feels abrupt.
-</p>
-
-<p>
-  Or corporate.
-</p>
-
-<p>
-  Or rushed.
-</p>
-
-<p>
-  Or strangely different from the tone of the website.
-</p>
-
-<p>
-  Nothing terrible has happened.
-</p>
-
-<p>
-  But something has changed.
-</p>
-
-<p>
-  The visitor now has to update their impression.
-</p>
-
-<p>
-  They may not consciously think:
-</p>
-
-<p>
-  <em>Was the website accurate?</em>
-</p>
-
-<p>
-  But the question appears somewhere.
-</p>
-
-<p>
-  Every inconsistency creates a small moment of doubt.
-</p>
-
-<p>
-  A confusing booking page.
-</p>
-
-<p>
-  A cold confirmation email.
-</p>
-
-<p>
-  A stock image that does not match the tone.
-</p>
-
-<p>
-  A contact process that feels more pressured than the writing.
-</p>
-
-<p>
-  A consultation that feels unlike the website.
-</p>
-
-<p>
-  Each one asks the person to reassess.
-</p>
-
-<p>
-  That reassessment creates effort.
-</p>
-
-<p>
-  And effort can weaken trust.
-</p>
-
-<hr>
-
-<section id="principle"></section>
-
-<h1>Part Two</h1>
-<h2>The Consistency Principle</h2>
-
-<h2>Consistency is emotional coherence</h2>
-
-<p>
-  People often think consistency means visual consistency.
-</p>
-
-<p>
-  Colours.
-</p>
-
-<p>
-  Fonts.
-</p>
-
-<p>
-  Logos.
-</p>
-
-<p>
-  Image style.
-</p>
-
-<p>
-  Layout.
-</p>
-
-<p>
-  Those things matter.
-</p>
-
-<p>
-  But they are only one layer.
-</p>
-
-<p>
-  For a therapist website, consistency is deeper than branding.
-</p>
-
-<p>
-  It is emotional coherence.
-</p>
-
-<p>
-  Does the website sound like the person someone eventually meets?
-</p>
-
-<p>
-  Does the enquiry process feel like a continuation of the homepage?
-</p>
-
-<p>
-  Does the About page deepen the same sense of trust the homepage began?
-</p>
-
-<p>
-  Do the images, words, buttons and practical details all seem to belong to the same practice?
-</p>
-
-<p>
-  Or does each part feel slightly disconnected?
-</p>
-
-<div class="acw-callout acw-framework">
-
-  <strong>The Consistency Principle</strong>
-
-  <p>
-    Trust grows when every touchpoint tells the same story.
-  </p>
-
-  <p>
-    A consistent therapist website does not make every page identical.
-  </p>
-
-  <p>
-    It makes every interaction feel coherent, familiar and trustworthy.
-  </p>
+Trust grows when the next experience feels connected to the last.
 
 </div>
 
-<p>
-  Consistency reduces uncertainty because the visitor does not have to keep asking:
-</p>
+---
 
-<p>
-  <em>Which version is real?</em>
-</p>
+## Predictability reduces uncertainty
 
-<p>
-  The calm website.
-</p>
+Predictability is sometimes misunderstood.
 
-<p>
-  The rushed email.
-</p>
+It sounds ordinary.
 
-<p>
-  The warm homepage.
-</p>
+Even boring.
 
-<p>
-  The generic contact page.
-</p>
+In therapy it is neither.
 
-<p>
-  The reflective About page.
-</p>
+Predictability helps the nervous system relax.
 
-<p>
-  The confusing booking process.
-</p>
+It allows someone to stop asking:
 
-<p>
-  A consistent practice does not create that split.
-</p>
+*"What happens now?"*
 
-<p>
-  It lets every part reinforce the same impression.
-</p>
+*"Will this suddenly feel different?"*
 
-<h2>Consistency is not repetition</h2>
+*"Was the website simply saying what I wanted to hear?"*
 
-<p>
-  Consistency does not mean saying the same thing everywhere.
-</p>
+A consistent practice quietly answers those questions before they are fully formed.
 
-<p>
-  It does not mean every page needs the same structure.
-</p>
+Nothing jars.
 
-<p>
-  It does not mean repeating your tagline until it becomes meaningless.
-</p>
+Nothing suddenly changes tone.
 
-<p>
-  A homepage has one job.
-</p>
+Nothing asks the visitor to start reassessing.
 
-<p>
-  An About page has another.
-</p>
+The experience simply continues.
 
-<p>
-  A fees page has another.
-</p>
+That is why consistency matters.
 
-<p>
-  A contact page has another.
-</p>
+Not because it creates a stronger brand.
 
-<p>
-  Different pages should do different things.
-</p>
-
-<p>
-  But they should feel as if they belong to the same practice.
-</p>
-
-<p>
-  That is the distinction.
-</p>
-
-<div class="acw-pullquote">
-  Consistency is not sameness. It is belonging.
-</div>
-
-<p>
-  The reader should feel that each page is another room in the same house.
-</p>
-
-<p>
-  Not a different building.
-</p>
-
-<hr>
-
-<section id="layers"></section>
-
-<h1>Part Three</h1>
-<h2>Six layers of consistency</h2>
-
-<h2>1. Language</h2>
-
-<p>
-  Do you sound like the same person everywhere?
-</p>
-
-<p>
-  Your homepage might be calm and specific.
-</p>
-
-<p>
-  But your About page might drift into formal professional language.
-</p>
-
-<p>
-  Your services page might sound more clinical.
-</p>
-
-<p>
-  Your contact page might become abrupt.
-</p>
-
-<p>
-  None of this is unusual.
-</p>
-
-<p>
-  It often happens because different pages are written at different times.
-</p>
-
-<p>
-  But the visitor experiences them together.
-</p>
-
-<p>
-  A consistent voice helps them feel that one coherent person is speaking.
-</p>
-
-<h2>2. Design</h2>
-
-<p>
-  Design consistency is not about decoration.
-</p>
-
-<p>
-  It is about orientation.
-</p>
-
-<p>
-  Similar spacing, headings, buttons and page rhythms help the visitor understand where they are.
-</p>
-
-<p>
-  If every page behaves differently, the visitor has to relearn the website again and again.
-</p>
-
-<p>
-  Consistent design lowers effort.
-</p>
-
-<h2>3. Photography</h2>
-
-<p>
-  Photography carries tone before words are read.
-</p>
-
-<p>
-  If one page uses calm, natural imagery and another uses glossy stock photography, the emotional world changes.
-</p>
-
-<p>
-  The visitor may not name that change.
-</p>
-
-<p>
-  But they feel it.
-</p>
-
-<p>
-  Consistent imagery helps create one atmosphere.
-</p>
-
-<h2>4. Structure</h2>
-
-<p>
-  Pages do not need to be identical.
-</p>
-
-<p>
-  But they should have a recognisable rhythm.
-</p>
-
-<p>
-  Introduction.
-</p>
-
-<p>
-  Orientation.
-</p>
-
-<p>
-  Reassurance.
-</p>
-
-<p>
-  Detail.
-</p>
-
-<p>
-  Next step.
-</p>
-
-<p>
-  A clear rhythm helps the visitor trust the site.
-</p>
-
-<p>
-  They begin to understand how to move through it.
-</p>
-
-<h2>5. Practical communication</h2>
-
-<p>
-  Consistency does not stop at the website.
-</p>
-
-<p>
-  The enquiry reply matters.
-</p>
-
-<p>
-  The consultation booking message matters.
-</p>
-
-<p>
-  The confirmation email matters.
-</p>
-
-<p>
-  The cancellation policy matters.
-</p>
-
-<p>
-  The first form matters.
-</p>
-
-<p>
-  If these feel colder, more rushed or more confusing than the website, trust can weaken.
-</p>
-
-<p>
-  Practical communication is still communication.
-</p>
-
-<h2>6. The therapy itself</h2>
-
-<p>
-  The deepest consistency is between what someone expects and what they experience.
-</p>
-
-<p>
-  If your website presents you as calm, reflective and collaborative, therapy should broadly feel that way.
-</p>
-
-<p>
-  Not theatrically.
-</p>
-
-<p>
-  Not perfectly.
-</p>
-
-<p>
-  But recognisably.
-</p>
-
-<p>
-  A website should not create a persona.
-</p>
-
-<p>
-  It should prepare someone for the real relationship.
-</p>
+Because it creates a calmer relationship long before therapy begins.
 
 <figure class="acw-guide-figure">
   <img
-    src="{{ '/assets/images/library/consistency-principle-desk.webp' | relative_url }}"
-    alt="A calm arrangement of matching notes, website sketches and natural materials showing a coherent visual system."
+    src="{{ '/assets/images/library/consistency-desk.webp' | relative_url }}"
+    alt="A calm arrangement of matching stationery and thoughtful design elements in warm natural light."
     loading="lazy"
   >
 </figure>
 
-<hr>
+---
+<section id="principle"></section>
 
+# The Consistency Principle
+
+## Trust grows through repeated experiences
+
+For a long time I thought consistency was mostly about branding.
+
+Colours.
+
+Typography.
+
+Spacing.
+
+Photography.
+
+A recognisable visual identity.
+
+Those things certainly matter.
+
+But eventually I realised they were only the surface.
+
+The deeper question is not:
+
+*"Does everything look consistent?"*
+
+It is:
+
+*"Does everything feel like it belongs to the same thoughtful practice?"*
+
+That question changes the meaning of consistency completely.
+
+Because consistency is no longer a design decision.
+
+It becomes a relationship decision.
+
+Eventually I found myself describing it in one sentence.
+
+<div class="acw-callout acw-framework">
+
+<strong>The Consistency Principle</strong>
+
+Trust grows when every touchpoint tells the same story.
+
+Not by repeating the same words.
+
+By creating one coherent experience from beginning to end.
+
+</div>
+
+That single idea changed the way I reviewed therapist websites.
+
+Instead of looking for visual differences...
+
+I began looking for emotional ones.
+
+---
+
+## Every interaction teaches people what to expect
+
+Every experience quietly becomes a promise about the next one.
+
+A calm homepage suggests a calm therapist.
+
+A thoughtful About page suggests thoughtful conversations.
+
+A simple enquiry process suggests an organised practice.
+
+A warm confirmation email suggests a warm first session.
+
+None of those moments creates trust by itself.
+
+Together they teach the visitor what to expect.
+
+That is what consistency really does.
+
+It creates expectation.
+
+Not exaggerated expectation.
+
+Accurate expectation.
+
+The website gradually prepares someone for the person they will eventually meet.
+
+That is why consistency feels reassuring.
+
+Not because every page looks identical.
+
+Because every page quietly confirms the impression formed by the last one.
+
+<div class="acw-pullquote">
+
+Consistency allows trust to grow without repeatedly asking the visitor to start again.
+
+</div>
+
+---
+
+<section id="layers"></section>
+
+# Six layers of consistency
+
+## Consistency is much broader than branding
+
+People often reduce consistency to visual identity.
+
+Matching colours.
+
+Matching fonts.
+
+Matching layouts.
+
+Those things matter.
+
+But therapist websites communicate in many different ways.
+
+The visitor experiences all of them together.
+
+That is why Practice Clarity thinks about consistency in six layers.
+
+---
+
+### 1. Language
+
+Do all of your pages sound like the same person?
+
+Your homepage.
+
+Your About page.
+
+Service pages.
+
+FAQs.
+
+Emails.
+
+Contact forms.
+
+The visitor should never feel as though a different voice has suddenly appeared.
+
+Professional language has its place.
+
+Human language has its place.
+
+What matters is that the tone remains recognisably yours.
+
+---
+
+### 2. Design
+
+Design creates expectations long before words are read.
+
+Consistent spacing.
+
+Typography.
+
+Buttons.
+
+Headings.
+
+Page rhythm.
+
+Navigation.
+
+These elements help the visitor feel oriented.
+
+If every page behaves differently...
+
+they must keep learning the website again.
+
+Thoughtful design consistency removes that effort.
+
+---
+
+### 3. Photography
+
+Images communicate emotionally before they communicate visually.
+
+Natural editorial photography...
+
+paired with generic corporate stock images...
+
+creates two different emotional worlds.
+
+Neither may be objectively wrong.
+
+Together they feel disconnected.
+
+A consistent photographic style quietly reinforces the same atmosphere throughout the practice.
+
+---
+
+### 4. Structure
+
+Pages should not be identical.
+
+They should feel related.
+
+Visitors quickly learn the rhythm of your website.
+
+Introduction.
+
+Orientation.
+
+Recognition.
+
+Explanation.
+
+Next step.
+
+Once that rhythm becomes familiar...
+
+reading becomes easier.
+
+Not because there is less information.
+
+Because the experience becomes predictable.
+
+---
+
+### 5. Practical communication
+
+Consistency extends far beyond the website.
+
+It includes:
+
+- enquiry replies
+- booking confirmations
+- reminder emails
+- invoices
+- cancellations
+- welcome information
+
+These moments are often overlooked.
+
+Yet they shape trust just as powerfully as the homepage.
+
+Practical communication is still communication.
+
+---
+
+### 6. The therapeutic experience
+
+This is the deepest level of consistency.
+
+Eventually the visitor meets you.
+
+If your website presents you as calm...
+
+the first session should broadly feel calm.
+
+If your writing feels thoughtful...
+
+the conversation should feel thoughtful.
+
+Not because you are performing.
+
+Because the website was always reflecting the real practice.
+
+That is why the Mirror Principle sits at the beginning of Practice Clarity.
+
+Everything ultimately returns there.
+
+<figure class="acw-guide-figure">
+  <img
+    src="{{ '/assets/images/library/consistency-system.webp' | relative_url }}"
+    alt="A collection of matching notebooks, website sketches and printed pages arranged into one coherent system."
+    loading="lazy"
+  >
+</figure>
+
+---
+
+## Consistency is emotional coherence
+
+Most visitors will never consciously analyse your typography.
+
+Or your page spacing.
+
+Or your navigation.
+
+They simply experience a feeling.
+
+Everything belongs together.
+
+Or it doesn't.
+
+That feeling is what I call emotional coherence.
+
+It is the sense that every interaction belongs to the same thoughtful practice.
+
+Not because everything looks identical.
+
+Because nothing unexpectedly contradicts what came before.
+
+That quiet coherence is one of the strongest builders of trust available to any therapist website.
+
+<div class="acw-pullquote">
+
+Consistency is not sameness.
+
+It is the feeling that every interaction belongs to the same story.
+
+</div>
+
+---
 <section id="mistakes"></section>
 
-<h1>Part Four</h1>
-<h2>Common consistency mistakes</h2>
+# Common consistency mistakes
 
-<h2>1. Every page feels like a different website</h2>
+## 1. Every page feels like a different practice
 
-<p>
-  This often happens when a site grows gradually.
-</p>
+This often happens gradually.
 
-<p>
-  A homepage is redesigned.
-</p>
+A homepage is redesigned.
 
-<p>
-  An About page is rewritten months later.
-</p>
+An About page is rewritten months later.
 
-<p>
-  A service page is added quickly.
-</p>
+A service page is added in a hurry.
 
-<p>
-  A contact page is left untouched.
-</p>
+A contact page remains untouched for years.
 
-<p>
-  Each page may be fine on its own.
-</p>
+Individually, every page may work perfectly well.
 
-<p>
-  But together, the site lacks coherence.
-</p>
+Together, they tell slightly different stories.
 
-<p>
-  The visitor feels small mismatches everywhere.
-</p>
+The visitor cannot usually explain what feels wrong.
 
-<h2>2. The website promises calm but the process feels rushed</h2>
+They simply experience a quiet sense of inconsistency.
 
-<p>
-  Many therapist websites speak beautifully about spaciousness, care and taking things at the client's pace.
-</p>
+One page feels warm.
 
-<p>
-  Then the enquiry process feels pressured.
-</p>
+Another feels clinical.
 
-<p>
-  Book now.
-</p>
+One feels reflective.
 
-<p>
-  Choose a slot.
-</p>
+Another feels transactional.
 
-<p>
-  Complete this form.
-</p>
+One feels personal.
 
-<p>
-  Confirm immediately.
-</p>
+Another feels anonymous.
 
-<p>
-  A clear process is helpful.
-</p>
+Nothing is dramatically wrong.
 
-<p>
-  But if it feels emotionally different from the website, the transition can jar.
-</p>
+Yet trust quietly weakens because the experience no longer feels coherent.
 
-<h2>3. Warm writing, cold practical details</h2>
+---
 
-<p>
-  A page can be warm until it reaches fees, cancellation policies or availability.
-</p>
+## 2. The website promises calm, but the process feels rushed
 
-<p>
-  Then the tone suddenly changes.
-</p>
+Many therapist websites speak beautifully about slowing down.
 
-<p>
-  Practical information does not need to become cold.
-</p>
+About working at the client's pace.
 
-<p>
-  It can be clear and human at the same time.
-</p>
+About creating safety.
 
-<p>
-  A consistent practice does not abandon its tone when the details become practical.
-</p>
+Then the visitor reaches the enquiry process.
 
-<h2>4. Thoughtful copy, generic images</h2>
+Book now.
 
-<p>
-  Images are not neutral.
-</p>
+Complete this form.
 
-<p>
-  A thoughtful paragraph can be weakened by an image that feels artificial, corporate or disconnected.
-</p>
+Choose a slot.
 
-<p>
-  If the words say calm, but the image says stock library, the visitor receives two different signals.
-</p>
+Confirm immediately.
 
-<p>
-  The same is true of colours, icons and layout.
-</p>
+The emotional atmosphere changes completely.
 
-<p>
-  Everything contributes to the emotional story.
-</p>
+The practical process has unintentionally contradicted everything that came before.
 
-<h2>5. The therapist disappears at the point of contact</h2>
+A clear process is helpful.
 
-<p>
-  A website may feel personal and grounded.
-</p>
+A rushed process is not.
 
-<p>
-  But the contact form may feel anonymous.
-</p>
+Practical communication should feel like a continuation of the relationship already beginning.
 
-<p>
-  The thank-you message may sound automated.
-</p>
+Not the sudden appearance of a different organisation.
 
-<p>
-  The first email may not carry the same warmth.
-</p>
+---
 
-<p>
-  This is a missed opportunity.
-</p>
+## 3. Warm writing, cold practical information
 
-<p>
-  Contact is not separate from the website.
-</p>
+Another common shift happens when the writing reaches practical details.
 
-<p>
-  It is where the website becomes relationship.
-</p>
+Fees.
 
-<hr>
+Availability.
+
+Cancellation policies.
+
+Contact information.
+
+Suddenly the language becomes distant.
+
+Legalistic.
+
+Abrupt.
+
+Almost administrative.
+
+Practical information should absolutely be clear.
+
+But clarity does not require coldness.
+
+The same thoughtful voice that explains therapy can also explain boundaries.
+
+Professionalism and humanity are perfectly compatible.
+
+---
+
+## 4. Thoughtful writing, generic imagery
+
+Images speak before words.
+
+A carefully written paragraph can be quietly undermined by a photograph that feels artificial.
+
+Corporate.
+
+Generic.
+
+Obviously staged.
+
+The visitor may never consciously notice why something feels slightly disconnected.
+
+They simply receive two different emotional messages.
+
+The words describe thoughtful therapy.
+
+The imagery suggests something else.
+
+Consistency asks every element to reinforce the same atmosphere.
+
+Not compete with it.
+
+---
+
+## 5. The therapist disappears at the point of contact
+
+Sometimes the website feels wonderfully personal.
+
+Thoughtful.
+
+Grounded.
+
+Reflective.
+
+Then the visitor submits an enquiry.
+
+The confirmation page feels automated.
+
+The email sounds generic.
+
+The reply could have come from almost anyone.
+
+Nothing terrible has happened.
+
+But an opportunity has quietly been lost.
+
+The enquiry process is not separate from the website.
+
+It is the moment the website begins becoming a relationship.
+
+That moment deserves exactly the same care.
+
+<div class="acw-callout acw-framework">
+
+<strong>A useful question</strong>
+
+Whenever a visitor moves from one stage of your practice to the next, ask yourself:
+
+<strong>
+
+"Does this still feel like the same therapist?"
+
+</strong>
+
+</div>
+
+<figure class="acw-guide-figure">
+  <img
+    src="{{ '/assets/images/library/consistency-touchpoints.webp' | relative_url }}"
+    alt="A sequence of matching notebooks, printed pages and correspondence laid out as one coherent journey."
+    loading="lazy"
+  >
+</figure>
+
+---
 
 <section id="audit"></section>
 
-<h1>Part Five</h1>
-<h2>The consistency audit</h2>
+# The consistency audit
 
-<h2>Better questions than “do my colours match?”</h2>
+## Better questions create better consistency
 
-<p>
-  Visual consistency matters.
-</p>
+Visual consistency matters.
 
-<p>
-  But the deeper questions are more useful.
-</p>
+But deeper questions reveal far more.
+
+Instead of asking:
+
+*"Do my colours match?"*
+
+Practice Clarity encourages different questions.
 
 <div class="acw-callout acw-framework">
 
-  <strong>A consistency audit asks:</strong>
+<strong>A consistency audit asks:</strong>
 
-  <ul>
-    <li>If someone removed your logo, would the pages still feel like the same practice?</li>
-    <li>If someone read your enquiry email first, would it prepare them for your website?</li>
-    <li>If someone moved from your homepage to your contact page, would the tone still feel familiar?</li>
-    <li>If someone met you after reading your website, would the experience feel connected?</li>
-    <li>If someone viewed your site on mobile, would the calmness survive?</li>
-  </ul>
+- If my logo disappeared, would every page still feel like the same practice?
+- If someone read my enquiry email before visiting my website, would the experience still feel familiar?
+- Does my contact page sound like the same person who wrote my homepage?
+- Would meeting me feel broadly consistent with the expectations my website creates?
+- Does the emotional atmosphere remain consistent on desktop, tablet and mobile?
 
 </div>
 
-<p>
-  These questions reveal more than a style guide can.
-</p>
+These questions move beyond branding.
 
-<p>
-  They show whether the practice feels coherent.
-</p>
+They explore coherence.
 
-<h2>Consistency becomes identity</h2>
+Because coherence is what visitors actually experience.
 
-<p>
-  Over time, consistency becomes something stronger than presentation.
-</p>
+---
 
-<p>
-  It becomes identity.
-</p>
+## Consistency becomes identity
 
-<p>
-  People stop remembering one page.
-</p>
+Over time something interesting happens.
 
-<p>
-  They remember the feeling.
-</p>
+Visitors stop remembering individual pages.
 
-<p>
-  Calm.
-</p>
+They remember an overall feeling.
 
-<p>
-  Clear.
-</p>
+Calm.
 
-<p>
-  Thoughtful.
-</p>
+Thoughtful.
 
-<p>
-  Grounded.
-</p>
+Clear.
 
-<p>
-  Specific.
-</p>
+Specific.
 
-<p>
-  Human.
-</p>
+Grounded.
 
-<p>
-  That feeling becomes the practice in their mind.
-</p>
+Human.
 
-<p>
-  This is what branding really is.
-</p>
+Those qualities become associated with the practice itself.
 
-<p>
-  Not the logo.
-</p>
+Not because they were repeatedly claimed.
 
-<p>
-  Not the colours.
-</p>
+Because they were repeatedly experienced.
 
-<p>
-  The repeated experience of recognition.
-</p>
+That is what identity really becomes.
+
+Not a logo.
+
+Not a colour palette.
+
+Not a typeface.
+
+A repeated emotional experience.
+
+One that teaches people what to expect.
 
 <div class="acw-pullquote">
-  A brand is what people learn to expect from you.
+
+A brand is not what you say about yourself.
+
+It is what people quietly learn to expect from every interaction.
+
 </div>
 
-<p>
-  Consistency teaches that expectation.
-</p>
+Consistency teaches that expectation.
 
-<hr>
+---
 
-<h1>Part Six</h1>
-<h2>Consistency in the wider journey</h2>
+# Consistency in the wider journey
 
-<h2>Consistency protects everything that came before</h2>
+## Consistency protects everything that came before
 
-<p>
-  The Practice Clarity journey has already reduced uncertainty in several ways.
-</p>
+By this point in Practice Clarity, almost every major uncertainty has been reduced.
 
-<p>
-  The Mirror Principle clarified what the website reflects.
-</p>
+The Mirror Principle clarified what the practice reflects.
 
-<p>
-  The Waiting Room Principle shortened the distance between needing help and finding it.
-</p>
+The Waiting Room Principle made that clarity discoverable.
 
-<p>
-  The Threshold Principle helped someone arrive.
-</p>
+The Threshold Principle helped people arrive.
 
-<p>
-  The Recognition Principle helped them recognise themselves.
-</p>
+The Recognition Principle helped them feel understood.
 
-<p>
-  The Homepage Principle helped them feel they may be in the right place.
-</p>
+The Homepage Principle helped them feel they were in the right place.
 
-<p>
-  The About Principle helped them imagine the person behind the practice.
-</p>
+The About Principle introduced the therapist.
 
-<p>
-  The Simplicity Principle reduced unnecessary effort.
-</p>
+The Simplicity Principle reduced unnecessary effort.
 
-<p>
-  The Consistency Principle protects all of that.
-</p>
+The Consistency Principle protects all of those gains.
 
-<p>
-  It makes sure trust does not leak away through mixed signals.
-</p>
+Without consistency...
 
-<p>
-  It helps every touchpoint reinforce the same calm story.
-</p>
+trust slowly leaks away.
+
+Not because of one serious mistake.
+
+Because of dozens of tiny contradictions.
+
+Consistency quietly prevents that from happening.
+
+It allows every interaction to reinforce the last one.
 
 <div class="acw-callout acw-framework">
 
-  <strong>The central idea of this guide</strong>
+<strong>The central idea of this principle</strong>
 
-  <p>
-    Consistency is not about making everything identical.
-  </p>
+Consistency is not about making everything identical.
 
-  <p>
-    It is about making every touchpoint feel like it belongs to the same thoughtful, trustworthy practice.
-  </p>
+It is about helping every interaction feel like it belongs to the same thoughtful, trustworthy practice.
 
 </div>
 
-<h2>Consistency prepares enquiry</h2>
+---
 
-<p>
-  Once the experience feels coherent, the final obstacle is no longer understanding.
-</p>
+## Consistency prepares enquiry
 
-<p>
-  It is vulnerability.
-</p>
+Once the experience feels coherent...
 
-<p>
-  The person understands.
-</p>
+only one meaningful barrier remains.
 
-<p>
-  They recognise themselves.
-</p>
+Not understanding.
 
-<p>
-  They feel some trust.
-</p>
+Not trust.
 
-<p>
-  But they still have to ask for help.
-</p>
+Vulnerability.
 
-<p>
-  That is where the final guide begins.
-</p>
+The visitor understands.
 
-<p>
-  The Enquiry Principle.
-</p>
+They recognise themselves.
 
-<p>
-  Because even after trust has grown, asking for help can still feel difficult.
-</p>
+They trust the therapist.
 
-<hr>
+They know what to expect.
+
+Now they have to do something much harder.
+
+They have to ask for help.
+
+That is where the final principle begins.
+
+The Enquiry Principle.
+
+Because even when trust exists...
+
+making first contact can still feel like the most difficult step of all.
+
+---
+---
 
 <section id="reflection"></section>
 
-<h2>Reflection questions</h2>
+# Reflection
 
-<p>
-  Before moving on, spend a few minutes with these questions.
-</p>
+Before moving on, spend a few quiet minutes with these questions.
 
-<p>
-  There are no right answers.
-</p>
+Try not to evaluate individual pages.
 
-<p>
-  They are simply invitations to notice whether your website and enquiry process feel coherent.
-</p>
+Instead, notice the experience your whole practice creates.
 
 <div class="acw-reflection-grid">
 
-  <div class="acw-callout acw-exercise">
-    Does every page feel like it belongs to the same therapist or practice?
-  </div>
+<div class="acw-callout acw-exercise">
 
-  <div class="acw-callout acw-exercise">
-    Would your enquiry reply feel familiar after someone had read your website?
-  </div>
+If someone moved from your homepage to your About page, then to your contact page...
 
-  <div class="acw-callout acw-exercise">
-    Do your images, words, layout and practical details create the same emotional atmosphere?
-  </div>
-
-  <div class="acw-callout acw-exercise">
-    Where might a visitor experience a mixed signal?
-  </div>
+would every step feel as though it belonged to the same thoughtful practice?
 
 </div>
 
-<hr>
+<div class="acw-callout acw-exercise">
 
-<h2>Key ideas to remember</h2>
+Where does your practice currently create mixed messages?
 
-<div class="acw-callout acw-checklist">
+Not obvious contradictions—
 
-  <strong>If you remember nothing else, remember this.</strong>
-
-  <ul>
-    <li>Trust depends on predictability.</li>
-    <li>Consistency reduces the need to keep reassessing.</li>
-    <li>Branding is only one part of consistency.</li>
-    <li>Mixed signals create emotional effort.</li>
-    <li>Every page should feel like it belongs to the same practice.</li>
-    <li>Practical communication should match the tone of the website.</li>
-    <li>Consistency is emotional coherence.</li>
-    <li>A consistent practice feels easier to trust.</li>
-  </ul>
+small moments where the emotional tone quietly changes.
 
 </div>
 
-<hr>
+<div class="acw-callout acw-exercise">
+
+Does your enquiry email feel like it was written by the same person who wrote your homepage?
+
+</div>
+
+<div class="acw-callout acw-exercise">
+
+If a prospective client described your entire website in three words...
+
+what would you hope those words would be?
+
+Would every page support that description?
+
+</div>
+
+</div>
+
+---
+
+{% include practice-clarity-remember.html
+text="Trust rarely grows because of one exceptional moment. It grows because every small moment quietly agrees with the last." %}
+
+---
 
 <section id="next"></section>
 
-<h2>Continue reading</h2>
+{% include practice-clarity-navigation.html %}
 
-<div class="acw-guide-next-card">
+---
 
-  <p class="acw-section-label">Next Principle</p>
+# About this principle
 
-  <h2>The Enquiry Principle</h2>
+The Consistency Principle emerged from reviewing hundreds of therapist websites over several years.
 
-  <p>
-    If the Consistency Principle asks, <strong>does every touchpoint tell the same story?</strong>,
-    the final guide asks:
-    <strong>how do we make asking for help feel easier?</strong>
-  </p>
+The strongest practices rarely relied on dramatic design.
 
-  <a href="{{ '/practice-clarity/enquiry-principle/' | relative_url }}" class="acw-btn acw-btn-primary">
-    Continue to Guide Nine
-  </a>
+Or clever marketing.
 
-</div>
+Or unusually persuasive writing.
 
-<hr>
+Instead, something much quieter was happening.
 
-<h2>About this guide</h2>
+Every interaction felt as though it belonged to the same person.
 
-<p>
-  The Consistency Principle emerged from a simple observation.
-</p>
+The homepage.
 
-<p>
-  The strongest therapist websites rarely rely on dramatic design.
-</p>
+The About page.
 
-<p>
-  Instead, everything feels quietly aligned.
-</p>
+The photography.
 
-<p>
-  The writing.
-</p>
+The enquiry process.
 
-<p>
-  The photography.
-</p>
+The confirmation email.
 
-<p>
-  The navigation.
-</p>
+Even the first therapy session.
 
-<p>
-  The enquiry process.
-</p>
+Nothing felt disconnected.
 
-<p>
-  The therapist.
-</p>
+Nothing required the visitor to begin trusting all over again.
 
-<p>
-  Nothing competes for attention.
-</p>
+That consistency gradually reduced uncertainty.
 
-<p>
-  Nothing feels out of place.
-</p>
+Not because every interaction was identical.
 
-<p>
-  The experience becomes predictable.
-</p>
+Because every interaction quietly confirmed the impression created by the one before it.
 
-<p>
-  And predictable experiences are easier to trust.
-</p>
+Eventually I realised consistency was never really about branding.
+
+It was about predictability.
+
+And predictability is one of the conditions in which trust naturally grows.
+
+By the time someone reaches the end of this principle, very little uncertainty remains.
+
+Only one challenge is left.
+
+The courage required to make first contact.
+
+That final step deserves its own principle.
+
+---
+
+{% include practice-clarity-roadmap.html %}

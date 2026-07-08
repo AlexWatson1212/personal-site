@@ -39,101 +39,50 @@ related:
 ---
 
 <nav class="acw-guide-breadcrumb" aria-label="Breadcrumb">
-
-<a href="{{ '/' | relative_url }}">Home</a>
-
-<span>/</span>
-
-<a href="{{ '/practice-clarity/' | relative_url }}">
-
-Practice Clarity
-
-</a>
-
-<span>/</span>
-
-<strong>
-
-The Waiting Room Principle
-
-</strong>
-
+  <a href="{{ '/' | relative_url }}">Home</a>
+  <span>/</span>
+  <a href="{{ '/practice-clarity/' | relative_url }}">Practice Clarity</a>
+  <span>/</span>
+  <strong>The Waiting Room Principle</strong>
 </nav>
 
 <section class="acw-guide-chapter-intro">
+  <p class="acw-section-label">Practice Clarity</p>
 
-<p class="acw-section-label">
+  <p class="acw-guide-series">
+    Nine Principles for Building Trust Before Therapy Begins
+  </p>
 
-Practice Clarity
+  <div class="acw-guide-chapter-grid">
+    <div>
+      <p class="acw-guide-kicker">Principle Two of Nine</p>
 
-</p>
+      <h1>The Waiting Room Principle</h1>
 
-<p class="acw-guide-series">
+      <p class="acw-guide-deck">
+        Reduce the distance between needing help and finding it.
+      </p>
 
-Nine Principles for Building Trust Before Therapy Begins
+      <p class="acw-guide-meta">
+        22 min read
+      </p>
+    </div>
 
-</p>
-
-<div class="acw-guide-chapter-grid">
-
-<div>
-
-<p class="acw-guide-kicker">
-
-Principle Two of Nine
-
-</p>
-
-<h1>
-
-The Waiting Room Principle
-
-</h1>
-
-<p class="acw-guide-deck">
-
-Reduce the distance between needing help and finding it.
-
-</p>
-
-<p class="acw-guide-meta">
-
-22 min read
-
-</p>
-
-</div>
-
-{% include practice-clarity-progress.html %}
-
-</div>
-
+    {% include practice-clarity-progress.html %}
+  </div>
 </section>
 
 <div class="acw-guide-anchor-panel">
+  <p>Jump to</p>
 
-<p>
-
-Jump to
-
-</p>
-
-<a href="#searching">Someone is searching</a>
-
-<a href="#seo-discomfort">Why SEO feels uncomfortable</a>
-
-<a href="#principle">The Waiting Room Principle</a>
-
-<a href="#visibility">Visibility, not promotion</a>
-
-<a href="#google">The purpose of Google</a>
-
-<a href="#recognition">Recognition over ranking</a>
-
-<a href="#reflection">Reflection</a>
-
-<a href="#next">Continue reading</a>
-
+  <a href="#searching">Someone is searching</a>
+  <a href="#seo-discomfort">Why SEO feels uncomfortable</a>
+  <a href="#principle">The Waiting Room Principle</a>
+  <a href="#visibility">Visibility, not promotion</a>
+  <a href="#google">The purpose of Google</a>
+  <a href="#recognition">Recognition over ranking</a>
+  <a href="#reflection">Reflection</a>
+  <a href="#next">Continue reading</a>
 </div>
 
 # Practice Clarity
@@ -145,50 +94,34 @@ Jump to
 <div class="acw-guide-intro-panel">
 
 <p class="acw-guide-intro-lead">
-
 Ethical visibility is not about persuading people who do not need therapy.
-
 </p>
 
 <p>
-
 It is about helping people who are already searching discover work that may genuinely fit them.
-
 </p>
 
 <p>
-
 The Mirror Principle asked one question.
+</p>
 
-<strong>
+<p>
+<strong>What is your website reflecting?</strong>
+</p>
 
-What is your website reflecting?
-
-</strong>
-
+<p>
 This principle asks another.
-
 </p>
 
 <p class="acw-guide-emphasis">
-
-<strong>
-
-How much unnecessary distance exists between someone needing help and discovering the right therapist?
-
-</strong>
-
+<strong>How much unnecessary distance exists between someone needing help and discovering the right therapist?</strong>
 </p>
 
 </div>
 
 <div class="acw-callout acw-framework">
 
-<strong>
-
-The Waiting Room Principle builds directly on the Mirror Principle.
-
-</strong>
+<strong>The Waiting Room Principle builds directly on the Mirror Principle.</strong>
 
 Once clarity exists, the next challenge is making that clarity discoverable.
 
@@ -216,9 +149,7 @@ To the people already looking for exactly the help you offer.
 
 ## Somewhere this evening
 
-Somewhere this evening,
-
-someone will quietly open Google.
+Somewhere this evening, someone will quietly open Google.
 
 Not because they are curious.
 
@@ -271,6 +202,7 @@ With a person.
 Because ethical visibility has never really been about search engines.
 
 It has always been about shortening that distance.
+
 ---
 
 ## The principle before this one
@@ -383,9 +315,7 @@ Now they increasingly are.
 
 That changes everything.
 
-The more search engines become capable of recognising genuinely useful information...
-
-the less effective manipulation becomes.
+The more search engines become capable of recognising genuinely useful information, the less effective manipulation becomes.
 
 Which means the version of SEO many therapists still worry about is gradually disappearing.
 
@@ -411,19 +341,11 @@ And what if communication is already something therapists spend their careers le
 
 Traditional SEO asks:
 
-<strong>
-
-How do I attract more visitors?
-
-</strong>
+<strong>How do I attract more visitors?</strong>
 
 Practice Clarity asks:
 
-<strong>
-
-How do I reduce the distance between someone needing help and discovering the right therapist?
-
-</strong>
+<strong>How do I reduce the distance between someone needing help and discovering the right therapist?</strong>
 
 One focuses on traffic.
 
@@ -445,11 +367,11 @@ Almost nobody answers yes.
 
 Instead I ask:
 
-*"If somebody was already looking for exactly the kind of help you offer... would you want them to be able to find you?"*
+*"If somebody was already looking for exactly the kind of help you offer, would you want them to be able to find you?"*
 
 The answer is almost always immediate.
 
-*"Well... yes."*
+*"Well, yes."*
 
 Notice how different those two questions feel.
 
@@ -531,9 +453,7 @@ Ethical visibility simply shortens it.
 
 That sentence completely changed how I thought about SEO.
 
-Because it shifted the focus away from rankings...
-
-and back towards people.
+Because it shifted the focus away from rankings and back towards people.
 
 The question stopped being:
 
@@ -554,6 +474,7 @@ That is a very different kind of optimisation.
 </figure>
 
 ---
+
 <section id="visibility"></section>
 
 # Visibility, not promotion
@@ -636,9 +557,7 @@ The Mirror Principle taught us that websites reflect clarity.
 
 The Waiting Room Principle reminds us that clarity still needs a path between itself and the people who need it.
 
-Without that path...
-
-clarity remains invisible.
+Without that path, clarity remains invisible.
 
 <div class="acw-callout acw-framework">
 
@@ -662,9 +581,7 @@ The reality is much simpler.
 
 Google has one job.
 
-To understand a question...
-
-and return the most useful answer it can.
+To understand a question and return the most useful answer it can.
 
 That is an extraordinarily difficult thing to do.
 
@@ -676,9 +593,7 @@ Google is not trying to reward clever SEO.
 
 It is trying to recognise usefulness.
 
-The better it becomes at recognising genuinely helpful content...
-
-the less valuable manipulation becomes.
+The better it becomes at recognising genuinely helpful content, the less valuable manipulation becomes.
 
 That is why so much modern SEO advice sounds surprisingly familiar.
 
@@ -740,9 +655,7 @@ That is why clarity always comes first.
 
 </div>
 
-Once clarity exists...
-
-SEO becomes remarkably calm.
+Once clarity exists, SEO becomes remarkably calm.
 
 You are no longer trying to invent a message.
 
@@ -859,6 +772,7 @@ Practice Clarity follows exactly the same philosophy.
 Each principle exists because it helps therapists communicate more clearly.
 
 Not because another article was needed.
+
 ---
 
 <section id="recognition"></section>
@@ -933,9 +847,7 @@ Everything in this principle has answered one question.
 
 *"Can the right people find me?"*
 
-The moment somebody lands on your website...
-
-another question quietly replaces it.
+The moment somebody lands on your website, another question quietly replaces it.
 
 *"Do I feel safe enough to stay?"*
 
@@ -977,11 +889,7 @@ Simply notice what comes to mind.
 
 <div class="acw-callout acw-exercise">
 
-When you think about your discomfort with SEO...
-
-is it really about technology—
-
-or about the kind of marketing you never wanted to become?
+When you think about your discomfort with SEO, is it really about technology, or about the kind of marketing you never wanted to become?
 
 </div>
 
@@ -993,17 +901,13 @@ What questions do prospective clients repeatedly ask before deciding to contact 
 
 <div class="acw-callout acw-exercise">
 
-If somebody searched tonight for exactly the kind of therapy you offer...
-
-how easily would they discover your practice?
+If somebody searched tonight for exactly the kind of therapy you offer, how easily would they discover your practice?
 
 </div>
 
 <div class="acw-callout acw-exercise">
 
-If they did discover your website...
-
-would they immediately recognise themselves in what they found?
+If they did discover your website, would they immediately recognise themselves in what they found?
 
 </div>
 

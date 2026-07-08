@@ -64,7 +64,7 @@ related:
       </p>
 
       <p class="acw-guide-meta">
-        18 min read · Foundation principle
+        18 min read
       </p>
     </div>
 
@@ -120,11 +120,11 @@ This principle is the foundation for everything that follows. Every part of Prac
 
 <div class="acw-callout acw-framework">
 
-<strong>Foundation Principle</strong>
+<strong>The Mirror Principle</strong>
 
-This page introduces <strong>The Mirror Principle</strong>.
+This is where Practice Clarity begins.
 
-Every other principle in Practice Clarity builds on one simple idea:
+Every other principle builds on one simple idea:
 
 <strong>A website does not create clarity. It reflects whatever clarity already exists.</strong>
 
@@ -203,6 +203,7 @@ So my work became helping people find better words.
 It seemed obvious.
 
 Until it wasn't.
+
 I'd help somebody write a homepage that felt clear.
 
 Warm.
@@ -355,13 +356,7 @@ The Mirror Principle explains why clarity matters.
 
 The Waiting Room Principle asks the next question.
 
-<strong>
-
-Once clarity exists...
-
-how easily can somebody actually discover it?
-
-</strong>
+<strong>Once clarity exists, how easily can somebody actually discover it?</strong>
 
 </div>
 
@@ -424,6 +419,7 @@ That was the moment I realised...
 the problem wasn't writing.
 
 It was recognising what already existed.
+
 <div class="acw-pullquote">
 
 Most therapist websites don't fail because the therapist lacks insight.
@@ -635,6 +631,7 @@ You begin asking:
 *"What is my website actually reflecting?"*
 
 That is where Practice Clarity begins.
+
 ---
 
 <section id="practice-clarity"></section>
@@ -778,6 +775,7 @@ That is why the Mirror Principle comes first.
 Not because it is the most practical.
 
 Because every other principle quietly assumes it.
+
 ---
 
 <section id="reflection"></section>
