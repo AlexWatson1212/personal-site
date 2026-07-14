@@ -1,6 +1,6 @@
 /* =========================================================
 ALEXANDER WATSON — MAIN STYLESHEET
-Practice Clarity First • Thoughtful Websites Second
+Clarity First. Website Second.
 ========================================================= */
 
 /* =========================================================
@@ -110,6 +110,7 @@ a:hover {
 
 button,
 input,
+select,
 textarea {
   font: inherit;
 }
@@ -121,6 +122,7 @@ button {
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
+select:focus-visible,
 textarea:focus-visible,
 summary:focus-visible {
   outline: 2px solid var(--accent-dark);
@@ -151,9 +153,33 @@ section {
   position: absolute;
   width: 1px;
   height: 1px;
+  margin: -1px;
+  padding: 0;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   white-space: nowrap;
+  border: 0;
+}
+
+.sr-only-focusable:focus,
+.sr-only-focusable:focus-visible {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10000;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  overflow: visible;
+  clip: auto;
+  clip-path: none;
+  background: var(--text);
+  color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  white-space: normal;
 }
 
 /* =========================================================
@@ -3330,6 +3356,191 @@ p {
   color: var(--muted);
   font-size: 0.95rem;
   line-height: 1.65;
+}
+
+
+/* =========================================================
+23C. CURRENT SITE ADDITIONS
+Practice Notes, legal pages, updated contact form and footer
+========================================================= */
+
+/* Reading width for Privacy, Terms and Accessibility */
+
+.acw-reading-width {
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.acw-reading-width h2 {
+  margin-top: 3rem;
+}
+
+.acw-reading-width h2:first-child {
+  margin-top: 0;
+}
+
+.acw-reading-width ul,
+.acw-reading-width ol {
+  margin: 1rem 0 2rem;
+  padding-left: 1.5rem;
+}
+
+.acw-reading-width li {
+  margin-bottom: 0.75rem;
+}
+
+/* Updated contact form structure */
+
+.acw-form-field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.acw-form-optional {
+  margin-left: 0.25rem;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 650;
+}
+
+.acw-contact-form select {
+  width: 100%;
+  min-height: 52px;
+  padding: 0.95rem 1rem;
+  cursor: pointer;
+  background: var(--surface);
+  border: 1px solid rgba(16, 32, 51, 0.15);
+  border-radius: 17px;
+  color: var(--text);
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition),
+    background var(--transition);
+}
+
+.acw-contact-form select:focus {
+  border-color: rgba(83, 107, 77, 0.58);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(123, 143, 112, 0.13);
+}
+
+.acw-contact-form input::placeholder,
+.acw-contact-form textarea::placeholder {
+  color: rgba(101, 113, 125, 0.72);
+}
+
+/* Practice Notes page */
+
+.acw-practice-notes-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.acw-practice-notes-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+.acw-practice-notes-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+/* Footer Practice Notes */
+
+.footer-practice-notes {
+  width: min(100%, 620px);
+  margin-top: 0.35rem;
+  padding: 1.35rem 1.5rem;
+  background: rgba(255, 255, 255, 0.46);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-xs);
+}
+
+.footer-practice-notes-title {
+  margin: 0 0 0.45rem;
+  color: var(--accent-dark);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.footer-practice-notes-text {
+  max-width: 48ch;
+  margin: 0 auto 0.65rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.footer-practice-notes-link {
+  display: inline-flex;
+  color: var(--accent-dark);
+  border-bottom: 1px solid rgba(83, 107, 77, 0.28);
+  font-size: 0.86rem;
+  font-weight: 820;
+}
+
+.footer-practice-notes-link:hover {
+  color: var(--text);
+  border-bottom-color: rgba(16, 32, 51, 0.28);
+}
+
+/* Footer legal navigation */
+
+.footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  margin: 0.15rem 0 0;
+}
+
+.footer-meta a {
+  color: rgba(16, 32, 51, 0.58);
+  font-size: 0.78rem;
+  font-weight: 720;
+}
+
+.footer-meta a:hover {
+  color: var(--text);
+}
+
+.footer-meta span {
+  color: rgba(16, 32, 51, 0.28);
+  font-size: 0.72rem;
+}
+
+@media (max-width: 760px) {
+  .footer-practice-notes {
+    padding: 1.2rem;
+    border-radius: 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .footer-practice-notes {
+    width: 100%;
+  }
+
+  .footer-meta {
+    gap: 0.45rem;
+  }
 }
 
 /* =========================================================
