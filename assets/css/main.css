@@ -457,23 +457,21 @@ p {
 }
 
 .acw-hero-cover {
-  display: flex;
-  align-items: center;
-  min-height: 560px;
-  padding: clamp(56px, 6vw, 84px) 0;
+  display: block;
+  min-height: auto;
+  padding: clamp(64px, 7vw, 92px) 0 clamp(76px, 8vw, 112px);
 }
 
 .acw-hero-cover-inner {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.9fr);
-  gap: clamp(3rem, 5vw, 5rem);
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2.8rem, 5vw, 4.6rem);
 }
 
 .acw-hero-cover-copy {
-  max-width: 620px;
+  max-width: 760px;
 }
 
 .acw-hero-cover h1 {
@@ -497,21 +495,30 @@ p {
 }
 
 .acw-hero-visual {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  overflow: hidden;
+  width: 100%;
   margin: 0;
+  background: var(--surface-quiet);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 42px;
+  box-shadow:
+    0 30px 76px rgba(16, 32, 51, 0.09),
+    0 10px 26px rgba(16, 32, 51, 0.05);
 }
 
 .acw-hero-visual img {
   width: 100%;
-  max-width: 520px;
-  border: 1px solid rgba(16, 32, 51, 0.08);
-  border-radius: 30px;
-  background: var(--white);
-  box-shadow:
-    0 24px 60px rgba(16, 32, 51, 0.08),
-    0 8px 20px rgba(16, 32, 51, 0.05);
+  max-width: none;
+  aspect-ratio: 16 / 8.5;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.7s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .acw-hero-visual:hover img {
+    transform: scale(1.012);
+  }
 }
 
 /* =========================================================
@@ -3564,14 +3571,6 @@ Practice Notes, legal pages, updated contact form and footer
     grid-template-columns: 1fr;
   }
 
-  .acw-hero-cover-inner {
-    grid-template-columns: minmax(0, 1fr) minmax(360px, 0.74fr);
-    gap: 3.2rem;
-  }
-
-  .acw-hero-visual img {
-    max-width: 460px;
-  }
 }
 
 @media (max-width: 1040px) {
@@ -3621,25 +3620,15 @@ Practice Notes, legal pages, updated contact form and footer
   }
 
   .acw-hero-cover {
-    min-height: auto;
-    padding: 64px 0;
+    padding: 58px 0 84px;
   }
 
   .acw-hero-cover-inner {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2.6rem;
   }
 
   .acw-hero-cover-copy {
-    max-width: 680px;
-  }
-
-  .acw-hero-visual {
-    justify-content: flex-start;
-  }
-
-  .acw-hero-visual img {
-    max-width: 560px;
+    max-width: 720px;
   }
 
   .acw-cards,
@@ -3848,11 +3837,11 @@ Practice Notes, legal pages, updated contact form and footer
   }
 
   .acw-hero-cover {
-    padding: 42px 0 60px;
+    padding: 42px 0 68px;
   }
 
   .acw-hero-cover-inner {
-    gap: 1.6rem;
+    gap: 2rem;
   }
 
   .acw-hero-cover .acw-btn {
@@ -3860,18 +3849,13 @@ Practice Notes, legal pages, updated contact form and footer
   }
 
   .acw-hero-visual {
-    display: block;
     width: 100%;
-    margin-top: 0.8rem;
+    border-radius: 28px;
   }
 
   .acw-hero-visual img {
-    width: 100%;
-    max-width: none;
-    max-height: 310px;
-    object-fit: cover;
+    aspect-ratio: 16 / 10;
     object-position: center;
-    border-radius: 26px;
   }
 
   .acw-blog-hero-layout,
@@ -4005,12 +3989,20 @@ Practice Notes, legal pages, updated contact form and footer
   }
 
   .acw-hero-cover {
-    padding-top: 36px;
+    padding: 36px 0 56px;
+  }
+
+  .acw-hero-cover-inner {
+    gap: 1.7rem;
+  }
+
+  .acw-hero-visual {
+    border-radius: 22px;
   }
 
   .acw-hero-visual img {
-    max-height: 260px;
-    border-radius: 22px;
+    aspect-ratio: 4 / 3;
+    object-position: 56% center;
   }
 
   .acw-blog-hero-card,
@@ -4117,7 +4109,6 @@ Practice Notes, legal pages, updated contact form and footer
 }
 /* =========================================================
 HOMEPAGE REFINEMENTS
-Add this near the end of the stylesheet, before reduced-motion rules.
 ========================================================= */
 
 .acw-hero-supporting {
