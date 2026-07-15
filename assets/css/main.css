@@ -499,11 +499,11 @@ p {
   width: 100%;
   margin: 0;
   background: var(--surface-quiet);
-  border: 1px solid rgba(16, 32, 51, 0.08);
-  border-radius: 24px;
+  border: 1px solid rgba(16, 32, 51, 0.07);
+  border-radius: 20px;
   box-shadow:
-    0 24px 58px rgba(16, 32, 51, 0.075),
-    0 8px 20px rgba(16, 32, 51, 0.04);
+    0 20px 48px rgba(16, 32, 51, 0.065),
+    0 6px 18px rgba(16, 32, 51, 0.035);
 }
 
 .acw-hero-visual img {
@@ -3823,11 +3823,11 @@ Practice Notes, legal pages, updated contact form and footer
   }
 
   h1 {
-    font-size: clamp(2.55rem, 11vw, 3.55rem);
+    font-size: clamp(2.45rem, 9.5vw, 3.35rem);
   }
 
   h2 {
-    font-size: clamp(2.2rem, 10vw, 3.8rem);
+    font-size: clamp(2.05rem, 8.5vw, 3.25rem);
   }
 
   .acw-blueprint-grid,
@@ -4133,46 +4133,59 @@ HOMEPAGE REFINEMENTS
 /* Editorial pacing */
 
 .acw-home-problem {
-  padding-block: clamp(110px, 10vw, 156px);
+  padding-block: clamp(108px, 9vw, 148px);
 }
 
 .acw-home-reflection {
-  padding-block: clamp(96px, 9vw, 138px);
+  padding-block: clamp(96px, 8vw, 132px);
 }
 
 .acw-home-transformation {
-  padding-block: clamp(118px, 11vw, 168px);
+  padding-block: clamp(112px, 9vw, 154px);
 }
 
 .acw-home-outcome {
-  padding-block: clamp(104px, 10vw, 152px);
+  padding-block: clamp(102px, 8.5vw, 144px);
 }
 
 .acw-home-work {
-  padding-block: clamp(120px, 11vw, 170px);
+  padding-block: clamp(112px, 9vw, 154px);
 }
 
 .acw-home-about {
-  padding-block: clamp(108px, 10vw, 156px);
+  padding-block: clamp(104px, 8.5vw, 146px);
 }
 
 .acw-home-guides {
-  padding-block: clamp(112px, 10vw, 160px);
+  padding-block: clamp(108px, 9vw, 150px);
 }
 
 .acw-home-faq {
-  padding-block: clamp(100px, 9vw, 142px);
+  padding-block: clamp(94px, 8vw, 132px);
 }
 
 .acw-home-final {
-  padding-block: clamp(82px, 8vw, 118px);
+  padding-block: clamp(78px, 7vw, 108px);
+}
+
+/* Problem cards */
+
+.acw-home-problem-grid {
+  gap: 1rem;
+}
+
+.acw-home-problem-grid .acw-blueprint-card {
+  min-height: 205px;
+  padding: 1.55rem;
+  border-radius: 18px;
+  box-shadow: 0 8px 22px rgba(16, 32, 51, 0.032);
 }
 
 /* Reflection section */
 
 .acw-home-reflection .acw-editorial-grid {
-  grid-template-columns: minmax(0, 0.86fr) minmax(420px, 1.14fr);
-  gap: clamp(3.5rem, 7vw, 7rem);
+  grid-template-columns: minmax(0, 0.88fr) minmax(420px, 1.12fr);
+  gap: clamp(3.5rem, 6vw, 6.5rem);
 }
 
 .acw-home-reflection .acw-editorial-media img {
@@ -4183,23 +4196,25 @@ HOMEPAGE REFINEMENTS
 /* Transformation cards */
 
 .acw-home-transformation .acw-offer-grid {
-  gap: 1.15rem;
+  gap: 1rem;
 }
 
 .acw-home-transformation .acw-offer-card {
-  min-height: 450px;
-  box-shadow: 0 14px 34px rgba(16, 32, 51, 0.045);
+  min-height: 430px;
+  padding: 1.75rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(16, 32, 51, 0.04);
 }
 
 .acw-home-transformation .acw-offer-card::before {
   height: 3px;
-  opacity: 0.7;
+  opacity: 0.65;
 }
 
 /* Outcome */
 
 .acw-home-outcome .acw-showcase {
-  gap: clamp(3.8rem, 7vw, 6.4rem);
+  gap: clamp(3.6rem, 6vw, 6rem);
 }
 
 .acw-home-outcome .acw-showcase-copy {
@@ -4216,11 +4231,11 @@ HOMEPAGE REFINEMENTS
 
 .acw-home-work .acw-cards-two {
   max-width: 900px;
-  gap: 1.6rem;
+  gap: 1.5rem;
 }
 
 .acw-home-work .acw-card {
-  box-shadow: 0 12px 30px rgba(16, 32, 51, 0.045);
+  box-shadow: 0 10px 26px rgba(16, 32, 51, 0.04);
 }
 
 .acw-home-work .acw-card-image {
@@ -4230,20 +4245,34 @@ HOMEPAGE REFINEMENTS
 /* About */
 
 .acw-home-about .acw-about-grid {
-  grid-template-columns: minmax(0, 1fr) minmax(340px, 440px);
-  gap: clamp(4rem, 8vw, 7.5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 430px);
+  gap: clamp(4rem, 7vw, 7rem);
 }
 
 .acw-home-about .acw-about-side {
-  max-width: 440px;
+  width: 100%;
+  max-width: 430px;
+}
+
+.acw-home-about .acw-about-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
 
 .acw-home-about .acw-about-note {
-  padding: 1.15rem 0.2rem 0;
+  padding: 1rem 0.15rem 0;
   background: transparent;
   border: 0;
   border-radius: 0;
   box-shadow: none;
+}
+
+/* Guides */
+
+.acw-home-guides-grid .acw-blueprint-card {
+  min-height: 230px;
+  border-radius: 18px;
 }
 
 /* FAQ */
@@ -4265,7 +4294,7 @@ HOMEPAGE REFINEMENTS
 }
 
 .acw-home-faq .acw-faq-item summary {
-  padding: 1.35rem 3rem 1.35rem 0;
+  padding: 1.3rem 3rem 1.3rem 0;
 }
 
 .acw-home-faq .acw-faq-item summary::after {
@@ -4274,28 +4303,28 @@ HOMEPAGE REFINEMENTS
 
 .acw-home-faq .acw-faq-item p {
   max-width: 64ch;
-  padding: 0 2rem 1.5rem 0;
+  padding: 0 2rem 1.45rem 0;
 }
 
-/* Final CTA with a separate editorial image */
+/* Final CTA */
 
 .acw-home-final-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1fr);
-  gap: clamp(2.5rem, 6vw, 5.5rem);
+  grid-template-columns: minmax(0, 0.95fr) minmax(340px, 0.9fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
   align-items: center;
-  padding: clamp(2.2rem, 4.5vw, 4rem);
-  border-radius: 30px;
+  padding: clamp(2.15rem, 4vw, 3.7rem);
+  border-radius: 26px;
 }
 
 .acw-home-final-copy {
-  max-width: 620px;
+  max-width: 600px;
 }
 
 .acw-home-final-media {
   overflow: hidden;
   margin: 0;
-  border-radius: 18px;
+  border-radius: 16px;
 }
 
 .acw-home-final-media img {
@@ -4305,27 +4334,35 @@ HOMEPAGE REFINEMENTS
   object-position: center;
 }
 
-/* Responsive homepage refinements */
+/* Tablet */
 
 @media (max-width: 1040px) {
   .acw-home-reflection .acw-editorial-grid,
+  .acw-home-about .acw-about-grid,
   .acw-home-final-grid {
     grid-template-columns: 1fr;
   }
 
   .acw-home-reflection .acw-editorial-copy,
+  .acw-home-about .acw-about-copy,
   .acw-home-final-copy {
     max-width: 720px;
   }
 
-  .acw-home-reflection .acw-editorial-media {
-    max-width: 820px;
+  .acw-home-reflection .acw-editorial-media,
+  .acw-home-about .acw-about-side,
+  .acw-home-final-media {
+    justify-self: start;
+    width: 100%;
+    max-width: 760px;
   }
 
-  .acw-home-final-media {
-    max-width: 820px;
+  .acw-home-about .acw-about-side {
+    gap: 0.85rem;
   }
 }
+
+/* Mobile */
 
 @media (max-width: 760px) {
   .acw-home-problem,
@@ -4336,37 +4373,134 @@ HOMEPAGE REFINEMENTS
   .acw-home-about,
   .acw-home-guides,
   .acw-home-faq {
-    padding-block: 78px;
+    padding-block: 72px;
   }
 
   .acw-home-final {
-    padding-block: 64px;
+    padding-block: 58px;
   }
 
-  .acw-home-final-grid {
+  .acw-home-problem .acw-section-heading,
+  .acw-home-transformation .acw-section-heading,
+  .acw-home-work .acw-section-heading,
+  .acw-home-guides .acw-section-heading,
+  .acw-home-faq .acw-section-heading {
+    margin-bottom: 2.2rem;
+  }
+
+  .acw-home-problem-grid,
+  .acw-home-guides-grid {
+    gap: 0.85rem;
+  }
+
+  .acw-home-problem-grid .acw-blueprint-card,
+  .acw-home-guides-grid .acw-blueprint-card {
+    min-height: 0;
+    padding: 1.35rem;
+    border-radius: 14px;
+  }
+
+  .acw-home-transformation .acw-offer-grid {
+    gap: 0.85rem;
+  }
+
+  .acw-home-transformation .acw-offer-card {
+    min-height: 0;
     padding: 1.45rem;
-    border-radius: 24px;
+    border-radius: 16px;
+  }
+
+  .acw-home-reflection .acw-editorial-grid,
+  .acw-home-about .acw-about-grid,
+  .acw-home-final-grid {
+    gap: 2rem;
+  }
+
+  .acw-home-reflection .acw-editorial-media,
+  .acw-home-about .acw-about-side,
+  .acw-home-final-media {
+    max-width: none;
   }
 
   .acw-home-reflection .acw-editorial-media img,
   .acw-home-outcome .acw-showcase-image img,
+  .acw-home-about .acw-about-image,
   .acw-home-final-media img {
+    border-radius: 14px;
+  }
+
+  .acw-home-work .acw-cards-two {
+    gap: 1rem;
+  }
+
+  .acw-home-work .acw-card {
     border-radius: 16px;
   }
 
+  .acw-home-work .acw-card-body {
+    padding: 1.25rem;
+  }
+
   .acw-home-about .acw-about-note {
-    padding-top: 0.8rem;
+    padding-top: 0.75rem;
+  }
+
+  .acw-home-faq .acw-faq-item summary {
+    padding: 1.15rem 2.5rem 1.15rem 0;
+    font-size: 0.95rem;
+  }
+
+  .acw-home-faq .acw-faq-item p {
+    padding-right: 0;
+  }
+
+  .acw-home-final-grid {
+    padding: 1.35rem;
+    border-radius: 20px;
   }
 }
 
 @media (max-width: 640px) {
+  .acw-hero-cover {
+    padding: 34px 0 52px;
+  }
+
+  .acw-hero-cover-inner {
+    gap: 1.6rem;
+  }
+
+  .acw-hero-cover h1 {
+    max-width: 11.5ch;
+    font-size: clamp(2.35rem, 10.5vw, 3rem);
+    line-height: 0.94;
+  }
+
+  .acw-hero-cover .acw-hero-text {
+    font-size: 0.98rem;
+    line-height: 1.62;
+  }
+
+  .acw-hero-cover .acw-cta-row {
+    gap: 0.65rem;
+    margin-top: 1.4rem;
+  }
+
   .acw-hero-supporting {
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
+    font-size: 0.69rem;
+    letter-spacing: 0.09em;
+  }
+
+  .acw-hero-visual {
+    border-radius: 14px;
+  }
+
+  .acw-hero-visual img {
+    aspect-ratio: 4 / 3;
+    object-position: 55% center;
   }
 
   .acw-home-final-grid {
-    padding: 1.15rem;
+    padding: 1.05rem;
   }
 }
 
