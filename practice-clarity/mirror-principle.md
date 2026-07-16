@@ -2,7 +2,7 @@
 layout: guide
 
 title: "The Mirror Principle"
-description: "The foundation of Practice Clarity. Why therapist websites do not create clarity — they reflect the clarity that already exists."
+description: "The first Practice Clarity principle: why therapist websites do not create clarity, but reflect the clarity that already exists."
 
 excerpt: >
   Most therapists don't have a website problem.
@@ -16,7 +16,7 @@ featured: true
 featured_order: 1
 
 slug: mirror-principle
-permalink: /guides/mirror-principle/
+permalink: /practice-clarity/mirror-principle/
 
 hero_image: /assets/images/library/mirror-principle.webp
 hero_alt: "A simple wooden framed mirror beside an open notebook in soft morning light."
@@ -25,7 +25,7 @@ image: /assets/images/library/mirror-principle.webp
 read_time: 18 min read
 updated: 2026-07-08
 
-canonical_url: https://alexanderwatson.co.uk/guides/mirror-principle/
+canonical_url: https://alexanderwatson.co.uk/practice-clarity/mirror-principle/
 
 intro: >
   Before you think about websites, copywriting, SEO or branding,
@@ -64,7 +64,7 @@ related:
       </p>
 
       <p class="acw-guide-meta">
-        18 min read
+        Foundation · Principle 1 of 9 · 18 min read
       </p>
     </div>
 
@@ -83,12 +83,6 @@ related:
   <a href="#reflection">Reflection</a>
   <a href="#next">Continue reading</a>
 </div>
-
-# Practice Clarity
-
-## The Mirror Principle
-
-### Why every therapist website reflects thinking that already exists.
 
 <div class="acw-guide-intro-panel">
 
@@ -134,13 +128,19 @@ If you're new to Practice Clarity, start here.
 
 ---
 
-## In this principle you'll discover
+<section class="acw-guide-learning-summary" aria-labelledby="mirror-learning-title">
 
-- Why most therapists don't actually have a website problem.
+<p class="acw-section-label">In this principle</p>
+
+## What you'll understand {#mirror-learning-title}
+
+- Why most therapists do not actually have a website problem.
 - What **Definer's Block** is.
 - Why clarity always comes before websites.
 - How the **Mirror Principle** changes the way you think about marketing.
 - Why every Practice Clarity principle begins with understanding rather than design.
+
+</section>
 
 ---
 
@@ -782,6 +782,8 @@ Because every other principle quietly assumes it.
 
 # Reflection
 
+<p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
+
 Before moving on, spend a few quiet minutes with these questions.
 
 Don't answer them quickly.
@@ -832,6 +834,20 @@ what is it reflecting today?
 
 {% include practice-clarity-remember.html
 text="A website never creates clarity. It simply reveals the clarity that already exists." %}
+
+---
+
+<div class="acw-callout acw-framework">
+
+<strong>Where the pathway goes next</strong>
+
+The Mirror Principle begins with understanding.
+
+The Waiting Room Principle asks what happens once that understanding exists:
+
+<strong>Can the people who need this work actually discover it?</strong>
+
+</div>
 
 ---
 
