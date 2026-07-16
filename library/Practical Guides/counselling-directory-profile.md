@@ -2,42 +2,123 @@
 layout: guide
 
 title: "How to Optimise Your Counselling Directory Profile"
-
-description: "A complete guide to writing a Counselling Directory profile that helps the right clients recognise themselves and build trust before first contact."
-
-category: Private Practice
-
-guide: true
-featured: false
-featured_order: 2
-
-slug: counselling-directory-profile
-
-permalink: /guides/counselling-directory-profile/
-
-hero_image: /assets/images/library/counselling-directory.webp
-hero_alt: "A therapist reviewing a Counselling Directory profile beside an independent therapist website."
-
-read_time: 18 minute read
-
-updated: 2026-07-04
-
-intro: >
-  Your Counselling Directory profile is often the first conversation
-  someone has with your practice. Long before they visit your website
-  or send an enquiry, they're deciding whether your words feel clear,
-  human and trustworthy.
-
-related:
-  - practice-clarity
-  - therapist-websites
-  - therapist-copywriting
+description: "A practical guide to writing a Counselling Directory profile that helps the right clients recognise themselves and build trust before first contact."
 
 excerpt: >
   Learn how to write a Counselling Directory profile that helps
   prospective clients recognise themselves in your work,
   builds trust before first contact and complements your website.
+
+category: Practical Guides
+content_type: Evergreen Guide
+level: Practical
+
+guide: true
+featured: true
+featured_order: 1
+
+slug: counselling-directory-profile
+permalink: /library/practical-guides/counselling-directory-profile/
+
+hero_image: /assets/images/library/counselling-directory-profile.webp
+hero_alt: "A therapist reviewing a Counselling Directory profile beside notes and an independent therapist website."
+image: /assets/images/library/counselling-directory-profile.webp
+
+read_time: 18 min read
+updated: 2026-07-16
+
+canonical_url: https://alexanderwatson.co.uk/library/practical-guides/counselling-directory-profile/
+
+intro: >
+  Your Counselling Directory profile is often the first conversation
+  someone has with your practice. Long before they visit your website
+  or send an enquiry, they are deciding whether your words feel clear,
+  human and trustworthy.
+
+applies_principles:
+  - recognition-principle
+  - simplicity-principle
+  - consistency-principle
+  - enquiry-principle
+
+related:
+  - practice-clarity
+  - therapist-websites
+  - therapist-copywriting
 ---
+
+<nav class="acw-guide-breadcrumb" aria-label="Breadcrumb">
+  <a href="{{ '/' | relative_url }}">Home</a>
+  <span>/</span>
+  <a href="{{ '/library/' | relative_url }}">Library</a>
+  <span>/</span>
+  <strong>How to Optimise Your Counselling Directory Profile</strong>
+</nav>
+
+<section class="acw-guide-chapter-intro">
+  <p class="acw-section-label">Practical Guide</p>
+
+  <p class="acw-guide-series">
+    Applying Practice Clarity
+  </p>
+
+  <div class="acw-guide-chapter-grid">
+    <div>
+      <p class="acw-guide-kicker">Evergreen guide</p>
+
+      <h1>How to Optimise Your Counselling Directory Profile</h1>
+
+      <p class="acw-guide-deck">
+        Help the right clients recognise themselves and build trust before first contact.
+      </p>
+
+      <p class="acw-guide-meta">
+        Practical · 18 min read
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="acw-guide-anchor-panel">
+  <p>Jump to</p>
+  <a href="#recognition">Recognition before persuasion</a>
+  <a href="#writing">Writing for prospective clients</a>
+  <a href="#photograph">Your photograph</a>
+  <a href="#practical">Practical clarity</a>
+  <a href="#website">Directory and website</a>
+  <a href="#checklist">Review checklist</a>
+  <a href="#questions">Frequently asked questions</a>
+</div>
+
+<section class="acw-guide-learning-summary" aria-labelledby="directory-learning-title">
+
+<p class="acw-section-label">In this guide</p>
+
+## What you'll understand {#directory-learning-title}
+
+- Why recognition matters more than persuasion.
+- How to write in the language prospective clients already use.
+- How specificity can improve fit without narrowing your whole practice.
+- Why practical clarity reduces emotional effort.
+- How your directory profile and website should work together.
+- How to review your profile using a simple checklist.
+
+</section>
+
+<div class="acw-callout acw-framework">
+
+<strong>How this guide fits Practice Clarity</strong>
+
+This is not a tenth principle.
+
+It applies the Recognition, Simplicity, Consistency and Enquiry principles to one of the first places a prospective client may encounter your practice.
+
+</div>
+
+---
+
+<section id="recognition"></section>
+
 For many therapists, private practice begins with a Counselling Directory profile.
 
 It's trusted.
@@ -301,6 +382,8 @@ It's there to begin a relationship.
 And relationships rarely begin with persuasion.
 
 They begin with understanding.
+<section id="writing"></section>
+
 ## Write for the person who is reading, not the profession you've joined
 
 One of the biggest shifts you can make is surprisingly simple.
@@ -566,6 +649,8 @@ Whatever people naturally experience when they sit with you should already be pr
 Because therapy begins long before the first session.
 
 In many ways, it begins with the feeling someone has while reading your profile.
+<section id="photograph"></section>
+
 ## Your photograph is part of the conversation
 
 Long before someone reads your first sentence...
@@ -613,6 +698,8 @@ Ask yourself one question.
 If the answer is yes, you've probably chosen well.
 
 ---
+
+<section id="practical"></section>
 
 ## Remove unnecessary uncertainty
 
@@ -753,6 +840,8 @@ That's usually a sign you've developed.
 Your profile deserves to develop with you.
 
 ---
+
+<section id="website"></section>
 
 ## Where a directory profile reaches its natural limit
 
@@ -1049,6 +1138,8 @@ That's what clarity looks like.
 
 ---
 
+<section id="checklist"></section>
+
 ## A practical review checklist
 
 Before you update your profile, spend ten minutes working through these questions.
@@ -1089,6 +1180,8 @@ You don't need a perfect score.
 You simply need a profile that feels a little clearer than it did yesterday.
 
 ---
+
+<section id="questions"></section>
 
 ## Frequently asked questions
 
@@ -1188,3 +1281,38 @@ Everything else comes afterwards.
 
 ---
 
+<div class="acw-callout acw-framework">
+
+<strong>The practical takeaway</strong>
+
+Your profile does not need to explain everything or persuade everyone.
+
+It needs to help the right person recognise themselves, understand what working with you may feel like and know how to take the next step.
+
+</div>
+
+---
+
+<section class="acw-guide-next-card">
+
+  <p class="acw-section-label">Continue with Practice Clarity</p>
+
+  <h2>Understand the principles behind the guide.</h2>
+
+  <p>
+    This guide applies several parts of the Practice Clarity framework.
+    Return to the complete pathway to explore recognition, simplicity,
+    consistency and enquiry in greater depth.
+  </p>
+
+  <div class="acw-cta-row">
+    <a href="{{ '/practice-clarity/' | relative_url }}" class="acw-btn acw-btn-primary">
+      Explore Practice Clarity
+    </a>
+
+    <a href="{{ '/library/' | relative_url }}" class="acw-btn acw-btn-secondary">
+      Return to the Library
+    </a>
+  </div>
+
+</section>
