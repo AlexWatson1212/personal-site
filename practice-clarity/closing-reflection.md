@@ -82,7 +82,7 @@ One philosophy.
 
 <p class="acw-guide-meta">
 
-10 min read
+Closing Reflection · 10 min read
 
 </p>
 
@@ -91,12 +91,6 @@ One philosophy.
 </div>
 
 </section>
-
-# Practice Clarity
-
-## A Closing Reflection
-
-### Every principle was quietly trying to answer the same question.
 
 <div class="acw-guide-intro-panel">
 
@@ -141,6 +135,19 @@ That was always the real subject of this framework.
 </p>
 
 </div>
+
+<section class="acw-guide-learning-summary" aria-labelledby="closing-learning-title">
+
+<p class="acw-section-label">In this reflection</p>
+
+## What you'll take away {#closing-learning-title}
+
+- The philosophy beneath Practice Clarity.
+- Why reducing uncertainty matters more than persuasion.
+- How the nine principles connect.
+- Why clarity is ultimately an act of care.
+
+</section>
 
 ---
 
@@ -350,6 +357,8 @@ More often, it gently removes what never needed to be there.
 </div>
 
 ---
+<p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
+
 # If you remember one thing
 
 Imagine that every page of this framework disappeared tomorrow.
@@ -554,6 +563,24 @@ those few quiet steps change everything.
 Clarity is not decoration.
 
 It is care.
+
+</div>
+
+---
+
+<div class="acw-callout acw-framework">
+
+<strong>Where the pathway goes next</strong>
+
+The nine principles are complete.
+
+The next step is not another chapter.
+
+It is returning to your own practice with one quieter question:
+
+<strong>Where is unnecessary uncertainty still remaining?</strong>
+
+Practice Clarity is designed to be revisited whenever your work, understanding or website begins to evolve.
 
 </div>
 
