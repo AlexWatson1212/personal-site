@@ -19,7 +19,7 @@ slug: about-principle
 permalink: /practice-clarity/about-principle/
 
 hero_image: /assets/images/library/about-principle.webp
-hero_alt: "A calm therapist About page draft beside a portrait, notebook and soft natural light."
+hero_alt: "A calm therapist About page draft beside a notebook in soft natural light."
 image: /assets/images/library/about-principle.webp
 
 read_time: 20 min read
@@ -89,7 +89,7 @@ They are looking for enough of you to imagine beginning therapy.
 </p>
 
 <p class="acw-guide-meta">
-20 min read
+Foundation · Principle 6 of 9 · 20 min read
 </p>
 
 </div>
@@ -123,12 +123,6 @@ Jump to
 <a href="#next">Continue reading</a>
 
 </div>
-
-# Practice Clarity
-
-## The About Principle
-
-### Why people are not looking for your biography.
 
 <div class="acw-guide-intro-panel">
 
@@ -200,7 +194,11 @@ Its purpose is to reduce enough uncertainty that contact begins to feel possible
 
 ---
 
-## In this principle you'll discover
+<section class="acw-guide-learning-summary" aria-labelledby="about-learning-title">
+
+<p class="acw-section-label">In this principle</p>
+
+## What you'll understand {#about-learning-title}
 
 - Why most therapist About pages become either too formal or too personal.
 - What prospective clients are really looking for.
@@ -208,6 +206,8 @@ Its purpose is to reduce enough uncertainty that contact begins to feel possible
 - How to sound human without oversharing.
 - A simple framework for creating a calm About page.
 - How the About page prepares the way for contact.
+
+</section>
 
 ---
 
@@ -995,11 +995,12 @@ It exists to help someone quietly imagine beginning theirs with you.
 </div>
 
 ---
----
 
 <section id="reflection"></section>
 
 # Reflection
+
+<p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
 
 Before moving on, spend a few quiet minutes with these questions.
 
@@ -1045,6 +1046,24 @@ what would a prospective client no longer understand about you?
 
 {% include practice-clarity-remember.html
 text="People are not looking for your whole story. They are looking for enough of you to imagine beginning a conversation." %}
+
+---
+
+<div class="acw-callout acw-framework">
+
+<strong>Where the pathway goes next</strong>
+
+The About Principle answers a deeply personal question:
+
+<strong>Who is this therapist?</strong>
+
+The Simplicity Principle asks the next one:
+
+<strong>Why does everything now feel so clear and effortless?</strong>
+
+Once trust becomes personal, clarity should become effortless.
+
+</div>
 
 ---
 

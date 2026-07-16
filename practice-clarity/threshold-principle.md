@@ -1,4 +1,4 @@
----
+--
 layout: guide
 
 title: "The Threshold Principle"
@@ -15,7 +15,7 @@ featured: true
 featured_order: 3
 
 slug: threshold-principle
-permalink: /guides/threshold-principle/
+permalink: /practice-clarity/threshold-principle/
 
 hero_image: /assets/images/library/threshold-principle.webp
 hero_alt: "A calm doorway with soft morning light, symbolising the moment someone arrives and decides whether to step inside."
@@ -24,7 +24,7 @@ image: /assets/images/library/threshold-principle.webp
 read_time: 18 min read
 updated: 2026-07-08
 
-canonical_url: https://alexanderwatson.co.uk/guides/threshold-principle/
+canonical_url: https://alexanderwatson.co.uk/practice-clarity/threshold-principle/
 
 intro: >
   Discovery is only the beginning. Once someone arrives on your website,
@@ -63,7 +63,7 @@ related:
       </p>
 
       <p class="acw-guide-meta">
-        18 min read
+        Foundation · Principle 3 of 9 · 18 min read
       </p>
     </div>
 
@@ -82,12 +82,6 @@ related:
   <a href="#reflection">Reflection</a>
   <a href="#next">Continue reading</a>
 </div>
-
-# Practice Clarity
-
-## The Threshold Principle
-
-### Why the first few seconds decide whether someone feels safe enough to stay.
 
 <div class="acw-guide-intro-panel">
 
@@ -129,7 +123,11 @@ The next question is whether someone feels safe enough to stay.
 
 ---
 
-## In this principle you'll discover
+<section class="acw-guide-learning-summary" aria-labelledby="threshold-learning-title">
+
+<p class="acw-section-label">In this principle</p>
+
+## What you'll understand {#threshold-learning-title}
 
 - Why arrival matters more than attention.
 - What the threshold of a therapist website really is.
@@ -137,6 +135,8 @@ The next question is whether someone feels safe enough to stay.
 - How uncertainty quietly builds in the first few seconds.
 - Which signals help someone feel safe enough to stay.
 - Why the next principle is recognition.
+
+</section>
 
 ---
 
@@ -905,6 +905,8 @@ They are about helping them feel oriented, reassured and safe enough to continue
 
 # Reflection
 
+<p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
+
 Before moving on, spend a few quiet minutes with these questions.
 
 There are no right answers.
@@ -935,6 +937,22 @@ Is the next step clear without being pushy?
 
 {% include practice-clarity-remember.html
 text="The first few seconds after someone arrives are not about impressing them. They are about helping them feel safe enough to continue." %}
+
+---
+
+<div class="acw-callout acw-framework">
+
+<strong>Where the pathway goes next</strong>
+
+The Threshold Principle helps someone feel safe enough to stay.
+
+The Recognition Principle asks the next question.
+
+<strong>Do I recognise myself here?</strong>
+
+Only after someone feels safe can they begin to feel understood.
+
+</div>
 
 ---
 

@@ -84,7 +84,7 @@ The easiest step should be asking for help.
 </p>
 
 <p class="acw-guide-meta">
-18 min read
+Foundation · Principle 9 of 9 · 18 min read
 </p>
 
 </div>
@@ -116,12 +116,6 @@ Jump to
 <a href="#closing">Completing Practice Clarity</a>
 
 </div>
-
-# Practice Clarity
-
-## The Enquiry Principle
-
-### The easiest step should be asking for help.
 
 <div class="acw-guide-intro-panel">
 
@@ -199,7 +193,11 @@ It should quietly become the easiest.
 
 ---
 
-## In this principle you'll discover
+<section class="acw-guide-learning-summary" aria-labelledby="enquiry-learning-title">
+
+<p class="acw-section-label">In this principle</p>
+
+## What you'll understand {#enquiry-learning-title}
 
 - Why enquiry is emotionally different from every previous step.
 - Why hesitation often remains even after trust exists.
@@ -207,6 +205,8 @@ It should quietly become the easiest.
 - A framework for creating a calmer enquiry experience.
 - Why reassurance matters more than persuasion.
 - How the Enquiry Principle completes Practice Clarity.
+
+</section>
 
 ---
 
@@ -934,11 +934,12 @@ It should feel like a calm, human beginning.
 </div>
 
 ---
----
 
 <section id="reflection"></section>
 
 # Reflection
+
+<p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
 
 Before leaving Practice Clarity, spend a few quiet minutes with these questions.
 

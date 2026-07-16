@@ -15,7 +15,7 @@ featured: true
 featured_order: 5
 
 slug: homepage-principle
-permalink: /guides/homepage-principle/
+permalink: /practice-clarity/homepage-principle/
 
 hero_image: /assets/images/library/homepage-principle.webp
 hero_alt: "A calm homepage layout shown on a laptop beside a notebook in soft natural light."
@@ -24,7 +24,7 @@ image: /assets/images/library/homepage-principle.webp
 read_time: 20 min read
 updated: 2026-07-08
 
-canonical_url: https://alexanderwatson.co.uk/guides/homepage-principle/
+canonical_url: https://alexanderwatson.co.uk/practice-clarity/homepage-principle/
 
 intro: >
   Once someone recognises themselves in your work,
@@ -85,7 +85,7 @@ am I in the right place?
 </p>
 
 <p class="acw-guide-meta">
-20 min read
+Foundation · Principle 5 of 9 · 20 min read
 </p>
 
 </div>
@@ -117,12 +117,6 @@ Jump to
 <a href="#next">Continue reading</a>
 
 </div>
-
-# Practice Clarity
-
-## The Homepage Principle
-
-### Every homepage answers one quiet question before any other.
 
 <div class="acw-guide-intro-panel">
 
@@ -190,7 +184,11 @@ Its purpose is to reassure the right person that they are exactly where they nee
 
 ---
 
-## In this principle you'll discover
+<section class="acw-guide-learning-summary" aria-labelledby="homepage-learning-title">
+
+<p class="acw-section-label">In this principle</p>
+
+## What you'll understand {#homepage-learning-title}
 
 - Why the homepage carries so much emotional responsibility.
 - Why orientation always comes before explanation.
@@ -198,6 +196,8 @@ Its purpose is to reassure the right person that they are exactly where they nee
 - Why most therapist homepages try to do too much.
 - A simple sequence for creating a calmer homepage.
 - Why the homepage prepares every page that follows.
+
+</section>
 
 ---
 
@@ -914,11 +914,12 @@ I think I'm in the right place.
 </div>
 
 ---
----
 
 <section id="reflection"></section>
 
 # Reflection
+
+<p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
 
 Before moving on, spend a few quiet minutes with these questions.
 
@@ -964,6 +965,24 @@ would they feel more certain than when they arrived?
 
 {% include practice-clarity-remember.html
 text="A homepage does not exist to explain everything. It exists to help the right person quietly realise they are in the right place." %}
+
+---
+
+<div class="acw-callout acw-framework">
+
+<strong>Where the pathway goes next</strong>
+
+The Homepage Principle answers one quiet question:
+
+<strong>Am I in the right place?</strong>
+
+The About Principle asks the next:
+
+<strong>Who is the therapist behind this work?</strong>
+
+Once someone feels oriented, they naturally become curious about the person they may be trusting.
+
+</div>
 
 ---
 

@@ -85,7 +85,7 @@ Every unnecessary decision creates emotional effort.
 </p>
 
 <p class="acw-guide-meta">
-18 min read
+Foundation · Principle 7 of 9 · 18 min read
 </p>
 
 </div>
@@ -111,12 +111,6 @@ Jump to
 <a href="#next">Continue reading</a>
 
 </div>
-
-# Practice Clarity
-
-## The Simplicity Principle
-
-### Every unnecessary decision creates emotional effort.
 
 <div class="acw-guide-intro-panel">
 
@@ -194,7 +188,11 @@ It is about making the journey lighter.
 
 ---
 
-## In this principle you'll discover
+<section class="acw-guide-learning-summary" aria-labelledby="simplicity-learning-title">
+
+<p class="acw-section-label">In this principle</p>
+
+## What you'll understand {#simplicity-learning-title}
 
 - Why simplicity is an ethical design decision.
 - Why unnecessary choice quietly creates emotional effort.
@@ -202,6 +200,8 @@ It is about making the journey lighter.
 - Why simplicity is about sequence rather than reduction.
 - A framework for simplifying every page.
 - How simplicity prepares the way for consistency.
+
+</section>
 
 ---
 
@@ -955,11 +955,12 @@ It is the absence of unnecessary effort.
 </div>
 
 ---
----
 
 <section id="reflection"></section>
 
 # Reflection
+
+<p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
 
 Before moving on, spend a few quiet minutes with these questions.
 
@@ -1005,6 +1006,24 @@ what unnecessary effort could you quietly remove for them?
 
 {% include practice-clarity-remember.html
 text="Simplicity is not the absence of information. It is the absence of unnecessary effort." %}
+
+---
+
+<div class="acw-callout acw-framework">
+
+<strong>Where the pathway goes next</strong>
+
+The Simplicity Principle asks:
+
+<strong>How much unnecessary effort still remains?</strong>
+
+The Consistency Principle asks the next question:
+
+<strong>Does every part of the practice feel like it belongs together?</strong>
+
+When every interaction feels coherent, trust deepens without needing more explanation.
+
+</div>
 
 ---
 

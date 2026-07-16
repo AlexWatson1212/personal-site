@@ -2,7 +2,7 @@
 layout: guide
 
 title: "The Waiting Room Principle"
-description: "The second Practice Clarity principle. Why becoming easier to find can be an ethical act, and why visibility is really about reducing the distance between someone needing help and discovering the right therapist."
+description: "The second Practice Clarity principle: why becoming easier to find can be an ethical act, and why visibility is about reducing the distance between someone needing help and discovering the right therapist."
 
 excerpt: >
   Ethical visibility is not about manipulating search engines.
@@ -16,7 +16,7 @@ featured: true
 featured_order: 2
 
 slug: waiting-room-principle
-permalink: /guides/waiting-room-principle/
+permalink: /practice-clarity/waiting-room-principle/
 
 hero_image: /assets/images/library/waiting-room-principle.webp
 hero_alt: "A softly lit path leading towards a warm doorway."
@@ -25,7 +25,7 @@ image: /assets/images/library/waiting-room-principle.webp
 read_time: 22 min read
 updated: 2026-07-08
 
-canonical_url: https://alexanderwatson.co.uk/guides/waiting-room-principle/
+canonical_url: https://alexanderwatson.co.uk/practice-clarity/waiting-room-principle/
 
 intro: >
   Once your practice reflects genuine clarity,
@@ -64,7 +64,7 @@ related:
       </p>
 
       <p class="acw-guide-meta">
-        22 min read
+        Foundation · Principle 2 of 9 · 22 min read
       </p>
     </div>
 
@@ -84,12 +84,6 @@ related:
   <a href="#reflection">Reflection</a>
   <a href="#next">Continue reading</a>
 </div>
-
-# Practice Clarity
-
-## The Waiting Room Principle
-
-### Why becoming easier to find is an ethical act.
 
 <div class="acw-guide-intro-panel">
 
@@ -133,13 +127,19 @@ To the people already looking for exactly the help you offer.
 
 ---
 
-## In this principle you'll discover
+<section class="acw-guide-learning-summary" aria-labelledby="waiting-room-learning-title">
+
+<p class="acw-section-label">In this principle</p>
+
+## What you'll understand {#waiting-room-learning-title}
 
 - Why SEO has earned such a poor reputation.
 - Why visibility is different from promotion.
 - Why ethical SEO is really about communication.
 - Why discoverability can itself become an act of care.
 - Why Practice Clarity always comes before optimisation.
+
+</section>
 
 ---
 
@@ -879,6 +879,8 @@ Trust begins when someone chooses to stay.
 
 # Reflection
 
+<p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
+
 Before moving on, spend a few quiet minutes with these questions.
 
 Don't rush them.
@@ -917,6 +919,20 @@ If they did discover your website, would they immediately recognise themselves i
 
 {% include practice-clarity-remember.html
 text="Ethical visibility is not about becoming easier for everyone to find. It is about becoming easier for the right people to discover." %}
+
+---
+
+<div class="acw-callout acw-framework">
+
+<strong>Where the pathway goes next</strong>
+
+The Waiting Room Principle helps the right people discover your practice.
+
+The Threshold Principle asks what happens in the first few seconds after they arrive:
+
+<strong>Do they feel oriented, reassured and safe enough to stay?</strong>
+
+</div>
 
 ---
 

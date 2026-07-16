@@ -84,7 +84,7 @@ Trust grows when every touchpoint tells the same story.
 </p>
 
 <p class="acw-guide-meta">
-18 min read
+Foundation · Principle 8 of 9 · 18 min read
 </p>
 
 </div>
@@ -116,12 +116,6 @@ Jump to
 <a href="#next">Continue reading</a>
 
 </div>
-
-# Practice Clarity
-
-## The Consistency Principle
-
-### Trust grows when every touchpoint tells the same story.
 
 <div class="acw-guide-intro-panel">
 
@@ -201,7 +195,11 @@ Trust grows because the experience becomes increasingly predictable.
 
 ---
 
-## In this principle you'll discover
+<section class="acw-guide-learning-summary" aria-labelledby="consistency-learning-title">
+
+<p class="acw-section-label">In this principle</p>
+
+## What you'll understand {#consistency-learning-title}
 
 - Why consistency creates trust.
 - Why branding is only one small part of consistency.
@@ -209,6 +207,8 @@ Trust grows because the experience becomes increasingly predictable.
 - The six layers of consistency.
 - How emotional coherence influences trust.
 - Why consistency naturally prepares enquiry.
+
+</section>
 
 ---
 
@@ -954,11 +954,12 @@ Because even when trust exists...
 making first contact can still feel like the most difficult step of all.
 
 ---
----
 
 <section id="reflection"></section>
 
 # Reflection
+
+<p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
 
 Before moving on, spend a few quiet minutes with these questions.
 
@@ -1008,6 +1009,24 @@ Would every page support that description?
 
 {% include practice-clarity-remember.html
 text="Trust rarely grows because of one exceptional moment. It grows because every small moment quietly agrees with the last." %}
+
+---
+
+<div class="acw-callout acw-framework">
+
+<strong>Where the pathway goes next</strong>
+
+The Consistency Principle asks:
+
+<strong>Does every part of the practice feel like it belongs together?</strong>
+
+The Enquiry Principle asks the final question:
+
+<strong>What helps someone take the first step?</strong>
+
+When trust has become coherent, only one barrier remains: the courage to make first contact.
+
+</div>
 
 ---
 

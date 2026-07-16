@@ -16,7 +16,7 @@ featured: true
 featured_order: 4
 
 slug: recognition-principle
-permalink: /guides/recognition-principle/
+permalink: /practice-clarity/recognition-principle/
 
 hero_image: /assets/images/library/recognition-principle.webp
 hero_alt: "A quiet reading space with an open notebook and soft morning light, symbolising the moment someone recognises themselves in what they read."
@@ -25,7 +25,7 @@ image: /assets/images/library/recognition-principle.webp
 read_time: 22 min read
 updated: 2026-07-08
 
-canonical_url: https://alexanderwatson.co.uk/guides/recognition-principle/
+canonical_url: https://alexanderwatson.co.uk/practice-clarity/recognition-principle/
 
 intro: >
   Recognition is the moment a prospective client quietly realises:
@@ -75,7 +75,7 @@ People choose therapists they recognise themselves in.
 </p>
 
 <p class="acw-guide-meta">
-22 min read
+Foundation · Principle 4 of 9 · 22 min read
 </p>
 
 </div>
@@ -100,12 +100,6 @@ People choose therapists they recognise themselves in.
 <a href="#next">Continue reading</a>
 
 </div>
-
-# Practice Clarity
-
-## The Recognition Principle
-
-### Why people choose the therapist they recognise themselves in.
 
 <div class="acw-guide-intro-panel">
 
@@ -161,7 +155,11 @@ Do I recognise myself here?
 
 ---
 
-## In this principle you'll discover
+<section class="acw-guide-learning-summary" aria-labelledby="recognition-learning-title">
+
+<p class="acw-section-label">In this principle</p>
+
+## What you'll understand {#recognition-learning-title}
 
 - Why recognition matters more than persuasion.
 - Why specificity creates connection.
@@ -169,6 +167,8 @@ Do I recognise myself here?
 - Why people recognise lived experience rather than professional descriptions.
 - Why observation is more valuable than clever writing.
 - How recognition naturally deepens trust.
+
+</section>
 
 ---
 
@@ -891,11 +891,12 @@ Am I in the right place?
 That is where the Homepage Principle begins.
 
 ---
----
 
 <section id="reflection"></section>
 
 # Reflection
+
+<p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
 
 Before moving on, spend a few quiet minutes with these questions.
 
@@ -941,6 +942,24 @@ or would they quietly feel understood?
 
 {% include practice-clarity-remember.html
 text="People rarely choose a therapist because they have been persuaded. They choose the therapist they recognise themselves in." %}
+
+---
+
+<div class="acw-callout acw-framework">
+
+<strong>Where the pathway goes next</strong>
+
+Recognition answers a quiet question:
+
+<strong>Do I recognise myself here?</strong>
+
+The Homepage Principle asks the next one:
+
+<strong>Am I in the right place?</strong>
+
+Recognition makes therapy feel personal. The homepage should make that feeling clear and easy to navigate.
+
+</div>
 
 ---
 
