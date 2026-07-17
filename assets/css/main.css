@@ -4493,3 +4493,381 @@ PROFESSIONAL IDENTITY PAGE
     animation-iteration-count: 1 !important;
   }
 }
+/* =========================================================
+26. HOMEPAGE REFINEMENT — JULY 2026
+========================================================= */
+
+/* A shorter, calmer desktop hero with deliberate line breaks. */
+
+@media (min-width: 761px) {
+  .acw-hero-stage,
+  .acw-hero-cover-copy {
+    min-height: clamp(500px, 61vh, 620px);
+  }
+
+  .acw-hero-cover-copy {
+    max-width: 720px;
+    padding: clamp(48px, 5.6vw, 72px);
+  }
+
+  .acw-hero-cover h1 {
+    max-width: 13ch;
+    font-size: clamp(3.2rem, 4.45vw, 4.95rem);
+    line-height: 0.93;
+  }
+
+  .acw-hero-cover h1 span {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .acw-hero-visual img {
+    object-position: center 50%;
+  }
+}
+
+/* The mobile hero already works well, so allow the headline to wrap naturally. */
+
+@media (max-width: 760px) {
+  .acw-hero-cover h1 span {
+    display: inline;
+    white-space: normal;
+  }
+
+  .acw-hero-cover h1 span:not(:last-child)::after {
+    content: " ";
+  }
+}
+
+/* More visual movement and less text density in the problem section. */
+
+.acw-home-problem {
+  padding-block: clamp(104px, 8vw, 138px);
+}
+
+.acw-home-problem-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(360px, 1fr);
+  column-gap: clamp(3rem, 7vw, 7rem);
+  align-items: end;
+  max-width: none !important;
+}
+
+.acw-home-problem-heading .acw-section-number,
+.acw-home-problem-heading h2 {
+  grid-column: 1;
+}
+
+.acw-home-problem-heading .acw-section-intro {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: end;
+  margin-bottom: 0;
+}
+
+.acw-home-problem-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.acw-home-problem-grid .acw-blueprint-card {
+  min-height: 260px;
+  padding: 2rem 1.8rem;
+  border: 1px solid rgba(16, 32, 51, 0.065);
+  box-shadow: 0 14px 34px rgba(16, 32, 51, 0.035);
+}
+
+.acw-home-problem-grid .acw-blueprint-card:nth-child(1) {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(234, 225, 210, 0.72));
+}
+
+.acw-home-problem-grid .acw-blueprint-card:nth-child(2) {
+  background: linear-gradient(145deg, rgba(255, 253, 248, 0.96), rgba(123, 143, 112, 0.11));
+}
+
+.acw-home-problem-grid .acw-blueprint-card:nth-child(3) {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(218, 192, 157, 0.18));
+}
+
+.acw-home-problem-grid .acw-blueprint-card:nth-child(4) {
+  background: linear-gradient(145deg, rgba(250, 246, 238, 0.96), rgba(16, 32, 51, 0.055));
+}
+
+.acw-home-problem-grid .acw-blueprint-card span {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 1.8rem;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 50%;
+  letter-spacing: 0;
+}
+
+.acw-home-problem-grid .acw-blueprint-card h3 {
+  max-width: 15ch;
+  font-size: clamp(1.25rem, 1.45vw, 1.55rem);
+}
+
+/* Every navigational action should look intentionally clickable. */
+
+.acw-home-reflection .acw-btn-secondary,
+.acw-home-transformation .acw-section-link .acw-btn,
+.acw-home-guides-grid .acw-card-btn,
+.acw-home-work .acw-card-action {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 44px;
+  padding: 0.78rem 1.35rem;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--text);
+  border: 1px solid rgba(16, 32, 51, 0.12);
+  border-radius: var(--pill);
+  box-shadow: 0 8px 20px rgba(16, 32, 51, 0.045);
+  font-size: 0.84rem;
+  font-weight: 820;
+  line-height: 1.1;
+}
+
+.acw-home-reflection .acw-btn-secondary:hover,
+.acw-home-transformation .acw-section-link .acw-btn:hover,
+.acw-home-guides-grid .acw-card-btn:hover,
+.acw-home-work .acw-card-link:hover .acw-card-action {
+  background: var(--white);
+  border-color: rgba(83, 107, 77, 0.30);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+.acw-home-transformation .acw-section-link {
+  margin-top: 2.4rem;
+}
+
+/* Soften the four-stage block and give each stage more breathing room. */
+
+.acw-home-transformation .acw-offer-grid {
+  gap: 1rem;
+  overflow: visible;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+
+.acw-home-transformation .acw-offer-card,
+.acw-home-transformation .acw-offer-card-clarity,
+.acw-home-transformation .acw-offer-card-identity,
+.acw-home-transformation .acw-offer-card-website,
+.acw-home-transformation .acw-offer-card-care {
+  min-height: 390px;
+  padding: 2rem;
+  border: 1px solid rgba(16, 32, 51, 0.065);
+  border-radius: 22px;
+  box-shadow: 0 12px 30px rgba(16, 32, 51, 0.035);
+}
+
+.acw-home-transformation .acw-offer-card-clarity {
+  background: rgba(242, 247, 240, 0.92);
+}
+
+.acw-home-transformation .acw-offer-card-identity {
+  background: rgba(250, 244, 235, 0.94);
+}
+
+.acw-home-transformation .acw-offer-card-website {
+  background: rgba(246, 247, 248, 0.94);
+}
+
+.acw-home-transformation .acw-offer-card-care {
+  background: rgba(246, 240, 230, 0.94);
+}
+
+/* Replace the crowded chip cloud with three clear outcome rows. */
+
+.acw-home-outcome .acw-showcase {
+  grid-template-columns: minmax(0, 0.88fr) minmax(460px, 1.12fr);
+  gap: clamp(3.4rem, 5vw, 5.4rem);
+}
+
+.acw-home-outcome .acw-showcase-image {
+  justify-self: end;
+  width: 100%;
+  max-width: 650px;
+}
+
+.acw-home-outcome .acw-showcase-image img {
+  aspect-ratio: 16 / 10;
+}
+
+.acw-outcome-points {
+  display: grid;
+  gap: 0;
+  margin: 1.8rem 0 0;
+  padding: 0;
+  border-top: 1px solid rgba(16, 32, 51, 0.10);
+  list-style: none;
+}
+
+.acw-outcome-points li {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.7fr) minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(16, 32, 51, 0.10);
+}
+
+.acw-outcome-points strong {
+  color: var(--text);
+  font-size: 0.92rem;
+}
+
+.acw-outcome-points span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Make the design-study action unambiguously clickable. */
+
+.acw-home-work .acw-card-action {
+  margin-top: 1rem;
+}
+
+/* A simpler, more balanced about section. */
+
+.acw-home-about .acw-about-grid {
+  grid-template-columns: minmax(0, 0.92fr) minmax(380px, 470px);
+  gap: clamp(3.8rem, 6vw, 6rem);
+}
+
+.acw-home-about .acw-about-copy h2 {
+  max-width: 15ch;
+}
+
+.acw-home-about .acw-about-side {
+  align-self: center;
+}
+
+/* Guide cards now use visible actions and align them consistently. */
+
+.acw-home-guides-grid .acw-blueprint-card {
+  display: flex;
+  min-height: 305px;
+  flex-direction: column;
+}
+
+.acw-home-guides-grid .acw-card-btn {
+  margin-top: auto;
+  border-bottom: 1px solid rgba(16, 32, 51, 0.12);
+}
+
+/* Give the final CTA more room and keep one clear next step. */
+
+.acw-home-final {
+  padding-block: clamp(112px, 9vw, 150px);
+}
+
+.acw-home-final-grid {
+  grid-template-columns: minmax(0, 0.86fr) minmax(400px, 1fr);
+  gap: clamp(4rem, 7vw, 7rem);
+  padding: clamp(3.4rem, 5.5vw, 5rem);
+}
+
+.acw-home-final-copy h2 {
+  max-width: 14ch;
+}
+
+.acw-home-final-copy .acw-cta-row {
+  margin-top: 2.2rem;
+}
+
+@media (max-width: 1120px) {
+  .acw-home-problem-heading,
+  .acw-home-outcome .acw-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-home-problem-heading .acw-section-intro {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: 0.5rem;
+  }
+
+  .acw-home-problem-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .acw-home-outcome .acw-showcase-image {
+    justify-self: start;
+    max-width: 760px;
+  }
+}
+
+@media (max-width: 760px) {
+  .acw-home-problem {
+    padding-block: 72px;
+  }
+
+  .acw-home-problem-heading {
+    display: block;
+  }
+
+  .acw-home-problem-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-home-problem-grid .acw-blueprint-card {
+    min-height: 0;
+    padding: 1.45rem;
+  }
+
+  .acw-home-problem-grid .acw-blueprint-card span {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 1.15rem;
+  }
+
+  .acw-home-reflection .acw-btn-secondary,
+  .acw-home-transformation .acw-section-link .acw-btn,
+  .acw-home-guides-grid .acw-card-btn,
+  .acw-home-work .acw-card-action {
+    min-height: 42px;
+    padding: 0.72rem 1.1rem;
+  }
+
+  .acw-home-transformation .acw-offer-grid {
+    gap: 0.8rem;
+  }
+
+  .acw-home-transformation .acw-offer-card,
+  .acw-home-transformation .acw-offer-card:nth-child(2),
+  .acw-home-transformation .acw-offer-card:last-child {
+    border: 1px solid rgba(16, 32, 51, 0.065);
+    border-radius: 16px;
+  }
+
+  .acw-outcome-points li {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .acw-home-about .acw-about-copy h2,
+  .acw-home-final-copy h2 {
+    max-width: 13ch;
+  }
+
+  .acw-home-guides-grid .acw-blueprint-card {
+    min-height: 0;
+  }
+
+  .acw-home-final {
+    padding-block: 74px;
+  }
+
+  .acw-home-final-grid {
+    gap: 2.4rem;
+    padding: 1.5rem;
+  }
+}
