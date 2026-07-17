@@ -6033,3 +6033,245 @@ ABOUT PAGE — PREMIUM FINAL SYSTEM
     transition: none;
   }
 }
+
+/* =========================================================
+FOOTER — PREMIUM EDITORIAL LAYOUT
+========================================================= */
+
+.site-footer {
+  padding: 82px 0 30px;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.36), transparent 30%),
+    radial-gradient(circle at 92% 10%, rgba(123, 143, 112, 0.08), transparent 32%),
+    var(--surface-soft);
+  border-top: 1px solid rgba(16, 32, 51, 0.07);
+}
+
+.site-footer-inner {
+  display: grid;
+  gap: 3.2rem;
+}
+
+.site-footer-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.8fr) minmax(320px, 0.95fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.site-footer-brand {
+  max-width: 430px;
+}
+
+.footer-logo-link {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 1.1rem;
+}
+
+.footer-logo {
+  width: auto;
+  height: 66px;
+  max-width: 220px;
+  object-fit: contain;
+}
+
+.footer-tagline {
+  margin-bottom: 0.7rem;
+  color: var(--text);
+  font-size: 1.02rem;
+  font-weight: 860;
+  letter-spacing: -0.025em;
+}
+
+.footer-description {
+  max-width: 42ch;
+  margin-bottom: 1.25rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.footer-primary-link,
+.footer-practice-notes-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: fit-content;
+  color: var(--accent-dark);
+  font-weight: 840;
+  border-bottom: 1px solid rgba(83, 107, 77, 0.28);
+}
+
+.footer-primary-link:hover,
+.footer-practice-notes-link:hover {
+  gap: 0.75rem;
+  color: var(--text);
+  border-bottom-color: rgba(16, 32, 51, 0.28);
+}
+
+.site-footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.footer-nav-group {
+  display: grid;
+  align-content: start;
+  gap: 0.72rem;
+}
+
+.footer-group-title {
+  margin-bottom: 0.3rem;
+  color: var(--accent-dark);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.footer-nav-group a {
+  width: fit-content;
+  color: rgba(16, 32, 51, 0.72);
+  font-size: 0.9rem;
+  font-weight: 720;
+}
+
+.footer-nav-group a:hover {
+  color: var(--text);
+}
+
+.footer-practice-notes {
+  padding: 1.7rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 22px;
+  box-shadow: var(--shadow-xs);
+}
+
+.footer-practice-notes h2 {
+  max-width: 15ch;
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.35rem, 1.8vw, 1.9rem);
+  line-height: 1.08;
+}
+
+.footer-practice-notes-text {
+  margin-bottom: 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.site-footer-bottom {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(16, 32, 51, 0.1);
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.55rem;
+}
+
+.social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--text);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 50%;
+}
+
+.social svg {
+  width: 17px;
+  height: 17px;
+}
+
+.social:hover {
+  background: var(--white);
+  color: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+.footer-meta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer-meta a {
+  color: rgba(16, 32, 51, 0.58);
+  font-size: 0.74rem;
+  font-weight: 720;
+}
+
+.footer-meta a:hover {
+  color: var(--text);
+}
+
+.footer-copyright {
+  margin: 0;
+  color: rgba(16, 32, 51, 0.52);
+  font-size: 0.74rem;
+  text-align: right;
+}
+
+@media (max-width: 980px) {
+  .site-footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-practice-notes {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .site-footer {
+    padding-top: 62px;
+  }
+
+  .site-footer-top,
+  .site-footer-links,
+  .site-footer-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer-links {
+    gap: 1.6rem;
+  }
+
+  .site-footer-bottom {
+    justify-items: start;
+  }
+
+  .footer-meta {
+    justify-content: flex-start;
+  }
+
+  .footer-copyright {
+    text-align: left;
+  }
+
+  .footer-logo {
+    height: 58px;
+    max-width: 190px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-primary-link,
+  .footer-practice-notes-link,
+  .social {
+    transition: none;
+  }
+}
