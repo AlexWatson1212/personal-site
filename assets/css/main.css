@@ -3486,8 +3486,20 @@ Practice Notes, legal pages, updated contact form and footer
   }
 }
 /* =========================================================
-HOMEPAGE REFINEMENTS
+HOMEPAGE POLISH
 ========================================================= */
+
+/* Hero copy balance */
+
+.acw-hero-cover h1 {
+  max-width: 11.8ch;
+  font-size: clamp(3.25rem, 4.9vw, 5.45rem);
+  line-height: 0.93;
+}
+
+.acw-hero-cover .acw-hero-text {
+  max-width: 44ch;
+}
 
 /* Editorial type hierarchy */
 
@@ -3590,7 +3602,7 @@ HOMEPAGE REFINEMENTS
 }
 
 .acw-home-problem-grid .acw-blueprint-card {
-  min-height: 225px;
+  min-height: 205px;
   padding: 2rem;
   background: rgba(255, 255, 255, 0.70);
   border-color: rgba(16, 32, 51, 0.05);
@@ -3612,6 +3624,26 @@ HOMEPAGE REFINEMENTS
 
 .acw-home-reflection .acw-editorial-copy {
   max-width: 650px;
+}
+
+.acw-home-reflection .acw-cta-row {
+  margin-top: 1.7rem;
+}
+
+.acw-home-reflection .acw-btn-secondary {
+  min-height: auto;
+  padding: 0.2rem 0 0.28rem;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(83, 107, 77, 0.32);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.acw-home-reflection .acw-btn-secondary:hover {
+  background: transparent;
+  border-bottom-color: var(--accent-dark);
+  transform: none;
 }
 
 .acw-home-reflection .acw-editorial-media img {
@@ -3691,9 +3723,42 @@ HOMEPAGE REFINEMENTS
     0 8px 24px rgba(16, 32, 51, 0.035);
 }
 
+.acw-home-outcome .acw-mini-list {
+  gap: 0.7rem;
+  margin-top: 1.75rem;
+}
+
 .acw-home-outcome .acw-mini-list span {
-  background: rgba(255, 255, 255, 0.52);
-  border-color: rgba(16, 32, 51, 0.06);
+  min-height: 38px;
+  padding: 0.62rem 0.92rem;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.56);
+  border-color: rgba(16, 32, 51, 0.065);
+  color: rgba(16, 32, 51, 0.74);
+  font-size: 0.8rem;
+  line-height: 1.25;
+}
+
+.acw-home-proof-note {
+  position: relative;
+  max-width: 58ch;
+  margin-top: 1.35rem;
+  margin-bottom: 0;
+  padding-left: 1rem;
+  color: rgba(16, 32, 51, 0.62);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.acw-home-proof-note::before {
+  content: "";
+  position: absolute;
+  top: 0.28rem;
+  bottom: 0.28rem;
+  left: 0;
+  width: 2px;
+  background: rgba(83, 107, 77, 0.42);
+  border-radius: var(--pill);
 }
 
 /* Concept cards */
@@ -3896,6 +3961,12 @@ HOMEPAGE REFINEMENTS
 /* Mobile */
 
 @media (max-width: 760px) {
+  .acw-hero-cover h1 {
+    max-width: 12.2ch;
+    font-size: clamp(2.35rem, 10vw, 3.1rem);
+    line-height: 0.95;
+  }
+
   .acw-section-lead {
     font-size: 1.04rem;
     line-height: 1.6;
@@ -3972,6 +4043,22 @@ HOMEPAGE REFINEMENTS
   .acw-home-about .acw-about-image,
   .acw-home-final-media img {
     border-radius: 14px;
+  }
+
+  .acw-home-outcome .acw-mini-list {
+    gap: 0.55rem;
+  }
+
+  .acw-home-outcome .acw-mini-list span {
+    min-height: 0;
+    padding: 0.54rem 0.75rem;
+    font-size: 0.74rem;
+  }
+
+  .acw-home-proof-note {
+    margin-top: 1.1rem;
+    padding-left: 0.85rem;
+    font-size: 0.84rem;
   }
 
   .acw-home-work .acw-cards-two {
