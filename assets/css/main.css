@@ -7890,3 +7890,436 @@ PRACTICE CLARITY LIBRARY — HERO CLARITY PASS
     display: none;
   }
 }
+
+/* =========================================================
+HOMEPAGE — PREMIUM CREATIVE-DIRECTOR PASS
+This page-scoped layer refines hierarchy, rhythm and conversion
+without altering shared component behaviour elsewhere.
+========================================================= */
+
+/* Major and supporting section rhythm */
+
+.acw-home-reflection,
+.acw-home-transformation,
+.acw-home-final {
+  padding-top: clamp(7rem, 10vw, 9.5rem);
+  padding-bottom: clamp(7rem, 10vw, 9.5rem);
+}
+
+.acw-home-problem,
+.acw-home-outcome,
+.acw-home-work,
+.acw-home-about,
+.acw-home-guides,
+.acw-home-faq {
+  padding-top: clamp(5.4rem, 7.5vw, 7rem);
+  padding-bottom: clamp(5.4rem, 7.5vw, 7rem);
+}
+
+/* Hero */
+
+.acw-hero-cover h1 {
+  max-width: 11.3ch;
+  font-size: clamp(3.55rem, 5.25vw, 5.85rem);
+  line-height: 0.93;
+  letter-spacing: -0.068em;
+  text-wrap: balance;
+}
+
+.acw-hero-cover .acw-hero-text {
+  max-width: 39ch;
+  font-size: clamp(1.03rem, 1.12vw, 1.18rem);
+  line-height: 1.66;
+}
+
+.acw-hero-cover-copy {
+  max-width: 700px;
+}
+
+.acw-hero-cover .acw-cta-row {
+  gap: 0.7rem;
+  margin-top: 2rem;
+}
+
+/* Strategic difference directly beneath hero */
+
+.acw-home-reflection .acw-editorial-grid {
+  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.82fr);
+  gap: clamp(4rem, 8vw, 7rem);
+}
+
+.acw-home-reflection h2 {
+  max-width: 11.5ch;
+}
+
+.acw-home-reflection .acw-editorial-media img {
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+}
+
+/* Recognition / problem section */
+
+.acw-home-problem-heading {
+  max-width: 780px;
+}
+
+.acw-home-problem-heading h2 {
+  max-width: 12.5ch;
+  font-size: clamp(2.5rem, 3.5vw, 3.9rem);
+}
+
+.acw-home-problem-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 1.8vw, 1.35rem);
+}
+
+.acw-home-problem-grid .acw-blueprint-card {
+  min-height: 300px;
+  padding: clamp(1.65rem, 2.4vw, 2.2rem);
+  border-radius: 20px;
+}
+
+.acw-home-problem-grid .acw-blueprint-card h3 {
+  max-width: 16ch;
+  font-size: clamp(1.28rem, 1.55vw, 1.62rem);
+  line-height: 1.14;
+}
+
+.acw-home-problem-grid .acw-blueprint-card p {
+  max-width: 30ch;
+  margin-top: auto;
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+/* Method */
+
+.acw-home-transformation .acw-section-heading {
+  max-width: 820px;
+  margin-bottom: 3.8rem;
+}
+
+.acw-home-transformation .acw-section-heading h2 {
+  max-width: 12ch;
+}
+
+.acw-home-transformation .acw-offer-grid-four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.acw-home-transformation .acw-offer-card {
+  min-height: 400px;
+  padding: clamp(1.55rem, 2vw, 1.9rem);
+  border-radius: 20px;
+}
+
+.acw-home-transformation .acw-offer-card h3 {
+  max-width: 10.5ch;
+  font-size: clamp(1.38rem, 1.55vw, 1.72rem);
+}
+
+.acw-home-transformation .acw-offer-card > p {
+  min-height: 7.3em;
+  font-size: 0.94rem;
+  line-height: 1.63;
+}
+
+.acw-home-transformation .acw-offer-card ul {
+  margin-top: auto;
+  margin-bottom: 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(16, 32, 51, 0.08);
+}
+
+.acw-home-transformation .acw-offer-card li {
+  font-size: 0.86rem;
+}
+
+/* Outcome */
+
+.acw-home-outcome .acw-showcase {
+  grid-template-columns: minmax(0, 0.82fr) minmax(420px, 1.18fr);
+  align-items: center;
+  gap: clamp(4rem, 8vw, 7rem);
+}
+
+.acw-home-outcome h2 {
+  max-width: 10.5ch;
+  font-size: clamp(2.55rem, 3.6vw, 4rem);
+}
+
+.acw-home-outcome .acw-showcase-copy > p {
+  max-width: 47ch;
+}
+
+.acw-home-outcome .acw-showcase-image img {
+  aspect-ratio: 16 / 10;
+  border-radius: 24px;
+}
+
+/* Identity studies */
+
+.acw-home-work .acw-section-heading {
+  max-width: 760px;
+}
+
+.acw-home-work .acw-section-heading h2 {
+  max-width: 12ch;
+  font-size: clamp(2.45rem, 3.4vw, 3.85rem);
+}
+
+.acw-home-work .acw-cards-two {
+  max-width: 980px;
+  gap: 1.6rem;
+}
+
+.acw-home-work .acw-card {
+  border-radius: 20px;
+}
+
+.acw-home-work .acw-card-image {
+  aspect-ratio: 16 / 11;
+}
+
+.acw-home-work .acw-card-body {
+  padding: 1.7rem;
+}
+
+.acw-home-work .acw-card-action {
+  margin-top: 1.15rem;
+}
+
+/* About */
+
+.acw-home-about .acw-about-grid {
+  grid-template-columns: minmax(0, 0.96fr) minmax(320px, 410px);
+  gap: clamp(4rem, 8vw, 7rem);
+}
+
+.acw-home-about h2 {
+  max-width: 11ch;
+  font-size: clamp(2.55rem, 3.7vw, 4.15rem);
+}
+
+.acw-home-about .acw-about-image {
+  aspect-ratio: 4 / 5;
+  object-position: center 24%;
+}
+
+/* Library */
+
+.acw-home-guides .acw-section-heading {
+  max-width: 720px;
+}
+
+.acw-home-guides .acw-section-heading h2 {
+  max-width: 11ch;
+  font-size: clamp(2.45rem, 3.45vw, 3.9rem);
+}
+
+.acw-home-library-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.acw-home-library-primary {
+  display: flex;
+  min-height: 360px;
+  padding: clamp(2rem, 4vw, 3.2rem);
+  flex-direction: column;
+  justify-content: space-between;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.13), transparent 36%),
+    rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(16, 32, 51, 0.09);
+  border-radius: 28px;
+  box-shadow: var(--shadow-xs);
+}
+
+.acw-home-library-primary h3 {
+  max-width: 11ch;
+  margin-top: 0.35rem;
+  font-size: clamp(2rem, 3vw, 3.05rem);
+  line-height: 0.99;
+}
+
+.acw-home-library-primary p {
+  max-width: 42ch;
+  color: var(--muted);
+}
+
+.acw-home-library-primary .acw-btn {
+  width: fit-content;
+  margin-top: 2rem;
+}
+
+.acw-home-library-links {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.acw-home-library-links a {
+  display: flex;
+  min-height: 168px;
+  padding: 1.65rem;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 22px;
+  box-shadow: var(--shadow-xs);
+}
+
+.acw-home-library-links a:hover {
+  border-color: rgba(123, 143, 112, 0.28);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-3px);
+}
+
+.acw-home-library-links span {
+  margin-bottom: 0.55rem;
+  color: var(--accent-dark);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.acw-home-library-links strong {
+  max-width: 23ch;
+  color: var(--text);
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+
+.acw-home-library-links small {
+  max-width: 42ch;
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+/* FAQ */
+
+.acw-home-faq .acw-faq-wrap {
+  max-width: 920px;
+}
+
+.acw-home-faq .acw-section-heading {
+  margin-bottom: 2rem;
+}
+
+.acw-home-faq .acw-section-heading h2 {
+  max-width: 10ch;
+  font-size: clamp(2.35rem, 3.3vw, 3.65rem);
+}
+
+/* Final CTA */
+
+.acw-home-final .acw-home-final-grid {
+  grid-template-columns: minmax(0, 0.92fr) minmax(380px, 1.08fr);
+  gap: clamp(3rem, 6vw, 5.5rem);
+  align-items: center;
+}
+
+.acw-home-final h2 {
+  max-width: 10.5ch;
+}
+
+.acw-home-final-media img {
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+}
+
+/* Responsive refinement */
+
+@media (max-width: 1080px) {
+  .acw-home-transformation .acw-offer-grid-four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .acw-home-transformation .acw-offer-card {
+    min-height: 360px;
+  }
+
+  .acw-home-outcome .acw-showcase {
+    grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+    gap: 3.5rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .acw-home-reflection .acw-editorial-grid,
+  .acw-home-outcome .acw-showcase,
+  .acw-home-about .acw-about-grid,
+  .acw-home-library-feature,
+  .acw-home-final .acw-home-final-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-home-problem-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-home-problem-grid .acw-blueprint-card {
+    min-height: auto;
+  }
+
+  .acw-home-problem-grid .acw-blueprint-card p {
+    max-width: 52ch;
+  }
+
+  .acw-home-outcome .acw-showcase-image,
+  .acw-home-about .acw-about-side {
+    max-width: 680px;
+  }
+
+  .acw-home-library-primary {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 620px) {
+  .acw-home-reflection,
+  .acw-home-transformation,
+  .acw-home-final,
+  .acw-home-problem,
+  .acw-home-outcome,
+  .acw-home-work,
+  .acw-home-about,
+  .acw-home-guides,
+  .acw-home-faq {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .acw-hero-cover h1 {
+    max-width: 11.5ch;
+    font-size: clamp(2.55rem, 10.5vw, 3.35rem);
+  }
+
+  .acw-home-transformation .acw-offer-grid-four {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-home-transformation .acw-offer-card {
+    min-height: auto;
+  }
+
+  .acw-home-transformation .acw-offer-card > p {
+    min-height: auto;
+  }
+
+  .acw-home-library-primary,
+  .acw-home-library-links a {
+    border-radius: 18px;
+  }
+
+  .acw-home-library-primary .acw-btn {
+    width: 100%;
+  }
+}
