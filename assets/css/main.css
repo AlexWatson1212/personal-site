@@ -5669,3 +5669,367 @@ WEBSITE DESIGN FOR THERAPISTS — FINAL PREMIUM REFINEMENTS
     transition: none;
   }
 }
+
+/* =========================================================
+ABOUT PAGE — PREMIUM FINAL SYSTEM
+========================================================= */
+
+.acw-about-hero {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(218, 192, 157, 0.16), transparent 34%),
+    radial-gradient(circle at 94% 12%, rgba(123, 143, 112, 0.09), transparent 30%),
+    linear-gradient(180deg, #fcf8f1 0%, var(--surface) 100%);
+}
+
+.acw-about-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(330px, 0.72fr);
+  align-items: center;
+  gap: clamp(3rem, 7vw, 7rem);
+}
+
+.acw-about-hero-copy {
+  max-width: 780px;
+}
+
+.acw-about-hero-copy h1 {
+  max-width: 12ch;
+}
+
+.acw-about-hero-copy .acw-page-intro {
+  max-width: 58ch;
+}
+
+.acw-about-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1.3rem;
+}
+
+.acw-about-hero-meta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0.48rem 0.78rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: var(--pill);
+  color: rgba(16, 32, 51, 0.67);
+  font-size: 0.69rem;
+  font-weight: 800;
+}
+
+.acw-about-hero-meta span::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  margin-right: 0.48rem;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.acw-about-hero-media {
+  position: relative;
+  margin: 0;
+}
+
+.acw-about-hero-media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 24%;
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 26px;
+  box-shadow: var(--shadow);
+}
+
+.acw-about-hero-media figcaption {
+  position: relative;
+  z-index: 2;
+  width: calc(100% - 2.2rem);
+  margin: -2rem auto 0;
+  padding: 1rem 1.15rem;
+  background: rgba(255, 253, 248, 0.94);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 720;
+  line-height: 1.5;
+}
+
+/* Principle panel */
+.acw-about-principle-panel {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(2rem, 4vw, 3.2rem);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.13), transparent 36%),
+    rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 34px;
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-about-principle-panel::before {
+  content: "“";
+  position: absolute;
+  top: 0.5rem;
+  right: 1.4rem;
+  color: rgba(123, 143, 112, 0.13);
+  font-family: Georgia, serif;
+  font-size: 8rem;
+  line-height: 1;
+}
+
+.acw-about-principle-panel blockquote {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(1.28rem, 1.9vw, 1.8rem);
+  font-weight: 820;
+  letter-spacing: -0.04em;
+  line-height: 1.22;
+  text-wrap: balance;
+}
+
+.acw-about-principle-list {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 2rem;
+}
+
+.acw-about-principle-list span {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(16, 32, 51, 0.08);
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 760;
+}
+
+.acw-about-principle-list span::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+/* Perspective strip */
+.acw-about-perspective-section {
+  padding-top: 0;
+  background: var(--surface);
+}
+
+.acw-about-perspective {
+  padding: clamp(2rem, 5vw, 4.3rem);
+  background:
+    radial-gradient(circle at 90% 0%, rgba(218, 192, 157, 0.2), transparent 34%),
+    var(--surface-quiet);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 38px;
+  box-shadow: var(--shadow-xs);
+}
+
+.acw-about-perspective-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(320px, 1fr);
+  align-items: end;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.acw-about-perspective-heading .acw-section-label {
+  align-self: start;
+}
+
+.acw-about-perspective-heading h2 {
+  max-width: 14ch;
+  margin-bottom: 0;
+}
+
+.acw-about-perspective-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgba(16, 32, 51, 0.1);
+}
+
+.acw-about-perspective-grid article {
+  padding: 1.8rem 1.6rem 0 0;
+}
+
+.acw-about-perspective-grid article + article {
+  padding-left: 1.6rem;
+  border-left: 1px solid rgba(16, 32, 51, 0.1);
+}
+
+.acw-about-perspective-grid span {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  color: var(--accent-dark);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.acw-about-perspective-grid h3 {
+  max-width: 14ch;
+}
+
+.acw-about-perspective-grid p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+/* Working relationship */
+.acw-about-relationship-section {
+  background:
+    radial-gradient(circle at 88% 10%, rgba(123, 143, 112, 0.07), transparent 30%),
+    var(--surface);
+}
+
+.acw-about-relationship-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(420px, 1.15fr);
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: start;
+}
+
+.acw-about-relationship-list {
+  display: grid;
+  border-top: 1px solid rgba(16, 32, 51, 0.12);
+}
+
+.acw-about-relationship-list article {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1.4rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(16, 32, 51, 0.12);
+}
+
+.acw-about-relationship-list span {
+  color: var(--accent-dark);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.acw-about-relationship-list p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* More restrained premium motion */
+@media (hover: hover) and (pointer: fine) {
+  .acw-about-perspective-grid article,
+  .acw-about-principle-panel {
+    transition:
+      transform var(--transition),
+      box-shadow var(--transition),
+      border-color var(--transition);
+  }
+
+  .acw-about-principle-panel:hover {
+    transform: translateY(-4px);
+    border-color: rgba(83, 107, 77, 0.18);
+    box-shadow: var(--shadow);
+  }
+}
+
+/* Tablet */
+@media (max-width: 1040px) {
+  .acw-about-hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.7fr);
+    gap: 3.2rem;
+  }
+
+  .acw-about-perspective-heading,
+  .acw-about-relationship-grid {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .acw-about-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+
+  .acw-about-hero-copy {
+    order: 1;
+  }
+
+  .acw-about-hero-media {
+    order: 2;
+    max-width: 520px;
+  }
+
+  .acw-about-hero-media img {
+    aspect-ratio: 4 / 3;
+    object-position: center 24%;
+    border-radius: 18px;
+  }
+
+  .acw-about-hero-media figcaption {
+    width: calc(100% - 1.2rem);
+    margin-top: -1.2rem;
+  }
+
+  .acw-about-hero-meta {
+    gap: 0.42rem;
+  }
+
+  .acw-about-hero-meta span {
+    min-height: 31px;
+    padding: 0.42rem 0.65rem;
+    font-size: 0.64rem;
+  }
+
+  .acw-about-principle-panel,
+  .acw-about-perspective {
+    border-radius: 24px;
+  }
+
+  .acw-about-perspective-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-about-perspective-grid article {
+    padding: 1.35rem 0;
+    border-bottom: 1px solid rgba(16, 32, 51, 0.1);
+  }
+
+  .acw-about-perspective-grid article + article {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .acw-about-perspective-grid article:last-child {
+    border-bottom: 0;
+  }
+
+  .acw-about-relationship-list article {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .acw-about-principle-panel,
+  .acw-about-perspective-grid article {
+    transition: none;
+  }
+}
