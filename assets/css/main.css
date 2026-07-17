@@ -1,6 +1,53 @@
 /* =========================================================
 ALEXANDER WATSON — MAIN STYLESHEET
 Clarity First. Website Second.
+Organised structure; original cascade and functionality preserved.
+========================================================= */
+
+/* =========================================================
+CONTENTS
+The order below intentionally preserves the original cascade.
+01. ROOT
+02. RESET
+03. GLOBAL LAYOUT
+04. TYPOGRAPHY
+05. SECTIONS
+06. BUTTONS
+07. HEADER / NAVIGATION
+08. HERO
+09. PAGE HERO
+10. STATEMENT
+11. EDITORIAL / PROCESS / VALUE
+12. MINI LIST
+13. CARDS / GRIDS
+14. SERVICES / OFFERS
+15. CHOICE / PROCESS / VALUE
+16. SHOWCASE / EXAMPLE CARDS
+17. ABOUT
+18. FAQ
+19. CONTACT
+20. CONTACT PAGE / FORM
+21. LIBRARY / BLOG / POST
+22. FOOTER
+23. 404 PAGE
+24. LINKS PAGE
+25. CURRENT SITE ADDITIONS
+26. RESPONSIVE
+27. HOMEPAGE POLISH
+28. PROFESSIONAL IDENTITY PAGE
+29. REDUCED MOTION
+30. HOMEPAGE REFINEMENT — JULY 2026
+31. WEBSITE DESIGN FOR THERAPISTS — PREMIUM PAGE ADDITIONS
+32. WEBSITE DESIGN FOR THERAPISTS — FINAL PREMIUM REFINEMENTS
+33. ABOUT PAGE — PREMIUM FINAL SYSTEM
+34. FOOTER — PREMIUM EDITORIAL LAYOUT
+35. PRACTICE CLARITY LIBRARY — PREMIUM FINAL REFINEMENTS
+36. LIBRARY + FOOTER — CLEAR, CONCISE, CONFIDENT FINAL PASS
+37. PRACTICE CLARITY LIBRARY — TYPOGRAPHY AND LAYOUT REPAIR
+38. FOOTER — FINAL PREMIUM REFINEMENT
+39. PRACTICE CLARITY LIBRARY — HERO CLARITY PASS
+40. HOMEPAGE — PREMIUM CREATIVE-DIRECTOR PASS
+41. COMPLETE PACKAGE — PREMIUM CREATIVE-DIRECTOR PASS
 ========================================================= */
 
 /* =========================================================
@@ -2589,7 +2636,7 @@ p {
   color: var(--muted);
 }
 /* =========================================================
-23B. LINKS PAGE
+24. LINKS PAGE
 ========================================================= */
 
 .acw-links-page {
@@ -2745,7 +2792,7 @@ p {
 
 
 /* =========================================================
-23C. CURRENT SITE ADDITIONS
+25. CURRENT SITE ADDITIONS
 Practice Notes, legal pages, updated contact form and footer
 ========================================================= */
 
@@ -2929,7 +2976,7 @@ Practice Notes, legal pages, updated contact form and footer
 }
 
 /* =========================================================
-24. RESPONSIVE
+26. RESPONSIVE
 ========================================================= */
 
 @media (max-width: 1180px) {
@@ -3486,7 +3533,7 @@ Practice Notes, legal pages, updated contact form and footer
   }
 }
 /* =========================================================
-HOMEPAGE POLISH
+27. HOMEPAGE POLISH
 ========================================================= */
 
 /* Hero copy balance */
@@ -4104,7 +4151,7 @@ HOMEPAGE POLISH
 
 
 /* =========================================================
-PROFESSIONAL IDENTITY PAGE
+28. PROFESSIONAL IDENTITY PAGE
 ========================================================= */
 
 .acw-identity-hero,
@@ -4477,7 +4524,7 @@ PROFESSIONAL IDENTITY PAGE
 }
 
 /* =========================================================
-25. REDUCED MOTION
+29. REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -4494,7 +4541,7 @@ PROFESSIONAL IDENTITY PAGE
   }
 }
 /* =========================================================
-26. HOMEPAGE REFINEMENT — JULY 2026
+30. HOMEPAGE REFINEMENT — JULY 2026
 ========================================================= */
 
 /* A shorter, calmer desktop hero with deliberate line breaks. */
@@ -4872,9 +4919,9 @@ PROFESSIONAL IDENTITY PAGE
   }
 }
 /* =========================================================
-   WEBSITE DESIGN FOR THERAPISTS — PREMIUM PAGE ADDITIONS
-   Append to the end of the main stylesheet.
-   ========================================================= */
+31. WEBSITE DESIGN FOR THERAPISTS — PREMIUM PAGE ADDITIONS
+Append to the end of the main stylesheet.
+========================================================= */
 
 /* Service hero */
 .acw-service-hero {
@@ -5371,7 +5418,7 @@ PROFESSIONAL IDENTITY PAGE
 
 
 /* =========================================================
-WEBSITE DESIGN FOR THERAPISTS — FINAL PREMIUM REFINEMENTS
+32. WEBSITE DESIGN FOR THERAPISTS — FINAL PREMIUM REFINEMENTS
 ========================================================= */
 
 /* Hero proof strip */
@@ -5671,7 +5718,7 @@ WEBSITE DESIGN FOR THERAPISTS — FINAL PREMIUM REFINEMENTS
 }
 
 /* =========================================================
-ABOUT PAGE — PREMIUM FINAL SYSTEM
+33. ABOUT PAGE — PREMIUM FINAL SYSTEM
 ========================================================= */
 
 .acw-about-hero {
@@ -6035,7 +6082,7 @@ ABOUT PAGE — PREMIUM FINAL SYSTEM
 }
 
 /* =========================================================
-FOOTER — PREMIUM EDITORIAL LAYOUT
+34. FOOTER — PREMIUM EDITORIAL LAYOUT
 ========================================================= */
 
 .site-footer {
@@ -6277,7 +6324,7 @@ FOOTER — PREMIUM EDITORIAL LAYOUT
 }
 
 /* =========================================================
-PRACTICE CLARITY LIBRARY — PREMIUM FINAL REFINEMENTS
+35. PRACTICE CLARITY LIBRARY — PREMIUM FINAL REFINEMENTS
 ========================================================= */
 
 .acw-keep {
@@ -6711,7 +6758,7 @@ PRACTICE CLARITY LIBRARY — PREMIUM FINAL REFINEMENTS
 }
 
 /* =========================================================
-LIBRARY + FOOTER — CLEAR, CONCISE, CONFIDENT FINAL PASS
+36. LIBRARY + FOOTER — CLEAR, CONCISE, CONFIDENT FINAL PASS
 ========================================================= */
 
 /* Library hierarchy */
@@ -6894,7 +6941,7 @@ LIBRARY + FOOTER — CLEAR, CONCISE, CONFIDENT FINAL PASS
 }
 
 /* =========================================================
-PRACTICE CLARITY LIBRARY — TYPOGRAPHY AND LAYOUT REPAIR
+37. PRACTICE CLARITY LIBRARY — TYPOGRAPHY AND LAYOUT REPAIR
 This final block intentionally overrides earlier Library experiments.
 ========================================================= */
 
@@ -7365,7 +7412,7 @@ This final block intentionally overrides earlier Library experiments.
 }
 
 /* =========================================================
-FOOTER — FINAL PREMIUM REFINEMENT
+38. FOOTER — FINAL PREMIUM REFINEMENT
 ========================================================= */
 
 .site-footer {
@@ -7745,7 +7792,7 @@ FOOTER — FINAL PREMIUM REFINEMENT
 }
 
 /* =========================================================
-PRACTICE CLARITY LIBRARY — HERO CLARITY PASS
+39. PRACTICE CLARITY LIBRARY — HERO CLARITY PASS
 ========================================================= */
 
 .acw-library-hero {
@@ -7892,7 +7939,7 @@ PRACTICE CLARITY LIBRARY — HERO CLARITY PASS
 }
 
 /* =========================================================
-HOMEPAGE — PREMIUM CREATIVE-DIRECTOR PASS
+40. HOMEPAGE — PREMIUM CREATIVE-DIRECTOR PASS
 This page-scoped layer refines hierarchy, rhythm and conversion
 without altering shared component behaviour elsewhere.
 ========================================================= */
@@ -8325,7 +8372,7 @@ without altering shared component behaviour elsewhere.
 }
 
 /* =========================================================
-COMPLETE PACKAGE — PREMIUM CREATIVE-DIRECTOR PASS
+41. COMPLETE PACKAGE — PREMIUM CREATIVE-DIRECTOR PASS
 ========================================================= */
 
 .acw-service-hero {
