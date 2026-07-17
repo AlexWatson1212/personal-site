@@ -48,6 +48,7 @@ The order below intentionally preserves the original cascade.
 39. PRACTICE CLARITY LIBRARY — HERO CLARITY PASS
 40. HOMEPAGE — PREMIUM CREATIVE-DIRECTOR PASS
 41. COMPLETE PACKAGE — PREMIUM CREATIVE-DIRECTOR PASS
+42. COMPLETE PACKAGE — VISUAL RHYTHM + PROOF PASS
 ========================================================= */
 
 /* =========================================================
@@ -8373,6 +8374,7 @@ without altering shared component behaviour elsewhere.
 
 /* =========================================================
 41. COMPLETE PACKAGE — PREMIUM CREATIVE-DIRECTOR PASS
+42. COMPLETE PACKAGE — VISUAL RHYTHM + PROOF PASS
 ========================================================= */
 
 .acw-service-hero {
@@ -8770,5 +8772,414 @@ without altering shared component behaviour elsewhere.
 
   .acw-service-final .acw-btn {
     width: 100%;
+  }
+}
+
+/* =========================================================
+42. COMPLETE PACKAGE — VISUAL RHYTHM + PROOF PASS
+Corrects page-scoped section classes and introduces stronger
+variation in scale, density and editorial pacing.
+========================================================= */
+
+/* Hero: more presence */
+
+.acw-service-hero {
+  min-height: min(820px, calc(100vh - 78px));
+  padding-top: clamp(5.5rem, 9vw, 9rem);
+  padding-bottom: clamp(6.5rem, 10vw, 10rem);
+}
+
+.acw-service-hero-grid {
+  grid-template-columns: minmax(0, 1.02fr) minmax(430px, 0.88fr);
+  gap: clamp(4.5rem, 9vw, 8.5rem);
+}
+
+.acw-service-hero h1 {
+  max-width: 9.5ch;
+  font-size: clamp(4rem, 6.1vw, 6.4rem);
+  line-height: 0.89;
+  letter-spacing: -0.074em;
+}
+
+.acw-service-hero .acw-page-intro {
+  max-width: 43ch;
+  font-size: clamp(1.08rem, 1.3vw, 1.28rem);
+  line-height: 1.62;
+}
+
+.acw-service-hero-media img {
+  aspect-ratio: 5 / 4;
+  border-radius: 26px;
+  box-shadow:
+    0 34px 80px rgba(16, 32, 51, 0.12),
+    0 10px 28px rgba(16, 32, 51, 0.06);
+}
+
+.acw-service-proof {
+  margin-top: 1.6rem;
+}
+
+/* Foundation */
+
+.acw-service-foundation .acw-editorial-grid {
+  align-items: center;
+}
+
+.acw-service-foundation .acw-editorial-copy {
+  max-width: 650px;
+}
+
+.acw-service-foundation .acw-section-text {
+  max-width: 45ch;
+}
+
+/* Paired comparison rows */
+
+.acw-comparison-grid-paired {
+  display: grid;
+  gap: 1rem;
+}
+
+.acw-comparison-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr);
+  align-items: stretch;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 22px;
+  box-shadow: var(--shadow-xs);
+}
+
+.acw-comparison-side {
+  padding: clamp(1.65rem, 3vw, 2.4rem);
+}
+
+.acw-comparison-side span {
+  display: inline-flex;
+  margin-bottom: 0.8rem;
+  color: var(--accent-dark);
+  font-size: 0.67rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.acw-comparison-side h3 {
+  max-width: 19ch;
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.3rem, 1.7vw, 1.72rem);
+}
+
+.acw-comparison-side p {
+  max-width: 40ch;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.acw-comparison-side-process {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.12), transparent 42%),
+    rgba(255, 253, 248, 0.96);
+}
+
+.acw-comparison-side-typical {
+  background: rgba(250, 246, 238, 0.8);
+}
+
+.acw-comparison-shift {
+  display: grid;
+  place-items: center;
+  color: var(--accent-dark);
+  border-inline: 1px solid rgba(16, 32, 51, 0.07);
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+/* Dramatic editorial section */
+
+.acw-service-sequence {
+  padding-top: clamp(8rem, 12vw, 12rem);
+  padding-bottom: clamp(8rem, 12vw, 12rem);
+}
+
+.acw-service-editorial {
+  display: grid;
+  gap: clamp(3.5rem, 7vw, 6.5rem);
+}
+
+.acw-service-editorial-copy {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.65fr);
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: end;
+}
+
+.acw-service-editorial-copy .acw-section-number {
+  grid-column: 1 / -1;
+  margin-bottom: -1.5rem;
+}
+
+.acw-service-editorial-copy h2 {
+  max-width: 10.5ch;
+  margin: 0;
+  font-size: clamp(3.3rem, 5.6vw, 6rem);
+  line-height: 0.91;
+}
+
+.acw-service-editorial-text {
+  padding-bottom: 0.5rem;
+}
+
+.acw-service-editorial-text p {
+  max-width: 42ch;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.1vw, 1.12rem);
+  line-height: 1.75;
+}
+
+.acw-service-editorial .acw-showcase-image {
+  width: 100%;
+  margin: 0;
+}
+
+.acw-service-editorial .acw-showcase-image img {
+  width: 100%;
+  aspect-ratio: 16 / 8.5;
+  object-fit: cover;
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.acw-service-editorial .acw-showcase-image figcaption {
+  margin-top: 0.8rem;
+  color: rgba(16, 32, 51, 0.52);
+  font-size: 0.75rem;
+  font-weight: 780;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Three larger website outcomes */
+
+.acw-outcome-grid-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.acw-outcome-card-large {
+  min-height: 330px;
+  padding: clamp(1.8rem, 3vw, 2.5rem);
+  border-radius: 24px;
+}
+
+.acw-outcome-card-large span {
+  margin-bottom: auto;
+}
+
+.acw-outcome-card-large h3 {
+  max-width: 15ch;
+  margin-top: 4rem;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  line-height: 1.08;
+}
+
+.acw-outcome-card-large p {
+  max-width: 34ch;
+  font-size: 0.98rem;
+  line-height: 1.68;
+}
+
+/* Process proof: actual deliverable first */
+
+.acw-foundation-proof {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(350px, 0.72fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.acw-foundation-proof-media {
+  margin: 0;
+}
+
+.acw-foundation-proof-media img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 26px;
+  box-shadow: var(--shadow);
+}
+
+.acw-foundation-proof .acw-foundation-flow {
+  grid-template-columns: 1fr;
+  margin: 0;
+}
+
+.acw-foundation-proof .acw-foundation-source,
+.acw-foundation-proof .acw-foundation-links {
+  width: 100%;
+}
+
+/* Identity studies: show strategic thinking */
+
+.acw-service-directions .acw-card-body small {
+  display: block;
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  color: rgba(16, 32, 51, 0.55);
+  border-top: 1px solid rgba(16, 32, 51, 0.08);
+  font-size: 0.72rem;
+  font-weight: 760;
+  letter-spacing: 0.03em;
+  line-height: 1.55;
+}
+
+.acw-service-directions .acw-card {
+  height: 100%;
+}
+
+.acw-service-directions .acw-card-link {
+  height: 100%;
+}
+
+/* Collaboration: slightly quieter */
+
+.acw-collaboration-card {
+  min-height: 230px;
+}
+
+.acw-collaboration-card p {
+  font-size: 0.93rem;
+}
+
+/* Final CTA: unboxed, spacious ending */
+
+.acw-service-final {
+  padding-top: clamp(8rem, 12vw, 12rem);
+  padding-bottom: clamp(8rem, 12vw, 12rem);
+  background:
+    radial-gradient(circle at 12% 10%, rgba(218, 192, 157, 0.12), transparent 35%),
+    var(--surface);
+}
+
+.acw-service-final .acw-service-final-cta {
+  max-width: 1040px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.acw-service-final .acw-service-final-cta h2 {
+  max-width: 10.5ch;
+  font-size: clamp(3.3rem, 5.4vw, 5.8rem);
+  line-height: 0.92;
+}
+
+.acw-service-final .acw-service-final-cta > p:not(.acw-section-label) {
+  max-width: 48ch;
+  font-size: clamp(1.05rem, 1.2vw, 1.2rem);
+}
+
+/* Tablet */
+
+@media (max-width: 980px) {
+  .acw-service-hero {
+    min-height: auto;
+  }
+
+  .acw-service-hero-grid,
+  .acw-service-editorial-copy,
+  .acw-foundation-proof {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-service-hero-media {
+    max-width: 760px;
+  }
+
+  .acw-service-editorial-copy .acw-section-number {
+    margin-bottom: -0.5rem;
+  }
+
+  .acw-service-editorial-copy h2 {
+    max-width: 11ch;
+  }
+
+  .acw-service-editorial-text {
+    max-width: 620px;
+  }
+
+  .acw-foundation-proof-media {
+    max-width: 760px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .acw-service-hero {
+    padding-top: 4.5rem;
+    padding-bottom: 5rem;
+  }
+
+  .acw-service-hero h1 {
+    max-width: 10.5ch;
+    font-size: clamp(2.85rem, 12vw, 4rem);
+    line-height: 0.92;
+  }
+
+  .acw-comparison-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-comparison-shift {
+    min-height: 42px;
+    border: 0;
+    border-block: 1px solid rgba(16, 32, 51, 0.07);
+    transform: rotate(90deg);
+  }
+
+  .acw-service-sequence {
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
+  }
+
+  .acw-service-editorial-copy h2 {
+    font-size: clamp(2.75rem, 12vw, 4rem);
+  }
+
+  .acw-service-editorial .acw-showcase-image img {
+    aspect-ratio: 4 / 3;
+    border-radius: 20px;
+  }
+
+  .acw-outcome-grid-three {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-outcome-card-large {
+    min-height: auto;
+  }
+
+  .acw-outcome-card-large h3 {
+    margin-top: 2.5rem;
+  }
+
+  .acw-foundation-proof {
+    gap: 1.5rem;
+  }
+
+  .acw-service-final {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .acw-service-final .acw-service-final-cta h2 {
+    font-size: clamp(2.75rem, 12vw, 4.1rem);
   }
 }
