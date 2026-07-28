@@ -1,19 +1,30 @@
 <header class="site-header" role="banner">
-  <nav class="nav" role="navigation" aria-label="Main navigation">
+  <nav
+    class="nav"
+    role="navigation"
+    aria-label="Main navigation"
+  >
 
     <a
       class="nav__brand"
       href="{{ '/' | relative_url }}"
-      aria-label="Alexander Watson home"
+      aria-label="Alexander Watson — Home"
     >
-      <img
-        class="nav__logo"
-        src="{{ '/assets/images/brand/Alexander-Watson-Alternate-logo.svg' | relative_url }}"
-        alt=""
-        width="2000"
-        height="500"
-        decoding="async"
-      >
+      <picture>
+        <source
+          media="(max-width: 600px)"
+          srcset="{{ '/assets/images/brand/alexander-watson-primary-logo.svg' | relative_url }}"
+        >
+
+        <img
+          class="nav__logo"
+          src="{{ '/assets/images/brand/Alexander-Watson-Alternate-logo.svg' | relative_url }}"
+          alt=""
+          width="180"
+          height="45"
+          decoding="async"
+        >
+      </picture>
     </a>
 
     <button
@@ -24,8 +35,8 @@
       aria-controls="primary-nav-panel"
     >
       <span
-        aria-hidden="true"
         class="nav__hamburger"
+        aria-hidden="true"
       ></span>
     </button>
 
@@ -38,26 +49,33 @@
       id="primary-nav-panel"
       class="nav__panel"
     >
-
       <ul
         id="primary-nav"
         class="nav__links"
       >
-
         <li>
-          <a href="{{ '/' | relative_url }}">
+          <a
+            href="{{ '/' | relative_url }}"
+            {% if page.url == '/' %}aria-current="page"{% endif %}
+          >
             Home
           </a>
         </li>
 
         <li>
-          <a href="{{ '/professional-identity/' | relative_url }}">
+          <a
+            href="{{ '/professional-identity/' | relative_url }}"
+            {% if page.url == '/professional-identity/' %}aria-current="page"{% endif %}
+          >
             Professional Identity
           </a>
         </li>
 
         <li>
-          <a href="{{ '/website-design-for-therapists/' | relative_url }}">
+          <a
+            href="{{ '/website-design-for-therapists/' | relative_url }}"
+            {% if page.url == '/website-design-for-therapists/' %}aria-current="page"{% endif %}
+          >
             Services
           </a>
         </li>
@@ -69,26 +87,31 @@
         </li>
 
         <li>
-          <a href="{{ '/library/' | relative_url }}">
+          <a
+            href="{{ '/library/' | relative_url }}"
+            {% if page.url == '/library/' or page.layout == 'post' %}aria-current="page"{% endif %}
+          >
             Guides
           </a>
         </li>
 
         <li>
-          <a href="{{ '/about/' | relative_url }}">
+          <a
+            href="{{ '/about/' | relative_url }}"
+            {% if page.url == '/about/' %}aria-current="page"{% endif %}
+          >
             About
           </a>
         </li>
-
       </ul>
 
       <a
-        href="{{ '/contact/' | relative_url }}"
         class="nav__cta"
+        href="{{ '/contact/' | relative_url }}"
+        {% if page.url == '/contact/' %}aria-current="page"{% endif %}
       >
         Start a conversation
       </a>
-
     </div>
 
   </nav>
