@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap");
+
 /* =========================================================
 ALEXANDER WATSON — MAIN STYLESHEET
 Clarity First. Website Second.
@@ -85,7 +87,7 @@ The order below intentionally preserves the original cascade.
   --container: 1120px;
 
   --font-heading: "Instrument Serif", Georgia, serif;
-  --font-body: "Aileron", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Aileron", "Manrope", "Helvetica Neue", Arial, sans-serif;
 
   --transition: 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
@@ -9264,7 +9266,7 @@ This final layer intentionally overrides earlier exploratory typography.
 
 :root {
   --font-heading: "Instrument Serif", Georgia, serif;
-  --font-body: "Aileron", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Aileron", "Manrope", "Helvetica Neue", Arial, sans-serif;
 }
 
 html,
@@ -9355,7 +9357,7 @@ homepage hero that remains within the desktop viewport.
 
   --container: 1200px;
   --font-heading: "Instrument Serif", Georgia, serif;
-  --font-body: "Aileron", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Aileron", "Manrope", "Helvetica Neue", Arial, sans-serif;
   --transition: 180ms ease;
 }
 
@@ -9788,3 +9790,137 @@ main img {
     min-height: 48px;
   }
 }
+
+/* =========================================================
+45. HOMEPAGE HERO + LIVE WORK — FINAL AUTHORITATIVE PASS
+Keeps the complete desktop hero comfortably above the fold,
+restores high-contrast cover copy and supports three proof cards.
+========================================================= */
+
+/* The global heading colour in section 44 is intentionally dark. The
+   cover hero needs an explicit, more specific exception on image layouts. */
+@media (min-width: 761px) {
+  .acw-hero {
+    padding-top: 12px;
+    padding-bottom: 20px;
+  }
+
+  .acw-hero-stage,
+  .acw-hero-cover-copy {
+    min-height: clamp(480px, calc(100svh - 150px), 610px);
+  }
+
+  .acw-hero-cover-copy {
+    max-width: 640px;
+    padding: clamp(32px, 4.5vw, 54px);
+  }
+
+  .acw-hero-cover h1 {
+    max-width: 10.8ch;
+    margin-bottom: 0.9rem;
+    color: var(--warm-white) !important;
+    font-size: clamp(3rem, 4.25vw, 4.8rem);
+    line-height: 0.96 !important;
+    letter-spacing: -0.055em !important;
+  }
+
+  .acw-hero-cover .acw-eyebrow {
+    margin-bottom: 0.75rem;
+    color: rgba(247, 244, 239, 0.78) !important;
+  }
+
+  .acw-hero-cover .acw-hero-text {
+    max-width: 41ch;
+    color: rgba(250, 248, 246, 0.86) !important;
+    font-size: clamp(0.96rem, 1vw, 1.06rem);
+    line-height: 1.55;
+  }
+
+  .acw-hero-cover .acw-cta-row {
+    margin-top: 1.35rem;
+  }
+
+  .acw-hero-cover .acw-btn-primary {
+    border-color: var(--soft-stone);
+    background: var(--soft-stone);
+    color: var(--logo-ink);
+  }
+
+  .acw-hero-cover .acw-btn-primary:hover,
+  .acw-hero-cover .acw-btn-primary:focus-visible {
+    border-color: var(--warm-white);
+    background: var(--warm-white);
+    color: var(--logo-ink);
+  }
+
+  .acw-hero-cover .acw-btn-secondary {
+    border-color: rgba(255, 255, 255, 0.44);
+    background: rgba(255, 255, 255, 0.10);
+    color: var(--warm-white);
+  }
+
+  .acw-hero-cover .acw-btn-secondary:hover,
+  .acw-hero-cover .acw-btn-secondary:focus-visible {
+    border-color: rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.18);
+    color: var(--warm-white);
+  }
+
+  .acw-hero-supporting {
+    margin-top: 0.75rem;
+    color: rgba(250, 248, 246, 0.66) !important;
+  }
+}
+
+/* Three deliberately equal proof cards on desktop. */
+.acw-home-work .acw-cards-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 1200px;
+  gap: clamp(1rem, 1.6vw, 1.4rem);
+}
+
+.acw-home-work .acw-cards-three .acw-card-link,
+.acw-home-work .acw-cards-three .acw-card {
+  height: 100%;
+}
+
+.acw-home-work .acw-cards-three .acw-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.acw-home-work .acw-cards-three .acw-card-image {
+  aspect-ratio: 16 / 11;
+}
+
+.acw-home-work .acw-cards-three .acw-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.acw-home-work .acw-cards-three .acw-card-action {
+  margin-top: auto;
+}
+
+.acw-home-work .acw-card-image-alexander {
+  object-position: center 42%;
+}
+
+@media (max-width: 1020px) {
+  .acw-home-work .acw-cards-three {
+    grid-template-columns: 1fr;
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 760px) {
+  .acw-hero-cover h1 {
+    line-height: 0.98 !important;
+  }
+
+  .acw-home-work .acw-cards-three {
+    max-width: none;
+  }
+}
+
