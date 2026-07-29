@@ -7520,41 +7520,47 @@ This final block intentionally overrides earlier Library experiments.
 .site-footer-top {
   display: grid;
   grid-template-columns:
-    minmax(0, 1.12fr)
-    minmax(250px, 0.72fr)
-    minmax(330px, 0.9fr);
-  gap: clamp(3rem, 6vw, 6rem);
+    minmax(300px, 1.05fr)
+    minmax(245px, 0.74fr)
+    minmax(340px, 0.95fr);
+  gap: clamp(2.5rem, 4.5vw, 4.75rem);
   align-items: start;
 }
 
 .site-footer-brand {
-  max-width: 440px;
+  max-width: 400px;
+  text-align: left;
 }
 
 .footer-brand-link {
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.15rem;
   width: fit-content;
-  margin-bottom: 1.7rem;
+  min-height: 58px;
+  margin-bottom: 2rem;
   color: var(--text);
 }
 
 .footer-submark {
-  width: 58px;
-  height: 58px;
-  flex: 0 0 58px;
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
   object-fit: contain;
 }
 
-.footer-brand-name {
-  padding-left: 1rem;
-  border-left: 1px solid rgba(26, 33, 25, 0.17);
-  font-family: var(--font-heading);
-  font-size: 1.48rem;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.025em;
+.footer-brand-divider {
+  width: 1px;
+  height: 44px;
+  flex: 0 0 1px;
+  background: rgba(26, 33, 25, 0.18);
+}
+
+.footer-alternate-logo {
+  width: clamp(138px, 12vw, 166px);
+  height: 48px;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .footer-brand-link:hover {
@@ -7563,11 +7569,12 @@ This final block intentionally overrides earlier Library experiments.
 }
 
 .footer-description {
-  max-width: 40ch;
+  max-width: 38ch;
   margin: 0 0 1.65rem;
   color: rgba(26, 33, 25, 0.72);
   font-size: 0.95rem;
   line-height: 1.75;
+  text-align: left;
 }
 
 .footer-primary-link,
@@ -7592,8 +7599,9 @@ This final block intentionally overrides earlier Library experiments.
 .site-footer-links {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem;
-  padding-top: 0.2rem;
+  gap: clamp(1.75rem, 3vw, 2.75rem);
+  padding-top: 0.45rem;
+  text-align: left;
 }
 
 .footer-nav-group {
@@ -7628,7 +7636,8 @@ This final block intentionally overrides earlier Library experiments.
 .footer-practice-notes {
   position: relative;
   overflow: hidden;
-  padding: clamp(2rem, 3vw, 2.6rem);
+  min-height: 100%;
+  padding: clamp(2rem, 2.6vw, 2.5rem);
   background:
     radial-gradient(circle at 100% 0%, rgba(121, 131, 113, 0.09), transparent 40%),
     rgba(250, 248, 246, 0.9);
@@ -7654,19 +7663,19 @@ This final block intentionally overrides earlier Library experiments.
 .footer-practice-notes h2 {
   position: relative;
   z-index: 1;
-  max-width: 16ch;
-  margin: 0 0 0.9rem;
-  font-size: clamp(1.65rem, 2.15vw, 2.35rem);
-  line-height: 1.02;
-  letter-spacing: -0.055em;
+  max-width: 13ch;
+  margin: 0 0 1rem;
+  font-size: clamp(1.7rem, 2vw, 2.15rem);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
   text-wrap: balance;
 }
 
 .footer-practice-notes-text {
   position: relative;
   z-index: 1;
-  max-width: 34ch;
-  margin: 0 0 1.15rem;
+  max-width: 32ch;
+  margin: 0 0 1.3rem;
   color: rgba(26, 33, 25, 0.68);
   font-size: 0.9rem;
   line-height: 1.65;
@@ -7769,7 +7778,8 @@ This final block intentionally overrides earlier Library experiments.
 /* Tablet */
 @media (max-width: 1040px) {
   .site-footer-top {
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.8fr);
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.82fr);
+    gap: 3rem;
   }
 
   .footer-practice-notes {
@@ -7838,14 +7848,18 @@ This final block intentionally overrides earlier Library experiments.
   }
 
   .footer-submark {
-    width: 50px;
-    height: 50px;
-    flex-basis: 50px;
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
   }
 
-  .footer-brand-name {
-    padding-left: 0.8rem;
-    font-size: 1.3rem;
+  .footer-brand-divider {
+    height: 38px;
+  }
+
+  .footer-alternate-logo {
+    width: 138px;
+    height: 42px;
   }
 
   .footer-practice-notes {
