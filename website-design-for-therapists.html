@@ -5,6 +5,178 @@ description: A connected Practice Clarity, identity and website service for ther
 permalink: /website-design-for-therapists/
 ---
 
+<style>
+  /* Page-specific layout refinements
+     Keeps headings composed, reduces the opening height and gives the
+     service page a calmer, more deliberate rhythm. */
+
+  .acw-service-hero {
+    min-height: 0;
+    padding-block: clamp(3.5rem, 6vw, 6.5rem);
+  }
+
+  .acw-service-hero-grid {
+    align-items: center;
+    gap: clamp(2.5rem, 6vw, 6rem);
+  }
+
+  .acw-service-hero-copy {
+    max-width: 46rem;
+  }
+
+  .acw-service-hero-copy h1 {
+    max-width: 13ch;
+    font-size: clamp(3.5rem, 5.8vw, 6.4rem);
+    line-height: 0.94;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+
+  .acw-service-hero-copy .acw-page-intro {
+    max-width: 38rem;
+    text-wrap: pretty;
+  }
+
+  .acw-service-hero-media {
+    width: min(100%, 38rem);
+    margin-inline-start: auto;
+  }
+
+  .acw-service-hero-media img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    max-height: 32rem;
+    object-fit: cover;
+  }
+
+  .acw-service-proof {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+  }
+
+  .acw-service-hero h1,
+  .acw-service-hero h2,
+  .acw-service-hero h3,
+  .acw-service-foundation h2,
+  .acw-service-method h2,
+  .acw-service-method h3,
+  .acw-service-difference h2,
+  .acw-service-difference h3,
+  .acw-service-sequence h2,
+  .acw-service-outcomes h2,
+  .acw-service-outcomes h3,
+  .acw-service-inclusions h2,
+  .acw-service-inclusions h3,
+  .acw-service-proof-section h2,
+  .acw-service-proof-section h3,
+  .acw-service-directions h2,
+  .acw-service-directions h3,
+  .acw-service-fit h2,
+  .acw-service-fit h3,
+  .acw-collaboration-section h2,
+  .acw-collaboration-section h3,
+  .acw-service-faq h2,
+  .acw-service-final h2 {
+    text-wrap: balance;
+  }
+
+  .acw-service-hero p,
+  .acw-service-foundation p,
+  .acw-service-method p,
+  .acw-service-difference p,
+  .acw-service-sequence p,
+  .acw-service-outcomes p,
+  .acw-service-inclusions p,
+  .acw-service-proof-section p,
+  .acw-service-directions p,
+  .acw-service-fit p,
+  .acw-collaboration-section p,
+  .acw-service-faq p,
+  .acw-service-final p {
+    text-wrap: pretty;
+  }
+
+  .acw-service-method .acw-section-heading,
+  .acw-service-difference .acw-section-heading,
+  .acw-service-outcomes .acw-section-heading,
+  .acw-service-inclusions .acw-section-heading,
+  .acw-service-proof-section .acw-section-heading,
+  .acw-service-directions .acw-section-heading,
+  .acw-service-fit .acw-section-heading,
+  .acw-service-faq .acw-section-heading {
+    max-width: 54rem;
+  }
+
+  .acw-service-method .acw-section-heading h2,
+  .acw-service-difference .acw-section-heading h2,
+  .acw-service-outcomes .acw-section-heading h2,
+  .acw-service-inclusions .acw-section-heading h2,
+  .acw-service-proof-section .acw-section-heading h2,
+  .acw-service-directions .acw-section-heading h2,
+  .acw-service-fit .acw-section-heading h2,
+  .acw-service-faq .acw-section-heading h2 {
+    max-width: 18ch;
+  }
+
+  .acw-service-hero .acw-btn,
+  .acw-service-directions .acw-card-body small {
+    white-space: nowrap;
+  }
+
+  @media (min-width: 64rem) {
+    .acw-service-hero-grid {
+      grid-template-columns: minmax(0, 1.08fr) minmax(24rem, 0.92fr);
+    }
+
+    .acw-service-hero-copy {
+      padding-block: 0.5rem;
+    }
+  }
+
+  @media (max-width: 63.9375rem) {
+    .acw-service-hero {
+      padding-block: clamp(3rem, 8vw, 5rem);
+    }
+
+    .acw-service-hero-copy h1 {
+      max-width: 12ch;
+      font-size: clamp(3.25rem, 9vw, 5.25rem);
+    }
+
+    .acw-service-hero-media {
+      margin-inline: 0;
+    }
+  }
+
+  @media (max-width: 47.9375rem) {
+    .acw-service-hero {
+      padding-block: 2.75rem 3.5rem;
+    }
+
+    .acw-service-hero-grid {
+      gap: 2rem;
+    }
+
+    .acw-service-hero-copy h1 {
+      max-width: 11ch;
+      font-size: clamp(2.9rem, 14vw, 4.35rem);
+      line-height: 0.97;
+    }
+
+    .acw-service-hero-copy .acw-page-intro {
+      max-width: 32rem;
+    }
+
+    .acw-service-hero-media img {
+      max-height: none;
+    }
+
+    .acw-cards-two {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
 <section class="acw-section acw-page-hero acw-service-hero">
   <div class="acw-container acw-service-hero-grid">
 
@@ -415,16 +587,32 @@ permalink: /website-design-for-therapists/
       <p class="acw-section-number">08</p>
       <h2>The same method should never produce the same identity.</h2>
       <p class="acw-section-intro">
-        These concept sites show how the same strategy-led process can create
-        very different first impressions without relying on therapy clichés.
+        These examples show how the same strategy-led process can create
+        very different first impressions while remaining grounded in the
+        character and needs of each practice.
       </p>
     </div>
 
-    <div class="acw-cards acw-cards-three acw-cards-centered-wide">
+    <div class="acw-cards acw-cards-two acw-cards-centered-wide">
 
-      <a class="acw-card-link" href="https://warm-therapy-template.alexanderwatson.co.uk/" target="_blank" rel="noopener">
+      <a
+        class="acw-card-link"
+        href="https://warm-therapy-template.alexanderwatson.co.uk/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visit the Warm Presence therapy website concept in a new tab"
+      >
         <article class="acw-card">
-          <img class="acw-card-image" src="{{ '/assets/images/brand/sarah-james.webp' | relative_url }}" alt="Warm and personal therapy website concept" width="900" height="675" loading="lazy" decoding="async">
+          <img
+            class="acw-card-image"
+            src="{{ '/assets/images/brand/sarah-james.webp' | relative_url }}"
+            alt="Warm and personal therapy website concept"
+            width="900"
+            height="675"
+            loading="lazy"
+            decoding="async"
+          >
+
           <div class="acw-card-body">
             <span>Soft &amp; personal</span>
             <h3>Warm Presence</h3>
@@ -434,28 +622,32 @@ permalink: /website-design-for-therapists/
         </article>
       </a>
 
-      <a class="acw-card-link" href="https://grounded-therapy-template.alexanderwatson.co.uk/" target="_blank" rel="noopener">
+      <a
+        class="acw-card-link"
+        href="https://alexanderwatsoncounselling.co.uk/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visit the Alexander Watson Counselling website in a new tab"
+      >
         <article class="acw-card">
-          <img class="acw-card-image" src="{{ '/assets/images/brand/michael-therapy.webp' | relative_url }}" alt="Grounded and structured therapy website concept" width="900" height="675" loading="lazy" decoding="async">
+          <img
+            class="acw-card-image"
+            src="{{ '/assets/images/brand/alexander-watson-counselling-card.webp' | relative_url }}"
+            alt="Portrait of Alexander Watson for the Alexander Watson Counselling website"
+            width="900"
+            height="675"
+            loading="lazy"
+            decoding="async"
+          >
+
           <div class="acw-card-body">
-            <span>Grounded &amp; structured</span>
-            <h3>Grounded Presence</h3>
-            <p>A steadier direction for a therapist whose work needs to communicate calm authority, structure and dependability.</p>
-            <small>Strategy: clear structure · grounded tone · dependable presence</small>
+            <span>Live counselling website</span>
+            <h3>Alexander Watson Counselling</h3>
+            <p>A real working website bringing a clear therapeutic identity, calm visual language and a thoughtful route to enquiry together.</p>
+            <small>Visit the live website</small>
           </div>
         </article>
       </a>
-
-      <article class="acw-card acw-card-concept">
-        <div class="acw-concept-status">Concept direction</div>
-        <img class="acw-card-image" src="{{ '/assets/images/brand/reflective-therapy-concept.webp' | relative_url }}" alt="Reflective and spacious therapy website concept" width="900" height="675" loading="lazy" decoding="async">
-        <div class="acw-card-body">
-          <span>Quiet &amp; reflective</span>
-          <h3>Reflective Presence</h3>
-          <p>A spacious direction for a therapist whose work needs to feel thoughtful, unhurried and inwardly attentive.</p>
-          <small>Strategy: reflective pace · literary tone · generous space</small>
-        </div>
-      </article>
 
     </div>
 
