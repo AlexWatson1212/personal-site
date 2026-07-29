@@ -7531,25 +7531,43 @@ This final block intentionally overrides earlier Library experiments.
   max-width: 440px;
 }
 
-.footer-logo-link {
+.footer-brand-link {
   display: inline-flex;
+  align-items: center;
+  gap: 1rem;
   width: fit-content;
-  margin-bottom: 1.35rem;
+  margin-bottom: 1.7rem;
+  color: var(--text);
 }
 
-.footer-logo {
-  width: auto;
-  height: 72px;
-  max-width: 230px;
+.footer-submark {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
   object-fit: contain;
+}
+
+.footer-brand-name {
+  padding-left: 1rem;
+  border-left: 1px solid rgba(26, 33, 25, 0.17);
+  font-family: var(--font-heading);
+  font-size: 1.48rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.footer-brand-link:hover {
+  color: var(--accent-dark);
+  transform: translateY(-1px);
 }
 
 .footer-description {
   max-width: 40ch;
-  margin: 0 0 1.45rem;
+  margin: 0 0 1.65rem;
   color: rgba(26, 33, 25, 0.72);
-  font-size: 0.98rem;
-  line-height: 1.72;
+  font-size: 0.95rem;
+  line-height: 1.75;
 }
 
 .footer-primary-link,
@@ -7610,12 +7628,12 @@ This final block intentionally overrides earlier Library experiments.
 .footer-practice-notes {
   position: relative;
   overflow: hidden;
-  padding: clamp(1.8rem, 3vw, 2.35rem);
+  padding: clamp(2rem, 3vw, 2.6rem);
   background:
     radial-gradient(circle at 100% 0%, rgba(121, 131, 113, 0.09), transparent 40%),
     rgba(250, 248, 246, 0.9);
   border: 1px solid rgba(26, 33, 25, 0.08);
-  border-radius: 26px;
+  border-radius: 22px;
   box-shadow:
     0 24px 58px rgba(26, 33, 25, 0.07),
     0 6px 18px rgba(26, 33, 25, 0.03);
@@ -7683,7 +7701,7 @@ This final block intentionally overrides earlier Library experiments.
   background: rgba(250, 248, 246, 0.78);
   color: var(--accent-dark);
   border: 1px solid rgba(26, 33, 25, 0.08);
-  border-radius: 50%;
+  border-radius: 12px;
   box-shadow: 0 6px 16px rgba(26, 33, 25, 0.035);
 }
 
@@ -7814,9 +7832,20 @@ This final block intentionally overrides earlier Library experiments.
     gap: 1.8rem;
   }
 
-  .footer-logo {
-    height: 62px;
-    max-width: 200px;
+  .footer-brand-link {
+    gap: 0.8rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .footer-submark {
+    width: 50px;
+    height: 50px;
+    flex-basis: 50px;
+  }
+
+  .footer-brand-name {
+    padding-left: 0.8rem;
+    font-size: 1.3rem;
   }
 
   .footer-practice-notes {
