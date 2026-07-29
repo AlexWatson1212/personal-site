@@ -56,26 +56,26 @@ The order below intentionally preserves the original cascade.
 ========================================================= */
 
 :root {
-  --bg: #f6efe4;
-  --surface: #fffdf8;
-  --surface-soft: #e8ddcd;
-  --surface-quiet: #faf6ee;
-  --surface-warm: #efe4d4;
+  --bg: #F7F4EF;
+  --surface: #FAF8F6;
+  --surface-soft: #D7DDD8;
+  --surface-quiet: #FAF8F6;
+  --surface-warm: #D7DDD8;
 
-  --text: #102033;
-  --muted: rgba(16, 32, 51, 0.74);
+  --text: #1A2119;
+  --muted: rgba(26, 33, 25, 0.74);
   --white: #ffffff;
 
-  --accent: #7b8f70;
-  --accent-dark: #536b4d;
+  --accent: #798371;
+  --accent-dark: #283A38;
 
-  --line: rgba(16, 32, 51, 0.09);
-  --line-strong: rgba(16, 32, 51, 0.16);
+  --line: rgba(26, 33, 25, 0.09);
+  --line-strong: rgba(26, 33, 25, 0.16);
 
-  --shadow-xs: 0 6px 16px rgba(16, 32, 51, 0.035);
-  --shadow-sm: 0 16px 36px rgba(16, 32, 51, 0.06);
-  --shadow: 0 26px 64px rgba(16, 32, 51, 0.085);
-  --shadow-lg: 0 34px 90px rgba(16, 32, 51, 0.12);
+  --shadow-xs: 0 6px 16px rgba(26, 33, 25, 0.035);
+  --shadow-sm: 0 16px 36px rgba(26, 33, 25, 0.06);
+  --shadow: 0 26px 64px rgba(26, 33, 25, 0.085);
+  --shadow-lg: 0 34px 90px rgba(26, 33, 25, 0.12);
 
   --radius: 28px;
   --radius-md: 32px;
@@ -279,13 +279,13 @@ p {
 .acw-section-soft {
   background:
     radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.45), transparent 36%),
-    radial-gradient(circle at 88% 16%, rgba(123, 143, 112, 0.08), transparent 34%),
+    radial-gradient(circle at 88% 16%, rgba(121, 131, 113, 0.08), transparent 34%),
     var(--surface-soft);
 }
 
 .acw-section-quiet {
   background:
-    radial-gradient(circle at 90% 10%, rgba(123, 143, 112, 0.05), transparent 30%),
+    radial-gradient(circle at 90% 10%, rgba(121, 131, 113, 0.05), transparent 30%),
     var(--surface-quiet);
 }
 
@@ -357,7 +357,7 @@ p {
 .acw-btn-primary {
   background: var(--accent);
   color: var(--white);
-  box-shadow: 0 10px 24px rgba(83, 107, 77, 0.16);
+  box-shadow: 0 10px 24px rgba(40, 58, 56, 0.16);
 }
 
 .acw-btn-primary:hover {
@@ -509,9 +509,9 @@ p {
   overflow: hidden;
   padding: clamp(28px, 3vw, 46px) 0 clamp(54px, 6vw, 82px);
   background:
-    radial-gradient(circle at 88% 18%, rgba(123, 143, 112, 0.08), transparent 34%),
-    radial-gradient(circle at 10% 6%, rgba(218, 192, 157, 0.16), transparent 38%),
-    linear-gradient(180deg, #fcf8f1 0%, #f6efe4 100%);
+    radial-gradient(circle at 88% 18%, rgba(121, 131, 113, 0.08), transparent 34%),
+    radial-gradient(circle at 10% 6%, rgba(215, 221, 216, 0.16), transparent 38%),
+    linear-gradient(180deg, #FAF8F6 0%, #F7F4EF 100%);
 }
 
 .acw-hero::after {
@@ -520,7 +520,7 @@ p {
   inset-inline: 0;
   bottom: 0;
   height: 1px;
-  background: rgba(16, 32, 51, 0.06);
+  background: rgba(26, 33, 25, 0.06);
 }
 
 .acw-hero-stage {
@@ -530,8 +530,8 @@ p {
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 28px;
   box-shadow:
-    0 34px 90px rgba(16, 32, 51, 0.16),
-    0 12px 30px rgba(16, 32, 51, 0.08);
+    0 34px 90px rgba(26, 33, 25, 0.16),
+    0 12px 30px rgba(26, 33, 25, 0.08);
   isolation: isolate;
 }
 
@@ -558,17 +558,17 @@ p {
   background:
     linear-gradient(
       90deg,
-      rgba(7, 18, 13, 0.90) 0%,
-      rgba(7, 18, 13, 0.78) 30%,
-      rgba(7, 18, 13, 0.46) 52%,
-      rgba(7, 18, 13, 0.12) 76%,
-      rgba(7, 18, 13, 0.02) 100%
+      rgba(26, 33, 25, 0.90) 0%,
+      rgba(26, 33, 25, 0.78) 30%,
+      rgba(26, 33, 25, 0.46) 52%,
+      rgba(26, 33, 25, 0.12) 76%,
+      rgba(26, 33, 25, 0.02) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(7, 18, 13, 0.08) 0%,
-      rgba(7, 18, 13, 0.02) 48%,
-      rgba(7, 18, 13, 0.34) 100%
+      rgba(26, 33, 25, 0.08) 0%,
+      rgba(26, 33, 25, 0.02) 48%,
+      rgba(26, 33, 25, 0.34) 100%
     );
   pointer-events: none;
 }
@@ -585,13 +585,13 @@ p {
 }
 
 .acw-hero-cover .acw-eyebrow {
-  color: rgba(242, 236, 224, 0.76);
+  color: rgba(247, 244, 239, 0.76);
 }
 
 .acw-hero-cover h1 {
   max-width: 10.5ch;
   margin-bottom: 1.25rem;
-  color: #fffdf8;
+  color: #FAF8F6;
   font-size: clamp(3.45rem, 5.2vw, 5.8rem);
   line-height: 0.91;
   letter-spacing: -0.07em;
@@ -601,7 +601,7 @@ p {
 .acw-hero-cover .acw-hero-text {
   max-width: 42ch;
   margin: 0;
-  color: rgba(255, 253, 248, 0.80);
+  color: rgba(250, 248, 246, 0.80);
   font-size: clamp(1.02rem, 1.1vw, 1.17rem);
   line-height: 1.68;
 }
@@ -611,19 +611,19 @@ p {
 }
 
 .acw-hero-cover .acw-btn-primary {
-  background: #e8ddcd;
-  color: #102033;
+  background: #D7DDD8;
+  color: #1A2119;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
 }
 
 .acw-hero-cover .acw-btn-primary:hover {
-  background: #fffdf8;
-  color: #102033;
+  background: #FAF8F6;
+  color: #1A2119;
 }
 
 .acw-hero-cover .acw-btn-secondary {
   background: rgba(255, 255, 255, 0.08);
-  color: #fffdf8;
+  color: #FAF8F6;
   border-color: rgba(255, 255, 255, 0.28);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -631,13 +631,13 @@ p {
 
 .acw-hero-cover .acw-btn-secondary:hover {
   background: rgba(255, 255, 255, 0.16);
-  color: #fffdf8;
+  color: #FAF8F6;
   border-color: rgba(255, 255, 255, 0.42);
 }
 
 .acw-hero-supporting {
   margin: 1.2rem 0 0;
-  color: rgba(255, 253, 248, 0.58);
+  color: rgba(250, 248, 246, 0.58);
   font-size: 0.72rem;
   font-weight: 820;
   letter-spacing: 0.14em;
@@ -666,16 +666,16 @@ p {
     background:
       linear-gradient(
         90deg,
-        rgba(7, 18, 13, 0.90) 0%,
-        rgba(7, 18, 13, 0.72) 46%,
-        rgba(7, 18, 13, 0.20) 78%,
-        rgba(7, 18, 13, 0.04) 100%
+        rgba(26, 33, 25, 0.90) 0%,
+        rgba(26, 33, 25, 0.72) 46%,
+        rgba(26, 33, 25, 0.20) 78%,
+        rgba(26, 33, 25, 0.04) 100%
       ),
       linear-gradient(
         180deg,
-        rgba(7, 18, 13, 0.08) 0%,
-        rgba(7, 18, 13, 0.10) 56%,
-        rgba(7, 18, 13, 0.34) 100%
+        rgba(26, 33, 25, 0.08) 0%,
+        rgba(26, 33, 25, 0.10) 56%,
+        rgba(26, 33, 25, 0.34) 100%
       );
   }
 }
@@ -692,7 +692,7 @@ p {
   .acw-hero-stage {
     overflow: visible;
     min-height: auto;
-    background: #f6efe4;
+    background: #F7F4EF;
     border: 0;
     border-radius: 0;
     box-shadow: none;
@@ -706,7 +706,7 @@ p {
     margin: 0 auto;
     overflow: hidden;
     border-radius: 16px;
-    box-shadow: 0 18px 42px rgba(16, 32, 51, 0.08);
+    box-shadow: 0 18px 42px rgba(26, 33, 25, 0.08);
   }
 
   .acw-hero-visual img {
@@ -765,7 +765,7 @@ p {
   .acw-hero-cover .acw-btn-primary {
     background: var(--accent);
     color: var(--white);
-    box-shadow: 0 10px 24px rgba(83, 107, 77, 0.16);
+    box-shadow: 0 10px 24px rgba(40, 58, 56, 0.16);
   }
 
   .acw-hero-cover .acw-btn-primary:hover {
@@ -782,7 +782,7 @@ p {
   }
 
   .acw-hero-supporting {
-    color: rgba(16, 32, 51, 0.56);
+    color: rgba(26, 33, 25, 0.56);
     font-size: 0.69rem;
     letter-spacing: 0.09em;
   }
@@ -794,9 +794,9 @@ p {
 
 .acw-page-hero {
   background:
-    radial-gradient(circle at 12% 0%, rgba(218, 192, 157, 0.16), transparent 34%),
-    radial-gradient(circle at 88% 12%, rgba(123, 143, 112, 0.08), transparent 32%),
-    linear-gradient(180deg, #fcf8f1 0%, var(--surface) 100%);
+    radial-gradient(circle at 12% 0%, rgba(215, 221, 216, 0.16), transparent 34%),
+    radial-gradient(circle at 88% 12%, rgba(121, 131, 113, 0.08), transparent 32%),
+    linear-gradient(180deg, #FAF8F6 0%, var(--surface) 100%);
 }
 
 .acw-page-hero-inner {
@@ -875,8 +875,8 @@ p {
 .acw-about-image {
   width: 100%;
   object-fit: cover;
-  border: 1px solid rgba(16, 32, 51, 0.075);
-  box-shadow: 0 22px 54px rgba(16, 32, 51, 0.075);
+  border: 1px solid rgba(26, 33, 25, 0.075);
+  box-shadow: 0 22px 54px rgba(26, 33, 25, 0.075);
 }
 
 .acw-editorial-media img,
@@ -909,9 +909,9 @@ p {
   display: inline-flex;
   padding: 0.5rem 0.82rem;
   background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: var(--pill);
-  color: rgba(16, 32, 51, 0.68);
+  color: rgba(26, 33, 25, 0.68);
   font-size: 0.78rem;
   font-weight: 760;
 }
@@ -958,7 +958,7 @@ p {
 .acw-value-panel,
 .acw-card {
   background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 22px;
   box-shadow: var(--shadow-xs);
 }
@@ -981,7 +981,7 @@ p {
   position: absolute;
   inset: 0 0 auto 0;
   height: 4px;
-  background: linear-gradient(90deg, rgba(123, 143, 112, 0.55), rgba(218, 192, 157, 0.45));
+  background: linear-gradient(90deg, rgba(121, 131, 113, 0.55), rgba(215, 221, 216, 0.45));
   pointer-events: none;
 }
 
@@ -1023,7 +1023,7 @@ p {
   margin-top: 0.4rem;
   color: var(--accent-dark);
   font-weight: 820;
-  border-bottom: 1px solid rgba(83, 107, 77, 0.28);
+  border-bottom: 1px solid rgba(40, 58, 56, 0.28);
 }
 
 /* =========================================================
@@ -1032,8 +1032,8 @@ p {
 
 .acw-services-overview {
   background:
-    radial-gradient(circle at 12% 8%, rgba(218, 192, 157, 0.16), transparent 32%),
-    radial-gradient(circle at 88% 10%, rgba(123, 143, 112, 0.08), transparent 34%),
+    radial-gradient(circle at 12% 8%, rgba(215, 221, 216, 0.16), transparent 32%),
+    radial-gradient(circle at 88% 10%, rgba(121, 131, 113, 0.08), transparent 34%),
     var(--surface);
 }
 
@@ -1058,28 +1058,28 @@ p {
 }
 
 .acw-offer-card-clarity {
-  border-color: rgba(83, 107, 77, 0.24);
+  border-color: rgba(40, 58, 56, 0.24);
   background:
-    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.13), transparent 38%),
+    radial-gradient(circle at 100% 0%, rgba(121, 131, 113, 0.13), transparent 38%),
     rgba(255, 255, 255, 0.96);
 }
 
 .acw-offer-card-identity {
   background:
-    radial-gradient(circle at 100% 0%, rgba(218, 192, 157, 0.2), transparent 38%),
-    rgba(255, 253, 248, 0.96);
+    radial-gradient(circle at 100% 0%, rgba(215, 221, 216, 0.2), transparent 38%),
+    rgba(250, 248, 246, 0.96);
 }
 
 .acw-offer-card-website {
   background:
-    radial-gradient(circle at 100% 0%, rgba(16, 32, 51, 0.04), transparent 38%),
+    radial-gradient(circle at 100% 0%, rgba(26, 33, 25, 0.04), transparent 38%),
     rgba(255, 255, 255, 0.96);
 }
 
 .acw-offer-card-care {
   background:
-    radial-gradient(circle at 100% 0%, rgba(232, 221, 205, 0.62), transparent 38%),
-    rgba(250, 246, 238, 0.96);
+    radial-gradient(circle at 100% 0%, rgba(215, 221, 216, 0.62), transparent 38%),
+    rgba(250, 248, 246, 0.96);
 }
 
 .acw-offer-card h3 {
@@ -1098,7 +1098,7 @@ p {
 .acw-offer-card li {
   position: relative;
   padding-left: 1.2rem;
-  color: rgba(16, 32, 51, 0.74);
+  color: rgba(26, 33, 25, 0.74);
   font-size: 0.91rem;
   font-weight: 720;
   line-height: 1.5;
@@ -1129,7 +1129,7 @@ p {
   margin-top: 1rem;
   color: var(--accent-dark);
   font-weight: 820;
-  border-bottom: 1px solid rgba(83, 107, 77, 0.28);
+  border-bottom: 1px solid rgba(40, 58, 56, 0.28);
 }
 /* =========================================================
 15. CHOICE / PROCESS / VALUE
@@ -1142,9 +1142,9 @@ p {
   margin-top: 1.6rem;
   padding: clamp(1.7rem, 3.4vw, 2.8rem);
   background:
-    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.1), transparent 34%),
+    radial-gradient(circle at 100% 0%, rgba(121, 131, 113, 0.1), transparent 34%),
     rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 34px;
   box-shadow: var(--shadow-sm);
 }
@@ -1168,8 +1168,8 @@ p {
 .acw-choice-list p {
   margin: 0;
   padding: 0.95rem 1rem;
-  background: rgba(250, 246, 238, 0.88);
-  border: 1px solid rgba(16, 32, 51, 0.07);
+  background: rgba(250, 248, 246, 0.88);
+  border: 1px solid rgba(26, 33, 25, 0.07);
   border-radius: 18px;
   color: var(--muted);
   line-height: 1.55;
@@ -1200,7 +1200,7 @@ p {
   left: 0;
   right: 0;
   height: 1px;
-  background: rgba(16, 32, 51, 0.14);
+  background: rgba(26, 33, 25, 0.14);
 }
 
 .acw-process-step:last-child::before {
@@ -1218,7 +1218,7 @@ p {
   height: 56px;
   margin-bottom: 1.2rem;
   background: var(--surface);
-  border: 1px solid rgba(16, 32, 51, 0.12);
+  border: 1px solid rgba(26, 33, 25, 0.12);
   border-radius: 50%;
   box-shadow: var(--shadow-xs);
   font-size: 1.35rem;
@@ -1252,7 +1252,7 @@ p {
 .acw-value-panel {
   padding: clamp(2rem, 4vw, 3.2rem);
   background:
-    radial-gradient(circle at 100% 0%, rgba(218, 192, 157, 0.2), transparent 34%),
+    radial-gradient(circle at 100% 0%, rgba(215, 221, 216, 0.2), transparent 34%),
     rgba(255, 255, 255, 0.86);
   border-radius: 40px;
 }
@@ -1280,7 +1280,7 @@ p {
     gap: 1rem;
     padding: 1.1rem;
     background: rgba(255, 255, 255, 0.78);
-    border: 1px solid rgba(16, 32, 51, 0.08);
+    border: 1px solid rgba(26, 33, 25, 0.08);
     border-radius: 24px;
     box-shadow: var(--shadow-xs);
   }
@@ -1346,7 +1346,7 @@ p {
 }
 
 .acw-card-link:hover .acw-card {
-  border-color: rgba(123, 143, 112, 0.24);
+  border-color: rgba(121, 131, 113, 0.24);
   box-shadow: var(--shadow);
 }
 
@@ -1379,7 +1379,7 @@ p {
   display: inline-flex;
   color: var(--accent-dark);
   font-weight: 820;
-  border-bottom: 1px solid rgba(83, 107, 77, 0.28);
+  border-bottom: 1px solid rgba(40, 58, 56, 0.28);
 }
 
 /* =========================================================
@@ -1418,7 +1418,7 @@ p {
 .acw-about-note {
   padding: 1.35rem;
   background: rgba(255, 255, 255, 0.74);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 28px;
   box-shadow: var(--shadow-xs);
 }
@@ -1444,7 +1444,7 @@ p {
 .acw-faq-item {
   overflow: hidden;
   background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 16px;
   box-shadow: none;
 }
@@ -1491,7 +1491,7 @@ p {
 
 .acw-contact-split-section {
   background:
-    radial-gradient(circle at 72% 18%, rgba(123, 143, 112, 0.12), transparent 32%),
+    radial-gradient(circle at 72% 18%, rgba(121, 131, 113, 0.12), transparent 32%),
     var(--surface);
 }
 
@@ -1517,12 +1517,12 @@ p {
   margin: 0.15rem 0 0.5rem;
   color: var(--accent-dark);
   font-weight: 820;
-  border-bottom: 1px solid rgba(83, 107, 77, 0.28);
+  border-bottom: 1px solid rgba(40, 58, 56, 0.28);
 }
 
 .acw-contact-email:hover {
   color: var(--text);
-  border-bottom-color: rgba(16, 32, 51, 0.28);
+  border-bottom-color: rgba(26, 33, 25, 0.28);
 }
 
 .acw-contact-split-section .acw-contact-email {
@@ -1555,8 +1555,8 @@ p {
   min-height: calc(100vh - 64px);
   padding: 126px 0;
   background:
-    radial-gradient(circle at 8% 5%, rgba(218, 192, 157, 0.18), transparent 38%),
-    linear-gradient(90deg, #fcf8f1 0%, #f6efe4 45%, #faf8f4 100%);
+    radial-gradient(circle at 8% 5%, rgba(215, 221, 216, 0.18), transparent 38%),
+    linear-gradient(90deg, #FAF8F6 0%, #F7F4EF 45%, #FAF8F6 100%);
 }
 
 .acw-contact-page-grid {
@@ -1584,7 +1584,7 @@ p {
   margin-top: 2rem;
   padding: 1.25rem 1.35rem;
   background: rgba(255, 255, 255, 0.58);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 24px;
   box-shadow: var(--shadow-xs);
 }
@@ -1600,11 +1600,11 @@ p {
   position: relative;
   padding: clamp(2.1rem, 3.5vw, 3rem);
   background: #ffffff;
-  border: 1px solid rgba(16, 32, 51, 0.12);
+  border: 1px solid rgba(26, 33, 25, 0.12);
   border-radius: 38px;
   box-shadow:
-    0 30px 70px rgba(16, 32, 51, 0.10),
-    0 8px 20px rgba(16, 32, 51, 0.05);
+    0 30px 70px rgba(26, 33, 25, 0.10),
+    0 8px 20px rgba(26, 33, 25, 0.05);
 }
 
 .acw-form-heading {
@@ -1641,8 +1641,8 @@ p {
 .acw-contact-form textarea {
   width: 100%;
   padding: 0.95rem 1rem;
-  background: #fffdf8;
-  border: 1px solid rgba(16, 32, 51, 0.15);
+  background: #FAF8F6;
+  border: 1px solid rgba(26, 33, 25, 0.15);
   border-radius: 17px;
   color: var(--text);
 }
@@ -1653,9 +1653,9 @@ p {
 
 .acw-contact-form input:focus,
 .acw-contact-form textarea:focus {
-  border-color: rgba(83, 107, 77, 0.58);
+  border-color: rgba(40, 58, 56, 0.58);
   outline: none;
-  box-shadow: 0 0 0 4px rgba(123, 143, 112, 0.13);
+  box-shadow: 0 0 0 4px rgba(121, 131, 113, 0.13);
 }
 
 .acw-contact-form button {
@@ -1689,9 +1689,9 @@ p {
 .acw-library-hero {
   padding: clamp(5rem, 8vw, 8rem) 0 clamp(4.5rem, 7vw, 7rem);
   background:
-    radial-gradient(circle at 10% 0%, rgba(218, 192, 157, 0.15), transparent 34%),
-    radial-gradient(circle at 92% 10%, rgba(123, 143, 112, 0.08), transparent 32%),
-    linear-gradient(180deg, #fcf8f1 0%, var(--surface) 100%);
+    radial-gradient(circle at 10% 0%, rgba(215, 221, 216, 0.15), transparent 34%),
+    radial-gradient(circle at 92% 10%, rgba(121, 131, 113, 0.08), transparent 32%),
+    linear-gradient(180deg, #FAF8F6 0%, var(--surface) 100%);
 }
 
 .acw-library-hero-grid {
@@ -1735,19 +1735,19 @@ p {
   width: fit-content;
   color: var(--accent-dark);
   font-weight: 840;
-  border-bottom: 1px solid rgba(83, 107, 77, 0.28);
+  border-bottom: 1px solid rgba(40, 58, 56, 0.28);
 }
 
 .acw-library-text-link:hover,
 .acw-library-card-link:hover {
   color: var(--text);
-  border-bottom-color: rgba(16, 32, 51, 0.28);
+  border-bottom-color: rgba(26, 33, 25, 0.28);
 }
 
 .acw-library-hero-note {
   max-width: 54ch;
   margin: 1.4rem 0 0;
-  color: rgba(16, 32, 51, 0.6);
+  color: rgba(26, 33, 25, 0.6);
   font-size: 0.88rem;
   line-height: 1.65;
 }
@@ -1760,9 +1760,9 @@ p {
   width: 100%;
   aspect-ratio: 5 / 4;
   object-fit: cover;
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 18px;
-  box-shadow: 0 26px 64px rgba(16, 32, 51, 0.09);
+  box-shadow: 0 26px 64px rgba(26, 33, 25, 0.09);
 }
 
 /* 21.2 Orientation */
@@ -1818,7 +1818,7 @@ p {
 }
 
 .acw-library-stage-link:hover {
-  background: rgba(123, 143, 112, 0.055);
+  background: rgba(121, 131, 113, 0.055);
   color: var(--text);
 }
 
@@ -1915,7 +1915,7 @@ p {
 .acw-library-principle-card {
   overflow: hidden;
   background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 20px;
   box-shadow: var(--shadow-xs);
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
@@ -1923,13 +1923,13 @@ p {
 
 .acw-library-principle-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(123, 143, 112, 0.24);
+  border-color: rgba(121, 131, 113, 0.24);
   box-shadow: var(--shadow-sm);
 }
 
 .acw-library-principle-card-featured {
   background:
-    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.1), transparent 36%),
+    radial-gradient(circle at 100% 0%, rgba(121, 131, 113, 0.1), transparent 36%),
     rgba(255, 255, 255, 0.96);
 }
 
@@ -1995,7 +1995,7 @@ p {
   grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
   overflow: hidden;
   background: rgba(255, 255, 255, 0.74);
-  border: 1px solid rgba(16, 32, 51, 0.09);
+  border: 1px solid rgba(26, 33, 25, 0.09);
   border-radius: 22px;
   box-shadow: var(--shadow-sm);
 }
@@ -2044,7 +2044,7 @@ p {
   padding: 1.8rem;
   background: rgba(255, 255, 255, 0.58);
   color: var(--text);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 18px;
 }
 
@@ -2130,7 +2130,7 @@ p {
 
 .acw-blog-meta {
   margin-bottom: 0.7rem;
-  color: rgba(16, 32, 51, 0.56);
+  color: rgba(26, 33, 25, 0.56);
   font-size: 0.72rem;
   font-weight: 760;
   letter-spacing: 0.04em;
@@ -2155,7 +2155,7 @@ p {
 .acw-library-blueprint {
   padding: clamp(5rem, 8vw, 8rem) 0;
   background:
-    radial-gradient(circle at 90% 10%, rgba(123, 143, 112, 0.08), transparent 32%),
+    radial-gradient(circle at 90% 10%, rgba(121, 131, 113, 0.08), transparent 32%),
     var(--surface-quiet);
 }
 
@@ -2234,7 +2234,7 @@ p {
   align-items: end;
   padding: clamp(2.5rem, 5vw, 4.5rem);
   background:
-    radial-gradient(circle at 100% 0%, rgba(218, 192, 157, 0.18), transparent 34%),
+    radial-gradient(circle at 100% 0%, rgba(215, 221, 216, 0.18), transparent 34%),
     rgba(255, 255, 255, 0.88);
   border: 1px solid var(--line);
   border-radius: 22px;
@@ -2263,9 +2263,9 @@ p {
 
 .acw-post-hero {
   background:
-    radial-gradient(circle at 82% 10%, rgba(123, 143, 112, 0.08), transparent 34%),
-    radial-gradient(circle at 14% 0%, rgba(218, 192, 157, 0.16), transparent 38%),
-    linear-gradient(180deg, #fcf8f1 0%, var(--surface) 100%);
+    radial-gradient(circle at 82% 10%, rgba(121, 131, 113, 0.08), transparent 34%),
+    radial-gradient(circle at 14% 0%, rgba(215, 221, 216, 0.16), transparent 38%),
+    linear-gradient(180deg, #FAF8F6 0%, var(--surface) 100%);
 }
 
 .acw-post-hero-inner,
@@ -2473,9 +2473,9 @@ p {
 .site-footer {
   padding: 76px 16px 34px;
   background:
-    radial-gradient(circle at 50% 0%, rgba(218, 192, 157, 0.22), transparent 38%),
+    radial-gradient(circle at 50% 0%, rgba(215, 221, 216, 0.22), transparent 38%),
     var(--surface-warm);
-  border-top: 1px solid rgba(16, 32, 51, 0.08);
+  border-top: 1px solid rgba(26, 33, 25, 0.08);
   text-align: center;
 }
 
@@ -2522,7 +2522,7 @@ p {
 }
 
 .footer-nav a {
-  color: rgba(16, 32, 51, 0.68);
+  color: rgba(26, 33, 25, 0.68);
   font-size: 0.88rem;
   font-weight: 760;
 }
@@ -2551,7 +2551,7 @@ p {
   height: 42px !important;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: var(--pill);
   color: var(--accent-dark);
   box-shadow: var(--shadow-xs);
@@ -2561,7 +2561,7 @@ p {
   transform: translateY(-2px);
   background: var(--white);
   color: var(--text);
-  border-color: rgba(123, 143, 112, 0.22);
+  border-color: rgba(121, 131, 113, 0.22);
   box-shadow: var(--shadow-sm);
 }
 
@@ -2591,9 +2591,9 @@ p {
   min-height: calc(100vh - 64px);
   padding: clamp(4.5rem, 8vw, 7rem) 0;
   background:
-    radial-gradient(circle at 14% 0%, rgba(218, 192, 157, 0.18), transparent 34%),
-    radial-gradient(circle at 88% 18%, rgba(123, 143, 112, 0.08), transparent 34%),
-    linear-gradient(180deg, #fcf8f1 0%, var(--bg) 100%);
+    radial-gradient(circle at 14% 0%, rgba(215, 221, 216, 0.18), transparent 34%),
+    radial-gradient(circle at 88% 18%, rgba(121, 131, 113, 0.08), transparent 34%),
+    linear-gradient(180deg, #FAF8F6 0%, var(--bg) 100%);
 }
 
 .acw-404-inner {
@@ -2618,9 +2618,9 @@ p {
   margin-top: 2.2rem;
   padding: clamp(2rem, 4vw, 3rem);
   background:
-    radial-gradient(circle at 100% 0%, rgba(218, 192, 157, 0.16), transparent 36%),
+    radial-gradient(circle at 100% 0%, rgba(215, 221, 216, 0.16), transparent 36%),
     rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 38px;
   box-shadow: var(--shadow-sm);
 }
@@ -2630,7 +2630,7 @@ p {
   position: absolute;
   inset: 0 0 auto 0;
   height: 4px;
-  background: linear-gradient(90deg, rgba(123, 143, 112, 0.55), rgba(218, 192, 157, 0.45));
+  background: linear-gradient(90deg, rgba(121, 131, 113, 0.55), rgba(215, 221, 216, 0.45));
 }
 
 .acw-404-panel-label {
@@ -2662,9 +2662,9 @@ p {
   min-height: calc(100vh - 64px);
   padding: clamp(3.8rem, 7vw, 6.5rem) 0 clamp(4.5rem, 7vw, 7rem);
   background:
-    radial-gradient(circle at 12% 4%, rgba(218, 192, 157, 0.18), transparent 36%),
-    radial-gradient(circle at 88% 12%, rgba(123, 143, 112, 0.1), transparent 34%),
-    linear-gradient(180deg, #fcf8f1 0%, var(--bg) 100%);
+    radial-gradient(circle at 12% 4%, rgba(215, 221, 216, 0.18), transparent 36%),
+    radial-gradient(circle at 88% 12%, rgba(121, 131, 113, 0.1), transparent 34%),
+    linear-gradient(180deg, #FAF8F6 0%, var(--bg) 100%);
 }
 
 .acw-links-shell {
@@ -2687,8 +2687,8 @@ p {
   border: 4px solid rgba(255, 255, 255, 0.86);
   border-radius: 50%;
   box-shadow:
-    0 18px 40px rgba(16, 32, 51, 0.12),
-    0 4px 12px rgba(16, 32, 51, 0.06);
+    0 18px 40px rgba(26, 33, 25, 0.12),
+    0 4px 12px rgba(26, 33, 25, 0.06);
 }
 
 .acw-links-portrait {
@@ -2710,8 +2710,8 @@ p {
   border: 4px solid rgba(255, 255, 255, 0.86);
   border-radius: 50%;
   box-shadow:
-    0 18px 40px rgba(16, 32, 51, 0.12),
-    0 4px 12px rgba(16, 32, 51, 0.06);
+    0 18px 40px rgba(26, 33, 25, 0.12),
+    0 4px 12px rgba(26, 33, 25, 0.06);
 }
 
 .acw-links-kicker,
@@ -2750,9 +2750,9 @@ p {
   display: block;
   padding: clamp(1.35rem, 3vw, 1.8rem);
   background:
-    radial-gradient(circle at 100% 0%, rgba(218, 192, 157, 0.13), transparent 36%),
+    radial-gradient(circle at 100% 0%, rgba(215, 221, 216, 0.13), transparent 36%),
     rgba(255, 255, 255, 0.86);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 30px;
   color: var(--text);
   box-shadow: var(--shadow-xs);
@@ -2763,21 +2763,21 @@ p {
   position: absolute;
   inset: 0 0 auto 0;
   height: 4px;
-  background: linear-gradient(90deg, rgba(123, 143, 112, 0.55), rgba(218, 192, 157, 0.45));
+  background: linear-gradient(90deg, rgba(121, 131, 113, 0.55), rgba(215, 221, 216, 0.45));
 }
 
 .acw-link-card:hover {
   transform: translateY(-4px);
   background: rgba(255, 255, 255, 0.96);
-  border-color: rgba(123, 143, 112, 0.22);
+  border-color: rgba(121, 131, 113, 0.22);
   box-shadow: var(--shadow-sm);
 }
 
 .acw-link-card-primary {
   background:
-    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.15), transparent 38%),
+    radial-gradient(circle at 100% 0%, rgba(121, 131, 113, 0.15), transparent 38%),
     rgba(255, 255, 255, 0.94);
-  border-color: rgba(83, 107, 77, 0.2);
+  border-color: rgba(40, 58, 56, 0.2);
 }
 
 .acw-link-label {
@@ -2861,7 +2861,7 @@ Practice Notes, legal pages, updated contact form and footer
   padding: 0.95rem 1rem;
   cursor: pointer;
   background: var(--surface);
-  border: 1px solid rgba(16, 32, 51, 0.15);
+  border: 1px solid rgba(26, 33, 25, 0.15);
   border-radius: 17px;
   color: var(--text);
   transition:
@@ -2871,9 +2871,9 @@ Practice Notes, legal pages, updated contact form and footer
 }
 
 .acw-contact-form select:focus {
-  border-color: rgba(83, 107, 77, 0.58);
+  border-color: rgba(40, 58, 56, 0.58);
   outline: none;
-  box-shadow: 0 0 0 4px rgba(123, 143, 112, 0.13);
+  box-shadow: 0 0 0 4px rgba(121, 131, 113, 0.13);
 }
 
 .acw-contact-form input::placeholder,
@@ -2915,7 +2915,7 @@ Practice Notes, legal pages, updated contact form and footer
   margin-top: 0.35rem;
   padding: 1.35rem 1.5rem;
   background: rgba(255, 255, 255, 0.46);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: var(--radius);
   box-shadow: var(--shadow-xs);
 }
@@ -2941,14 +2941,14 @@ Practice Notes, legal pages, updated contact form and footer
 .footer-practice-notes-link {
   display: inline-flex;
   color: var(--accent-dark);
-  border-bottom: 1px solid rgba(83, 107, 77, 0.28);
+  border-bottom: 1px solid rgba(40, 58, 56, 0.28);
   font-size: 0.86rem;
   font-weight: 820;
 }
 
 .footer-practice-notes-link:hover {
   color: var(--text);
-  border-bottom-color: rgba(16, 32, 51, 0.28);
+  border-bottom-color: rgba(26, 33, 25, 0.28);
 }
 
 /* Footer legal navigation */
@@ -2963,7 +2963,7 @@ Practice Notes, legal pages, updated contact form and footer
 }
 
 .footer-meta a {
-  color: rgba(16, 32, 51, 0.58);
+  color: rgba(26, 33, 25, 0.58);
   font-size: 0.78rem;
   font-weight: 720;
 }
@@ -2973,7 +2973,7 @@ Practice Notes, legal pages, updated contact form and footer
 }
 
 .footer-meta span {
-  color: rgba(16, 32, 51, 0.28);
+  color: rgba(26, 33, 25, 0.28);
   font-size: 0.72rem;
 }
 
@@ -3625,7 +3625,7 @@ Practice Notes, legal pages, updated contact form and footer
 .acw-section-lead {
   max-width: 48ch;
   margin-bottom: 1.45rem;
-  color: rgba(16, 32, 51, 0.80);
+  color: rgba(26, 33, 25, 0.80);
   font-size: clamp(1.1rem, 1.32vw, 1.26rem);
   font-weight: 520;
   line-height: 1.64;
@@ -3633,7 +3633,7 @@ Practice Notes, legal pages, updated contact form and footer
 
 .acw-hero-supporting {
   margin: 1.15rem 0 0;
-  color: rgba(255, 253, 248, 0.60);
+  color: rgba(250, 248, 246, 0.60);
   font-size: 0.72rem;
   font-weight: 820;
   letter-spacing: 0.14em;
@@ -3646,55 +3646,55 @@ Practice Notes, legal pages, updated contact form and footer
 .acw-home-problem {
   padding-block: clamp(130px, 10vw, 172px);
   background:
-    linear-gradient(180deg, #f6efe4 0%, #fffdf8 15%, #fffdf8 100%);
+    linear-gradient(180deg, #F7F4EF 0%, #FAF8F6 15%, #FAF8F6 100%);
 }
 
 .acw-home-reflection {
   padding-block: clamp(124px, 10vw, 164px);
   background:
-    linear-gradient(180deg, #fffdf8 0%, #f4eadb 18%, #e8ddcd 100%);
+    linear-gradient(180deg, #FAF8F6 0%, #F7F4EF 18%, #D7DDD8 100%);
 }
 
 .acw-home-transformation {
   padding-block: clamp(132px, 10.5vw, 174px);
   background:
-    linear-gradient(180deg, #e8ddcd 0%, #fffdf8 14%, #fffdf8 100%);
+    linear-gradient(180deg, #D7DDD8 0%, #FAF8F6 14%, #FAF8F6 100%);
 }
 
 .acw-home-outcome {
   padding-block: clamp(126px, 10vw, 166px);
   background:
-    linear-gradient(180deg, #fffdf8 0%, #f2e8d9 16%, #e8ddcd 100%);
+    linear-gradient(180deg, #FAF8F6 0%, #FAF8F6 16%, #D7DDD8 100%);
 }
 
 .acw-home-work {
   padding-block: clamp(132px, 10.5vw, 174px);
   background:
-    linear-gradient(180deg, #e8ddcd 0%, #fffdf8 14%, #fffdf8 100%);
+    linear-gradient(180deg, #D7DDD8 0%, #FAF8F6 14%, #FAF8F6 100%);
 }
 
 .acw-home-about {
   padding-block: clamp(126px, 10vw, 166px);
   background:
-    linear-gradient(180deg, #fffdf8 0%, #f1e6d6 16%, #e8ddcd 100%);
+    linear-gradient(180deg, #FAF8F6 0%, #F7F4EF 16%, #D7DDD8 100%);
 }
 
 .acw-home-guides {
   padding-block: clamp(128px, 10vw, 168px);
   background:
-    linear-gradient(180deg, #e8ddcd 0%, #fffdf8 15%, #fffdf8 100%);
+    linear-gradient(180deg, #D7DDD8 0%, #FAF8F6 15%, #FAF8F6 100%);
 }
 
 .acw-home-faq {
   padding-block: clamp(116px, 9vw, 150px);
   background:
-    linear-gradient(180deg, #fffdf8 0%, #f0e5d5 18%, #e8ddcd 100%);
+    linear-gradient(180deg, #FAF8F6 0%, #FAF8F6 18%, #D7DDD8 100%);
 }
 
 .acw-home-final {
   padding-block: clamp(96px, 8vw, 128px);
   background:
-    linear-gradient(180deg, #e8ddcd 0%, #fffdf8 22%, #fffdf8 100%);
+    linear-gradient(180deg, #D7DDD8 0%, #FAF8F6 22%, #FAF8F6 100%);
 }
 
 /* Shared headings */
@@ -3724,7 +3724,7 @@ Practice Notes, legal pages, updated contact form and footer
   min-height: 205px;
   padding: 2rem;
   background: rgba(255, 255, 255, 0.70);
-  border-color: rgba(16, 32, 51, 0.05);
+  border-color: rgba(26, 33, 25, 0.05);
   border-radius: 24px;
   box-shadow: none;
 }
@@ -3754,7 +3754,7 @@ Practice Notes, legal pages, updated contact form and footer
   padding: 0.2rem 0 0.28rem;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid rgba(83, 107, 77, 0.32);
+  border-bottom: 1px solid rgba(40, 58, 56, 0.32);
   border-radius: 0;
   box-shadow: none;
 }
@@ -3770,8 +3770,8 @@ Practice Notes, legal pages, updated contact form and footer
   object-position: center;
   border-radius: 16px;
   box-shadow:
-    0 28px 68px rgba(16, 32, 51, 0.085),
-    0 8px 24px rgba(16, 32, 51, 0.035);
+    0 28px 68px rgba(26, 33, 25, 0.085),
+    0 8px 24px rgba(26, 33, 25, 0.035);
 }
 
 /* Four connected expressions */
@@ -3780,7 +3780,7 @@ Practice Notes, legal pages, updated contact form and footer
   gap: 0;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(16, 32, 51, 0.055);
+  border: 1px solid rgba(26, 33, 25, 0.055);
   border-radius: 24px;
 }
 
@@ -3793,7 +3793,7 @@ Practice Notes, legal pages, updated contact form and footer
   padding: 2rem;
   background: transparent;
   border: 0;
-  border-right: 1px solid rgba(16, 32, 51, 0.065);
+  border-right: 1px solid rgba(26, 33, 25, 0.065);
   border-radius: 0;
   box-shadow: none;
 }
@@ -3838,8 +3838,8 @@ Practice Notes, legal pages, updated contact form and footer
   object-position: center;
   border-radius: 18px;
   box-shadow:
-    0 30px 72px rgba(16, 32, 51, 0.09),
-    0 8px 24px rgba(16, 32, 51, 0.035);
+    0 30px 72px rgba(26, 33, 25, 0.09),
+    0 8px 24px rgba(26, 33, 25, 0.035);
 }
 
 .acw-home-outcome .acw-mini-list {
@@ -3852,8 +3852,8 @@ Practice Notes, legal pages, updated contact form and footer
   padding: 0.62rem 0.92rem;
   align-items: center;
   background: rgba(255, 255, 255, 0.56);
-  border-color: rgba(16, 32, 51, 0.065);
-  color: rgba(16, 32, 51, 0.74);
+  border-color: rgba(26, 33, 25, 0.065);
+  color: rgba(26, 33, 25, 0.74);
   font-size: 0.8rem;
   line-height: 1.25;
 }
@@ -3864,7 +3864,7 @@ Practice Notes, legal pages, updated contact form and footer
   margin-top: 1.35rem;
   margin-bottom: 0;
   padding-left: 1rem;
-  color: rgba(16, 32, 51, 0.62);
+  color: rgba(26, 33, 25, 0.62);
   font-size: 0.9rem;
   line-height: 1.65;
 }
@@ -3876,7 +3876,7 @@ Practice Notes, legal pages, updated contact form and footer
   bottom: 0.28rem;
   left: 0;
   width: 2px;
-  background: rgba(83, 107, 77, 0.42);
+  background: rgba(40, 58, 56, 0.42);
   border-radius: var(--pill);
 }
 
@@ -3892,9 +3892,9 @@ Practice Notes, legal pages, updated contact form and footer
 }
 
 .acw-home-work .acw-card {
-  border-color: rgba(16, 32, 51, 0.05);
+  border-color: rgba(26, 33, 25, 0.05);
   border-radius: 22px;
-  box-shadow: 0 12px 30px rgba(16, 32, 51, 0.035);
+  box-shadow: 0 12px 30px rgba(26, 33, 25, 0.035);
 }
 
 .acw-home-work .acw-card-image {
@@ -3927,8 +3927,8 @@ Practice Notes, legal pages, updated contact form and footer
   object-fit: cover;
   border-radius: 16px;
   box-shadow:
-    0 28px 68px rgba(16, 32, 51, 0.08),
-    0 8px 22px rgba(16, 32, 51, 0.03);
+    0 28px 68px rgba(26, 33, 25, 0.08),
+    0 8px 22px rgba(26, 33, 25, 0.03);
 }
 
 .acw-home-about .acw-about-note {
@@ -3941,7 +3941,7 @@ Practice Notes, legal pages, updated contact form and footer
 
 .acw-home-about .acw-about-note p {
   max-width: 44ch;
-  color: rgba(16, 32, 51, 0.68);
+  color: rgba(26, 33, 25, 0.68);
   font-size: 0.94rem;
   line-height: 1.72;
 }
@@ -3956,7 +3956,7 @@ Practice Notes, legal pages, updated contact form and footer
   min-height: 245px;
   padding: 2rem;
   background: rgba(255, 255, 255, 0.72);
-  border-color: rgba(16, 32, 51, 0.05);
+  border-color: rgba(26, 33, 25, 0.05);
   border-radius: 24px;
   box-shadow: none;
 }
@@ -3974,13 +3974,13 @@ Practice Notes, legal pages, updated contact form and footer
 
 .acw-home-faq .acw-faq-list {
   gap: 0;
-  border-top: 1px solid rgba(16, 32, 51, 0.10);
+  border-top: 1px solid rgba(26, 33, 25, 0.10);
 }
 
 .acw-home-faq .acw-faq-item {
   background: transparent;
   border: 0;
-  border-bottom: 1px solid rgba(16, 32, 51, 0.10);
+  border-bottom: 1px solid rgba(26, 33, 25, 0.10);
   border-radius: 0;
 }
 
@@ -4006,11 +4006,11 @@ Practice Notes, legal pages, updated contact form and footer
   align-items: center;
   padding: clamp(2.8rem, 5vw, 4.6rem);
   background: rgba(255, 255, 255, 0.80);
-  border: 1px solid rgba(16, 32, 51, 0.05);
+  border: 1px solid rgba(26, 33, 25, 0.05);
   border-radius: 32px;
   box-shadow:
-    0 26px 64px rgba(16, 32, 51, 0.065),
-    0 8px 22px rgba(16, 32, 51, 0.025);
+    0 26px 64px rgba(26, 33, 25, 0.065),
+    0 8px 22px rgba(26, 33, 25, 0.025);
 }
 
 .acw-home-final-copy {
@@ -4073,7 +4073,7 @@ Practice Notes, legal pages, updated contact form and footer
   }
 
   .acw-home-transformation .acw-offer-card:nth-child(-n + 2) {
-    border-bottom: 1px solid rgba(16, 32, 51, 0.065);
+    border-bottom: 1px solid rgba(26, 33, 25, 0.065);
   }
 }
 
@@ -4150,7 +4150,7 @@ Practice Notes, legal pages, updated contact form and footer
     min-height: 0;
     padding: 1.4rem;
     border-right: 0;
-    border-bottom: 1px solid rgba(16, 32, 51, 0.065);
+    border-bottom: 1px solid rgba(26, 33, 25, 0.065);
   }
 
   .acw-home-transformation .acw-offer-card:last-child {
@@ -4263,7 +4263,7 @@ Practice Notes, legal pages, updated contact form and footer
 .acw-section-lead {
   max-width: 46ch;
   margin-bottom: 1.45rem;
-  color: rgba(16, 32, 51, 0.82);
+  color: rgba(26, 33, 25, 0.82);
   font-size: clamp(1.12rem, 1.35vw, 1.28rem);
   font-weight: 520;
   line-height: 1.62;
@@ -4276,11 +4276,11 @@ Practice Notes, legal pages, updated contact form and footer
 .acw-identity-hero-media {
   overflow: hidden;
   margin: 0;
-  border: 1px solid rgba(16, 32, 51, 0.055);
+  border: 1px solid rgba(26, 33, 25, 0.055);
   border-radius: 24px;
   box-shadow:
-    0 30px 74px rgba(16, 32, 51, 0.09),
-    0 10px 28px rgba(16, 32, 51, 0.04);
+    0 30px 74px rgba(26, 33, 25, 0.09),
+    0 10px 28px rgba(26, 33, 25, 0.04);
 }
 
 .acw-identity-hero-media img {
@@ -4326,7 +4326,7 @@ Practice Notes, legal pages, updated contact form and footer
   min-height: 0;
   padding: 2rem;
   background: rgba(255, 255, 255, 0.76);
-  border-color: rgba(16, 32, 51, 0.05);
+  border-color: rgba(26, 33, 25, 0.05);
   border-radius: 24px;
   box-shadow: none;
 }
@@ -4369,11 +4369,11 @@ Practice Notes, legal pages, updated contact form and footer
   overflow: hidden;
   width: 100%;
   margin: 0 0 clamp(2.2rem, 4vw, 3.6rem);
-  border: 1px solid rgba(16, 32, 51, 0.055);
+  border: 1px solid rgba(26, 33, 25, 0.055);
   border-radius: 22px;
   box-shadow:
-    0 24px 60px rgba(16, 32, 51, 0.075),
-    0 8px 22px rgba(16, 32, 51, 0.035);
+    0 24px 60px rgba(26, 33, 25, 0.075),
+    0 8px 22px rgba(26, 33, 25, 0.035);
 }
 
 .acw-identity-blueprint-media img {
@@ -4406,13 +4406,13 @@ Practice Notes, legal pages, updated contact form and footer
 
 .acw-identity-faq .acw-faq-list {
   gap: 0;
-  border-top: 1px solid rgba(16, 32, 51, 0.10);
+  border-top: 1px solid rgba(26, 33, 25, 0.10);
 }
 
 .acw-identity-faq .acw-faq-item {
   background: transparent;
   border: 0;
-  border-bottom: 1px solid rgba(16, 32, 51, 0.10);
+  border-bottom: 1px solid rgba(26, 33, 25, 0.10);
   border-radius: 0;
 }
 
@@ -4435,11 +4435,11 @@ Practice Notes, legal pages, updated contact form and footer
   gap: clamp(3.4rem, 6vw, 6rem);
   align-items: center;
   padding: clamp(2.5rem, 4.5vw, 4.2rem);
-  border: 1px solid rgba(16, 32, 51, 0.055);
+  border: 1px solid rgba(26, 33, 25, 0.055);
   border-radius: 28px;
   box-shadow:
-    0 24px 58px rgba(16, 32, 51, 0.07),
-    0 8px 20px rgba(16, 32, 51, 0.03);
+    0 24px 58px rgba(26, 33, 25, 0.07),
+    0 8px 20px rgba(26, 33, 25, 0.03);
 }
 
 .acw-identity-final-copy {
@@ -4590,7 +4590,7 @@ Practice Notes, legal pages, updated contact form and footer
     padding: 0.25rem 0;
     background: transparent;
     border: 0;
-    border-bottom: 1px solid rgba(83, 107, 77, 0.28);
+    border-bottom: 1px solid rgba(40, 58, 56, 0.28);
     border-radius: 0;
   }
 }
@@ -4692,8 +4692,8 @@ Practice Notes, legal pages, updated contact form and footer
 .acw-home-problem-grid .acw-blueprint-card {
   min-height: 260px;
   padding: 2rem 1.8rem;
-  border: 1px solid rgba(16, 32, 51, 0.065);
-  box-shadow: 0 14px 34px rgba(16, 32, 51, 0.035);
+  border: 1px solid rgba(26, 33, 25, 0.065);
+  box-shadow: 0 14px 34px rgba(26, 33, 25, 0.035);
 }
 
 .acw-home-problem-grid .acw-blueprint-card:nth-child(1) {
@@ -4701,15 +4701,15 @@ Practice Notes, legal pages, updated contact form and footer
 }
 
 .acw-home-problem-grid .acw-blueprint-card:nth-child(2) {
-  background: linear-gradient(145deg, rgba(255, 253, 248, 0.96), rgba(123, 143, 112, 0.11));
+  background: linear-gradient(145deg, rgba(250, 248, 246, 0.96), rgba(121, 131, 113, 0.11));
 }
 
 .acw-home-problem-grid .acw-blueprint-card:nth-child(3) {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(218, 192, 157, 0.18));
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(215, 221, 216, 0.18));
 }
 
 .acw-home-problem-grid .acw-blueprint-card:nth-child(4) {
-  background: linear-gradient(145deg, rgba(250, 246, 238, 0.96), rgba(16, 32, 51, 0.055));
+  background: linear-gradient(145deg, rgba(250, 248, 246, 0.96), rgba(26, 33, 25, 0.055));
 }
 
 .acw-home-problem-grid .acw-blueprint-card span {
@@ -4719,7 +4719,7 @@ Practice Notes, legal pages, updated contact form and footer
   align-items: center;
   justify-content: center;
   background: rgba(255, 255, 255, 0.62);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 50%;
   letter-spacing: 0;
 }
@@ -4743,9 +4743,9 @@ Practice Notes, legal pages, updated contact form and footer
   justify-content: center;
   background: rgba(255, 255, 255, 0.82);
   color: var(--text);
-  border: 1px solid rgba(16, 32, 51, 0.12);
+  border: 1px solid rgba(26, 33, 25, 0.12);
   border-radius: var(--pill);
-  box-shadow: 0 8px 20px rgba(16, 32, 51, 0.045);
+  box-shadow: 0 8px 20px rgba(26, 33, 25, 0.045);
   font-size: 0.84rem;
   font-weight: 820;
   line-height: 1.1;
@@ -4756,7 +4756,7 @@ Practice Notes, legal pages, updated contact form and footer
 .acw-home-guides-grid .acw-card-btn:hover,
 .acw-home-work .acw-card-link:hover .acw-card-action {
   background: var(--white);
-  border-color: rgba(83, 107, 77, 0.30);
+  border-color: rgba(40, 58, 56, 0.30);
   color: var(--text);
   transform: translateY(-2px);
 }
@@ -4782,9 +4782,9 @@ Practice Notes, legal pages, updated contact form and footer
 .acw-home-transformation .acw-offer-card-care {
   min-height: 390px;
   padding: 2rem;
-  border: 1px solid rgba(16, 32, 51, 0.065);
+  border: 1px solid rgba(26, 33, 25, 0.065);
   border-radius: 22px;
-  box-shadow: 0 12px 30px rgba(16, 32, 51, 0.035);
+  box-shadow: 0 12px 30px rgba(26, 33, 25, 0.035);
 }
 
 .acw-home-transformation .acw-offer-card-clarity {
@@ -4825,7 +4825,7 @@ Practice Notes, legal pages, updated contact form and footer
   gap: 0;
   margin: 1.8rem 0 0;
   padding: 0;
-  border-top: 1px solid rgba(16, 32, 51, 0.10);
+  border-top: 1px solid rgba(26, 33, 25, 0.10);
   list-style: none;
 }
 
@@ -4834,7 +4834,7 @@ Practice Notes, legal pages, updated contact form and footer
   grid-template-columns: minmax(150px, 0.7fr) minmax(0, 1fr);
   gap: 1.25rem;
   padding: 1rem 0;
-  border-bottom: 1px solid rgba(16, 32, 51, 0.10);
+  border-bottom: 1px solid rgba(26, 33, 25, 0.10);
 }
 
 .acw-outcome-points strong {
@@ -4879,7 +4879,7 @@ Practice Notes, legal pages, updated contact form and footer
 
 .acw-home-guides-grid .acw-card-btn {
   margin-top: auto;
-  border-bottom: 1px solid rgba(16, 32, 51, 0.12);
+  border-bottom: 1px solid rgba(26, 33, 25, 0.12);
 }
 
 /* Give the final CTA more room and keep one clear next step. */
@@ -4963,7 +4963,7 @@ Practice Notes, legal pages, updated contact form and footer
   .acw-home-transformation .acw-offer-card,
   .acw-home-transformation .acw-offer-card:nth-child(2),
   .acw-home-transformation .acw-offer-card:last-child {
-    border: 1px solid rgba(16, 32, 51, 0.065);
+    border: 1px solid rgba(26, 33, 25, 0.065);
     border-radius: 16px;
   }
 
@@ -5019,7 +5019,7 @@ Append to the end of the main stylesheet.
 .acw-service-hero-note {
   max-width: 48ch;
   margin: 1.35rem 0 0;
-  color: rgba(16, 32, 51, 0.56);
+  color: rgba(26, 33, 25, 0.56);
   font-size: 0.76rem;
   font-weight: 780;
   letter-spacing: 0.1em;
@@ -5037,7 +5037,7 @@ Append to the end of the main stylesheet.
   position: absolute;
   inset: -6% 10% 10% -7%;
   z-index: -1;
-  background: rgba(232, 221, 205, 0.66);
+  background: rgba(215, 221, 216, 0.66);
   border-radius: 42px;
 }
 
@@ -5045,7 +5045,7 @@ Append to the end of the main stylesheet.
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 28px;
   box-shadow: var(--shadow-lg);
 }
@@ -5066,7 +5066,7 @@ Append to the end of the main stylesheet.
   left: 8%;
   right: 8%;
   height: 1px;
-  background: rgba(16, 32, 51, 0.15);
+  background: rgba(26, 33, 25, 0.15);
 }
 
 .acw-connected-stage {
@@ -5075,7 +5075,7 @@ Append to the end of the main stylesheet.
   min-height: 470px;
   padding: 5.8rem 1.8rem 1.9rem;
   background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 24px;
   box-shadow: var(--shadow-xs);
 }
@@ -5091,7 +5091,7 @@ Append to the end of the main stylesheet.
   transform: translateX(-50%);
   background: var(--surface);
   color: var(--accent-dark);
-  border: 1px solid rgba(16, 32, 51, 0.13);
+  border: 1px solid rgba(26, 33, 25, 0.13);
   border-radius: 50%;
   box-shadow: var(--shadow-xs);
   font-size: 0.7rem;
@@ -5121,7 +5121,7 @@ Append to the end of the main stylesheet.
 .acw-inclusion-card li {
   position: relative;
   padding-left: 1.15rem;
-  color: rgba(16, 32, 51, 0.72);
+  color: rgba(26, 33, 25, 0.72);
   font-size: 0.89rem;
   font-weight: 710;
   line-height: 1.5;
@@ -5155,7 +5155,7 @@ Append to the end of the main stylesheet.
   position: relative;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 22px;
   box-shadow: var(--shadow-xs);
 }
@@ -5168,13 +5168,13 @@ Append to the end of the main stylesheet.
 
 .acw-comparison-card-process {
   background:
-    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.12), transparent 40%),
+    radial-gradient(circle at 100% 0%, rgba(121, 131, 113, 0.12), transparent 40%),
     rgba(255, 255, 255, 0.96);
-  border-color: rgba(83, 107, 77, 0.2);
+  border-color: rgba(40, 58, 56, 0.2);
 }
 
 .acw-comparison-card-typical {
-  background: rgba(250, 246, 238, 0.86);
+  background: rgba(250, 248, 246, 0.86);
 }
 
 .acw-comparison-card span,
@@ -5203,8 +5203,8 @@ Append to the end of the main stylesheet.
   width: 42px;
   height: 42px;
   margin-bottom: 1.15rem;
-  background: rgba(123, 143, 112, 0.09);
-  border: 1px solid rgba(83, 107, 77, 0.13);
+  background: rgba(121, 131, 113, 0.09);
+  border: 1px solid rgba(40, 58, 56, 0.13);
   border-radius: 14px;
 }
 
@@ -5225,7 +5225,7 @@ Append to the end of the main stylesheet.
 
 .acw-showcase-image-premium figcaption {
   margin-top: 0.9rem;
-  color: rgba(16, 32, 51, 0.52);
+  color: rgba(26, 33, 25, 0.52);
   font-size: 0.7rem;
   font-weight: 840;
   letter-spacing: 0.12em;
@@ -5251,9 +5251,9 @@ Append to the end of the main stylesheet.
   min-height: 300px;
   padding: clamp(2rem, 4vw, 3.4rem);
   background:
-    radial-gradient(circle at 90% 10%, rgba(123, 143, 112, 0.15), transparent 35%),
+    radial-gradient(circle at 90% 10%, rgba(121, 131, 113, 0.15), transparent 35%),
     linear-gradient(135deg, rgba(255,255,255,0.98), rgba(250,246,238,0.96));
-  border-color: rgba(83, 107, 77, 0.22);
+  border-color: rgba(40, 58, 56, 0.22);
   box-shadow: var(--shadow-sm);
 }
 
@@ -5278,7 +5278,7 @@ Append to the end of the main stylesheet.
 .acw-foundation-source,
 .acw-foundation-links {
   background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 28px;
   box-shadow: var(--shadow-xs);
 }
@@ -5290,7 +5290,7 @@ Append to the end of the main stylesheet.
   flex-direction: column;
   justify-content: center;
   background:
-    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.14), transparent 42%),
+    radial-gradient(circle at 100% 0%, rgba(121, 131, 113, 0.14), transparent 42%),
     rgba(255, 255, 255, 0.95);
 }
 
@@ -5327,8 +5327,8 @@ Append to the end of the main stylesheet.
   padding: 1rem 1.1rem;
   align-items: center;
   gap: 0.9rem;
-  background: rgba(250, 246, 238, 0.88);
-  border: 1px solid rgba(16, 32, 51, 0.06);
+  background: rgba(250, 248, 246, 0.88);
+  border: 1px solid rgba(26, 33, 25, 0.06);
   border-radius: 18px;
 }
 
@@ -5365,9 +5365,9 @@ Append to the end of the main stylesheet.
   right: 1rem;
   z-index: 2;
   padding: 0.45rem 0.7rem;
-  background: rgba(255, 253, 248, 0.92);
+  background: rgba(250, 248, 246, 0.92);
   color: var(--text);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: var(--pill);
   box-shadow: var(--shadow-xs);
   font-size: 0.63rem;
@@ -5387,18 +5387,18 @@ Append to the end of the main stylesheet.
 .acw-fit-column {
   padding: clamp(1.4rem, 2.5vw, 2rem);
   background: rgba(255, 255, 255, 0.58);
-  border: 1px solid rgba(16, 32, 51, 0.07);
+  border: 1px solid rgba(26, 33, 25, 0.07);
   border-radius: 28px;
 }
 
 .acw-fit-column-positive {
   background:
-    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.11), transparent 38%),
+    radial-gradient(circle at 100% 0%, rgba(121, 131, 113, 0.11), transparent 38%),
     rgba(255, 255, 255, 0.7);
 }
 
 .acw-fit-column-negative {
-  background: rgba(250, 246, 238, 0.72);
+  background: rgba(250, 248, 246, 0.72);
 }
 
 .acw-fit-card {
@@ -5507,8 +5507,8 @@ Append to the end of the main stylesheet.
   min-height: 34px;
   padding: 0.48rem 0.78rem;
   background: rgba(255, 255, 255, 0.68);
-  color: rgba(16, 32, 51, 0.68);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  color: rgba(26, 33, 25, 0.68);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: var(--pill);
   font-size: 0.7rem;
   font-weight: 800;
@@ -5526,7 +5526,7 @@ Append to the end of the main stylesheet.
 
 /* More deliberate section rhythm */
 .acw-service-hero + .acw-section-soft {
-  border-top: 1px solid rgba(16, 32, 51, 0.05);
+  border-top: 1px solid rgba(26, 33, 25, 0.05);
 }
 
 .acw-foundation-section,
@@ -5540,7 +5540,7 @@ Append to the end of the main stylesheet.
   position: absolute;
   width: 420px;
   height: 420px;
-  border: 1px solid rgba(123, 143, 112, 0.1);
+  border: 1px solid rgba(121, 131, 113, 0.1);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -5577,7 +5577,7 @@ Append to the end of the main stylesheet.
   .acw-fit-card:hover,
   .acw-collaboration-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(83, 107, 77, 0.18);
+    border-color: rgba(40, 58, 56, 0.18);
     box-shadow: var(--shadow-sm);
   }
 }
@@ -5586,7 +5586,7 @@ Append to the end of the main stylesheet.
 .acw-collaboration-section {
   position: relative;
   background:
-    radial-gradient(circle at 88% 12%, rgba(123, 143, 112, 0.07), transparent 30%),
+    radial-gradient(circle at 88% 12%, rgba(121, 131, 113, 0.07), transparent 30%),
     var(--surface);
 }
 
@@ -5617,8 +5617,8 @@ Append to the end of the main stylesheet.
   min-height: 300px;
   padding: 1.7rem;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 246, 238, 0.86));
-  border: 1px solid rgba(16, 32, 51, 0.08);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 248, 246, 0.86));
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 22px;
   box-shadow: var(--shadow-xs);
 }
@@ -5628,7 +5628,7 @@ Append to the end of the main stylesheet.
   position: absolute;
   inset: 0 0 auto;
   height: 3px;
-  background: linear-gradient(90deg, rgba(123, 143, 112, 0.62), rgba(218, 192, 157, 0.5));
+  background: linear-gradient(90deg, rgba(121, 131, 113, 0.62), rgba(215, 221, 216, 0.5));
 }
 
 .acw-collaboration-card > span {
@@ -5657,9 +5657,9 @@ Append to the end of the main stylesheet.
   margin-top: 1.2rem;
   padding: clamp(1.8rem, 3.5vw, 3rem);
   background:
-    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.13), transparent 36%),
-    rgba(250, 246, 238, 0.92);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+    radial-gradient(circle at 100% 0%, rgba(121, 131, 113, 0.13), transparent 36%),
+    rgba(250, 248, 246, 0.92);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 30px;
   box-shadow: var(--shadow-xs);
 }
@@ -5682,13 +5682,13 @@ Append to the end of the main stylesheet.
 }
 
 .acw-faq-list {
-  border-top: 1px solid rgba(16, 32, 51, 0.1);
+  border-top: 1px solid rgba(26, 33, 25, 0.1);
 }
 
 .acw-faq-item {
   background: transparent;
   border-width: 0 0 1px;
-  border-color: rgba(16, 32, 51, 0.1);
+  border-color: rgba(26, 33, 25, 0.1);
   border-radius: 0;
   box-shadow: none;
 }
@@ -5714,7 +5714,7 @@ Append to the end of the main stylesheet.
   bottom: -170px;
   width: 330px;
   height: 330px;
-  border: 1px solid rgba(123, 143, 112, 0.14);
+  border: 1px solid rgba(121, 131, 113, 0.14);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -5796,9 +5796,9 @@ Append to the end of the main stylesheet.
 .acw-about-hero {
   overflow: hidden;
   background:
-    radial-gradient(circle at 8% 0%, rgba(218, 192, 157, 0.16), transparent 34%),
-    radial-gradient(circle at 94% 12%, rgba(123, 143, 112, 0.09), transparent 30%),
-    linear-gradient(180deg, #fcf8f1 0%, var(--surface) 100%);
+    radial-gradient(circle at 8% 0%, rgba(215, 221, 216, 0.16), transparent 34%),
+    radial-gradient(circle at 94% 12%, rgba(121, 131, 113, 0.09), transparent 30%),
+    linear-gradient(180deg, #FAF8F6 0%, var(--surface) 100%);
 }
 
 .acw-about-hero-grid {
@@ -5833,9 +5833,9 @@ Append to the end of the main stylesheet.
   min-height: 34px;
   padding: 0.48rem 0.78rem;
   background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: var(--pill);
-  color: rgba(16, 32, 51, 0.67);
+  color: rgba(26, 33, 25, 0.67);
   font-size: 0.69rem;
   font-weight: 800;
 }
@@ -5859,7 +5859,7 @@ Append to the end of the main stylesheet.
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: center 24%;
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 26px;
   box-shadow: var(--shadow);
 }
@@ -5870,8 +5870,8 @@ Append to the end of the main stylesheet.
   width: calc(100% - 2.2rem);
   margin: -2rem auto 0;
   padding: 1rem 1.15rem;
-  background: rgba(255, 253, 248, 0.94);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  background: rgba(250, 248, 246, 0.94);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 16px;
   box-shadow: var(--shadow-sm);
   color: var(--muted);
@@ -5886,9 +5886,9 @@ Append to the end of the main stylesheet.
   overflow: hidden;
   padding: clamp(2rem, 4vw, 3.2rem);
   background:
-    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.13), transparent 36%),
+    radial-gradient(circle at 100% 0%, rgba(121, 131, 113, 0.13), transparent 36%),
     rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 34px;
   box-shadow: var(--shadow-sm);
 }
@@ -5898,7 +5898,7 @@ Append to the end of the main stylesheet.
   position: absolute;
   top: 0.5rem;
   right: 1.4rem;
-  color: rgba(123, 143, 112, 0.13);
+  color: rgba(121, 131, 113, 0.13);
   font-family: var(--font-heading);
   font-size: 8rem;
   line-height: 1;
@@ -5927,7 +5927,7 @@ Append to the end of the main stylesheet.
   align-items: center;
   gap: 0.65rem;
   padding-top: 0.65rem;
-  border-top: 1px solid rgba(16, 32, 51, 0.08);
+  border-top: 1px solid rgba(26, 33, 25, 0.08);
   color: var(--muted);
   font-size: 0.8rem;
   font-weight: 760;
@@ -5951,9 +5951,9 @@ Append to the end of the main stylesheet.
 .acw-about-perspective {
   padding: clamp(2rem, 5vw, 4.3rem);
   background:
-    radial-gradient(circle at 90% 0%, rgba(218, 192, 157, 0.2), transparent 34%),
+    radial-gradient(circle at 90% 0%, rgba(215, 221, 216, 0.2), transparent 34%),
     var(--surface-quiet);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 38px;
   box-shadow: var(--shadow-xs);
 }
@@ -5978,7 +5978,7 @@ Append to the end of the main stylesheet.
 .acw-about-perspective-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid rgba(16, 32, 51, 0.1);
+  border-top: 1px solid rgba(26, 33, 25, 0.1);
 }
 
 .acw-about-perspective-grid article {
@@ -5987,7 +5987,7 @@ Append to the end of the main stylesheet.
 
 .acw-about-perspective-grid article + article {
   padding-left: 1.6rem;
-  border-left: 1px solid rgba(16, 32, 51, 0.1);
+  border-left: 1px solid rgba(26, 33, 25, 0.1);
 }
 
 .acw-about-perspective-grid span {
@@ -6012,7 +6012,7 @@ Append to the end of the main stylesheet.
 /* Working relationship */
 .acw-about-relationship-section {
   background:
-    radial-gradient(circle at 88% 10%, rgba(123, 143, 112, 0.07), transparent 30%),
+    radial-gradient(circle at 88% 10%, rgba(121, 131, 113, 0.07), transparent 30%),
     var(--surface);
 }
 
@@ -6025,7 +6025,7 @@ Append to the end of the main stylesheet.
 
 .acw-about-relationship-list {
   display: grid;
-  border-top: 1px solid rgba(16, 32, 51, 0.12);
+  border-top: 1px solid rgba(26, 33, 25, 0.12);
 }
 
 .acw-about-relationship-list article {
@@ -6033,7 +6033,7 @@ Append to the end of the main stylesheet.
   grid-template-columns: 110px 1fr;
   gap: 1.4rem;
   padding: 1.2rem 0;
-  border-bottom: 1px solid rgba(16, 32, 51, 0.12);
+  border-bottom: 1px solid rgba(26, 33, 25, 0.12);
 }
 
 .acw-about-relationship-list span {
@@ -6061,7 +6061,7 @@ Append to the end of the main stylesheet.
 
   .acw-about-principle-panel:hover {
     transform: translateY(-4px);
-    border-color: rgba(83, 107, 77, 0.18);
+    border-color: rgba(40, 58, 56, 0.18);
     box-shadow: var(--shadow);
   }
 }
@@ -6128,7 +6128,7 @@ Append to the end of the main stylesheet.
 
   .acw-about-perspective-grid article {
     padding: 1.35rem 0;
-    border-bottom: 1px solid rgba(16, 32, 51, 0.1);
+    border-bottom: 1px solid rgba(26, 33, 25, 0.1);
   }
 
   .acw-about-perspective-grid article + article {
@@ -6161,9 +6161,9 @@ Append to the end of the main stylesheet.
   padding: 82px 0 30px;
   background:
     radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.36), transparent 30%),
-    radial-gradient(circle at 92% 10%, rgba(123, 143, 112, 0.08), transparent 32%),
+    radial-gradient(circle at 92% 10%, rgba(121, 131, 113, 0.08), transparent 32%),
     var(--surface-soft);
-  border-top: 1px solid rgba(16, 32, 51, 0.07);
+  border-top: 1px solid rgba(26, 33, 25, 0.07);
 }
 
 .site-footer-inner {
@@ -6219,14 +6219,14 @@ Append to the end of the main stylesheet.
   width: fit-content;
   color: var(--accent-dark);
   font-weight: 840;
-  border-bottom: 1px solid rgba(83, 107, 77, 0.28);
+  border-bottom: 1px solid rgba(40, 58, 56, 0.28);
 }
 
 .footer-primary-link:hover,
 .footer-practice-notes-link:hover {
   gap: 0.75rem;
   color: var(--text);
-  border-bottom-color: rgba(16, 32, 51, 0.28);
+  border-bottom-color: rgba(26, 33, 25, 0.28);
 }
 
 .site-footer-links {
@@ -6253,7 +6253,7 @@ Append to the end of the main stylesheet.
 
 .footer-nav-group a {
   width: fit-content;
-  color: rgba(16, 32, 51, 0.72);
+  color: rgba(26, 33, 25, 0.72);
   font-size: 0.9rem;
   font-weight: 720;
 }
@@ -6265,7 +6265,7 @@ Append to the end of the main stylesheet.
 .footer-practice-notes {
   padding: 1.7rem;
   background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 22px;
   box-shadow: var(--shadow-xs);
 }
@@ -6290,7 +6290,7 @@ Append to the end of the main stylesheet.
   align-items: center;
   gap: 1.5rem;
   padding-top: 1.4rem;
-  border-top: 1px solid rgba(16, 32, 51, 0.1);
+  border-top: 1px solid rgba(26, 33, 25, 0.1);
 }
 
 .footer-social {
@@ -6306,7 +6306,7 @@ Append to the end of the main stylesheet.
   height: 38px;
   background: rgba(255, 255, 255, 0.72);
   color: var(--text);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 50%;
 }
 
@@ -6328,7 +6328,7 @@ Append to the end of the main stylesheet.
 }
 
 .footer-meta a {
-  color: rgba(16, 32, 51, 0.58);
+  color: rgba(26, 33, 25, 0.58);
   font-size: 0.74rem;
   font-weight: 720;
 }
@@ -6339,7 +6339,7 @@ Append to the end of the main stylesheet.
 
 .footer-copyright {
   margin: 0;
-  color: rgba(16, 32, 51, 0.52);
+  color: rgba(26, 33, 25, 0.52);
   font-size: 0.74rem;
   text-align: right;
 }
@@ -6439,7 +6439,7 @@ Append to the end of the main stylesheet.
   position: absolute;
   inset: -16px 18px 18px -16px;
   z-index: 0;
-  border: 1px solid rgba(123, 143, 112, 0.14);
+  border: 1px solid rgba(121, 131, 113, 0.14);
   border-radius: 24px;
 }
 
@@ -6449,8 +6449,8 @@ Append to the end of the main stylesheet.
   aspect-ratio: 5 / 4;
   border-radius: 22px;
   box-shadow:
-    0 30px 72px rgba(16, 32, 51, 0.11),
-    0 8px 22px rgba(16, 32, 51, 0.05);
+    0 30px 72px rgba(26, 33, 25, 0.11),
+    0 8px 22px rgba(26, 33, 25, 0.05);
 }
 
 .acw-library-hero-guidance {
@@ -6465,7 +6465,7 @@ Append to the end of the main stylesheet.
   margin: 0;
   padding: 0.9rem 1rem;
   background: rgba(255, 255, 255, 0.62);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 16px;
   color: var(--muted);
   font-size: 0.79rem;
@@ -6498,13 +6498,13 @@ Append to the end of the main stylesheet.
 .acw-library-stage-strip {
   overflow: hidden;
   background: rgba(255, 255, 255, 0.45);
-  border: 1px solid rgba(16, 32, 51, 0.1);
+  border: 1px solid rgba(26, 33, 25, 0.1);
   border-radius: 24px;
 }
 
 .acw-library-stage-link {
   min-height: 235px;
-  border-right-color: rgba(16, 32, 51, 0.1);
+  border-right-color: rgba(26, 33, 25, 0.1);
 }
 
 .acw-library-stage-link strong {
@@ -6513,7 +6513,7 @@ Append to the end of the main stylesheet.
 
 .acw-library-stage-link:hover {
   background:
-    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.1), transparent 38%),
+    radial-gradient(circle at 100% 0%, rgba(121, 131, 113, 0.1), transparent 38%),
     rgba(255, 255, 255, 0.72);
 }
 
@@ -6530,9 +6530,9 @@ Append to the end of the main stylesheet.
   align-items: start;
   padding: clamp(2rem, 4.8vw, 4rem);
   background:
-    radial-gradient(circle at 100% 0%, rgba(218, 192, 157, 0.17), transparent 34%),
+    radial-gradient(circle at 100% 0%, rgba(215, 221, 216, 0.17), transparent 34%),
     var(--surface-quiet);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 34px;
   box-shadow: var(--shadow-xs);
 }
@@ -6552,7 +6552,7 @@ Append to the end of the main stylesheet.
   margin: 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid rgba(16, 32, 51, 0.12);
+  border-top: 1px solid rgba(26, 33, 25, 0.12);
 }
 
 .acw-library-map-list li {
@@ -6560,7 +6560,7 @@ Append to the end of the main stylesheet.
   grid-template-columns: 44px 1fr;
   gap: 1rem;
   padding: 1.15rem 0;
-  border-bottom: 1px solid rgba(16, 32, 51, 0.12);
+  border-bottom: 1px solid rgba(26, 33, 25, 0.12);
 }
 
 .acw-library-map-list > li > span {
@@ -6630,7 +6630,7 @@ Append to the end of the main stylesheet.
 
   .acw-library-principle-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(83, 107, 77, 0.2);
+    border-color: rgba(40, 58, 56, 0.2);
     box-shadow: var(--shadow-sm);
   }
 }
@@ -6663,7 +6663,7 @@ Append to the end of the main stylesheet.
 .acw-library-latest-card {
   overflow: hidden;
   background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 20px;
 }
 
@@ -6707,7 +6707,7 @@ Append to the end of the main stylesheet.
   max-width: 48ch;
   margin-top: 1.4rem;
   padding-left: 1rem;
-  border-left: 2px solid rgba(123, 143, 112, 0.45);
+  border-left: 2px solid rgba(121, 131, 113, 0.45);
   color: var(--muted);
   font-size: 0.88rem;
 }
@@ -6782,7 +6782,7 @@ Append to the end of the main stylesheet.
   .acw-library-stage-link {
     min-height: auto;
     border-right: 0;
-    border-bottom: 1px solid rgba(16, 32, 51, 0.1);
+    border-bottom: 1px solid rgba(26, 33, 25, 0.1);
   }
 
   .acw-library-stage-link:last-child {
@@ -6857,7 +6857,7 @@ Append to the end of the main stylesheet.
 
 .acw-library-map-inner {
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.58), rgba(250, 246, 238, 0.82)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.58), rgba(250, 248, 246, 0.82)),
     var(--surface-quiet);
 }
 
@@ -6867,7 +6867,7 @@ Append to the end of the main stylesheet.
 
 .acw-library-principles {
   background:
-    radial-gradient(circle at 92% 5%, rgba(123, 143, 112, 0.045), transparent 28%),
+    radial-gradient(circle at 92% 5%, rgba(121, 131, 113, 0.045), transparent 28%),
     var(--surface);
 }
 
@@ -6886,7 +6886,7 @@ Append to the end of the main stylesheet.
 .acw-library-chapter + .acw-library-chapter {
   margin-top: clamp(5.5rem, 9vw, 9rem);
   padding-top: clamp(5.5rem, 8vw, 8rem);
-  border-top: 1px solid rgba(16, 32, 51, 0.1);
+  border-top: 1px solid rgba(26, 33, 25, 0.1);
 }
 
 .acw-library-chapter-intro {
@@ -6911,7 +6911,7 @@ Append to the end of the main stylesheet.
 
 .acw-library-resource-feature {
   overflow: hidden;
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
 }
 
 .acw-library-latest-card {
@@ -6929,7 +6929,7 @@ Append to the end of the main stylesheet.
   gap: clamp(2rem, 5vw, 5rem);
   align-items: start;
   padding-top: 1.8rem;
-  border-top: 1px solid rgba(16, 32, 51, 0.12);
+  border-top: 1px solid rgba(26, 33, 25, 0.12);
 }
 
 .acw-library-editorial-note-inner p:last-child {
@@ -6960,7 +6960,7 @@ Append to the end of the main stylesheet.
 .footer-practice-notes {
   padding: 1.6rem;
   background:
-    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.08), transparent 38%),
+    radial-gradient(circle at 100% 0%, rgba(121, 131, 113, 0.08), transparent 38%),
     rgba(255, 255, 255, 0.72);
 }
 
@@ -6975,7 +6975,7 @@ Append to the end of the main stylesheet.
 
 .footer-location {
   margin: 0;
-  color: rgba(16, 32, 51, 0.55);
+  color: rgba(26, 33, 25, 0.55);
   font-size: 0.73rem;
   text-align: center;
 }
@@ -7493,9 +7493,9 @@ This final block intentionally overrides earlier Library experiments.
   padding: clamp(5rem, 8vw, 7rem) 0 2rem;
   background:
     radial-gradient(circle at 8% 0%, rgba(255, 255, 255, 0.42), transparent 32%),
-    radial-gradient(circle at 92% 8%, rgba(123, 143, 112, 0.08), transparent 30%),
-    linear-gradient(180deg, #eee3d3 0%, #e8ddcd 100%);
-  border-top: 1px solid rgba(16, 32, 51, 0.08);
+    radial-gradient(circle at 92% 8%, rgba(121, 131, 113, 0.08), transparent 30%),
+    linear-gradient(180deg, #F7F4EF 0%, #D7DDD8 100%);
+  border-top: 1px solid rgba(26, 33, 25, 0.08);
 }
 
 .site-footer::before {
@@ -7505,7 +7505,7 @@ This final block intentionally overrides earlier Library experiments.
   right: -180px;
   width: 520px;
   height: 520px;
-  border: 1px solid rgba(123, 143, 112, 0.09);
+  border: 1px solid rgba(121, 131, 113, 0.09);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -7547,7 +7547,7 @@ This final block intentionally overrides earlier Library experiments.
 .footer-description {
   max-width: 40ch;
   margin: 0 0 1.45rem;
-  color: rgba(16, 32, 51, 0.72);
+  color: rgba(26, 33, 25, 0.72);
   font-size: 0.98rem;
   line-height: 1.72;
 }
@@ -7561,14 +7561,14 @@ This final block intentionally overrides earlier Library experiments.
   color: var(--accent-dark);
   font-size: 0.94rem;
   font-weight: 850;
-  border-bottom: 1px solid rgba(83, 107, 77, 0.3);
+  border-bottom: 1px solid rgba(40, 58, 56, 0.3);
 }
 
 .footer-primary-link:hover,
 .footer-practice-notes-link:hover {
   gap: 0.82rem;
   color: var(--text);
-  border-bottom-color: rgba(16, 32, 51, 0.26);
+  border-bottom-color: rgba(26, 33, 25, 0.26);
 }
 
 .site-footer-links {
@@ -7596,7 +7596,7 @@ This final block intentionally overrides earlier Library experiments.
 
 .footer-nav-group a {
   width: fit-content;
-  color: rgba(16, 32, 51, 0.78);
+  color: rgba(26, 33, 25, 0.78);
   font-size: 0.94rem;
   font-weight: 760;
   line-height: 1.45;
@@ -7612,13 +7612,13 @@ This final block intentionally overrides earlier Library experiments.
   overflow: hidden;
   padding: clamp(1.8rem, 3vw, 2.35rem);
   background:
-    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.09), transparent 40%),
-    rgba(255, 253, 248, 0.9);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+    radial-gradient(circle at 100% 0%, rgba(121, 131, 113, 0.09), transparent 40%),
+    rgba(250, 248, 246, 0.9);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 26px;
   box-shadow:
-    0 24px 58px rgba(16, 32, 51, 0.07),
-    0 6px 18px rgba(16, 32, 51, 0.03);
+    0 24px 58px rgba(26, 33, 25, 0.07),
+    0 6px 18px rgba(26, 33, 25, 0.03);
 }
 
 .footer-practice-notes::after {
@@ -7628,7 +7628,7 @@ This final block intentionally overrides earlier Library experiments.
   bottom: -92px;
   width: 190px;
   height: 190px;
-  border: 1px solid rgba(123, 143, 112, 0.1);
+  border: 1px solid rgba(121, 131, 113, 0.1);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -7649,7 +7649,7 @@ This final block intentionally overrides earlier Library experiments.
   z-index: 1;
   max-width: 34ch;
   margin: 0 0 1.15rem;
-  color: rgba(16, 32, 51, 0.68);
+  color: rgba(26, 33, 25, 0.68);
   font-size: 0.9rem;
   line-height: 1.65;
 }
@@ -7666,7 +7666,7 @@ This final block intentionally overrides earlier Library experiments.
   gap: 1.5rem;
   align-items: center;
   padding-top: 1.6rem;
-  border-top: 1px solid rgba(16, 32, 51, 0.11);
+  border-top: 1px solid rgba(26, 33, 25, 0.11);
 }
 
 .footer-social {
@@ -7680,11 +7680,11 @@ This final block intentionally overrides earlier Library experiments.
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: rgba(255, 253, 248, 0.78);
+  background: rgba(250, 248, 246, 0.78);
   color: var(--accent-dark);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 50%;
-  box-shadow: 0 6px 16px rgba(16, 32, 51, 0.035);
+  box-shadow: 0 6px 16px rgba(26, 33, 25, 0.035);
 }
 
 .social svg {
@@ -7695,13 +7695,13 @@ This final block intentionally overrides earlier Library experiments.
 .social:hover {
   background: var(--white);
   color: var(--text);
-  border-color: rgba(83, 107, 77, 0.2);
+  border-color: rgba(40, 58, 56, 0.2);
   transform: translateY(-2px);
 }
 
 .footer-location {
   margin: 0;
-  color: rgba(16, 32, 51, 0.54);
+  color: rgba(26, 33, 25, 0.54);
   font-size: 0.74rem;
   line-height: 1.5;
   text-align: center;
@@ -7714,7 +7714,7 @@ This final block intentionally overrides earlier Library experiments.
 }
 
 .footer-meta a {
-  color: rgba(16, 32, 51, 0.62);
+  color: rgba(26, 33, 25, 0.62);
   font-size: 0.75rem;
   font-weight: 760;
 }
@@ -7725,7 +7725,7 @@ This final block intentionally overrides earlier Library experiments.
 
 .footer-copyright {
   margin: 0;
-  color: rgba(16, 32, 51, 0.52);
+  color: rgba(26, 33, 25, 0.52);
   font-size: 0.74rem;
   white-space: nowrap;
 }
@@ -7741,10 +7741,10 @@ This final block intentionally overrides earlier Library experiments.
 
   .footer-practice-notes:hover {
     transform: translateY(-4px);
-    border-color: rgba(83, 107, 77, 0.17);
+    border-color: rgba(40, 58, 56, 0.17);
     box-shadow:
-      0 30px 70px rgba(16, 32, 51, 0.09),
-      0 8px 20px rgba(16, 32, 51, 0.04);
+      0 30px 70px rgba(26, 33, 25, 0.09),
+      0 8px 20px rgba(26, 33, 25, 0.04);
   }
 }
 
@@ -7893,7 +7893,7 @@ This final block intentionally overrides earlier Library experiments.
 .acw-library-hero-intro {
   max-width: 49ch;
   margin: 0;
-  color: rgba(16, 32, 51, 0.72);
+  color: rgba(26, 33, 25, 0.72);
   font-size: clamp(1.05rem, 1.2vw, 1.18rem);
   line-height: 1.7;
 }
@@ -7922,8 +7922,8 @@ This final block intentionally overrides earlier Library experiments.
   max-width: 48ch;
   margin: 1.25rem 0 0;
   padding-top: 1rem;
-  color: rgba(16, 32, 51, 0.55);
-  border-top: 1px solid rgba(16, 32, 51, 0.09);
+  color: rgba(26, 33, 25, 0.55);
+  border-top: 1px solid rgba(26, 33, 25, 0.09);
   font-size: 0.82rem;
   line-height: 1.55;
 }
@@ -7946,8 +7946,8 @@ This final block intentionally overrides earlier Library experiments.
   aspect-ratio: 5 / 4;
   border-radius: 22px;
   box-shadow:
-    0 28px 70px rgba(16, 32, 51, 0.1),
-    0 8px 20px rgba(16, 32, 51, 0.04);
+    0 28px 70px rgba(26, 33, 25, 0.1),
+    0 8px 20px rgba(26, 33, 25, 0.04);
 }
 
 /* Calm the transition into the next section */
@@ -8148,7 +8148,7 @@ without altering shared component behaviour elsewhere.
   margin-top: auto;
   margin-bottom: 0;
   padding-top: 1.25rem;
-  border-top: 1px solid rgba(16, 32, 51, 0.08);
+  border-top: 1px solid rgba(26, 33, 25, 0.08);
 }
 
 .acw-home-transformation .acw-offer-card li {
@@ -8251,9 +8251,9 @@ without altering shared component behaviour elsewhere.
   flex-direction: column;
   justify-content: space-between;
   background:
-    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.13), transparent 36%),
+    radial-gradient(circle at 100% 0%, rgba(121, 131, 113, 0.13), transparent 36%),
     rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(16, 32, 51, 0.09);
+  border: 1px solid rgba(26, 33, 25, 0.09);
   border-radius: 28px;
   box-shadow: var(--shadow-xs);
 }
@@ -8287,13 +8287,13 @@ without altering shared component behaviour elsewhere.
   flex-direction: column;
   justify-content: center;
   background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 22px;
   box-shadow: var(--shadow-xs);
 }
 
 .acw-home-library-links a:hover {
-  border-color: rgba(123, 143, 112, 0.28);
+  border-color: rgba(121, 131, 113, 0.28);
   box-shadow: var(--shadow-sm);
   transform: translateY(-3px);
 }
@@ -8477,7 +8477,7 @@ without altering shared component behaviour elsewhere.
 .acw-service-hero-note {
   max-width: 45ch;
   margin-top: 1.5rem;
-  color: rgba(16, 32, 51, 0.6);
+  color: rgba(26, 33, 25, 0.6);
   font-size: 0.86rem;
   font-weight: 740;
 }
@@ -8493,9 +8493,9 @@ without altering shared component behaviour elsewhere.
   display: inline-flex;
   padding: 0.48rem 0.75rem;
   background: rgba(255, 255, 255, 0.68);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: var(--pill);
-  color: rgba(16, 32, 51, 0.68);
+  color: rgba(26, 33, 25, 0.68);
   font-size: 0.74rem;
   font-weight: 780;
 }
@@ -8508,7 +8508,7 @@ without altering shared component behaviour elsewhere.
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 24px;
   box-shadow: var(--shadow);
 }
@@ -8574,7 +8574,7 @@ without altering shared component behaviour elsewhere.
   flex-direction: column;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 20px;
   box-shadow: var(--shadow-xs);
 }
@@ -8583,7 +8583,7 @@ without altering shared component behaviour elsewhere.
   position: absolute;
   top: 1rem;
   right: 1.15rem;
-  color: rgba(16, 32, 51, 0.12);
+  color: rgba(26, 33, 25, 0.12);
   font-size: 2.8rem;
   font-weight: 900;
   line-height: 1;
@@ -8607,14 +8607,14 @@ without altering shared component behaviour elsewhere.
   gap: 0.55rem;
   margin: auto 0 0;
   padding: 1.2rem 0 0;
-  border-top: 1px solid rgba(16, 32, 51, 0.08);
+  border-top: 1px solid rgba(26, 33, 25, 0.08);
   list-style: none;
 }
 
 .acw-connected-stage li {
   position: relative;
   padding-left: 1.05rem;
-  color: rgba(16, 32, 51, 0.72);
+  color: rgba(26, 33, 25, 0.72);
   font-size: 0.86rem;
   font-weight: 720;
 }
@@ -8882,8 +8882,8 @@ variation in scale, density and editorial pacing.
   aspect-ratio: 5 / 4;
   border-radius: 26px;
   box-shadow:
-    0 34px 80px rgba(16, 32, 51, 0.12),
-    0 10px 28px rgba(16, 32, 51, 0.06);
+    0 34px 80px rgba(26, 33, 25, 0.12),
+    0 10px 28px rgba(26, 33, 25, 0.06);
 }
 
 .acw-service-proof {
@@ -8917,7 +8917,7 @@ variation in scale, density and editorial pacing.
   align-items: stretch;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 22px;
   box-shadow: var(--shadow-xs);
 }
@@ -8951,19 +8951,19 @@ variation in scale, density and editorial pacing.
 
 .acw-comparison-side-process {
   background:
-    radial-gradient(circle at 100% 0%, rgba(123, 143, 112, 0.12), transparent 42%),
-    rgba(255, 253, 248, 0.96);
+    radial-gradient(circle at 100% 0%, rgba(121, 131, 113, 0.12), transparent 42%),
+    rgba(250, 248, 246, 0.96);
 }
 
 .acw-comparison-side-typical {
-  background: rgba(250, 246, 238, 0.8);
+  background: rgba(250, 248, 246, 0.8);
 }
 
 .acw-comparison-shift {
   display: grid;
   place-items: center;
   color: var(--accent-dark);
-  border-inline: 1px solid rgba(16, 32, 51, 0.07);
+  border-inline: 1px solid rgba(26, 33, 25, 0.07);
   font-size: 1.3rem;
   font-weight: 900;
 }
@@ -9025,7 +9025,7 @@ variation in scale, density and editorial pacing.
 
 .acw-service-editorial .acw-showcase-image figcaption {
   margin-top: 0.8rem;
-  color: rgba(16, 32, 51, 0.52);
+  color: rgba(26, 33, 25, 0.52);
   font-size: 0.75rem;
   font-weight: 780;
   letter-spacing: 0.08em;
@@ -9079,7 +9079,7 @@ variation in scale, density and editorial pacing.
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  border: 1px solid rgba(16, 32, 51, 0.08);
+  border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 26px;
   box-shadow: var(--shadow);
 }
@@ -9100,8 +9100,8 @@ variation in scale, density and editorial pacing.
   display: block;
   margin-top: 1.2rem;
   padding-top: 1rem;
-  color: rgba(16, 32, 51, 0.55);
-  border-top: 1px solid rgba(16, 32, 51, 0.08);
+  color: rgba(26, 33, 25, 0.55);
+  border-top: 1px solid rgba(26, 33, 25, 0.08);
   font-size: 0.72rem;
   font-weight: 760;
   letter-spacing: 0.03em;
@@ -9132,7 +9132,7 @@ variation in scale, density and editorial pacing.
   padding-top: clamp(8rem, 12vw, 12rem);
   padding-bottom: clamp(8rem, 12vw, 12rem);
   background:
-    radial-gradient(circle at 12% 10%, rgba(218, 192, 157, 0.12), transparent 35%),
+    radial-gradient(circle at 12% 10%, rgba(215, 221, 216, 0.12), transparent 35%),
     var(--surface);
 }
 
@@ -9211,7 +9211,7 @@ variation in scale, density and editorial pacing.
   .acw-comparison-shift {
     min-height: 42px;
     border: 0;
-    border-block: 1px solid rgba(16, 32, 51, 0.07);
+    border-block: 1px solid rgba(26, 33, 25, 0.07);
     transform: rotate(90deg);
   }
 
@@ -9310,4 +9310,481 @@ blockquote {
 .acw-about-principle-panel::before {
   font-family: var(--font-heading);
   font-weight: 400;
+}
+
+/* =========================================================
+44. CROSS-SITE BRAND + LAYOUT CONSISTENCY — AUTHORITATIVE
+Final shared layer for the Studio and Counselling websites.
+Uses the approved colour system, Instrument Serif/Aileron pairing,
+clear navigation controls, button-style links, softer imagery and a
+homepage hero that remains within the desktop viewport.
+========================================================= */
+
+:root {
+  --deep-forest: #283A38;
+  --sage: #798371;
+  --warm-white: #F7F4EF;
+  --soft-stone: #D7DDD8;
+  --white: #FFFFFF;
+  --cream: #FAF8F6;
+  --brand-charcoal: #5F6A68;
+  --logo-ink: #1A2119;
+
+  --bg: var(--warm-white);
+  --surface: var(--white);
+  --surface-soft: rgba(121, 131, 113, 0.12);
+  --surface-quiet: var(--cream);
+  --surface-warm: var(--soft-stone);
+  --text: var(--logo-ink);
+  --muted: var(--brand-charcoal);
+  --accent: var(--sage);
+  --accent-dark: var(--deep-forest);
+  --line: rgba(215, 221, 216, 0.92);
+  --line-strong: rgba(121, 131, 113, 0.46);
+
+  --shadow-xs: 0 5px 14px rgba(40, 58, 56, 0.045);
+  --shadow-sm: 0 12px 30px rgba(40, 58, 56, 0.065);
+  --shadow: 0 18px 44px rgba(40, 58, 56, 0.08);
+  --shadow-lg: 0 24px 58px rgba(40, 58, 56, 0.1);
+
+  --radius: 8px;
+  --radius-md: 8px;
+  --radius-lg: 8px;
+  --pill: 4px;
+  --image-radius: 8px;
+
+  --container: 1200px;
+  --font-heading: "Instrument Serif", Georgia, serif;
+  --font-body: "Aileron", "Helvetica Neue", Arial, sans-serif;
+  --transition: 180ms ease;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-body);
+}
+
+body {
+  background: var(--warm-white);
+  color: var(--logo-ink);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote {
+  color: var(--logo-ink) !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+}
+
+.acw-section-number,
+.acw-section-label,
+.acw-card-label,
+.acw-eyebrow,
+.acw-btn,
+.nav__links a,
+.nav__cta {
+  font-family: var(--font-body);
+}
+
+.acw-section-number,
+.acw-section-label,
+.acw-card-label,
+.acw-eyebrow {
+  color: var(--deep-forest);
+}
+
+.acw-section-text,
+.acw-section-intro,
+.acw-hero-text,
+.acw-page-intro,
+.acw-card-body p,
+.acw-blueprint-card p,
+.acw-offer-card p {
+  color: var(--brand-charcoal);
+}
+
+/* Match the counselling site's responsive shell behaviour. */
+.acw-container,
+.container,
+.shell {
+  width: min(1200px, calc(100% - 240px));
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.acw-section,
+.acw-statement,
+.acw-home-reflection,
+.acw-home-transformation,
+.acw-home-final,
+.acw-home-problem,
+.acw-home-outcome,
+.acw-home-work,
+.acw-home-about,
+.acw-home-guides,
+.acw-home-faq {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+/* Clear, restrained buttons. Former text links now use a recognisable
+   white-button treatment; primary actions remain deep forest. */
+.acw-btn,
+.acw-section-link a,
+.acw-blueprint-card > a,
+.acw-offer-card > a,
+.acw-contact-email,
+.acw-library-text-link,
+main p > a:only-child {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.74rem 1rem;
+  border: 1px solid var(--deep-forest);
+  border-radius: 4px;
+  background: var(--white);
+  color: var(--deep-forest);
+  box-shadow: var(--shadow-xs);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  transform: none;
+}
+
+.acw-btn::after,
+.acw-section-link a::after,
+.acw-blueprint-card > a::after,
+.acw-offer-card > a::after,
+.acw-contact-email::after,
+.acw-library-text-link::after,
+main p > a:only-child::after {
+  content: none;
+}
+
+.acw-btn-primary,
+.nav__cta {
+  border-color: var(--deep-forest);
+  background: var(--deep-forest);
+  color: var(--warm-white);
+  box-shadow: none;
+}
+
+.acw-btn-secondary {
+  border-color: var(--deep-forest);
+  background: var(--white);
+  color: var(--deep-forest);
+}
+
+.acw-btn:hover,
+.acw-btn:focus-visible,
+.acw-section-link a:hover,
+.acw-section-link a:focus-visible,
+.acw-blueprint-card > a:hover,
+.acw-blueprint-card > a:focus-visible,
+.acw-offer-card > a:hover,
+.acw-offer-card > a:focus-visible,
+.acw-contact-email:hover,
+.acw-contact-email:focus-visible,
+.acw-library-text-link:hover,
+.acw-library-text-link:focus-visible,
+main p > a:only-child:hover,
+main p > a:only-child:focus-visible {
+  border-color: var(--logo-ink);
+  background: var(--logo-ink);
+  color: var(--warm-white);
+  box-shadow: none;
+  transform: none;
+}
+
+/* Keep linked cards clearly interactive without making them look like
+   underlined body-copy links. */
+.acw-card-link,
+.acw-home-library-links a,
+.acw-library-principle-body h4 a,
+.acw-library-latest-card h3 a {
+  color: var(--logo-ink);
+  text-decoration: none;
+}
+
+.acw-card-link:focus-visible,
+.acw-home-library-links a:focus-visible {
+  outline: 3px solid rgba(121, 131, 113, 0.5);
+  outline-offset: 4px;
+}
+
+/* Defined desktop navigation: each item is a small control, with no
+   underline bar competing with the rest of the page. */
+.site-header {
+  border-bottom: 1px solid rgba(215, 221, 216, 0.92);
+  background: rgba(247, 244, 239, 0.97);
+  box-shadow: 0 8px 24px rgba(40, 58, 56, 0.035);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+@media (min-width: 861px) {
+  .site-header .nav {
+    width: min(1200px, calc(100% - 240px));
+  }
+
+  .nav__panel {
+    gap: 16px;
+  }
+
+  .nav__links {
+    gap: 8px;
+  }
+
+  .nav__links a {
+    min-height: 38px;
+    padding: 0 0.72rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--brand-charcoal);
+    font-size: 0.82rem;
+    font-weight: 650;
+  }
+
+  .nav__links a:hover,
+  .nav__links a:focus-visible {
+    border-color: var(--soft-stone);
+    background: var(--white);
+    color: var(--deep-forest);
+  }
+
+  .nav__links a[aria-current="page"] {
+    border-color: rgba(121, 131, 113, 0.42);
+    background: rgba(121, 131, 113, 0.1);
+    color: var(--deep-forest);
+  }
+
+  .nav__cta {
+    min-height: 38px;
+    padding: 0 0.9rem;
+    border-radius: 4px;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .nav__links {
+    display: grid;
+    gap: 8px;
+    border-top: 0;
+  }
+
+  .nav__links li {
+    border-bottom: 0;
+  }
+
+  .nav__links a {
+    min-height: 52px;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--soft-stone);
+    border-radius: 4px;
+    background: var(--white);
+    color: var(--logo-ink);
+    text-decoration: none;
+  }
+
+  .nav__links a[aria-current="page"] {
+    border-color: rgba(121, 131, 113, 0.5);
+    background: rgba(121, 131, 113, 0.1);
+    color: var(--deep-forest);
+    text-decoration: none;
+  }
+
+  .nav__cta {
+    width: 100%;
+    min-height: 48px;
+  }
+}
+
+/* Softer photography: less contrast and saturation, modest corners and
+   quieter shadows. Logos and UI icons sit outside main and are unaffected. */
+main img {
+  border-radius: var(--image-radius);
+  filter: saturate(0.88) contrast(0.94) brightness(1.02);
+}
+
+.acw-hero-stage,
+.acw-editorial-media img,
+.acw-process-image img,
+.acw-showcase-image img,
+.acw-contact-image,
+.acw-about-image,
+.acw-card,
+.acw-blueprint-card,
+.acw-before-after-card,
+.acw-offer-card,
+.acw-choice-panel,
+.acw-value-panel,
+.acw-faq-item,
+.acw-about-note,
+.acw-contact-page-note,
+.acw-contact-form-card,
+.acw-home-library-primary,
+.acw-home-library-links a,
+.acw-comparison-pair,
+.acw-outcome-card-large,
+.acw-foundation-proof-media img {
+  border-radius: 8px !important;
+}
+
+.acw-editorial-media img,
+.acw-process-image img,
+.acw-showcase-image img,
+.acw-contact-image,
+.acw-about-image,
+.acw-card-image,
+.acw-library-hero-media img,
+.acw-service-hero-media img,
+.acw-foundation-proof-media img {
+  border-color: rgba(215, 221, 216, 0.92);
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-before-after-card,
+.acw-blueprint-card,
+.acw-offer-card,
+.acw-choice-panel,
+.acw-value-panel,
+.acw-card,
+.acw-faq-item,
+.acw-about-note,
+.acw-contact-page-note,
+.acw-contact-form-card,
+.acw-home-library-primary,
+.acw-home-library-links a,
+.acw-comparison-pair {
+  border-color: rgba(215, 221, 216, 0.92);
+  box-shadow: var(--shadow-xs);
+}
+
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  main img {
+    transition: filter 220ms ease;
+  }
+
+  main figure:hover img,
+  .acw-card-link:hover img {
+    filter: saturate(0.94) contrast(0.97) brightness(1.01);
+  }
+}
+
+/* Homepage hero: desktop/tablet view is fully contained above the fold.
+   64px header + 40px hero padding + calculated stage = 100svh. */
+@media (min-width: 761px) {
+  .acw-hero {
+    padding: 16px 0 24px;
+  }
+
+  .acw-hero-stage,
+  .acw-hero-cover-copy {
+    min-height: clamp(500px, calc(100svh - 104px), 680px);
+  }
+
+  .acw-hero-cover-copy {
+    max-width: 650px;
+    padding: clamp(36px, 5vw, 64px);
+  }
+
+  .acw-hero-cover h1 {
+    max-width: 10.7ch;
+    margin-bottom: 1rem;
+    font-size: clamp(3.15rem, 4.7vw, 5.1rem);
+    line-height: 1.01 !important;
+  }
+
+  .acw-hero-cover .acw-hero-text {
+    max-width: 40ch;
+    font-size: clamp(0.98rem, 1vw, 1.08rem);
+    line-height: 1.58;
+  }
+
+  .acw-hero-cover .acw-cta-row {
+    margin-top: 1.5rem;
+  }
+
+  .acw-hero-supporting {
+    margin-top: 0.85rem;
+  }
+}
+
+@media (max-width: 1279px) {
+  .acw-container,
+  .container,
+  .shell,
+  .site-header .nav {
+    width: min(1200px, calc(100% - 128px));
+  }
+
+  .acw-section,
+  .acw-statement,
+  .acw-home-reflection,
+  .acw-home-transformation,
+  .acw-home-final,
+  .acw-home-problem,
+  .acw-home-outcome,
+  .acw-home-work,
+  .acw-home-about,
+  .acw-home-guides,
+  .acw-home-faq {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+@media (max-width: 767px) {
+  .acw-container,
+  .container,
+  .shell,
+  .site-header .nav {
+    width: min(1200px, calc(100% - 48px));
+  }
+
+  .acw-section,
+  .acw-statement,
+  .acw-home-reflection,
+  .acw-home-transformation,
+  .acw-home-final,
+  .acw-home-problem,
+  .acw-home-outcome,
+  .acw-home-work,
+  .acw-home-about,
+  .acw-home-guides,
+  .acw-home-faq {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .acw-hero {
+    padding-bottom: 48px;
+  }
+
+  .acw-btn,
+  .acw-section-link a,
+  .acw-blueprint-card > a,
+  .acw-offer-card > a,
+  .acw-contact-email,
+  .acw-library-text-link,
+  main p > a:only-child {
+    min-height: 48px;
+  }
 }
