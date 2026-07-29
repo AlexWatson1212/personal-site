@@ -418,8 +418,8 @@ p {
 
 .nav__logo {
   display: block;
-  width: 168px;
-  min-width: 120px;
+  width: 160px;
+  min-width: 112px;
   max-width: none;
   height: auto;
   object-fit: contain;
@@ -3119,8 +3119,8 @@ Practice Notes, legal pages, updated contact form and footer
   }
 
   .nav__logo {
-    width: clamp(140px, 42vw, 160px);
-    min-width: 120px;
+    width: 150px;
+    min-width: 112px;
     height: auto;
   }
 
