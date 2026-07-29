@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap");
-
 /* =========================================================
 ALEXANDER WATSON — MAIN STYLESHEET
 Clarity First. Website Second.
@@ -87,7 +85,7 @@ The order below intentionally preserves the original cascade.
   --container: 1120px;
 
   --font-heading: "Instrument Serif", Georgia, serif;
-  --font-body: "Aileron", "Manrope", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Aileron", "Helvetica Neue", Arial, sans-serif;
 
   --transition: 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
@@ -9266,7 +9264,7 @@ This final layer intentionally overrides earlier exploratory typography.
 
 :root {
   --font-heading: "Instrument Serif", Georgia, serif;
-  --font-body: "Aileron", "Manrope", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Aileron", "Helvetica Neue", Arial, sans-serif;
 }
 
 html,
@@ -9357,7 +9355,7 @@ homepage hero that remains within the desktop viewport.
 
   --container: 1200px;
   --font-heading: "Instrument Serif", Georgia, serif;
-  --font-body: "Aileron", "Manrope", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Aileron", "Helvetica Neue", Arial, sans-serif;
   --transition: 180ms ease;
 }
 
@@ -9923,4 +9921,3 @@ restores high-contrast cover copy and supports three proof cards.
     max-width: none;
   }
 }
-
