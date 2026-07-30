@@ -11433,3 +11433,883 @@ price → fit → practical reassurance → enquiry.
     transition: none;
   }
 }
+
+/* =========================================================
+47. PRACTICE CLARITY — AUTHORITATIVE EDITORIAL PAGE
+Final page-scoped layer for /professional-identity/.
+Clarifies the service frame, reduces repeated card systems and
+creates distinct rhythms for questions, process, proof and price.
+========================================================= */
+
+.acw-practice-clarity-page {
+  overflow: clip;
+  background: var(--warm-white);
+}
+
+.acw-practice-clarity-page h1,
+.acw-practice-clarity-page h2,
+.acw-practice-clarity-page h3,
+.acw-practice-clarity-page p {
+  text-wrap: pretty;
+}
+
+.acw-practice-clarity-page h1,
+.acw-practice-clarity-page h2 {
+  text-wrap: balance;
+}
+
+.acw-practice-clarity-page .acw-section {
+  padding-block: clamp(5.5rem, 8vw, 8rem);
+}
+
+.acw-practice-clarity-page .acw-section-soft {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.58), transparent 34%),
+    radial-gradient(circle at 92% 12%, rgba(121, 131, 113, 0.08), transparent 30%),
+    rgba(215, 221, 216, 0.48);
+}
+
+/* Founding programme */
+
+.acw-pc-founding-bar {
+  background: var(--deep-forest);
+  color: var(--warm-white);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.acw-pc-founding-bar-inner {
+  display: flex;
+  min-height: 54px;
+  padding-block: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem 1.4rem;
+  text-align: center;
+}
+
+.acw-pc-founding-bar p {
+  margin: 0;
+  color: rgba(247, 244, 239, 0.86);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.acw-pc-founding-bar strong {
+  color: var(--warm-white);
+  font-weight: 760;
+}
+
+.acw-pc-founding-bar a {
+  flex: 0 0 auto;
+  color: var(--warm-white);
+  border-bottom: 1px solid rgba(247, 244, 239, 0.46);
+  font-size: 0.76rem;
+  font-weight: 760;
+  letter-spacing: 0.05em;
+}
+
+.acw-pc-founding-bar a:hover,
+.acw-pc-founding-bar a:focus-visible {
+  color: var(--white);
+  border-bottom-color: var(--white);
+}
+
+/* Hero */
+
+.acw-practice-clarity-page .acw-pc-hero {
+  padding-top: clamp(4.5rem, 7vw, 7rem);
+  padding-bottom: clamp(5.5rem, 8vw, 8rem);
+  background:
+    radial-gradient(circle at 6% 0%, rgba(215, 221, 216, 0.22), transparent 34%),
+    radial-gradient(circle at 94% 15%, rgba(121, 131, 113, 0.09), transparent 30%),
+    linear-gradient(180deg, var(--cream) 0%, var(--warm-white) 100%);
+}
+
+.acw-pc-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.62fr);
+  gap: clamp(3.5rem, 8vw, 8rem);
+  align-items: center;
+}
+
+.acw-pc-hero-copy {
+  max-width: 780px;
+}
+
+.acw-practice-clarity-page .acw-pc-hero h1 {
+  max-width: 11.5ch;
+  margin-bottom: 1.35rem;
+  font-size: clamp(3.65rem, 5.7vw, 6.15rem);
+  line-height: 0.96 !important;
+}
+
+.acw-pc-hero .acw-section-lead {
+  max-width: 45ch;
+  color: var(--logo-ink);
+  font-size: clamp(1.12rem, 1.35vw, 1.28rem);
+  line-height: 1.62;
+}
+
+.acw-pc-hero .acw-page-intro:not(.acw-section-lead) {
+  max-width: 54ch;
+  margin-top: 1rem;
+}
+
+.acw-pc-positioning-line {
+  width: fit-content;
+  margin: 1.45rem 0 0;
+  padding-top: 0.85rem;
+  color: var(--deep-forest);
+  border-top: 1px solid rgba(121, 131, 113, 0.46);
+  font-size: 0.78rem;
+  font-weight: 780;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.acw-pc-hero .acw-cta-row {
+  margin-top: 1.8rem;
+}
+
+.acw-pc-hero-media {
+  margin: 0;
+}
+
+.acw-pc-hero-media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 24%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow:
+    0 24px 58px rgba(40, 58, 56, 0.10),
+    0 8px 20px rgba(40, 58, 56, 0.045);
+}
+
+.acw-pc-hero-media figcaption {
+  margin-top: 0.8rem;
+  color: var(--brand-charcoal);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+/* Introduction */
+
+.acw-pc-introduction .acw-editorial-grid {
+  grid-template-columns: minmax(0, 0.95fr) minmax(380px, 0.74fr);
+  gap: clamp(4rem, 8vw, 7rem);
+}
+
+.acw-pc-introduction .acw-editorial-copy {
+  max-width: 720px;
+}
+
+.acw-pc-introduction h2 {
+  max-width: 12ch;
+  font-size: clamp(2.65rem, 4vw, 4.55rem);
+  line-height: 1.02 !important;
+}
+
+.acw-pc-introduction .acw-section-lead {
+  max-width: 50ch;
+}
+
+.acw-pc-introduction .acw-editorial-media {
+  align-self: center;
+}
+
+.acw-pc-introduction .acw-editorial-media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Shared section headings */
+
+.acw-pc-section-heading {
+  max-width: 850px;
+  margin-bottom: clamp(3rem, 5vw, 4.6rem);
+}
+
+.acw-pc-section-heading h2 {
+  max-width: 14ch;
+  font-size: clamp(2.65rem, 4vw, 4.55rem);
+  line-height: 1.02 !important;
+}
+
+.acw-pc-section-heading .acw-section-lead {
+  max-width: 56ch;
+}
+
+/* Questions */
+
+.acw-pc-questions {
+  background: var(--white);
+}
+
+.acw-pc-question-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  overflow: hidden;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  gap: 1px;
+}
+
+.acw-pc-question-card {
+  min-width: 0;
+  min-height: 245px;
+  padding: clamp(1.6rem, 2.5vw, 2.2rem);
+  background: var(--cream);
+}
+
+.acw-pc-question-card-featured {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(121, 131, 113, 0.14), transparent 40%),
+    var(--white);
+}
+
+.acw-pc-question-card h3 {
+  max-width: 13ch;
+  margin-bottom: 1rem;
+  font-size: clamp(1.45rem, 1.8vw, 1.9rem);
+  line-height: 1.14 !important;
+}
+
+.acw-pc-question-card p {
+  max-width: 33ch;
+  margin: 0;
+  color: var(--brand-charcoal);
+  font-size: 0.94rem;
+  line-height: 1.67;
+}
+
+.acw-pc-questions-action {
+  margin-top: 2rem;
+}
+
+.acw-pc-questions-action a,
+.acw-package-text-link {
+  display: inline-flex;
+  width: fit-content;
+  padding-bottom: 0.25rem;
+  color: var(--deep-forest);
+  border-bottom: 1px solid rgba(40, 58, 56, 0.34);
+  font-size: 0.93rem;
+  font-weight: 760;
+}
+
+.acw-pc-questions-action a:hover,
+.acw-pc-questions-action a:focus-visible {
+  color: var(--logo-ink);
+  border-bottom-color: var(--logo-ink);
+}
+
+.acw-pc-confidentiality,
+.acw-pc-practitioner-note {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+  margin-top: clamp(3.5rem, 6vw, 5.5rem);
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--line-strong);
+}
+
+.acw-pc-confidentiality h3,
+.acw-pc-practitioner-note h3 {
+  max-width: 16ch;
+  margin: 0;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  line-height: 1.12 !important;
+}
+
+.acw-pc-confidentiality > p,
+.acw-pc-practitioner-note > p {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--brand-charcoal);
+  line-height: 1.72;
+}
+
+/* Defined process */
+
+.acw-pc-process {
+  position: relative;
+}
+
+.acw-pc-process-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(340px, 0.8fr);
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: end;
+  margin-bottom: clamp(3rem, 5vw, 4.5rem);
+}
+
+.acw-pc-process-intro h2 {
+  max-width: 11ch;
+  font-size: clamp(2.75rem, 4.2vw, 4.75rem);
+  line-height: 1.01 !important;
+}
+
+.acw-pc-process-intro .acw-section-lead {
+  max-width: 46ch;
+  margin-bottom: 1rem;
+}
+
+.acw-pc-process-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  list-style: none;
+}
+
+.acw-pc-process-list li {
+  min-width: 0;
+  min-height: 330px;
+  padding: 1.8rem;
+  border-right: 1px solid var(--line-strong);
+}
+
+.acw-pc-process-list li:last-child {
+  border-right: 0;
+}
+
+.acw-pc-process-list li > span {
+  display: block;
+  margin-bottom: 4rem;
+  color: var(--deep-forest);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.acw-pc-process-list h3 {
+  max-width: 13ch;
+  font-size: clamp(1.35rem, 1.55vw, 1.65rem);
+  line-height: 1.14 !important;
+}
+
+.acw-pc-process-list p {
+  margin: 0;
+  color: var(--brand-charcoal);
+  font-size: 0.9rem;
+  line-height: 1.62;
+}
+
+/* Blueprint evidence */
+
+.acw-pc-blueprint {
+  background: var(--white);
+}
+
+.acw-pc-blueprint-sample {
+  margin: 0 0 clamp(3rem, 5vw, 4.5rem);
+}
+
+.acw-pc-blueprint-sample img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-pc-blueprint-sample figcaption {
+  max-width: 62ch;
+  margin-top: 0.8rem;
+  color: var(--brand-charcoal);
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+.acw-pc-blueprint-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line-strong);
+}
+
+.acw-pc-blueprint-card {
+  min-width: 0;
+  min-height: 190px;
+  padding: 1.7rem 1.7rem 1.7rem 0;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.acw-pc-blueprint-card:not(:nth-child(3n + 1)) {
+  padding-left: 1.7rem;
+  border-left: 1px solid var(--line-strong);
+}
+
+.acw-pc-blueprint-card h3 {
+  max-width: 15ch;
+  margin-bottom: 0.8rem;
+  font-size: clamp(1.25rem, 1.5vw, 1.55rem);
+  line-height: 1.15 !important;
+}
+
+.acw-pc-blueprint-card p {
+  max-width: 34ch;
+  margin: 0;
+  color: var(--brand-charcoal);
+  font-size: 0.9rem;
+  line-height: 1.62;
+}
+
+/* Connected service */
+
+.acw-pc-connected-service .acw-pc-section-heading h2 {
+  max-width: 17ch;
+}
+
+.acw-pc-service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.acw-pc-service-grid article {
+  min-width: 0;
+  min-height: 290px;
+  padding: 1.7rem;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow-xs);
+}
+
+.acw-pc-service-grid h3 {
+  max-width: 13ch;
+  margin-bottom: 1rem;
+  font-size: clamp(1.4rem, 1.65vw, 1.72rem);
+  line-height: 1.13 !important;
+}
+
+.acw-pc-service-grid article > p:last-child {
+  margin: 0;
+  color: var(--brand-charcoal);
+  font-size: 0.91rem;
+  line-height: 1.65;
+}
+
+/* Price */
+
+.acw-pc-price {
+  background:
+    radial-gradient(circle at 90% 8%, rgba(121, 131, 113, 0.08), transparent 32%),
+    var(--cream);
+}
+
+.acw-pc-price-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 1020px;
+}
+
+.acw-pc-price-card {
+  display: flex;
+  min-width: 0;
+  min-height: 610px;
+  padding: clamp(2rem, 3.5vw, 3rem);
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow-xs);
+}
+
+.acw-pc-price-card-featured {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(121, 131, 113, 0.14), transparent 38%),
+    var(--white);
+  border-color: rgba(121, 131, 113, 0.52);
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-pc-price-card h3 {
+  max-width: 14ch;
+  margin-bottom: 0;
+  font-size: clamp(1.65rem, 2.1vw, 2.2rem);
+  line-height: 1.1 !important;
+}
+
+.acw-pc-price-card .acw-home-price {
+  margin: 1rem 0 0.7rem;
+  color: var(--logo-ink);
+  font-family: var(--font-heading);
+  font-size: clamp(3.7rem, 5.5vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.acw-pc-price-card > p:not(.acw-card-label):not(.acw-home-price) {
+  max-width: 43ch;
+  color: var(--brand-charcoal);
+}
+
+.acw-pc-price-card ul {
+  display: grid;
+  gap: 0.7rem;
+  margin: 1.4rem 0 2rem;
+  padding: 1.4rem 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.acw-pc-price-card li {
+  position: relative;
+  padding-left: 1.15rem;
+  color: var(--brand-charcoal);
+  font-size: 0.91rem;
+  line-height: 1.5;
+}
+
+.acw-pc-price-card li::before {
+  content: "";
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background: var(--sage);
+  border-radius: 50%;
+}
+
+.acw-pc-price-card .acw-btn {
+  width: fit-content;
+  margin-top: auto;
+}
+
+/* FAQ */
+
+.acw-pc-faq .acw-faq-wrap {
+  max-width: 900px;
+}
+
+.acw-pc-faq .acw-section-heading {
+  margin-bottom: 2.5rem;
+}
+
+.acw-pc-faq .acw-section-heading h2 {
+  max-width: 11ch;
+}
+
+.acw-pc-faq .acw-faq-list {
+  border-top: 1px solid var(--line-strong);
+}
+
+.acw-pc-faq .acw-faq-item {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line-strong);
+  border-radius: 0;
+}
+
+.acw-pc-faq .acw-faq-item summary {
+  padding: 1.35rem 3rem 1.35rem 0;
+}
+
+.acw-pc-faq .acw-faq-item summary::after {
+  right: 0;
+}
+
+.acw-pc-faq .acw-faq-item p {
+  max-width: 68ch;
+  padding: 0 2rem 1.55rem 0;
+}
+
+/* Final CTA */
+
+.acw-practice-clarity-page .acw-pc-final {
+  padding-block: clamp(7rem, 11vw, 11rem);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(215, 221, 216, 0.18), transparent 34%),
+    var(--white);
+}
+
+.acw-pc-final-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(360px, 0.78fr);
+  gap: clamp(4rem, 8vw, 8rem);
+  align-items: center;
+}
+
+.acw-pc-final-copy {
+  max-width: 720px;
+}
+
+.acw-pc-final h2 {
+  max-width: 11ch;
+  font-size: clamp(3.15rem, 5vw, 5.5rem);
+  line-height: 0.98 !important;
+}
+
+.acw-pc-final-copy > p:not(.acw-section-label) {
+  max-width: 48ch;
+  color: var(--brand-charcoal);
+  font-size: clamp(1.02rem, 1.14vw, 1.15rem);
+  line-height: 1.7;
+}
+
+.acw-pc-final-media {
+  margin: 0;
+}
+
+.acw-pc-final-media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Deliberate, restrained interaction */
+
+@media (hover: hover) and (pointer: fine) {
+  .acw-pc-question-card,
+  .acw-pc-service-grid article,
+  .acw-pc-price-card {
+    transition:
+      transform var(--transition),
+      border-color var(--transition),
+      box-shadow var(--transition);
+  }
+
+  .acw-pc-question-card:hover,
+  .acw-pc-service-grid article:hover {
+    transform: translateY(-3px);
+    border-color: rgba(121, 131, 113, 0.46);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+/* Laptop and tablet */
+
+@media (max-width: 1080px) {
+  .acw-pc-hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.58fr);
+    gap: 3.5rem;
+  }
+
+  .acw-pc-question-grid,
+  .acw-pc-blueprint-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .acw-pc-blueprint-card,
+  .acw-pc-blueprint-card:not(:nth-child(3n + 1)) {
+    padding: 1.7rem;
+    border-left: 0;
+  }
+
+  .acw-pc-blueprint-card:nth-child(even) {
+    border-left: 1px solid var(--line-strong);
+  }
+
+  .acw-pc-process-list,
+  .acw-pc-service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .acw-pc-process-list li:nth-child(2) {
+    border-right: 0;
+  }
+
+  .acw-pc-process-list li:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line-strong);
+  }
+}
+
+@media (max-width: 860px) {
+  .acw-practice-clarity-page .acw-section {
+    padding-block: 4.75rem;
+  }
+
+  .acw-pc-hero-grid,
+  .acw-pc-introduction .acw-editorial-grid,
+  .acw-pc-process-intro,
+  .acw-pc-final-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-pc-hero-copy,
+  .acw-pc-introduction .acw-editorial-copy,
+  .acw-pc-process-intro > div,
+  .acw-pc-final-copy {
+    max-width: 720px;
+  }
+
+  .acw-pc-hero-media {
+    max-width: 480px;
+  }
+
+  .acw-pc-introduction .acw-editorial-media,
+  .acw-pc-final-media {
+    max-width: 720px;
+  }
+
+  .acw-pc-confidentiality,
+  .acw-pc-practitioner-note {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .acw-pc-price-grid {
+    grid-template-columns: 1fr;
+    max-width: 720px;
+  }
+
+  .acw-pc-price-card {
+    min-height: 0;
+  }
+
+  .acw-pc-price-card .acw-btn {
+    margin-top: 1rem;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .acw-pc-founding-bar-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.45rem;
+    text-align: left;
+  }
+
+  .acw-pc-founding-bar p {
+    font-size: 0.79rem;
+  }
+
+  .acw-practice-clarity-page .acw-pc-hero {
+    padding-top: 3.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .acw-practice-clarity-page .acw-pc-hero h1 {
+    max-width: 11ch;
+    font-size: clamp(2.8rem, 12.5vw, 4rem);
+    line-height: 1 !important;
+  }
+
+  .acw-pc-hero-media {
+    max-width: none;
+  }
+
+  .acw-pc-hero-media img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .acw-pc-hero .acw-cta-row,
+  .acw-pc-final .acw-cta-row {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .acw-pc-hero .acw-btn,
+  .acw-pc-final .acw-btn {
+    width: 100%;
+  }
+
+  .acw-pc-introduction h2,
+  .acw-pc-section-heading h2,
+  .acw-pc-process-intro h2 {
+    max-width: 14ch;
+    font-size: clamp(2.25rem, 9.5vw, 3.15rem);
+    line-height: 1.04 !important;
+  }
+
+  .acw-pc-question-grid,
+  .acw-pc-blueprint-grid,
+  .acw-pc-process-list,
+  .acw-pc-service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-pc-question-card {
+    min-height: 0;
+    padding: 1.5rem;
+  }
+
+  .acw-pc-process-list li,
+  .acw-pc-process-list li:nth-child(2),
+  .acw-pc-process-list li:nth-child(-n + 2) {
+    min-height: 0;
+    padding: 1.5rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  .acw-pc-process-list li:last-child {
+    border-bottom: 0;
+  }
+
+  .acw-pc-process-list li > span {
+    margin-bottom: 1.8rem;
+  }
+
+  .acw-pc-blueprint-card,
+  .acw-pc-blueprint-card:not(:nth-child(3n + 1)),
+  .acw-pc-blueprint-card:nth-child(even) {
+    min-height: 0;
+    padding: 1.5rem 0;
+    border-left: 0;
+  }
+
+  .acw-pc-service-grid article {
+    min-height: 0;
+    padding: 1.5rem;
+  }
+
+  .acw-pc-blueprint-sample img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .acw-pc-price-card {
+    padding: 1.6rem;
+  }
+
+  .acw-pc-price-card .acw-btn {
+    width: 100%;
+  }
+
+  .acw-pc-faq .acw-faq-item summary {
+    padding: 1.2rem 2.4rem 1.2rem 0;
+  }
+
+  .acw-pc-faq .acw-faq-item p {
+    padding-right: 0;
+  }
+
+  .acw-practice-clarity-page .acw-pc-final {
+    padding-block: 5.5rem;
+  }
+
+  .acw-pc-final h2 {
+    font-size: clamp(2.75rem, 11.5vw, 4rem);
+  }
+
+  .acw-pc-final-media {
+    order: -1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .acw-pc-question-card,
+  .acw-pc-service-grid article,
+  .acw-pc-price-card {
+    transition: none;
+  }
+}
