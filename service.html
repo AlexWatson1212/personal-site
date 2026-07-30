@@ -1,35 +1,209 @@
 ---
 layout: default
 title: Service | Practice Clarity, Identity & Website for Therapists
-description: One connected service combining Practice Clarity, professional identity design and a bespoke website for therapists building a clear, trustworthy private practice.
+description: A complete therapist practice identity and website service combining Practice Clarity, positioning, professional identity design, copy and a bespoke website.
 permalink: /service/
 ---
 
 <style>
-  .acw-service-document {
+  /* =========================================================
+     SERVICE PAGE — PRODUCT-LED EDITORIAL LAYOUT
+     Scoped to this page so it can be pasted in without
+     altering the wider site stylesheet.
+  ========================================================= */
+
+  .acw-service-page {
+    background: var(--surface);
+  }
+
+  .acw-service-page h1,
+  .acw-service-page h2,
+  .acw-service-page h3 {
+    text-wrap: balance;
+  }
+
+  .acw-service-page .acw-section {
+    border-top: 1px solid rgba(26, 33, 25, 0.07);
+  }
+
+  .acw-service-founding-bar {
+    background: #283a38;
+    color: #f7f4ef;
+  }
+
+  .acw-service-founding-bar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    min-height: 50px;
+    padding-block: 0.7rem;
+  }
+
+  .acw-service-founding-bar p {
+    margin: 0;
+    color: rgba(247, 244, 239, 0.82);
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .acw-service-founding-bar strong {
+    color: #ffffff;
+  }
+
+  .acw-service-founding-bar a {
+    flex: 0 0 auto;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.42);
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  /* Hero */
+
+  .acw-service-hero {
+    padding: clamp(3.25rem, 6vw, 6.5rem) 0;
     background:
-      radial-gradient(circle at 88% 10%, rgba(121, 131, 113, 0.08), transparent 32%),
-      var(--surface);
+      radial-gradient(circle at 8% 0%, rgba(215, 221, 216, 0.18), transparent 34%),
+      linear-gradient(180deg, #faf8f6 0%, #f7f4ef 100%);
   }
 
-  .acw-service-document-heading {
+  .acw-service-hero-grid {
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(300px, 0.72fr);
-    gap: clamp(2rem, 6vw, 5rem);
-    align-items: end;
-    margin-bottom: 2.5rem;
+    grid-template-columns: minmax(0, 0.86fr) minmax(380px, 0.9fr);
+    gap: clamp(3rem, 7vw, 6.5rem);
+    align-items: center;
   }
 
-  .acw-service-document-heading h2 {
-    max-width: 13ch;
-    margin-bottom: 0;
+  .acw-service-hero-copy {
+    max-width: 720px;
   }
 
-  .acw-service-document-heading .acw-section-intro {
+  .acw-service-hero h1 {
+    max-width: 10.5ch;
+    margin-bottom: 1.25rem;
+    font-size: clamp(3.45rem, 5.7vw, 6.1rem);
+    line-height: 0.9;
+    letter-spacing: -0.072em;
+  }
+
+  .acw-service-hero-intro {
+    max-width: 48ch;
+    margin: 0;
+    color: var(--muted);
+    font-size: clamp(1.05rem, 1.2vw, 1.2rem);
+    line-height: 1.72;
+  }
+
+  .acw-service-hero-supporting {
+    margin: 1.35rem 0 0;
+    color: rgba(26, 33, 25, 0.58);
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .acw-service-hero-media {
     margin: 0;
   }
 
-  .acw-service-document-frame {
+  .acw-service-hero-media img {
+    width: 100%;
+    aspect-ratio: 5 / 4;
+    object-fit: cover;
+    border: 1px solid rgba(26, 33, 25, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 28px 68px rgba(26, 33, 25, 0.11);
+  }
+
+  /* Shared headings */
+
+  .acw-service-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(300px, 0.68fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: end;
+    margin-bottom: clamp(2.5rem, 5vw, 4.25rem);
+  }
+
+  .acw-service-heading h2 {
+    max-width: 13ch;
+    margin: 0;
+  }
+
+  .acw-service-heading .acw-section-intro {
+    margin: 0;
+  }
+
+  /* Overview */
+
+  .acw-service-overview {
+    padding-block: clamp(4.75rem, 8vw, 8rem);
+  }
+
+  .acw-service-overview-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: start;
+  }
+
+  .acw-service-overview-copy h2 {
+    max-width: 12ch;
+  }
+
+  .acw-service-overview-copy p:not(.acw-section-number) {
+    max-width: 50ch;
+    color: var(--muted);
+  }
+
+  .acw-service-summary {
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid rgba(26, 33, 25, 0.09);
+    border-radius: 22px;
+    box-shadow: var(--shadow-xs);
+  }
+
+  .acw-service-summary-row {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 1.5rem;
+    padding: 1.35rem 1.5rem;
+    border-bottom: 1px solid rgba(26, 33, 25, 0.08);
+  }
+
+  .acw-service-summary-row:last-child {
+    border-bottom: 0;
+  }
+
+  .acw-service-summary dt {
+    color: var(--accent-dark);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .acw-service-summary dd {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  /* Practice Clarity document */
+
+  .acw-service-document {
+    padding-block: clamp(4.75rem, 8vw, 8rem);
+    background:
+      radial-gradient(circle at 88% 10%, rgba(121, 131, 113, 0.09), transparent 34%),
+      var(--surface-soft);
+  }
+
+  .acw-service-document-shell {
     overflow: hidden;
     background: #ffffff;
     border: 1px solid rgba(26, 33, 25, 0.1);
@@ -37,8 +211,7 @@ permalink: /service/
     box-shadow: var(--shadow-sm);
   }
 
-  .acw-service-document-frame object,
-  .acw-service-document-frame iframe {
+  .acw-service-document-shell object {
     display: block;
     width: 100%;
     min-height: 760px;
@@ -54,12 +227,8 @@ permalink: /service/
     text-align: center;
   }
 
-  .acw-service-document-fallback-inner {
+  .acw-service-document-fallback > div {
     max-width: 38rem;
-  }
-
-  .acw-service-document-fallback h3 {
-    max-width: none;
   }
 
   .acw-service-document-fallback p {
@@ -70,228 +239,592 @@ permalink: /service/
     display: flex;
     flex-wrap: wrap;
     gap: 0.8rem;
+    align-items: center;
     margin-top: 1.25rem;
   }
 
   .acw-service-document-note {
-    max-width: 68ch;
+    max-width: 70ch;
     margin: 1rem 0 0;
     color: rgba(26, 33, 25, 0.62);
     font-size: 0.86rem;
     line-height: 1.65;
   }
 
-  @media (max-width: 860px) {
-    .acw-service-document-heading {
+  /* Stages */
+
+  .acw-service-stages {
+    padding-block: clamp(4.75rem, 8vw, 8rem);
+  }
+
+  .acw-service-stage-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid rgba(26, 33, 25, 0.16);
+  }
+
+  .acw-service-stage {
+    display: grid;
+    grid-template-columns: 80px minmax(220px, 0.7fr) minmax(0, 1.3fr);
+    gap: clamp(1.25rem, 4vw, 3.5rem);
+    padding: clamp(2rem, 4vw, 3.25rem) 0;
+    border-bottom: 1px solid rgba(26, 33, 25, 0.16);
+  }
+
+  .acw-service-stage-number {
+    color: var(--accent-dark);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+  }
+
+  .acw-service-stage-title h3 {
+    max-width: 11ch;
+    margin-bottom: 0.55rem;
+    font-size: clamp(1.65rem, 2.3vw, 2.55rem);
+    line-height: 0.98;
+  }
+
+  .acw-service-stage-title p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .acw-service-stage-details {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .acw-service-stage-details div {
+    padding: 1.1rem;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(26, 33, 25, 0.08);
+    border-radius: 16px;
+  }
+
+  .acw-service-stage-details strong {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: var(--accent-dark);
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+  }
+
+  .acw-service-stage-details p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* Deliverables */
+
+  .acw-service-deliverables {
+    padding-block: clamp(4.75rem, 8vw, 8rem);
+    background: var(--surface-quiet);
+  }
+
+  .acw-service-deliverable-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .acw-service-deliverable {
+    padding: clamp(1.6rem, 3vw, 2.2rem);
+    background: #ffffff;
+    border: 1px solid rgba(26, 33, 25, 0.09);
+    border-radius: 20px;
+  }
+
+  .acw-service-deliverable-featured {
+    background:
+      radial-gradient(circle at 100% 0%, rgba(121, 131, 113, 0.11), transparent 38%),
+      #ffffff;
+    border-color: rgba(40, 58, 56, 0.2);
+  }
+
+  .acw-service-deliverable h3 {
+    max-width: 12ch;
+    margin-bottom: 1rem;
+    font-size: clamp(1.45rem, 1.85vw, 2rem);
+  }
+
+  .acw-service-deliverable ul {
+    display: grid;
+    gap: 0.7rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .acw-service-deliverable li {
+    position: relative;
+    padding-left: 1.15rem;
+    color: var(--muted);
+    font-size: 0.93rem;
+    line-height: 1.55;
+  }
+
+  .acw-service-deliverable li::before {
+    content: "";
+    position: absolute;
+    top: 0.68em;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  /* Project management */
+
+  .acw-service-management {
+    padding-block: clamp(4.75rem, 8vw, 8rem);
+  }
+
+  .acw-service-management-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: start;
+  }
+
+  .acw-service-management-copy h2 {
+    max-width: 12ch;
+  }
+
+  .acw-service-management-copy p:not(.acw-section-number) {
+    max-width: 46ch;
+    color: var(--muted);
+  }
+
+  .acw-service-management-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    overflow: hidden;
+    background: rgba(26, 33, 25, 0.12);
+    border: 1px solid rgba(26, 33, 25, 0.12);
+    border-radius: 20px;
+  }
+
+  .acw-service-management-list article {
+    min-height: 180px;
+    padding: 1.5rem;
+    background: var(--surface);
+  }
+
+  .acw-service-management-list span {
+    display: inline-flex;
+    margin-bottom: 1.2rem;
+    color: var(--accent-dark);
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .acw-service-management-list h3 {
+    max-width: 14ch;
+    margin-bottom: 0.65rem;
+  }
+
+  .acw-service-management-list p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .acw-service-practical {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1px;
+    margin-top: 1px;
+    overflow: hidden;
+    background: rgba(26, 33, 25, 0.12);
+    border: 1px solid rgba(26, 33, 25, 0.12);
+    border-radius: 18px;
+  }
+
+  .acw-service-practical div {
+    padding: 1.35rem;
+    background: #ffffff;
+  }
+
+  .acw-service-practical dt {
+    margin-bottom: 0.5rem;
+    color: var(--accent-dark);
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .acw-service-practical dd {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.58;
+  }
+
+  /* Investment */
+
+  .acw-service-investment {
+    padding-block: clamp(4.75rem, 8vw, 8rem);
+    background:
+      radial-gradient(circle at 84% 10%, rgba(121, 131, 113, 0.09), transparent 32%),
+      var(--surface-soft);
+  }
+
+  .acw-service-price-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    max-width: 920px;
+  }
+
+  .acw-service-price-card {
+    display: flex;
+    min-height: 100%;
+    padding: clamp(1.8rem, 4vw, 2.8rem);
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid rgba(26, 33, 25, 0.1);
+    border-radius: 20px;
+  }
+
+  .acw-service-price-card-featured {
+    background: #283a38;
+    color: #f7f4ef;
+    border-color: #283a38;
+  }
+
+  .acw-service-price-card-featured h3,
+  .acw-service-price-card-featured .acw-service-price {
+    color: #ffffff;
+  }
+
+  .acw-service-price-card-featured p,
+  .acw-service-price-card-featured li {
+    color: rgba(247, 244, 239, 0.76);
+  }
+
+  .acw-service-price-card h3 {
+    max-width: 13ch;
+    font-size: clamp(1.6rem, 2.2vw, 2.35rem);
+  }
+
+  .acw-service-price {
+    margin: 0.3rem 0 1rem;
+    color: var(--text);
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 5vw, 4.8rem);
+    letter-spacing: -0.06em;
+    line-height: 0.92;
+  }
+
+  .acw-service-price-card ul {
+    display: grid;
+    gap: 0.65rem;
+    margin: 1.25rem 0 1.7rem;
+    padding-left: 1.2rem;
+  }
+
+  .acw-service-price-card .acw-btn {
+    margin-top: auto;
+  }
+
+  .acw-service-fit-note {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    max-width: 920px;
+    margin-top: 1rem;
+    overflow: hidden;
+    background: rgba(26, 33, 25, 0.12);
+    border: 1px solid rgba(26, 33, 25, 0.12);
+    border-radius: 18px;
+  }
+
+  .acw-service-fit-note article {
+    padding: 1.4rem;
+    background: rgba(255, 255, 255, 0.74);
+  }
+
+  .acw-service-fit-note h3 {
+    margin-bottom: 0.55rem;
+  }
+
+  .acw-service-fit-note p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  /* Work */
+
+  .acw-service-work {
+    padding-block: clamp(4.75rem, 8vw, 8rem);
+  }
+
+  .acw-service-work-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 0.72fr) minmax(380px, 1.28fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: center;
+  }
+
+  .acw-service-work-copy h2 {
+    max-width: 12ch;
+  }
+
+  .acw-service-work-copy p:not(.acw-section-number) {
+    max-width: 46ch;
+    color: var(--muted);
+  }
+
+  .acw-service-work-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .acw-service-work-media {
+    margin: 0;
+  }
+
+  .acw-service-work-media img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border: 1px solid rgba(26, 33, 25, 0.08);
+    border-radius: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .acw-service-disclosure {
+    max-width: 68ch;
+    margin: 1.25rem 0 0;
+    color: rgba(26, 33, 25, 0.58);
+    font-size: 0.84rem;
+    line-height: 1.65;
+  }
+
+  /* FAQ */
+
+  .acw-service-faq {
+    padding-block: clamp(4.75rem, 8vw, 8rem);
+    background: var(--surface-quiet);
+  }
+
+  .acw-service-faq .acw-faq-wrap {
+    max-width: 900px;
+  }
+
+  /* Final CTA */
+
+  .acw-service-final {
+    padding-block: clamp(4.75rem, 8vw, 8rem);
+  }
+
+  .acw-service-final-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(320px, 0.58fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: center;
+  }
+
+  .acw-service-final-copy h2 {
+    max-width: 13ch;
+  }
+
+  .acw-service-final-copy > p:not(.acw-section-label) {
+    max-width: 50ch;
+    color: var(--muted);
+  }
+
+  .acw-service-final-media {
+    margin: 0;
+  }
+
+  .acw-service-final-media img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  @media (max-width: 980px) {
+    .acw-service-hero-grid,
+    .acw-service-overview-grid,
+    .acw-service-management-grid,
+    .acw-service-work-feature,
+    .acw-service-final-grid {
       grid-template-columns: 1fr;
-      gap: 1rem;
     }
 
-    .acw-service-document-frame object,
-    .acw-service-document-frame iframe {
-      min-height: 620px;
+    .acw-service-hero-media,
+    .acw-service-work-media,
+    .acw-service-final-media {
+      max-width: 760px;
+    }
+
+    .acw-service-stage {
+      grid-template-columns: 64px minmax(0, 1fr);
+    }
+
+    .acw-service-stage-details {
+      grid-column: 2;
+    }
+
+    .acw-service-deliverable-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .acw-service-practical {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
-  @media (max-width: 600px) {
-    .acw-service-document-frame {
-      border-radius: 16px;
+  @media (max-width: 760px) {
+    .acw-service-founding-bar-inner,
+    .acw-service-heading {
+      grid-template-columns: 1fr;
     }
 
-    .acw-service-document-frame object,
-    .acw-service-document-frame iframe {
-      min-height: 500px;
+    .acw-service-founding-bar-inner {
+      display: grid;
+      gap: 0.35rem;
+      padding-block: 0.75rem;
+    }
+
+    .acw-service-hero h1 {
+      font-size: clamp(2.75rem, 12vw, 4.2rem);
+    }
+
+    .acw-service-hero-media img {
+      border-radius: 14px;
+    }
+
+    .acw-service-heading {
+      gap: 1rem;
+    }
+
+    .acw-service-summary-row {
+      grid-template-columns: 1fr;
+      gap: 0.45rem;
+    }
+
+    .acw-service-document-shell object {
+      min-height: 540px;
+    }
+
+    .acw-service-stage {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
+
+    .acw-service-stage-details {
+      grid-column: auto;
+      grid-template-columns: 1fr;
+    }
+
+    .acw-service-management-list,
+    .acw-service-price-grid,
+    .acw-service-fit-note {
+      grid-template-columns: 1fr;
+    }
+
+    .acw-service-practical {
+      grid-template-columns: 1fr;
     }
 
     .acw-service-document-actions,
-    .acw-service-document-actions .acw-btn {
+    .acw-service-document-actions .acw-btn,
+    .acw-service-work-links,
+    .acw-service-work-links .acw-btn {
       width: 100%;
     }
   }
 </style>
 
-
-<div class="acw-complete-package">
+<div class="acw-service-page">
 
   <aside
-    class="acw-package-founding-bar"
+    class="acw-service-founding-bar"
     aria-label="Founding Therapist Programme"
   >
-    <div class="acw-container acw-package-founding-bar-inner">
+    <div class="acw-container acw-service-founding-bar-inner">
       <p>
         <strong>Three founding therapist places:</strong>
-        the complete service for £795, in exchange for an honest testimonial,
-        constructive feedback and permission to publish the approved finished work.
+        the complete £1,995 service for £795 in exchange for honest feedback,
+        a testimonial and permission to publish the approved finished work.
       </p>
 
       <a href="#investment">
-        View founding details
+        View the founding offer
       </a>
     </div>
   </aside>
 
   <section
-    class="acw-hero acw-hero-cover"
+    class="acw-service-hero"
     aria-labelledby="service-hero-heading"
   >
-    <div class="acw-container">
+    <div class="acw-container acw-service-hero-grid">
 
-      <div class="acw-hero-stage">
+      <div class="acw-service-hero-copy">
+        <p class="acw-eyebrow">
+          Complete practice identity &amp; website
+        </p>
 
-        <figure class="acw-hero-visual">
-          <img
-            src="{{ '/assets/images/home/homepage-hero.webp' | relative_url }}"
-            alt="A sunlit woodland path leading towards a quiet stone doorway among mature trees"
-            width="1536"
-            height="816"
-            fetchpriority="high"
-            decoding="async"
+        <h1 id="service-hero-heading">
+          One connected project from clarity to launch.
+        </h1>
+
+        <p class="acw-service-hero-intro">
+          Practice Clarity, positioning, professional identity design, core
+          website copy and a bespoke website—developed as one coherent system
+          around your practice.
+        </p>
+
+        <div class="acw-cta-row">
+          <a
+            class="acw-btn acw-btn-primary"
+            href="{{ '/contact/?service=founding-place' | relative_url }}"
           >
-        </figure>
+            Apply for a founding place
+          </a>
 
-        <div class="acw-hero-overlay" aria-hidden="true"></div>
-
-        <div class="acw-hero-cover-copy">
-          <p class="acw-eyebrow">
-            Practice identity &amp; website for therapists
-          </p>
-
-          <h1 id="service-hero-heading">
-            Build a private practice people can recognise and trust.
-          </h1>
-
-          <p class="acw-hero-text">
-            One connected service bringing together Practice Clarity, positioning,
-            professional identity design and a bespoke website—built around the
-            therapist you are and the practice you want to grow.
-          </p>
-
-          <div class="acw-cta-row">
-            <a
-              class="acw-btn acw-btn-primary"
-              href="{{ '/contact/?service=founding-place' | relative_url }}"
-            >
-              Apply for a founding place
-            </a>
-
-            <a
-              class="acw-btn acw-btn-secondary"
-              href="#how-it-works"
-            >
-              See how it works
-            </a>
-          </div>
-
-          <p class="acw-hero-supporting">
-            Practice Clarity · Professional identity · Bespoke website
-          </p>
+          <a
+            class="acw-btn acw-btn-secondary"
+            href="#service-overview"
+          >
+            Review the complete service
+          </a>
         </div>
 
+        <p class="acw-service-hero-supporting">
+          Typical timeline: 8–12 weeks · Two staged payments · Direct collaboration
+        </p>
       </div>
 
-    </div>
-  </section>
-
-  <section
-    class="acw-section acw-package-problem"
-    aria-labelledby="service-problem-heading"
-  >
-    <div class="acw-container">
-
-      <header class="acw-package-split-heading">
-        <div>
-          <p class="acw-section-number">The challenge</p>
-          <h2 id="service-problem-heading">
-            The quality of your work should not disappear online.
-          </h2>
-        </div>
-
-        <p class="acw-section-intro">
-          Your work may already feel thoughtful, skilled and distinctive in the
-          room. The challenge is translating that quality into language, identity
-          and an online experience people can understand before meeting you.
-        </p>
-      </header>
-
-      <div class="acw-package-recognition-grid">
-
-        <article class="acw-package-recognition-card">
-          <span aria-hidden="true">01</span>
-          <h3>Your work is difficult to recognise online</h3>
-          <p>
-            Your website may list what you offer without communicating the
-            therapist, values and experience behind it.
-          </p>
-        </article>
-
-        <article class="acw-package-recognition-card acw-package-recognition-card-featured">
-          <span aria-hidden="true">02</span>
-          <h3>Your practice needs focus, not a forced niche</h3>
-          <p>
-            Suitable clients need a way to recognise themselves without your
-            work being reduced to an artificial label.
-          </p>
-        </article>
-
-        <article class="acw-package-recognition-card">
-          <span aria-hidden="true">03</span>
-          <h3>Design decisions lack a clear foundation</h3>
-          <p>
-            Copy, imagery and visual choices become easier when they grow from a
-            coherent understanding of the practice.
-          </p>
-        </article>
-
-      </div>
-
-    </div>
-  </section>
-
-  <section
-    class="acw-section acw-section-soft acw-package-foundation"
-    aria-labelledby="service-foundation-heading"
-  >
-    <div class="acw-container acw-package-foundation-grid">
-
-      <div class="acw-package-foundation-copy">
-        <p class="acw-section-number">
-          The foundation
-        </p>
-
-        <h2 id="service-foundation-heading">
-          The website is the final expression, not the starting point.
-        </h2>
-
-        <p class="acw-section-lead">
-          Before deciding how your practice should look, we clarify what it
-          needs to express: your values, strengths, therapeutic approach,
-          suitable clients, way of working and long-term direction.
-        </p>
-
-        <p class="acw-section-text">
-          That understanding becomes your Practice Clarity document. It guides
-          the positioning, core messages, identity design, website structure
-          and client journey that follow.
-        </p>
-
-        <a
-          class="acw-package-text-link"
-          href="{{ '/assets/documents/practice-clarity-alexander-watson.pdf' | relative_url }}"
-          target="_blank"
-          rel="noopener"
-        >
-          View the Practice Clarity example
-          <span class="sr-only">(opens in a new tab)</span>
-        </a>
-      </div>
-
-      <figure class="acw-package-foundation-media">
+      <figure class="acw-service-hero-media">
         <img
-          src="{{ '/assets/images/home/homepage-reflection.webp' | relative_url }}"
-          alt="An open notebook on a quiet writing desk beside a window"
-          width="1200"
-          height="900"
-          loading="lazy"
+          src="{{ '/assets/images/home/homepage-hero.webp' | relative_url }}"
+          alt="A sunlit woodland path leading towards a quiet stone doorway among mature trees"
+          width="1536"
+          height="1229"
+          fetchpriority="high"
           decoding="async"
         >
       </figure>
@@ -300,35 +833,106 @@ permalink: /service/
   </section>
 
   <section
-    id="practice-clarity-example"
+    id="service-overview"
+    class="acw-section acw-service-overview"
+    aria-labelledby="service-overview-heading"
+  >
+    <div class="acw-container acw-service-overview-grid">
+
+      <div class="acw-service-overview-copy">
+        <p class="acw-section-number">The complete service</p>
+
+        <h2 id="service-overview-heading">
+          A clear scope before the project begins.
+        </h2>
+
+        <p>
+          This is not a collection of separate branding and website purchases.
+          Each stage is built from the same understanding of your practice, so
+          the positioning, visual identity, copy and website support one another.
+        </p>
+
+        <p>
+          You receive the strategic thinking as well as the finished creative
+          work, with defined approval points and clear ownership at handover.
+        </p>
+      </div>
+
+      <dl class="acw-service-summary">
+        <div class="acw-service-summary-row">
+          <dt>Included</dt>
+          <dd>
+            Practice Clarity, positioning, core messaging, professional identity
+            design, website copy, bespoke design and development, launch and handover.
+          </dd>
+        </div>
+
+        <div class="acw-service-summary-row">
+          <dt>Timeline</dt>
+          <dd>
+            Usually 8–12 weeks, depending on feedback, content approval and
+            specialist identity production.
+          </dd>
+        </div>
+
+        <div class="acw-service-summary-row">
+          <dt>Refinement</dt>
+          <dd>
+            Two structured refinement rounds for the visual identity and two
+            structured rounds for the website.
+          </dd>
+        </div>
+
+        <div class="acw-service-summary-row">
+          <dt>Investment</dt>
+          <dd>
+            £1,995 standard price or £795 for one of three founding therapist places.
+          </dd>
+        </div>
+
+        <div class="acw-service-summary-row">
+          <dt>Payment</dt>
+          <dd>
+            50% to begin and 50% before launch, with a formal review point after
+            Practice Clarity.
+          </dd>
+        </div>
+      </dl>
+
+    </div>
+  </section>
+
+  <section
+    id="practice-clarity"
     class="acw-section acw-service-document"
-    aria-labelledby="practice-clarity-example-heading"
+    aria-labelledby="practice-clarity-heading"
   >
     <div class="acw-container">
 
-      <header class="acw-service-document-heading">
+      <header class="acw-service-heading">
         <div>
-          <p class="acw-section-number">The document</p>
+          <p class="acw-section-number">The strategic foundation</p>
 
-          <h2 id="practice-clarity-example-heading">
+          <h2 id="practice-clarity-heading">
             See what Practice Clarity becomes.
           </h2>
         </div>
 
         <p class="acw-section-intro">
-          This example shows the depth and structure of the strategic foundation
-          created before identity design and website development begin.
+          Before design begins, the practice is translated into a written
+          foundation covering identity, suitable clients, services, boundaries,
+          positioning, messaging and creative direction.
         </p>
       </header>
 
-      <div class="acw-service-document-frame">
+      <div class="acw-service-document-shell">
         <object
           data="{{ '/assets/documents/practice-clarity-alexander-watson.pdf' | relative_url }}"
           type="application/pdf"
           aria-label="Practice Clarity example document"
         >
           <div class="acw-service-document-fallback">
-            <div class="acw-service-document-fallback-inner">
+            <div>
               <p class="acw-card-label">Practice Clarity example</p>
 
               <h3>
@@ -336,20 +940,17 @@ permalink: /service/
               </h3>
 
               <p>
-                Open the PDF directly to read the complete Practice Clarity
-                example in a new tab.
+                Open the full PDF in a new tab to review the example document.
               </p>
 
-              <div class="acw-service-document-actions">
-                <a
-                  class="acw-btn acw-btn-primary"
-                  href="{{ '/assets/documents/practice-clarity-alexander-watson.pdf' | relative_url }}"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Open the Practice Clarity PDF
-                </a>
-              </div>
+              <a
+                class="acw-btn acw-btn-primary"
+                href="{{ '/assets/documents/practice-clarity-alexander-watson.pdf' | relative_url }}"
+                target="_blank"
+                rel="noopener"
+              >
+                Open the Practice Clarity PDF
+              </a>
             </div>
           </div>
         </object>
@@ -368,9 +969,9 @@ permalink: /service/
       </div>
 
       <p class="acw-service-document-note">
-        This is an example of the type of working foundation created through
-        the service. A client document would be shaped around their own practice,
-        therapeutic identity, suitable clients and direction.
+        This is an example based on Alexander Watson Counselling. Each client
+        document is created around that therapist’s own practice, therapeutic
+        identity, suitable clients, boundaries and long-term direction.
       </p>
 
     </div>
@@ -378,65 +979,182 @@ permalink: /service/
 
   <section
     id="how-it-works"
-    class="acw-section acw-package-process"
-    aria-labelledby="service-process-heading"
+    class="acw-section acw-service-stages"
+    aria-labelledby="service-stages-heading"
   >
     <div class="acw-container">
 
-      <header class="acw-package-chapter-heading">
+      <header class="acw-service-heading">
         <div>
-          <p class="acw-section-number">The process</p>
-          <h2 id="service-process-heading">
-            One foundation. Four connected stages.
+          <p class="acw-section-number">The project map</p>
+
+          <h2 id="service-stages-heading">
+            Four stages, each with a clear outcome.
           </h2>
         </div>
 
         <p class="acw-section-intro">
-          Each stage has a distinct responsibility. Every decision remains
-          grounded in the same understanding of your practice.
+          You always know what is happening, what I need from you, what you will
+          receive and when approval is required.
         </p>
       </header>
 
-      <ol class="acw-package-process-grid">
+      <ol class="acw-service-stage-list">
 
-        <li class="acw-package-process-step">
-          <span class="acw-package-process-number">01</span>
-          <p class="acw-card-label">Understand</p>
-          <h3>Practice Clarity</h3>
-          <p>
-            Clarify your therapeutic identity, values, suitable clients,
-            service structure, boundaries and direction.
-          </p>
+        <li class="acw-service-stage">
+          <span class="acw-service-stage-number">01</span>
+
+          <div class="acw-service-stage-title">
+            <p class="acw-card-label">Understand</p>
+            <h3>Practice Clarity</h3>
+            <p>
+              Establish the strategic foundation before visual or technical
+              decisions are made.
+            </p>
+          </div>
+
+          <div class="acw-service-stage-details">
+            <div>
+              <strong>What happens</strong>
+              <p>
+                Written discovery, review and focused clarification of your
+                practice, values, services, suitable clients and direction.
+              </p>
+            </div>
+
+            <div>
+              <strong>You provide</strong>
+              <p>
+                Thoughtful questionnaire responses, factual practice details
+                and feedback on the draft direction.
+              </p>
+            </div>
+
+            <div>
+              <strong>You receive</strong>
+              <p>
+                A completed Practice Clarity document and a formal decision point
+                before identity production begins.
+              </p>
+            </div>
+          </div>
         </li>
 
-        <li class="acw-package-process-step">
-          <span class="acw-package-process-number">02</span>
-          <p class="acw-card-label">Articulate</p>
-          <h3>Positioning &amp; copy</h3>
-          <p>
-            Turn that understanding into language that sounds natural and helps
-            suitable clients recognise the relevance of your work.
-          </p>
+        <li class="acw-service-stage">
+          <span class="acw-service-stage-number">02</span>
+
+          <div class="acw-service-stage-title">
+            <p class="acw-card-label">Articulate</p>
+            <h3>Positioning &amp; copy</h3>
+            <p>
+              Turn the strategic foundation into clear language and a useful
+              route through the website.
+            </p>
+          </div>
+
+          <div class="acw-service-stage-details">
+            <div>
+              <strong>What happens</strong>
+              <p>
+                Positioning, core messages, tone of voice, page structure and
+                the main client journey are developed.
+              </p>
+            </div>
+
+            <div>
+              <strong>You provide</strong>
+              <p>
+                Accurate qualifications, memberships, policies, fees,
+                availability and other factual information.
+              </p>
+            </div>
+
+            <div>
+              <strong>You receive</strong>
+              <p>
+                Agreed positioning, website architecture and core page copy ready
+                to guide the design.
+              </p>
+            </div>
+          </div>
         </li>
 
-        <li class="acw-package-process-step">
-          <span class="acw-package-process-number">03</span>
-          <p class="acw-card-label">Express</p>
-          <h3>Visual identity</h3>
-          <p>
-            Translate the strategy into a professionally designed logo, colour
-            palette, typography and practical identity system.
-          </p>
+        <li class="acw-service-stage">
+          <span class="acw-service-stage-number">03</span>
+
+          <div class="acw-service-stage-title">
+            <p class="acw-card-label">Express</p>
+            <h3>Professional identity</h3>
+            <p>
+              Translate the strategy into a distinctive visual system with a
+              clear rationale.
+            </p>
+          </div>
+
+          <div class="acw-service-stage-details">
+            <div>
+              <strong>What happens</strong>
+              <p>
+                Creative direction, logo development, colour, typography and
+                supporting identity decisions are produced.
+              </p>
+            </div>
+
+            <div>
+              <strong>You provide</strong>
+              <p>
+                Consolidated feedback at agreed checkpoints rather than
+                fragmented changes throughout production.
+              </p>
+            </div>
+
+            <div>
+              <strong>You receive</strong>
+              <p>
+                Final logo files, colour and typography guidance, plus two
+                structured refinement rounds.
+              </p>
+            </div>
+          </div>
         </li>
 
-        <li class="acw-package-process-step">
-          <span class="acw-package-process-number">04</span>
-          <p class="acw-card-label">Build</p>
-          <h3>Website &amp; launch</h3>
-          <p>
-            Bring the work together in a responsive, accessible website designed
-            and developed around your practice.
-          </p>
+        <li class="acw-service-stage">
+          <span class="acw-service-stage-number">04</span>
+
+          <div class="acw-service-stage-title">
+            <p class="acw-card-label">Build</p>
+            <h3>Website &amp; launch</h3>
+            <p>
+              Bring the strategy, language and identity together in a complete
+              digital home for the practice.
+            </p>
+          </div>
+
+          <div class="acw-service-stage-details">
+            <div>
+              <strong>What happens</strong>
+              <p>
+                Bespoke design and development, responsive testing,
+                accessibility review, foundational SEO and launch preparation.
+              </p>
+            </div>
+
+            <div>
+              <strong>You provide</strong>
+              <p>
+                Final factual approval, required legal information, images and
+                consolidated feedback at the website checkpoints.
+              </p>
+            </div>
+
+            <div>
+              <strong>You receive</strong>
+              <p>
+                The completed website, two refinement rounds, launch support,
+                handover and ownership of the agreed files.
+              </p>
+            </div>
+          </div>
         </li>
 
       </ol>
@@ -445,293 +1163,153 @@ permalink: /service/
   </section>
 
   <section
-    id="work"
-    class="acw-section acw-package-proof"
-    aria-labelledby="service-proof-heading"
+    class="acw-section acw-service-deliverables"
+    aria-labelledby="service-deliverables-heading"
   >
     <div class="acw-container">
 
-      <header class="acw-package-proof-heading">
+      <header class="acw-service-heading">
         <div>
-          <p class="acw-section-number">
-            The work
-          </p>
+          <p class="acw-section-number">What you receive</p>
 
-          <h2 id="service-proof-heading">
-            See the thinking take form.
+          <h2 id="service-deliverables-heading">
+            The complete working system, not only a finished website.
           </h2>
         </div>
 
         <p class="acw-section-intro">
-          The examples below show how strategic clarity can shape a written
-          foundation, a visual atmosphere and a complete route to enquiry.
+          The strategic, written, visual and technical work remains connected,
+          but each deliverable is also useful in its own right.
         </p>
       </header>
 
-      <article class="acw-package-artifact">
-        <div class="acw-package-artifact-copy">
-          <p class="acw-card-label">
-            The strategic deliverable
-          </p>
+      <div class="acw-service-deliverable-grid">
 
-          <h3>
-            Practice Clarity keeps the whole project coherent.
-          </h3>
-
-          <p>
-            You receive the written thinking behind the work—not only the final
-            visual result. It becomes a reference for your website, directories,
-            photography, future content and later decisions about the practice.
-          </p>
-        </div>
-
-        <figure class="acw-package-artifact-media">
-          <img
-            src="{{ '/assets/images/home/homepage-outcome-refined.webp' | relative_url }}"
-            alt="A therapist website displayed beside the strategic notes and identity materials behind it"
-            width="1600"
-            height="900"
-            loading="lazy"
-            decoding="async"
-          >
-        </figure>
-      </article>
-
-      <div class="acw-package-work-grid">
-
-        <a
-          class="acw-package-work-card"
-          href="https://alexanderwatsoncounselling.co.uk/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Visit Alexander Watson Counselling in a new tab"
-        >
-          <img
-            src="{{ '/assets/images/brand/alexander-watson-counselling-card.webp' | relative_url }}"
-            alt="Portrait and website preview for Alexander Watson Counselling"
-            width="1200"
-            height="825"
-            loading="lazy"
-            decoding="async"
-          >
-
-          <div class="acw-package-work-body">
-            <p class="acw-card-label">
-              Live personal project
-            </p>
-
-            <h3>
-              Alexander Watson Counselling
-            </h3>
-
-            <p>
-              A live working website that brings a clear therapeutic identity,
-              calm visual language and a thoughtful route to enquiry together.
-            </p>
-
-            <span>
-              Visit the live website
-              <span class="sr-only">(opens in a new tab)</span>
-            </span>
-          </div>
-        </a>
-
-        <a
-          class="acw-package-work-card"
-          href="https://warm-therapy-template.alexanderwatson.co.uk/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="View the Warm Presence identity study in a new tab"
-        >
-          <img
-            src="{{ '/assets/images/brand/sarah-james.webp' | relative_url }}"
-            alt="Warm and personal therapy website identity study"
-            width="900"
-            height="675"
-            loading="lazy"
-            decoding="async"
-          >
-
-          <div class="acw-package-work-body">
-            <p class="acw-card-label">
-              Exploratory identity study
-            </p>
-
-            <h3>
-              Warm Presence
-            </h3>
-
-            <p>
-              A softer direction exploring how warmth, reassurance and humanity
-              can shape a therapist’s online first impression.
-            </p>
-
-            <span>
-              Explore the identity study
-              <span class="sr-only">(opens in a new tab)</span>
-            </span>
-          </div>
-        </a>
-
-      </div>
-
-      <p class="acw-package-disclosure">
-        Alexander Watson Studio is new. The examples above are clearly labelled
-        personal and exploratory work, rather than commissioned client projects.
-        The founding projects will become the studio’s first published client
-        case studies.
-      </p>
-
-    </div>
-  </section>
-
-  <section
-    class="acw-section acw-section-soft acw-package-about"
-    aria-labelledby="service-about-heading"
-  >
-    <div class="acw-container acw-package-about-grid">
-
-      <div class="acw-package-about-copy">
-        <p class="acw-section-number">The approach</p>
-        <h2 id="service-about-heading">
-          I do not turn therapists into brands.
-        </h2>
-
-        <p class="acw-section-lead">
-          I help uncover what is already distinctive about the way you work,
-          then shape it into something clear enough for suitable clients to
-          recognise.
-        </p>
-
-        <p class="acw-section-text">
-          I combine website strategy and communication work with current Level 4
-          counselling training. That gives me an understanding of both how a
-          therapist develops a practice and how prospective clients encounter
-          it online.
-        </p>
-
-        <a
-          class="acw-package-text-link"
-          href="{{ '/about/' | relative_url }}"
-        >
-          Read more about me
-        </a>
-      </div>
-
-      <figure class="acw-package-about-media">
-        <img
-          src="{{ '/assets/images/brand/about-portrait.webp' | relative_url }}"
-          alt="Portrait of Alexander Watson"
-          width="900"
-          height="675"
-          loading="lazy"
-          decoding="async"
-        >
-      </figure>
-
-    </div>
-  </section>
-
-  <section
-    class="acw-section acw-package-inclusions"
-    aria-labelledby="service-inclusions-heading"
-  >
-    <div class="acw-container">
-
-      <header class="acw-package-chapter-heading">
-        <div>
-          <p class="acw-section-number">What is included</p>
-          <h2 id="service-inclusions-heading">
-            A complete project, with clear boundaries.
-          </h2>
-        </div>
-
-        <p class="acw-section-intro">
-          Strategy, identity and website development are handled as one connected
-          process. The practical details are agreed before work begins.
-        </p>
-      </header>
-
-      <div class="acw-package-inclusion-grid">
-
-        <article class="acw-package-inclusion-card acw-package-inclusion-card-featured">
-          <p class="acw-card-label">
-            Practice Clarity
-          </p>
+        <article class="acw-service-deliverable acw-service-deliverable-featured">
+          <p class="acw-card-label">Practice Clarity</p>
           <h3>A written foundation you can keep using</h3>
           <ul>
             <li>Professional identity, values and therapeutic approach</li>
             <li>Suitable clients and intended client experience</li>
-            <li>Services, structure, boundaries, fees and direction</li>
+            <li>Services, boundaries, fees and direction</li>
             <li>Positioning, key messages and tone of voice</li>
-            <li>Your completed Practice Clarity document</li>
+            <li>Strategic and creative direction</li>
           </ul>
         </article>
 
-        <article class="acw-package-inclusion-card">
-          <p class="acw-card-label">
-            Identity design
-          </p>
-          <h3>A professionally produced visual system</h3>
+        <article class="acw-service-deliverable">
+          <p class="acw-card-label">Professional identity</p>
+          <h3>A visual system with a clear rationale</h3>
           <ul>
-            <li>Strategic creative direction</li>
             <li>Bespoke logo developed with a specialist identity designer</li>
-            <li>Two structured refinement rounds</li>
             <li>Primary, secondary and supporting logo files</li>
-            <li>Colour, typography and practical guidelines</li>
+            <li>Colour palette and typography system</li>
+            <li>Two structured refinement rounds</li>
+            <li>Practical identity guidance</li>
           </ul>
         </article>
 
-        <article class="acw-package-inclusion-card">
-          <p class="acw-card-label">
-            Website
-          </p>
-          <h3>A bespoke digital home for your practice</h3>
+        <article class="acw-service-deliverable">
+          <p class="acw-card-label">Bespoke website</p>
+          <h3>A complete digital home for the practice</h3>
           <ul>
-            <li>Strategy, information architecture, design and development</li>
-            <li>Core page copy written from your Practice Clarity material</li>
-            <li>Two structured website refinement rounds</li>
-            <li>Responsive, accessible and performance-conscious build</li>
-            <li>Foundational on-page SEO, launch and handover</li>
+            <li>Information architecture, design and development</li>
+            <li>Core page copy developed from Practice Clarity</li>
+            <li>Responsive and accessibility-conscious build</li>
+            <li>Foundational on-page SEO and performance review</li>
+            <li>Launch, handover and two refinement rounds</li>
           </ul>
         </article>
 
       </div>
 
-      <dl class="acw-package-practical-grid">
+    </div>
+  </section>
 
+  <section
+    class="acw-section acw-service-management"
+    aria-labelledby="service-management-heading"
+  >
+    <div class="acw-container">
+
+      <div class="acw-service-management-grid">
+
+        <div class="acw-service-management-copy">
+          <p class="acw-section-number">How the project is managed</p>
+
+          <h2 id="service-management-heading">
+            Structured enough to feel clear. Flexible enough to remain human.
+          </h2>
+
+          <p>
+            You work directly with me throughout. Written preparation and defined
+            checkpoints reduce unnecessary meetings while ensuring important
+            decisions are properly considered.
+          </p>
+        </div>
+
+        <div class="acw-service-management-list">
+
+          <article>
+            <span>Direct collaboration</span>
+            <h3>One person responsible for the whole project.</h3>
+            <p>
+              Strategy, communication and website development remain connected
+              rather than being passed between separate departments.
+            </p>
+          </article>
+
+          <article>
+            <span>Written preparation</span>
+            <h3>Time to think before responding.</h3>
+            <p>
+              Questionnaires and written materials allow you to reflect without
+              needing to produce polished answers during a call.
+            </p>
+          </article>
+
+          <article>
+            <span>Agreed checkpoints</span>
+            <h3>Decisions happen in the right order.</h3>
+            <p>
+              Each stage is reviewed before the next begins, preventing later
+              design work from being built on unresolved foundations.
+            </p>
+          </article>
+
+          <article>
+            <span>Consolidated feedback</span>
+            <h3>Clear refinement rather than constant revision.</h3>
+            <p>
+              Feedback is gathered at defined points and considered as a whole,
+              with additional work quoted before it begins.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+      <dl class="acw-service-practical">
         <div>
           <dt>Typical timeline</dt>
-          <dd>
-            Around 8–12 weeks, depending on feedback, content and identity
-            production.
-          </dd>
+          <dd>Approximately 8–12 weeks from discovery to launch.</dd>
         </div>
 
         <div>
-          <dt>Copy responsibilities</dt>
-          <dd>
-            I write the core website pages. You provide and approve factual,
-            clinical, legal and practical information.
-          </dd>
+          <dt>Client communication</dt>
+          <dd>Predominantly written, with calls arranged when they add value.</dd>
         </div>
 
         <div>
           <dt>Ownership</dt>
-          <dd>
-            You retain your domain, approved copy, final identity files and
-            completed website files after final payment.
-          </dd>
+          <dd>Your domain, approved copy, identity files and website files remain yours after final payment.</dd>
         </div>
 
         <div>
           <dt>After launch</dt>
-          <dd>
-            Managed hosting is £15 per month. Optional ongoing care for minor
-            updates is £20 per month; larger work is quoted separately.
-          </dd>
+          <dd>Managed hosting is £15 per month. Optional minor-update care is £20 per month.</dd>
         </div>
-
       </dl>
 
     </div>
@@ -739,51 +1317,47 @@ permalink: /service/
 
   <section
     id="investment"
-    class="acw-section acw-section-soft acw-package-investment"
+    class="acw-section acw-service-investment"
     aria-labelledby="service-investment-heading"
   >
     <div class="acw-container">
 
-      <header class="acw-package-investment-heading">
-        <p class="acw-section-number">
-          Investment
-        </p>
+      <header class="acw-service-heading">
+        <div>
+          <p class="acw-section-number">Investment</p>
 
-        <h2 id="service-investment-heading">
-          The same complete service. Two routes into the work.
-        </h2>
+          <h2 id="service-investment-heading">
+            The same complete service. Two routes into the work.
+          </h2>
+        </div>
 
         <p class="acw-section-intro">
-          Both options include the full connected service and are paid in two
+          Both routes include the full scope shown above and are paid in two
           stages: 50% to begin and 50% before launch.
         </p>
       </header>
 
-      <div class="acw-package-price-grid">
+      <div class="acw-service-price-grid">
 
-        <article class="acw-package-price-card">
-          <p class="acw-card-label">
-            Complete service
-          </p>
+        <article class="acw-service-price-card">
+          <p class="acw-card-label">Complete service</p>
 
           <h3>
-            Practice Clarity, Identity &amp; Website
+            Practice Clarity, identity and website
           </h3>
 
-          <p class="acw-package-price">
-            £1,995
-          </p>
+          <p class="acw-service-price">£1,995</p>
 
           <p>
-            The standard price for the complete end-to-end project, with no
-            testimonial or case-study agreement required.
+            The standard price for the complete project, with no testimonial or
+            case-study agreement required.
           </p>
 
           <ul>
-            <li>Practice Clarity process and document</li>
-            <li>Professional identity design</li>
-            <li>Bespoke website, copy and refinement</li>
-            <li>Launch, handover and foundational SEO</li>
+            <li>Complete strategic, identity and website scope</li>
+            <li>Two-stage payment schedule</li>
+            <li>Formal review point after Practice Clarity</li>
+            <li>Launch, ownership and handover</li>
           </ul>
 
           <a
@@ -794,29 +1368,25 @@ permalink: /service/
           </a>
         </article>
 
-        <article class="acw-package-price-card acw-package-price-card-featured">
-          <p class="acw-card-label">
-            Founding Therapist Programme · Three places
-          </p>
+        <article class="acw-service-price-card acw-service-price-card-featured">
+          <p class="acw-card-label">Founding Therapist Programme · Three places</p>
 
           <h3>
             The complete service at a founding price
           </h3>
 
-          <p class="acw-package-price">
-            £795
-          </p>
+          <p class="acw-service-price">£795</p>
 
           <p>
-            The founding price reflects the studio’s early stage. You receive
-            the same service in exchange for an honest testimonial, constructive
-            feedback and permission to publish the approved finished work.
+            The reduced price reflects the studio’s early public stage rather
+            than a reduced scope.
           </p>
 
           <ul>
-            <li>No reduced scope or template substitute</li>
-            <li>Your confidentiality and professional boundaries remain respected</li>
-            <li>The case-study content is agreed with you before publication</li>
+            <li>The same complete service and refinement allowance</li>
+            <li>Honest feedback and a testimonial requested</li>
+            <li>Permission to publish only the approved finished work</li>
+            <li>Confidentiality and professional boundaries remain respected</li>
           </ul>
 
           <a
@@ -829,79 +1399,24 @@ permalink: /service/
 
       </div>
 
-    </div>
-  </section>
+      <div class="acw-service-fit-note">
 
-  <section
-    class="acw-section acw-package-fit"
-    aria-labelledby="service-fit-heading"
-  >
-    <div class="acw-container">
-
-      <header class="acw-package-chapter-heading">
-        <div>
-          <p class="acw-section-number">Who it is for</p>
-          <h2 id="service-fit-heading">
-            For therapists ready to build deliberately.
-          </h2>
-        </div>
-
-        <p class="acw-section-intro">
-          You do not need a finished niche, polished copy or a ready-made visual
-          direction. You do need to care about how your practice is understood
-          and be ready to invest in a professional long-term foundation.
-        </p>
-      </header>
-
-      <div class="acw-package-fit-grid">
-
-        <article class="acw-package-fit-column acw-package-fit-column-positive">
-          <p class="acw-card-label">
-            A good fit
+        <article>
+          <p class="acw-card-label">Well suited to</p>
+          <h3>Therapists building deliberately.</h3>
+          <p>
+            You are committed to a long-term private practice and value clarity,
+            professional identity and online trust as much as the final website.
           </p>
-
-          <ul>
-            <li>
-              <strong>You are committed to private practice.</strong>
-              You are building something long term and want to make the important
-              decisions with care.
-            </li>
-
-            <li>
-              <strong>You value your online presence.</strong>
-              You understand that trust begins before the first session.
-            </li>
-
-            <li>
-              <strong>You want a coherent foundation.</strong>
-              Strategy, language and identity matter to you as much as the final site.
-            </li>
-          </ul>
         </article>
 
-        <article class="acw-package-fit-column">
-          <p class="acw-card-label">
-            Probably not a fit
+        <article>
+          <p class="acw-card-label">Not designed for</p>
+          <h3>A quick template or isolated design task.</h3>
+          <p>
+            The service is unlikely to suit someone seeking only the cheapest
+            website, an individual logo or a rapid build without strategic work.
           </p>
-
-          <ul>
-            <li>
-              <strong>You only need a quick template.</strong>
-              Your strategy, branding and copy are already complete and speed is
-              the main priority.
-            </li>
-
-            <li>
-              <strong>You do not see the website as part of trust.</strong>
-              You are not ready to invest in the thinking behind the experience.
-            </li>
-
-            <li>
-              <strong>You want a manufactured marketing persona.</strong>
-              You are looking for aggressive sales language rather than an honest
-              expression of your work.
-            </li>
-          </ul>
         </article>
 
       </div>
@@ -910,19 +1425,85 @@ permalink: /service/
   </section>
 
   <section
+    id="work"
+    class="acw-section acw-service-work"
+    aria-labelledby="service-work-heading"
+  >
+    <div class="acw-container acw-service-work-feature">
+
+      <div class="acw-service-work-copy">
+        <p class="acw-section-number">Working proof</p>
+
+        <h2 id="service-work-heading">
+          See the system applied to a real practice.
+        </h2>
+
+        <p>
+          Alexander Watson Counselling is the first complete application of the
+          Practice Clarity, identity and bespoke website process.
+        </p>
+
+        <p>
+          It is a live personal project rather than a commissioned client case
+          study, and provides a transparent example of how the strategic
+          foundation shapes the final online experience.
+        </p>
+
+        <div class="acw-service-work-links">
+          <a
+            class="acw-btn acw-btn-secondary"
+            href="https://alexanderwatsoncounselling.co.uk/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit the live website
+            <span class="sr-only">(opens in a new tab)</span>
+          </a>
+
+          <a
+            class="acw-btn acw-btn-secondary"
+            href="{{ '/assets/documents/practice-clarity-alexander-watson.pdf' | relative_url }}"
+            target="_blank"
+            rel="noopener"
+          >
+            Review its Practice Clarity
+            <span class="sr-only">(opens in a new tab)</span>
+          </a>
+        </div>
+
+        <p class="acw-service-disclosure">
+          Alexander Watson Studio is new. The founding projects will become the
+          studio’s first independent published client case studies.
+        </p>
+      </div>
+
+      <figure class="acw-service-work-media">
+        <img
+          src="{{ '/assets/images/home/homepage-outcome-refined.webp' | relative_url }}"
+          alt="A therapist website displayed beside the strategic notes and identity materials behind it"
+          width="1600"
+          height="1000"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
+
+    </div>
+  </section>
+
+  <section
     id="faq"
-    class="acw-section acw-section-soft acw-package-faq"
+    class="acw-section acw-service-faq"
     aria-labelledby="service-faq-heading"
   >
-    <div class="acw-container acw-package-faq-inner">
+    <div class="acw-container acw-faq-wrap">
 
-      <header class="acw-package-chapter-heading">
-        <div>
-          <p class="acw-section-number">FAQ</p>
-          <h2 id="service-faq-heading">
-            Know what the project involves before you enquire.
-          </h2>
-        </div>
+      <header class="acw-section-heading">
+        <p class="acw-section-number">FAQ</p>
+
+        <h2 id="service-faq-heading">
+          Practical questions before you enquire.
+        </h2>
       </header>
 
       <div class="acw-faq-list">
@@ -930,10 +1511,9 @@ permalink: /service/
         <details class="acw-faq-item">
           <summary>How long does the complete project take?</summary>
           <p>
-            Most projects take around 8–12 weeks from the Practice Clarity work
-            to launch. The exact schedule depends on the speed of feedback,
-            identity production, content approval and any external requirements.
-            Your project plan confirms the dates before work begins.
+            Most projects take around 8–12 weeks from the beginning of Practice
+            Clarity to launch. The confirmed project plan accounts for feedback,
+            identity production, content approval and external requirements.
           </p>
         </details>
 
@@ -941,80 +1521,72 @@ permalink: /service/
           <summary>Who writes the website copy?</summary>
           <p>
             I write the core website pages using the material developed through
-            Practice Clarity. You provide accurate factual, clinical, legal and
-            practical details—including qualifications, memberships, fees,
-            policies and availability—and approve every page before launch.
+            Practice Clarity. You provide and approve factual, clinical, legal
+            and practical details such as qualifications, memberships, fees,
+            policies and availability.
           </p>
         </details>
 
         <details class="acw-faq-item">
           <summary>How many refinement rounds are included?</summary>
           <p>
-            The service includes two structured refinement rounds for the visual
-            identity and two for the website. Feedback is gathered at agreed
-            checkpoints so it can be considered as a whole. Work outside the
-            agreed scope is quoted before it begins.
+            Two structured refinement rounds are included for the professional
+            identity and two for the website. Additional work is scoped and
+            quoted before it begins.
           </p>
         </details>
 
         <details class="acw-faq-item">
           <summary>Is the logo professionally designed?</summary>
           <p>
-            Yes. I establish the strategic and creative direction from your
-            Practice Clarity work, then collaborate with a specialist identity
-            designer to create the bespoke logo system. The identity is not
-            generated or assembled from stock logo elements.
+            Yes. I establish the strategic and creative direction through
+            Practice Clarity, then collaborate with a specialist identity
+            designer to produce the bespoke logo system.
           </p>
         </details>
 
         <details class="acw-faq-item">
           <summary>Is the website based on a template?</summary>
           <p>
-            No. Its structure, content, visual direction and client journey are
-            planned around your practice. It is developed as a lightweight
-            bespoke website rather than fitted into a restrictive page builder.
-          </p>
-        </details>
-
-        <details class="acw-faq-item">
-          <summary>Can I update the website after launch?</summary>
-          <p>
-            Yes. You receive a handover covering the parts of the site you can
-            safely update. If you would rather not manage it yourself, optional
-            ongoing care is available for £20 per month for minor updates. Larger
-            changes are scoped and quoted separately.
-          </p>
-        </details>
-
-        <details class="acw-faq-item">
-          <summary>What do I own, and what does hosting cost?</summary>
-          <p>
-            Your domain remains registered to you. After final payment you retain
-            your approved copy, final identity files and completed website files.
-            Managed hosting is available for £15 per month. Any third-party
-            licences or services are identified before you approve them.
+            No. The structure, copy, visual direction and client journey are
+            planned around your practice and developed as a lightweight bespoke
+            website rather than fitted into a restrictive page builder.
           </p>
         </details>
 
         <details class="acw-faq-item">
           <summary>What if I decide not to continue after Practice Clarity?</summary>
           <p>
-            There is a formal review point after Practice Clarity. If you decide
-            not to continue before identity production begins, the project can
-            stop there: the initial payment covers the work completed and the
-            finished Practice Clarity document, while the second payment is not
-            due. The project agreement records this boundary in full.
+            There is a formal review point after Practice Clarity. If you stop
+            before identity production begins, the first payment covers the work
+            completed and the finished document; the second payment is not due.
+          </p>
+        </details>
+
+        <details class="acw-faq-item">
+          <summary>What do I own after launch?</summary>
+          <p>
+            Your domain remains registered to you. After final payment you retain
+            your approved copy, final identity files and completed website files.
+            Any third-party licences are identified before approval.
+          </p>
+        </details>
+
+        <details class="acw-faq-item">
+          <summary>Can you maintain the website afterwards?</summary>
+          <p>
+            Yes. Managed hosting is available for £15 per month. Optional ongoing
+            care for minor updates is £20 per month, while larger changes are
+            scoped and quoted separately.
           </p>
         </details>
 
         <details class="acw-faq-item">
           <summary>Why is the Founding Therapist Programme £795?</summary>
           <p>
-            Alexander Watson Studio is new, and the three founding projects will
-            become its first published client case studies. The reduced price
-            reflects that early stage. Founding therapists receive the same
-            complete service in exchange for an honest testimonial, constructive
-            feedback and permission to share the agreed finished work.
+            The studio is at an early public stage, and the three founding
+            projects will become its first independent published case studies.
+            The reduced price reflects that stage, not a reduction in scope.
           </p>
         </details>
 
@@ -1024,24 +1596,22 @@ permalink: /service/
   </section>
 
   <section
-    class="acw-section acw-package-final"
+    class="acw-section acw-service-final"
     aria-labelledby="service-final-heading"
   >
-    <div class="acw-container acw-package-final-grid">
+    <div class="acw-container acw-service-final-grid">
 
-      <div class="acw-package-final-copy">
-        <p class="acw-section-label">
-          A clear next step
-        </p>
+      <div class="acw-service-final-copy">
+        <p class="acw-section-label">A clear next step</p>
 
         <h2 id="service-final-heading">
-          Start with a conversation about the practice you want to build.
+          Start with the practice you want to build.
         </h2>
 
         <p>
-          Tell me where your practice is now, what you want it to become and
-          what currently feels unclear. You do not need to arrive with polished
-          answers.
+          Tell me where the practice is now, what you want it to become and what
+          currently feels unclear. You do not need finished copy, a settled niche
+          or a visual direction before making contact.
         </p>
 
         <div class="acw-cta-row">
@@ -1051,15 +1621,22 @@ permalink: /service/
           >
             Apply for a founding place
           </a>
+
+          <a
+            class="acw-btn acw-btn-secondary"
+            href="{{ '/contact/?service=complete-service' | relative_url }}"
+          >
+            Enquire about the standard service
+          </a>
         </div>
       </div>
 
-      <figure class="acw-package-final-media">
+      <figure class="acw-service-final-media">
         <img
           src="{{ '/assets/images/home/homepage-cta-refined.webp' | relative_url }}"
           alt="A softly illuminated timber doorway opening into a calm interior"
-          width="1600"
-          height="1000"
+          width="1200"
+          height="900"
           loading="lazy"
           decoding="async"
         >

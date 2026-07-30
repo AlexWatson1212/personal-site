@@ -30,6 +30,7 @@ defaults:
       path: ""
     values:
       image: "/assets/images/brand/og-image.jpg"
+
   -
     scope:
       path: ""
@@ -51,3 +52,7 @@ exclude:
   - _site
   - package.json
   - package-lock.json
+
+  # Legacy pages retained for reference only.
+  - legacy
+  - _legacy
