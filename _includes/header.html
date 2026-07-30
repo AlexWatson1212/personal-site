@@ -58,27 +58,12 @@
         <li>
           <a
             href="{{ '/website-design-for-therapists/' | relative_url }}"
-            {% if page.url == '/website-design-for-therapists/' %}aria-current="page"{% endif %}
+            {% if page.url == '/website-design-for-therapists/'
+              or page.url == '/process/'
+              or page.url == '/professional-identity/'
+            %}aria-current="page"{% endif %}
           >
-            Complete Service
-          </a>
-        </li>
-
-        <li>
-          <a
-            href="{{ '/process/' | relative_url }}"
-            {% if page.url == '/process/' %}aria-current="page"{% endif %}
-          >
-            Process
-          </a>
-        </li>
-
-        <li>
-          <a
-            href="{{ '/professional-identity/' | relative_url }}"
-            {% if page.url == '/professional-identity/' %}aria-current="page"{% endif %}
-          >
-            Practice Clarity
+            Service
           </a>
         </li>
 
@@ -91,7 +76,9 @@
         <li>
           <a
             href="{{ '/library/' | relative_url }}"
-            {% if page.url == '/library/' or page.layout == 'post' %}aria-current="page"{% endif %}
+            {% if page.url == '/library/'
+              or page.layout == 'post'
+            %}aria-current="page"{% endif %}
           >
             Library
           </a>
