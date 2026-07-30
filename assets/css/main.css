@@ -12313,3 +12313,80 @@ creates distinct rhythms for questions, process, proof and price.
     transition: none;
   }
 }
+
+/* =========================================================
+44. DEDICATED SERVICE PAGE — FINAL CONSISTENCY PASS
+========================================================= */
+
+.acw-complete-package {
+  overflow: clip;
+}
+
+.acw-complete-package .acw-package-split-heading,
+.acw-complete-package .acw-package-chapter-heading,
+.acw-complete-package .acw-package-proof-heading {
+  align-items: end;
+}
+
+.acw-complete-package .acw-package-split-heading > div,
+.acw-complete-package .acw-package-chapter-heading > div,
+.acw-complete-package .acw-package-proof-heading > div {
+  min-width: 0;
+}
+
+.acw-complete-package .acw-package-split-heading h2,
+.acw-complete-package .acw-package-chapter-heading h2,
+.acw-complete-package .acw-package-proof-heading h2,
+.acw-complete-package .acw-package-investment-heading h2 {
+  text-wrap: balance;
+}
+
+.acw-complete-package p,
+.acw-complete-package li,
+.acw-complete-package dd {
+  text-wrap: pretty;
+}
+
+.acw-complete-package .acw-package-recognition-card,
+.acw-complete-package .acw-package-process-step,
+.acw-complete-package .acw-package-inclusion-card,
+.acw-complete-package .acw-package-price-card,
+.acw-complete-package .acw-package-fit-column {
+  height: 100%;
+}
+
+.acw-complete-package .acw-package-process-step h3,
+.acw-complete-package .acw-package-inclusion-card h3,
+.acw-complete-package .acw-package-price-card h3,
+.acw-complete-package .acw-package-fit-column strong {
+  text-wrap: balance;
+}
+
+.acw-complete-package .acw-package-faq-inner {
+  max-width: 860px;
+}
+
+.acw-complete-package .acw-package-final-copy {
+  max-width: 680px;
+}
+
+@media (max-width: 760px) {
+  .acw-complete-package .acw-package-founding-bar-inner {
+    align-items: flex-start;
+  }
+
+  .acw-complete-package .acw-package-founding-bar-inner p {
+    max-width: none;
+  }
+
+  .acw-complete-package .acw-package-split-heading,
+  .acw-complete-package .acw-package-chapter-heading,
+  .acw-complete-package .acw-package-proof-heading {
+    align-items: start;
+  }
+
+  .acw-complete-package .acw-package-price-card .acw-btn,
+  .acw-complete-package .acw-package-final .acw-btn {
+    width: 100%;
+  }
+}
