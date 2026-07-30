@@ -11,11 +11,11 @@
       aria-label="Alexander Watson — Home"
     >
       <img
-        class="nav__logo nav__logo--understated"
+        class="nav__logo"
         src="{{ '/assets/images/brand/Alexander-Watson-Alternate-logo.svg' | relative_url }}"
         alt=""
-        width="150"
-        height="38"
+        width="180"
+        height="45"
         decoding="async"
       >
     </a>
@@ -57,19 +57,28 @@
 
         <li>
           <a
-            href="{{ '/professional-identity/' | relative_url }}"
-            {% if page.url == '/professional-identity/' %}aria-current="page"{% endif %}
+            href="{{ '/website-design-for-therapists/' | relative_url }}"
+            {% if page.url == '/website-design-for-therapists/' %}aria-current="page"{% endif %}
           >
-            Professional Identity
+            Complete Service
           </a>
         </li>
 
         <li>
           <a
-            href="{{ '/website-design-for-therapists/' | relative_url }}"
-            {% if page.url == '/website-design-for-therapists/' %}aria-current="page"{% endif %}
+            href="{{ '/process/' | relative_url }}"
+            {% if page.url == '/process/' %}aria-current="page"{% endif %}
           >
-            Services
+            Process
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="{{ '/professional-identity/' | relative_url }}"
+            {% if page.url == '/professional-identity/' %}aria-current="page"{% endif %}
+          >
+            Practice Clarity
           </a>
         </li>
 
@@ -84,7 +93,7 @@
             href="{{ '/library/' | relative_url }}"
             {% if page.url == '/library/' or page.layout == 'post' %}aria-current="page"{% endif %}
           >
-            Guides
+            Library
           </a>
         </li>
 
@@ -103,7 +112,7 @@
         href="{{ '/contact/' | relative_url }}"
         {% if page.url == '/contact/' %}aria-current="page"{% endif %}
       >
-        Start a conversation
+        Apply for a founding place
       </a>
     </div>
 
