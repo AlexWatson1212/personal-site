@@ -1,8 +1,141 @@
 ---
 layout: default
-title: Practice Clarity, Identity & Websites for Therapists
-description: Practice Clarity, professional identity and website design for therapists committed to building a clear, trustworthy and long-term private practice.
+title: Complete Practice Identity & Website for Therapists
+description: A complete Practice Clarity, professional branding and bespoke website service for therapists building a clear, trustworthy and long-term private practice.
 ---
+
+<style>
+  .acw-founding-bar {
+    background: var(--acw-ink, #1f2925);
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .acw-founding-bar-inner {
+    min-height: 3.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem 1.25rem;
+    padding-block: 0.7rem;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+
+  .acw-founding-bar p {
+    margin: 0;
+    font-size: 0.86rem;
+    line-height: 1.45;
+    letter-spacing: 0.015em;
+  }
+
+  .acw-founding-bar strong {
+    font-weight: 650;
+  }
+
+  .acw-founding-bar a {
+    color: inherit;
+    font-size: 0.78rem;
+    font-weight: 650;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-underline-offset: 0.25em;
+  }
+
+  .acw-home-package-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1rem, 2vw, 1.5rem);
+    margin-top: clamp(2.25rem, 5vw, 4rem);
+  }
+
+  .acw-home-package-card {
+    padding: clamp(1.5rem, 3vw, 2.35rem);
+    border: 1px solid var(--acw-border, rgba(31, 41, 37, 0.16));
+    background: var(--acw-surface, #fff);
+  }
+
+  .acw-home-package-card h3 {
+    margin-bottom: 0.8rem;
+    text-wrap: balance;
+  }
+
+  .acw-home-package-card p {
+    margin-bottom: 1.25rem;
+  }
+
+  .acw-home-package-card ul {
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+
+  .acw-home-package-card li + li {
+    margin-top: 0.55rem;
+  }
+
+  .acw-home-investment-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    align-items: stretch;
+  }
+
+  .acw-home-price-card {
+    padding: clamp(1.75rem, 4vw, 3rem);
+    border: 1px solid var(--acw-border, rgba(31, 41, 37, 0.16));
+    background: var(--acw-surface, #fff);
+  }
+
+  .acw-home-price-card-featured {
+    background: var(--acw-ink, #1f2925);
+    color: #fff;
+  }
+
+  .acw-home-price-card-featured .acw-card-label,
+  .acw-home-price-card-featured p,
+  .acw-home-price-card-featured li {
+    color: inherit;
+  }
+
+  .acw-home-price {
+    margin: 0.75rem 0 1rem;
+    font-family: var(--acw-font-display, serif);
+    font-size: clamp(3rem, 7vw, 5.25rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+
+  .acw-home-price-note {
+    max-width: 34rem;
+  }
+
+  .acw-home-price-card ul {
+    margin: 1.5rem 0 0;
+    padding-left: 1.1rem;
+  }
+
+  .acw-home-price-card li + li {
+    margin-top: 0.55rem;
+  }
+
+  .acw-home-price-card .acw-cta-row {
+    margin-top: 1.75rem;
+  }
+
+  @media (max-width: 56rem) {
+    .acw-home-package-grid,
+    .acw-home-investment-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<section class="acw-founding-bar" aria-label="Founding Therapist Programme">
+  <div class="acw-container acw-founding-bar-inner">
+    <p><strong>Three founding therapist places:</strong> the complete £1,995 service for £795 in exchange for an honest testimonial and published case study.</p>
+    <a href="{{ '/#investment' | relative_url }}">View the offer</a>
+  </div>
+</section>
 
 <section class="acw-hero acw-hero-cover">
   <div class="acw-container">
@@ -25,24 +158,25 @@ description: Practice Clarity, professional identity and website design for ther
       <div class="acw-hero-cover-copy">
 
         <p class="acw-eyebrow">
-          For therapists building private practices
+          Complete practice identity &amp; website for therapists
         </p>
 
         <h1>
-          Build a private practice that feels recognisably your own.
+          Build a private practice people can recognise and trust.
         </h1>
 
         <p class="acw-hero-text">
-          Clarify who you are, communicate the value of your work and create a
-          professional online presence that suitable clients can recognise and trust.
+          One connected service bringing together Practice Clarity, positioning,
+          professional branding and a completely bespoke website—built around the
+          therapist you are and the practice you want to grow.
         </p>
 
         <div class="acw-cta-row">
           <a
             class="acw-btn acw-btn-primary"
-            href="{{ '/professional-identity/' | relative_url }}"
+            href="{{ '/website-design-for-therapists/' | relative_url }}"
           >
-            Explore Practice Clarity
+            Explore the complete service
           </a>
 
           <a
@@ -54,7 +188,7 @@ description: Practice Clarity, professional identity and website design for ther
         </div>
 
         <p class="acw-hero-supporting">
-          Clarity first. Website second.
+          Complete service: £1,995 · Three founding places: £795
         </p>
 
       </div>
@@ -70,22 +204,23 @@ description: Practice Clarity, professional identity and website design for ther
     <div class="acw-editorial-copy">
 
       <p class="acw-section-number">
-        Professional Identity
+        The foundation
       </p>
 
       <h2>
-        A trustworthy online presence begins with a clear practice.
+        The website is the final expression, not the starting point.
       </h2>
 
       <p class="acw-section-text acw-section-lead">
         Before deciding how your practice should look, we clarify what it needs
-        to express: your values, strengths, way of working and the therapeutic
-        relationships in which you naturally do your best work.
+        to express: your values, strengths, therapeutic approach, suitable clients,
+        way of working and the kind of practice you want to build.
       </p>
 
       <p class="acw-section-text">
-        That understanding becomes the foundation for your positioning, language,
-        visual identity and website—so each decision feels connected rather than invented.
+        That understanding becomes your Practice Clarity document and guides every
+        decision that follows: positioning, messaging, a professionally designed logo,
+        your wider visual identity and a completely tailor-made website.
       </p>
 
       <div class="acw-cta-row">
@@ -196,9 +331,9 @@ description: Practice Clarity, professional identity and website design for ther
         </p>
 
         <ul>
-          <li>Values</li>
-          <li>Strengths</li>
-          <li>Practice direction</li>
+          <li>Values and strengths</li>
+          <li>Suitable clients</li>
+          <li>Practice structure and direction</li>
         </ul>
 
       </article>
@@ -219,8 +354,8 @@ description: Practice Clarity, professional identity and website design for ther
 
         <ul>
           <li>Positioning</li>
-          <li>Core message</li>
-          <li>Voice</li>
+          <li>Core messages</li>
+          <li>Tone of voice and copy direction</li>
         </ul>
 
       </article>
@@ -236,13 +371,13 @@ description: Practice Clarity, professional identity and website design for ther
         </h3>
 
         <p>
-          Create an identity that communicates the emotional quality of the practice before every word is read.
+          Work with a professional identity designer to create a bespoke logo and visual system grounded in your Practice Clarity.
         </p>
 
         <ul>
-          <li>Typography</li>
-          <li>Colour</li>
-          <li>Visual language</li>
+          <li>Professionally designed logo</li>
+          <li>Concept development and revisions</li>
+          <li>Colour, typography and guidelines</li>
         </ul>
 
       </article>
@@ -258,13 +393,13 @@ description: Practice Clarity, professional identity and website design for ther
         </h3>
 
         <p>
-          Bring everything together in a coherent, accessible route from first impression to enquiry.
+          Bring everything together in a completely tailor-made website, designed and developed around your practice rather than adapted from a template.
         </p>
 
         <ul>
-          <li>Strategy</li>
-          <li>Design</li>
-          <li>Launch</li>
+          <li>Custom strategy, design and development</li>
+          <li>Responsive build and revisions</li>
+          <li>SEO foundations and launch support</li>
         </ul>
 
       </article>
@@ -278,6 +413,64 @@ description: Practice Clarity, professional identity and website design for ther
       >
         Explore Practice Clarity
       </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="acw-section acw-section-soft acw-home-package">
+  <div class="acw-container">
+
+    <div class="acw-section-heading">
+      <p class="acw-section-number">The complete service</p>
+      <h2>Everything needed to bring your practice into one coherent identity.</h2>
+      <p class="acw-section-intro acw-section-lead">
+        This is not a logo added to a template. Strategy, branding and website
+        development are shaped as one connected project, with time to review and
+        refine the work at each stage.
+      </p>
+    </div>
+
+    <div class="acw-home-package-grid">
+      <article class="acw-home-package-card">
+        <span class="acw-card-label">01 · Practice Clarity</span>
+        <h3>A clear professional foundation</h3>
+        <p>We define the practice before trying to present it.</p>
+        <ul>
+          <li>Professional identity and therapeutic approach</li>
+          <li>Suitable clients and client experience</li>
+          <li>Services, structure, boundaries and direction</li>
+          <li>Positioning, messaging and tone of voice</li>
+          <li>Your complete Practice Clarity document</li>
+        </ul>
+      </article>
+
+      <article class="acw-home-package-card">
+        <span class="acw-card-label">02 · Professional branding</span>
+        <h3>A bespoke identity designed by a specialist</h3>
+        <p>Your logo is created by a professional identity designer, not generated or assembled from stock elements.</p>
+        <ul>
+          <li>Strategic creative direction</li>
+          <li>Professionally designed bespoke logo</li>
+          <li>Concept presentation and revision rounds</li>
+          <li>Primary, secondary and supporting logo files</li>
+          <li>Colour, typography and practical guidelines</li>
+        </ul>
+      </article>
+
+      <article class="acw-home-package-card">
+        <span class="acw-card-label">03 · Bespoke website</span>
+        <h3>A completely tailor-made digital home</h3>
+        <p>Your website is designed and developed around your practice, with no restrictive template or page builder.</p>
+        <ul>
+          <li>Custom structure, design and development</li>
+          <li>Core website copy direction</li>
+          <li>Desktop, tablet and mobile refinement</li>
+          <li>Website revision rounds</li>
+          <li>Accessibility, performance and SEO foundations</li>
+          <li>Domain connection, launch and handover support</li>
+        </ul>
+      </article>
     </div>
 
   </div>
@@ -297,12 +490,12 @@ description: Practice Clarity, professional identity and website design for ther
       </h2>
 
       <p class="acw-section-lead">
-        You leave with clearer language, a recognisable identity and a stronger
-        basis for every decision that follows.
+        You leave with a clear written foundation, a professional brand identity
+        and a bespoke website that all express the same practice.
       </p>
 
       <p>
-        The website becomes one expression of the work, rather than the place where the thinking has to begin.
+        You also retain the thinking behind the work, so future decisions about directories, photography, content and growth do not need to begin from scratch.
       </p>
 
       <ul class="acw-outcome-points">
@@ -312,13 +505,13 @@ description: Practice Clarity, professional identity and website design for ther
         </li>
 
         <li>
-          <strong>A recognisable identity</strong>
-          <span>Create consistency wherever your practice appears.</span>
+          <strong>A professionally designed identity</strong>
+          <span>Use a bespoke logo and visual system created specifically for your practice.</span>
         </li>
 
         <li>
-          <strong>A clear direction</strong>
-          <span>Make website and visibility decisions from one foundation.</span>
+          <strong>A website made for your practice</strong>
+          <span>Launch a responsive, tailor-made site refined through a collaborative revision process.</span>
         </li>
       </ul>
 
@@ -343,6 +536,61 @@ description: Practice Clarity, professional identity and website design for ther
         decoding="async"
       >
     </figure>
+
+  </div>
+</section>
+
+<section id="investment" class="acw-section acw-home-investment">
+  <div class="acw-container">
+
+    <div class="acw-section-heading">
+      <p class="acw-section-number">Investment</p>
+      <h2>One complete project. One clear investment.</h2>
+      <p class="acw-section-intro acw-section-lead">
+        The full service includes Practice Clarity, positioning and messaging,
+        professional branding with a bespoke logo, a completely tailor-made website,
+        revision rounds and launch support.
+      </p>
+    </div>
+
+    <div class="acw-home-investment-grid">
+      <article class="acw-home-price-card">
+        <span class="acw-card-label">Complete service</span>
+        <h3>Practice Clarity, Brand Identity &amp; Website</h3>
+        <p class="acw-home-price">£1,995</p>
+        <p class="acw-home-price-note">
+          The standard investment for the complete end-to-end service. Payment is
+          divided into 50% to begin and 50% before launch.
+        </p>
+        <ul>
+          <li>Full Practice Clarity process and document</li>
+          <li>Professional logo design with revisions</li>
+          <li>Complete bespoke website with revisions</li>
+          <li>Launch, handover and foundational SEO</li>
+        </ul>
+      </article>
+
+      <article class="acw-home-price-card acw-home-price-card-featured">
+        <span class="acw-card-label">Founding Therapist Programme · Three places</span>
+        <h3>The complete service at a founding investment</h3>
+        <p class="acw-home-price">£795</p>
+        <p class="acw-home-price-note">
+          You receive the same complete service. The reduced investment reflects
+          that these projects will become the first published Alexander Watson Studio
+          client case studies.
+        </p>
+        <ul>
+          <li>An honest testimonial after launch</li>
+          <li>Permission to publish the finished work as a case study</li>
+          <li>Constructive feedback on the experience and process</li>
+        </ul>
+        <div class="acw-cta-row">
+          <a class="acw-btn acw-btn-primary" href="{{ '/contact/' | relative_url }}">
+            Enquire about a founding place
+          </a>
+        </div>
+      </article>
+    </div>
 
   </div>
 </section>
@@ -533,11 +781,11 @@ description: Practice Clarity, professional identity and website design for ther
 
         <article class="acw-fit-card">
           <h3>
-            You want the cheapest or fastest website
+            You only need a quick template website
           </h3>
 
           <p>
-            You are looking primarily for technical assembly rather than a thoughtful process of practice development.
+            You already have clear strategy, branding and copy and only need someone to assemble a simple site as quickly as possible.
           </p>
         </article>
 
@@ -753,12 +1001,39 @@ description: Practice Clarity, professional identity and website design for ther
 
       <details class="acw-faq-item">
         <summary>
-          Can I begin with Professional Identity only?
+          Is the logo professionally designed?
         </summary>
 
         <p>
-          Yes. The Practice Clarity Blueprint can stand alone. You can use it
-          independently without continuing into visual identity or website development.
+          Yes. I develop the strategic and creative direction from your Practice Clarity,
+          then a professional identity designer creates your bespoke logo system. The
+          process includes concept development and agreed revision rounds before the
+          final identity files are prepared.
+        </p>
+      </details>
+
+      <details class="acw-faq-item">
+        <summary>
+          Is the website based on a template?
+        </summary>
+
+        <p>
+          No. The website is planned, designed and developed specifically around your
+          practice. Its structure, language, visual direction and client journey grow
+          from the strategy rather than being fitted into a pre-existing template.
+        </p>
+      </details>
+
+      <details class="acw-faq-item">
+        <summary>
+          Why is the Founding Therapist Programme £795?
+        </summary>
+
+        <p>
+          The standard investment is £1,995. Three founding projects are available at
+          £795 because they will become the studio's first published client case studies.
+          Founding therapists receive the same complete service in exchange for an honest
+          testimonial, constructive feedback and permission to showcase the finished work.
         </p>
       </details>
 
@@ -775,25 +1050,26 @@ description: Practice Clarity, professional identity and website design for ther
       <div class="acw-home-final-copy">
 
         <p class="acw-section-label">
-          Practice Clarity
+          Three founding places available
         </p>
 
         <h2>
-          Build a practice people can recognise and trust.
+          Build the complete foundation of your private practice.
         </h2>
 
         <p>
-          Begin with the clarity that connects your professional identity, language,
-          visual presence and website into one coherent foundation.
+          Receive Practice Clarity, professional branding with a bespoke logo and a
+          completely tailor-made website for £795 as one of the studio's first three
+          published client case studies. The standard investment is £1,995.
         </p>
 
         <div class="acw-cta-row">
 
           <a
             class="acw-btn acw-btn-primary"
-            href="{{ '/professional-identity/' | relative_url }}"
+            href="{{ '/contact/' | relative_url }}"
           >
-            Explore Practice Clarity
+            Enquire about a founding place
           </a>
 
         </div>
