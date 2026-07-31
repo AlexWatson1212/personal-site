@@ -1174,6 +1174,46 @@ permalink: /service/
       gap: 2.75rem;
     }
   }
+  /* Visual Guide document — included here so this page is fully self-contained. */
+  .acw-service-visual-guide {
+    margin-top: clamp(4.5rem, 8vw, 7rem);
+    padding-top: clamp(3.5rem, 6vw, 5.5rem);
+    border-top: 1px solid rgba(26, 33, 25, 0.14);
+  }
+
+  .acw-service-visual-guide-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 0.94fr) minmax(300px, 0.66fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: end;
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .acw-service-visual-guide-heading h3 {
+    max-width: 15ch;
+    margin: 0;
+    font-size: clamp(2.2rem, 3.35vw, 3.65rem);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+  }
+
+  .acw-service-visual-guide-heading > p {
+    max-width: 48ch;
+    margin: 0;
+    color: var(--muted);
+  }
+
+  @media (max-width: 760px) {
+    .acw-service-visual-guide-heading {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .acw-service-visual-guide-heading h3 {
+      font-size: clamp(2.05rem, 8.8vw, 2.8rem);
+      line-height: 1;
+    }
+  }
 </style>
 
 <div class="acw-service-page">
