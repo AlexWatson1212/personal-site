@@ -860,6 +860,101 @@ permalink: /service/
       width: 100%;
     }
   }
+
+  /* Final service-page composition pass — keep the opening contained and legible. */
+  .acw-service-page .acw-service-hero {
+    min-height: 0;
+    padding-block: clamp(3.25rem, 5vw, 5.5rem);
+  }
+
+  .acw-service-page .acw-service-hero-grid {
+    grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.72fr);
+    gap: clamp(2.5rem, 5vw, 5.25rem);
+    align-items: center;
+  }
+
+  .acw-service-page .acw-service-hero-copy {
+    max-width: 660px;
+  }
+
+  .acw-service-page .acw-service-hero h1 {
+    max-width: 14.5ch;
+    font-size: clamp(3rem, 4.25vw, 4.85rem);
+    line-height: 0.94;
+    letter-spacing: -0.062em;
+    text-wrap: pretty;
+  }
+
+  .acw-service-page .acw-service-hero-intro {
+    max-width: 48ch;
+    font-size: clamp(1rem, 1.05vw, 1.12rem);
+    line-height: 1.65;
+  }
+
+  .acw-service-page .acw-service-hero-media {
+    width: min(100%, 430px);
+    justify-self: end;
+  }
+
+  .acw-service-page .acw-service-hero-media img {
+    aspect-ratio: 4 / 3;
+    border-radius: 18px;
+  }
+
+  .acw-service-page .acw-service-price-card-featured,
+  .acw-service-page .acw-service-price-card-featured h3,
+  .acw-service-page .acw-service-price-card-featured .acw-service-price,
+  .acw-service-page .acw-service-price-card-featured .acw-card-label {
+    color: #ffffff;
+  }
+
+  .acw-service-page .acw-service-price-card-featured p,
+  .acw-service-page .acw-service-price-card-featured li {
+    color: rgba(255, 255, 255, 0.84);
+  }
+
+  .acw-service-page .acw-service-price-card-featured .acw-btn-primary {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #283a38;
+  }
+
+  .acw-service-page .acw-service-work-feature {
+    grid-template-columns: minmax(0, 0.95fr) minmax(460px, 1.05fr);
+    gap: clamp(3rem, 6vw, 6rem);
+  }
+
+  .acw-service-page .acw-service-work-copy h2 {
+    max-width: 16ch;
+    text-wrap: pretty;
+  }
+
+  .acw-service-page .acw-service-work-copy p:not(.acw-section-number) {
+    max-width: 52ch;
+  }
+
+  @media (max-width: 980px) {
+    .acw-service-page .acw-service-hero-grid,
+    .acw-service-page .acw-service-work-feature {
+      grid-template-columns: 1fr;
+    }
+
+    .acw-service-page .acw-service-hero-media {
+      width: min(100%, 620px);
+      justify-self: start;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .acw-service-page .acw-service-hero {
+      padding-block: 3rem 4.25rem;
+    }
+
+    .acw-service-page .acw-service-hero h1 {
+      max-width: 12.5ch;
+      font-size: clamp(2.65rem, 11.5vw, 3.55rem);
+    }
+  }
 </style>
 
 <div class="acw-service-page">
@@ -1597,7 +1692,7 @@ permalink: /service/
 
       <figure class="acw-service-work-media">
         <img
-          src="{{ '/assets/images/seervice/alexander-watson-counselling-case-study.webp' | relative_url }}"
+          src="{{ '/assets/images/service/alexander-watson-counselling-case-study.webp' | relative_url }}"
           alt="A therapist website displayed beside the strategic notes and identity materials behind it"
           width="1600"
           height="1000"
