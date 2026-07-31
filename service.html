@@ -955,6 +955,178 @@ permalink: /service/
       font-size: clamp(2.65rem, 11.5vw, 3.55rem);
     }
   }
+
+  /* Service page — final hierarchy, navigation and spacing refinement. */
+  .acw-service-page {
+    overflow: clip;
+  }
+
+  .acw-service-jump-nav {
+    position: relative;
+    z-index: 2;
+    background: rgba(250, 248, 246, 0.96);
+    border-bottom: 1px solid rgba(26, 33, 25, 0.09);
+  }
+
+  .acw-service-jump-nav-inner {
+    display: flex;
+    gap: 0.35rem 1.25rem;
+    align-items: center;
+    min-height: 3.4rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .acw-service-jump-nav a {
+    flex: 0 0 auto;
+    padding-block: 0.18rem;
+    color: rgba(26, 33, 25, 0.67);
+    border-bottom: 1px solid transparent;
+    font-size: 0.7rem;
+    font-weight: 850;
+    letter-spacing: 0.09em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .acw-service-jump-nav a:hover,
+  .acw-service-jump-nav a:focus-visible {
+    color: var(--accent-dark);
+    border-bottom-color: currentColor;
+  }
+
+  .acw-service-page .acw-service-hero h1 {
+    max-width: 15.5ch;
+    font-size: clamp(2.9rem, 4vw, 4.45rem);
+    line-height: 0.96;
+  }
+
+  .acw-service-page .acw-service-hero-grid {
+    grid-template-columns: minmax(0, 1.03fr) minmax(365px, 0.82fr);
+    gap: clamp(2.5rem, 5vw, 5.5rem);
+  }
+
+  .acw-service-page .acw-service-hero-media {
+    width: min(100%, 470px);
+  }
+
+  .acw-service-page .acw-service-hero-media--portrait img {
+    aspect-ratio: 4 / 5;
+    object-position: 54% center;
+  }
+
+  .acw-service-page .acw-service-heading h2,
+  .acw-service-page .acw-service-management-copy h2,
+  .acw-service-page .acw-service-next-copy h2 {
+    font-size: clamp(2.2rem, 3.35vw, 3.65rem);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+  }
+
+  .acw-service-page .acw-service-deliverable-grid {
+    gap: 1.15rem;
+  }
+
+  .acw-service-page .acw-service-deliverable,
+  .acw-service-page .acw-service-deliverable-featured {
+    min-height: 100%;
+    background: #ffffff;
+    border-color: rgba(26, 33, 25, 0.11);
+  }
+
+  .acw-service-page .acw-service-deliverable h3 {
+    max-width: 15ch;
+    font-size: clamp(1.35rem, 1.65vw, 1.8rem);
+    line-height: 1.03;
+  }
+
+  .acw-service-page .acw-service-management-list h3 {
+    max-width: 19ch;
+    font-size: clamp(1.2rem, 1.55vw, 1.58rem);
+    line-height: 1.08;
+  }
+
+  .acw-service-page .acw-service-management-list article {
+    min-height: 198px;
+  }
+
+  .acw-service-page .acw-service-price-card-featured,
+  .acw-service-page .acw-service-price-card-featured * {
+    color: #ffffff;
+  }
+
+  .acw-service-page .acw-service-price-card-featured p,
+  .acw-service-page .acw-service-price-card-featured li {
+    color: rgba(255, 255, 255, 0.84);
+  }
+
+  .acw-service-page .acw-service-price-card-featured .acw-btn-primary {
+    color: #283a38;
+  }
+
+  .acw-service-page .acw-service-next-grid {
+    gap: clamp(3.5rem, 7vw, 6.5rem);
+  }
+
+  .acw-service-page .acw-service-next-copy h2 {
+    max-width: 15ch;
+  }
+
+  @media (max-width: 980px) {
+    .acw-service-page .acw-service-hero-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .acw-service-page .acw-service-hero-media {
+      width: min(100%, 520px);
+      justify-self: start;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .acw-service-jump-nav-inner {
+      min-height: 3.1rem;
+      gap: 1rem;
+    }
+
+    .acw-service-jump-nav a {
+      font-size: 0.65rem;
+    }
+
+    .acw-service-page .acw-service-hero h1 {
+      max-width: 14ch;
+      font-size: clamp(2.45rem, 10.3vw, 3.25rem);
+    }
+
+    .acw-service-page .acw-service-hero-media,
+    .acw-service-page .acw-service-hero-media--portrait {
+      width: 100%;
+    }
+
+    .acw-service-page .acw-service-hero-media--portrait img {
+      aspect-ratio: 4 / 5;
+    }
+
+    .acw-service-page .acw-service-heading h2,
+    .acw-service-page .acw-service-management-copy h2,
+    .acw-service-page .acw-service-next-copy h2 {
+      font-size: clamp(2.05rem, 8.8vw, 2.8rem);
+      line-height: 1;
+    }
+
+    .acw-service-page .acw-service-management-list h3 {
+      max-width: 22ch;
+      font-size: 1.25rem;
+    }
+
+    .acw-service-page .acw-service-management-list article {
+      min-height: 0;
+    }
+
+    .acw-service-page .acw-service-next-grid {
+      gap: 2.75rem;
+    }
+  }
 </style>
 
 <div class="acw-service-page">
@@ -975,6 +1147,17 @@ permalink: /service/
       </a>
     </div>
   </aside>
+
+  <nav class="acw-service-jump-nav" aria-label="On this page">
+    <div class="acw-container acw-service-jump-nav-inner">
+      <a href="#service-overview">Overview</a>
+      <a href="#practice-clarity">Practice Clarity</a>
+      <a href="#how-it-works">Project map</a>
+      <a href="#deliverables">What you receive</a>
+      <a href="#investment">Investment</a>
+      <a href="#faq">Questions</a>
+    </div>
+  </nav>
 
   <section
     class="acw-service-hero"
@@ -1024,7 +1207,7 @@ permalink: /service/
         </p>
       </div>
 
-      <figure class="acw-service-hero-media">
+      <figure class="acw-service-hero-media acw-service-hero-media--portrait">
         <img
           src="{{ '/assets/images/service/service-hero.webp' | relative_url }}"
           alt="Practice Clarity materials, a notebook and a therapist website arranged on a calm working desk"
@@ -1374,6 +1557,7 @@ permalink: /service/
   </section>
 
   <section
+    id="deliverables"
     class="acw-section acw-service-deliverables"
     aria-labelledby="service-deliverables-heading"
   >
@@ -1396,7 +1580,7 @@ permalink: /service/
 
       <div class="acw-service-deliverable-grid">
 
-        <article class="acw-service-deliverable acw-service-deliverable-featured">
+        <article class="acw-service-deliverable">
           <p class="acw-card-label">Practice Clarity</p>
           <h3>A written foundation you can keep using</h3>
           <ul>
