@@ -1174,6 +1174,60 @@ permalink: /service/
       gap: 2.75rem;
     }
   }
+
+  /* Visual Guide — contained, reliable PDF presentation. */
+  .acw-service-visual-guide {
+    padding-block: clamp(5rem, 8vw, 8rem);
+    background:
+      radial-gradient(circle at 86% 8%, rgba(121, 131, 113, 0.1), transparent 34%),
+      #f2f3ef;
+  }
+
+  .acw-service-visual-guide-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 0.94fr) minmax(300px, 0.66fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: end;
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .acw-service-visual-guide-heading h2 {
+    max-width: 15ch;
+    margin: 0;
+    font-size: clamp(2.2rem, 3.35vw, 3.65rem);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+  }
+
+  .acw-service-visual-guide-heading > p {
+    max-width: 48ch;
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .acw-service-visual-guide iframe {
+    display: block;
+    width: 100%;
+    height: clamp(34rem, 68vw, 52rem);
+    border: 0;
+    background: #ffffff;
+  }
+
+  @media (max-width: 760px) {
+    .acw-service-visual-guide-heading {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .acw-service-visual-guide-heading h2 {
+      font-size: clamp(2.05rem, 8.8vw, 2.8rem);
+      line-height: 1;
+    }
+
+    .acw-service-visual-guide iframe {
+      height: 34rem;
+    }
+  }
 </style>
 
 <div class="acw-service-page">
@@ -1422,41 +1476,34 @@ permalink: /service/
     </div>
   </section>
 
-  <section class="acw-service-visual-guide" aria-labelledby="visual-guide-heading">
-    <header class="acw-service-visual-guide-heading">
-      <div>
-        <p class="acw-section-number">The visual expression</p>
-        <h3 id="visual-guide-heading">A visual identity with a system behind it.</h3>
+  <section class="acw-section acw-service-visual-guide" aria-labelledby="visual-guide-heading">
+    <div class="acw-container">
+      <header class="acw-service-visual-guide-heading">
+        <div>
+          <p class="acw-section-number">The visual expression</p>
+          <h2 id="visual-guide-heading">A visual identity with a system behind it.</h2>
+        </div>
+
+        <p>
+          The Brand System Suite is the practical reference for the logo system,
+          typography, colour, imagery and how the practice should feel wherever it appears.
+        </p>
+      </header>
+
+      <div class="acw-service-document-shell">
+        <iframe
+          src="{{ '/assets/documents/brand-system-suite-alexander-watson.pdf' | relative_url }}"
+          title="Visual Guide example document"
+          loading="lazy"
+        ></iframe>
       </div>
 
-      <p>
-        The Brand System Suite is the practical reference for the logo system,
-        typography, colour, imagery and how the practice should feel wherever it appears.
-      </p>
-    </header>
-
-    <div class="acw-service-document-shell">
-      <object
-        data="{{ '/assets/documents/brand-system-suite-alexander-watson.pdf' | relative_url }}"
-        type="application/pdf"
-        aria-label="Visual Guide example document"
-      >
-        <div class="acw-service-document-fallback">
-          <div>
-            <p class="acw-card-label">Visual Guide example</p>
-            <h3>Your browser cannot display the document inside this page.</h3>
-            <p>Open the full PDF in a new tab to review the example document.</p>
-            <a class="acw-btn acw-btn-primary" href="{{ '/assets/documents/brand-system-suite-alexander-watson.pdf' | relative_url }}" target="_blank" rel="noopener">Open the Visual Guide PDF</a>
-          </div>
-        </div>
-      </object>
-    </div>
-
-    <div class="acw-service-document-actions">
-      <a class="acw-btn acw-btn-secondary" href="{{ '/assets/documents/brand-system-suite-alexander-watson.pdf' | relative_url }}" target="_blank" rel="noopener">
-        Open the Visual Guide in a new tab
-        <span class="sr-only">(opens in a new tab)</span>
-      </a>
+      <div class="acw-service-document-actions">
+        <a class="acw-btn acw-btn-secondary" href="{{ '/assets/documents/brand-system-suite-alexander-watson.pdf' | relative_url }}" target="_blank" rel="noopener">
+          Open the Visual Guide in a new tab
+          <span class="sr-only">(opens in a new tab)</span>
+        </a>
+      </div>
     </div>
   </section>
 
