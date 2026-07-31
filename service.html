@@ -965,7 +965,9 @@ permalink: /service/
     position: relative;
     z-index: 2;
     background: rgba(250, 248, 246, 0.96);
+    border-top: 1px solid rgba(26, 33, 25, 0.09);
     border-bottom: 1px solid rgba(26, 33, 25, 0.09);
+    padding-block: clamp(1.1rem, 2vw, 1.65rem);
   }
 
   .acw-service-jump-nav-inner {
@@ -993,6 +995,12 @@ permalink: /service/
   .acw-service-jump-nav a:focus-visible {
     color: var(--accent-dark);
     border-bottom-color: currentColor;
+  }
+
+  /* Jump links target the heading itself, rather than the padded section.
+     This makes every destination feel precise and immediately readable. */
+  .acw-service-page h2[id] {
+    scroll-margin-top: clamp(1.25rem, 3vw, 3rem);
   }
 
   .acw-service-page .acw-service-hero h1 {
@@ -1084,6 +1092,10 @@ permalink: /service/
   }
 
   @media (max-width: 760px) {
+    .acw-service-jump-nav {
+      padding-block: 0.8rem;
+    }
+
     .acw-service-jump-nav-inner {
       min-height: 3.1rem;
       gap: 1rem;
@@ -1142,22 +1154,11 @@ permalink: /service/
         a testimonial and permission to publish the approved finished work.
       </p>
 
-      <a href="#investment">
+      <a href="#service-investment-heading">
         View the founding offer
       </a>
     </div>
   </aside>
-
-  <nav class="acw-service-jump-nav" aria-label="On this page">
-    <div class="acw-container acw-service-jump-nav-inner">
-      <a href="#service-overview">Overview</a>
-      <a href="#practice-clarity">Practice Clarity</a>
-      <a href="#how-it-works">Project map</a>
-      <a href="#deliverables">What you receive</a>
-      <a href="#investment">Investment</a>
-      <a href="#faq">Questions</a>
-    </div>
-  </nav>
 
   <section
     class="acw-service-hero"
@@ -1196,7 +1197,7 @@ permalink: /service/
 
           <a
             class="acw-btn acw-btn-secondary"
-            href="#service-overview"
+            href="#service-overview-heading"
           >
             Review the complete service
           </a>
@@ -1223,6 +1224,17 @@ permalink: /service/
 
     </div>
   </section>
+
+  <nav class="acw-service-jump-nav" aria-label="On this page">
+    <div class="acw-container acw-service-jump-nav-inner">
+      <a href="#service-overview-heading">Overview</a>
+      <a href="#practice-clarity-heading">Practice Clarity</a>
+      <a href="#service-stages-heading">Project map</a>
+      <a href="#service-deliverables-heading">What you receive</a>
+      <a href="#service-investment-heading">Investment</a>
+      <a href="#service-faq-heading">Questions</a>
+    </div>
+  </nav>
 
   <section
     id="service-overview"
