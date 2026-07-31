@@ -50,6 +50,7 @@ The order below intentionally preserves the original cascade.
 41. COMPLETE PACKAGE — PREMIUM CREATIVE-DIRECTOR PASS
 42. COMPLETE PACKAGE — VISUAL RHYTHM + PROOF PASS
 43. COMPLETE PACKAGE — COMPACT HERO + TYPOGRAPHY REPAIR
+48. LIBRARY PAGE — CONSOLIDATED CANONICAL SYSTEM
 ========================================================= */
 
 /* =========================================================
@@ -10337,6 +10338,689 @@ Authoritative corrections for /service/.
     max-width: 12.5ch;
     font-size: clamp(2.65rem, 11.5vw, 3.55rem);
   }
+}
+
+/* =========================================================
+48. LIBRARY PAGE — CONSOLIDATED CANONICAL SYSTEM
+For the revised /library/ page. This is the single authoritative
+Library layer; it intentionally supersedes earlier Library experiments.
+========================================================= */
+
+/* 48.1 Shared Library rules */
+
+.acw-library-hero,
+.acw-library-orientation,
+.acw-library-map,
+.acw-library-principles,
+.acw-library-resources,
+.acw-library-latest,
+.acw-library-closing {
+  position: relative;
+}
+
+.acw-library-hero .acw-keep,
+.acw-library-orientation .acw-keep,
+.acw-library-map .acw-keep,
+.acw-library-principles .acw-keep,
+.acw-library-resources .acw-keep,
+.acw-library-latest .acw-keep,
+.acw-library-closing .acw-keep {
+  display: inline;
+  white-space: normal;
+}
+
+.acw-library-hero p,
+.acw-library-orientation p,
+.acw-library-map p,
+.acw-library-principles p,
+.acw-library-resources p,
+.acw-library-latest p,
+.acw-library-closing p {
+  text-wrap: pretty;
+}
+
+.acw-library-text-link,
+.acw-library-card-link {
+  color: var(--accent-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.acw-library-text-link:hover,
+.acw-library-card-link:hover {
+  color: var(--text);
+}
+
+/* 48.2 Hero */
+
+.acw-library-hero {
+  overflow: hidden;
+  background: var(--surface);
+  padding-block: clamp(4.5rem, 8vw, 7.5rem);
+}
+
+.acw-library-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.64fr);
+  gap: clamp(2.5rem, 7vw, 7rem);
+  align-items: center;
+}
+
+.acw-library-hero-copy {
+  max-width: 42rem;
+}
+
+.acw-library-hero h1 {
+  max-width: 11.5ch;
+  margin-bottom: 1.35rem;
+  font-size: clamp(3.1rem, 5vw, 5rem);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+}
+
+.acw-library-hero-intro {
+  max-width: 42ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  line-height: 1.65;
+}
+
+.acw-library-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.acw-library-hero-note {
+  max-width: 46ch;
+  margin: 1.15rem 0 0;
+  color: var(--muted);
+  font-size: 0.79rem;
+  line-height: 1.55;
+}
+
+.acw-library-hero-media {
+  width: min(100%, 410px);
+  margin: 0;
+  justify-self: end;
+  overflow: hidden;
+  aspect-ratio: 5 / 4;
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-library-hero-media::before {
+  display: none;
+}
+
+.acw-library-hero-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+}
+
+/* 48.3 Pathway orientation */
+
+.acw-library-orientation {
+  background: var(--surface);
+  padding-block: clamp(4.75rem, 8vw, 7.5rem);
+}
+
+.acw-library-orientation-heading,
+.acw-library-resources-heading,
+.acw-library-latest-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(16rem, 0.45fr);
+  gap: clamp(2rem, 6vw, 5.5rem);
+  align-items: end;
+}
+
+.acw-library-orientation-heading h2,
+.acw-library-resources-heading h2,
+.acw-library-latest-heading h2 {
+  max-width: 13ch;
+}
+
+.acw-library-orientation-heading > p,
+.acw-library-resources-heading > p,
+.acw-library-latest-heading > p {
+  max-width: 29rem;
+  margin: 0 0 0.45rem;
+  color: var(--muted);
+}
+
+.acw-library-stage-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: clamp(2.5rem, 5vw, 4.25rem);
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.acw-library-stage-link {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1.5rem 1.4rem 1.65rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.acw-library-stage-link + .acw-library-stage-link {
+  border-left: 1px solid var(--line-strong);
+}
+
+.acw-library-stage-link:hover {
+  background: rgba(215, 221, 216, 0.26);
+  color: var(--text);
+}
+
+.acw-library-stage-link > span,
+.acw-library-chapter-number,
+.acw-library-journey-step > span {
+  color: var(--accent-dark);
+  font-size: 0.69rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  line-height: 1;
+}
+
+.acw-library-stage-link strong {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+.acw-library-stage-link small {
+  max-width: 19rem;
+  color: var(--muted);
+  font-size: 0.79rem;
+  line-height: 1.5;
+}
+
+/* 48.4 Pathway map */
+
+.acw-library-map {
+  background: var(--surface-warm);
+  padding-block: clamp(4.5rem, 8vw, 7.5rem);
+}
+
+.acw-library-map-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(18rem, 1fr);
+  gap: clamp(2.5rem, 8vw, 7.5rem);
+  padding: clamp(2rem, 4.5vw, 4.25rem);
+  background: rgba(255, 255, 255, 0.32);
+  border: 1px solid rgba(26, 33, 25, 0.1);
+  border-radius: 18px;
+}
+
+.acw-library-map h2 {
+  max-width: 8ch;
+}
+
+.acw-library-map-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.acw-library-map-list li {
+  display: grid;
+  grid-template-columns: 2.6rem 1fr;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(26, 33, 25, 0.14);
+}
+
+.acw-library-map-list li:first-child { padding-top: 0; }
+.acw-library-map-list li:last-child { padding-bottom: 0; border-bottom: 0; }
+
+.acw-library-map-list > li > span {
+  color: var(--accent-dark);
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.acw-library-map-list strong {
+  font-family: var(--font-heading);
+  font-size: 1.22rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+.acw-library-map-list p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.87rem;
+  line-height: 1.52;
+}
+
+/* 48.5 Principles */
+
+.acw-library-principles {
+  background: var(--surface);
+  padding-block: clamp(5rem, 9vw, 8.5rem);
+}
+
+.acw-library-section-heading {
+  max-width: 46rem;
+}
+
+.acw-library-section-heading h2 { max-width: 12ch; }
+
+.acw-library-section-heading > p:last-child {
+  max-width: 39rem;
+  color: var(--muted);
+}
+
+.acw-library-chapter {
+  padding-top: clamp(4.5rem, 8vw, 7rem);
+}
+
+.acw-library-chapter + .acw-library-chapter {
+  margin-top: 0;
+}
+
+.acw-library-chapter-intro {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 39rem);
+  gap: 1.15rem;
+  margin-bottom: 2.5rem;
+}
+
+.acw-library-chapter-number {
+  margin: 0.55rem 0 0;
+}
+
+.acw-library-chapter-intro h3 {
+  max-width: 19ch;
+  margin-bottom: 0.8rem;
+  font-size: clamp(2.25rem, 3.7vw, 3.75rem);
+  line-height: 0.96;
+}
+
+.acw-library-chapter-intro div > p:last-child {
+  max-width: 43rem;
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.acw-library-principle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.acw-library-principle-card {
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+.acw-library-principle-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xs);
+}
+
+.acw-library-principle-image-link {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 2.7;
+}
+
+.acw-library-principle-image-link img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+
+.acw-library-principle-card:hover .acw-library-principle-image-link img,
+.acw-library-latest-card:hover .acw-library-latest-image-link img {
+  transform: scale(1.035);
+}
+
+.acw-library-principle-body {
+  padding: 1.35rem 1.35rem 1.5rem;
+}
+
+.acw-library-step {
+  margin: 0 0 0.6rem;
+  color: var(--accent-dark);
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.acw-library-principle-body h4,
+.acw-library-principle-link h4,
+.acw-library-journey-step h4 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.28rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+
+.acw-library-principle-body h4 a,
+.acw-library-principle-link h4 a,
+.acw-library-journey-step h4 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.acw-library-principle-body > p:not(.acw-library-step),
+.acw-library-principle-link > p:not(.acw-library-step),
+.acw-library-journey-step > p:not(.acw-library-step) {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.acw-library-principle-body .acw-library-card-link { margin-top: 0.45rem; }
+
+/* 48.6 Express stage — intentionally varied layout */
+
+.acw-library-chapter-express {
+  margin-inline: calc(50% - 50vw);
+  padding: clamp(4.5rem, 8vw, 7rem) max(1.4rem, calc((100vw - var(--container)) / 2));
+  background: var(--bg);
+}
+
+.acw-library-chapter-express .acw-library-chapter-intro,
+.acw-library-chapter-express .acw-library-express-layout {
+  width: min(100%, var(--container));
+  margin-inline: auto;
+}
+
+.acw-library-express-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.65fr);
+  gap: 1.2rem;
+}
+
+.acw-library-principle-card-wide {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: stretch;
+}
+
+.acw-library-principle-card-wide .acw-library-principle-image-link { aspect-ratio: auto; }
+.acw-library-principle-card-wide .acw-library-principle-body { align-self: center; }
+
+.acw-library-principle-stack {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.acw-library-principle-link {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.55);
+  border-top: 1px solid var(--accent-dark);
+}
+
+/* 48.7 Connect stage */
+
+.acw-library-journey-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  overflow: hidden;
+  background: var(--line-strong);
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+}
+
+.acw-library-journey-step {
+  min-height: 18rem;
+  padding: 1.5rem;
+  background: var(--white);
+}
+
+.acw-library-journey-step > span {
+  display: block;
+  margin-bottom: 2.4rem;
+  font-size: 1.35rem;
+}
+
+/* 48.8 Practical guide feature */
+
+.acw-library-resources {
+  background: var(--surface-warm);
+  padding-block: clamp(5rem, 9vw, 8rem);
+}
+
+.acw-library-resource-feature {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: stretch;
+  max-width: 64rem;
+  margin-top: clamp(2.75rem, 5vw, 4rem);
+  overflow: hidden;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-library-resource-media { min-height: 27rem; }
+
+.acw-library-resource-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+}
+
+.acw-library-resource-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 5vw, 4.5rem);
+}
+
+.acw-library-resource-copy h3 {
+  max-width: 16ch;
+  font-size: clamp(2.05rem, 3.15vw, 3.3rem);
+  line-height: 0.97;
+}
+
+.acw-library-resource-copy > p:not(.acw-section-label) {
+  max-width: 34ch;
+  color: var(--muted);
+}
+
+.acw-library-resource-copy .acw-btn {
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+
+/* 48.9 Supporting articles */
+
+.acw-library-latest {
+  background: var(--surface);
+  padding-block: clamp(5rem, 9vw, 8rem);
+}
+
+.acw-library-latest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-top: clamp(2.75rem, 5vw, 4rem);
+}
+
+.acw-library-latest-card {
+  overflow: hidden;
+  border-top: 1px solid var(--accent-dark);
+}
+
+.acw-library-latest-image-link {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 2.35;
+  margin-top: 0.8rem;
+}
+
+.acw-library-latest-image-link img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+
+.acw-library-latest-card > div { padding: 1.25rem 0.1rem; }
+
+.acw-library-latest-card h3 {
+  margin: 0.45rem 0;
+  font-family: var(--font-heading);
+  font-size: 1.32rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.acw-library-latest-card h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.acw-library-latest-card div > p:not(.acw-blog-meta) {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.acw-library-empty {
+  max-width: 42rem;
+  margin-top: 3rem;
+  padding: 2rem;
+  background: var(--bg);
+  border-left: 1px solid var(--accent-dark);
+}
+
+/* 48.10 Closing conversion section */
+
+.acw-library-closing {
+  background: var(--bg);
+  padding-block: clamp(5rem, 9vw, 8rem);
+}
+
+.acw-library-closing-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.44fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: end;
+  padding: clamp(2rem, 5vw, 4.5rem);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow-xs);
+}
+
+.acw-library-closing-card h2 { max-width: 16ch; }
+
+.acw-library-closing-card > div:first-child > p:last-child {
+  max-width: 44rem;
+  color: var(--muted);
+}
+
+.acw-library-closing-actions {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+}
+
+/* 48.11 Responsive Library layout */
+
+@media (max-width: 900px) {
+  .acw-library-hero-grid,
+  .acw-library-orientation-heading,
+  .acw-library-resources-heading,
+  .acw-library-latest-heading,
+  .acw-library-map-inner,
+  .acw-library-resource-feature,
+  .acw-library-closing-card {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-library-hero-media {
+    width: min(100%, 34rem);
+    justify-self: start;
+  }
+
+  .acw-library-orientation-heading > p,
+  .acw-library-resources-heading > p,
+  .acw-library-latest-heading > p {
+    margin-bottom: 0;
+  }
+
+  .acw-library-principle-grid { grid-template-columns: repeat(2, 1fr); }
+  .acw-library-latest-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 760px) {
+  .acw-library-hero { padding-block: 4rem 4.5rem; }
+
+  .acw-library-hero h1 {
+    max-width: 11ch;
+    font-size: clamp(2.75rem, 11.5vw, 3.7rem);
+  }
+
+  .acw-library-hero-actions,
+  .acw-library-hero-actions .acw-btn { width: 100%; }
+
+  .acw-library-hero-actions { align-items: flex-start; }
+  .acw-library-hero-media { max-width: none; }
+
+  .acw-library-stage-strip,
+  .acw-library-principle-grid,
+  .acw-library-journey-grid,
+  .acw-library-latest-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-library-stage-link + .acw-library-stage-link {
+    border-top: 1px solid var(--line-strong);
+    border-left: 0;
+  }
+
+  .acw-library-chapter-intro { grid-template-columns: 1fr; gap: 0.75rem; }
+  .acw-library-chapter-number { margin: 0; }
+
+  .acw-library-chapter-intro h3,
+  .acw-library-resource-copy h3,
+  .acw-library-closing-card h2 {
+    font-size: clamp(2.15rem, 9.7vw, 3.05rem);
+  }
+
+  .acw-library-chapter-express {
+    margin-inline: -1.4rem;
+    padding-inline: 1.4rem;
+  }
+
+  .acw-library-express-layout,
+  .acw-library-principle-card-wide {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-library-principle-card-wide .acw-library-principle-image-link { aspect-ratio: 4 / 2.7; }
+  .acw-library-resource-media { min-height: 20rem; }
+  .acw-library-resource-copy { padding: 2rem 1.5rem 2.25rem; }
+  .acw-library-journey-step { min-height: auto; }
+  .acw-library-journey-step > span { margin-bottom: 1.2rem; }
 }
 
 /* 51. SERVICE PAGE — CLEAR JUMP NAVIGATION + VISUAL GUIDE */
