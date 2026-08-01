@@ -27,16 +27,10 @@
       aria-expanded="false"
       aria-controls="primary-nav-panel"
     >
-      <span
-        class="nav__hamburger"
-        aria-hidden="true"
-      ></span>
+      <span class="nav__hamburger" aria-hidden="true"></span>
     </button>
 
-    <div
-      class="nav__overlay"
-      aria-hidden="true"
-    ></div>
+    <div class="nav__overlay" aria-hidden="true"></div>
 
     <div
       id="primary-nav-panel"
@@ -70,15 +64,37 @@
           </a>
         </li>
 
-        <li>
-          <a
-            href="{{ '/library/' | relative_url }}"
-            {% if page.url == '/library/'
-              or page.layout == 'post'
-            %}aria-current="page"{% endif %}
+        <li class="nav__library">
+          <details
+            {% if page.url == '/library/' or page.url == '/blog/' or page.layout == 'guide' or page.layout == 'post' %}
+              data-current="true"
+            {% endif %}
           >
-            Library
-          </a>
+            <summary>
+              Library
+              <span class="nav__library-chevron" aria-hidden="true"></span>
+            </summary>
+
+            <ul class="nav__subnav">
+              <li>
+                <a
+                  href="{{ '/library/' | relative_url }}"
+                  {% if page.url == '/library/' or page.layout == 'guide' %}aria-current="page"{% endif %}
+                >
+                  Practice Clarity Guides
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="{{ '/blog/' | relative_url }}"
+                  {% if page.url == '/blog/' or page.layout == 'post' %}aria-current="page"{% endif %}
+                >
+                  Blog posts
+                </a>
+              </li>
+            </ul>
+          </details>
         </li>
 
         <li>
