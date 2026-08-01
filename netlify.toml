@@ -4,3 +4,79 @@
 
 [build.environment]
   RUBY_VERSION = "3.2.2"
+
+# Legacy pages → current site structure
+
+[[redirects]]
+  from = "/library/"
+  to = "/practice-clarity"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/professional-identity/"
+  to = "/service/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/practice-clarity/counselling-directory-profile/"
+  to = "/beyond-counselling-directory/"
+  status = 301
+  force = true
+
+# Old guide URLs → current Practice Clarity Library pages
+
+[[redirects]]
+  from = "/guides/about-principle/"
+  to = "/practice-clarity/about-principle/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/homepage-principle/"
+  to = "/practice-clarity/homepage-principle/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/waiting-room-principle/"
+  to = "/practice-clarity/waiting-room-principle/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/consistency-principle/"
+  to = "/practice-clarity/consistency-principle/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/recognition-principle/"
+  to = "/practice-clarity/recognition-principle/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/enquiry-principle/"
+  to = "/practice-clarity/enquiry-principle/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/mirror-principle/"
+  to = "/practice-clarity/mirror-principle/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/threshold-principle/"
+  to = "/practice-clarity/threshold-principle/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/simplicity-principle/"
+  to = "/practice-clarity/simplicity-principle/"
+  status = 301
+  force = true
