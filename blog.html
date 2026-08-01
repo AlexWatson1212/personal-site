@@ -1,0 +1,20 @@
+---
+layout: default
+title: Journal | Alexander Watson Studio
+description: Practical reflections on therapist websites, private-practice clarity and building online trust.
+permalink: /blog/
+---
+
+<section class="acw-section acw-blog-hero"><div class="acw-container"><p class="acw-section-label">Journal</p><h1>Thoughtful guidance for a clearer private practice.</h1><p>Short, useful articles about therapist websites, professional identity and creating an online presence that feels like your work.</p></div></section>
+
+<section class="acw-section acw-blog-index"><div class="acw-container">
+  {% if site.posts.size > 0 %}
+    <div class="acw-blog-index-grid">
+      {% for post in site.posts %}
+        <article class="acw-blog-index-card"><div><p class="acw-blog-meta">{{ post.date | date: "%B %-d, %Y" }}{% if post.read_time %} · {{ post.read_time }}{% elsif post.reading_time %} · {{ post.reading_time }} min read{% endif %}</p><h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2><p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 22 }}</p><a class="acw-library-card-link" href="{{ post.url | relative_url }}">Read article <span aria-hidden="true">→</span></a></div><a href="{{ post.url | relative_url }}" class="acw-blog-index-image" aria-label="Read {{ post.title }}">{% if post.hero_image %}<img src="{{ post.hero_image | relative_url }}" alt="" loading="lazy" decoding="async">{% else %}<img src="{{ '/assets/images/library/library-article-fallback.webp' | relative_url }}" alt="" loading="lazy" decoding="async">{% endif %}</a></article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="acw-library-empty"><h2>The journal is being prepared.</h2><p>New articles will appear here shortly.</p></div>
+  {% endif %}
+</div></section>
