@@ -10351,6 +10351,467 @@ Authoritative corrections for /service/.
 }
 
 /* =========================================================
+57. CURRENT SITE CHROME — FINAL CASCADE AUTHORITY
+Must remain at the end of this stylesheet.
+========================================================= */
+
+.site-header {
+  background: rgba(247, 244, 239, 0.97);
+  border-bottom: 1px solid rgba(215, 221, 216, 0.92);
+  box-shadow: 0 8px 24px rgba(40, 58, 56, 0.035);
+  backdrop-filter: blur(14px);
+}
+
+.site-header .nav {
+  width: min(1200px, calc(100% - 96px));
+  min-height: 64px;
+}
+
+.nav__logo { width: 154px; }
+
+@media (min-width: 861px) {
+  .nav__panel { gap: 16px; }
+  .nav__links { gap: 8px; }
+
+  .nav__links a,
+  .nav__library summary {
+    min-height: 38px;
+    padding: 0 0.72rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: rgba(26, 33, 25, 0.76);
+    font-size: 0.82rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .nav__links a:hover,
+  .nav__links a:focus-visible,
+  .nav__library summary:hover,
+  .nav__library summary:focus-visible {
+    border-color: rgba(215, 221, 216, 0.92);
+    background: rgba(255, 255, 255, 0.86);
+    color: var(--accent-dark);
+  }
+
+  .nav__links a[aria-current="page"],
+  .nav__library details[data-current="true"] summary {
+    border-color: rgba(121, 131, 113, 0.42);
+    background: rgba(121, 131, 113, 0.1);
+    color: var(--accent-dark);
+  }
+
+  .nav__cta {
+    min-height: 38px;
+    padding: 0 0.9rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+
+  .site-header .nav__library details[open] > .nav__subnav {
+    min-width: 240px;
+    padding: 0.5rem;
+    border-color: rgba(26, 33, 25, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 16px 36px rgba(26, 33, 25, 0.08);
+  }
+
+  .site-header .nav__library .nav__subnav a {
+    min-height: 42px;
+    padding: 0.7rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+  }
+}
+
+.acw-contact-page { padding-block: clamp(5.5rem, 9vw, 8.5rem); }
+
+.acw-contact-page-grid {
+  grid-template-columns: minmax(0, 0.95fr) minmax(380px, 0.72fr);
+  gap: clamp(3.5rem, 8vw, 7.5rem);
+  align-items: start;
+}
+
+.acw-contact-page-copy { padding-top: clamp(1.5rem, 5vw, 5rem); }
+.acw-contact-page-copy h1 { max-width: 11.5ch; }
+
+.acw-contact-form-card {
+  border-radius: 20px;
+  box-shadow: 0 24px 58px rgba(26, 33, 25, 0.08);
+}
+
+.acw-form-heading h2 {
+  max-width: 16ch;
+  font-size: clamp(1.9rem, 2.55vw, 2.8rem);
+  line-height: 1.03;
+}
+
+.acw-contact-form { gap: 1.1rem; }
+.acw-form-field { display: grid; gap: 0.45rem; }
+
+.acw-contact-form input,
+.acw-contact-form select,
+.acw-contact-form textarea {
+  min-height: 48px;
+  border-radius: 14px;
+}
+
+.acw-contact-form select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: #faf8f6;
+  border: 1px solid rgba(26, 33, 25, 0.15);
+  color: var(--text);
+}
+
+.acw-contact-form textarea { min-height: 168px; }
+
+.acw-contact-form input:focus,
+.acw-contact-form select:focus,
+.acw-contact-form textarea:focus {
+  border-color: rgba(40, 58, 56, 0.58);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(121, 131, 113, 0.13);
+}
+
+.acw-form-reassurance {
+  max-width: 46ch;
+  margin: 0.7rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.acw-form-reassurance p { margin: 0; }
+.acw-form-reassurance p + p { margin-top: 0.45rem; }
+
+.site-footer { padding: clamp(4.75rem, 7vw, 6.5rem) 0 2rem; }
+
+.site-footer-inner {
+  width: min(100% - 3rem, 1240px);
+  gap: clamp(3rem, 5vw, 4.5rem);
+}
+
+.site-footer-top {
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  gap: clamp(3rem, 8vw, 8.5rem);
+}
+
+.site-footer-brand { max-width: 430px; }
+.footer-brand-link { margin-bottom: 1.5rem; }
+.footer-description { max-width: 43ch; margin-bottom: 1.5rem; }
+
+.site-footer-links {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  padding-top: 0.35rem;
+}
+
+.footer-nav-group { gap: 0.76rem; }
+.footer-nav-group a { font-size: 0.89rem; font-weight: 700; }
+
+.site-footer-bottom {
+  grid-template-columns: auto 1fr auto;
+  gap: 1.5rem;
+}
+
+.footer-location { text-align: center; }
+
+@media (max-width: 860px) {
+  .site-header .nav { width: min(100% - 48px, var(--container)); }
+  .nav__logo { width: 146px; }
+  .acw-contact-page-grid { grid-template-columns: 1fr; }
+  .acw-contact-page-copy { padding-top: 0; }
+  .acw-contact-form-card { width: min(100%, 640px); }
+}
+
+@media (max-width: 720px) {
+  .acw-contact-page { padding-block: 4.5rem; }
+  .acw-contact-form-card { padding: 1.5rem; }
+  .acw-form-heading { margin-bottom: 1.5rem; }
+  .site-footer-top { grid-template-columns: 1fr; gap: 2.75rem; }
+  .site-footer-links { gap: 1.5rem; }
+  .site-footer-bottom { grid-template-columns: 1fr; justify-items: start; }
+  .footer-location { text-align: left; }
+}
+
+/* =========================================================
+56. SITE-WIDE NAVIGATION, CONTACT & FOOTER — CANONICAL PASS
+Final authority for the current header.html, contact page and footer.html.
+This intentionally supersedes earlier experimental footer/navigation passes.
+========================================================= */
+
+/* Header */
+
+.site-header {
+  background: rgba(247, 244, 239, 0.97);
+  border-bottom: 1px solid rgba(215, 221, 216, 0.92);
+  box-shadow: 0 8px 24px rgba(40, 58, 56, 0.035);
+  backdrop-filter: blur(14px);
+}
+
+.site-header .nav {
+  width: min(1200px, calc(100% - 96px));
+  min-height: 64px;
+}
+
+.nav__logo {
+  width: 154px;
+}
+
+@media (min-width: 861px) {
+  .nav__panel {
+    gap: 16px;
+  }
+
+  .nav__links {
+    gap: 8px;
+  }
+
+  .nav__links a,
+  .nav__library summary {
+    min-height: 38px;
+    padding: 0 0.72rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: rgba(26, 33, 25, 0.76);
+    font-size: 0.82rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .nav__links a:hover,
+  .nav__links a:focus-visible,
+  .nav__library summary:hover,
+  .nav__library summary:focus-visible {
+    border-color: rgba(215, 221, 216, 0.92);
+    background: rgba(255, 255, 255, 0.86);
+    color: var(--accent-dark);
+  }
+
+  .nav__links a[aria-current="page"],
+  .nav__library details[data-current="true"] summary {
+    border-color: rgba(121, 131, 113, 0.42);
+    background: rgba(121, 131, 113, 0.1);
+    color: var(--accent-dark);
+  }
+
+  .nav__cta {
+    min-height: 38px;
+    padding: 0 0.9rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+
+  .site-header .nav__library details[open] > .nav__subnav {
+    min-width: 240px;
+    padding: 0.5rem;
+    border-color: rgba(26, 33, 25, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 16px 36px rgba(26, 33, 25, 0.08);
+  }
+
+  .site-header .nav__library .nav__subnav a {
+    min-height: 42px;
+    padding: 0.7rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+  }
+}
+
+/* Contact page */
+
+.acw-contact-page {
+  padding-block: clamp(5.5rem, 9vw, 8.5rem);
+}
+
+.acw-contact-page-grid {
+  grid-template-columns: minmax(0, 0.95fr) minmax(380px, 0.72fr);
+  gap: clamp(3.5rem, 8vw, 7.5rem);
+  align-items: start;
+}
+
+.acw-contact-page-copy {
+  padding-top: clamp(1.5rem, 5vw, 5rem);
+}
+
+.acw-contact-page-copy h1 {
+  max-width: 11.5ch;
+}
+
+.acw-contact-form-card {
+  border-radius: 20px;
+  box-shadow: 0 24px 58px rgba(26, 33, 25, 0.08);
+}
+
+.acw-form-heading h2 {
+  max-width: 16ch;
+  font-size: clamp(1.9rem, 2.55vw, 2.8rem);
+  line-height: 1.03;
+}
+
+.acw-contact-form {
+  gap: 1.1rem;
+}
+
+.acw-form-field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.acw-contact-form input,
+.acw-contact-form select,
+.acw-contact-form textarea {
+  min-height: 48px;
+  border-radius: 14px;
+}
+
+.acw-contact-form select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: #faf8f6;
+  border: 1px solid rgba(26, 33, 25, 0.15);
+  color: var(--text);
+}
+
+.acw-contact-form textarea {
+  min-height: 168px;
+}
+
+.acw-contact-form input:focus,
+.acw-contact-form select:focus,
+.acw-contact-form textarea:focus {
+  border-color: rgba(40, 58, 56, 0.58);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(121, 131, 113, 0.13);
+}
+
+.acw-form-reassurance {
+  max-width: 46ch;
+  margin: 0.7rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.acw-form-reassurance p {
+  margin: 0;
+}
+
+.acw-form-reassurance p + p {
+  margin-top: 0.45rem;
+}
+
+/* Footer — two-column content layout, no repeated founding-offer card */
+
+.site-footer {
+  padding: clamp(4.75rem, 7vw, 6.5rem) 0 2rem;
+}
+
+.site-footer-inner {
+  width: min(100% - 3rem, 1240px);
+  gap: clamp(3rem, 5vw, 4.5rem);
+}
+
+.site-footer-top {
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  gap: clamp(3rem, 8vw, 8.5rem);
+}
+
+.site-footer-brand {
+  max-width: 430px;
+}
+
+.footer-brand-link {
+  margin-bottom: 1.5rem;
+}
+
+.footer-description {
+  max-width: 43ch;
+  margin-bottom: 1.5rem;
+}
+
+.site-footer-links {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  padding-top: 0.35rem;
+}
+
+.footer-nav-group {
+  gap: 0.76rem;
+}
+
+.footer-nav-group a {
+  font-size: 0.89rem;
+  font-weight: 700;
+}
+
+.site-footer-bottom {
+  grid-template-columns: auto 1fr auto;
+  gap: 1.5rem;
+}
+
+.footer-location {
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .site-header .nav {
+    width: min(100% - 48px, var(--container));
+  }
+
+  .nav__logo {
+    width: 146px;
+  }
+
+  .acw-contact-page-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-contact-page-copy {
+    padding-top: 0;
+  }
+
+  .acw-contact-form-card {
+    width: min(100%, 640px);
+  }
+}
+
+@media (max-width: 720px) {
+  .acw-contact-page {
+    padding-block: 4.5rem;
+  }
+
+  .acw-contact-form-card {
+    padding: 1.5rem;
+  }
+
+  .acw-form-heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .site-footer-top {
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
+  }
+
+  .site-footer-links {
+    gap: 1.5rem;
+  }
+
+  .site-footer-bottom {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .footer-location {
+    text-align: left;
+  }
+}
+
+/* =========================================================
 48. BLOG — FINAL AUTHORITATIVE PAGE SYSTEM
 ========================================================= */
 
