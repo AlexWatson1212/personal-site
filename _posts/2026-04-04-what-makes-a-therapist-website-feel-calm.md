@@ -7,7 +7,7 @@ tags: [web design, therapists, trust]
 description: "A few simple things that make a therapist website feel calmer, clearer, and easier to trust."
 intro: "A calm therapist website does not try to impress someone into getting in touch. It gives them enough space, clarity and reassurance to feel safe taking the next step."
 read_time: 6 minute read
-hero_image: /assets/images/library/old-images/calm-therapist-website.webp
+hero_image: /assets/images/library/calm-therapist-website.webp
 hero_alt: "A calm, softly lit workspace representing a clear and trustworthy therapist website."
 slug: calm-therapist-website
 related:

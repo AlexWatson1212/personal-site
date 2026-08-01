@@ -7,7 +7,7 @@ tags: [web design, therapists, clarity]
 description: "Why a clear therapist website helps build trust before a client ever sends a message."
 intro: "Long before someone sends an enquiry, they are already asking themselves a quiet question: 'Does this feel like someone I could trust?' Clarity is one of the strongest ways your website answers that question."
 read_time: 6 minute read
-hero_image: /assets/images/library/old-images/clarity-builds-trust.webp
+hero_image: /assets/images/library/clarity-builds-trust.webp
 hero_alt: "A calm workspace representing clarity, trust and thoughtful therapist website design."
 slug: clarity-builds-trust
 related:

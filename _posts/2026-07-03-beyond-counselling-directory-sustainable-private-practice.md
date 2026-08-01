@@ -7,7 +7,7 @@ tags: [marketing, therapists, private practice, counselling directory, seo]
 description: "Why Counselling Directory should be one part of a wider marketing strategy, and how clarity helps therapists build a more sustainable private practice."
 intro: "Counselling Directory can be an excellent source of enquiries, and for many therapists it is where private practice begins. The strongest practices, however, rarely rely on a single platform. They build trust across several places that all tell the same story."
 read_time: 8 minute read
-hero_image: /assets/images/library/old-images/beyond-counselling-directory.webp
+hero_image: /assets/images/library/beyond-counselling-directory.webp
 hero_alt: "A comparison between a therapist directory profile and an independent therapist website representing a sustainable private practice."
 slug: beyond-counselling-directory
 related:
