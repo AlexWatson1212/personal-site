@@ -10339,6 +10339,470 @@ Authoritative corrections for /service/.
   }
 }
 
+/* =========================================================
+51. BLOG POSTS — EDITORIAL BANNER + READING SYSTEM
+Canonical styles for _layouts/post.html.
+========================================================= */
+
+.acw-post {
+  overflow: clip;
+}
+
+.acw-post-hero {
+  padding: clamp(2.25rem, 4vw, 3.5rem) 0 clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--surface);
+}
+
+.acw-post-back-link {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1.4rem;
+  color: var(--accent-dark);
+  border-bottom: 1px solid rgba(40, 58, 56, 0.3);
+  font-size: 0.74rem;
+  font-weight: 820;
+  letter-spacing: 0.035em;
+}
+
+.acw-post-back-link:hover {
+  color: var(--text);
+  border-bottom-color: var(--text);
+}
+
+.acw-post-hero-banner {
+  position: relative;
+  display: flex;
+  min-height: clamp(440px, 48vw, 610px);
+  overflow: hidden;
+  align-items: end;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 88% 10%, rgba(121, 131, 113, 0.24), transparent 32%),
+    var(--accent-dark);
+  border: 1px solid rgba(26, 33, 25, 0.12);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-post-hero-image,
+.acw-post-hero-shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.acw-post-hero-image {
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.9;
+}
+
+.acw-post-hero-shade {
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(18, 27, 25, 0.86) 0%, rgba(18, 27, 25, 0.68) 44%, rgba(18, 27, 25, 0.08) 78%),
+    linear-gradient(0deg, rgba(18, 27, 25, 0.58) 0%, transparent 62%);
+}
+
+.acw-post-hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 720px);
+  padding: clamp(2rem, 5vw, 4.75rem);
+}
+
+.acw-post-hero .acw-section-label,
+.acw-post-hero .acw-post-title,
+.acw-post-hero .acw-post-description,
+.acw-post-hero .acw-post-meta-row {
+  color: #ffffff;
+}
+
+.acw-post-hero .acw-section-label {
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.acw-post-title {
+  max-width: 15ch;
+  margin-bottom: 1rem;
+  font-size: clamp(2.7rem, 4.45vw, 4.8rem);
+  line-height: 0.96;
+  letter-spacing: -0.058em;
+  text-wrap: balance;
+}
+
+.acw-post-description {
+  max-width: 52ch;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.86) !important;
+  font-size: clamp(0.98rem, 1.1vw, 1.1rem);
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.acw-post-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0;
+  margin-top: 1.35rem;
+  color: rgba(255, 255, 255, 0.72) !important;
+  font-size: 0.69rem;
+  font-weight: 800;
+  letter-spacing: 0.075em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.acw-post-meta-row span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.acw-post-meta-row span + span::before {
+  width: 3px;
+  height: 3px;
+  margin: 0 0.7rem;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  content: "";
+}
+
+.acw-post-jump-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(250, 248, 246, 0.96);
+  border-block: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+
+.acw-post-jump-nav-inner {
+  display: flex;
+  gap: 0.4rem 1.2rem;
+  align-items: center;
+  min-height: 3.45rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.acw-post-jump-nav-inner > span,
+.acw-post-jump-nav a {
+  flex: 0 0 auto;
+  font-size: 0.68rem;
+  font-weight: 820;
+  letter-spacing: 0.085em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.acw-post-jump-nav-inner > span {
+  color: rgba(26, 33, 25, 0.46);
+}
+
+.acw-post-jump-nav a {
+  padding-block: 0.22rem;
+  color: rgba(26, 33, 25, 0.7);
+  border-bottom: 1px solid transparent;
+}
+
+.acw-post-jump-nav a:hover,
+.acw-post-jump-nav a:focus-visible {
+  color: var(--accent-dark);
+  border-bottom-color: currentColor;
+}
+
+.acw-post-intro-section {
+  padding: clamp(2.75rem, 5vw, 4.75rem) 0;
+  background: var(--surface-soft);
+}
+
+.acw-post-intro-inner {
+  max-width: 820px;
+}
+
+.acw-post-intro {
+  max-width: 34ch;
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: clamp(1.65rem, 2.8vw, 2.7rem);
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.acw-post-main {
+  padding: clamp(4.5rem, 9vw, 8.5rem) 0;
+  background: var(--bg);
+}
+
+.acw-post-main-inner {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 720px);
+  gap: clamp(2rem, 6vw, 6rem);
+  justify-content: center;
+}
+
+.acw-post-reading-label {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  align-self: start;
+  padding-top: 0.45rem;
+  color: rgba(26, 33, 25, 0.5);
+}
+
+.acw-post-reading-label span {
+  width: 20px;
+  height: 1px;
+  background: currentColor;
+}
+
+.acw-post-reading-label p {
+  margin: 0;
+  font-size: 0.66rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.acw-post-content {
+  max-width: 720px;
+  font-size: clamp(1rem, 1.08vw, 1.1rem);
+}
+
+.acw-post-content > :first-child {
+  margin-top: 0;
+}
+
+.acw-post-content > :last-child {
+  margin-bottom: 0;
+}
+
+.acw-post-content p,
+.acw-post-content li {
+  color: rgba(26, 33, 25, 0.8);
+  line-height: 1.82;
+}
+
+.acw-post-content h2 {
+  max-width: 15ch;
+  margin: 3.35em 0 0.75em;
+  font-size: clamp(2rem, 3.15vw, 3.25rem);
+  line-height: 0.98;
+}
+
+.acw-post-content h3 {
+  max-width: 20ch;
+  margin: 2.6em 0 0.72em;
+  font-size: clamp(1.45rem, 2vw, 1.9rem);
+  line-height: 1.05;
+}
+
+.acw-post-content a {
+  color: var(--accent-dark);
+  text-decoration: underline;
+  text-decoration-color: rgba(40, 58, 56, 0.42);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.acw-post-content a:hover {
+  color: var(--text);
+  text-decoration-color: var(--text);
+}
+
+.acw-post-content ul,
+.acw-post-content ol {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1.5rem 0 2rem;
+  padding-left: 1.3rem;
+}
+
+.acw-post-content img {
+  width: 100%;
+  margin: clamp(2.5rem, 5vw, 4.25rem) 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-post-content blockquote,
+.acw-post-content .acw-callout,
+.acw-post-content .callout {
+  margin: clamp(2.5rem, 5vw, 4rem) 0;
+  padding: clamp(1.35rem, 3vw, 2rem);
+  background: var(--surface-soft);
+  border: 0;
+  border-left: 2px solid var(--accent-dark);
+  border-radius: 0;
+}
+
+.acw-post-content blockquote p {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: clamp(1.45rem, 2.2vw, 2rem);
+  line-height: 1.1;
+}
+
+.acw-post-related-section {
+  padding: clamp(4.5rem, 8vw, 7.5rem) 0;
+  background: var(--surface);
+}
+
+.acw-post-section-heading {
+  display: flex;
+  gap: 2rem;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: clamp(2.25rem, 4vw, 3.75rem);
+}
+
+.acw-post-section-heading h2 {
+  max-width: 14ch;
+  margin-bottom: 0;
+  font-size: clamp(2.25rem, 3.5vw, 3.8rem);
+}
+
+.acw-post-footer-cta {
+  padding: clamp(4.5rem, 8vw, 8rem) 0;
+  background: var(--bg);
+}
+
+.acw-post-cta-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.55fr);
+  overflow: hidden;
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-post-cta-copy {
+  padding: clamp(2rem, 5vw, 4.5rem);
+}
+
+.acw-post-cta-copy h2 {
+  max-width: 12ch;
+  font-size: clamp(2.35rem, 3.75vw, 4rem);
+  line-height: 0.98;
+}
+
+.acw-post-cta-copy > p:not(.acw-section-label) {
+  max-width: 46ch;
+  color: var(--muted);
+}
+
+.acw-post-cta-media {
+  min-height: 100%;
+  margin: 0;
+}
+
+.acw-post-cta-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+}
+
+@media (max-width: 760px) {
+  .acw-post-hero {
+    padding-top: 2rem;
+  }
+
+  .acw-post-hero-banner {
+    min-height: 480px;
+  }
+
+  .acw-post-hero-shade {
+    background:
+      linear-gradient(90deg, rgba(18, 27, 25, 0.8), rgba(18, 27, 25, 0.32)),
+      linear-gradient(0deg, rgba(18, 27, 25, 0.7), transparent 72%);
+  }
+
+  .acw-post-title {
+    max-width: 12.5ch;
+    font-size: clamp(2.5rem, 11.5vw, 3.6rem);
+  }
+
+  .acw-post-jump-nav-inner {
+    gap: 1rem;
+    min-height: 3.15rem;
+  }
+
+  .acw-post-main-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .acw-post-reading-label {
+    padding-top: 0;
+  }
+
+  .acw-post-section-heading,
+  .acw-post-cta-card {
+    align-items: start;
+    grid-template-columns: 1fr;
+  }
+
+  .acw-post-section-heading {
+    flex-direction: column;
+  }
+
+  .acw-post-cta-media {
+    min-height: 0;
+    order: -1;
+  }
+
+  .acw-post-cta-media img {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 560px) {
+  .acw-post-hero-banner {
+    min-height: 455px;
+  }
+
+  .acw-post-hero-content {
+    padding: 1.5rem;
+  }
+
+  .acw-post-meta-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .acw-post-meta-row span + span::before {
+    display: none;
+  }
+
+  .acw-post-content h2 {
+    margin-top: 2.8rem;
+    font-size: clamp(1.95rem, 9.5vw, 2.75rem);
+  }
+
+  .acw-post-content h3 {
+    font-size: clamp(1.4rem, 7vw, 1.75rem);
+  }
+
+  .acw-post-cta-copy {
+    padding: 2rem 1.5rem;
+  }
+
+  .acw-post-cta-copy .acw-btn {
+    width: 100%;
+  }
+}
+
 /* 49. SERVICE PAGE — AUTHORITATIVE FINAL OVERRIDES */
 .acw-service-page { overflow: clip; }
 .acw-service-jump-nav { position: relative; z-index: 2; background: rgba(250, 248, 246, 0.96); border-bottom: 1px solid rgba(26, 33, 25, 0.09); }

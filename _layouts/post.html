@@ -13,58 +13,14 @@
     <article class="acw-post">
 
       <header class="acw-post-hero">
-        <div class="acw-container acw-post-hero-layout">
+        <div class="acw-container">
+          <a class="acw-post-back-link" href="{{ '/library/' | relative_url }}">
+            <span aria-hidden="true">←</span>
+            Practice Clarity Library
+          </a>
 
-          <div class="acw-post-hero-copy">
-            <a
-              class="acw-guide-back-link"
-              href="{{ '/library/' | relative_url }}"
-            >
-              <span aria-hidden="true">←</span>
-              Practice Clarity Library
-            </a>
-
-            <p class="acw-section-label">
-              {{ page.kicker | default: page.category | default: "Article" }}
-            </p>
-
-            <h1 class="acw-post-title">
-              {{ page.title }}
-            </h1>
-
-            {% if page.subtitle %}
-              <p class="acw-post-description">
-                {{ page.subtitle }}
-              </p>
-            {% elsif page.description %}
-              <p class="acw-post-description">
-                {{ page.description }}
-              </p>
-            {% endif %}
-
-            {% if page.date or page.read_time or page.reading_time %}
-              <div class="acw-post-meta-row" aria-label="Article details">
-                {% if page.date %}
-                  <span class="acw-post-meta">
-                    {{ page.date | date: "%-d %B %Y" }}
-                  </span>
-                {% endif %}
-
-                {% if page.reading_time %}
-                  <span class="acw-post-meta">
-                    {{ page.reading_time }}
-                  </span>
-                {% elsif page.read_time %}
-                  <span class="acw-post-meta">
-                    {{ page.read_time }}
-                  </span>
-                {% endif %}
-              </div>
-            {% endif %}
-          </div>
-
-          {% if page.hero_image %}
-            <figure class="acw-post-hero-media">
+          <div class="acw-post-hero-banner">
+            {% if page.hero_image %}
               <img
                 class="acw-post-hero-image"
                 src="{{ page.hero_image | relative_url }}"
@@ -72,158 +28,154 @@
                 loading="eager"
                 decoding="async"
               >
-            </figure>
-          {% endif %}
+            {% endif %}
 
+            <div class="acw-post-hero-shade" aria-hidden="true"></div>
+
+            <div class="acw-post-hero-content">
+              <p class="acw-section-label">
+                {{ page.kicker | default: page.category | default: "Article" }}
+              </p>
+
+              <h1 class="acw-post-title">{{ page.title }}</h1>
+
+              {% if page.subtitle %}
+                <p class="acw-post-description">{{ page.subtitle }}</p>
+              {% elsif page.description %}
+                <p class="acw-post-description">{{ page.description }}</p>
+              {% endif %}
+
+              {% if page.date or page.read_time or page.reading_time %}
+                <div class="acw-post-meta-row" aria-label="Article details">
+                  {% if page.date %}
+                    <span>{{ page.date | date: "%-d %B %Y" }}</span>
+                  {% endif %}
+
+                  {% if page.reading_time %}
+                    <span>{{ page.reading_time }}</span>
+                  {% elsif page.read_time %}
+                    <span>{{ page.read_time }}</span>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
         </div>
       </header>
+
+      <nav class="acw-post-jump-nav" aria-label="Jump to article section">
+        <div class="acw-container acw-post-jump-nav-inner">
+          <span>Jump to</span>
+          <a href="#article">Article</a>
+
+          {% if page.toc %}
+            {{ page.toc }}
+          {% endif %}
+
+          <a href="#continue-reading">Keep reading</a>
+        </div>
+      </nav>
 
       {% if page.intro %}
         <section class="acw-post-intro-section">
           <div class="acw-container acw-post-intro-inner">
-            <p class="acw-post-intro">
-              {{ page.intro }}
-            </p>
+            <p class="acw-post-intro">{{ page.intro }}</p>
           </div>
         </section>
       {% endif %}
 
-      <section class="acw-post-main">
-        <div class="acw-container acw-post-main-inner{% if page.toc %} acw-post-main-inner--with-toc{% endif %}">
-
-          {% if page.toc %}
-            <aside class="acw-post-sidebar" aria-label="Article contents">
-              <div class="acw-guide-sidebar-card">
-                <p class="acw-section-label">In this article</p>
-
-                <nav class="acw-guide-toc" aria-label="On this page">
-                  {{ page.toc }}
-                </nav>
-              </div>
-            </aside>
-          {% endif %}
-
-          <div class="acw-post-content-wrap">
-            <div class="acw-post-content">
-              {{ content }}
-            </div>
-
-            <div class="acw-guide-end-mark" aria-hidden="true">
-              <span></span>
-            </div>
+      <section id="article" class="acw-post-main">
+        <div class="acw-container acw-post-main-inner">
+          <div class="acw-post-reading-label" aria-hidden="true">
+            <span></span>
+            <p>Article</p>
           </div>
 
+          <div class="acw-post-content">
+            {{ content }}
+          </div>
         </div>
       </section>
 
-      {% if page.related %}
-        <section class="acw-section acw-post-related-section">
-          <div class="acw-container">
+      {% assign fallback_guides = site.guides | where_exp: "guide", "guide.url != page.url" | slice: 0, 3 %}
 
-            <div class="acw-section-heading acw-guide-related-heading">
-              <div>
-                <p class="acw-section-label">Keep reading</p>
-                <h2>Continue the Practice Clarity library.</h2>
-              </div>
-
-              <a
-                class="acw-text-link"
-                href="{{ '/library/' | relative_url }}"
-              >
-                View all guides
-                <span aria-hidden="true">→</span>
-              </a>
+      <section id="continue-reading" class="acw-post-related-section">
+        <div class="acw-container">
+          <div class="acw-post-section-heading">
+            <div>
+              <p class="acw-section-label">Keep reading</p>
+              <h2>Continue the Practice Clarity library.</h2>
             </div>
 
-            <div class="acw-blog-grid">
-              {% for item in page.related %}
-                {% assign related_post = site.posts | where: "slug", item | first %}
+            <a class="acw-text-link" href="{{ '/library/' | relative_url }}">
+              View all guides
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
 
-                {% unless related_post %}
-                  {% assign related_post = site.guides | where: "slug", item | first %}
+          <div class="acw-blog-grid">
+            {% if page.related %}
+              {% for item in page.related %}
+                {% assign related_item = site.posts | where: "slug", item | first %}
+                {% unless related_item %}
+                  {% assign related_item = site.guides | where: "slug", item | first %}
+                {% endunless %}
+                {% unless related_item %}
+                  {% assign related_item = site.guides | where: "title", item | first %}
                 {% endunless %}
 
-                {% if related_post %}
+                {% if related_item %}
                   <article class="acw-card acw-blog-card">
-
-                    {% if related_post.hero_image %}
-                      <a
-                        class="acw-blog-card-image-link"
-                        href="{{ related_post.url | relative_url }}"
-                        aria-label="Read {{ related_post.title }}"
-                      >
-                        <img
-                          class="acw-blog-card-image"
-                          src="{{ related_post.hero_image | relative_url }}"
-                          alt="{{ related_post.hero_image_alt | default: related_post.hero_alt | default: related_post.title }}"
-                          loading="lazy"
-                          decoding="async"
-                        >
+                    {% if related_item.hero_image %}
+                      <a class="acw-blog-card-image-link" href="{{ related_item.url | relative_url }}" aria-label="Read {{ related_item.title }}">
+                        <img class="acw-blog-card-image" src="{{ related_item.hero_image | relative_url }}" alt="{{ related_item.hero_image_alt | default: related_item.hero_alt | default: related_item.title }}" loading="lazy" decoding="async">
                       </a>
                     {% endif %}
 
                     <div class="acw-blog-card-inner">
-                      <p class="acw-blog-meta">
-                        {% if related_post.category %}
-                          {{ related_post.category }}
-                        {% elsif related_post.date %}
-                          {{ related_post.date | date: "%-d %B %Y" }}
-                        {% else %}
-                          Practice Clarity
-                        {% endif %}
-                      </p>
-
-                      <h3 class="acw-blog-title">
-                        <a href="{{ related_post.url | relative_url }}">
-                          {{ related_post.title }}
-                        </a>
-                      </h3>
-
-                      <p class="acw-blog-excerpt">
-                        {{ related_post.description | default: related_post.subtitle | default: related_post.excerpt | strip_html | truncatewords: 24 }}
-                      </p>
-
-                      <a
-                        class="acw-blog-readmore"
-                        href="{{ related_post.url | relative_url }}"
-                      >
-                        Read guide
-                        <span aria-hidden="true">→</span>
-                      </a>
+                      <p class="acw-blog-meta">{{ related_item.category | default: "Practice Clarity" }}</p>
+                      <h3 class="acw-blog-title"><a href="{{ related_item.url | relative_url }}">{{ related_item.title }}</a></h3>
+                      <p class="acw-blog-excerpt">{{ related_item.description | default: related_item.subtitle | default: related_item.excerpt | strip_html | truncatewords: 22 }}</p>
+                      <a class="acw-blog-readmore" href="{{ related_item.url | relative_url }}">Read guide <span aria-hidden="true">→</span></a>
                     </div>
-
                   </article>
                 {% endif %}
               {% endfor %}
-            </div>
+            {% else %}
+              {% for related_item in fallback_guides %}
+                <article class="acw-card acw-blog-card">
+                  {% if related_item.hero_image %}
+                    <a class="acw-blog-card-image-link" href="{{ related_item.url | relative_url }}" aria-label="Read {{ related_item.title }}">
+                      <img class="acw-blog-card-image" src="{{ related_item.hero_image | relative_url }}" alt="{{ related_item.hero_image_alt | default: related_item.hero_alt | default: related_item.title }}" loading="lazy" decoding="async">
+                    </a>
+                  {% endif %}
 
+                  <div class="acw-blog-card-inner">
+                    <p class="acw-blog-meta">{{ related_item.category | default: "Practice Clarity" }}</p>
+                    <h3 class="acw-blog-title"><a href="{{ related_item.url | relative_url }}">{{ related_item.title }}</a></h3>
+                    <p class="acw-blog-excerpt">{{ related_item.description | default: related_item.subtitle | default: related_item.excerpt | strip_html | truncatewords: 22 }}</p>
+                    <a class="acw-blog-readmore" href="{{ related_item.url | relative_url }}">Read guide <span aria-hidden="true">→</span></a>
+                  </div>
+                </article>
+              {% endfor %}
+            {% endif %}
           </div>
-        </section>
-      {% endif %}
+        </div>
+      </section>
 
-      <section class="acw-section acw-post-footer-cta">
-        <div class="acw-container acw-post-cta-inner">
-          <div class="acw-blog-cta">
-
-            <div class="acw-blog-cta-copy">
+      <section class="acw-post-footer-cta">
+        <div class="acw-container">
+          <div class="acw-post-cta-card">
+            <div class="acw-post-cta-copy">
               <p class="acw-section-label">Practice Clarity</p>
-
-              <h2>
-                Want your therapy website to feel clearer and easier to trust?
-              </h2>
-
-              <p>
-                I help therapists understand what makes their practice distinctive before we ever think about design.
-              </p>
-
-              <a
-                class="acw-btn acw-btn-primary"
-                href="{{ '/contact/' | relative_url }}"
-              >
-                Start with clarity
-              </a>
+              <h2>Want your therapy website to feel clearer and easier to trust?</h2>
+              <p>I help therapists understand what makes their practice distinctive before we ever think about design.</p>
+              <a class="acw-btn acw-btn-primary" href="{{ '/contact/' | relative_url }}">Start with clarity</a>
             </div>
 
+            <figure class="acw-post-cta-media">
+              <img src="{{ '/assets/images/library/practice-clarity-cta.jpg' | relative_url }}" alt="A calm, considered workspace for therapy practice planning" loading="lazy" decoding="async">
+            </figure>
           </div>
         </div>
       </section>
