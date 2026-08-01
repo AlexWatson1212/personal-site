@@ -9528,8 +9528,8 @@ main p > a:only-child::after {
   color: var(--deep-forest);
 }
 
-.acw-btn:hover,
-.acw-btn:focus-visible,
+.acw-btn:not(.acw-btn-primary):hover,
+.acw-btn:not(.acw-btn-primary):focus-visible,
 .acw-section-link a:hover,
 .acw-section-link a:focus-visible,
 .acw-blueprint-card > a:hover,
@@ -9542,11 +9542,22 @@ main p > a:only-child::after {
 .acw-library-text-link:focus-visible,
 main p > a:only-child:hover,
 main p > a:only-child:focus-visible {
-  border-color: var(--logo-ink);
-  background: var(--logo-ink);
-  color: var(--warm-white);
+  border-color: var(--accent);
+  background: var(--soft-stone);
+  color: var(--deep-forest);
   box-shadow: none;
   transform: none;
+}
+
+/* Primary actions retain their deep-forest treatment; light controls never
+   invert to black on hover. */
+.acw-btn-primary:hover,
+.acw-btn-primary:focus-visible,
+.nav__cta:hover,
+.nav__cta:focus-visible {
+  border-color: var(--accent-dark);
+  background: var(--accent-dark);
+  color: var(--warm-white);
 }
 
 /* Keep linked cards clearly interactive without making them look like
