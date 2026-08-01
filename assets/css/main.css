@@ -11026,6 +11026,487 @@ Refinement for the final post reading experience.
   }
 }
 
+/* =========================================================
+54. PRACTICE CLARITY GUIDES — EDITORIAL READING SYSTEM
+Canonical styles for _layouts/guide.html.
+========================================================= */
+
+.acw-guide {
+  overflow: clip;
+}
+
+.acw-guide-hero {
+  padding: clamp(2.25rem, 4vw, 3.5rem) 0 clamp(1rem, 2vw, 1.75rem);
+  background: var(--surface);
+}
+
+.acw-guide-hero-banner {
+  position: relative;
+  display: flex;
+  min-height: clamp(365px, 37vw, 475px);
+  overflow: hidden;
+  align-items: end;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 88% 10%, rgba(121, 131, 113, 0.24), transparent 32%),
+    var(--accent-dark);
+  border: 1px solid rgba(26, 33, 25, 0.12);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-guide-hero-image,
+.acw-guide-hero-shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.acw-guide-hero-image {
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.9;
+}
+
+.acw-guide-hero-shade {
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(18, 27, 25, 0.86) 0%, rgba(18, 27, 25, 0.68) 44%, rgba(18, 27, 25, 0.08) 78%),
+    linear-gradient(0deg, rgba(18, 27, 25, 0.58) 0%, transparent 62%);
+}
+
+.acw-guide-hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 620px);
+  padding: clamp(1.75rem, 4vw, 3.75rem);
+}
+
+.acw-guide-hero .acw-section-label,
+.acw-guide-hero .acw-guide-title,
+.acw-guide-hero .acw-guide-meta,
+.acw-guide-hero .acw-guide-meta span {
+  color: #ffffff !important;
+}
+
+.acw-guide-hero .acw-section-label {
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.76) !important;
+}
+
+.acw-guide-title {
+  max-width: 14ch;
+  margin-bottom: 1.15rem;
+  font-size: clamp(2.45rem, 3.9vw, 4.2rem);
+  line-height: 0.96;
+  letter-spacing: -0.058em;
+  text-wrap: balance;
+}
+
+.acw-guide-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72) !important;
+  font-size: 0.69rem;
+  font-weight: 800;
+  letter-spacing: 0.075em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.acw-guide-meta span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.acw-guide-jump-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(250, 248, 246, 0.96);
+  border-block: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+
+.acw-guide-jump-nav-inner {
+  display: flex;
+  gap: 0.6rem 1.15rem;
+  align-items: center;
+  min-height: 3.45rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.acw-guide-jump-nav-inner > span,
+.acw-guide-jump-links a {
+  flex: 0 0 auto;
+  font-size: 0.68rem;
+  font-weight: 820;
+  letter-spacing: 0.085em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.acw-guide-jump-nav-inner > span {
+  color: rgba(26, 33, 25, 0.46);
+}
+
+.acw-guide-jump-links {
+  display: flex;
+  gap: 0.5rem 1.15rem;
+  align-items: center;
+}
+
+.acw-guide-jump-links a {
+  padding-block: 0.22rem;
+  color: rgba(26, 33, 25, 0.7);
+  border-bottom: 1px solid transparent;
+}
+
+.acw-guide-jump-links a:hover,
+.acw-guide-jump-links a:focus-visible {
+  color: var(--accent-dark);
+  border-bottom-color: currentColor;
+}
+
+.acw-guide-summary-section {
+  padding: clamp(2rem, 4vw, 3.5rem) 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.acw-guide-summary-inner {
+  display: grid;
+  grid-template-columns: minmax(130px, 0.26fr) minmax(0, 0.74fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  max-width: 880px;
+}
+
+.acw-guide-summary-inner .acw-section-label {
+  margin: 0;
+  padding-top: 0.38rem;
+}
+
+.acw-guide-summary {
+  max-width: 60ch;
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(1.05rem, 1.35vw, 1.22rem);
+  line-height: 1.68;
+  text-wrap: pretty;
+}
+
+.acw-guide-body-section {
+  padding: clamp(4rem, 8vw, 7.5rem) 0;
+  background: var(--bg);
+}
+
+.acw-guide-body-inner {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 720px);
+  gap: clamp(2rem, 6vw, 6rem);
+  justify-content: center;
+}
+
+.acw-guide-reading-label {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  align-self: start;
+  padding-top: 0.45rem;
+  color: rgba(26, 33, 25, 0.5);
+}
+
+.acw-guide-reading-label span {
+  width: 20px;
+  height: 1px;
+  background: currentColor;
+}
+
+.acw-guide-reading-label p {
+  margin: 0;
+  font-size: 0.66rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.acw-guide-content {
+  max-width: 720px;
+  font-size: clamp(1rem, 1.08vw, 1.1rem);
+}
+
+.acw-guide-content > :first-child {
+  margin-top: 0;
+}
+
+.acw-guide-content > :last-child {
+  margin-bottom: 0;
+}
+
+.acw-guide-content p,
+.acw-guide-content li {
+  color: rgba(26, 33, 25, 0.8);
+  line-height: 1.82;
+}
+
+.acw-guide-content h2 {
+  max-width: 15ch;
+  margin: 3.35em 0 0.75em;
+  font-size: clamp(2rem, 3.15vw, 3.25rem);
+  line-height: 0.98;
+}
+
+.acw-guide-content h3 {
+  max-width: 20ch;
+  margin: 2.6em 0 0.72em;
+  font-size: clamp(1.45rem, 2vw, 1.9rem);
+  line-height: 1.05;
+}
+
+.acw-guide-content a {
+  color: var(--accent-dark);
+  text-decoration: underline;
+  text-decoration-color: rgba(40, 58, 56, 0.42);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.acw-guide-content a:hover {
+  color: var(--text);
+  text-decoration-color: var(--text);
+}
+
+.acw-guide-content ul,
+.acw-guide-content ol {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1.5rem 0 2rem;
+  padding-left: 1.3rem;
+}
+
+.acw-guide-content img {
+  width: 100%;
+  margin: clamp(2.5rem, 5vw, 4.25rem) 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-guide-content blockquote,
+.acw-guide-content .acw-callout,
+.acw-guide-content .callout {
+  margin: clamp(2.5rem, 5vw, 4rem) 0;
+  padding: clamp(1.35rem, 3vw, 2rem);
+  background: var(--surface-soft);
+  border: 0;
+  border-left: 2px solid var(--accent-dark);
+  border-radius: 0;
+}
+
+.acw-guide-content blockquote p {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: clamp(1.45rem, 2.2vw, 2rem);
+  line-height: 1.1;
+}
+
+.acw-guide-end-mark {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(4rem, 7vw, 6.5rem);
+}
+
+.acw-guide-end-mark span {
+  width: 42px;
+  height: 1px;
+  background: var(--accent-dark);
+}
+
+.acw-guide-related-section {
+  padding-block: clamp(3.5rem, 6vw, 5.75rem);
+  background: var(--surface);
+}
+
+.acw-guide-library-invitation {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(2rem, 4vw, 3.5rem) 0;
+  border-block: 1px solid var(--line-strong);
+}
+
+.acw-guide-library-invitation h2 {
+  max-width: 16ch;
+  margin-bottom: 0.7rem;
+  font-size: clamp(2rem, 3vw, 3.1rem);
+  line-height: 1;
+}
+
+.acw-guide-library-invitation p:not(.acw-section-label) {
+  max-width: 52ch;
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.acw-guide-library-button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 0.7rem;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0.8rem 1.1rem;
+  color: #ffffff;
+  background: var(--accent-dark);
+  border: 1px solid var(--accent-dark);
+  border-radius: 2px;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.acw-guide-library-button:hover,
+.acw-guide-library-button:focus-visible {
+  color: var(--accent-dark);
+  background: transparent;
+}
+
+.acw-guide-footer-cta {
+  padding: clamp(4.25rem, 7vw, 7rem) 0;
+  background: var(--bg);
+}
+
+.acw-guide-cta-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.55fr);
+  overflow: hidden;
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-guide-cta-copy {
+  padding: clamp(2rem, 5vw, 4.5rem);
+}
+
+.acw-guide-cta-copy h2 {
+  max-width: 12ch;
+  font-size: clamp(2.35rem, 3.75vw, 4rem);
+  line-height: 0.98;
+}
+
+.acw-guide-cta-copy > p:not(.acw-section-label) {
+  max-width: 46ch;
+  color: var(--muted);
+}
+
+.acw-guide-cta-media {
+  min-height: 100%;
+  margin: 0;
+}
+
+.acw-guide-cta-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+}
+
+@media (max-width: 760px) {
+  .acw-guide-hero-banner {
+    min-height: 390px;
+  }
+
+  .acw-guide-hero-content {
+    padding: 1.75rem;
+  }
+
+  .acw-guide-title {
+    max-width: 12.5ch;
+    font-size: clamp(2.35rem, 10.5vw, 3.25rem);
+  }
+
+  .acw-guide-jump-nav-inner {
+    gap: 0.7rem;
+  }
+
+  .acw-guide-jump-links {
+    gap: 0.7rem 1rem;
+  }
+
+  .acw-guide-summary-inner {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .acw-guide-summary-inner .acw-section-label {
+    padding-top: 0;
+  }
+
+  .acw-guide-body-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .acw-guide-reading-label {
+    padding-top: 0;
+  }
+
+  .acw-guide-library-invitation,
+  .acw-guide-cta-card {
+    align-items: start;
+    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+
+  .acw-guide-cta-media {
+    min-height: 0;
+    order: -1;
+  }
+
+  .acw-guide-cta-media img {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 560px) {
+  .acw-guide-hero-banner {
+    min-height: 365px;
+  }
+
+  .acw-guide-jump-nav-inner > span,
+  .acw-guide-jump-links a {
+    font-size: 0.63rem;
+  }
+
+  .acw-guide-content h2 {
+    margin-top: 2.8rem;
+    font-size: clamp(1.95rem, 9.5vw, 2.75rem);
+  }
+
+  .acw-guide-content h3 {
+    font-size: clamp(1.4rem, 7vw, 1.75rem);
+  }
+
+  .acw-guide-library-button,
+  .acw-guide-cta-copy .acw-btn {
+    width: 100%;
+  }
+
+  .acw-guide-cta-copy {
+    padding: 2rem 1.5rem;
+  }
+}
+
 /* 49. SERVICE PAGE — AUTHORITATIVE FINAL OVERRIDES */
 .acw-service-page { overflow: clip; }
 .acw-service-jump-nav { position: relative; z-index: 2; background: rgba(250, 248, 246, 0.96); border-bottom: 1px solid rgba(26, 33, 25, 0.09); }
@@ -13364,163 +13845,5 @@ Purpose: a compact editorial opening, clean contrast and dependable wrapping.
   .acw-service-page .acw-service-hero h1 {
     max-width: 12.5ch;
     font-size: clamp(2.65rem, 11.5vw, 3.55rem);
-  }
-}
-/* =========================================================
-53. HEADER — LIBRARY SUBNAVIGATION
-========================================================= */
-
-.nav__library {
-  position: relative;
-}
-
-.nav__library details {
-  position: relative;
-}
-
-.nav__library summary {
-  display: inline-flex;
-  gap: 0.45rem;
-  align-items: center;
-  min-height: 38px;
-  padding: 0 0.72rem;
-  color: var(--brand-charcoal);
-  border: 1px solid transparent;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.82rem;
-  font-weight: 650;
-  line-height: 1.2;
-  list-style: none;
-  user-select: none;
-}
-
-.nav__library summary::-webkit-details-marker {
-  display: none;
-}
-
-.nav__library-chevron {
-  width: 6px;
-  height: 6px;
-  margin-top: -3px;
-  border-right: 1px solid currentColor;
-  border-bottom: 1px solid currentColor;
-  transform: rotate(45deg);
-  transition: transform var(--transition);
-}
-
-.nav__library details[open] .nav__library-chevron {
-  margin-top: 3px;
-  transform: rotate(225deg);
-}
-
-.nav__library summary:hover,
-.nav__library summary:focus-visible,
-.nav__library details[data-current="true"] summary {
-  color: var(--deep-forest);
-}
-
-.nav__library details[data-current="true"] summary {
-  border-color: rgba(121, 131, 113, 0.42);
-  background: rgba(121, 131, 113, 0.1);
-}
-
-.nav__subnav {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-@media (min-width: 861px) {
-  .nav__library details[open] .nav__subnav {
-    position: absolute;
-    top: calc(100% + 0.55rem);
-    right: 0;
-    z-index: 1010;
-    display: grid;
-    min-width: 220px;
-    padding: 0.45rem;
-    background: rgba(250, 248, 246, 0.98);
-    border: 1px solid var(--soft-stone);
-    border-radius: 6px;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .nav__subnav a {
-    display: flex;
-    align-items: center;
-    min-height: 40px;
-    padding: 0.65rem 0.75rem;
-    color: var(--brand-charcoal);
-    border: 0;
-    border-radius: 3px;
-    font-size: 0.78rem;
-    font-weight: 650;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .nav__subnav a:hover,
-  .nav__subnav a:focus-visible,
-  .nav__subnav a[aria-current="page"] {
-    background: rgba(121, 131, 113, 0.1);
-    color: var(--deep-forest);
-  }
-}
-
-@media (max-width: 860px) {
-  .nav__library details {
-    width: 100%;
-  }
-
-  .nav__library summary {
-    justify-content: space-between;
-    width: 100%;
-    min-height: 52px;
-    padding: 0.8rem 1rem;
-    background: var(--white);
-    border: 1px solid var(--soft-stone);
-    border-radius: 4px;
-    color: var(--logo-ink);
-    font-size: 1.0625rem;
-  }
-
-  .nav__library details[data-current="true"] summary {
-    border-color: rgba(121, 131, 113, 0.5);
-    background: rgba(121, 131, 113, 0.1);
-    color: var(--deep-forest);
-  }
-
-  .nav__library details[open] summary {
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-
-  .nav__library details[open] .nav__subnav {
-    display: grid;
-    gap: 0.35rem;
-    padding: 0.5rem;
-    background: rgba(255, 255, 255, 0.55);
-    border: 1px solid var(--soft-stone);
-    border-top: 0;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-  }
-
-  .nav__subnav a {
-    display: flex;
-    align-items: center;
-    min-height: 46px;
-    padding: 0.65rem 0.85rem;
-    color: var(--brand-charcoal);
-    border-radius: 3px;
-    font-size: 0.93rem;
-    font-weight: 650;
-    text-decoration: none;
-  }
-
-  .nav__subnav a[aria-current="page"] {
-    background: rgba(121, 131, 113, 0.12);
-    color: var(--deep-forest);
   }
 }
