@@ -10340,6 +10340,203 @@ Authoritative corrections for /service/.
 }
 
 /* =========================================================
+55. HEADER — CANONICAL LIBRARY SUBNAVIGATION
+This is the final authority for the nested Library menu. It is deliberately
+scoped to avoid collisions with the primary nav and responsive menu rules.
+========================================================= */
+
+.nav__links > .nav__library,
+.nav__library .nav__subnav,
+.nav__library .nav__subnav li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav__library {
+  position: relative;
+}
+
+.nav__library details {
+  position: relative;
+}
+
+.nav__library summary {
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 0.72rem;
+  color: var(--brand-charcoal);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 650;
+  line-height: 1.2;
+  list-style: none;
+  user-select: none;
+}
+
+.nav__library summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav__library summary::marker {
+  content: "";
+}
+
+.nav__library-chevron {
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform var(--transition);
+}
+
+.nav__library details[open] .nav__library-chevron {
+  margin-top: 3px;
+  transform: rotate(225deg);
+}
+
+.nav__library summary:hover,
+.nav__library summary:focus-visible,
+.nav__library details[data-current="true"] summary {
+  color: var(--deep-forest);
+}
+
+.nav__library details[data-current="true"] summary {
+  border-color: rgba(121, 131, 113, 0.42);
+  background: rgba(121, 131, 113, 0.1);
+}
+
+.nav__subnav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 861px) {
+  .site-header .nav__links > .nav__library {
+    display: block;
+  }
+
+  .site-header .nav__library details {
+    display: block;
+  }
+
+  .site-header .nav__library summary {
+    white-space: nowrap;
+  }
+
+  .site-header .nav__library details[open] > .nav__subnav {
+    position: absolute;
+    top: calc(100% + 0.55rem);
+    right: 0;
+    z-index: 1100;
+    display: grid;
+    min-width: 220px;
+    padding: 0.45rem;
+    background: rgba(250, 248, 246, 0.99);
+    border: 1px solid var(--soft-stone);
+    border-radius: 6px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .site-header .nav__library .nav__subnav li {
+    display: block;
+    border: 0;
+  }
+
+  .site-header .nav__library .nav__subnav a {
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0.65rem 0.75rem;
+    color: var(--brand-charcoal);
+    border: 0;
+    border-radius: 3px;
+    background: transparent;
+    font-size: 0.78rem;
+    font-weight: 650;
+    line-height: 1.25;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .site-header .nav__library .nav__subnav a:hover,
+  .site-header .nav__library .nav__subnav a:focus-visible,
+  .site-header .nav__library .nav__subnav a[aria-current="page"] {
+    background: rgba(121, 131, 113, 0.1);
+    color: var(--deep-forest);
+  }
+}
+
+@media (max-width: 860px) {
+  .site-header .nav__library,
+  .site-header .nav__library details {
+    width: 100%;
+  }
+
+  .site-header .nav__library summary {
+    justify-content: space-between;
+    width: 100%;
+    min-height: 52px;
+    padding: 0.8rem 1rem;
+    background: var(--white);
+    border: 1px solid var(--soft-stone);
+    border-radius: 4px;
+    color: var(--logo-ink);
+    font-size: 1.0625rem;
+  }
+
+  .site-header .nav__library details[data-current="true"] summary {
+    border-color: rgba(121, 131, 113, 0.5);
+    background: rgba(121, 131, 113, 0.1);
+    color: var(--deep-forest);
+  }
+
+  .site-header .nav__library details[open] summary {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .site-header .nav__library details[open] > .nav__subnav {
+    display: grid;
+    gap: 0.35rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid var(--soft-stone);
+    border-top: 0;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  .site-header .nav__library .nav__subnav a {
+    display: flex;
+    align-items: center;
+    min-height: 46px;
+    padding: 0.65rem 0.85rem;
+    color: var(--brand-charcoal);
+    border: 0;
+    border-radius: 3px;
+    background: transparent;
+    font-size: 0.93rem;
+    font-weight: 650;
+    line-height: 1.3;
+    text-decoration: none;
+  }
+
+  .site-header .nav__library .nav__subnav a[aria-current="page"] {
+    background: rgba(121, 131, 113, 0.12);
+    color: var(--deep-forest);
+  }
+}
+
+/* =========================================================
 51. BLOG POSTS — EDITORIAL BANNER + READING SYSTEM
 Canonical styles for _layouts/post.html.
 ========================================================= */
