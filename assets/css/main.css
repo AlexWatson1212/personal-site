@@ -10340,6 +10340,55 @@ Authoritative corrections for /service/.
 }
 
 /* =========================================================
+48. BLOG — FINAL AUTHORITATIVE PAGE SYSTEM
+========================================================= */
+
+.acw-blog-hero { padding: clamp(5rem, 9vw, 8.75rem) 0 clamp(4.5rem, 8vw, 7rem); background: radial-gradient(circle at 18% 0, rgba(215,221,216,.22), transparent 36%), var(--surface); }
+.acw-blog-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, .58fr); gap: clamp(3rem, 8vw, 8.5rem); align-items: center; }
+.acw-blog-hero-copy { max-width: 660px; }
+.acw-blog-hero h1 { max-width: 10.8ch; margin-bottom: 1.35rem; font-size: clamp(3.35rem, 5.45vw, 6.1rem); line-height: .9; letter-spacing: -.07em; }
+.acw-blog-hero-copy > p:not(.acw-section-label) { max-width: 48ch; margin: 0; color: var(--muted); font-size: clamp(1.04rem, 1.3vw, 1.2rem); line-height: 1.72; }
+.acw-blog-hero-copy .acw-library-text-link { margin-top: 1.8rem; }
+.acw-blog-hero-media { width: min(100%, 440px); justify-self: end; margin: 0; }
+.acw-blog-hero-media img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); }
+
+.acw-blog-index { padding: clamp(4.75rem, 8vw, 7.75rem) 0; background: var(--surface-quiet); border-top: 1px solid var(--line); }
+.acw-blog-index-heading { max-width: 660px; margin-bottom: clamp(2.7rem, 5vw, 4.5rem); }
+.acw-blog-index-heading h2 { max-width: 11ch; margin-bottom: 1rem; }
+.acw-blog-index-heading > p:last-child { max-width: 52ch; color: var(--muted); }
+.acw-blog-index-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; }
+.acw-blog-index-card { display: flex; min-width: 0; overflow: hidden; flex-direction: column; background: rgba(255,255,255,.86); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow-xs); }
+.acw-blog-index-card-copy { display: flex; min-height: 260px; padding: 1.45rem; flex-direction: column; }
+.acw-blog-index-card h3 { max-width: none; margin-bottom: .7rem; font-size: clamp(1.3rem, 1.6vw, 1.65rem); letter-spacing: -.045em; line-height: 1.08; }
+.acw-blog-index-card h3 a { color: var(--text); }
+.acw-blog-index-card-copy > p:not(.acw-blog-meta) { color: var(--muted); font-size: .91rem; line-height: 1.6; }
+.acw-blog-index-card .acw-library-card-link { margin-top: auto; }
+.acw-blog-index-image { display: block; overflow: hidden; }
+.acw-blog-index-image img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; transition: transform .7s ease; }
+.acw-blog-index-card:hover img { transform: scale(1.025); }
+
+.acw-blog-clarity-cta { padding: clamp(4.75rem, 8vw, 7.5rem) 0; background: var(--surface); }
+.acw-blog-clarity-cta-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, .42fr); gap: clamp(2rem, 6vw, 5rem); align-items: end; padding: clamp(2.25rem, 5vw, 4.5rem); background: radial-gradient(circle at 100% 0, rgba(215,221,216,.26), transparent 35%), rgba(255,255,255,.84); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow-sm); }
+.acw-blog-clarity-cta h2 { max-width: 13ch; margin-bottom: 1rem; }
+.acw-blog-clarity-cta div:first-child > p:last-child { max-width: 53ch; margin: 0; color: var(--muted); }
+.acw-blog-clarity-cta-actions { display: flex; gap: 1rem; align-items: flex-start; flex-direction: column; }
+.acw-blog-clarity-cta-actions .acw-btn { width: fit-content; }
+
+@media (max-width: 900px) {
+  .acw-blog-hero-grid,
+  .acw-blog-clarity-cta-card { grid-template-columns: 1fr; }
+  .acw-blog-hero-media { width: min(100%, 520px); justify-self: start; }
+  .acw-blog-index-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 680px) {
+  .acw-blog-hero { padding: 4rem 0 4.5rem; }
+  .acw-blog-hero h1 { font-size: clamp(2.8rem, 12vw, 4rem); }
+  .acw-blog-index-grid { grid-template-columns: 1fr; }
+  .acw-blog-clarity-cta-actions .acw-btn { width: 100%; }
+}
+
+/* =========================================================
    44. LIBRARY + JOURNAL — AUTHORITATIVE FINAL SYSTEM
    This is intentionally the final Library block. It supersedes the earlier
    Library experiments above while leaving every other page untouched.
@@ -10375,6 +10424,15 @@ Authoritative corrections for /service/.
 
 @media (max-width:900px){.acw-library-hero-grid,.acw-library-introduction-grid,.acw-library-guide-feature,.acw-library-latest-heading{grid-template-columns:1fr}.acw-library-hero-media{width:min(100%,520px);justify-self:start}.acw-library-latest-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.acw-library-latest-heading{gap:1rem}}
 @media (max-width:680px){.acw-library-hero{padding:4rem 0 4.5rem}.acw-library-hero h1{font-size:clamp(2.8rem,12vw,4rem)}.acw-library-hero-actions,.acw-library-hero-actions .acw-btn{width:100%}.acw-library-stage-nav{grid-template-columns:1fr}.acw-library-stage-nav a,.acw-library-stage-nav a:not(:first-child){padding:1rem 0;border-right:0;border-bottom:1px solid var(--line-strong)}.acw-library-stage-nav a:last-child{border-bottom:0}.acw-library-stage-heading{grid-template-columns:1fr;gap:.75rem}.acw-library-stage-heading>p{grid-row:auto;margin:0}.acw-library-principle-list article{grid-template-columns:42px 1fr;gap:1rem;align-items:start}.acw-library-principle-list .acw-library-card-link{grid-column:2}.acw-library-guide-feature img{min-height:0;aspect-ratio:4 / 3}.acw-library-guide-copy .acw-btn{width:100%}.acw-library-latest-grid,.acw-blog-index-grid{grid-template-columns:1fr}.acw-library-closing-card{grid-template-columns:1fr;align-items:start}.acw-library-closing-card .acw-btn{width:100%}}
+
+/* 45. BLOG PAGE — PORTRAIT HERO + PRACTICE CLARITY CTA */
+.acw-blog-hero{padding:clamp(5rem,9vw,8.75rem) 0 clamp(4.5rem,8vw,7rem);background:radial-gradient(circle at 18% 0,rgba(215,221,216,.22),transparent 36%),var(--surface)}
+.acw-blog-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.58fr);gap:clamp(3rem,8vw,8.5rem);align-items:center}
+.acw-blog-hero-copy{max-width:660px}.acw-blog-hero h1{max-width:10.8ch;margin-bottom:1.35rem;font-size:clamp(3.35rem,5.45vw,6.1rem);line-height:.9;letter-spacing:-.07em}.acw-blog-hero-copy>p:not(.acw-section-label){max-width:48ch;margin:0;color:var(--muted);font-size:clamp(1.04rem,1.3vw,1.2rem);line-height:1.72}.acw-blog-hero-copy .acw-library-text-link{margin-top:1.8rem}.acw-blog-hero-media{width:min(100%,440px);justify-self:end;margin:0}.acw-blog-hero-media img{width:100%;aspect-ratio:4 / 5;object-fit:cover;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}
+.acw-blog-index{padding:clamp(4.75rem,8vw,7.75rem) 0;background:var(--surface-quiet);border-top:1px solid var(--line)}.acw-blog-index-heading{max-width:660px;margin-bottom:clamp(2.7rem,5vw,4.5rem)}.acw-blog-index-heading h2{max-width:11ch;margin-bottom:1rem}.acw-blog-index-heading>p:last-child{max-width:52ch;color:var(--muted)}.acw-blog-index-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem}.acw-blog-index-card{background:rgba(255,255,255,.86)}.acw-blog-index-card-copy{min-height:260px}.acw-blog-index-card h3{max-width:none;margin-bottom:.7rem;font-size:clamp(1.3rem,1.6vw,1.65rem);letter-spacing:-.045em;line-height:1.08}.acw-blog-index-card h3 a{color:var(--text)}
+.acw-blog-clarity-cta{padding:clamp(4.75rem,8vw,7.5rem) 0;background:var(--surface)}.acw-blog-clarity-cta-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.42fr);gap:clamp(2rem,6vw,5rem);align-items:end;padding:clamp(2.25rem,5vw,4.5rem);background:radial-gradient(circle at 100% 0,rgba(215,221,216,.26),transparent 35%),rgba(255,255,255,.84);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-sm)}.acw-blog-clarity-cta h2{max-width:13ch;margin-bottom:1rem}.acw-blog-clarity-cta div:first-child>p:last-child{max-width:53ch;margin:0;color:var(--muted)}.acw-blog-clarity-cta-actions{display:flex;gap:1rem;align-items:flex-start;flex-direction:column}.acw-blog-clarity-cta-actions .acw-btn{width:fit-content}
+@media (max-width:900px){.acw-blog-hero-grid,.acw-blog-clarity-cta-card{grid-template-columns:1fr}.acw-blog-hero-media{width:min(100%,520px);justify-self:start}.acw-blog-index-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:680px){.acw-blog-hero{padding:4rem 0 4.5rem}.acw-blog-hero h1{font-size:clamp(2.8rem,12vw,4rem)}.acw-blog-index-grid{grid-template-columns:1fr}.acw-blog-clarity-cta-actions .acw-btn{width:100%}}
 
 /* =========================================================
 55. HEADER — CANONICAL LIBRARY SUBNAVIGATION

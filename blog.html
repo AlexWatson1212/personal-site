@@ -5,16 +5,67 @@ description: Practical reflections on therapist websites, private-practice clari
 permalink: /blog/
 ---
 
-<section class="acw-section acw-blog-hero"><div class="acw-container"><p class="acw-section-label">Journal</p><h1>Thoughtful guidance for a clearer private practice.</h1><p>Short, useful articles about therapist websites, professional identity and creating an online presence that feels like your work.</p></div></section>
-
-<section class="acw-section acw-blog-index"><div class="acw-container">
-  {% if site.posts.size > 0 %}
-    <div class="acw-blog-index-grid">
-      {% for post in site.posts %}
-        <article class="acw-blog-index-card"><div><p class="acw-blog-meta">{{ post.date | date: "%B %-d, %Y" }}{% if post.read_time %} · {{ post.read_time }}{% elsif post.reading_time %} · {{ post.reading_time }} min read{% endif %}</p><h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2><p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 22 }}</p><a class="acw-library-card-link" href="{{ post.url | relative_url }}">Read article <span aria-hidden="true">→</span></a></div><a href="{{ post.url | relative_url }}" class="acw-blog-index-image" aria-label="Read {{ post.title }}">{% if post.hero_image %}<img src="{{ post.hero_image | relative_url }}" alt="" loading="lazy" decoding="async">{% else %}<img src="{{ '/assets/images/library/library-article-fallback.webp' | relative_url }}" alt="" loading="lazy" decoding="async">{% endif %}</a></article>
-      {% endfor %}
+<section class="acw-section acw-blog-hero">
+  <div class="acw-container acw-blog-hero-grid">
+    <div class="acw-blog-hero-copy">
+      <p class="acw-section-label">Journal</p>
+      <h1>Thoughtful guidance for a clearer private practice.</h1>
+      <p>Short, useful articles about therapist websites, professional identity and creating an online presence that feels like your work.</p>
+      <a class="acw-library-text-link" href="{{ '/library/' | relative_url }}">Explore the Practice Clarity Library <span aria-hidden="true">→</span></a>
     </div>
-  {% else %}
-    <div class="acw-library-empty"><h2>The journal is being prepared.</h2><p>New articles will appear here shortly.</p></div>
-  {% endif %}
-</div></section>
+    <figure class="acw-blog-hero-media">
+      <img src="{{ '/assets/images/blog/blog-journal-hero.webp' | relative_url }}" alt="A sunlit writing desk beside a window with an open notebook, cup and olive branch" width="1122" height="1402" fetchpriority="high" decoding="async">
+    </figure>
+  </div>
+</section>
+
+<section class="acw-section acw-blog-index">
+  <div class="acw-container">
+    <div class="acw-blog-index-heading">
+      <p class="acw-section-label">Latest writing</p>
+      <h2>One useful thought at a time.</h2>
+      <p>Reflections to help you understand your practice, communicate it with more confidence and make thoughtful choices about your website.</p>
+    </div>
+
+    {% if site.posts.size > 0 %}
+      <div class="acw-blog-index-grid">
+        {% for post in site.posts %}
+          <article class="acw-blog-index-card">
+            <div class="acw-blog-index-card-copy">
+              <p class="acw-blog-meta">{{ post.date | date: "%B %-d, %Y" }}{% if post.read_time %} · {{ post.read_time }}{% elsif post.reading_time %} · {{ post.reading_time }} min read{% endif %}</p>
+              <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+              <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 22 }}</p>
+              <a class="acw-library-card-link" href="{{ post.url | relative_url }}">Read article <span aria-hidden="true">→</span></a>
+            </div>
+            <a href="{{ post.url | relative_url }}" class="acw-blog-index-image" aria-label="Read {{ post.title }}">
+              {% if post.hero_image %}
+                <img src="{{ post.hero_image | relative_url }}" alt="" loading="lazy" decoding="async">
+              {% else %}
+                <img src="{{ '/assets/images/library/library-article-fallback.webp' | relative_url }}" alt="" loading="lazy" decoding="async">
+              {% endif %}
+            </a>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="acw-library-empty">
+        <h3>The journal is being prepared.</h3>
+        <p>New articles will appear here shortly.</p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="acw-section acw-blog-clarity-cta">
+  <div class="acw-container acw-blog-clarity-cta-card">
+    <div>
+      <p class="acw-section-label">Practice Clarity</p>
+      <h2>The strongest therapist websites begin before the design.</h2>
+      <p>Practice Clarity creates a practical foundation for how you describe your work, who you help and what people need to understand before they enquire.</p>
+    </div>
+    <div class="acw-blog-clarity-cta-actions">
+      <a class="acw-btn acw-btn-primary" href="{{ '/service/' | relative_url }}">Explore Practice Clarity</a>
+      <a class="acw-library-text-link" href="{{ '/library/' | relative_url }}">Browse the Library <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
