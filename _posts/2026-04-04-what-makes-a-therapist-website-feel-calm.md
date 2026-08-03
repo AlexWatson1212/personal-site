@@ -26,7 +26,7 @@ When someone is looking for a therapist, they are often already carrying uncerta
 
 Here are a few things that help.
 
-## 1. Clear structure 
+## 1. Clear structure
 
 A calm site is easy to move through.
 
