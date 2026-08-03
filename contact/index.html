@@ -1,44 +1,61 @@
 ---
 layout: default
-title: Contact | Practice Clarity Studio
-description: Tell me about your therapy practice and enquire about a complete Practice Clarity, identity and website engagement.
+title: Contact | Alexander Watson Studio
+description: Tell me about your therapy practice and enquire about Practice Clarity Studio.
+permalink: /contact/
 ---
 
 <section class="acw-section acw-contact-page">
   <div class="acw-container acw-contact-page-grid">
 
     <div class="acw-contact-page-copy">
-      <p class="acw-section-number">Begin</p>
+      <div class="acw-contact-copy-intro">
+        <p class="acw-section-number">Begin</p>
 
-      <h1>Tell me about the practice you are building.</h1>
+        <h1>Tell me about the practice you are building.</h1>
 
-      <p class="acw-page-intro">
-        Practice Clarity Studio is a single engagement covering professional
-        identity, brand and website.
-      </p>
-
-      <p class="acw-section-text">
-        You do not need polished language, a finished niche or a visual direction.
-        Tell me where you are now and what feels hard to put into words.
-      </p>
-
-      <p class="acw-section-text">
-        I will reply personally, ask anything I need to, and tell you honestly
-        whether this is a good fit. If I am not the right person to help, I will
-        say so.
-      </p>
-
-      <!-- Recommended: delete this block. The dropdown below already asks which
-           route the reader is enquiring about, with both figures in the options. -->
-      <div class="acw-contact-page-note">
-        <p>
-          <strong>The complete engagement is £1,995.</strong>
-          Three founding places are open at £795, in exchange for feedback, a
-          testimonial and permission to publish the finished project.
+        <p class="acw-page-intro">
+          Practice Clarity Studio is one connected engagement covering Practice
+          Clarity, professional identity and a bespoke website.
         </p>
 
-        <p>
-          Founding therapists receive the same service, in full.
+        <p class="acw-section-text">
+          You do not need polished language, a finished niche or a visual direction.
+          Tell me where you are now and what feels hard to put into words.
+        </p>
+      </div>
+
+      <div class="acw-contact-copy-details">
+        <div class="acw-contact-page-note">
+          <p class="acw-contact-note-label">Two ways to begin</p>
+          <p>
+            <strong>Founding Therapist Programme — £795.</strong> Three founding
+            places are open in exchange for candid feedback, an honest testimonial
+            and permission to publish the approved finished project as a case study.
+          </p>
+          <p>
+            <strong>Practice Clarity Studio — £1,995.</strong> The full four-stage
+            engagement, with refinement rounds and ownership at handover.
+          </p>
+        </div>
+
+        <p class="acw-contact-fit-note">
+          If Practice Clarity Studio is not the right thing for you, I will say so
+          and tell you what I would do instead.
+        </p>
+
+        <div class="acw-contact-person">
+          <img
+            src="{{ '/assets/images/alexander-watson-portrait.jpg' | relative_url }}"
+            alt="Alexander Watson"
+            loading="lazy"
+          >
+          <p>Alexander — reading and replying to every enquiry personally.</p>
+        </div>
+
+        <p class="acw-contact-email">
+          Prefer email? Write directly to
+          <a href="mailto:hello@alexanderwatson.co.uk">hello@alexanderwatson.co.uk</a>.
         </p>
       </div>
     </div>
@@ -46,44 +63,25 @@ description: Tell me about your therapy practice and enquire about a complete Pr
     <div class="acw-contact-form-card">
       <div class="acw-form-heading">
         <p class="acw-section-number">Enquiries</p>
-        <h2>A few questions.</h2>
-        <p>
-          No mailing list. No sales sequence. No obligation. Only what I need to
-          understand your practice.
-        </p>
+        <h2>Seven short questions, so my reply is actually useful.</h2>
+        <p>Share only what feels relevant. There is no obligation to continue.</p>
       </div>
 
       <form action="https://formspree.io/f/xpwybnnb" method="POST" class="acw-contact-form">
 
         <div class="acw-form-field">
           <label for="name">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            autocomplete="name"
-            required
-          >
+          <input type="text" id="name" name="name" autocomplete="name" required>
         </div>
 
         <div class="acw-form-field">
           <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            autocomplete="email"
-            required
-          >
+          <input type="email" id="email" name="email" autocomplete="email" required>
         </div>
 
         <div class="acw-form-field">
           <label for="practice-stage">Where are you in your practice?</label>
-          <select
-            id="practice-stage"
-            name="practice_stage"
-            required
-          >
+          <select id="practice-stage" name="practice_stage" required>
             <option value="" selected disabled>Select an option</option>
             <option value="Preparing to launch">Preparing to launch</option>
             <option value="Recently launched">Recently launched</option>
@@ -94,11 +92,7 @@ description: Tell me about your therapy practice and enquire about a complete Pr
 
         <div class="acw-form-field">
           <label for="website-status">Do you have a website?</label>
-          <select
-            id="website-status"
-            name="website_status"
-            required
-          >
+          <select id="website-status" name="website_status" required>
             <option value="" selected disabled>Select an option</option>
             <option value="No website yet">No website yet</option>
             <option value="Yes, but it needs replacing">Yes, but it needs replacing</option>
@@ -108,52 +102,51 @@ description: Tell me about your therapy practice and enquire about a complete Pr
 
         <div class="acw-form-field">
           <label for="programme">Which are you enquiring about?</label>
-          <select
-            id="programme"
-            name="programme"
-            required
-          >
+          <select id="programme" name="programme" required>
             <option value="" selected disabled>Select an option</option>
-            <option value="Founding Therapist Programme - £795">Founding Therapist Programme — £795</option>
-            <option value="Complete Practice Clarity Studio - £1,995">Complete Practice Clarity Studio — £1,995</option>
+            <option value="Founding Therapist Programme — £795">Founding Therapist Programme — £795</option>
+            <option value="Practice Clarity Studio — £1,995">Practice Clarity Studio — £1,995</option>
             <option value="Unsure which applies">I am unsure which applies</option>
           </select>
         </div>
 
         <div class="acw-form-field">
           <label for="message">What would you like me to know?</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="8"
-            placeholder="For example: who you work with, how you describe your approach now, and what feels unclear."
-            required
-          ></textarea>
+          <textarea id="message" name="message" rows="7" placeholder="For example: who you work with, how you describe your approach now, and what feels unclear." required></textarea>
         </div>
 
         <div class="acw-form-field">
           <label for="timing">Any timing in mind?</label>
-          <input
-            type="text"
-            id="timing"
-            name="timing"
-            placeholder="Optional — for example, autumn, or no fixed date."
-          >
+          <input type="text" id="timing" name="timing" placeholder="Optional — for example, autumn, or no fixed date.">
         </div>
 
         <input type="hidden" name="_subject" value="New Practice Clarity Studio enquiry">
 
-        <button type="submit" class="acw-btn acw-btn-primary">
-          Send enquiry
-        </button>
+        <button type="submit" class="acw-btn acw-btn-primary">Send enquiry</button>
 
-        <!-- Deleted: "I will reply personally and always be honest about whether
-             I think the service is the right fit." This repeats the third
-             paragraph almost verbatim. If the slot must be filled, use
-             information rather than reassurance, e.g. reply time. -->
-
+        <div class="acw-form-reassurance" aria-label="What happens next">
+          <p>I read every enquiry myself and reply within two working days.</p>
+          <p>What you send is used only to reply to you. It is not added to a mailing list, shared with anyone, or used to follow up later.</p>
+        </div>
       </form>
     </div>
 
   </div>
 </section>
+
+<script>
+  (function () {
+    const programme = document.getElementById("programme");
+    const service = new URLSearchParams(window.location.search).get("service");
+
+    if (!programme || !service) return;
+
+    const selections = {
+      "founding-place": "Founding Therapist Programme — £795",
+      "practice-clarity-studio": "Practice Clarity Studio — £1,995",
+      "complete-service": "Practice Clarity Studio — £1,995"
+    };
+
+    if (selections[service]) programme.value = selections[service];
+  }());
+</script>

@@ -1,15 +1,6 @@
 <header class="site-header" role="banner">
-  <nav
-    class="nav"
-    role="navigation"
-    aria-label="Main navigation"
-  >
-
-    <a
-      class="nav__brand"
-      href="{{ '/' | relative_url }}"
-      aria-label="Alexander Watson home"
-    >
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a class="nav__brand" href="{{ '/' | relative_url }}" aria-label="Alexander Watson home">
       <img
         class="nav__logo"
         src="{{ '/assets/images/brand/Alexander-Watson-Alternate-logo.svg' | relative_url }}"
@@ -32,44 +23,22 @@
 
     <div class="nav__overlay" aria-hidden="true"></div>
 
-    <div
-      id="primary-nav-panel"
-      class="nav__panel"
-    >
-      <ul
-        id="primary-nav"
-        class="nav__links"
-      >
+    <div id="primary-nav-panel" class="nav__panel">
+      <ul id="primary-nav" class="nav__links">
         <li>
-          <a
-            href="{{ '/' | relative_url }}"
-            {% if page.url == '/' %}aria-current="page"{% endif %}
-          >
-            Home
-          </a>
+          <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>Home</a>
         </li>
 
         <li>
-          <a
-            href="{{ '/service/' | relative_url }}"
-            {% if page.url == '/service/' %}aria-current="page"{% endif %}
-          >
-            Service
-          </a>
+          <a href="{{ '/service/' | relative_url }}" {% if page.url == '/service/' %}aria-current="page"{% endif %}>Service</a>
         </li>
 
         <li>
-          <a href="{{ '/#work' | relative_url }}">
-            Work
-          </a>
+          <a href="{{ '/#work' | relative_url }}">Work</a>
         </li>
 
         <li class="nav__library">
-          <details
-            {% if page.url == '/practice-clarity' or page.url == '/practice-clarity/' or page.url == '/blog/' or page.layout == 'guide' or page.layout == 'post' %}
-              data-current="true"
-            {% endif %}
-          >
+          <details {% if page.url == '/practice-clarity' or page.url == '/practice-clarity/' or page.url == '/blog/' or page.layout == 'guide' or page.layout == 'post' %}data-current="true"{% endif %}>
             <summary>
               Library
               <span class="nav__library-chevron" aria-hidden="true"></span>
@@ -77,19 +46,13 @@
 
             <ul class="nav__subnav">
               <li>
-                <a
-                  href="{{ '/practice-clarity' | relative_url }}"
-                  {% if page.url == '/practice-clarity' or page.url == '/practice-clarity/' or page.layout == 'guide' %}aria-current="page"{% endif %}
-                >
+                <a href="{{ '/practice-clarity' | relative_url }}" {% if page.url == '/practice-clarity' or page.url == '/practice-clarity/' or page.layout == 'guide' %}aria-current="page"{% endif %}>
                   Practice Clarity Library
                 </a>
               </li>
 
               <li>
-                <a
-                  href="{{ '/blog/' | relative_url }}"
-                  {% if page.url == '/blog/' or page.layout == 'post' %}aria-current="page"{% endif %}
-                >
+                <a href="{{ '/blog/' | relative_url }}" {% if page.url == '/blog/' or page.layout == 'post' %}aria-current="page"{% endif %}>
                   Journal
                 </a>
               </li>
@@ -98,23 +61,13 @@
         </li>
 
         <li>
-          <a
-            href="{{ '/about/' | relative_url }}"
-            {% if page.url == '/about/' %}aria-current="page"{% endif %}
-          >
-            About
-          </a>
+          <a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}aria-current="page"{% endif %}>About</a>
         </li>
       </ul>
 
-      <a
-        class="nav__cta"
-        href="{{ '/contact/' | relative_url }}"
-        {% if page.url == '/contact/' %}aria-current="page"{% endif %}
-      >
+      <a class="nav__cta" href="{{ '/contact/' | relative_url }}" {% if page.url == '/contact/' %}aria-current="page"{% endif %}>
         Tell me about your practice
       </a>
     </div>
-
   </nav>
 </header>
