@@ -11,10 +11,21 @@ permalink: /blog/
       <p class="acw-section-label">Journal</p>
       <h1>Thoughtful guidance for a clearer private practice.</h1>
       <p>Short, useful articles about therapist websites, professional identity and creating an online presence that feels like your work.</p>
-      <a class="acw-library-text-link" href="{{ '/library/' | relative_url }}">Explore the Practice Clarity Library <span aria-hidden="true">→</span></a>
+      <a class="acw-library-text-link" href="{{ '/practice-clarity' | relative_url }}">
+        Explore the Practice Clarity Library
+        <span aria-hidden="true">→</span>
+      </a>
     </div>
+
     <figure class="acw-blog-hero-media">
-      <img src="{{ '/assets/images/blog/blog-journal-hero.webp' | relative_url }}" alt="A sunlit writing desk beside a window with an open notebook, cup and olive branch" width="1122" height="1402" fetchpriority="high" decoding="async">
+      <img
+        src="{{ '/assets/images/blog/blog-journal-hero.webp' | relative_url }}"
+        alt="A sunlit writing desk beside a window with an open notebook, cup and olive branch"
+        width="1122"
+        height="1402"
+        fetchpriority="high"
+        decoding="async"
+      >
     </figure>
   </div>
 </section>
@@ -32,16 +43,50 @@ permalink: /blog/
         {% for post in site.posts %}
           <article class="acw-blog-index-card">
             <div class="acw-blog-index-card-copy">
-              <p class="acw-blog-meta">{{ post.date | date: "%B %-d, %Y" }}{% if post.read_time %} · {{ post.read_time }}{% elsif post.reading_time %} · {{ post.reading_time }} min read{% endif %}</p>
-              <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-              <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 22 }}</p>
-              <a class="acw-library-card-link" href="{{ post.url | relative_url }}">Read article <span aria-hidden="true">→</span></a>
+              <p class="acw-blog-meta">
+                {{ post.date | date: "%B %-d, %Y" }}
+                {% if post.read_time %}
+                  · {{ post.read_time }}
+                {% elsif post.reading_time %}
+                  · {{ post.reading_time }} min read
+                {% endif %}
+              </p>
+
+              <h3>
+                <a href="{{ post.url | relative_url }}">
+                  {{ post.title }}
+                </a>
+              </h3>
+
+              <p>
+                {{ post.description | default: post.excerpt | strip_html | truncatewords: 22 }}
+              </p>
+
+              <a class="acw-library-card-link" href="{{ post.url | relative_url }}">
+                Read article
+                <span aria-hidden="true">→</span>
+              </a>
             </div>
-            <a href="{{ post.url | relative_url }}" class="acw-blog-index-image" aria-label="Read {{ post.title }}">
+
+            <a
+              href="{{ post.url | relative_url }}"
+              class="acw-blog-index-image"
+              aria-label="Read {{ post.title }}"
+            >
               {% if post.hero_image %}
-                <img src="{{ post.hero_image | relative_url }}" alt="" loading="lazy" decoding="async">
+                <img
+                  src="{{ post.hero_image | relative_url }}"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                >
               {% else %}
-                <img src="{{ '/assets/images/library/library-article-fallback.webp' | relative_url }}" alt="" loading="lazy" decoding="async">
+                <img
+                  src="{{ '/assets/images/library/library-article-fallback.webp' | relative_url }}"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                >
               {% endif %}
             </a>
           </article>
@@ -63,9 +108,16 @@ permalink: /blog/
       <h2>The strongest therapist websites begin before the design.</h2>
       <p>Practice Clarity creates a practical foundation for how you describe your work, who you help and what people need to understand before they enquire.</p>
     </div>
+
     <div class="acw-blog-clarity-cta-actions">
-      <a class="acw-btn acw-btn-primary" href="{{ '/service/' | relative_url }}">Explore Practice Clarity</a>
-      <a class="acw-library-text-link" href="{{ '/library/' | relative_url }}">Browse the Library <span aria-hidden="true">→</span></a>
+      <a class="acw-btn acw-btn-primary" href="{{ '/service/' | relative_url }}">
+        Explore the complete service
+      </a>
+
+      <a class="acw-library-text-link" href="{{ '/practice-clarity' | relative_url }}">
+        Browse the Library
+        <span aria-hidden="true">→</span>
+      </a>
     </div>
   </div>
 </section>

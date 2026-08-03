@@ -11,15 +11,33 @@ permalink: /404.html
       <div class="acw-404-copy">
         <p class="acw-section-label">Page not found</p>
         <h1>This page has taken the scenic route.</h1>
-        <p class="acw-404-text">It appears to have wandered somewhere more useful. The link may be out of date, the page may have moved, or the address may have been entered incorrectly.</p>
+        <p class="acw-404-text">
+          It appears to have wandered somewhere more useful. The link may be out
+          of date, the page may have moved, or the address may have been entered
+          incorrectly.
+        </p>
+
         <div class="acw-cta-row">
-          <a class="acw-btn acw-btn-primary" href="{{ '/' | relative_url }}">Return home</a>
-          <a class="acw-btn acw-btn-secondary" href="{{ '/contact/' | relative_url }}">Tell me what you need</a>
+          <a class="acw-btn acw-btn-primary" href="{{ '/' | relative_url }}">
+            Return home
+          </a>
+
+          <a class="acw-btn acw-btn-secondary" href="{{ '/contact/' | relative_url }}">
+            Tell me what you need
+          </a>
         </div>
       </div>
 
       <figure class="acw-404-hero-media">
-        <img src="{{ '/assets/images/404/page-took-the-scenic-route.webp' | relative_url }}" alt="A quiet path turning out of sight through a calm, natural landscape" width="1600" height="2000" loading="eager" fetchpriority="high" decoding="async">
+        <img
+          src="{{ '/assets/images/404/page-took-the-scenic-route.webp' | relative_url }}"
+          alt="A quiet path turning out of sight through a calm, natural landscape"
+          width="1600"
+          height="2000"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        >
         <figcaption>404 · A slight detour.</figcaption>
       </figure>
     </header>
@@ -31,7 +49,7 @@ permalink: /404.html
       </div>
 
       <div class="acw-404-options-grid">
-        <a class="acw-404-option" href="https://alexanderwatson.co.uk/practice-clarity">
+        <a class="acw-404-option" href="{{ '/practice-clarity' | relative_url }}">
           <p class="acw-section-label">Practice Clarity</p>
           <h3>Understand your practice before you try to promote it.</h3>
           <p>Explore the principles that help therapists make their work easier to understand and trust.</p>
@@ -60,7 +78,10 @@ permalink: /404.html
         <h2>Tell me what you were looking for.</h2>
         <p>If you were trying to find something specific, send a short note and I will point you in the right direction.</p>
       </div>
-      <a class="acw-btn acw-btn-primary" href="{{ '/contact/' | relative_url }}">Start a conversation</a>
+
+      <a class="acw-btn acw-btn-primary" href="{{ '/contact/' | relative_url }}">
+        Start a conversation
+      </a>
     </section>
   </div>
 </section>

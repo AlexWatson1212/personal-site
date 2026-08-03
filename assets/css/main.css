@@ -12422,53 +12422,6 @@ Canonical styles for _layouts/guide.html.
   color: var(--brand-charcoal);
 }
 
-/* Founding programme notice */
-
-.acw-package-founding-bar {
-  background: var(--deep-forest);
-  color: var(--warm-white);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-.acw-package-founding-bar-inner {
-  display: flex;
-  min-height: 52px;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem 1.25rem;
-  padding-block: 0.65rem;
-  text-align: center;
-}
-
-.acw-package-founding-bar p {
-  margin: 0;
-  color: rgba(247, 244, 239, 0.9);
-  font-size: 0.82rem;
-  line-height: 1.5;
-}
-
-.acw-package-founding-bar strong {
-  color: var(--white);
-  font-weight: 800;
-}
-
-.acw-package-founding-bar a {
-  flex: 0 0 auto;
-  color: var(--white);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.48);
-  font-size: 0.73rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  line-height: 1.35;
-  text-transform: uppercase;
-}
-
-.acw-package-founding-bar a:hover,
-.acw-package-founding-bar a:focus-visible {
-  color: var(--white);
-  border-bottom-color: var(--white);
-}
-
 /* Hero */
 
 .acw-complete-package .acw-package-hero {
@@ -13436,18 +13389,7 @@ Canonical styles for _layouts/guide.html.
 /* Mobile */
 
 @media (max-width: 700px) {
-  .acw-package-founding-bar-inner {
-    align-items: flex-start;
-    flex-direction: column;
-    padding-block: 0.8rem;
-    text-align: left;
-  }
-
-  .acw-package-founding-bar a {
-    font-size: 0.7rem;
-  }
-
-  .acw-complete-package .acw-package-hero,
+.acw-complete-package .acw-package-hero,
   .acw-complete-package .acw-package-problem,
   .acw-complete-package .acw-package-foundation,
   .acw-complete-package .acw-package-process,
@@ -14549,15 +14491,7 @@ creates distinct rhythms for questions, process, proof and price.
 }
 
 @media (max-width: 760px) {
-  .acw-complete-package .acw-package-founding-bar-inner {
-    align-items: flex-start;
-  }
-
-  .acw-complete-package .acw-package-founding-bar-inner p {
-    max-width: none;
-  }
-
-  .acw-complete-package .acw-package-split-heading,
+.acw-complete-package .acw-package-split-heading,
   .acw-complete-package .acw-package-chapter-heading,
   .acw-complete-package .acw-package-proof-heading {
     align-items: start;
