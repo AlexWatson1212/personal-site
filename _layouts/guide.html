@@ -1,169 +1,169 @@
-<!-- _layouts/guide.html -->
+---
+layout: default
+---
 
-<!doctype html>
-<html lang="en">
-<head>
-  {% include head.html %}
-</head>
+<article class="acw-guide">
 
-<body>
-  {% include header.html %}
+  {% unless page.self_contained_guide %}
+  <header class="acw-guide-hero">
+    <div class="acw-container">
+      <a class="acw-post-back-link" href="{{ '/practice-clarity' | relative_url }}">
+        <span aria-hidden="true">←</span>
+        Practice Clarity Library
+      </a>
 
-  <main id="content" class="site-content">
-    <article class="acw-guide">
+      <div class="acw-guide-hero-banner">
+        {% if page.hero_image %}
+          <img
+            class="acw-guide-hero-image"
+            src="{{ page.hero_image | relative_url }}"
+            alt="{{ page.hero_image_alt | default: page.hero_alt | default: page.title }}"
+            loading="eager"
+            decoding="async"
+          >
+        {% endif %}
 
-      <header class="acw-guide-hero">
-        <div class="acw-container">
-          <a class="acw-post-back-link" href="{{ '/library/' | relative_url }}">
-            <span aria-hidden="true">←</span>
-            Practice Clarity Library
-          </a>
+        <div class="acw-guide-hero-shade" aria-hidden="true"></div>
 
-          <div class="acw-guide-hero-banner">
-            {% if page.hero_image %}
-              <img
-                class="acw-guide-hero-image"
-                src="{{ page.hero_image | relative_url }}"
-                alt="{{ page.hero_image_alt | default: page.hero_alt | default: page.title }}"
-                loading="eager"
-                decoding="async"
-              >
-            {% endif %}
+        <div class="acw-guide-hero-content">
+          <p class="acw-section-label">
+            {{ page.kicker | default: page.category | default: "Practice Clarity Guide" }}
+          </p>
 
-            <div class="acw-guide-hero-shade" aria-hidden="true"></div>
+          <h1 class="acw-guide-title">{{ page.title }}</h1>
 
-            <div class="acw-guide-hero-content">
-              <p class="acw-section-label">
-                {{ page.kicker | default: page.category | default: "Practice Clarity Guide" }}
-              </p>
-
-              <h1 class="acw-guide-title">{{ page.title }}</h1>
-
-              {% if page.reading_time or page.read_time %}
-                <div class="acw-guide-meta" aria-label="Guide details">
-                  {% if page.reading_time %}
-                    <span>{{ page.reading_time }}</span>
-                  {% else %}
-                    <span>{{ page.read_time }}</span>
-                  {% endif %}
-                </div>
-              {% endif %}
+          {% assign guide_read_time = page.reading_time | default: page.read_time %}
+          {% if guide_read_time %}
+            <div class="acw-guide-meta" aria-label="Guide details">
+              <span>{{ guide_read_time }}</span>
             </div>
-          </div>
+          {% endif %}
         </div>
-      </header>
+      </div>
+    </div>
+  </header>
 
-      <nav class="acw-guide-jump-nav" aria-label="On this page" hidden>
-        <div class="acw-container acw-guide-jump-nav-inner">
-          <span>On this page</span>
-          <div class="acw-guide-jump-links"></div>
+  <nav class="acw-guide-jump-nav" aria-label="On this page" hidden>
+    <div class="acw-container acw-guide-jump-nav-inner">
+      <span>On this page</span>
+      <div class="acw-guide-jump-links"></div>
+    </div>
+  </nav>
+
+  {% if page.subtitle or page.description %}
+    <section class="acw-guide-summary-section">
+      <div class="acw-container acw-guide-summary-inner">
+        <p class="acw-section-label">In brief</p>
+        <p class="acw-guide-summary">
+          {{ page.subtitle | default: page.description }}
+        </p>
+      </div>
+    </section>
+  {% endif %}
+
+  {% if page.intro %}
+    <section class="acw-post-intro-section">
+      <div class="acw-container acw-post-intro-inner">
+        <p class="acw-post-intro">{{ page.intro }}</p>
+      </div>
+    </section>
+  {% endif %}
+  {% endunless %}
+
+  <section id="guide" class="acw-guide-body-section">
+    <div class="acw-container acw-guide-body-inner">
+      <div class="acw-guide-reading-label" aria-hidden="true">
+        <span></span>
+        <p>Guide</p>
+      </div>
+
+      <div class="acw-guide-content-wrap">
+        <div class="acw-guide-content">
+          {{ content }}
         </div>
-      </nav>
 
-      {% if page.subtitle or page.description %}
-        <section class="acw-guide-summary-section">
-          <div class="acw-container acw-guide-summary-inner">
-            <p class="acw-section-label">In brief</p>
-            <p class="acw-guide-summary">
-              {{ page.subtitle | default: page.description }}
-            </p>
-          </div>
-        </section>
-      {% endif %}
-
-      <section id="guide" class="acw-guide-body-section">
-        <div class="acw-container acw-guide-body-inner">
-          <div class="acw-guide-reading-label" aria-hidden="true">
-            <span></span>
-            <p>Guide</p>
-          </div>
-
-          <div class="acw-guide-content-wrap">
-            <div class="acw-guide-content">
-              {{ content }}
-            </div>
-
-            <div class="acw-guide-end-mark" aria-hidden="true">
-              <span></span>
-            </div>
-          </div>
+        <div class="acw-guide-end-mark" aria-hidden="true">
+          <span></span>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <section class="acw-guide-related-section">
-        <div class="acw-container">
-          <div class="acw-guide-library-invitation">
-            <div>
-              <p class="acw-section-label">Keep reading</p>
-              <h2>Want to explore the Practice Clarity library?</h2>
-              <p>Practical thinking on how therapists can build a clearer, more recognisable private practice.</p>
-            </div>
+  <section class="acw-guide-related-section">
+    <div class="acw-container">
+      <div class="acw-guide-library-invitation">
+        <div>
+          <p class="acw-section-label">Keep reading</p>
+          <h2>Explore the complete Practice Clarity Library.</h2>
+          <p>Nine connected principles and practical guides for building a clearer, more recognisable private practice.</p>
+        </div>
 
-            <a class="acw-guide-library-button" href="{{ '/library/' | relative_url }}">
-              View all guides
+        <a class="acw-guide-library-button" href="{{ '/practice-clarity' | relative_url }}">
+          View all guides
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="acw-guide-footer-cta">
+    <div class="acw-container">
+      <div class="acw-guide-cta-card">
+        <div class="acw-guide-cta-copy">
+          <p class="acw-section-label">From principle to practice</p>
+          <h2>Turn this thinking into one clear professional foundation.</h2>
+          <p>Practice Clarity Studio applies the framework to your positioning, language, professional identity and bespoke website.</p>
+          <div class="acw-cta-row">
+            <a class="acw-btn acw-btn-primary" href="{{ '/service/' | relative_url }}">See the complete service</a>
+            <a class="acw-library-text-link" href="{{ '/work/' | relative_url }}">
+              See how this is applied in a full project
               <span aria-hidden="true">→</span>
             </a>
           </div>
         </div>
-      </section>
 
-      <section class="acw-guide-footer-cta">
-        <div class="acw-container">
-          <div class="acw-guide-cta-card">
-            <div class="acw-guide-cta-copy">
-              <p class="acw-section-label">Practice Clarity</p>
-              <h2>Want your therapy website to feel clearer and easier to trust?</h2>
-              <p>I help therapists understand what makes their practice distinctive before we ever think about design.</p>
-              <a class="acw-btn acw-btn-primary" href="{{ '/contact/' | relative_url }}">Start with clarity</a>
-            </div>
+        <figure class="acw-guide-cta-media">
+          <img
+            src="{{ '/assets/images/library/practice-clarity-cta.webp' | relative_url }}"
+            alt="A calm, considered workspace for therapy practice planning"
+            loading="lazy"
+            decoding="async"
+          >
+        </figure>
+      </div>
+    </div>
+  </section>
 
-            <figure class="acw-guide-cta-media">
-              <img
-                src="{{ '/assets/images/library/practice-clarity-cta.webp' | relative_url }}"
-                alt="A calm, considered workspace for therapy practice planning"
-                loading="lazy"
-                decoding="async"
-              >
-            </figure>
-          </div>
-        </div>
-      </section>
+</article>
 
-    </article>
-  </main>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var content = document.querySelector(".acw-guide-content");
+    var navigation = document.querySelector(".acw-guide-jump-nav");
+    var links = document.querySelector(".acw-guide-jump-links");
 
-  {% include footer.html %}
+    if (!content || !navigation || !links) return;
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var content = document.querySelector(".acw-guide-content");
-      var navigation = document.querySelector(".acw-guide-jump-nav");
-      var links = document.querySelector(".acw-guide-jump-links");
+    var headings = content.querySelectorAll("h2");
+    if (!headings.length) return;
 
-      if (!content || !navigation || !links) return;
+    headings.forEach(function (heading, index) {
+      if (!heading.id) {
+        var slug = heading.textContent
+          .toLowerCase()
+          .trim()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/(^-|-$)/g, "");
 
-      var headings = content.querySelectorAll("h2");
-      if (!headings.length) return;
+        heading.id = slug || "section-" + (index + 1);
+      }
 
-      headings.forEach(function (heading, index) {
-        if (!heading.id) {
-          var slug = heading.textContent
-            .toLowerCase()
-            .trim()
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "");
-
-          heading.id = slug || "section-" + (index + 1);
-        }
-
-        var link = document.createElement("a");
-        link.href = "#" + heading.id;
-        link.textContent = heading.textContent;
-        links.appendChild(link);
-      });
-
-      navigation.hidden = false;
+      var link = document.createElement("a");
+      link.href = "#" + heading.id;
+      link.textContent = heading.textContent;
+      links.appendChild(link);
     });
-  </script>
-</body>
-</html>
+
+    navigation.hidden = false;
+  });
+</script>

@@ -1,5 +1,6 @@
 ---
 layout: guide
+self_contained_guide: true
 
 title: "The Mirror Principle"
 description: "The first Practice Clarity principle: why therapist websites do not create clarity, but reflect the clarity that already exists."

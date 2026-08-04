@@ -1,5 +1,6 @@
 ---
 layout: guide
+self_contained_guide: true
 
 title: "The About Principle"
 description: "The sixth Practice Clarity principle. Why people are not looking for your biography, but for enough of you to imagine beginning therapy."

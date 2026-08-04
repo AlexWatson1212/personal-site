@@ -36,7 +36,7 @@ permalink: /blog/
 <section class="acw-section acw-blog-index">
   <div class="acw-container">
     <div class="acw-blog-index-heading">
-      <p class="acw-section-label">Latest writing</p>
+      <p class="acw-section-label">Journal</p>
       <h2>Useful thinking, kept practical.</h2>
       <p>
         Reflections to help you understand your practice, communicate it with
@@ -44,19 +44,16 @@ permalink: /blog/
       </p>
     </div>
 
-    {% if site.posts.size > 0 %}
+    {% assign journal_posts = site.posts | where_exp: "post", "post.slug != 'beyond-counselling-directory'" %}
+    {% if journal_posts.size > 0 %}
       <div class="acw-blog-index-grid">
-        {% for post in site.posts %}
+        {% for post in journal_posts %}
           <article class="acw-blog-index-card">
             <div class="acw-blog-index-card-copy">
-              <p class="acw-blog-meta">
-                {{ post.date | date: "%B %-d, %Y" }}
-                {% if post.read_time %}
-                  · {{ post.read_time }}
-                {% elsif post.reading_time %}
-                  · {{ post.reading_time }} min read
-                {% endif %}
-              </p>
+              {% assign post_read_time = post.reading_time | default: post.read_time %}
+              {% if post_read_time %}
+                <p class="acw-blog-meta">{{ post_read_time }}</p>
+              {% endif %}
 
               <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
 

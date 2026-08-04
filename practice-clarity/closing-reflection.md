@@ -1,5 +1,6 @@
 ---
 layout: guide
+self_contained_guide: true
 
 title: "A Closing Reflection"
 description: "The final page of Practice Clarity. A reflection on uncertainty, trust and why clarity is ultimately an act of care."

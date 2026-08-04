@@ -1,5 +1,6 @@
 ---
 layout: guide
+self_contained_guide: true
 
 title: "How to Optimise Your Counselling Directory Profile"
 description: "A practical guide to writing a Counselling Directory profile that helps the right clients recognise themselves and build trust before first contact."
@@ -18,7 +19,7 @@ featured: true
 featured_order: 1
 
 slug: counselling-directory-profile
-permalink: /library/practical-guides/counselling-directory-profile/
+permalink: /practice-clarity/counselling-directory-profile/
 
 hero_image: /assets/images/library/counselling-directory-profile.webp
 hero_alt: "A therapist reviewing a Counselling Directory profile beside notes and an independent therapist website."
@@ -27,7 +28,7 @@ image: /assets/images/library/counselling-directory-profile.webp
 read_time: 18 min read
 updated: 2026-07-16
 
-canonical_url: https://alexanderwatson.co.uk/library/practical-guides/counselling-directory-profile/
+canonical_url: https://alexanderwatson.co.uk/practice-clarity/counselling-directory-profile/
 
 intro: >
   Your Counselling Directory profile is often the first conversation
@@ -50,7 +51,7 @@ related:
 <nav class="acw-guide-breadcrumb" aria-label="Breadcrumb">
   <a href="{{ '/' | relative_url }}">Home</a>
   <span>/</span>
-  <a href="{{ '/library/' | relative_url }}">Library</a>
+  <a href="{{ '/practice-clarity' | relative_url }}">Practice Clarity Library</a>
   <span>/</span>
   <strong>How to Optimise Your Counselling Directory Profile</strong>
 </nav>
@@ -1310,8 +1311,8 @@ It needs to help the right person recognise themselves, understand what working 
       Explore Practice Clarity
     </a>
 
-    <a href="{{ '/library/' | relative_url }}" class="acw-btn acw-btn-secondary">
-      Return to the Library
+    <a href="{{ '/practice-clarity' | relative_url }}" class="acw-btn acw-btn-secondary">
+      Return to the Practice Clarity Library
     </a>
   </div>
 

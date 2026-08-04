@@ -1,5 +1,6 @@
 ---
 layout: guide
+self_contained_guide: true
 
 title: "The Recognition Principle"
 description: "The fourth Practice Clarity principle. Why people choose the therapist they recognise themselves in, and why recognition matters more than persuasion."

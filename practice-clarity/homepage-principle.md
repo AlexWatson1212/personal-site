@@ -1,5 +1,6 @@
 ---
 layout: guide
+self_contained_guide: true
 
 title: "The Homepage Principle"
 description: "The fifth Practice Clarity principle. Every therapist homepage answers one question before any other: am I in the right place?"

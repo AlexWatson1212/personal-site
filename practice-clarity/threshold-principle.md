@@ -1,5 +1,6 @@
---
+---
 layout: guide
+self_contained_guide: true
 
 title: "The Threshold Principle"
 description: "The third Practice Clarity principle. Why the first few seconds of a therapist website matter, and how to help people feel safe enough to stay."

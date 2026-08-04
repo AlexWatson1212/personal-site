@@ -1,5 +1,6 @@
 ---
 layout: guide
+self_contained_guide: true
 
 title: "The Simplicity Principle"
 description: "The seventh Practice Clarity principle. Why every unnecessary decision creates emotional effort, and why simplicity is an act of care."

@@ -1,177 +1,164 @@
-<!-- _layouts/post.html -->
+---
+layout: default
+---
 
-<!doctype html>
-<html lang="en">
-<head>
-  {% include head.html %}
-</head>
+<article class="acw-post">
 
-<body>
-  {% include header.html %}
+  <header class="acw-post-hero">
+    <div class="acw-container">
+      <a class="acw-post-back-link" href="{{ '/blog/' | relative_url }}">
+        <span aria-hidden="true">←</span>
+        Journal
+      </a>
 
-  <main id="content" class="site-content">
-    <article class="acw-post">
+      <div class="acw-post-hero-banner">
+        {% if page.hero_image %}
+          <img
+            class="acw-post-hero-image"
+            src="{{ page.hero_image | relative_url }}"
+            alt="{{ page.hero_image_alt | default: page.hero_alt | default: page.title }}"
+            loading="eager"
+            decoding="async"
+          >
+        {% endif %}
 
-      <header class="acw-post-hero">
-        <div class="acw-container">
-          <a class="acw-post-back-link" href="{{ '/library/' | relative_url }}">
-            <span aria-hidden="true">←</span>
-            Practice Clarity Library
-          </a>
+        <div class="acw-post-hero-shade" aria-hidden="true"></div>
 
-          <div class="acw-post-hero-banner">
-            {% if page.hero_image %}
-              <img
-                class="acw-post-hero-image"
-                src="{{ page.hero_image | relative_url }}"
-                alt="{{ page.hero_image_alt | default: page.hero_alt | default: page.title }}"
-                loading="eager"
-                decoding="async"
-              >
-            {% endif %}
+        <div class="acw-post-hero-content">
+          <p class="acw-section-label">
+            {{ page.kicker | default: page.category | default: "Journal" }}
+          </p>
 
-            <div class="acw-post-hero-shade" aria-hidden="true"></div>
+          <h1 class="acw-post-title">{{ page.title }}</h1>
 
-            <div class="acw-post-hero-content">
-              <p class="acw-section-label">
-                {{ page.kicker | default: page.category | default: "Article" }}
-              </p>
+          {% assign post_read_time = page.reading_time | default: page.read_time %}
+          {% if page.date or post_read_time %}
+            <div class="acw-post-meta-row" aria-label="Article details">
+              {% if page.date %}
+                <span>{{ page.date | date: "%-d %B %Y" }}</span>
+              {% endif %}
 
-              <h1 class="acw-post-title">{{ page.title }}</h1>
-
-              {% if page.date or page.read_time or page.reading_time %}
-                <div class="acw-post-meta-row" aria-label="Article details">
-                  {% if page.date %}
-                    <span>{{ page.date | date: "%-d %B %Y" }}</span>
-                  {% endif %}
-
-                  {% if page.reading_time %}
-                    <span>{{ page.reading_time }}</span>
-                  {% elsif page.read_time %}
-                    <span>{{ page.read_time }}</span>
-                  {% endif %}
-                </div>
+              {% if post_read_time %}
+                <span>{{ post_read_time }}</span>
               {% endif %}
             </div>
-          </div>
+          {% endif %}
         </div>
-      </header>
+      </div>
+    </div>
+  </header>
 
-      <nav class="acw-post-jump-nav" aria-label="On this page" hidden>
-        <div class="acw-container acw-post-jump-nav-inner">
-          <span>On this page</span>
-          <div class="acw-post-jump-links"></div>
+  <nav class="acw-post-jump-nav" aria-label="On this page" hidden>
+    <div class="acw-container acw-post-jump-nav-inner">
+      <span>On this page</span>
+      <div class="acw-post-jump-links"></div>
+    </div>
+  </nav>
+
+  {% if page.subtitle or page.description %}
+    <section class="acw-post-summary-section">
+      <div class="acw-container acw-post-summary-inner">
+        <p class="acw-section-label">In brief</p>
+        <p class="acw-post-summary">
+          {{ page.subtitle | default: page.description }}
+        </p>
+      </div>
+    </section>
+  {% endif %}
+
+  {% if page.intro %}
+    <section class="acw-post-intro-section">
+      <div class="acw-container acw-post-intro-inner">
+        <p class="acw-post-intro">{{ page.intro }}</p>
+      </div>
+    </section>
+  {% endif %}
+
+  <section id="article" class="acw-post-main">
+    <div class="acw-container acw-post-main-inner">
+      <div class="acw-post-reading-label" aria-hidden="true">
+        <span></span>
+        <p>Article</p>
+      </div>
+
+      <div class="acw-post-content">
+        {{ content }}
+      </div>
+    </div>
+  </section>
+
+  <section class="acw-post-related-section">
+    <div class="acw-container">
+      <div class="acw-post-library-invitation">
+        <div>
+          <p class="acw-section-label">Keep reading</p>
+          <h2>Continue through the Journal.</h2>
+          <p>Further reflections on therapist websites, private-practice clarity and building online trust.</p>
         </div>
-      </nav>
 
-      {% if page.subtitle or page.description %}
-        <section class="acw-post-summary-section">
-          <div class="acw-container acw-post-summary-inner">
-            <p class="acw-section-label">In brief</p>
-            <p class="acw-post-summary">
-              {{ page.subtitle | default: page.description }}
-            </p>
-          </div>
-        </section>
-      {% endif %}
+        <a class="acw-post-library-button" href="{{ '/blog/' | relative_url }}">
+          View all articles
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-      {% if page.intro %}
-        <section class="acw-post-intro-section">
-          <div class="acw-container acw-post-intro-inner">
-            <p class="acw-post-intro">{{ page.intro }}</p>
-          </div>
-        </section>
-      {% endif %}
-
-      <section id="article" class="acw-post-main">
-        <div class="acw-container acw-post-main-inner">
-          <div class="acw-post-reading-label" aria-hidden="true">
-            <span></span>
-            <p>Article</p>
-          </div>
-
-          <div class="acw-post-content">
-            {{ content }}
-          </div>
+  <section class="acw-post-footer-cta">
+    <div class="acw-container">
+      <div class="acw-post-cta-card">
+        <div class="acw-post-cta-copy">
+          <p class="acw-section-label">Practice Clarity Studio</p>
+          <h2>Bring this thinking into the foundations of your own practice.</h2>
+          <p>Practice Clarity connects your positioning, language, professional identity and website before design begins.</p>
+          <a class="acw-btn acw-btn-primary" href="{{ '/service/' | relative_url }}">
+            This thinking is part of Practice Clarity — see the complete service
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
-      </section>
 
-      <section class="acw-post-related-section">
-        <div class="acw-container">
-          <div class="acw-post-library-invitation">
-            <div>
-              <p class="acw-section-label">Keep reading</p>
-              <h2>Want to explore the Practice Clarity library?</h2>
-              <p>Practical thinking on how therapists can build a clearer, more recognisable private practice.</p>
-            </div>
+        <figure class="acw-post-cta-media">
+          <img
+            src="{{ '/assets/images/library/practice-clarity-cta.webp' | relative_url }}"
+            alt="A calm, considered workspace for therapy practice planning"
+            loading="lazy"
+            decoding="async"
+          >
+        </figure>
+      </div>
+    </div>
+  </section>
 
-            <a class="acw-post-library-button" href="{{ '/library/' | relative_url }}">
-              View all guides
-              <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-      </section>
+</article>
 
-      <section class="acw-post-footer-cta">
-        <div class="acw-container">
-          <div class="acw-post-cta-card">
-            <div class="acw-post-cta-copy">
-              <p class="acw-section-label">Practice Clarity</p>
-              <h2>Want your therapy website to feel clearer and easier to trust?</h2>
-              <p>I help therapists understand what makes their practice distinctive before we ever think about design.</p>
-              <a class="acw-btn acw-btn-primary" href="{{ '/contact/' | relative_url }}">Start with clarity</a>
-            </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var content = document.querySelector(".acw-post-content");
+    var navigation = document.querySelector(".acw-post-jump-nav");
+    var links = document.querySelector(".acw-post-jump-links");
 
-            <figure class="acw-post-cta-media">
-              <img
-                src="{{ '/assets/images/library/practice-clarity-cta.webp' | relative_url }}"
-                alt="A calm, considered workspace for therapy practice planning"
-                loading="lazy"
-                decoding="async"
-              >
-            </figure>
-          </div>
-        </div>
-      </section>
+    if (!content || !navigation || !links) return;
 
-    </article>
-  </main>
+    var headings = content.querySelectorAll("h2");
+    if (!headings.length) return;
 
-  {% include footer.html %}
+    headings.forEach(function (heading, index) {
+      if (!heading.id) {
+        var slug = heading.textContent
+          .toLowerCase()
+          .trim()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/(^-|-$)/g, "");
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var content = document.querySelector(".acw-post-content");
-      var navigation = document.querySelector(".acw-post-jump-nav");
-      var links = document.querySelector(".acw-post-jump-links");
+        heading.id = slug || "section-" + (index + 1);
+      }
 
-      if (!content || !navigation || !links) return;
-
-      var headings = content.querySelectorAll("h2");
-      if (!headings.length) return;
-
-      headings.forEach(function (heading, index) {
-        if (!heading.id) {
-          var slug = heading.textContent
-            .toLowerCase()
-            .trim()
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "");
-
-          heading.id = slug || "section-" + (index + 1);
-        }
-
-        var link = document.createElement("a");
-        link.href = "#" + heading.id;
-        link.textContent = heading.textContent;
-        links.appendChild(link);
-      });
-
-      navigation.hidden = false;
+      var link = document.createElement("a");
+      link.href = "#" + heading.id;
+      link.textContent = heading.textContent;
+      links.appendChild(link);
     });
-  </script>
 
-  <script src="{{ '/assets/js/search.js' | relative_url }}" defer></script>
-</body>
-</html>
+    navigation.hidden = false;
+  });
+</script>

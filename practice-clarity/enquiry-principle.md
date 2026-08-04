@@ -1,5 +1,6 @@
 ---
 layout: guide
+self_contained_guide: true
 
 title: "The Enquiry Principle"
 description: "The ninth Practice Clarity principle. Why asking for help should become the easiest step, not the hardest."

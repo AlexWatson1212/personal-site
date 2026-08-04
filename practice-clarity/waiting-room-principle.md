@@ -1,5 +1,6 @@
 ---
 layout: guide
+self_contained_guide: true
 
 title: "The Waiting Room Principle"
 description: "The second Practice Clarity principle: why becoming easier to find can be an ethical act, and why visibility is about reducing the distance between someone needing help and discovering the right therapist."

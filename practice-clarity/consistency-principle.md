@@ -1,5 +1,6 @@
 ---
 layout: guide
+self_contained_guide: true
 
 title: "The Consistency Principle"
 description: "The eighth Practice Clarity principle. Why trust grows when every interaction feels like it belongs to the same thoughtful practice."
