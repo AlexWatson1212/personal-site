@@ -5943,7 +5943,7 @@ Append to the end of the main stylesheet.
   border-radius: 50%;
 }
 
-/* Perspective strip */
+/* Perspective */
 .acw-about-perspective-section {
   padding-top: 0;
   background: var(--surface);
@@ -5959,21 +5959,63 @@ Append to the end of the main stylesheet.
   box-shadow: var(--shadow-xs);
 }
 
-.acw-about-perspective-heading {
+.acw-about-perspective-intro,
+.acw-about-case-study-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(320px, 1fr);
-  align-items: end;
-  gap: 3rem;
-  margin-bottom: 2.5rem;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.7fr);
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 5.25rem);
 }
 
-.acw-about-perspective-heading .acw-section-label {
-  align-self: start;
+.acw-about-perspective-intro {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
 
-.acw-about-perspective-heading h2 {
+.acw-about-perspective-heading {
+  margin: 0;
+}
+
+.acw-about-perspective-heading h2,
+.acw-about-case-study-copy h2 {
   max-width: 14ch;
+}
+
+.acw-about-perspective-heading .acw-section-intro {
+  max-width: 50ch;
   margin-bottom: 0;
+}
+
+.acw-about-perspective-media,
+.acw-about-case-study-media {
+  margin: 0;
+}
+
+.acw-about-perspective-media img,
+.acw-about-case-study-media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 1px solid rgba(26, 33, 25, 0.08);
+  border-radius: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.acw-about-perspective-media img {
+  object-position: center;
+}
+
+.acw-about-case-study-media img {
+  object-position: center top;
+}
+
+.acw-about-case-study-media figcaption {
+  max-width: 34ch;
+  margin: 0.8rem auto 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
 }
 
 .acw-about-perspective-grid {
@@ -6008,6 +6050,25 @@ Append to the end of the main stylesheet.
 .acw-about-perspective-grid p {
   margin-bottom: 0;
   color: var(--muted);
+}
+
+/* First application */
+.acw-about-case-study {
+  background:
+    radial-gradient(circle at 8% 16%, rgba(215, 221, 216, 0.2), transparent 32%),
+    var(--surface);
+}
+
+.acw-about-case-study-grid {
+  grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1fr);
+}
+
+.acw-about-case-study-copy {
+  max-width: 620px;
+}
+
+.acw-about-case-study-copy > p:not(.acw-section-number) {
+  max-width: 57ch;
 }
 
 /* Working relationship */
@@ -6074,10 +6135,15 @@ Append to the end of the main stylesheet.
     gap: 3.2rem;
   }
 
-  .acw-about-perspective-heading,
+  .acw-about-perspective-intro,
+  .acw-about-case-study-grid,
   .acw-about-relationship-grid {
     grid-template-columns: 1fr;
-    gap: 1.4rem;
+    gap: 2rem;
+  }
+
+  .acw-about-case-study-media {
+    max-width: 520px;
   }
 }
 
@@ -6121,6 +6187,24 @@ Append to the end of the main stylesheet.
   .acw-about-principle-panel,
   .acw-about-perspective {
     border-radius: 24px;
+  }
+
+  .acw-about-perspective-intro {
+    gap: 1.5rem;
+  }
+
+  .acw-about-perspective-media,
+  .acw-about-case-study-media {
+    max-width: 440px;
+  }
+
+  .acw-about-perspective-media img,
+  .acw-about-case-study-media img {
+    border-radius: 18px;
+  }
+
+  .acw-about-case-study-grid {
+    gap: 2.2rem;
   }
 
   .acw-about-perspective-grid {
