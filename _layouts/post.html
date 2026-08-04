@@ -4,7 +4,7 @@ layout: default
 
 <article class="acw-post">
 
-  <header class="acw-post-hero">
+  <header class="acw-post-hero acw-surface-paper">
     <div class="acw-container">
       <a class="acw-post-back-link" href="{{ '/blog/' | relative_url }}">
         <span aria-hidden="true">←</span>
@@ -56,7 +56,7 @@ layout: default
   </nav>
 
   {% if page.subtitle or page.description %}
-    <section class="acw-post-summary-section">
+    <section class="acw-post-summary-section acw-surface-recessed">
       <div class="acw-container acw-post-summary-inner">
         <p class="acw-section-label">In brief</p>
         <p class="acw-post-summary">
@@ -67,14 +67,14 @@ layout: default
   {% endif %}
 
   {% if page.intro %}
-    <section class="acw-post-intro-section">
+    <section class="acw-post-intro-section acw-surface-paper">
       <div class="acw-container acw-post-intro-inner">
         <p class="acw-post-intro">{{ page.intro }}</p>
       </div>
     </section>
   {% endif %}
 
-  <section id="article" class="acw-post-main">
+  <section id="article" class="acw-post-main acw-surface-paper">
     <div class="acw-container acw-post-main-inner">
       <div class="acw-post-reading-label" aria-hidden="true">
         <span></span>
@@ -87,7 +87,7 @@ layout: default
     </div>
   </section>
 
-  <section class="acw-post-related-section">
+  <section class="acw-post-related-section acw-surface-recessed">
     <div class="acw-container">
       <div class="acw-post-library-invitation">
         <div>
@@ -104,7 +104,7 @@ layout: default
     </div>
   </section>
 
-  <section class="acw-post-footer-cta">
+  <section class="acw-post-footer-cta acw-surface-ink">
     <div class="acw-container">
       <div class="acw-post-cta-card">
         <div class="acw-post-cta-copy">
@@ -119,8 +119,8 @@ layout: default
 
         <figure class="acw-post-cta-media">
           <img
-            src="{{ '/assets/images/library/practice-clarity-cta.webp' | relative_url }}"
-            alt="A calm, considered workspace for therapy practice planning"
+            src="{{ '/assets/images/brand/brand-blueprint-desk.webp' | relative_url }}"
+            alt="A printed Practice Clarity blueprint and working notes on the studio desk"
             loading="lazy"
             decoding="async"
           >

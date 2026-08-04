@@ -1,0 +1,617 @@
+/* =========================================================
+   ALEXANDER WATSON STUDIO — VISUAL SYSTEM
+   Final authority for surfaces, spacing, cards, labels and actions.
+   ========================================================= */
+
+:root {
+  /* Approved surfaces */
+  --paper: #f7f4ef;
+  --recessed: #e5e9e3;
+  --ink: #283a38;
+
+  /* Content and borders */
+  --ink-text: #1a2119;
+  --muted-text: #4f574f;
+  --on-ink: #f7f4ef;
+  --on-ink-muted: #d8dfd8;
+  --warm-grey-border: #cbc6be;
+  --warm-grey-border-strong: #aaa59d;
+
+  /* Approved spacing scale */
+  --space-8: 0.5rem;
+  --space-16: 1rem;
+  --space-24: 1.5rem;
+  --space-40: 2.5rem;
+  --space-64: 4rem;
+  --space-96: 6rem;
+  --space-128: 8rem;
+  --space-160: 10rem;
+
+  --section-space: clamp(var(--space-64), 8vw, var(--space-128));
+  --hero-space-top: clamp(var(--space-96), 11vw, var(--space-160));
+  --hero-space-bottom: clamp(var(--space-64), 8vw, var(--space-128));
+  --card-padding: var(--space-40);
+  --card-radius: 16px;
+  --image-radius: 12px;
+  --founding-shadow: 0 22px 50px rgba(26, 33, 25, 0.12);
+
+  /* Compatibility aliases used by the established stylesheet */
+  --bg: var(--paper);
+  --surface: var(--paper);
+  --surface-soft: var(--recessed);
+  --surface-quiet: var(--recessed);
+  --surface-warm: var(--recessed);
+  --text: var(--ink-text);
+  --muted: var(--muted-text);
+  --accent: var(--ink);
+  --accent-dark: var(--ink);
+  --line: var(--warm-grey-border);
+  --line-strong: var(--warm-grey-border-strong);
+  --radius: var(--card-radius);
+  --radius-md: var(--card-radius);
+  --radius-lg: var(--card-radius);
+  --shadow-xs: none;
+  --shadow-sm: none;
+  --shadow: none;
+  --shadow-lg: none;
+  --font-heading: "Instrument Serif", Georgia, serif;
+  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  background: var(--paper);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink-text);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--ink-text);
+  font-family: var(--font-heading);
+  font-weight: 400;
+}
+
+p,
+li,
+dd {
+  text-wrap: pretty;
+}
+
+/* =========================================================
+   APPROVED SURFACES
+   ========================================================= */
+
+.acw-surface-paper {
+  background: var(--paper) !important;
+}
+
+.acw-surface-recessed {
+  background: var(--recessed) !important;
+}
+
+.acw-surface-ink {
+  background: var(--ink) !important;
+  color: var(--on-ink) !important;
+}
+
+.acw-surface-ink h1,
+.acw-surface-ink h2,
+.acw-surface-ink h3,
+.acw-surface-ink h4,
+.acw-surface-ink strong {
+  color: var(--on-ink) !important;
+}
+
+.acw-surface-ink p,
+.acw-surface-ink li,
+.acw-surface-ink dd,
+.acw-surface-ink figcaption {
+  color: var(--on-ink-muted) !important;
+}
+
+.acw-surface-ink a:not(.acw-btn) {
+  color: var(--on-ink) !important;
+  text-decoration-color: rgba(247, 244, 239, 0.58) !important;
+}
+
+/* =========================================================
+   SPACING
+   ========================================================= */
+
+.acw-section,
+.acw-guide-summary-section,
+.acw-post-summary-section,
+.acw-post-intro-section,
+.acw-guide-body-section,
+.acw-post-main,
+.acw-guide-related-section,
+.acw-post-related-section,
+.acw-guide-footer-cta,
+.acw-post-footer-cta {
+  padding-block: var(--section-space) !important;
+}
+
+.acw-hero,
+.acw-page-hero,
+.acw-service-hero,
+.acw-work-hero,
+.acw-library-hero,
+.acw-blog-hero,
+.acw-guide-hero,
+.acw-post-hero {
+  padding-top: var(--hero-space-top) !important;
+  padding-bottom: var(--hero-space-bottom) !important;
+}
+
+/* =========================================================
+   EYEBROW LABELS
+   ========================================================= */
+
+.acw-section-label,
+.acw-card-label,
+.acw-eyebrow,
+.acw-section-number,
+.acw-work-kicker,
+.acw-work-label,
+.acw-guide-kicker,
+.acw-service-jump-nav-kicker {
+  margin: 0 0 var(--space-16);
+  color: var(--muted-text) !important;
+  font-family: var(--font-body);
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  line-height: 1.25 !important;
+  text-transform: uppercase !important;
+}
+
+.acw-surface-ink .acw-section-label,
+.acw-surface-ink .acw-card-label,
+.acw-surface-ink .acw-eyebrow,
+.acw-surface-ink .acw-section-number,
+.acw-surface-ink .acw-work-label {
+  color: var(--on-ink-muted) !important;
+}
+
+/* =========================================================
+   ACTIONS: PRIMARY + TERTIARY ONLY
+   ========================================================= */
+
+.acw-btn,
+.nav__cta {
+  min-height: 48px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+}
+
+.acw-btn-primary,
+.nav__cta {
+  background: var(--ink) !important;
+  border: 1px solid var(--ink) !important;
+  box-shadow: none !important;
+  color: var(--on-ink) !important;
+}
+
+.acw-btn-primary:hover,
+.nav__cta:hover {
+  background: #172522 !important;
+  border-color: #172522 !important;
+  color: var(--on-ink) !important;
+  transform: translateY(-1px);
+}
+
+.acw-surface-ink .acw-btn-primary {
+  background: var(--paper) !important;
+  border-color: var(--paper) !important;
+  color: var(--ink) !important;
+}
+
+.acw-surface-ink .acw-btn-primary:hover {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: var(--ink) !important;
+}
+
+.acw-link-tertiary,
+.acw-library-text-link,
+.acw-library-card-link,
+.acw-guide-library-button,
+.acw-post-library-button,
+.footer-primary-link,
+.acw-btn-secondary {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 0;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.35rem;
+  padding: 0 0 0.18rem !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid currentColor !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: var(--ink) !important;
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.acw-link-tertiary:hover,
+.acw-library-text-link:hover,
+.acw-library-card-link:hover,
+.acw-guide-library-button:hover,
+.acw-post-library-button:hover,
+.footer-primary-link:hover,
+.acw-btn-secondary:hover {
+  color: var(--muted-text) !important;
+  transform: none !important;
+}
+
+.acw-surface-ink .acw-link-tertiary,
+.acw-surface-ink .acw-library-text-link,
+.acw-surface-ink .acw-library-card-link,
+.acw-surface-ink .acw-btn-secondary {
+  color: var(--on-ink) !important;
+}
+
+.acw-cta-row,
+.acw-service-work-links,
+.acw-service-next-actions,
+.acw-blog-clarity-cta-actions,
+.acw-work-actions {
+  gap: var(--space-24) !important;
+  align-items: center !important;
+}
+
+/* =========================================================
+   BASE CARD + FOUNDING-OFFER VARIANT
+   ========================================================= */
+
+.acw-card-base,
+.acw-package-recognition-card,
+.acw-package-inclusion-card,
+.acw-package-price-card,
+.acw-package-fit-column,
+.acw-service-snapshot,
+.acw-service-deliverable,
+.acw-service-price-card,
+.acw-service-next-step,
+.acw-service-management-list article,
+.acw-service-fit-note article,
+.acw-service-exit-note,
+.acw-about-principle-panel,
+.acw-blueprint-card,
+.acw-work-disclosure,
+.acw-work-collaborator,
+.acw-work-redacted article,
+.acw-work-improve article,
+.acw-contact-form-card,
+.acw-callout,
+.acw-framework,
+.acw-guide-intro-panel,
+.acw-guide-anchor-panel {
+  padding: var(--card-padding) !important;
+  background: var(--paper) !important;
+  border: 1px solid var(--warm-grey-border) !important;
+  border-radius: var(--card-radius) !important;
+  box-shadow: none !important;
+}
+
+.acw-package-recognition-card-featured,
+.acw-package-inclusion-card-featured,
+.acw-service-snapshot-featured {
+  border-color: var(--warm-grey-border-strong) !important;
+}
+
+.acw-card-raised,
+.acw-package-price-card-featured,
+.acw-service-price-card-featured {
+  position: relative;
+  z-index: 1;
+  background: var(--paper) !important;
+  border-color: var(--ink) !important;
+  box-shadow: var(--founding-shadow) !important;
+}
+
+.acw-package-price-card-featured::before,
+.acw-service-price-card-featured::before {
+  display: none !important;
+}
+
+html body .site-content .acw-service-page .acw-service-price-card-featured,
+html body .site-content .acw-service-page .acw-service-price-card-featured h3,
+html body .site-content .acw-service-page .acw-service-price-card-featured .acw-service-price,
+html body .site-content .acw-service-page .acw-service-price-card-featured .acw-card-label {
+  color: var(--ink-text) !important;
+}
+
+html body .site-content .acw-service-page .acw-service-price-card-featured p,
+html body .site-content .acw-service-page .acw-service-price-card-featured li {
+  color: var(--muted-text) !important;
+}
+
+html body .site-content .acw-complete-package .acw-package-price-card-featured,
+html body .site-content .acw-complete-package .acw-package-price-card-featured h3,
+html body .site-content .acw-complete-package .acw-package-price-card-featured .acw-package-price,
+html body .site-content .acw-complete-package .acw-package-price-card-featured .acw-card-label {
+  color: var(--ink-text) !important;
+}
+
+html body .site-content .acw-complete-package .acw-package-price-card-featured p,
+html body .site-content .acw-complete-package .acw-package-price-card-featured li {
+  color: var(--muted-text) !important;
+}
+
+.acw-work-disclosure h2,
+.acw-work-disclosure strong {
+  color: var(--ink-text) !important;
+}
+
+.acw-work-disclosure p,
+.acw-work-disclosure .acw-work-label {
+  color: var(--muted-text) !important;
+}
+
+.acw-surface-ink .acw-service-next-step h3,
+.acw-surface-ink .acw-service-next-step strong {
+  color: var(--ink-text) !important;
+}
+
+.acw-surface-ink .acw-service-next-step p,
+.acw-surface-ink .acw-service-next-step span {
+  color: var(--muted-text) !important;
+}
+
+/* Media-led cards retain a flush image but share the same shell. */
+.acw-library-latest-card,
+.acw-blog-index-card {
+  height: 100%;
+  overflow: hidden;
+  background: var(--paper) !important;
+  border: 1px solid var(--warm-grey-border) !important;
+  border-radius: var(--card-radius) !important;
+  box-shadow: none !important;
+}
+
+.acw-library-latest-grid,
+.acw-blog-index-grid {
+  align-items: stretch;
+}
+
+.acw-library-latest-copy,
+.acw-blog-index-card-copy,
+.acw-blog-index-card > div {
+  min-height: 300px !important;
+  padding: var(--card-padding) !important;
+}
+
+.acw-library-latest-copy .acw-library-card-link,
+.acw-blog-index-card .acw-library-card-link {
+  margin-top: auto;
+}
+
+.acw-library-latest-image-link,
+.acw-blog-index-image {
+  margin-top: auto;
+}
+
+.acw-library-latest-image-link img,
+.acw-blog-index-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10 !important;
+  object-fit: cover;
+}
+
+/* =========================================================
+   CLOSING INK SECTIONS
+   ========================================================= */
+
+.acw-package-final-grid,
+.acw-service-next-grid,
+.acw-blog-clarity-cta-card,
+.acw-library-closing-card,
+.acw-guide-cta-card,
+.acw-post-cta-card,
+.acw-work-next,
+.acw-blog-cta {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.acw-blog-clarity-cta-card,
+.acw-library-closing-card,
+.acw-guide-cta-card,
+.acw-post-cta-card,
+.acw-work-next,
+.acw-blog-cta {
+  padding: 0 !important;
+}
+
+.acw-guide-cta-media img,
+.acw-post-cta-media img,
+.acw-package-final-media img,
+.acw-about-final img {
+  border: 1px solid rgba(247, 244, 239, 0.22) !important;
+  border-radius: var(--image-radius) !important;
+  box-shadow: none !important;
+}
+
+/* =========================================================
+   GUIDE + JOURNAL REFINEMENT
+   ========================================================= */
+
+.acw-guide,
+.acw-post,
+.acw-guide-content,
+.acw-post-content {
+  background: var(--paper);
+}
+
+.acw-guide-summary-section,
+.acw-post-summary-section,
+.acw-guide-related-section,
+.acw-post-related-section {
+  background: var(--recessed) !important;
+}
+
+.acw-guide-content .acw-callout,
+.acw-guide-content .acw-framework,
+.acw-guide-content .acw-principle-remember,
+.acw-guide-content .acw-principle-navigation-card,
+.acw-guide-content .acw-library-roadmap,
+.acw-guide-content .acw-guide-progress-card {
+  background: var(--paper) !important;
+  border-color: var(--warm-grey-border) !important;
+  box-shadow: none !important;
+}
+
+.acw-guide-hero-banner,
+.acw-post-hero-banner,
+.acw-library-hero-media img,
+.acw-blog-hero-media img,
+.acw-editorial-media img,
+.acw-work-hero img,
+.acw-work-feature img,
+.acw-service-hero-media img,
+.acw-service-work-media img {
+  border: 1px solid var(--warm-grey-border) !important;
+  border-radius: var(--image-radius) !important;
+  box-shadow: none !important;
+}
+
+.acw-guide-process-diagram {
+  margin-block: var(--space-40);
+  padding: var(--space-40);
+  background: var(--recessed);
+  border: 1px solid var(--warm-grey-border);
+  border-radius: var(--card-radius);
+}
+
+.acw-guide-process-diagram ol {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--warm-grey-border);
+  border-radius: 10px;
+  background: var(--warm-grey-border);
+  list-style: none;
+}
+
+.acw-guide-process-diagram li {
+  display: grid;
+  min-height: 112px;
+  align-content: space-between;
+  gap: var(--space-16);
+  padding: var(--space-24);
+  background: var(--paper);
+}
+
+.acw-guide-process-diagram li span {
+  color: var(--muted-text);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.acw-guide-process-diagram li strong {
+  color: var(--ink-text);
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+.acw-guide-process-diagram figcaption {
+  margin-top: var(--space-16);
+  color: var(--muted-text);
+  font-size: 0.85rem;
+}
+
+/* =========================================================
+   FOOTER — RECLAIMED AFTER FOUNDING CARD REMOVAL
+   ========================================================= */
+
+.site-footer {
+  padding: var(--space-64) 0 var(--space-24) !important;
+  background: var(--recessed) !important;
+  border-top: 1px solid var(--warm-grey-border) !important;
+}
+
+.site-footer-inner {
+  gap: var(--space-40) !important;
+}
+
+.site-footer-top {
+  gap: clamp(var(--space-40), 6vw, var(--space-96)) !important;
+}
+
+.site-footer-bottom {
+  margin-top: 0 !important;
+  padding-top: var(--space-24) !important;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 760px) {
+  :root {
+    --section-space: var(--space-64);
+    --hero-space-top: var(--space-64);
+    --hero-space-bottom: var(--space-64);
+    --card-padding: var(--space-24);
+  }
+
+  .acw-cta-row,
+  .acw-service-work-links,
+  .acw-service-next-actions,
+  .acw-blog-clarity-cta-actions,
+  .acw-work-actions {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+
+  .acw-btn-primary {
+    width: 100%;
+  }
+
+  .acw-link-tertiary,
+  .acw-library-text-link,
+  .acw-library-card-link,
+  .acw-btn-secondary {
+    width: fit-content !important;
+  }
+
+  .acw-library-latest-copy,
+  .acw-blog-index-card-copy,
+  .acw-blog-index-card > div {
+    min-height: 0 !important;
+  }
+
+  .site-footer {
+    padding-top: var(--space-40) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .acw-btn,
+  .nav__cta,
+  .acw-library-latest-card img,
+  .acw-blog-index-card img {
+    transition: none !important;
+  }
+}

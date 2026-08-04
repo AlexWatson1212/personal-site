@@ -6,632 +6,129 @@ permalink: /work/
 ---
 
 <style>
-  /* Work page: deliberately scoped so the case study remains stable against
-     the shared site stylesheet. */
-  .acw-work-page {
-    --work-ink: #1a2119;
-    --work-muted: #46514f;
-    --work-panel: #283a38;
-    --work-panel-text: #f7f4ef;
-    --work-panel-muted: #dde3dd;
-    --work-line: rgba(40, 58, 56, 0.18);
-    background: var(--surface);
-    color: var(--work-ink);
-  }
-
-  .acw-work-page h1,
-  .acw-work-page h2,
-  .acw-work-page h3 {
-    text-wrap: balance;
-  }
-
-  .acw-work-page .acw-btn {
-    min-height: 48px;
-  }
-
-  .acw-work-hero {
-    padding: clamp(4rem, 8vw, 8rem) 0 clamp(3.75rem, 7vw, 6rem);
-    background:
-      radial-gradient(circle at 88% 15%, rgba(121, 131, 113, 0.1), transparent 32%),
-      linear-gradient(140deg, #faf8f6, #eef1ec);
-  }
-
-  .acw-work-hero-grid,
-  .acw-work-document-grid,
-  .acw-work-collaborator-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(340px, 0.8fr);
-    gap: clamp(2.5rem, 7vw, 6.5rem);
-    align-items: center;
-  }
-
-  .acw-work-kicker,
-  .acw-work-label {
-    margin: 0 0 0.85rem;
-    color: #40504d;
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 0.13em;
-    line-height: 1.35;
-    text-transform: uppercase;
-  }
-
-  .acw-work-hero h1 {
-    max-width: 11ch;
-    margin: 0 0 1.35rem;
-    font-size: clamp(3.35rem, 6vw, 6.2rem);
-    line-height: 0.98 !important;
-  }
-
-  .acw-work-lead {
-    max-width: 53ch;
-    margin: 0;
-    color: var(--work-muted);
-    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
-    line-height: 1.72;
-  }
-
-  .acw-work-actions,
-  .acw-work-next-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 1.9rem;
-  }
-
-  .acw-work-hero figure {
-    margin: 0;
-  }
-
-  .acw-work-hero img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 5 / 4;
-    object-fit: cover;
-    border: 1px solid rgba(26, 33, 25, 0.12);
-    border-radius: 12px;
-    box-shadow: 0 24px 60px rgba(26, 33, 25, 0.14);
-  }
-
-  .acw-work-page .acw-section {
-    padding-block: clamp(4.75rem, 8vw, 7.75rem);
-    border-top: 1px solid rgba(26, 33, 25, 0.09);
-  }
-
-  .acw-work-section-heading {
-    max-width: 750px;
-  }
-
-  .acw-work-section-heading h2 {
-    max-width: 13ch;
-    margin: 0;
-    font-size: clamp(2.65rem, 4.6vw, 4.8rem);
-    line-height: 1.02 !important;
-  }
-
-  .acw-work-disclosure {
-    display: grid;
-    grid-template-columns: minmax(230px, 0.58fr) minmax(0, 1.15fr);
-    gap: clamp(1.5rem, 5vw, 4.5rem);
-    align-items: start;
-    padding: clamp(2rem, 4vw, 3.5rem);
-    background: var(--work-panel);
-    color: var(--work-panel-text);
-    border-radius: 12px;
-  }
-
-  .acw-work-disclosure h2,
-  .acw-work-next h2 {
-    color: var(--work-panel-text) !important;
-  }
-
-  .acw-work-disclosure h2 {
-    max-width: 12ch;
-    margin: 0;
-    font-size: clamp(2rem, 3.5vw, 3.35rem);
-    line-height: 1.04 !important;
-  }
-
-  .acw-work-disclosure p:last-child {
-    max-width: 66ch;
-    margin: 0;
-    color: var(--work-panel-muted);
-    font-size: 1rem;
-    line-height: 1.75;
-  }
-
-  .acw-work-disclosure .acw-work-label,
-  .acw-work-next .acw-work-label {
-    color: #d8e0da;
-  }
-
-  .acw-work-decision-list {
-    display: grid;
-    gap: 0;
-    margin-top: clamp(2.75rem, 5vw, 4.5rem);
-    border-top: 1px solid var(--work-line);
-  }
-
-  .acw-work-decision {
-    display: grid;
-    grid-template-columns: 4.5rem minmax(220px, 0.82fr) minmax(300px, 1fr);
-    gap: clamp(1.25rem, 3vw, 2.5rem);
-    align-items: start;
-    padding: clamp(2rem, 4vw, 3.25rem) 0;
-    border-bottom: 1px solid var(--work-line);
-  }
-
-  .acw-work-number {
-    color: #65736f;
-    font-family: var(--font-heading);
-    font-size: 2.15rem;
-    line-height: 1;
-  }
-
-  .acw-work-decision h3 {
-    max-width: 17ch;
-    margin: 0;
-    color: var(--work-ink) !important;
-    font-size: clamp(1.8rem, 2.75vw, 2.8rem);
-    line-height: 1.05 !important;
-  }
-
-  .acw-work-decision p {
-    max-width: 58ch;
-    margin: 0;
-    color: var(--work-muted);
-    font-size: 1rem;
-    line-height: 1.72;
-  }
-
-  .acw-work-decision strong {
-    color: var(--work-ink);
-  }
-
-  .acw-work-document {
-    background: #f0f2ee !important;
-  }
-
-  .acw-work-document-grid {
-    grid-template-columns: minmax(0, 0.74fr) minmax(380px, 1fr);
-    align-items: start;
-  }
-
-  .acw-work-document h2 {
-    max-width: 11ch;
-    margin: 0 0 1rem;
-    font-size: clamp(2.6rem, 4vw, 4.1rem);
-    line-height: 1.02 !important;
-  }
-
-  .acw-work-document-copy > p:last-child {
-    max-width: 50ch;
-    margin: 0;
-    color: var(--work-muted);
-    font-size: 1rem;
-    line-height: 1.72;
-  }
-
-  .acw-work-redacted {
-    display: grid;
-    gap: 1px;
-    overflow: hidden;
-    background: rgba(26, 33, 25, 0.15);
-    border: 1px solid rgba(26, 33, 25, 0.15);
-    border-radius: 12px;
-  }
-
-  .acw-work-redacted article {
-    padding: 1.45rem 1.6rem;
-    background: #ffffff;
-  }
-
-  .acw-work-redacted h3 {
-    margin: 0.25rem 0 0.5rem;
-    color: var(--work-ink) !important;
-    font-size: 1.28rem;
-    line-height: 1.22 !important;
-  }
-
-  .acw-work-redacted p:last-child {
-    margin: 0;
-    color: var(--work-muted);
-    font-size: 0.95rem;
-    line-height: 1.65;
-  }
-
-  .acw-work-collaborator {
-    padding: clamp(2.1rem, 5vw, 4.25rem);
-    background: #ffffff;
-    border: 1px solid rgba(26, 33, 25, 0.12);
-    border-radius: 12px;
-    box-shadow: 0 14px 36px rgba(26, 33, 25, 0.045);
-  }
-
-  .acw-work-collaborator-grid {
-    grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1fr);
-    align-items: start;
-  }
-
-  .acw-work-collaborator h2 {
-    max-width: 14ch;
-    margin: 0;
-    font-size: clamp(2.45rem, 4vw, 4rem);
-    line-height: 1.02 !important;
-  }
-
-  .acw-work-collaborator-copy p {
-    max-width: 62ch;
-    margin: 0;
-    color: var(--work-muted);
-    font-size: 1rem;
-    line-height: 1.72;
-  }
-
-  .acw-work-collaborator-copy p + p {
-    margin-top: 1rem;
-  }
-
-  .acw-work-credit-note {
-    padding-top: 1rem;
-    border-top: 1px solid var(--work-line);
-    color: #35413e !important;
-    font-size: 0.94rem !important;
-  }
-
-  .acw-work-improve {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-    margin-top: 2.25rem;
-  }
-
-  .acw-work-improve article {
-    min-height: 230px;
-    padding: clamp(1.45rem, 2.5vw, 2rem);
-    background: #faf9f7;
-    border: 1px solid rgba(26, 33, 25, 0.13);
-    border-radius: 12px;
-  }
-
-  .acw-work-improve h3 {
-    margin: 0.25rem 0 0.65rem;
-    color: var(--work-ink) !important;
-    font-size: 1.35rem;
-    line-height: 1.18 !important;
-  }
-
-  .acw-work-improve p:last-child {
-    margin: 0;
-    color: var(--work-muted);
-    font-size: 0.96rem;
-    line-height: 1.65;
-  }
-
-  .acw-work-next {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: clamp(2rem, 6vw, 5rem);
-    align-items: end;
-    padding: clamp(2.25rem, 5vw, 4.5rem);
-    background: var(--work-panel);
-    color: var(--work-panel-text);
-    border-radius: 12px;
-  }
-
-  .acw-work-next h2 {
-    max-width: 13ch;
-    margin: 0 0 0.9rem;
-    font-size: clamp(2.5rem, 4.2vw, 4.4rem);
-    line-height: 1.01 !important;
-  }
-
-  .acw-work-next-copy > p:last-child {
-    max-width: 54ch;
-    margin: 0;
-    color: var(--work-panel-muted);
-    font-size: 1rem;
-    line-height: 1.72;
-  }
-
-  .acw-work-next-actions {
-    align-items: flex-start;
-    flex-direction: column;
-    margin-top: 0;
-  }
-
-  .acw-work-next .acw-btn-primary {
-    background: var(--work-panel-text);
-    color: var(--work-panel) !important;
-    border-color: var(--work-panel-text);
-    box-shadow: none;
-  }
-
-  .acw-work-next .acw-btn-primary:hover,
-  .acw-work-next .acw-btn-primary:focus-visible {
-    background: #ffffff;
-    color: #1a2119 !important;
-    border-color: #ffffff;
-  }
-
-  .acw-work-next-link {
-    display: inline-flex;
-    gap: 0.35rem;
-    color: var(--work-panel-text);
-    font-size: 0.92rem;
-    font-weight: 750;
-    border-bottom: 1px solid rgba(247, 244, 239, 0.58);
-  }
-
-  .acw-work-next-link:hover,
-  .acw-work-next-link:focus-visible {
-    color: #ffffff;
-    border-bottom-color: #ffffff;
-  }
-
-  .acw-work-next a:focus-visible,
-  .acw-work-disclosure a:focus-visible {
-    outline-color: var(--work-panel-text);
-  }
-
-  @media (max-width: 900px) {
-    .acw-work-hero-grid,
-    .acw-work-document-grid,
-    .acw-work-collaborator-grid,
-    .acw-work-disclosure,
-    .acw-work-next {
-      grid-template-columns: 1fr;
-    }
-
-    .acw-work-hero figure {
-      width: min(100%, 680px);
-    }
-
-    .acw-work-decision {
-      grid-template-columns: 3.5rem minmax(190px, 0.7fr) minmax(0, 1fr);
-    }
-
-    .acw-work-next {
-      align-items: start;
-    }
-
-    .acw-work-next-actions {
-      align-items: flex-start;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .acw-work-page .acw-section {
-      padding-block: 4.25rem;
-    }
-
-    .acw-work-decision {
-      grid-template-columns: 2.5rem 1fr;
-      gap: 1rem;
-    }
-
-    .acw-work-decision > p {
-      grid-column: 2;
-    }
-
-    .acw-work-improve {
-      grid-template-columns: 1fr;
-    }
-
-    .acw-work-improve article {
-      min-height: 0;
-    }
-  }
-
-  @media (max-width: 520px) {
-    .acw-work-hero {
-      padding-top: 3.4rem;
-    }
-
-    .acw-work-hero h1 {
-      font-size: clamp(3rem, 15vw, 4rem);
-    }
-
-    .acw-work-actions,
-    .acw-work-actions .acw-btn,
-    .acw-work-next-actions,
-    .acw-work-next-actions .acw-btn {
-      width: 100%;
-    }
-
-    .acw-work-disclosure,
-    .acw-work-collaborator,
-    .acw-work-next {
-      padding: 1.65rem;
-    }
-
-    .acw-work-decision {
-      grid-template-columns: 1fr;
-      padding-block: 1.8rem;
-    }
-
-    .acw-work-decision > p {
-      grid-column: auto;
-    }
-
-    .acw-work-number {
-      font-size: 1.45rem;
-    }
-  }
+  .acw-work-page { background: var(--surface); }
+  .acw-work-page h1, .acw-work-page h2, .acw-work-page h3 { text-wrap: balance; }
+  .acw-work-hero { padding: clamp(4rem, 8vw, 8rem) 0 clamp(3rem, 6vw, 5rem); background: linear-gradient(140deg, #f8f5f0, #eef1ec); }
+  .acw-work-hero-grid, .acw-work-feature, .acw-work-next { display: grid; grid-template-columns: minmax(0, .9fr) minmax(340px, .8fr); gap: clamp(2.5rem, 7vw, 6.5rem); align-items: center; }
+  .acw-work-kicker, .acw-work-label { margin: 0 0 .8rem; color: var(--accent, #283a38); font-size: .73rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+  .acw-work-hero h1 { max-width: 11ch; margin: 0 0 1.3rem; font-size: clamp(3.3rem, 6vw, 6.2rem); line-height: .92; letter-spacing: -.07em; }
+  .acw-work-lead { max-width: 51ch; margin: 0; color: var(--muted); font-size: clamp(1.05rem, 1.4vw, 1.2rem); line-height: 1.72; }
+  .acw-work-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.8rem; }
+  .acw-work-hero figure, .acw-work-feature figure { margin: 0; }
+  .acw-work-hero img, .acw-work-feature img { display: block; width: 100%; object-fit: cover; border: 1px solid rgba(26,33,25,.1); border-radius: 20px; box-shadow: 0 24px 60px rgba(26,33,25,.12); }
+  .acw-work-hero img { aspect-ratio: 5 / 4; }
+  .acw-work-page .acw-section { padding-block: clamp(4.5rem, 8vw, 7.5rem); border-top: 1px solid rgba(26,33,25,.08); }
+  .acw-work-intro { max-width: 64ch; margin: 0; color: var(--muted); font-size: 1.06rem; line-height: 1.75; }
+  .acw-work-disclosure { padding: clamp(1.5rem, 3vw, 2.3rem); background: #283a38; color: #f7f4ef; border-radius: 18px; }
+  .acw-work-disclosure h2 { margin: .35rem 0 .75rem; color: #fff; font-size: clamp(1.8rem, 3vw, 2.8rem); }
+  .acw-work-disclosure p { max-width: 76ch; margin: 0; color: rgba(247,244,239,.8); line-height: 1.7; }
+  .acw-work-disclosure .acw-work-label { color: rgba(247,244,239,.65); }
+  .acw-work-decision-list { display: grid; gap: 0; margin-top: clamp(2.5rem, 5vw, 4rem); border-top: 1px solid rgba(26,33,25,.12); }
+  .acw-work-decision { display: grid; grid-template-columns: 5.4rem minmax(0, 1fr) minmax(240px, .75fr); gap: 1.5rem; padding: clamp(1.7rem, 4vw, 3rem) 0; border-bottom: 1px solid rgba(26,33,25,.12); }
+  .acw-work-number { color: rgba(40,58,56,.55); font-family: var(--font-heading); font-size: 2.25rem; letter-spacing: -.06em; line-height: 1; }
+  .acw-work-decision h2 { max-width: 16ch; margin: 0; font-size: clamp(1.8rem, 3vw, 3rem); }
+  .acw-work-decision p { margin: 0; color: var(--muted); line-height: 1.7; }
+  .acw-work-decision strong { color: var(--text); }
+  .acw-work-document { background: #f2f3ef; }
+  .acw-work-document-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(340px, 1fr); gap: clamp(2.5rem, 7vw, 6rem); align-items: start; }
+  .acw-work-document h2 { max-width: 11ch; margin: 0 0 1rem; }
+  .acw-work-document p { max-width: 50ch; color: var(--muted); line-height: 1.7; }
+  .acw-work-redacted { display: grid; gap: 1px; overflow: hidden; background: rgba(26,33,25,.12); border: 1px solid rgba(26,33,25,.12); border-radius: 16px; }
+  .acw-work-redacted article { padding: 1.35rem 1.5rem; background: rgba(255,255,255,.78); }
+  .acw-work-redacted h3 { margin: .3rem 0 .45rem; font-size: 1.18rem; }
+  .acw-work-redacted p { margin: 0; font-size: .94rem; }
+  .acw-work-collaborator { padding: clamp(1.7rem, 4vw, 3.2rem); background: #fff; border: 1px solid rgba(26,33,25,.1); border-radius: 18px; }
+  .acw-work-collaborator h2 { margin: .35rem 0 .8rem; }
+  .acw-work-collaborator p { max-width: 72ch; margin: 0; color: var(--muted); line-height: 1.7; }
+  .acw-work-collaborator p + p { margin-top: 1rem; }
+  .acw-work-improve { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+  .acw-work-improve article { padding: 1.4rem; background: #fff; border: 1px solid rgba(26,33,25,.1); border-radius: 14px; }
+  .acw-work-improve h3 { margin: .35rem 0 .5rem; font-size: 1.2rem; }
+  .acw-work-improve p { margin: 0; color: var(--muted); font-size: .93rem; line-height: 1.62; }
+  .acw-work-next { padding: clamp(2rem, 5vw, 4rem); background: #283a38; border-radius: 20px; color: #f7f4ef; }
+  .acw-work-next h2 { max-width: 13ch; margin: 0 0 .8rem; color: #fff; }
+  .acw-work-next p { max-width: 48ch; margin: 0; color: rgba(247,244,239,.78); line-height: 1.7; }
+  .acw-work-next .acw-btn { justify-self: start; }
+  @media (max-width: 780px) { .acw-work-hero-grid, .acw-work-feature, .acw-work-next, .acw-work-document-grid { grid-template-columns: 1fr; } .acw-work-decision { grid-template-columns: 3.2rem 1fr; } .acw-work-decision > p { grid-column: 2; } .acw-work-improve { grid-template-columns: 1fr; } }
 </style>
 
 <div class="acw-work-page">
-  <section class="acw-work-hero" aria-labelledby="work-title">
+  <section class="acw-work-hero acw-surface-paper" aria-labelledby="work-title">
     <div class="acw-container acw-work-hero-grid">
       <div>
         <p class="acw-work-kicker">Work · Case study 01</p>
         <h1 id="work-title">Alexander Watson Counselling.</h1>
         <p class="acw-work-lead">A complete practice identity and website built from the inside out: first clarifying the work, then making it recognisable to the people it is for.</p>
-
         <div class="acw-work-actions">
           <a class="acw-btn acw-btn-primary" href="https://alexanderwatsoncounselling.co.uk/" target="_blank" rel="noopener noreferrer">Visit the live website <span class="sr-only">(opens in a new tab)</span></a>
-          <a class="acw-btn acw-btn-secondary" href="{{ '/assets/documents/practice-clarity-alexander-watson.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">View the Practice Clarity Document <span class="sr-only">(opens in a new tab)</span></a>
+          <a class="acw-link-tertiary" href="{{ '/assets/documents/practice-clarity-alexander-watson.pdf' | relative_url }}" target="_blank" rel="noopener">View the Practice Clarity Document <span class="sr-only">(opens in a new tab)</span></a>
         </div>
       </div>
-
-      <figure>
-        <img
-          src="{{ '/assets/images/service/alexander-watson-counselling-case-study.webp' | relative_url }}"
-          alt="Sunlit desk showing the Alexander Watson Counselling website on a laptop beside printed working material"
-          width="1600"
-          height="1000"
-          fetchpriority="high"
-          decoding="async"
-        >
-      </figure>
+      <figure><img src="{{ '/assets/images/service/alexander-watson-counselling-case-study.webp' | relative_url }}" alt="Alexander Watson Counselling website, identity and strategic working materials" width="1600" height="1000" fetchpriority="high" decoding="async"></figure>
     </div>
   </section>
 
-  <section class="acw-section">
+  <section class="acw-section acw-surface-recessed">
     <div class="acw-container">
       <div class="acw-work-disclosure">
-        <div>
-          <p class="acw-work-label">An open disclosure</p>
-          <h2>This is my own practice project.</h2>
-        </div>
-
+        <p class="acw-work-label">An open disclosure</p>
+        <h2>This is my own practice project.</h2>
         <p>It is not presented as commissioned client work. That matters. It also allows a level of transparency that a client case study cannot: the early uncertainty, the decisions that followed, selected redacted working material, and the parts I would now do differently. It is evidence of the process and standard I am building—not a substitute for future independent client outcomes.</p>
       </div>
     </div>
   </section>
 
-  <section class="acw-section" aria-labelledby="decisions-heading">
+  <section class="acw-section acw-surface-paper" aria-labelledby="decisions-heading">
     <div class="acw-container">
-      <div class="acw-work-section-heading">
-        <p class="acw-work-kicker">The strategic decisions</p>
-        <h2 id="decisions-heading">The project is best understood through the choices behind it.</h2>
-      </div>
-
+      <p class="acw-work-kicker">The strategic decisions</p>
+      <h2 id="decisions-heading">The project is best understood through the choices behind it.</h2>
       <div class="acw-work-decision-list">
-        <article class="acw-work-decision">
-          <span class="acw-work-number">01</span>
-          <h3>What was unclear at the beginning</h3>
-          <p>The original question was not “what should the website look like?” It was how to describe a person-centred counselling practice without generic wellbeing language, a forced niche, or claims that felt larger than the real work. <strong>The work needed a clear, calm way for suitable clients to recognise the practice.</strong></p>
-        </article>
-
-        <article class="acw-work-decision">
-          <span class="acw-work-number">02</span>
-          <h3>What Practice Clarity revealed</h3>
-          <p>Written discovery brought the important material into one place: the therapeutic approach, the experience of a first session, the kinds of concerns clients bring, practical boundaries, and what a client needs to feel before making contact. <strong>That became the source for structure, copy and visual direction.</strong></p>
-        </article>
-
-        <article class="acw-work-decision">
-          <span class="acw-work-number">03</span>
-          <h3>Positioning and language</h3>
-          <p>The language was deliberately made direct, warm and unshowy. Instead of promising transformation or positioning counselling as a product, the site explains what the space is like, who it may help and how to take the next step. <strong>Clarity and emotional safety became more important than cleverness.</strong></p>
-        </article>
-
-        <article class="acw-work-decision">
-          <span class="acw-work-number">04</span>
-          <h3>Identity rationale</h3>
-          <p>The identity needed to feel professional and considered without becoming clinical, decorative or overly therapeutic. The final direction uses quiet editorial typography, restrained colour and a flexible logo system to make the practice feel settled and credible. <strong>The identity supports the words rather than competing with them.</strong></p>
-        </article>
-
-        <article class="acw-work-decision">
-          <span class="acw-work-number">05</span>
-          <h3>Website and enquiry journey</h3>
-          <p>The website follows the questions a cautious prospective client tends to have: “Is this for someone like me?”, “What would it be like?”, “What are the practical details?” and “Can I contact you safely?” Navigation, page order, reassurance and the contact form are designed around answering those questions in sequence. <strong>The enquiry route is a continuation of the care, not a hard sell.</strong></p>
-        </article>
+        <article class="acw-work-decision"><span class="acw-work-number">01</span><h2>What was unclear at the beginning</h2><p>The original question was not “what should the website look like?” It was how to describe a person-centred counselling practice without generic wellbeing language, a forced niche, or claims that felt larger than the real work. <strong>The work needed a clear, calm way for suitable clients to recognise the practice.</strong></p></article>
+        <article class="acw-work-decision"><span class="acw-work-number">02</span><h2>What Practice Clarity revealed</h2><p>Written discovery brought the important material into one place: the therapeutic approach, the experience of a first session, the kinds of concerns clients bring, practical boundaries, and what a client needs to feel before making contact. <strong>That became the source for structure, copy and visual direction.</strong></p></article>
+        <article class="acw-work-decision"><span class="acw-work-number">03</span><h2>Positioning and language</h2><p>The language was deliberately made direct, warm and unshowy. Instead of promising transformation or positioning counselling as a product, the site explains what the space is like, who it may help and how to take the next step. <strong>Clarity and emotional safety became more important than cleverness.</strong></p></article>
+        <article class="acw-work-decision"><span class="acw-work-number">04</span><h2>Identity rationale</h2><p>The identity needed to feel professional and considered without becoming clinical, decorative or overly therapeutic. The final direction uses quiet editorial typography, restrained colour and a flexible logo system to make the practice feel settled and credible. <strong>The identity supports the words rather than competing with them.</strong></p></article>
+        <article class="acw-work-decision"><span class="acw-work-number">05</span><h2>Website and enquiry journey</h2><p>The website follows the questions a cautious prospective client tends to have: “Is this for someone like me?”, “What would it be like?”, “What are the practical details?” and “Can I contact you safely?” Navigation, page order, reassurance and the contact form are designed around answering those questions in sequence. <strong>The enquiry route is a continuation of the care, not a hard sell.</strong></p></article>
       </div>
     </div>
   </section>
 
-  <section class="acw-section acw-work-document" aria-labelledby="document-heading">
+  <section class="acw-section acw-work-document acw-surface-recessed" aria-labelledby="document-heading">
     <div class="acw-container acw-work-document-grid">
-      <div class="acw-work-document-copy">
-        <p class="acw-work-kicker">Practice Clarity in use</p>
-        <h2 id="document-heading">Working material, shared selectively.</h2>
-        <p>The live document contains the fuller strategic thinking. These examples show the type of decisions it holds without reproducing personal or clinically sensitive material. Future client extracts would always be selected together, redacted where needed and approved before publication.</p>
-      </div>
-
+      <div><p class="acw-work-kicker">Practice Clarity in use</p><h2 id="document-heading">Working material, shared selectively.</h2><p>The live document contains the fuller strategic thinking. These examples show the type of decisions it holds without reproducing personal or clinically sensitive material. Future client extracts would always be selected together, redacted where needed and approved before publication.</p></div>
       <div class="acw-work-redacted">
-        <article>
-          <p class="acw-work-label">Positioning prompt</p>
-          <h3>What should a suitable client understand before they enquire?</h3>
-          <p>A clear sense of the approach, tone, practical arrangements and whether the space feels right for them.</p>
-        </article>
-
-        <article>
-          <p class="acw-work-label">Client experience</p>
-          <h3>What should the first contact communicate?</h3>
-          <p>That the enquiry will be read by a real person, treated carefully, and does not commit someone to counselling.</p>
-        </article>
-
-        <article>
-          <p class="acw-work-label">Design principle</p>
-          <h3>What should the visual system avoid?</h3>
-          <p>Stock “therapy” imagery and decoration that risks making the practice feel generic, impersonal or over-promised.</p>
-        </article>
+        <article><p class="acw-work-label">Positioning prompt</p><h3>What should a suitable client understand before they enquire?</h3><p>A clear sense of the approach, tone, practical arrangements and whether the space feels right for them.</p></article>
+        <article><p class="acw-work-label">Client experience</p><h3>What should the first contact communicate?</h3><p>That the enquiry will be read by a real person, treated carefully, and does not commit someone to counselling.</p></article>
+        <article><p class="acw-work-label">Design principle</p><h3>What should the visual system avoid?</h3><p>Stock “therapy” imagery and decoration that risks making the practice feel generic, impersonal or over-promised.</p></article>
       </div>
     </div>
   </section>
 
-  <section class="acw-section" aria-labelledby="collaborator-heading">
+  <section class="acw-section acw-surface-paper" aria-labelledby="collaborator-heading">
     <div class="acw-container">
       <div class="acw-work-collaborator">
-        <div class="acw-work-collaborator-grid">
-          <div>
-            <p class="acw-work-kicker">Collaboration</p>
-            <h2 id="collaborator-heading">Specialist identity production, directed as part of one process.</h2>
-          </div>
-
-          <div class="acw-work-collaborator-copy">
-            <p>I developed the Practice Clarity work, positioning, creative direction, website structure, copy, design and build. A specialist identity designer produced the final logo system from the approved brief and direction, with two structured refinement rounds. I remained responsible for the whole project: making sure the identity, language and website worked together.</p>
-            <p class="acw-work-credit-note">The specialist contribution is credited here by role. A named credit and portfolio link will only be added with the designer’s permission.</p>
-          </div>
-        </div>
+        <p class="acw-work-kicker">Collaboration</p>
+        <h2 id="collaborator-heading">Specialist identity production, directed as part of one process.</h2>
+        <p>I developed the Practice Clarity work, positioning, creative direction, website structure, copy, design and build. A specialist identity designer produced the final logo system from the approved brief and direction, with two structured refinement rounds. I remained responsible for the whole project: making sure the identity, language and website worked together.</p>
+        <p><strong>Designer credit and portfolio link:</strong> add this only after written permission has been confirmed. Replace this sentence with the approved name and link, for example: “Identity design by [Designer name], [portfolio link].”</p>
       </div>
     </div>
   </section>
 
-  <section class="acw-section" aria-labelledby="improve-heading">
+  <section class="acw-section acw-surface-recessed" aria-labelledby="improve-heading">
     <div class="acw-container">
-      <div class="acw-work-section-heading">
-        <p class="acw-work-kicker">Reflection</p>
-        <h2 id="improve-heading">What I would improve next time.</h2>
-      </div>
-
+      <p class="acw-work-kicker">Reflection</p><h2 id="improve-heading">What I would improve next time.</h2>
       <div class="acw-work-improve">
-        <article>
-          <p class="acw-work-label">01</p>
-          <h3>Shorten discovery setup</h3>
-          <p>This project developed the framework as it went. Client projects will begin with the established Practice Clarity flow and clearer handover points.</p>
-        </article>
-
-        <article>
-          <p class="acw-work-label">02</p>
-          <h3>Fix approval gates earlier</h3>
-          <p>Messaging, sitemap and visual direction should each be formally approved before the build begins, protecting focus later in the project.</p>
-        </article>
-
-        <article>
-          <p class="acw-work-label">03</p>
-          <h3>Plan case-study capture from day one</h3>
-          <p>With permission, selected decisions and approved artefacts can be recorded as the work develops rather than reconstructed at launch.</p>
-        </article>
+        <article><p class="acw-work-label">01</p><h3>Shorten discovery setup</h3><p>This project developed the framework as it went. Client projects will begin with the established Practice Clarity flow and clearer handover points.</p></article>
+        <article><p class="acw-work-label">02</p><h3>Fix approval gates earlier</h3><p>Messaging, sitemap and visual direction should each be formally approved before the build begins, protecting focus later in the project.</p></article>
+        <article><p class="acw-work-label">03</p><h3>Plan case-study capture from day one</h3><p>With permission, selected decisions and approved artefacts can be recorded as the work develops rather than reconstructed at launch.</p></article>
       </div>
     </div>
   </section>
 
-  <section class="acw-section">
-    <div class="acw-container">
-      <div class="acw-work-next">
-        <div class="acw-work-next-copy">
-          <p class="acw-work-label">For your practice</p>
-          <h2>The same process, built around your work.</h2>
-          <p>You do not need to arrive with a finished niche, visual direction or website copy. The first step is to understand the complete service and decide whether it feels like the right fit.</p>
-        </div>
-
-        <div class="acw-work-next-actions">
-          <a class="acw-btn acw-btn-primary" href="{{ '/service/' | relative_url }}">Explore the complete service</a>
-          <a class="acw-work-next-link" href="{{ '/contact/?service=practice-clarity-studio' | relative_url }}">Start a conversation <span aria-hidden="true">→</span></a>
-        </div>
-      </div>
+  <section class="acw-section acw-surface-ink">
+    <div class="acw-container acw-work-next">
+      <div><p class="acw-work-label">For your practice</p><h2>The same process, built around your work.</h2><p>You do not need to arrive with a finished niche, visual direction or website copy. The first step is to establish whether the project is a good fit.</p></div>
+      <a class="acw-btn acw-btn-primary" href="{{ '/contact/?service=complete-service' | relative_url }}">Start a conversation</a>
     </div>
   </section>
 </div>

@@ -5,9 +5,9 @@ layout: default
 <article class="acw-guide">
 
   {% unless page.self_contained_guide %}
-  <header class="acw-guide-hero">
+  <header class="acw-guide-hero acw-surface-paper">
     <div class="acw-container">
-      <a class="acw-post-back-link" href="{{ '/practice-clarity' | relative_url }}">
+      <a class="acw-post-back-link" href="{{ '/practice-clarity/' | relative_url }}">
         <span aria-hidden="true">←</span>
         Practice Clarity Library
       </a>
@@ -51,7 +51,7 @@ layout: default
   </nav>
 
   {% if page.subtitle or page.description %}
-    <section class="acw-guide-summary-section">
+    <section class="acw-guide-summary-section acw-surface-recessed">
       <div class="acw-container acw-guide-summary-inner">
         <p class="acw-section-label">In brief</p>
         <p class="acw-guide-summary">
@@ -62,7 +62,7 @@ layout: default
   {% endif %}
 
   {% if page.intro %}
-    <section class="acw-post-intro-section">
+    <section class="acw-post-intro-section acw-surface-paper">
       <div class="acw-container acw-post-intro-inner">
         <p class="acw-post-intro">{{ page.intro }}</p>
       </div>
@@ -70,7 +70,7 @@ layout: default
   {% endif %}
   {% endunless %}
 
-  <section id="guide" class="acw-guide-body-section">
+  <section id="guide" class="acw-guide-body-section acw-surface-paper">
     <div class="acw-container acw-guide-body-inner">
       <div class="acw-guide-reading-label" aria-hidden="true">
         <span></span>
@@ -89,7 +89,7 @@ layout: default
     </div>
   </section>
 
-  <section class="acw-guide-related-section">
+  <section class="acw-guide-related-section acw-surface-recessed">
     <div class="acw-container">
       <div class="acw-guide-library-invitation">
         <div>
@@ -98,7 +98,7 @@ layout: default
           <p>Nine connected principles and practical guides for building a clearer, more recognisable private practice.</p>
         </div>
 
-        <a class="acw-guide-library-button" href="{{ '/practice-clarity' | relative_url }}">
+        <a class="acw-guide-library-button" href="{{ '/practice-clarity/' | relative_url }}">
           View all guides
           <span aria-hidden="true">→</span>
         </a>
@@ -106,7 +106,7 @@ layout: default
     </div>
   </section>
 
-  <section class="acw-guide-footer-cta">
+  <section class="acw-guide-footer-cta acw-surface-ink">
     <div class="acw-container">
       <div class="acw-guide-cta-card">
         <div class="acw-guide-cta-copy">
@@ -124,8 +124,8 @@ layout: default
 
         <figure class="acw-guide-cta-media">
           <img
-            src="{{ '/assets/images/library/practice-clarity-cta.webp' | relative_url }}"
-            alt="A calm, considered workspace for therapy practice planning"
+            src="{{ '/assets/images/brand/brand-blueprint-desk.webp' | relative_url }}"
+            alt="A printed Practice Clarity blueprint and working notes on the studio desk"
             loading="lazy"
             decoding="async"
           >

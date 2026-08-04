@@ -1,17 +1,6 @@
-# Legacy pages → current site structure
-
-/library                                     /practice-clarity                              301!
-/professional-identity                       /service/                                      301!
-/practice-clarity/counselling-directory-profile  /beyond-counselling-directory/            301!
-
-# Old guide URLs → current Practice Clarity Library pages
-
-/guides/about-principle                      /practice-clarity/about-principle/            301!
-/guides/homepage-principle                   /practice-clarity/homepage-principle/         301!
-/guides/waiting-room-principle               /practice-clarity/waiting-room-principle/     301!
-/guides/consistency-principle                /practice-clarity/consistency-principle/      301!
-/guides/recognition-principle                /practice-clarity/recognition-principle/      301!
-/guides/enquiry-principle                    /practice-clarity/enquiry-principle/          301!
-/guides/mirror-principle                     /practice-clarity/mirror-principle/           301!
-/guides/threshold-principle                  /practice-clarity/threshold-principle/        301!
-/guides/simplicity-principle                 /practice-clarity/simplicity-principle/       301!
+/practice-notes/ /blog/ 301
+/professional-identity/ /service/ 301
+/library /practice-clarity/ 301
+/library/ /practice-clarity/ 301
+/beyond-counselling-directory/ /practice-clarity/beyond-counselling-directory/ 301
+/library/practical-guides/counselling-directory-profile/ /practice-clarity/counselling-directory-profile/ 301

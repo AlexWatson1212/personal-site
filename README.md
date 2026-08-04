@@ -1,5 +1,9 @@
 # Alexander Watson Studio content consolidation
 
+The current visual-system rules are documented in `VISUAL-SYSTEM.md` and implemented in `assets/css/visual-system.css`. The real-artefact image brief and replacement filenames are in `PHOTOGRAPHY-SHOT-LIST.md`.
+
+Use `INSTALLATION.md` for the exact replacement and legacy-file removal order. The final package omits the unused `assets/images/image-library` working folder so the source remains small enough to upload and deploy comfortably.
+
 This source set completes the consolidation into two public content surfaces:
 
 - **Practice Clarity Library** at `/practice-clarity`
