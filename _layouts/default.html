@@ -17,6 +17,9 @@
     {% include analytics.html %}
   {% endif %}
 
-  <script src="{{ '/assets/js/nav.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/nav.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+  {% if page.url == '/service/' %}
+    <script src="{{ '/assets/js/service-documents.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+  {% endif %}
 </body>
 </html>

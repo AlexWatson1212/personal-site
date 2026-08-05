@@ -1143,12 +1143,6 @@ That is enough.
 
   </p>
 
-  <a
-    href="{{ '/practice-clarity/closing-reflection/' | relative_url }}"
-    class="acw-btn acw-btn-primary">
-
-    Read the Closing Reflection
-
-  </a>
+  <a href="{{ '/practice-clarity/closing-reflection/' | relative_url }}" class="acw-btn acw-btn-primary">Read the Closing Reflection</a>
 
 </section>

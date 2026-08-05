@@ -1,0 +1,15 @@
+{
+  "name": "alexander-watson-studio",
+  "private": true,
+  "scripts": {
+    "build:css": "node scripts/build-css.mjs",
+    "build": "npm run build:css && bundle exec jekyll build --trace"
+  },
+  "devDependencies": {
+    "lightningcss": "1.33.0",
+    "purgecss": "8.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

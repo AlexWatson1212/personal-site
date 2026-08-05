@@ -1416,7 +1416,7 @@ permalink: /service/
         </a>
 
         <object
-          data="{{ '/assets/documents/practice-clarity-alexander-watson.pdf' | relative_url }}"
+          data-document-src="{{ '/assets/documents/practice-clarity-alexander-watson.pdf' | relative_url }}"
           type="application/pdf"
           aria-label="Practice Clarity Document example"
         >
@@ -1486,11 +1486,27 @@ permalink: /service/
           <span>Open the Visual Guide <b aria-hidden="true">→</b></span>
         </a>
 
-        <iframe
-          src="{{ '/assets/documents/visual-guide-alexander-watson.pdf' | relative_url }}"
-          title="Visual Guide example document"
-          loading="lazy"
-        ></iframe>
+        <object
+          data-document-src="{{ '/assets/documents/visual-guide-alexander-watson.pdf' | relative_url }}"
+          type="application/pdf"
+          aria-label="Visual Guide example document"
+        >
+          <div class="acw-service-document-fallback">
+            <div>
+              <p class="acw-card-label">Visual Guide example</p>
+              <h3>Your browser cannot display the document inside this page.</h3>
+              <p>Open the complete Visual Guide in a new tab instead.</p>
+              <a
+                class="acw-btn acw-btn-primary"
+                href="{{ '/assets/documents/visual-guide-alexander-watson.pdf' | relative_url }}"
+                target="_blank"
+                rel="noopener"
+              >
+                Open the Visual Guide
+              </a>
+            </div>
+          </div>
+        </object>
       </div>
 
       <div class="acw-service-document-actions">

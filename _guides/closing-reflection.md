@@ -615,21 +615,9 @@ It was intended to become a quieter way of thinking.
 
 <div class="acw-cta-row">
 
-<a
-  href="{{ '/practice-clarity/' | relative_url }}"
-  class="acw-btn acw-btn-primary">
+<a href="{{ '/practice-clarity/' | relative_url }}" class="acw-btn acw-btn-primary">Return to Practice Clarity</a>
 
-Return to Practice Clarity
-
-</a>
-
-<a
-  href="{{ '/practice-clarity/mirror-principle/' | relative_url }}"
-  class="acw-link-tertiary">
-
-Begin again with the Mirror Principle
-
-</a>
+<a href="{{ '/practice-clarity/mirror-principle/' | relative_url }}" class="acw-link-tertiary">Begin again with the Mirror Principle</a>
 
 </div>
 

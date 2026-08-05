@@ -14,14 +14,24 @@ description: Practice Clarity, professional identity design and bespoke websites
       <div class="acw-hero-stage">
 
         <figure class="acw-hero-visual">
-          <img
-            src="{{ '/assets/images/service/service-hero-landscape.webp' | relative_url }}"
-            alt="Practice Clarity documents, website layouts and working notes arranged across the studio desk"
-            width="1536"
-            height="1024"
-            fetchpriority="high"
-            decoding="async"
-          >
+          <picture>
+            <source
+              type="image/avif"
+              srcset="{{ '/assets/images/service/service-hero-landscape-640.avif' | relative_url }} 640w, {{ '/assets/images/service/service-hero-landscape-720.avif' | relative_url }} 720w, {{ '/assets/images/service/service-hero-landscape-960.avif' | relative_url }} 960w, {{ '/assets/images/service/service-hero-landscape-1280.avif' | relative_url }} 1280w"
+              sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1279px) calc(100vw - 128px), min(1200px, calc(100vw - 128px))"
+            >
+            <img
+              src="{{ '/assets/images/service/service-hero-landscape.webp' | relative_url }}"
+              srcset="{{ '/assets/images/service/service-hero-landscape-640.webp' | relative_url }} 640w, {{ '/assets/images/service/service-hero-landscape-720.webp' | relative_url }} 720w, {{ '/assets/images/service/service-hero-landscape-960.webp' | relative_url }} 960w, {{ '/assets/images/service/service-hero-landscape-1280.webp' | relative_url }} 1280w, {{ '/assets/images/service/service-hero-landscape.webp' | relative_url }} 1536w"
+              sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1279px) calc(100vw - 128px), min(1200px, calc(100vw - 128px))"
+              alt="Practice Clarity documents, website layouts and working notes arranged across the studio desk"
+              width="1536"
+              height="1024"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            >
+          </picture>
         </figure>
 
         <div class="acw-hero-overlay" aria-hidden="true"></div>
@@ -165,14 +175,23 @@ description: Practice Clarity, professional identity design and bespoke websites
       </div>
 
       <figure class="acw-package-foundation-media">
-        <img
-          src="{{ '/assets/images/brand/practice-clarity-workspace.webp' | relative_url }}"
-          alt="Practice Clarity notes grouped and annotated before positioning and design begin"
-          width="1232"
-          height="928"
-          loading="lazy"
-          decoding="async"
-        >
+        <picture>
+          <source
+            type="image/avif"
+            srcset="{{ '/assets/images/brand/practice-clarity-workspace-480.avif' | relative_url }} 480w, {{ '/assets/images/brand/practice-clarity-workspace-720.avif' | relative_url }} 720w, {{ '/assets/images/brand/practice-clarity-workspace-960.avif' | relative_url }} 960w"
+            sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 980px) calc(100vw - 128px), min(42vw, 520px)"
+          >
+          <img
+            src="{{ '/assets/images/brand/practice-clarity-workspace.webp' | relative_url }}"
+            srcset="{{ '/assets/images/brand/practice-clarity-workspace-480.webp' | relative_url }} 480w, {{ '/assets/images/brand/practice-clarity-workspace-720.webp' | relative_url }} 720w, {{ '/assets/images/brand/practice-clarity-workspace-960.webp' | relative_url }} 960w, {{ '/assets/images/brand/practice-clarity-workspace.webp' | relative_url }} 1232w"
+            sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 980px) calc(100vw - 128px), min(42vw, 520px)"
+            alt="Practice Clarity notes grouped and annotated before positioning and design begin"
+            width="1232"
+            height="928"
+            loading="lazy"
+            decoding="async"
+          >
+        </picture>
       </figure>
 
     </div>

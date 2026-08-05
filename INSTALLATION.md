@@ -8,7 +8,9 @@ This ZIP is a clean Jekyll source package. It deliberately omits `.git`, `_site`
 2. Make a backup or commit the current state.
 3. Copy the contents of this package into the repository root and replace matching files.
 4. Remove the obsolete sources listed below if they still exist.
-5. Commit and push; Netlify will run the existing Jekyll build command.
+5. Commit and push; Netlify will install the small CSS build dependencies, create the production stylesheet and then run Jekyll.
+
+The production command is `npm run build`. For local development, run `npm install` once, then use `npm run build:css` before the normal Jekyll build whenever either source stylesheet changes.
 
 ## Obsolete sources to remove from an existing repository
 

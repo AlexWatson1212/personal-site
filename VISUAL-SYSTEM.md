@@ -1,6 +1,8 @@
 # Alexander Watson Studio visual system
 
-This is the single reference for page-level visual decisions. The implementation lives in `assets/css/visual-system.css`, loaded after `main.css` so these rules remain authoritative.
+This is the single reference for page-level visual decisions. Source rules live in `assets/css/main.css` and `assets/css/visual-system.css`, with the visual-system file remaining authoritative in source order. `npm run build:css` removes unused selectors and creates minified route-specific bundles in `assets/css/`, plus `site.min.css` as a complete fallback. Each page downloads only the styles required by its template while the maintainable source remains unchanged.
+
+The production site self-hosts its existing Instrument Serif and Inter families from `assets/fonts/`. The homepage uses responsive AVIF imagery with WebP fallbacks and preloads only the image the page actually displays.
 
 ## Surfaces
 
@@ -42,5 +44,7 @@ Use no more than one primary button within a section. Secondary actions must use
 Journal and Library cards stretch to equal heights; copy regions share a minimum height and all images use the same `16 / 10` baseline. Imagery should show the actual work: Practice Clarity documents, identity sheets, annotated wireframes, project maps and working materials. Avoid stacked pebbles, empty tea-and-journal scenes, symbolic doorways and generic therapy-room stock photography.
 
 On mobile, article cards return to content-led height and reserve a `16 / 10` image area so lazy-loaded imagery cannot leave an unexplained blank card. Embedded service PDFs are replaced by exact first-page previews below 760 px, while the full documents remain available through explicit links.
+
+Desktop PDF embeds are activated only as they approach the viewport. Mobile visitors receive the lightweight preview and direct document link without downloading the embedded PDFs in the background.
 
 Use `PHOTOGRAPHY-SHOT-LIST.md` when replacing the current process-led placeholders with real studio photography.
