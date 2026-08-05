@@ -20,6 +20,8 @@ Use only `8 / 16 / 24 / 40 / 64 / 96 / 128 / 160` through `--space-*` tokens. St
 
 Base card: Paper background, `#CBC6BE` warm-grey border, 16 px radius, 40 px desktop padding (24 px mobile), no shadow. Use `.acw-card-base` for new components. Existing card families are mapped to the same rule in the system stylesheet.
 
+On mobile, explanatory sequences that do not need a contained surface become open editorial rows separated by warm-grey rules. Cards remain for actual deliverables, prices, examples, article previews, forms and other content whose grouping carries meaning. This prevents long pages becoming a repetitive stack of interchangeable boxes.
+
 Raised card: the same base card plus `--founding-shadow` and an Ink border. Use `.acw-card-raised`. It is reserved for the Founding Therapist Programme; the current founding price cards inherit it automatically.
 
 ## Labels and type
@@ -38,5 +40,7 @@ Use no more than one primary button within a section. Secondary actions must use
 ## Article grids and imagery
 
 Journal and Library cards stretch to equal heights; copy regions share a minimum height and all images use the same `16 / 10` baseline. Imagery should show the actual work: Practice Clarity documents, identity sheets, annotated wireframes, project maps and working materials. Avoid stacked pebbles, empty tea-and-journal scenes, symbolic doorways and generic therapy-room stock photography.
+
+On mobile, article cards return to content-led height and reserve a `16 / 10` image area so lazy-loaded imagery cannot leave an unexplained blank card. Embedded service PDFs are replaced by exact first-page previews below 760 px, while the full documents remain available through explicit links.
 
 Use `PHOTOGRAPHY-SHOT-LIST.md` when replacing the current process-led placeholders with real studio photography.

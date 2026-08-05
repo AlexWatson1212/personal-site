@@ -67,9 +67,9 @@ permalink: /blog/
 
             <a href="{{ post.url | relative_url }}" class="acw-blog-index-image" aria-label="Read {{ post.title }}">
               {% if post.hero_image %}
-                <img src="{{ post.hero_image | relative_url }}" alt="" loading="lazy" decoding="async">
+                <img src="{{ post.hero_image | relative_url }}" alt="" loading="eager" decoding="async">
               {% else %}
-                <img src="{{ '/assets/images/brand/practice-clarity-workspace.webp' | relative_url }}" alt="" loading="lazy" decoding="async">
+                <img src="{{ '/assets/images/brand/practice-clarity-workspace.webp' | relative_url }}" alt="" loading="eager" decoding="async">
               {% endif %}
             </a>
           </article>

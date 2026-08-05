@@ -88,6 +88,7 @@ h4 {
   color: var(--ink-text);
   font-family: var(--font-heading);
   font-weight: 400;
+  text-wrap: balance;
 }
 
 p,
@@ -591,6 +592,11 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
 }
 
 .footer-legal a {
+  display: inline-flex;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
   color: var(--muted-text);
   font-size: 0.75rem;
   font-weight: 600;
@@ -605,9 +611,153 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
   text-decoration-color: currentColor;
 }
 
+.footer-brand-link {
+  gap: var(--space-16);
+}
+
+.footer-brand-divider {
+  width: 1px;
+  height: 40px;
+  flex: 0 0 1px;
+  background: var(--warm-grey-border);
+}
+
+.footer-alternate-logo {
+  width: 132px;
+  height: auto;
+}
+
+.social {
+  width: 44px !important;
+  min-width: 44px;
+  height: 44px !important;
+  min-height: 44px;
+  flex: 0 0 44px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+/* Mobile document covers are exact first-page renders of the PDFs. */
+.acw-service-mobile-document-preview {
+  display: none;
+}
+
+/* The direct-email route is an editorial alternative, not a third button. */
+.acw-contact-email {
+  display: flex;
+  width: fit-content;
+  min-height: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: var(--space-8) var(--space-16);
+  padding: var(--space-16) 0;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--warm-grey-border);
+  border-bottom: 1px solid var(--warm-grey-border);
+  border-radius: 0;
+  box-shadow: none;
+  color: var(--muted-text);
+  font-weight: 400;
+  text-align: left;
+}
+
+.acw-contact-email:hover,
+.acw-contact-email:focus-within {
+  background: transparent;
+  border-color: var(--warm-grey-border);
+  box-shadow: none;
+}
+
+.acw-contact-email > span {
+  color: var(--muted-text);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 /* =========================================================
    RESPONSIVE
    ========================================================= */
+
+@media (max-width: 860px) {
+  .site-header .nav {
+    width: min(calc(100% - var(--space-40)), var(--container));
+    min-height: var(--space-64);
+  }
+
+  .nav__logo {
+    width: 152px;
+  }
+
+  .nav__brand {
+    min-height: 44px;
+  }
+
+  .nav__toggle {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+  }
+
+  .nav__panel {
+    gap: var(--space-24);
+    padding: 88px calc(var(--space-40) / 2) var(--space-24);
+  }
+
+  .nav__links {
+    gap: 0;
+    border-top: 1px solid var(--warm-grey-border) !important;
+  }
+
+  .nav__links li {
+    border-bottom: 1px solid var(--warm-grey-border) !important;
+  }
+
+  .nav__links a,
+  .site-header .nav__library summary {
+    min-height: 56px;
+    padding: var(--space-16) 0;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    color: var(--ink-text);
+  }
+
+  .nav__links a[aria-current="page"],
+  .site-header .nav__library details[data-current="true"] summary {
+    background: transparent !important;
+    box-shadow: inset 3px 0 0 var(--sage);
+    padding-left: var(--space-16);
+    text-decoration: none;
+  }
+
+  .site-header .nav__library details[open] summary {
+    border-bottom: 1px solid var(--warm-grey-border) !important;
+  }
+
+  .site-header .nav__library details[open] > .nav__subnav {
+    gap: 0;
+    padding: var(--space-8) 0 var(--space-8) var(--space-16);
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .site-header .nav__library .nav__subnav a {
+    min-height: 48px;
+    padding: 0 var(--space-16);
+    background: transparent;
+    border-radius: 0;
+  }
+
+  .nav__cta {
+    width: 100%;
+  }
+}
 
 @media (max-width: 760px) {
   :root {
@@ -615,6 +765,80 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
     --hero-space-top: var(--space-64);
     --hero-space-bottom: var(--space-64);
     --card-padding: var(--space-24);
+    --founding-shadow: 0 12px 28px rgba(26, 33, 25, 0.08);
+  }
+
+  body {
+    font-size: 1rem;
+    line-height: 1.68;
+  }
+
+  .acw-container,
+  .container,
+  .shell,
+  .site-footer-inner {
+    width: min(calc(100% - var(--space-40)), var(--container));
+  }
+
+  .site-content h1 {
+    max-width: 12ch;
+    font-size: clamp(2.65rem, 11vw, 3.25rem);
+    letter-spacing: -0.05em;
+    line-height: 0.98;
+  }
+
+  .site-content h2 {
+    font-size: clamp(2.15rem, 9vw, 2.9rem);
+    letter-spacing: -0.045em;
+    line-height: 1.02;
+  }
+
+  .site-content h3 {
+    letter-spacing: -0.035em;
+    line-height: 1.14;
+  }
+
+  .acw-section-heading,
+  .acw-package-chapter-heading,
+  .acw-package-split-heading,
+  .acw-package-proof-heading,
+  .acw-package-investment-heading,
+  .acw-service-heading,
+  .acw-blog-index-heading,
+  .acw-library-pathway-heading,
+  .acw-library-featured-guide-heading {
+    margin-bottom: var(--space-40) !important;
+  }
+
+  .acw-complete-package > .acw-hero {
+    padding-top: 0 !important;
+    padding-bottom: var(--space-64) !important;
+  }
+
+  .acw-hero-cover-copy {
+    padding: var(--space-40) calc(var(--space-40) / 2) var(--space-24);
+  }
+
+  .acw-hero-visual {
+    width: calc(100% - var(--space-40));
+    border-radius: var(--image-radius);
+    box-shadow: none;
+  }
+
+  .acw-hero-cover .acw-hero-text,
+  .acw-section-text,
+  .acw-section-intro,
+  .acw-page-intro,
+  .acw-work-decision p,
+  .acw-work-redacted p,
+  .acw-work-improve p,
+  .acw-service-stage-detail p,
+  .acw-service-management-list p,
+  .acw-service-deliverable li,
+  .acw-library-principle-list div > p,
+  .acw-contact-page-note p {
+    font-size: 1rem !important;
+    line-height: 1.68;
   }
 
   .acw-cta-row,
@@ -635,6 +859,8 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
   .acw-library-card-link,
   .acw-btn-secondary {
     width: fit-content !important;
+    min-height: 44px;
+    align-items: center;
   }
 
   .acw-library-latest-copy,
@@ -643,8 +869,305 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
     min-height: 0 !important;
   }
 
+  .acw-library-latest-card,
+  .acw-blog-index-card {
+    height: auto;
+  }
+
+  .acw-library-latest-grid,
+  .acw-blog-index-grid {
+    gap: var(--space-24) !important;
+    align-items: start;
+  }
+
+  .acw-library-latest-image-link,
+  .acw-blog-index-image {
+    width: 100%;
+    margin-top: var(--space-24);
+    aspect-ratio: 16 / 10;
+    background: var(--recessed);
+  }
+
+  .acw-library-latest-image-link img,
+  .acw-blog-index-image img {
+    height: 100%;
+  }
+
+  /* Open editorial rows replace non-essential nested cards on mobile. */
+  .acw-package-recognition-grid,
+  .acw-package-fit-grid,
+  .acw-blueprint-grid,
+  .acw-service-management-list,
+  .acw-service-fit-note {
+    gap: 0 !important;
+    overflow: visible;
+    background: transparent !important;
+    border: 0 !important;
+    border-top: 1px solid var(--warm-grey-border) !important;
+    border-radius: 0 !important;
+  }
+
+  .acw-package-recognition-card,
+  .acw-package-fit-column,
+  .acw-blueprint-card,
+  .acw-service-management-list article,
+  .acw-service-fit-note article,
+  .acw-contact-page-note {
+    min-height: 0 !important;
+    padding: var(--space-24) 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--warm-grey-border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .acw-service-snapshot {
+    min-height: 0 !important;
+  }
+
+  .acw-package-text-link,
+  .footer-primary-link {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .acw-about-hero-meta {
+    display: grid;
+    gap: 0;
+    margin-top: var(--space-24);
+    border-top: 1px solid var(--warm-grey-border);
+  }
+
+  .acw-about-hero-meta span {
+    min-height: 44px;
+    padding: var(--space-8) 0;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--warm-grey-border);
+    border-radius: 0;
+    font-size: 0.75rem;
+  }
+
+  .acw-work-decision {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: var(--space-16);
+    padding: var(--space-40) 0;
+  }
+
+  .acw-work-decision h2 {
+    font-size: clamp(1.75rem, 7vw, 2.15rem);
+  }
+
+  .acw-contact-page {
+    padding-block: var(--space-64) !important;
+  }
+
+  .acw-contact-page-copy,
+  .acw-contact-copy-details {
+    gap: var(--space-24);
+  }
+
+  .acw-contact-person {
+    align-items: center;
+    gap: var(--space-16);
+    padding: var(--space-24) 0 0;
+    border-top: 1px solid var(--warm-grey-border);
+  }
+
+  .acw-contact-person img {
+    width: 56px;
+    height: 56px;
+    flex-basis: 56px;
+  }
+
+  .acw-contact-person p {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  .acw-contact-email {
+    display: grid;
+    width: 100%;
+    min-height: 0;
+    gap: var(--space-8);
+    align-items: initial;
+    justify-content: initial;
+    margin: 0;
+    padding: var(--space-24) 0;
+    background: transparent;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-weight: 400;
+    text-align: left;
+    border-top: 1px solid var(--warm-grey-border);
+    border-bottom: 1px solid var(--warm-grey-border);
+  }
+
+  .acw-contact-email > span {
+    color: var(--muted-text);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .acw-contact-email a {
+    width: fit-content;
+    overflow-wrap: anywhere;
+    font-size: 1rem;
+  }
+
+  .acw-contact-form-card {
+    width: 100%;
+    padding: var(--space-24) !important;
+  }
+
+  .acw-contact-form {
+    gap: var(--space-16);
+  }
+
+  .acw-contact-form label {
+    font-size: 0.875rem;
+  }
+
+  .acw-contact-form input,
+  .acw-contact-form select,
+  .acw-contact-form textarea {
+    min-height: 52px;
+    padding: 0.85rem var(--space-16);
+    font-size: 1rem;
+  }
+
+  .acw-contact-form textarea {
+    min-height: 176px;
+  }
+
+  .acw-form-reassurance p {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  .acw-service-page .acw-service-hero h1 {
+    font-size: clamp(2.65rem, 11vw, 3.3rem) !important;
+  }
+
+  .acw-service-page .acw-service-hero-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .acw-service-hero-copy,
+  .acw-service-hero-media,
+  .acw-service-hero-flow,
+  .acw-service-hero .acw-cta-row {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .acw-service-jump-nav a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .acw-service-document-shell > object,
+  .acw-service-document-shell > iframe {
+    display: none !important;
+  }
+
+  .acw-service-document-shell {
+    background: var(--paper) !important;
+    border-color: var(--warm-grey-border) !important;
+    border-radius: var(--image-radius) !important;
+    box-shadow: none !important;
+  }
+
+  .acw-service-mobile-document-preview {
+    display: grid;
+    color: var(--ink-text);
+    background: var(--paper);
+  }
+
+  .acw-service-mobile-document-preview img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: var(--recessed);
+    border: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .acw-service-mobile-document-preview span {
+    display: flex;
+    min-height: 52px;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-16);
+    padding: var(--space-16);
+    border-top: 1px solid var(--warm-grey-border);
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+
   .site-footer {
     padding-top: var(--space-40) !important;
+  }
+
+  .site-footer-top {
+    gap: var(--space-40) !important;
+  }
+
+  .footer-brand-link {
+    min-height: 52px;
+    margin-bottom: var(--space-24);
+  }
+
+  .footer-submark {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+  }
+
+  .footer-brand-divider {
+    height: 32px;
+  }
+
+  .footer-alternate-logo {
+    width: 116px;
+  }
+
+  .footer-description {
+    font-size: 0.9375rem;
+  }
+
+  .footer-nav-group {
+    gap: 0;
+  }
+
+  .footer-nav-group a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    padding-right: var(--space-8);
+  }
+
+  .site-footer .social {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+  }
+
+  .site-footer-bottom {
+    gap: var(--space-24);
+  }
+
+  .footer-location,
+  .footer-copyright,
+  .footer-legal a {
+    font-size: 0.8125rem;
   }
 
   .footer-meta {
@@ -656,11 +1179,42 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
   }
 }
 
+@media (max-width: 360px) {
+  .acw-container,
+  .container,
+  .shell,
+  .site-footer-inner,
+  .site-header .nav {
+    width: calc(100% - (var(--space-16) * 2));
+  }
+
+  .acw-hero-cover-copy {
+    padding-inline: var(--space-16);
+  }
+
+  .acw-hero-visual {
+    width: calc(100% - (var(--space-16) * 2));
+  }
+
+  .acw-work-decision {
+    grid-template-columns: 32px minmax(0, 1fr);
+  }
+
+  .site-footer-links {
+    grid-template-columns: 1fr;
+    gap: var(--space-24);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .acw-btn,
   .nav__cta,
   .acw-library-latest-card img,
-  .acw-blog-index-card img {
+  .acw-blog-index-card img,
+  .nav__panel,
+  .nav__hamburger,
+  .nav__hamburger::before,
+  .nav__hamburger::after {
     transition: none !important;
   }
 }
