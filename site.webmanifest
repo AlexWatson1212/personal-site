@@ -1,19 +1,19 @@
 {
-  "name": "Alex Watson — Websites for Therapists",
-  "short_name": "Alex Watson",
+  "name": "Alexander Watson Studio",
+  "short_name": "AW Studio",
   "icons": [
     {
-      "src": "/assets/images/brand/favicon-192.png",
-      "sizes": "192x192",
+      "src": "/assets/images/brand/favicon.png",
+      "sizes": "64x64",
       "type": "image/png"
     },
     {
-      "src": "/assets/images/brand/favicon-512.png",
-      "sizes": "512x512",
+      "src": "/assets/images/brand/favicon-32x32.png",
+      "sizes": "32x32",
       "type": "image/png"
     }
   ],
-  "theme_color": "#2563EB",
-  "background_color": "#F8FAFC",
+  "theme_color": "#283a38",
+  "background_color": "#f7f4ef",
   "display": "standalone"
 }

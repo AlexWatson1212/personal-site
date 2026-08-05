@@ -72,7 +72,7 @@ permalink: /contact/
   (function () {
     const programme = document.getElementById("programme");
     const service = new URLSearchParams(window.location.search).get("service");
-    const selections = { "founding-place": "Founding Therapist Programme — £795", "practice-clarity-studio": "Practice Clarity Studio — £1,995", "complete-service": "Practice Clarity Studio — £1,995" };
+    const selections = { "founding-place": "Founding Therapist Programme — £795", "complete-service": "Practice Clarity Studio — £1,995" };
     if (programme && selections[service]) programme.value = selections[service];
   }());
 </script>

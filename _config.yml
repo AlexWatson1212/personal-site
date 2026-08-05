@@ -26,13 +26,14 @@ plugins:
 
 include:
   - _redirects
+  - _pages
 
 defaults:
   -
     scope:
       path: ""
     values:
-      image: "/assets/images/brand/og-image.jpg"
+      image: "/assets/images/service/alexander-watson-counselling-case-study.webp"
 
   -
     scope:
@@ -41,7 +42,7 @@ defaults:
     values:
       layout: guide
       category: "Practice Clarity"
-      image: "/assets/images/brand/og-image.jpg"
+      image: "/assets/images/service/alexander-watson-counselling-case-study.webp"
 
 exclude:
   - README.md

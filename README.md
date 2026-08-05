@@ -44,12 +44,11 @@ Copy the files into the equivalent paths in the Jekyll project:
 | `about.html` | the About page source |
 | `_redirects` | project root |
 
-## Important migration step
+## Consolidation status
 
-Delete the old `_posts` source for `beyond-counselling-directory` after adding
-`_guides/beyond-counselling-directory.md`. Leaving both files in place would
-publish duplicate copies of the same article. The supplied index templates
-exclude the old post defensively, but it should still be removed from `_posts`.
+The old `_posts` source for `beyond-counselling-directory` and the superseded
+plain `practice-clarity/` sources have been removed. The maintained content now
+lives only in `_guides/`, preventing duplicate public routes.
 
 The Counselling Directory profile guide now uses the canonical URL:
 
@@ -85,3 +84,15 @@ After copying the files:
 4. Confirm `/beyond-counselling-directory/` redirects to its new Library URL.
 5. Confirm Journal cards show reading time but no publication date.
 6. Confirm the mobile navigation opens on guide and Journal article pages.
+
+## Launch decisions and future maintenance
+
+- The Home page is intentionally a complete standalone pitch. The Service page
+  remains the detailed scope, process and pricing destination, so the current
+  overlap is deliberate and does not need a launch change.
+- The page-specific styles in `service.html` and `work.html` should move into
+  the shared styling system the next time either page receives a material
+  redesign. They are intentionally left in place during this launch pass to
+  avoid a high-risk mechanical refactor.
+- Practice Notes and the unfinished site search are retired. Their public page,
+  include, data file and JavaScript are not part of the production package.

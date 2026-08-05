@@ -2,6 +2,8 @@
 ALEXANDER WATSON — MAIN STYLESHEET
 Clarity First. Website Second.
 Organised structure; original cascade and functionality preserved.
+Production design tokens are defined in visual-system.css, which is loaded
+after this file and is the final authority for shared colours and dimensions.
 ========================================================= */
 
 /* =========================================================
@@ -51,45 +53,6 @@ The order below intentionally preserves the original cascade.
 42. COMPLETE PACKAGE — VISUAL RHYTHM + PROOF PASS
 43. COMPLETE PACKAGE — COMPACT HERO + TYPOGRAPHY REPAIR
 ========================================================= */
-
-/* =========================================================
-01. ROOT
-========================================================= */
-
-:root {
-  --bg: #F7F4EF;
-  --surface: #FAF8F6;
-  --surface-soft: #D7DDD8;
-  --surface-quiet: #FAF8F6;
-  --surface-warm: #D7DDD8;
-
-  --text: #1A2119;
-  --muted: rgba(26, 33, 25, 0.74);
-  --white: #ffffff;
-
-  --accent: #798371;
-  --accent-dark: #283A38;
-
-  --line: rgba(26, 33, 25, 0.09);
-  --line-strong: rgba(26, 33, 25, 0.16);
-
-  --shadow-xs: 0 6px 16px rgba(26, 33, 25, 0.035);
-  --shadow-sm: 0 16px 36px rgba(26, 33, 25, 0.06);
-  --shadow: 0 26px 64px rgba(26, 33, 25, 0.085);
-  --shadow-lg: 0 34px 90px rgba(26, 33, 25, 0.12);
-
-  --radius: 28px;
-  --radius-md: 32px;
-  --radius-lg: 42px;
-  --pill: 999px;
-
-  --container: 1120px;
-
-  --font-heading: "Instrument Serif", Georgia, serif;
-  --font-body: "Aileron", "Helvetica Neue", Arial, sans-serif;
-
-  --transition: 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
 
 /* =========================================================
 02. RESET
@@ -9441,45 +9404,6 @@ Uses the approved colour system, Instrument Serif/Aileron pairing,
 clear navigation controls, button-style links, softer imagery and a
 homepage hero that remains within the desktop viewport.
 ========================================================= */
-
-:root {
-  --deep-forest: #283A38;
-  --sage: #798371;
-  --warm-white: #F7F4EF;
-  --soft-stone: #D7DDD8;
-  --white: #FFFFFF;
-  --cream: #FAF8F6;
-  --brand-charcoal: #5F6A68;
-  --logo-ink: #1A2119;
-
-  --bg: var(--warm-white);
-  --surface: var(--white);
-  --surface-soft: rgba(121, 131, 113, 0.12);
-  --surface-quiet: var(--cream);
-  --surface-warm: var(--soft-stone);
-  --text: var(--logo-ink);
-  --muted: var(--brand-charcoal);
-  --accent: var(--sage);
-  --accent-dark: var(--deep-forest);
-  --line: rgba(215, 221, 216, 0.92);
-  --line-strong: rgba(121, 131, 113, 0.46);
-
-  --shadow-xs: 0 5px 14px rgba(40, 58, 56, 0.045);
-  --shadow-sm: 0 12px 30px rgba(40, 58, 56, 0.065);
-  --shadow: 0 18px 44px rgba(40, 58, 56, 0.08);
-  --shadow-lg: 0 24px 58px rgba(40, 58, 56, 0.1);
-
-  --radius: 8px;
-  --radius-md: 8px;
-  --radius-lg: 8px;
-  --pill: 4px;
-  --image-radius: 8px;
-
-  --container: 1200px;
-  --font-heading: "Instrument Serif", Georgia, serif;
-  --font-body: "Aileron", "Helvetica Neue", Arial, sans-serif;
-  --transition: 180ms ease;
-}
 
 html,
 body,

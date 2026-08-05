@@ -24,7 +24,7 @@ hero_alt: "A restrained Practice Clarity document layout with a clear hierarchy 
 image: /assets/images/brand/inside-practice-clarity-blueprint.webp
 
 read_time: 18 min read
-updated: 2026-07-08
+updated: 2026-08-05
 
 canonical_url: https://alexanderwatson.co.uk/practice-clarity/simplicity-principle/
 
@@ -123,25 +123,25 @@ By now the visitor understands something about your practice.
 
 <p>
 
-They have found you.
+Recognition has helped them arrive.
 
 </p>
 
 <p>
 
-They have stayed.
+Your homepage and About page have made the practice easier to understand.
 
 </p>
 
 <p>
 
-They have recognised themselves.
+They can see enough of themselves, your work and the possible relationship.
 
 </p>
 
 <p>
 
-They have begun to trust you.
+Enough trust now exists for them to consider taking a next step.
 
 </p>
 

@@ -24,7 +24,7 @@ hero_alt: "A client journey and enquiry process mapped through printed pages and
 image: /assets/images/brand/process-planning-board.webp
 
 read_time: 18 min read
-updated: 2026-07-08
+updated: 2026-08-05
 
 canonical_url: https://alexanderwatson.co.uk/practice-clarity/enquiry-principle/
 
@@ -128,25 +128,25 @@ The visitor has reached the end of the journey.
 
 <p>
 
-They have found your practice.
+Recognition helped them find a practice that feels relevant.
 
 </p>
 
 <p>
 
-They have stayed.
+Clear language gave them a reason to continue.
 
 </p>
 
 <p>
 
-They have recognised themselves.
+A coherent identity and a simple path reduced the effort of deciding.
 
 </p>
 
 <p>
 
-They have begun trusting both the therapist and the process.
+They can now imagine the therapist and the process with enough trust to act.
 
 </p>
 

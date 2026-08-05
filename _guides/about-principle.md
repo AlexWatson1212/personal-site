@@ -24,7 +24,7 @@ hero_alt: "Alexander reviewing written material about communication, care and pr
 image: /assets/images/brand/about-communication-and-care.webp
 
 read_time: 20 min read
-updated: 2026-07-08
+updated: 2026-08-05
 
 canonical_url: https://alexanderwatson.co.uk/practice-clarity/about-principle/
 
@@ -135,25 +135,25 @@ By the time someone reaches your About page, something important has already hap
 
 <p>
 
-They have found your website.
+The homepage has helped them decide that your practice may be relevant.
 
 </p>
 
 <p>
 
-They have stayed.
+Your language has given them enough recognition to keep reading.
 
 </p>
 
 <p>
 
-They have recognised something of themselves.
+They now have a clearer sense of what the work could offer.
 
 </p>
 
 <p>
 
-They have begun to feel they may be in the right place.
+Attention naturally turns from the practice to the person behind it.
 
 </p>
 
