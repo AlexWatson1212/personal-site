@@ -40,6 +40,7 @@
 {% endif %}
 
 {% assign css_bundle = 'site.min.css' %}
+
 {% if page.layout == 'guide' %}
   {% assign css_bundle = 'guide.min.css' %}
 {% elsif page.layout == 'post' %}
@@ -68,6 +69,13 @@
   rel="stylesheet"
   href="{{ '/assets/css/' | append: css_bundle | relative_url }}?v={{ site.time | date: '%s' }}"
 >
+
+{% if page.url == '/links/' %}
+<link
+  rel="stylesheet"
+  href="{{ '/assets/css/links.css' | relative_url }}?v={{ site.time | date: '%s' }}"
+>
+{% endif %}
 
 <!-- Favicons -->
 <link
