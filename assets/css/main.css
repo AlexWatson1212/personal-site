@@ -14841,3 +14841,306 @@ Paste at the end of the stylesheet.
     margin-bottom: 1.5rem;
   }
 }
+/* =========================================================
+51. COMPLETE PACKAGE — FIT + PRACTICAL DETAILS INTEGRATION
+Moves Practical Details into the therapist-fit section so it
+reads as a compact supporting route rather than an orphaned
+standalone chapter.
+========================================================= */
+
+
+/* =========================================================
+FIT / NOT FIT
+========================================================= */
+
+.acw-complete-package .acw-package-fit {
+  padding-top: clamp(6rem, 9vw, 8.5rem);
+  padding-bottom: clamp(4.75rem, 7vw, 6.5rem);
+  background: var(--white);
+}
+
+.acw-package-fit .acw-package-chapter-heading {
+  max-width: 820px;
+  margin-bottom: clamp(2.8rem, 5vw, 4.2rem);
+}
+
+.acw-package-fit .acw-package-chapter-heading h2 {
+  max-width: 13ch;
+  margin-bottom: 1rem;
+}
+
+.acw-package-fit .acw-package-chapter-heading .acw-section-intro {
+  max-width: 50ch;
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+FIT GRID
+========================================================= */
+
+.acw-package-fit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  background: var(--line-strong);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+}
+
+.acw-package-fit-column {
+  height: 100%;
+  padding: clamp(2rem, 4vw, 3.2rem);
+  background: var(--cream);
+}
+
+.acw-package-fit-column-positive {
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(121, 131, 113, 0.14),
+      transparent 38%
+    ),
+    var(--white);
+}
+
+.acw-package-fit-column .acw-card-label {
+  margin-bottom: 0.9rem;
+}
+
+.acw-package-fit-column ul {
+  display: grid;
+  gap: 0;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--line-strong);
+  list-style: none;
+}
+
+.acw-package-fit-column li {
+  padding: 1.25rem 0;
+  color: var(--brand-charcoal);
+  border-bottom: 1px solid var(--line-strong);
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.acw-package-fit-column strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--logo-ink);
+  font-size: 1rem;
+  text-wrap: balance;
+}
+
+
+/* =========================================================
+PRACTICAL DETAILS STRIP
+========================================================= */
+
+.acw-package-practical-strip {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: end;
+
+  margin-top: clamp(3rem, 5vw, 4.25rem);
+  padding-top: clamp(2rem, 3vw, 2.6rem);
+
+  border-top: 1px solid var(--line-strong);
+}
+
+.acw-package-practical-copy {
+  max-width: 720px;
+}
+
+.acw-package-practical-copy .acw-section-label {
+  margin-bottom: 0.8rem;
+}
+
+.acw-package-practical-copy h3 {
+  max-width: 20ch;
+  margin: 0 0 0.7rem;
+
+  color: var(--logo-ink);
+  font-size: clamp(1.75rem, 2.4vw, 2.45rem);
+  line-height: 1.08 !important;
+  text-wrap: balance;
+}
+
+.acw-package-practical-copy > p:not(.acw-section-label) {
+  max-width: 55ch;
+  margin: 0;
+
+  color: var(--brand-charcoal);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+
+/* =========================================================
+PRACTICAL DETAILS LINK
+========================================================= */
+
+.acw-package-practical-action {
+  align-self: end;
+  justify-self: end;
+  padding-bottom: 0.2rem;
+}
+
+.acw-package-practical-strip .acw-package-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  width: fit-content;
+  margin: 0;
+  padding-bottom: 0.25rem;
+
+  color: var(--deep-forest);
+  border-bottom: 1px solid rgba(40, 58, 56, 0.34);
+
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.acw-package-practical-strip .acw-package-text-link span {
+  display: inline-block;
+  transition: transform var(--transition);
+}
+
+.acw-package-practical-strip .acw-package-text-link:hover,
+.acw-package-practical-strip .acw-package-text-link:focus-visible {
+  color: var(--logo-ink);
+  border-bottom-color: var(--logo-ink);
+}
+
+.acw-package-practical-strip .acw-package-text-link:hover span,
+.acw-package-practical-strip .acw-package-text-link:focus-visible span {
+  transform: translateX(3px);
+}
+
+
+/* =========================================================
+TABLET
+========================================================= */
+
+@media (max-width: 880px) {
+
+  .acw-package-practical-strip {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .acw-package-practical-copy {
+    max-width: 650px;
+  }
+
+  .acw-package-practical-copy h3 {
+    max-width: 22ch;
+  }
+
+  .acw-package-practical-action {
+    justify-self: start;
+    padding-bottom: 0;
+  }
+}
+
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .acw-complete-package .acw-package-fit {
+    padding-top: 4.75rem;
+    padding-bottom: 4rem;
+  }
+
+  .acw-package-fit .acw-package-chapter-heading {
+    margin-bottom: 2.5rem;
+  }
+
+  .acw-package-fit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .acw-package-fit-column {
+    padding: 1.5rem;
+  }
+
+  .acw-package-practical-strip {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+
+    margin-top: 2.5rem;
+    padding-top: 1.75rem;
+  }
+
+  .acw-package-practical-copy h3 {
+    max-width: 22ch;
+    font-size: clamp(1.7rem, 8vw, 2.1rem);
+    line-height: 1.08 !important;
+  }
+
+  .acw-package-practical-copy > p:not(.acw-section-label) {
+    max-width: 46ch;
+    font-size: 0.93rem;
+    line-height: 1.62;
+  }
+
+  .acw-package-practical-action {
+    width: 100%;
+  }
+
+  .acw-package-practical-strip .acw-package-text-link {
+    white-space: normal;
+  }
+}
+
+
+/* =========================================================
+SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .acw-package-fit-column {
+    padding: 1.35rem;
+  }
+
+  .acw-package-fit-column li {
+    padding: 1.1rem 0;
+  }
+
+  .acw-package-practical-strip {
+    margin-top: 2.25rem;
+    padding-top: 1.5rem;
+  }
+
+  .acw-package-practical-copy h3 {
+    font-size: 1.75rem;
+  }
+}
+
+
+/* =========================================================
+REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .acw-package-practical-strip .acw-package-text-link span {
+    transition: none;
+  }
+
+  .acw-package-practical-strip .acw-package-text-link:hover span,
+  .acw-package-practical-strip .acw-package-text-link:focus-visible span {
+    transform: none;
+  }
+}
