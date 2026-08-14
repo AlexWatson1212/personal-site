@@ -1288,3 +1288,31 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
     transition: none !important;
   }
 }
+/* =========================================================
+   OPENING PAGE SPACING — FINAL DESKTOP AUTHORITY
+   Keeps opening content close to the sticky navigation.
+   Mobile spacing and internal section rhythm remain unchanged.
+   ========================================================= */
+
+@media (min-width: 761px) {
+
+  /* Standard hero system */
+  :root {
+    --hero-space-top: var(--space-24);
+  }
+
+  /* Pages with their own opening-section classes */
+  .acw-about-hero,
+  .acw-identity-hero,
+  .acw-links-page,
+  .acw-contact-page,
+  .acw-practice-clarity-page .acw-pc-hero,
+  .acw-complete-package .acw-package-hero {
+    padding-top: var(--space-24) !important;
+  }
+
+  /* Contact page currently adds a second internal top gap */
+  .acw-contact-page-copy {
+    padding-top: 0 !important;
+  }
+}
