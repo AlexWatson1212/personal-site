@@ -29,6 +29,8 @@ permalink: /work/
   .acw-work-decision h2 { max-width: 16ch; margin: 0; font-size: clamp(1.8rem, 3vw, 3rem); }
   .acw-work-decision p { margin: 0; color: var(--muted); line-height: 1.7; }
   .acw-work-decision strong { color: var(--text); }
+  .acw-work-production-note { display: block; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(26,33,25,.1); color: rgba(26,33,25,.62); font-size: .86rem; line-height: 1.65; }
+  .acw-work-production-note b { color: var(--text); }
   .acw-work-document { background: #f2f3ef; }
   .acw-work-document-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(340px, 1fr); gap: clamp(2.5rem, 7vw, 6rem); align-items: start; }
   .acw-work-document h2 { max-width: 11ch; margin: 0 0 1rem; }
@@ -37,10 +39,6 @@ permalink: /work/
   .acw-work-redacted article { padding: 1.35rem 1.5rem; background: rgba(255,255,255,.78); }
   .acw-work-redacted h3 { margin: .3rem 0 .45rem; font-size: 1.18rem; }
   .acw-work-redacted p { margin: 0; font-size: .94rem; }
-  .acw-work-collaborator { padding: clamp(1.7rem, 4vw, 3.2rem); background: #fff; border: 1px solid rgba(26,33,25,.1); border-radius: 18px; }
-  .acw-work-collaborator h2 { margin: .35rem 0 .8rem; }
-  .acw-work-collaborator p { max-width: 72ch; margin: 0; color: var(--muted); line-height: 1.7; }
-  .acw-work-collaborator p + p { margin-top: 1rem; }
   .acw-work-improve { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
   .acw-work-improve article { padding: 1.4rem; background: #fff; border: 1px solid rgba(26,33,25,.1); border-radius: 14px; }
   .acw-work-improve h3 { margin: .35rem 0 .5rem; font-size: 1.2rem; }
@@ -49,6 +47,7 @@ permalink: /work/
   .acw-work-next h2 { max-width: 13ch; margin: 0 0 .8rem; color: #fff; }
   .acw-work-next p { max-width: 48ch; margin: 0; color: rgba(247,244,239,.78); line-height: 1.7; }
   .acw-work-next .acw-btn { justify-self: start; }
+  .acw-work-next-detail { display: block; margin-top: .8rem; color: rgba(247,244,239,.58); font-size: .78rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
   @media (max-width: 780px) { .acw-work-hero-grid, .acw-work-feature, .acw-work-next, .acw-work-document-grid { grid-template-columns: 1fr; } .acw-work-decision { grid-template-columns: 3.2rem 1fr; } .acw-work-decision > p { grid-column: 2; } .acw-work-improve { grid-template-columns: 1fr; } }
 </style>
 
@@ -86,7 +85,7 @@ permalink: /work/
         <article class="acw-work-decision"><span class="acw-work-number">01</span><h2>What was unclear at the beginning</h2><p>The original question was not “what should the website look like?” It was how to describe a person-centred counselling practice without generic wellbeing language, a forced niche, or claims that felt larger than the real work. <strong>The work needed a clear, calm way for suitable clients to recognise the practice.</strong></p></article>
         <article class="acw-work-decision"><span class="acw-work-number">02</span><h2>What Practice Clarity revealed</h2><p>Written discovery brought the important material into one place: the therapeutic approach, the experience of a first session, the kinds of concerns clients bring, practical boundaries, and what a client needs to feel before making contact. <strong>That became the source for structure, copy and visual direction.</strong></p></article>
         <article class="acw-work-decision"><span class="acw-work-number">03</span><h2>Positioning and language</h2><p>The language was deliberately made direct, warm and unshowy. Instead of promising transformation or positioning counselling as a product, the site explains what the space is like, who it may help and how to take the next step. <strong>Clarity and emotional safety became more important than cleverness.</strong></p></article>
-        <article class="acw-work-decision"><span class="acw-work-number">04</span><h2>Identity rationale</h2><p>The identity needed to feel professional and considered without becoming clinical, decorative or overly therapeutic. The final direction uses quiet editorial typography, restrained colour and a flexible logo system to make the practice feel settled and credible. <strong>The identity supports the words rather than competing with them.</strong></p></article>
+        <article class="acw-work-decision"><span class="acw-work-number">04</span><h2>Identity rationale</h2><p>The identity needed to feel professional and considered without becoming clinical, decorative or overly therapeutic. The final direction uses quiet editorial typography, restrained colour and a flexible logo system to make the practice feel settled and credible. <strong>The identity supports the words rather than competing with them.</strong><span class="acw-work-production-note"><b>Specialist production:</b> I established and directed the creative direction. A specialist identity designer produced the final logo system from the approved brief, with two structured refinement rounds. I remained responsible for ensuring the identity, language and website worked as one system.</span></p></article>
         <article class="acw-work-decision"><span class="acw-work-number">05</span><h2>Website and enquiry journey</h2><p>The website follows the questions a cautious prospective client tends to have: “Is this for someone like me?”, “What would it be like?”, “What are the practical details?” and “Can I contact you safely?” Navigation, page order, reassurance and the contact form are designed around answering those questions in sequence. <strong>The enquiry route is a continuation of the care, not a hard sell.</strong></p></article>
       </div>
     </div>
@@ -99,16 +98,6 @@ permalink: /work/
         <article><p class="acw-work-label">Positioning prompt</p><h3>What should a suitable client understand before they enquire?</h3><p>A clear sense of the approach, tone, practical arrangements and whether the space feels right for them.</p></article>
         <article><p class="acw-work-label">Client experience</p><h3>What should the first contact communicate?</h3><p>That the enquiry will be read by a real person, treated carefully, and does not commit someone to counselling.</p></article>
         <article><p class="acw-work-label">Design principle</p><h3>What should the visual system avoid?</h3><p>Stock “therapy” imagery and decoration that risks making the practice feel generic, impersonal or over-promised.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="acw-section acw-surface-paper" aria-labelledby="collaborator-heading">
-    <div class="acw-container">
-      <div class="acw-work-collaborator">
-        <p class="acw-work-kicker">Collaboration</p>
-        <h2 id="collaborator-heading">Specialist identity production, directed as part of one process.</h2>
-        <p>I developed the Practice Clarity work, positioning, creative direction, website structure, copy, design and build. A specialist identity designer produced the final logo system from the approved brief and direction, with two structured refinement rounds. I remained responsible for the whole project: making sure the identity, language and website worked together.</p>
       </div>
     </div>
   </section>
@@ -126,8 +115,13 @@ permalink: /work/
 
   <section class="acw-section acw-surface-ink">
     <div class="acw-container acw-work-next">
-      <div><p class="acw-work-label">For your practice</p><h2>The same process, built around your work.</h2><p>You do not need to arrive with a finished niche, visual direction or website copy. The first step is to establish whether the project is a good fit.</p></div>
-      <a class="acw-btn acw-btn-primary" href="{{ '/contact/?service=complete-service' | relative_url }}">Start a conversation</a>
+      <div>
+        <p class="acw-work-label">Founding Therapist Programme</p>
+        <h2>The same process, built around your practice.</h2>
+        <p>I am taking on three founding therapists to receive the complete Practice Clarity Studio process: Practice Clarity, positioning, brand direction, core website copy and a bespoke website.</p>
+        <span class="acw-work-next-detail">Founding investment £999 · Standard investment £1,995</span>
+      </div>
+      <a class="acw-btn acw-btn-primary" href="{{ '/contact/?service=founding-place' | relative_url }}">Apply for a founding place</a>
     </div>
   </section>
 </div>
