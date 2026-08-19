@@ -21,7 +21,7 @@ This source set completes the consolidation into two public content surfaces:
 - The Journal index with dates removed from cards. Dates remain available on individual article pages.
 - Shared contextual routes from every guide and Journal article into the Service and Work pages.
 - Home, Service and About pages with FAQs consolidated:
-  - Home links to the complete Service FAQ instead of repeating it.
+  - Home links to the full Service FAQ instead of repeating it.
   - Service contains the full scope, process, pricing, ownership and aftercare FAQ.
   - About retains only questions about Alexander's background, experience and location.
 - Redirect rules for retired Library, Practice Notes and Counselling Directory URLs.

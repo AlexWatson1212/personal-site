@@ -2,10 +2,10 @@
 layout: default
 title: Practice Clarity Library | Clear marketing and website guidance for therapists
 description: A considered library of practical tools and reflective guidance for therapists who want to define their practice, communicate it clearly and build online trust without becoming generic or performative.
-permalink: /practice-clarity/
+permalink: /practice-clarity
 ---
 
-<section class="acw-section acw-library-hero acw-surface-paper">
+<section class="acw-section acw-library-hero">
   <div class="acw-container acw-library-hero-grid">
     <div class="acw-library-hero-copy">
       <p class="acw-section-label">Practice Clarity Library</p>
@@ -22,7 +22,7 @@ permalink: /practice-clarity/
   </div>
 </section>
 
-<section class="acw-section acw-library-introduction acw-surface-recessed" id="pathway">
+<section class="acw-section acw-library-introduction" id="pathway">
   <div class="acw-container acw-library-introduction-grid">
     <div>
       <p class="acw-section-label">Start here</p>
@@ -39,7 +39,7 @@ permalink: /practice-clarity/
   </div>
 </section>
 
-<section class="acw-section acw-library-pathway acw-surface-paper">
+<section class="acw-section acw-library-pathway">
   <div class="acw-container">
     <div class="acw-library-pathway-heading">
       <p class="acw-section-label">The Practice Clarity pathway</p>
@@ -76,7 +76,7 @@ permalink: /practice-clarity/
   </div>
 </section>
 
-<section class="acw-section acw-section-soft acw-library-featured-guide acw-surface-recessed" id="practical-guides">
+<section class="acw-section acw-section-soft acw-library-featured-guide" id="practical-guides">
   <div class="acw-container">
     <div class="acw-library-featured-guide-heading">
       <p class="acw-section-label">Practical guides</p>
@@ -96,7 +96,7 @@ permalink: /practice-clarity/
           </a>
         </div>
         <a class="acw-library-latest-image-link" href="{{ '/practice-clarity/counselling-directory-profile/' | relative_url }}" aria-label="Read How to Optimise Your Counselling Directory Profile">
-          <img src="{{ '/assets/images/brand/therapist-identity-notes.webp' | relative_url }}" alt="" loading="lazy" decoding="async">
+          <img src="{{ '/assets/images/library/counselling-directory-profile.webp' | relative_url }}" alt="" loading="lazy" decoding="async">
         </a>
       </article>
 
@@ -111,14 +111,14 @@ permalink: /practice-clarity/
           </a>
         </div>
         <a class="acw-library-latest-image-link" href="{{ '/practice-clarity/beyond-counselling-directory/' | relative_url }}" aria-label="Read Beyond Counselling Directory">
-          <img src="{{ '/assets/images/brand/website-strategy-mockup.webp' | relative_url }}" alt="" loading="lazy" decoding="async">
+          <img src="{{ '/assets/images/library/beyond-counselling-directory.webp' | relative_url }}" alt="" loading="lazy" decoding="async">
         </a>
       </article>
     </div>
   </div>
 </section>
 
-<section class="acw-section acw-library-latest acw-surface-paper" id="journal">
+<section class="acw-section acw-library-latest" id="journal">
   <div class="acw-container">
     <div class="acw-library-latest-heading"><div><p class="acw-section-label">From the journal</p><h2>Useful next questions.</h2></div><p>Shorter reflections on therapist websites, private-practice clarity and the decisions that make online trust easier to build.</p></div>
     {% assign blog_posts = site.posts | where_exp: "post", "post.slug != 'beyond-counselling-directory'" %}
@@ -133,7 +133,7 @@ permalink: /practice-clarity/
               <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 18 }}</p>
               <a class="acw-library-card-link" href="{{ post.url | relative_url }}">Read article <span aria-hidden="true">→</span></a>
             </div>
-            <a href="{{ post.url | relative_url }}" class="acw-library-latest-image-link" aria-label="Read {{ post.title }}">{% if post.hero_image %}<img src="{{ post.hero_image | relative_url }}" alt="" loading="lazy" decoding="async">{% else %}<img src="{{ '/assets/images/brand/practice-clarity-workspace.webp' | relative_url }}" alt="" loading="lazy" decoding="async">{% endif %}</a>
+            <a href="{{ post.url | relative_url }}" class="acw-library-latest-image-link" aria-label="Read {{ post.title }}">{% if post.hero_image %}<img src="{{ post.hero_image | relative_url }}" alt="" loading="lazy" decoding="async">{% else %}<img src="{{ '/assets/images/library/library-article-fallback.webp' | relative_url }}" alt="" loading="lazy" decoding="async">{% endif %}</a>
           </article>
         {% endfor %}
       </div>
@@ -144,6 +144,6 @@ permalink: /practice-clarity/
   </div>
 </section>
 
-<section class="acw-section acw-library-closing acw-surface-ink">
+<section class="acw-section acw-library-closing">
   <div class="acw-container acw-library-closing-card"><div><p class="acw-section-label">A clearer next step</p><h2>You do not need to market more loudly.</h2><p>Practice Clarity brings your identity, language, visual direction and website strategy into one useful foundation.</p></div><a class="acw-btn acw-btn-primary" href="{{ '/service/' | relative_url }}">Explore the services</a></div>
 </section>

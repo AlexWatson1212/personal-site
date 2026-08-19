@@ -24,7 +24,7 @@ Base card: Paper background, `#CBC6BE` warm-grey border, 16 px radius, 40 px des
 
 On mobile, explanatory sequences that do not need a contained surface become open editorial rows separated by warm-grey rules. Cards remain for actual deliverables, prices, examples, article previews, forms and other content whose grouping carries meaning. This prevents long pages becoming a repetitive stack of interchangeable boxes.
 
-Raised card: the same base card plus `--founding-shadow` and an Ink border. Use `.acw-card-raised`. It is reserved for the Founding Therapist Programme; the current founding price cards inherit it automatically.
+Raised card: the same base card plus `--founding-shadow` and an Ink border. Use `.acw-card-raised`. It is reserved for the Founding Client Offer; the current founding price cards inherit it automatically.
 
 ## Labels and type
 
