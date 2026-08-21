@@ -1,127 +1,84 @@
 ---
 layout: default
-title: Work | Alexander Watson Counselling Case Study
-description: A transparent case study of the strategic, identity and website decisions behind Alexander Watson Counselling.
+title: Therapist Website Collection | Alexander Watson Studio
+description: Browse original therapist website designs by practice type, audience and visual feeling, then choose one to make your own.
 permalink: /work/
+page_css: /assets/css/catalogue-refresh.css
+page_js: /assets/js/website-library.js
 ---
 
-<style>
-  .acw-work-page { background: var(--surface); }
-  .acw-work-page h1, .acw-work-page h2, .acw-work-page h3 { text-wrap: balance; }
-  .acw-work-hero { padding: clamp(4rem, 8vw, 8rem) 0 clamp(3rem, 6vw, 5rem); background: linear-gradient(140deg, #f8f5f0, #eef1ec); }
-  .acw-work-hero-grid, .acw-work-feature, .acw-work-next { display: grid; grid-template-columns: minmax(0, .9fr) minmax(340px, .8fr); gap: clamp(2.5rem, 7vw, 6.5rem); align-items: center; }
-  .acw-work-kicker, .acw-work-label { margin: 0 0 .8rem; color: var(--accent, #283a38); font-size: .73rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
-  .acw-work-hero h1 { max-width: 11ch; margin: 0 0 1.3rem; font-size: clamp(3.3rem, 6vw, 6.2rem); line-height: .92; letter-spacing: -.07em; }
-  .acw-work-lead { max-width: 51ch; margin: 0; color: var(--muted); font-size: clamp(1.05rem, 1.4vw, 1.2rem); line-height: 1.72; }
-  .acw-work-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.8rem; }
-  .acw-work-hero figure, .acw-work-feature figure { margin: 0; }
-  .acw-work-hero img, .acw-work-feature img { display: block; width: 100%; object-fit: cover; border: 1px solid rgba(26,33,25,.1); border-radius: 20px; box-shadow: 0 24px 60px rgba(26,33,25,.12); }
-  .acw-work-hero img { aspect-ratio: 5 / 4; }
-  .acw-work-page .acw-section { padding-block: clamp(4.5rem, 8vw, 7.5rem); border-top: 1px solid rgba(26,33,25,.08); }
-  .acw-work-intro { max-width: 64ch; margin: 0; color: var(--muted); font-size: 1.06rem; line-height: 1.75; }
-  .acw-work-disclosure { padding: clamp(1.5rem, 3vw, 2.3rem); background: #283a38; color: #f7f4ef; border-radius: 18px; }
-  .acw-work-disclosure h2 { margin: .35rem 0 .75rem; color: #fff; font-size: clamp(1.8rem, 3vw, 2.8rem); }
-  .acw-work-disclosure p { max-width: 76ch; margin: 0; color: rgba(247,244,239,.8); line-height: 1.7; }
-  .acw-work-disclosure .acw-work-label { color: rgba(247,244,239,.65); }
-  .acw-work-decision-list { display: grid; gap: 0; margin-top: clamp(2.5rem, 5vw, 4rem); border-top: 1px solid rgba(26,33,25,.12); }
-  .acw-work-decision { display: grid; grid-template-columns: 5.4rem minmax(0, 1fr) minmax(240px, .75fr); gap: 1.5rem; padding: clamp(1.7rem, 4vw, 3rem) 0; border-bottom: 1px solid rgba(26,33,25,.12); }
-  .acw-work-number { color: rgba(40,58,56,.55); font-family: var(--font-heading); font-size: 2.25rem; letter-spacing: -.06em; line-height: 1; }
-  .acw-work-decision h2 { max-width: 16ch; margin: 0; font-size: clamp(1.8rem, 3vw, 3rem); }
-  .acw-work-decision p { margin: 0; color: var(--muted); line-height: 1.7; }
-  .acw-work-decision strong { color: var(--text); }
-  .acw-work-production-note { display: block; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(26,33,25,.1); color: rgba(26,33,25,.62); font-size: .86rem; line-height: 1.65; }
-  .acw-work-production-note b { color: var(--text); }
-  .acw-work-document { background: #f2f3ef; }
-  .acw-work-document-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(340px, 1fr); gap: clamp(2.5rem, 7vw, 6rem); align-items: start; }
-  .acw-work-document h2 { max-width: 11ch; margin: 0 0 1rem; }
-  .acw-work-document p { max-width: 50ch; color: var(--muted); line-height: 1.7; }
-  .acw-work-redacted { display: grid; gap: 1px; overflow: hidden; background: rgba(26,33,25,.12); border: 1px solid rgba(26,33,25,.12); border-radius: 16px; }
-  .acw-work-redacted article { padding: 1.35rem 1.5rem; background: rgba(255,255,255,.78); }
-  .acw-work-redacted h3 { margin: .3rem 0 .45rem; font-size: 1.18rem; }
-  .acw-work-redacted p { margin: 0; font-size: .94rem; }
-  .acw-work-improve { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
-  .acw-work-improve article { padding: 1.4rem; background: #fff; border: 1px solid rgba(26,33,25,.1); border-radius: 14px; }
-  .acw-work-improve h3 { margin: .35rem 0 .5rem; font-size: 1.2rem; }
-  .acw-work-improve p { margin: 0; color: var(--muted); font-size: .93rem; line-height: 1.62; }
-  .acw-work-next { padding: clamp(2rem, 5vw, 4rem); background: #283a38; border-radius: 20px; color: #f7f4ef; }
-  .acw-work-next h2 { max-width: 13ch; margin: 0 0 .8rem; color: #fff; }
-  .acw-work-next p { max-width: 48ch; margin: 0; color: rgba(247,244,239,.78); line-height: 1.7; }
-  .acw-work-next .acw-btn { justify-self: start; }
-  .acw-work-next-detail { display: block; margin-top: .8rem; color: rgba(247,244,239,.58); font-size: .78rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
-  @media (max-width: 780px) { .acw-work-hero-grid, .acw-work-feature, .acw-work-next, .acw-work-document-grid { grid-template-columns: 1fr; } .acw-work-decision { grid-template-columns: 3.2rem 1fr; } .acw-work-decision > p { grid-column: 2; } .acw-work-improve { grid-template-columns: 1fr; } }
-</style>
+<main class="catalogue-refresh">
+  <section class="page-hero library-hero section-paper">
+    <div class="shell page-hero-grid">
+      <div><p class="eyebrow">The website collection · 08 designs and growing</p><h1>Find the one that feels like your practice.</h1></div>
+      <div><p class="hero-lead">These are complete, original website directions—not generic themes. Explore the different structures, voices and atmospheres, then choose the closest starting point.</p><p class="page-hero-note">You can change the colours, words, imagery and identity. The design keeps its underlying strength.</p></div>
+    </div>
+  </section>
 
-<div class="acw-work-page">
-  <section class="acw-work-hero acw-surface-paper" aria-labelledby="work-title">
-    <div class="acw-container acw-work-hero-grid">
-      <div>
-        <p class="acw-work-kicker">Work · Case study 01</p>
-        <h1 id="work-title">Alexander Watson Counselling.</h1>
-        <p class="acw-work-lead">A complete practice identity and website built from the inside out: first clarifying the work, then making it recognisable to the people it is for.</p>
-        <div class="acw-work-actions">
-          <a class="acw-btn acw-btn-primary" href="https://alexanderwatsoncounselling.co.uk/" target="_blank" rel="noopener noreferrer">Visit the live website <span class="sr-only">(opens in a new tab)</span></a>
-          <a class="acw-link-tertiary" href="{{ '/assets/documents/practice-clarity-alexander-watson.pdf' | relative_url }}" target="_blank" rel="noopener">View the Practice Clarity Document <span class="sr-only">(opens in a new tab)</span></a>
+  <section class="library-section section-mist">
+    <div class="shell" data-website-library>
+      <div class="library-tools">
+        <div class="filter-chips" aria-label="Filter website designs">
+          <button type="button" class="active" aria-pressed="true" data-filter="all">All</button>
+          <button type="button" aria-pressed="false" data-filter="solo">Solo therapist</button>
+          <button type="button" aria-pressed="false" data-filter="centre">Centres &amp; services</button>
+          <button type="button" aria-pressed="false" data-filter="families">Families</button>
+          <button type="button" aria-pressed="false" data-filter="warm">Warm</button>
+          <button type="button" aria-pressed="false" data-filter="editorial">Editorial</button>
+          <button type="button" aria-pressed="false" data-filter="accessible">Accessible</button>
         </div>
+        <label class="search-field"><span>Search the collection</span><input type="search" data-website-search placeholder="Try warm, family or editorial"></label>
       </div>
-      <figure><img src="{{ '/assets/images/service/alexander-watson-counselling-case-study.webp' | relative_url }}" alt="Alexander Watson Counselling website, identity and strategic working materials" width="1600" height="1000" fetchpriority="high" decoding="async"></figure>
+      <div class="results-line" aria-live="polite"><span data-results-count>08 designs</span><span data-results-message>Showing the complete collection</span></div>
+
+      <div class="project-grid library-grid" data-project-grid>
+        <article class="project-card" data-project data-search="rowan hill solo therapist adults warm grounded nature minimal">
+          <a href="{{ '/contact/?design=Rowan%20Hill%20Therapy' | relative_url }}" class="project-visual" aria-label="Ask about the Rowan Hill Therapy design">
+            <div class="mini-site" style="--mini-paper:#f3eee5;--mini-soft:#75806d;--mini-ink:#1f3027;--mini-accent:#c88e72" aria-hidden="true"><div class="mini-browser"><span></span><span></span><span></span><b>Rowan Hill Therapy</b></div><div class="mini-page"><div class="mini-nav"><strong>Rowan Hill Therapy</strong><i></i><i></i><i></i></div><div class="mini-hero"><div><small>Room to arrive</small><h3>Therapy with space to hear yourself think.</h3><p></p><p></p><button tabindex="-1">Begin here</button></div><div class="mini-art"><span></span></div></div><div class="mini-strip"><span></span><span></span><span></span></div></div></div>
+          </a>
+          <div class="project-meta"><div><p class="eyebrow">Solo therapist · Warm &amp; grounded</p><h3>Rowan Hill Therapy</h3><p>A quiet, nature-led design with generous space, soft contrast and an unhurried path to enquiry.</p></div><a class="circle-link" href="{{ '/contact/?design=Rowan%20Hill%20Therapy' | relative_url }}" aria-label="Ask about Rowan Hill Therapy">↗</a></div><ul class="tag-list"><li>Solo therapist</li><li>Warm</li><li>Nature-led</li></ul>
+        </article>
+
+        <article class="project-card" data-project data-search="stillpoint solo therapist adults measured editorial structured minimal">
+          <a href="{{ '/contact/?design=Stillpoint' | relative_url }}" class="project-visual" aria-label="Ask about the Stillpoint design"><div class="mini-site" style="--mini-paper:#f1efe9;--mini-soft:#66727b;--mini-ink:#252a2d;--mini-accent:#bd5c4f" aria-hidden="true"><div class="mini-browser"><span></span><span></span><span></span><b>Stillpoint</b></div><div class="mini-page"><div class="mini-nav"><strong>Stillpoint</strong><i></i><i></i><i></i></div><div class="mini-hero"><div><small>A measured practice</small><h3>A quiet place to look at what is difficult.</h3><p></p><p></p><button tabindex="-1">Begin here</button></div><div class="mini-art"><span></span></div></div><div class="mini-strip"><span></span><span></span><span></span></div></div></div></a>
+          <div class="project-meta"><div><p class="eyebrow">Solo therapist · Measured &amp; editorial</p><h3>Stillpoint</h3><p>An architectural, highly structured design for a practitioner who wants precision without feeling clinical.</p></div><a class="circle-link" href="{{ '/contact/?design=Stillpoint' | relative_url }}" aria-label="Ask about Stillpoint">↗</a></div><ul class="tag-list"><li>Solo therapist</li><li>Editorial</li><li>Structured</li></ul>
+        </article>
+
+        <article class="project-card" data-project data-search="harbour counselling centre parents children families protective warm supportive centre">
+          <a href="{{ '/contact/?design=Harbour' | relative_url }}" class="project-visual" aria-label="Ask about the Harbour design"><div class="mini-site" style="--mini-paper:#f7f0e6;--mini-soft:#6f99a0;--mini-ink:#243f42;--mini-accent:#e5a376" aria-hidden="true"><div class="mini-browser"><span></span><span></span><span></span><b>Harbour</b></div><div class="mini-page"><div class="mini-nav"><strong>Harbour</strong><i></i><i></i><i></i></div><div class="mini-hero"><div><small>Held through change</small><h3>Support for families when life feels unsteady.</h3><p></p><p></p><button tabindex="-1">Begin here</button></div><div class="mini-art"><span></span></div></div><div class="mini-strip"><span></span><span></span><span></span></div></div></div></a>
+          <div class="project-meta"><div><p class="eyebrow">Counselling centre · Protective &amp; warm</p><h3>Harbour</h3><p>A reassuring family-centred website with soft curves, clear pathways and safety built into the language.</p></div><a class="circle-link" href="{{ '/contact/?design=Harbour' | relative_url }}" aria-label="Ask about Harbour">↗</a></div><ul class="tag-list"><li>Centre</li><li>Families</li><li>Warm</li></ul>
+        </article>
+
+        <article class="project-card" data-project data-search="common ground family service separating families calm balanced editorial families">
+          <a href="{{ '/contact/?design=Common%20Ground' | relative_url }}" class="project-visual" aria-label="Ask about the Common Ground design"><div class="mini-site" style="--mini-paper:#f1eee8;--mini-soft:#a6a98e;--mini-ink:#263738;--mini-accent:#b87663" aria-hidden="true"><div class="mini-browser"><span></span><span></span><span></span><b>Common Ground</b></div><div class="mini-page"><div class="mini-nav"><strong>Common Ground</strong><i></i><i></i><i></i></div><div class="mini-hero"><div><small>A steadier next step</small><h3>Helping families find a way forward, together.</h3><p></p><p></p><button tabindex="-1">Begin here</button></div><div class="mini-art"><span></span></div></div><div class="mini-strip"><span></span><span></span><span></span></div></div></div></a>
+          <div class="project-meta"><div><p class="eyebrow">Family service · Calm &amp; balanced</p><h3>Common Ground</h3><p>A composed, neutral design that holds complexity without taking sides or losing warmth.</p></div><a class="circle-link" href="{{ '/contact/?design=Common%20Ground' | relative_url }}" aria-label="Ask about Common Ground">↗</a></div><ul class="tag-list"><li>Families</li><li>Service</li><li>Editorial</li></ul>
+        </article>
+
+        <article class="project-card" data-project data-search="different minds therapy centre neurodivergent neurodiversity accessible expressive clear affirming centre">
+          <a href="{{ '/contact/?design=Different%20Minds' | relative_url }}" class="project-visual" aria-label="Ask about the Different Minds design"><div class="mini-site" style="--mini-paper:#f6f0df;--mini-soft:#8171a4;--mini-ink:#243750;--mini-accent:#e5845d" aria-hidden="true"><div class="mini-browser"><span></span><span></span><span></span><b>Different Minds</b></div><div class="mini-page"><div class="mini-nav"><strong>Different Minds</strong><i></i><i></i><i></i></div><div class="mini-hero"><div><small>Different routes welcome</small><h3>Therapy that makes room for how your mind works.</h3><p></p><p></p><button tabindex="-1">Begin here</button></div><div class="mini-art"><span></span></div></div><div class="mini-strip"><span></span><span></span><span></span></div></div></div></a>
+          <div class="project-meta"><div><p class="eyebrow">Therapy centre · Clear &amp; neuroaffirming</p><h3>Different Minds</h3><p>A more expressive, accessible website built around choice, direct language and different routes through the content.</p></div><a class="circle-link" href="{{ '/contact/?design=Different%20Minds' | relative_url }}" aria-label="Ask about Different Minds">↗</a></div><ul class="tag-list"><li>Centre</li><li>Neurodiversity</li><li>Accessible</li></ul>
+        </article>
+
+        <article class="project-card" data-project data-search="north vale psychology clinic adults organisations assured clinical professional editorial structured centre">
+          <a href="{{ '/contact/?design=North%20and%20Vale' | relative_url }}" class="project-visual" aria-label="Ask about the North and Vale design"><div class="mini-site" style="--mini-paper:#f5f2ec;--mini-soft:#9ba8ad;--mini-ink:#21333d;--mini-accent:#c5a167" aria-hidden="true"><div class="mini-browser"><span></span><span></span><span></span><b>North &amp; Vale</b></div><div class="mini-page"><div class="mini-nav"><strong>North &amp; Vale</strong><i></i><i></i><i></i></div><div class="mini-hero"><div><small>Psychology, plainly</small><h3>Thoughtful psychological care, clearly explained.</h3><p></p><p></p><button tabindex="-1">Begin here</button></div><div class="mini-art"><span></span></div></div><div class="mini-strip"><span></span><span></span><span></span></div></div></div></a>
+          <div class="project-meta"><div><p class="eyebrow">Psychology practice · Assured &amp; clinical</p><h3>North &amp; Vale</h3><p>A publication-inspired design for a multi-practitioner service that needs authority, order and readable detail.</p></div><a class="circle-link" href="{{ '/contact/?design=North%20and%20Vale' | relative_url }}" aria-label="Ask about North and Vale">↗</a></div><ul class="tag-list"><li>Clinic</li><li>Professional</li><li>Editorial</li></ul>
+        </article>
+
+        <article class="project-card" data-project data-search="face to face community counselling local charity accessible warm welcoming practical centre">
+          <a href="{{ '/contact/?design=Face%20to%20Face' | relative_url }}" class="project-visual" aria-label="Ask about the Face to Face design"><div class="mini-site" style="--mini-paper:#f6f1e7;--mini-soft:#7b9e72;--mini-ink:#26422d;--mini-accent:#d7a846" aria-hidden="true"><div class="mini-browser"><span></span><span></span><span></span><b>Face to Face</b></div><div class="mini-page"><div class="mini-nav"><strong>Face to Face</strong><i></i><i></i><i></i></div><div class="mini-hero"><div><small>A place in the community</small><h3>Counselling that is local, human and within reach.</h3><p></p><p></p><button tabindex="-1">Begin here</button></div><div class="mini-art"><span></span></div></div><div class="mini-strip"><span></span><span></span><span></span></div></div></div></a>
+          <div class="project-meta"><div><p class="eyebrow">Community counselling · Welcoming &amp; practical</p><h3>Face to Face</h3><p>A community-rooted design that makes services, costs and first steps easy to find without flattening the organisation&apos;s character.</p></div><a class="circle-link" href="{{ '/contact/?design=Face%20to%20Face' | relative_url }}" aria-label="Ask about Face to Face">↗</a></div><ul class="tag-list"><li>Community</li><li>Charity</li><li>Accessible</li></ul>
+        </article>
+
+        <article class="project-card" data-project data-search="alexander watson counselling solo therapist adults direct human editorial personal">
+          <a href="https://alexanderwatsoncounselling.co.uk/" target="_blank" rel="noopener noreferrer" class="project-visual" aria-label="Visit Alexander Watson Counselling"><div class="mini-site" style="--mini-paper:#eee9df;--mini-soft:#6d7772;--mini-ink:#1d2925;--mini-accent:#b58965" aria-hidden="true"><div class="mini-browser"><span></span><span></span><span></span><b>Alexander Watson Counselling</b></div><div class="mini-page"><div class="mini-nav"><strong>Alexander Watson Counselling</strong><i></i><i></i><i></i></div><div class="mini-hero"><div><small>Knowing is not the same as changing</small><h3>You have probably thought about it enough.</h3><p></p><p></p><button tabindex="-1">Begin here</button></div><div class="mini-art"><span></span></div></div><div class="mini-strip"><span></span><span></span><span></span></div></div></div></a>
+          <div class="project-meta"><div><p class="eyebrow">Solo therapist · Direct &amp; human</p><h3>Alexander Watson Counselling</h3><p>A confident, editorial practice website with direct language, substantial depth and a deliberately low-pressure enquiry route.</p></div><a class="circle-link" href="https://alexanderwatsoncounselling.co.uk/" target="_blank" rel="noopener noreferrer" aria-label="Visit Alexander Watson Counselling">↗</a></div><ul class="tag-list"><li>Solo therapist</li><li>Editorial</li><li>Direct</li></ul>
+        </article>
+      </div>
+
+      <div class="no-results" data-no-results hidden><h2>No exact match.</h2><p>Try a broader word—or clear the filters and browse by feel.</p><button type="button" class="button button-dark" data-reset-library>Show every design</button></div>
     </div>
   </section>
 
-  <section class="acw-section acw-surface-recessed">
-    <div class="acw-container">
-      <div class="acw-work-disclosure">
-        <p class="acw-work-label">An open disclosure</p>
-        <h2>This is my own practice project.</h2>
-        <p>It is not presented as commissioned client work. That matters. It also allows a level of transparency that a client case study cannot: the early uncertainty, the decisions that followed, selected redacted working material, and the parts I would now do differently. It is evidence of the process and standard I am building—not a substitute for future independent client outcomes.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="acw-section acw-surface-paper" aria-labelledby="decisions-heading">
-    <div class="acw-container">
-      <p class="acw-work-kicker">The strategic decisions</p>
-      <h2 id="decisions-heading">The project is best understood through the choices behind it.</h2>
-      <div class="acw-work-decision-list">
-        <article class="acw-work-decision"><span class="acw-work-number">01</span><h2>What was unclear at the beginning</h2><p>The original question was not “what should the website look like?” It was how to describe a person-centred counselling practice without generic wellbeing language, a forced niche, or claims that felt larger than the real work. <strong>The work needed a clear, calm way for suitable clients to recognise the practice.</strong></p></article>
-        <article class="acw-work-decision"><span class="acw-work-number">02</span><h2>What Practice Clarity revealed</h2><p>Written discovery brought the important material into one place: the therapeutic approach, the experience of a first session, the kinds of concerns clients bring, practical boundaries, and what a client needs to feel before making contact. <strong>That became the source for structure, copy and visual direction.</strong></p></article>
-        <article class="acw-work-decision"><span class="acw-work-number">03</span><h2>Positioning and language</h2><p>The language was deliberately made direct, warm and unshowy. Instead of promising transformation or positioning counselling as a product, the site explains what the space is like, who it may help and how to take the next step. <strong>Clarity and emotional safety became more important than cleverness.</strong></p></article>
-        <article class="acw-work-decision"><span class="acw-work-number">04</span><h2>Identity rationale</h2><p>The identity needed to feel professional and considered without becoming clinical, decorative or overly therapeutic. The final direction uses quiet editorial typography, restrained colour and a flexible logo system to make the practice feel settled and credible. <strong>The identity supports the words rather than competing with them.</strong><span class="acw-work-production-note"><b>Specialist production:</b> I established and directed the creative direction. A specialist identity designer produced the final logo system from the approved brief, with two structured refinement rounds. I remained responsible for ensuring the identity, language and website worked as one system.</span></p></article>
-        <article class="acw-work-decision"><span class="acw-work-number">05</span><h2>Website and enquiry journey</h2><p>The website follows the questions a cautious prospective client tends to have: “Is this for someone like me?”, “What would it be like?”, “What are the practical details?” and “Can I contact you safely?” Navigation, page order, reassurance and the contact form are designed around answering those questions in sequence. <strong>The enquiry route is a continuation of the care, not a hard sell.</strong></p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="acw-section acw-work-document acw-surface-recessed" aria-labelledby="document-heading">
-    <div class="acw-container acw-work-document-grid">
-      <div><p class="acw-work-kicker">Practice Clarity in use</p><h2 id="document-heading">Working material, shared selectively.</h2><p>The live document contains the fuller strategic thinking. These examples show the type of decisions it holds without reproducing personal or clinically sensitive material. Future client extracts would always be selected together, redacted where needed and approved before publication.</p></div>
-      <div class="acw-work-redacted">
-        <article><p class="acw-work-label">Positioning prompt</p><h3>What should a suitable client understand before they enquire?</h3><p>A clear sense of the approach, tone, practical arrangements and whether the space feels right for them.</p></article>
-        <article><p class="acw-work-label">Client experience</p><h3>What should the first contact communicate?</h3><p>That the enquiry will be read by a real person, treated carefully, and does not commit someone to counselling.</p></article>
-        <article><p class="acw-work-label">Design principle</p><h3>What should the visual system avoid?</h3><p>Stock “therapy” imagery and decoration that risks making the practice feel generic, impersonal or over-promised.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="acw-section acw-surface-recessed" aria-labelledby="improve-heading">
-    <div class="acw-container">
-      <p class="acw-work-kicker">Reflection</p><h2 id="improve-heading">What I would improve next time.</h2>
-      <div class="acw-work-improve">
-        <article><p class="acw-work-label">01</p><h3>Shorten discovery setup</h3><p>This project developed the framework as it went. Client projects will begin with the established Practice Clarity flow and clearer handover points.</p></article>
-        <article><p class="acw-work-label">02</p><h3>Fix approval gates earlier</h3><p>Messaging, sitemap and visual direction should each be formally approved before the build begins, protecting focus later in the project.</p></article>
-        <article><p class="acw-work-label">03</p><h3>Plan case-study capture from day one</h3><p>With permission, selected decisions and approved artefacts can be recorded as the work develops rather than reconstructed at launch.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="acw-section acw-surface-ink">
-    <div class="acw-container acw-work-next">
-      <div>
-        <p class="acw-work-label">Founding Client Offer · Three places</p>
-        <h2>The same care, built around your practice.</h2>
-        <p>Three therapists can receive the complete Website Launch service: a tailored website built, launched and handed over, with the first year of Website Care included. In return, the finished website may be shown in the studio portfolio after launch.</p>
-        <span class="acw-work-next-detail">Founding price £795 · Website Launch £995</span>
-      </div>
-      <a class="acw-btn acw-btn-primary" href="{{ '/contact/?service=founding-place' | relative_url }}">Enquire about a founding place</a>
-    </div>
-  </section>
-</div>
+  <section class="choice-guide section-paper"><div class="shell choice-guide-grid"><div><p class="eyebrow">If more than one feels right</p><h2>You do not need to choose alone.</h2></div><div><p>Send me the two or three you are drawn to and tell me what you like about each. I can recommend the strongest starting point for your content, audience and practical needs.</p><p>A design can also borrow a carefully chosen feature from another where that improves the result without turning the process into a bespoke rebuild.</p></div></div></section>
+  <section class="closing-callout"><div class="shell callout-grid"><div><p class="eyebrow eyebrow-light">Found a direction?</p><h2>Tell me which website you keep coming back to.</h2></div><div><p>Name the design and share what is already ready. I will tell you the most suitable level of support and what the next step would cost.</p><a href="{{ '/contact/' | relative_url }}" class="button button-light">Start with a design</a></div></div></section>
+</main>
