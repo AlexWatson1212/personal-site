@@ -1,0 +1,74 @@
+{%- comment -%}
+  Straightforward Website purchase action — the single source of truth for the
+  £495 buy action. No other file may render a checkout link.
+
+  Configuration comes from two data files:
+
+    site.data.purchasing            committed prices and route URLs
+    site.data.purchasing_resolved   generated at build time by
+                                    scripts/purchasing-config.mjs
+
+  This include re-validates the resolved link rather than trusting it. It
+  renders a real checkout link ONLY when the build resolved purchasing to on
+  AND the URL still begins https://buy.stripe.com/. In every other case —
+  including a missing generated file — it renders the "opening shortly" state
+  and keeps the "Ask a question first" route working.
+
+  A Payment Link URL is public by design. A Stripe secret or restricted key
+  (sk_…, rk_…, whsec_…) must never appear in this repository.
+
+  Usage:  {% include straightforward-website-buy.html id="hero" %}
+{%- endcomment -%}
+
+{%- assign buy_id = include.id | default: 'buy' -%}
+{%- assign cfg = site.data.purchasing -%}
+{%- assign resolved = site.data.purchasing_resolved -%}
+{%- assign price = cfg.price_display | default: '£495' -%}
+{%- assign link = resolved.active_payment_link | default: '' | strip -%}
+{%- assign link_prefix = link | slice: 0, 23 -%}
+{%- assign purchase_enabled = false -%}
+{%- if resolved.purchases_enabled and link_prefix == 'https://buy.stripe.com/' -%}
+  {%- assign purchase_enabled = true -%}
+{%- endif -%}
+
+<div class="buy-block" data-purchase-block data-purchase-state="{% if purchase_enabled %}open{% else %}closed{% endif %}">
+  {%- if purchase_enabled -%}
+  <p class="buy-terms" id="buy-terms-{{ buy_id }}">
+    Payment is taken in full by Stripe. Before paying, please read the
+    <a href="{{ cfg.urls.service_terms | relative_url }}">Straightforward Website Service Terms</a>,
+    the <a href="{{ cfg.urls.cancellation | relative_url }}">cancellation and refund information</a>
+    and the <a href="{{ cfg.urls.privacy | relative_url }}">privacy notice</a>.
+  </p>
+
+  <a
+    class="button button-dark buy-action"
+    href="{{ link }}"
+    rel="nofollow noopener"
+    aria-describedby="buy-terms-{{ buy_id }}"
+    data-purchase-action
+  >Pay {{ price }} and begin my website</a>
+
+  <a class="button button-light buy-secondary" href="{{ cfg.urls.enquiry | relative_url }}">Ask a question first</a>
+
+  <p class="buy-small">This opens Stripe's secure payment page. Card details are entered on Stripe, never on this website.</p>
+  {%- else -%}
+  <p class="buy-terms buy-unavailable" id="buy-terms-{{ buy_id }}">
+    <strong>Online purchasing is opening shortly.</strong>
+    The Straightforward Website is available now by asking a question first: I
+    confirm the scope in writing and send you a payment link directly. The
+    <a href="{{ cfg.urls.service_terms | relative_url }}">Straightforward Website Service Terms</a>,
+    <a href="{{ cfg.urls.cancellation | relative_url }}">cancellation and refund information</a>
+    and <a href="{{ cfg.urls.privacy | relative_url }}">privacy notice</a> apply either way.
+  </p>
+
+  <button
+    class="button button-dark buy-action is-unavailable"
+    type="button"
+    disabled
+    aria-describedby="buy-terms-{{ buy_id }}"
+    data-purchase-action-disabled
+  >Pay {{ price }} and begin my website — not open yet</button>
+
+  <a class="button button-dark buy-secondary" href="{{ cfg.urls.enquiry | relative_url }}">Ask a question first</a>
+  {%- endif -%}
+</div>

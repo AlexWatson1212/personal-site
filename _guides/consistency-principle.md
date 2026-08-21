@@ -215,9 +215,9 @@ Trust grows because the experience becomes increasingly predictable.
 
 <section id="coherence"></section>
 
-# Emotional coherence
+## Emotional coherence
 
-## Trust grows through familiarity
+### Trust grows through familiarity
 
 People often assume trust grows because we learn more.
 
@@ -257,7 +257,7 @@ Trust grows when the next experience feels connected to the last.
 
 ---
 
-## Predictability reduces uncertainty
+### Predictability reduces uncertainty
 
 Predictability is sometimes misunderstood.
 
@@ -304,9 +304,9 @@ Because it creates a calmer relationship long before therapy begins.
 ---
 <section id="principle"></section>
 
-# The Consistency Principle
+## The Consistency Principle
 
-## Trust grows through repeated experiences
+### Trust grows through repeated experiences
 
 For a long time I thought consistency was mostly about branding.
 
@@ -360,7 +360,7 @@ I began looking for emotional ones.
 
 ---
 
-## Every interaction teaches people what to expect
+### Every interaction teaches people what to expect
 
 Every experience quietly becomes a promise about the next one.
 
@@ -402,9 +402,9 @@ Consistency allows trust to grow without repeatedly asking the visitor to start 
 
 <section id="layers"></section>
 
-# Six layers of consistency
+## Six layers of consistency
 
-## Consistency is much broader than branding
+### Consistency is much broader than branding
 
 People often reduce consistency to visual identity.
 
@@ -424,7 +424,7 @@ That is why Practice Clarity thinks about consistency in six layers.
 
 ---
 
-### 1. Language
+#### 1. Language
 
 Do all of your pages sound like the same person?
 
@@ -450,7 +450,7 @@ What matters is that the tone remains recognisably yours.
 
 ---
 
-### 2. Design
+#### 2. Design
 
 Design creates expectations long before words are read.
 
@@ -476,7 +476,7 @@ Thoughtful design consistency removes that effort.
 
 ---
 
-### 3. Photography
+#### 3. Photography
 
 Images communicate emotionally before they communicate visually.
 
@@ -494,7 +494,7 @@ A consistent photographic style quietly reinforces the same atmosphere throughou
 
 ---
 
-### 4. Structure
+#### 4. Structure
 
 Pages should not be identical.
 
@@ -522,7 +522,7 @@ Because the experience becomes predictable.
 
 ---
 
-### 5. Practical communication
+#### 5. Practical communication
 
 Consistency extends far beyond the website.
 
@@ -543,7 +543,7 @@ Practical communication is still communication.
 
 ---
 
-### 6. The therapeutic experience
+#### 6. The therapeutic experience
 
 This is the deepest level of consistency.
 
@@ -575,7 +575,7 @@ Everything ultimately returns there.
 
 ---
 
-## Consistency is emotional coherence
+### Consistency is emotional coherence
 
 Most visitors will never consciously analyse your typography.
 
@@ -610,9 +610,9 @@ It is the feeling that every interaction belongs to the same story.
 ---
 <section id="mistakes"></section>
 
-# Common consistency mistakes
+## Common consistency mistakes
 
-## 1. Every page feels like a different practice
+### 1. Every page feels like a different practice
 
 This often happens gradually.
 
@@ -650,7 +650,7 @@ Yet trust quietly weakens because the experience no longer feels coherent.
 
 ---
 
-## 2. The website promises calm, but the process feels rushed
+### 2. The website promises calm, but the process feels rushed
 
 Many therapist websites speak beautifully about slowing down.
 
@@ -682,7 +682,7 @@ Not the sudden appearance of a different organisation.
 
 ---
 
-## 3. Warm writing, cold practical information
+### 3. Warm writing, cold practical information
 
 Another common shift happens when the writing reaches practical details.
 
@@ -712,7 +712,7 @@ Professionalism and humanity are perfectly compatible.
 
 ---
 
-## 4. Thoughtful writing, generic imagery
+### 4. Thoughtful writing, generic imagery
 
 Images speak before words.
 
@@ -738,7 +738,7 @@ Not compete with it.
 
 ---
 
-## 5. The therapist disappears at the point of contact
+### 5. The therapist disappears at the point of contact
 
 Sometimes the website feels wonderfully personal.
 
@@ -792,9 +792,9 @@ Whenever a visitor moves from one stage of your practice to the next, ask yourse
 
 <section id="audit"></section>
 
-# The consistency audit
+## The consistency audit
 
-## Better questions create better consistency
+### Better questions create better consistency
 
 Visual consistency matters.
 
@@ -826,7 +826,7 @@ Because coherence is what visitors actually experience.
 
 ---
 
-## Consistency becomes identity
+### Consistency becomes identity
 
 Over time something interesting happens.
 
@@ -876,9 +876,9 @@ Consistency teaches that expectation.
 
 ---
 
-# Consistency in the wider journey
+## Consistency in the wider journey
 
-## Consistency protects everything that came before
+### Consistency protects everything that came before
 
 By this point in Practice Clarity, almost every major uncertainty has been reduced.
 
@@ -922,7 +922,7 @@ It is about helping every interaction feel like it belongs to the same thoughtfu
 
 ---
 
-## Consistency prepares enquiry
+### Consistency prepares enquiry
 
 Once the experience feels coherent...
 
@@ -958,7 +958,7 @@ making first contact can still feel like the most difficult step of all.
 
 <section id="reflection"></section>
 
-# Reflection
+## Reflection
 
 <p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
 
@@ -1037,7 +1037,7 @@ When trust has become coherent, only one barrier remains: the courage to make fi
 
 ---
 
-# About this principle
+## About this principle
 
 The Consistency Principle emerged from reviewing hundreds of therapist websites over several years.
 

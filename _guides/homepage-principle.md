@@ -204,9 +204,9 @@ Its purpose is to reassure the right person that they are exactly where they nee
 
 <section id="question"></section>
 
-# The homepage question
+## The homepage question
 
-## Every homepage answers a question
+### Every homepage answers a question
 
 Recognition changes something important.
 
@@ -248,7 +248,7 @@ That is a far better measure than whether it looks impressive.
 
 ---
 
-## The homepage is a place of orientation
+### The homepage is a place of orientation
 
 Imagine arriving somewhere unfamiliar.
 
@@ -305,9 +305,9 @@ It is the place where they realise they may already be in the right place.
 ---
 <section id="role"></section>
 
-# What a homepage is for
+## What a homepage is for
 
-## A homepage should not carry the whole practice
+### A homepage should not carry the whole practice
 
 One of the most common problems with therapist homepages is that they are asked to do far too much.
 
@@ -357,7 +357,7 @@ It should organise the experience for them.
 
 ---
 
-## The homepage is a guide
+### The homepage is a guide
 
 The best therapist homepages do not perform.
 
@@ -411,9 +411,9 @@ Everything else exists to support that answer.
 
 <section id="sequence"></section>
 
-# The homepage sequence
+## The homepage sequence
 
-## Order matters more than content
+### Order matters more than content
 
 One of the biggest surprises in Practice Clarity is that the problem is rarely missing content.
 
@@ -449,11 +449,11 @@ If you interrupt that rhythm, the visitor has to work much harder than they shou
 
 ---
 
-## Four movements
+### Four movements
 
 Most clear therapist homepages quietly move through four stages.
 
-### 1. Orientation
+#### 1. Orientation
 
 Where am I?
 
@@ -469,7 +469,7 @@ Simply well enough to stop scanning and begin reading.
 
 ---
 
-### 2. Recognition
+#### 2. Recognition
 
 Now something changes.
 
@@ -483,7 +483,7 @@ Recognition turns a website into something personal.
 
 ---
 
-### 3. Trust
+#### 3. Trust
 
 Only after recognition has begun does the visitor naturally start thinking about trust.
 
@@ -507,7 +507,7 @@ It grows because every part of the homepage quietly supports the same experience
 
 ---
 
-### 4. Direction
+#### 4. Direction
 
 Finally, the visitor begins wondering what happens next.
 
@@ -537,7 +537,7 @@ It should simply make the next step feel possible.
 
 ---
 
-## The homepage is choreography
+### The homepage is choreography
 
 People often think homepage design is mostly visual.
 
@@ -578,9 +578,9 @@ It is usually about arranging what already exists into a calmer sequence.
 ---
 <section id="mistakes"></section>
 
-# Common homepage mistakes
+## Common homepage mistakes
 
-## 1. Opening with a welcome instead of orientation
+### 1. Opening with a welcome instead of orientation
 
 Many therapist homepages begin with:
 
@@ -614,7 +614,7 @@ They immediately reduce uncertainty.
 
 ---
 
-## 2. Trying to include everyone
+### 2. Trying to include everyone
 
 Many homepages quietly become lists.
 
@@ -660,7 +660,7 @@ That sentence often creates far more recognition than ten bullet points ever cou
 
 ---
 
-## 3. Explaining yourself before understanding them
+### 3. Explaining yourself before understanding them
 
 A common homepage structure looks like this:
 
@@ -692,7 +692,7 @@ The About page gently introduces yours.
 
 ---
 
-## 4. Making everything equally important
+### 4. Making everything equally important
 
 Sometimes every section appears to have exactly the same weight.
 
@@ -730,7 +730,7 @@ Which is exactly why it works.
 
 ---
 
-## 5. Ending without direction
+### 5. Ending without direction
 
 Some homepages simply stop.
 
@@ -780,9 +780,9 @@ Through orientation.
 
 <section id="structure"></section>
 
-# A simple structure
+## A simple structure
 
-## A homepage does not need to be complicated
+### A homepage does not need to be complicated
 
 One of the biggest myths about therapist websites is that effective homepages are complex.
 
@@ -826,7 +826,7 @@ The rest of the website gradually deepens understanding.
 
 ---
 
-## Every page has its own responsibility
+### Every page has its own responsibility
 
 One of the reasons Practice Clarity exists is because therapists often expect one page to carry the weight of an entire practice.
 
@@ -860,9 +860,9 @@ It should simply begin the journey well.
 
 ---
 
-# The homepage in the wider journey
+## The homepage in the wider journey
 
-## Every principle prepares the next
+### Every principle prepares the next
 
 By now the journey should feel familiar.
 
@@ -920,7 +920,7 @@ I think I'm in the right place.
 
 <section id="reflection"></section>
 
-# Reflection
+## Reflection
 
 <p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
 
@@ -995,7 +995,7 @@ Once someone feels oriented, they naturally become curious about the person they
 
 ---
 
-# About this principle
+## About this principle
 
 The Homepage Principle emerged from noticing something surprisingly consistent.
 

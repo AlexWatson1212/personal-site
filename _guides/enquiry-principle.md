@@ -114,7 +114,7 @@ Jump to
 
 <a href="#reflection">Reflection</a>
 
-<a href="#closing">Completing Practice Clarity</a>
+<a href="/practice-clarity/closing-reflection/">Completing Practice Clarity</a>
 
 </div>
 
@@ -213,9 +213,9 @@ It should quietly become the easiest.
 
 <section id="moment"></section>
 
-# The moment of enquiry
+## The moment of enquiry
 
-## Trust still has to become action
+### Trust still has to become action
 
 By the time someone reaches your contact page, something remarkable has already happened.
 
@@ -263,7 +263,7 @@ The enquiry is the moment trust becomes action.
 
 ---
 
-## The final few inches matter
+### The final few inches matter
 
 Therapist websites often do beautiful work before the contact page.
 
@@ -314,9 +314,9 @@ It simply removes unnecessary uncertainty.
 ---
 <section id="principle"></section>
 
-# The Enquiry Principle
+## The Enquiry Principle
 
-## Asking for help is different from deciding to have therapy
+### Asking for help is different from deciding to have therapy
 
 For a long time I thought the purpose of a contact page was obvious.
 
@@ -376,7 +376,7 @@ Those are very different questions.
 
 ---
 
-## Vulnerability deserves clarity
+### Vulnerability deserves clarity
 
 Throughout Practice Clarity we have been reducing uncertainty.
 
@@ -436,9 +436,9 @@ It simply ensures courage is spent where it truly belongs.
 
 <section id="hesitation"></section>
 
-# Why people hesitate
+## Why people hesitate
 
-## Hesitation is rarely about your website
+### Hesitation is rarely about your website
 
 When someone leaves a therapist website without making contact...
 
@@ -480,7 +480,7 @@ Because it can avoid adding new uncertainty on top.
 
 ---
 
-## Emotional barriers deserve practical answers
+### Emotional barriers deserve practical answers
 
 Many of the questions above can be softened by remarkably simple explanations.
 
@@ -518,7 +518,7 @@ More often, they need reassurance that they are allowed to ask imperfectly.
 
 ---
 
-## An enquiry is not a commitment
+### An enquiry is not a commitment
 
 This may be the most reassuring sentence on an entire therapist website.
 
@@ -552,7 +552,7 @@ That distinction quietly removes enormous pressure.
 
 ---
 
-## The enquiry continues the relationship
+### The enquiry continues the relationship
 
 One final misunderstanding is worth noticing.
 
@@ -595,9 +595,9 @@ It is the beginning of the relationship.
 ---
 <section id="mistakes"></section>
 
-# Common enquiry mistakes
+## Common enquiry mistakes
 
-## 1. Treating the contact page as administration
+### 1. Treating the contact page as administration
 
 Many therapist websites do something curious.
 
@@ -637,7 +637,7 @@ Only now directed towards action.
 
 ---
 
-## 2. Asking people to explain too much
+### 2. Asking people to explain too much
 
 Long enquiry forms often begin with good intentions.
 
@@ -675,7 +675,7 @@ The conversation can do the rest.
 
 ---
 
-## 3. Leaving the next step unclear
+### 3. Leaving the next step unclear
 
 Imagine pressing "Send"...
 
@@ -712,7 +712,7 @@ the easier it becomes to send it.
 
 ---
 
-## 4. Making enquiry feel like commitment
+### 4. Making enquiry feel like commitment
 
 Words quietly shape emotional experience.
 
@@ -744,7 +744,7 @@ Because it is real.
 
 ---
 
-## 5. Forgetting reassurance
+### 5. Forgetting reassurance
 
 Sometimes the most helpful sentence on a contact page is also the simplest.
 
@@ -778,9 +778,9 @@ Because reassurance is often what allows action to happen.
 
 <section id="structure"></section>
 
-# A calmer enquiry process
+## A calmer enquiry process
 
-## Every contact page should answer six questions
+### Every contact page should answer six questions
 
 Just as every previous principle has simplified one stage of the journey...
 
@@ -812,7 +812,7 @@ That has always been the purpose of Practice Clarity.
 
 ---
 
-## The enquiry should feel like a conversation beginning
+### The enquiry should feel like a conversation beginning
 
 The first message is not an assessment.
 
@@ -832,7 +832,7 @@ That may be the kindest thing a therapist website ever communicates.
 
 ---
 
-## A calm ending to the website
+### A calm ending to the website
 
 By the time someone reaches your contact page...
 
@@ -870,9 +870,9 @@ It simply stops getting in the way of it.
 
 ---
 
-# Completing the Practice Clarity journey
+## Completing the Practice Clarity journey
 
-## Every principle has quietly led here
+### Every principle has quietly led here
 
 Look back at the journey.
 
@@ -938,7 +938,7 @@ It should feel like a calm, human beginning.
 
 <section id="reflection"></section>
 
-# Reflection
+## Reflection
 
 <p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
 
@@ -995,7 +995,7 @@ text="A therapy enquiry should never feel like a test. It should feel like a cal
 
 ---
 
-# About this principle
+## About this principle
 
 The Enquiry Principle became the final principle almost by accident.
 
@@ -1053,7 +1053,7 @@ or quietly falls away.
 
 ---
 
-# Completing Practice Clarity
+## Completing Practice Clarity
 
 When I first began thinking about therapist websites, I thought I was designing pages.
 

@@ -1316,3 +1316,147 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
     padding-top: 0 !important;
   }
 }
+/* =========================================================
+   DOCUMENT AND LIBRARY REFINEMENTS
+   -------------------------------------------------------
+   The pages that still use the acw- system — the legal
+   documents, the Practice Clarity Library, the Journal, the
+   guides, the links page and 404 — inherited the marketing
+   display scale, including `h2 { max-width: 13ch }`. On a
+   clause-numbered legal page that produced 40–69px headings
+   stacked four words deep, which is why those pages read as
+   less finished than the rest of the site.
+
+   This block gives long-form documents a document scale,
+   without touching the marketing pages.
+   ========================================================= */
+
+.acw-reading-width {
+  max-width: 68ch;
+}
+
+.acw-reading-width h2 {
+  max-width: 34ch;
+  margin-top: 3.25rem;
+  font-size: clamp(1.5rem, 1.1vw + 1.2rem, 2.1rem);
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+}
+
+.acw-reading-width h3 {
+  max-width: 38ch;
+  margin-top: 2rem;
+  font-size: clamp(1.12rem, 0.5vw + 1rem, 1.38rem);
+  line-height: 1.25;
+}
+
+.acw-reading-width p,
+.acw-reading-width li {
+  text-wrap: pretty;
+}
+
+.acw-reading-width li {
+  color: inherit;
+}
+
+/* Legal pages are documents, not campaigns: a calmer hero. */
+.acw-page-hero h1 {
+  max-width: 16ch;
+}
+
+.acw-reading-width ~ * h1,
+.acw-page-hero .acw-page-intro {
+  max-width: 58ch;
+}
+
+/* Body copy in the guides and journal reads better a little wider. */
+.acw-guide-body p,
+.acw-post-body p {
+  text-wrap: pretty;
+}
+
+/* Headings must not push a narrow screen sideways. */
+.acw-container h1,
+.acw-container h2,
+.acw-container h3 {
+  overflow-wrap: break-word;
+}
+
+/* The review marker was 3.5:1 against paper; AA text needs 4.5:1. */
+.legal-flag {
+  color: #7f5039;
+}
+
+.legal-todo {
+  color: #7f5039;
+  border-bottom-color: rgba(127, 80, 57, 0.85);
+}
+
+/* In-page anchors clear the sticky header. */
+.acw-container [id],
+.acw-guide-body [id] {
+  scroll-margin-top: 96px;
+}
+
+/* Shared display measure and floor for the acw- pages, matching the
+   refreshed pages. The previous values (h1 12.5ch / h2 13ch, with a
+   50px floor on a 320px screen) produced two-word lines, very tall
+   heroes and a single-word last line on most headings. */
+h1 { max-width: 15ch; font-size: clamp(2.5rem, 4.3vw + 1.14rem, 5.2rem); }
+h2 { max-width: 16ch; font-size: clamp(2rem, 3.2vw + 0.99rem, 4.3rem); }
+
+@media (max-width: 980px) {
+  h1 { max-width: 17ch; }
+  h2 { max-width: 18ch; }
+}
+
+@media (max-width: 560px) {
+  h1, h2 { max-width: 20ch; }
+}
+
+/* Legal and policy documents: the hero and the body were on two different
+   measures and two different left edges, with 108px of section padding on
+   both sides of the join. One column, one rhythm. */
+.acw-page-hero {
+  /* Works through the spacing tokens rather than against the
+     `padding-*: var(--hero-space-*) !important` rule above. */
+  --hero-space-top: clamp(3.25rem, 6vw, 5rem);
+  --hero-space-bottom: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.acw-page-hero + .acw-section {
+  --section-space: clamp(2rem, 4vw, 3rem);
+  /* !important only to match the blanket rule above, not to win a fight. */
+  padding-bottom: clamp(var(--space-64), 8vw, var(--space-128)) !important;
+}
+
+.acw-page-hero-inner {
+  max-width: 68ch;
+  margin-inline: auto;
+}
+
+.acw-page-hero h1 {
+  max-width: 18ch;
+  margin-bottom: 1.1rem;
+}
+
+.acw-page-hero .acw-page-intro {
+  max-width: 58ch;
+  margin-bottom: 0;
+}
+
+/* Same correction for the document pages: a link inside a sentence must not
+   render as a button just because it is the only element in its paragraph. */
+.acw-reading-width p > a:only-child:not(.acw-btn):not(.acw-link-tertiary) {
+  display: inline;
+  width: auto;
+  min-height: 0;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  border-radius: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--accent-dark);
+  font: inherit;
+}

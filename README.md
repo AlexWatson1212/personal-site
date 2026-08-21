@@ -1,4 +1,30 @@
-# Alexander Watson Studio content consolidation
+# Alexander Watson Studio
+
+Jekyll 4.3 site, built and deployed by Netlify.
+
+```sh
+npm install
+npm run build     # purchasing config → CSS bundles → jekyll build
+npm test          # QA suite
+```
+
+- `IMPLEMENTATION.md` — how the site is put together: routes, the two design
+  systems, the purchasing configuration, and the things that will bite you.
+- `STRIPE_SETUP.md` — the manual Stripe Dashboard steps, in order, before online
+  purchasing can be switched on.
+- `LEGAL_REVIEW.md` — everything a UK commercial solicitor needs to look at
+  before the first online sale.
+- `OPEN_DECISIONS.md` — decisions deliberately left to Alexander, with what has
+  to change once each is made.
+- `VISUAL-SYSTEM.md` — page-level visual rules.
+- `INSTALLATION.md` — packaging and merge order for a source drop.
+
+Online purchasing is **off** by default and cannot be switched on from this
+repository alone. No Stripe key of any kind belongs in it.
+
+---
+
+## Content consolidation
 
 The current visual-system rules are documented in `VISUAL-SYSTEM.md` and implemented in `assets/css/visual-system.css`. The real-artefact image brief and replacement filenames are in `PHOTOGRAPHY-SHOT-LIST.md`.
 

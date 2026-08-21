@@ -1,0 +1,12 @@
+{%- comment -%}
+  Version and effective date block for legal pages.
+{%- endcomment -%}
+<p class="legal-version">
+  {%- if site.data.legal.approved -%}
+  Version {{ site.data.legal.version }} — effective {{ site.data.legal.effective_date }}.
+  Superseded versions are kept for reference.
+  {%- else -%}
+  Draft version {{ site.data.legal.version }} — prepared {{ site.time | date: "%-d %B %Y" }}.
+  Not legally approved, and not yet in force. Superseded versions are kept for reference.
+  {%- endif -%}
+</p>

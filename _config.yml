@@ -1,4 +1,5 @@
 title: "Alexander Watson"
+brand: "Alexander Watson Studio"
 description: "Helping therapists become easier to trust online through thoughtful positioning, clear messaging and websites that genuinely reflect the work behind them."
 
 url: "https://alexanderwatson.co.uk"
@@ -6,6 +7,24 @@ baseurl: ""
 
 lang: en-GB
 timezone: Europe/London
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ONLINE PURCHASING
+#
+# Nothing about Stripe is configured in this file.
+#
+#   _data/purchasing.yml            committed, safe defaults, prices and the
+#                                   URLs the purchase journey links to.
+#   _data/purchasing_resolved.yml   generated at build time by
+#                                   scripts/purchasing-config.mjs from
+#                                   environment variables. Never committed.
+#
+# Purchasing is OFF unless PUBLIC_PURCHASES_ENABLED=true and a valid live
+# Payment Link is present in the environment. See STRIPE_SETUP.md.
+#
+# NEVER put a Stripe secret or restricted key (sk_live_…, sk_test_…, rk_…,
+# whsec_…) in this repository. Everything here is public front-end code.
+# ─────────────────────────────────────────────────────────────────────────────
 
 markdown: kramdown
 
@@ -47,6 +66,11 @@ defaults:
 exclude:
   - README.md
   - VISUAL-SYSTEM.md
+  - IMPLEMENTATION.md
+  - STRIPE_SETUP.md
+  - LEGAL_REVIEW.md
+  - OPEN_DECISIONS.md
+  - scripts
   - PHOTOGRAPHY-SHOT-LIST.md
   - INSTALLATION.md
   - Gemfile
@@ -57,6 +81,8 @@ exclude:
   - .bundle
   - .jekyll-cache
   - _site
+  - _preview
+  - _transfer
   - assets/images/image-library
   - package.json
   - package-lock.json

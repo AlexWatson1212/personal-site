@@ -175,9 +175,9 @@ Do I recognise myself here?
 
 <section id="moment"></section>
 
-# The moment of recognition
+## The moment of recognition
 
-## There comes a moment
+### There comes a moment
 
 Not when somebody finds your website.
 
@@ -247,7 +247,7 @@ That is recognition.
 
 ---
 
-## Recognition feels different from agreement
+### Recognition feels different from agreement
 
 It is possible to agree with everything on a therapist's website and still leave.
 
@@ -290,9 +290,9 @@ Recognition is the moment a stranger begins to feel personally understood.
 </div>
 <section id="principle"></section>
 
-# The Recognition Principle
+## The Recognition Principle
 
-## Recognition is not persuasion
+### Recognition is not persuasion
 
 For a long time I assumed therapist websites succeeded because they explained things well.
 
@@ -360,7 +360,7 @@ Because it changed what the writing needed to achieve.
 
 ---
 
-## Recognition reduces emotional effort
+### Recognition reduces emotional effort
 
 Think back to the last time you felt genuinely understood.
 
@@ -412,9 +412,9 @@ It makes trust feel possible.
 
 <section id="specificity"></section>
 
-# Why specificity helps
+## Why specificity helps
 
-## General descriptions rarely create recognition
+### General descriptions rarely create recognition
 
 Many therapist websites describe difficulties accurately.
 
@@ -466,7 +466,7 @@ The website has already begun speaking their language.
 
 ---
 
-## Recognition lives in observation
+### Recognition lives in observation
 
 The strongest therapist websites are rarely the most creative.
 
@@ -508,7 +508,7 @@ They recognise themselves in observations.
 
 ---
 
-## Specific does not mean exclusive
+### Specific does not mean exclusive
 
 One concern therapists often have is this:
 
@@ -546,7 +546,7 @@ Because it demonstrates genuine understanding somewhere real.
 
 ---
 
-## The recognition test
+### The recognition test
 
 Whenever I review a therapist website, I quietly ask one question.
 
@@ -605,9 +605,9 @@ It begins with paying close attention to people.
 ---
 <section id="language"></section>
 
-# Language and recognition
+## Language and recognition
 
-## People recognise themselves in their own language
+### People recognise themselves in their own language
 
 One of the most common questions therapists ask is:
 
@@ -655,7 +655,7 @@ Then reflects it back with care.
 
 ---
 
-## Professional language has its place
+### Professional language has its place
 
 Professional language is not the enemy.
 
@@ -707,9 +707,9 @@ It is usually the language they have already been using quietly inside their own
 
 <section id="observation"></section>
 
-# Observation before writing
+## Observation before writing
 
-## Writing is not where recognition begins
+### Writing is not where recognition begins
 
 People often assume recognition is created during copywriting.
 
@@ -751,7 +751,7 @@ Careful observation.
 
 ---
 
-## Recognition is evidence
+### Recognition is evidence
 
 One of the biggest shifts in Practice Clarity is this.
 
@@ -801,9 +801,9 @@ It is uncovered.
 
 <section id="trust"></section>
 
-# Recognition and trust
+## Recognition and trust
 
-## Recognition is where trust begins to deepen
+### Recognition is where trust begins to deepen
 
 Recognition is not trust.
 
@@ -833,7 +833,7 @@ Through understanding.
 
 ---
 
-## Recognition changes the journey
+### Recognition changes the journey
 
 Look back at the journey Practice Clarity has taken so far.
 
@@ -895,7 +895,7 @@ That is where the Homepage Principle begins.
 
 <section id="reflection"></section>
 
-# Reflection
+## Reflection
 
 <p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
 
@@ -970,7 +970,7 @@ Recognition makes therapy feel personal. The homepage should make that feeling c
 
 ---
 
-# About this principle
+## About this principle
 
 The Recognition Principle emerged from a simple observation.
 

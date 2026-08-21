@@ -1,0 +1,14 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Legal document status.
+#
+# approved: false  → every legal page shows the draft notice, and the studio
+#                    treats the wording as unreviewed.
+# approved: true   → the draft notice disappears everywhere at once. Set this
+#                    ONLY after a UK commercial solicitor has reviewed the
+#                    wording and the placeholders in LEGAL_REVIEW.md have been
+#                    completed. Set effective_date on the same day.
+# ─────────────────────────────────────────────────────────────────────────────
+approved: false
+version: "0.1"
+effective_date: ""
+reviewer: ""

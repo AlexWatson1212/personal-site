@@ -152,7 +152,7 @@ That was always the real subject of this framework.
 
 ---
 
-# What changed for me
+## What changed for me
 
 When I first began designing therapist websites, I assumed I was solving design problems.
 
@@ -199,7 +199,7 @@ Not because uncertainty can ever disappear.
 Because it should never become larger than it already is.
 
 ---
-# The philosophy beneath the framework
+## The philosophy beneath the framework
 
 There is a sentence that quietly sits underneath every page you have just read.
 
@@ -245,7 +245,7 @@ That is all Practice Clarity has ever attempted to do.
 
 ---
 
-# What Practice Clarity is not
+## What Practice Clarity is not
 
 As this framework grew, I found myself becoming increasingly careful about what it wasn't.
 
@@ -307,7 +307,7 @@ It is about helping their online presence feel as thoughtful as the work they al
 
 ---
 
-# Why this matters beyond websites
+## Why this matters beyond websites
 
 The more I explored these ideas, the more I realised they reached far beyond websites.
 
@@ -360,7 +360,7 @@ More often, it gently removes what never needed to be there.
 ---
 <p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
 
-# If you remember one thing
+## If you remember one thing
 
 Imagine that every page of this framework disappeared tomorrow.
 
@@ -414,7 +414,7 @@ The same philosophy.
 
 ---
 
-# The real beginning
+## The real beginning
 
 There is something quietly ironic about finishing this framework.
 
@@ -456,7 +456,7 @@ Because it encourages better questions.
 
 ---
 
-# A framework that disappears
+## A framework that disappears
 
 The best frameworks eventually disappear.
 
@@ -490,7 +490,7 @@ The thinking remains.
 
 ---
 
-# Thank you
+## Thank you
 
 If you have read every page of Practice Clarity...
 
@@ -517,7 +517,7 @@ If that happens...
 these principles have already done enough.
 
 ---
-# One final thought
+## One final thought
 
 No website will ever replace therapy.
 

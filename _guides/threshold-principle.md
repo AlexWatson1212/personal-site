@@ -143,9 +143,9 @@ The next question is whether someone feels safe enough to stay.
 
 <section id="arrival"></section>
 
-# The moment of arrival
+## The moment of arrival
 
-## Discovery is only the beginning
+### Discovery is only the beginning
 
 The Waiting Room Principle explored how someone finds you.
 
@@ -219,7 +219,7 @@ It is meeting them at a threshold.
 
 ---
 
-## A website is an arrival experience
+### A website is an arrival experience
 
 Most therapist websites are thought about as information containers.
 
@@ -268,9 +268,9 @@ That is where the Threshold Principle begins.
 
 <section id="threshold"></section>
 
-# The threshold
+## The threshold
 
-## The space before trust
+### The space before trust
 
 There is a small space between finding a therapist and trusting them enough to make contact.
 
@@ -348,7 +348,7 @@ And a much more therapeutic one.
 
 ---
 
-## The threshold is not the same as the homepage
+### The threshold is not the same as the homepage
 
 The homepage matters.
 
@@ -386,9 +386,9 @@ A threshold is an experience.
 
 <section id="safety"></section>
 
-# Safety before detail
+## Safety before detail
 
-## People need orientation before information
+### People need orientation before information
 
 One of the most common mistakes on therapist websites is giving people too much information too soon.
 
@@ -456,7 +456,7 @@ Then more detail when the visitor is ready.
 
 ---
 
-## Reassurance is not softness
+### Reassurance is not softness
 
 Some people hear the word reassurance and assume it means making everything gentle, vague or overly comforting.
 
@@ -500,9 +500,9 @@ But they forget to help the visitor arrive.
 
 <section id="signals"></section>
 
-# Threshold signals
+## Threshold signals
 
-## What someone notices first
+### What someone notices first
 
 A person arriving on your website is not only reading your words.
 
@@ -570,11 +570,11 @@ As signal.
 
 ---
 
-## The five threshold signals
+### The five threshold signals
 
 I usually think about five threshold signals.
 
-### 1. Clarity
+#### 1. Clarity
 
 Can the visitor quickly understand where they are and who you help?
 
@@ -588,7 +588,7 @@ A vague opening creates work.
 
 A clear opening reduces it.
 
-### 2. Calm
+#### 2. Calm
 
 Does the page feel spacious enough to approach?
 
@@ -596,7 +596,7 @@ Calm does not mean empty.
 
 It means the visitor is not being crowded, rushed or overloaded.
 
-### 3. Specificity
+#### 3. Specificity
 
 Does anything on the page feel recognisable?
 
@@ -606,7 +606,7 @@ A specific sentence often builds more trust than a broad promise.
 
 But *"support for people who look like they are coping but feel overwhelmed underneath"* is easier for someone to recognise.
 
-### 4. Humanity
+#### 4. Humanity
 
 Is there a real person here?
 
@@ -616,7 +616,7 @@ Not forced warmth.
 
 Just enough human presence to make contact feel imaginable.
 
-### 5. Direction
+#### 5. Direction
 
 Does the visitor know what they can do next?
 
@@ -644,9 +644,9 @@ It makes the next step feel possible.
 
 <section id="mistakes"></section>
 
-# Common threshold mistakes
+## Common threshold mistakes
 
-## 1. Starting with professional language
+### 1. Starting with professional language
 
 Many therapist websites open with the therapist's modality.
 
@@ -684,7 +684,7 @@ The closer your first words are to the visitor's lived experience, the less tran
 
 ---
 
-## 2. Trying to include everyone
+### 2. Trying to include everyone
 
 Another common mistake is trying to reassure everyone at once.
 
@@ -716,7 +716,7 @@ Recognition helps them feel:
 
 ---
 
-## 3. Making the page too visually busy
+### 3. Making the page too visually busy
 
 A busy website asks the visitor to process too much at once.
 
@@ -750,7 +750,7 @@ It gives the visitor room to think.
 
 ---
 
-## 4. Hiding the next step
+### 4. Hiding the next step
 
 Some websites make contact feel strangely difficult.
 
@@ -778,7 +778,7 @@ If the visitor cannot understand the path forward, they may not take it.
 
 ---
 
-## 5. Over-polishing the page
+### 5. Over-polishing the page
 
 This one is more subtle.
 
@@ -814,9 +814,9 @@ There is a difference.
 
 ---
 
-# The first conversation
+## The first conversation
 
-## The website begins speaking before you do
+### The website begins speaking before you do
 
 By the time someone sends an enquiry, they have already had an experience of you.
 
@@ -854,7 +854,7 @@ It is earned through clarity, calm and recognition.
 
 ---
 
-## The threshold prepares the next question
+### The threshold prepares the next question
 
 Once someone feels oriented, the next question changes.
 
@@ -904,7 +904,7 @@ They are about helping them feel oriented, reassured and safe enough to continue
 
 <section id="reflection"></section>
 
-# Reflection
+## Reflection
 
 <p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
 
@@ -963,7 +963,7 @@ Only after someone feels safe can they begin to feel understood.
 
 ---
 
-# About this principle
+## About this principle
 
 The Threshold Principle grew from noticing how quickly people respond to the feeling of a therapist website.
 

@@ -146,9 +146,9 @@ To the people already looking for exactly the help you offer.
 
 <section id="searching"></section>
 
-# Someone is searching
+## Someone is searching
 
-## Somewhere this evening
+### Somewhere this evening
 
 Somewhere this evening, someone will quietly open Google.
 
@@ -206,7 +206,7 @@ It has always been about shortening that distance.
 
 ---
 
-## The principle before this one
+### The principle before this one
 
 In the Mirror Principle we discovered something simple.
 
@@ -240,9 +240,9 @@ And for understandable reasons, many therapists become uneasy.
 
 <section id="seo-discomfort"></section>
 
-# Why SEO feels uncomfortable
+## Why SEO feels uncomfortable
 
-## Why therapists recoil from SEO
+### Why therapists recoil from SEO
 
 I have never met a therapist who became a therapist because they wanted to become good at marketing.
 
@@ -288,7 +288,7 @@ They are imagining what it used to be.
 
 ---
 
-## The shadow SEO still casts
+### The shadow SEO still casts
 
 There was a time when SEO genuinely deserved much of its reputation.
 
@@ -356,7 +356,7 @@ The other focuses on people.
 
 ---
 
-## A different question
+### A different question
 
 I sometimes ask therapists a different question.
 
@@ -400,9 +400,9 @@ Visibility helps people who are already looking.
 
 <section id="principle"></section>
 
-# The Waiting Room Principle
+## The Waiting Room Principle
 
-## The waiting room most therapists never see
+### The waiting room most therapists never see
 
 There is a waiting room most therapists never see.
 
@@ -482,9 +482,9 @@ That is a very different kind of optimisation.
 
 <section id="visibility"></section>
 
-# Visibility, not promotion
+## Visibility, not promotion
 
-## Visibility is not the same as promotion
+### Visibility is not the same as promotion
 
 This distinction is worth sitting with.
 
@@ -524,7 +524,7 @@ But because unnecessary invisibility carries a cost too.
 
 ---
 
-## Every invisible therapist leaves a gap
+### Every invisible therapist leaves a gap
 
 Imagine somebody searching tonight.
 
@@ -576,9 +576,9 @@ Grounded in genuine clarity, visibility simply gives the right people a better c
 
 <section id="google"></section>
 
-# The purpose of Google
+## The purpose of Google
 
-## Search engines have become more human
+### Search engines have become more human
 
 People often imagine Google as a mysterious machine deciding who deserves attention.
 
@@ -628,7 +628,7 @@ Machines are simply getting better at recognising those qualities.
 
 ---
 
-## SEO comes after clarity
+### SEO comes after clarity
 
 This is why this principle comes second.
 
@@ -668,7 +668,7 @@ You are simply helping the right people discover one that is already true.
 
 ---
 
-## Search intent
+### Search intent
 
 One of the biggest shifts in modern SEO is something called <strong>search intent</strong>.
 
@@ -734,9 +734,9 @@ Your website should too.
 
 ---
 
-# Helpful writing
+## Helpful writing
 
-## Build a library, not a blog
+### Build a library, not a blog
 
 One of the questions I'm asked most often is:
 
@@ -782,9 +782,9 @@ Not because another article was needed.
 
 <section id="recognition"></section>
 
-# Recognition over ranking
+## Recognition over ranking
 
-## Recognition matters more than rankings
+### Recognition matters more than rankings
 
 SEO conversations often become obsessed with position.
 
@@ -842,7 +842,7 @@ But:
 
 ---
 
-## Visibility is only the beginning
+### Visibility is only the beginning
 
 Finding your website is not the destination.
 
@@ -882,7 +882,7 @@ Trust begins when someone chooses to stay.
 
 <section id="reflection"></section>
 
-# Reflection
+## Reflection
 
 <p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
 
@@ -947,7 +947,7 @@ The Threshold Principle asks what happens in the first few seconds after they ar
 
 ---
 
-# About this principle
+## About this principle
 
 The Waiting Room Principle emerged gradually from helping therapists think differently about SEO.
 

@@ -1,0 +1,44 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Straightforward Website — purchasing configuration (committed, safe defaults)
+#
+# This file contains NO secrets and NO Payment Link. It holds the prices the
+# site displays and the URLs the purchase journey links to.
+#
+# The Payment Link and the on/off switch are resolved at build time from
+# environment variables by scripts/purchasing-config.mjs, which writes
+# _data/purchasing_resolved.yml. That generated file is never committed.
+#
+# If _data/purchasing_resolved.yml is absent, online purchasing is OFF and the
+# page falls back to the "Ask a question first" route. That is the safe state.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Straightforward Therapist Website
+price_display: "£495"
+price_numeric: "495.00"
+currency: "GBP"
+
+# Guided Website and Practice Clarity + Bespoke Website are enquiry-led and
+# proposal-led respectively. They have no online checkout, by design.
+guided_price_display: "£995"
+bespoke_price_display: "£1,995"
+
+# Optional Website Care. Content and configuration points only — no
+# subscription is built or activated in this release.
+website_care:
+  monthly: "£29"
+  annual: "£290"
+  subscriptions_enabled: false
+
+# Routes the purchase journey depends on.
+urls:
+  service: "/services/straightforward-website/"
+  questionnaire: "/services/straightforward-website/questionnaire/"
+  service_terms: "/service-terms/straightforward-website/"
+  cancellation: "/cancellation-and-refunds/"
+  privacy: "/privacy/"
+  terms: "/terms/"
+  purchase_complete: "/purchase-complete/"
+  enquiry: "/contact/?service=straightforward"
+
+# Studio contact route used on the purchase-complete page.
+support_email: "hello@alexanderwatson.co.uk"

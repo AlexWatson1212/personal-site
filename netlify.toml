@@ -43,3 +43,43 @@
     X-Frame-Options = "SAMEORIGIN"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), geolocation=(), microphone=()"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Purchase-complete page and intake questionnaire.
+#
+# Both already carry <meta name="robots" content="noindex, nofollow"> and
+# sitemap: false. These headers are the second lock: they keep the pages out of
+# search results even if a meta tag is lost in a future template change.
+# ─────────────────────────────────────────────────────────────────────────────
+[[headers]]
+  for = "/purchase-complete/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/services/straightforward-website/questionnaire/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Content Security Policy.
+#
+# Shipped in report-only form first, deliberately. The Practice Clarity guides
+# contain inline <script> blocks and the purchase page carries inline JSON-LD,
+# so an enforcing policy without 'unsafe-inline' would break those pages today.
+# Watch the violation reports, move the remaining inline scripts into files,
+# then rename the header to Content-Security-Policy.
+#
+# Note what is NOT here: no Stripe script or frame permission. Stripe checkout
+# is reached by an ordinary link to a Stripe-hosted page — a top-level
+# navigation, which needs no CSP allowance. Do not add script-src or frame-src
+# entries for Stripe unless the implementation changes to an embedded checkout,
+# which would be a different review.
+# ─────────────────────────────────────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy-Report-Only = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+    Cross-Origin-Opener-Policy = "same-origin"

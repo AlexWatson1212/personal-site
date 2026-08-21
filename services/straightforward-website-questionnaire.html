@@ -1,0 +1,218 @@
+---
+layout: default
+title: Website Content Questionnaire
+description: The Website Content Questionnaire for the £495 Straightforward Website. Complete it after checkout so your project can begin.
+permalink: /services/straightforward-website/questionnaire/
+page_css: /assets/css/catalogue-refresh.css
+page_js: /assets/js/straightforward-questionnaire.js
+noindex: true
+sitemap: false
+---
+
+{%- assign cfg = site.data.purchasing -%}
+
+<div class="catalogue-refresh purchase-page questionnaire-page">
+
+  <section class="page-hero section-paper">
+    <div class="shell page-hero-grid">
+      <div>
+        <p class="eyebrow">Straightforward Website · Step one</p>
+        <h1>Website Content Questionnaire</h1>
+      </div>
+      <div>
+        <p class="hero-lead">This collects everything I need to build your website: {{ site.data.intake.required_questions }} questions I need an answer to, and {{ site.data.intake.optional_questions }} that are useful when they apply. Your project officially begins once this is complete, your materials have arrived and I have confirmed the start date in writing.</p>
+        <p class="hero-note">Nothing you type here is sent to or stored by this website. When you have finished, the page assembles your answers in your browser so you can copy them, save them, or open them in your own email app.</p>
+      </div>
+    </div>
+  </section>
+
+  {%- unless site.data.intake.questionnaire_approved %}
+  <section class="section-paper">
+    <div class="shell">
+      <div class="legal-draft-notice" role="note">
+        <p><strong>Draft questionnaire — requires the Studio's approval before it is sent to a paying client.</strong></p>
+        <p>
+          These questions were written to the agreed shape
+          ({{ site.data.intake.required_questions }} required,
+          {{ site.data.intake.optional_questions }} optional) but they are not
+          the Studio's approved wording, which was not present in the project
+          this was built from. They must be checked against the approved intake
+          before use. See <code>OPEN_DECISIONS.md</code>.
+        </p>
+      </div>
+    </div>
+  </section>
+  {% endunless -%}
+
+  <section class="questionnaire-section section-paper">
+    <div class="shell questionnaire-grid">
+
+      <form class="contact-form questionnaire-form" data-questionnaire novalidate>
+
+        <p class="field-help" id="form-intro">
+          Required questions are marked. You do not have to finish in one sitting:
+          press <em>Prepare my answers</em> at any point, copy the text that
+          appears and keep it in a document, then paste it back in when you are
+          ready. Nothing is submitted until you send the email yourself.
+        </p>
+
+        <div class="questionnaire-warning" role="note">
+          <p><strong>Please do not include anything about your own clients.</strong>
+          I do not need, want or ask for client names, session notes, case
+          material, referral details or any health information about anyone.
+          Please keep all of that out of this form, out of your website copy and
+          out of anything you send me.</p>
+        </div>
+
+        <fieldset>
+          <legend>About you and your practice</legend>
+          <div class="field-row">
+            <label><span>1. Your name <b class="req">(required)</b></span><input name="name" autocomplete="name" required></label>
+            <label><span>2. Email address <b class="req">(required)</b></span><input name="email" type="email" autocomplete="email" required></label>
+          </div>
+          <label><span>3. Practice or business name, exactly as it should appear <b class="req">(required)</b></span><input name="practiceName" required></label>
+          <label><span>Email address used at checkout, if different <span class="opt">(optional)</span></span><input name="checkoutEmail" type="email" autocomplete="email"></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Your chosen design</legend>
+          <label><span>4. Which design from the collection have you chosen? <b class="req">(required)</b></span>
+            <select name="design" required>
+              <option value="" disabled selected>Select a design</option>
+              <option>Rowan Hill Therapy</option>
+              <option>Stillpoint</option>
+              <option>Harbour</option>
+              <option>Common Ground</option>
+              <option>Different Minds</option>
+              <option>North and Vale</option>
+              <option>Face to Face</option>
+              <option>Alexander Watson Counselling</option>
+              <option>I would like your recommendation</option>
+            </select>
+          </label>
+          <label><span>Colour direction <span class="opt">(optional)</span></span><textarea name="colours" rows="3" placeholder="Either specific colours, or “use the design's own palette”."></textarea></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Your pages and your words</legend>
+          <p class="field-help" id="pages-help">Up to five core pages are included. List the pages you want, in the order they should appear in the menu.</p>
+          <label><span>5. Your five pages <b class="req">(required)</b></span><textarea name="pages" rows="4" aria-describedby="pages-help" placeholder="For example: Home, About, How I Work, Fees, Contact" required></textarea></label>
+          <label><span>6. Where is your final, approved page copy? <b class="req">(required)</b></span>
+            <select name="copyStatus" required>
+              <option value="" disabled selected>Select the closest answer</option>
+              <option>Attached to the email I am about to send</option>
+              <option>In a shared folder — link below</option>
+              <option>Still being finished — I will send it shortly</option>
+            </select>
+          </label>
+          <label><span>Link to your copy, images and logo, if you are using a shared folder <span class="opt">(optional)</span></span><input name="materialsLink" type="url" inputmode="url" placeholder="https://"></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Practice details to publish</legend>
+          <p class="field-help" id="facts-help">These become public, professional statements about your practice. Please check them carefully — you are responsible for their accuracy.</p>
+          <label><span>7. Qualifications, memberships and registration numbers <b class="req">(required)</b></span><textarea name="credentials" rows="3" aria-describedby="facts-help" required></textarea></label>
+          <label><span>8. Fees and session length <b class="req">(required)</b></span><textarea name="fees" rows="3" required></textarea></label>
+          <label><span>9. How and where you work <b class="req">(required)</b></span><textarea name="modality" rows="3" placeholder="In person, online, by telephone; town or area; days and times." required></textarea></label>
+          <label><span>10. Contact details exactly as they should appear <b class="req">(required)</b></span><textarea name="publicContact" rows="3" placeholder="Email address, telephone number if any, and whether an address should be shown." required></textarea></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Images and logo</legend>
+          <label><span>11. Photographs <b class="req">(required)</b></span>
+            <select name="photos" required>
+              <option value="" disabled selected>Select the closest answer</option>
+              <option>I am sending my own photographs, which I own or am licensed to use</option>
+              <option>I have no photographs — please use scoped licensed imagery</option>
+              <option>A mixture of my own and licensed imagery</option>
+            </select>
+          </label>
+          <label><span>12. Logo <b class="req">(required)</b></span>
+            <select name="logo" required>
+              <option value="" disabled selected>Select the closest answer</option>
+              <option>I am sending logo files (SVG, EPS or AI)</option>
+              <option>I am sending a PNG or JPG logo only</option>
+              <option>I have no logo — please provide an AI-assisted logo direction</option>
+            </select>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Domain and existing website</legend>
+          <label><span>13. Your domain name <b class="req">(required)</b></span><input name="domain" placeholder="yourpractice.co.uk" required></label>
+          <label><span>Who is it registered with, and do you have access? <span class="opt">(optional)</span></span><input name="registrar" placeholder="For example: 123 Reg — yes, I have the login"></label>
+          <label><span>Existing website or directory profile address <span class="opt">(optional)</span></span><input name="currentWebsite" type="url" inputmode="url" placeholder="https://"></label>
+          <label><span>Hosting after launch <span class="opt">(optional)</span></span>
+            <select name="hosting">
+              <option value="" disabled selected>Select the closest answer</option>
+              <option>I would like the optional Website Care plan</option>
+              <option>I will arrange my own hosting</option>
+              <option>I do not know yet — please advise</option>
+            </select>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Working together</legend>
+          <label><span>14. Accessibility or communication requirements <b class="req">(required)</b></span><textarea name="access" rows="3" placeholder="How you would like me to communicate with you, and anything that would make this easier. Write “none” if there is nothing." required></textarea></label>
+          <label><span>Anything else you would like me to know <span class="opt">(optional)</span></span><textarea name="notes" rows="5" placeholder="Anything about your practice, your timing, or things you would rather avoid."></textarea></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>15. Final acknowledgements <b class="req">(required)</b></legend>
+          <p class="field-help" id="ack-help">All four are needed before the project can begin.</p>
+          <label class="check"><input type="checkbox" name="ackAccurate" value="yes" aria-describedby="ack-help" required> <span>The professional facts above — qualifications, memberships, registrations and fees — are accurate and current.</span></label>
+          <label class="check"><input type="checkbox" name="ackRights" value="yes" required> <span>I own, or am licensed to use, the words, photographs and logo I am supplying.</span></label>
+          <label class="check"><input type="checkbox" name="ackNoClientData" value="yes" required> <span>Nothing I am sending contains information about my own clients.</span></label>
+          <label class="check"><input type="checkbox" name="ackTerms" value="yes" required> <span>I have read the <a href="{{ cfg.urls.service_terms | relative_url }}">Straightforward Website Service Terms</a> and the <a href="{{ cfg.urls.privacy | relative_url }}">privacy notice</a>.</span></label>
+        </fieldset>
+
+        <div class="questionnaire-actions">
+          <button type="submit" class="button button-dark">Prepare my answers</button>
+        </div>
+
+        <div class="form-errors" data-questionnaire-errors role="alert" tabindex="-1" hidden></div>
+      </form>
+
+      <aside class="questionnaire-output" aria-labelledby="questionnaire-output-heading">
+        <h2 id="questionnaire-output-heading">Your answers</h2>
+        <p class="buy-small">Assembled in your browser when you press “Prepare my answers”. Copy them into an email, save them in a document to finish later, or open your email app directly. Attach your copy, images and logo to that email, or include a shared folder link.</p>
+        <label class="output-label" for="questionnaire-summary"><span>Your completed questionnaire</span></label>
+        <textarea id="questionnaire-summary" data-questionnaire-summary rows="16" readonly placeholder="Your answers will appear here."></textarea>
+        <div class="output-actions">
+          <button type="button" class="button button-dark" data-questionnaire-copy>Copy to clipboard</button>
+          <a class="button button-light" href="mailto:{{ cfg.support_email }}" data-questionnaire-mailto>Open in my email app</a>
+        </div>
+        <p class="form-status" data-questionnaire-status role="status"></p>
+        <p class="scope-note">If the email app link truncates your answers, use “Copy to clipboard” and paste them into a new email to <a href="mailto:{{ cfg.support_email }}">{{ cfg.support_email }}</a> instead.</p>
+      </aside>
+
+    </div>
+  </section>
+
+  <section class="thankyou-reply section-mist">
+    <div class="shell revision-grid">
+      <div>
+        <p class="eyebrow">What happens to this</p>
+        <h2>I read it, and I tell you what is missing.</h2>
+      </div>
+      <div>
+        <p>Work begins only after the required answers and materials are complete. If something is missing or unclear, I will return the intake to you with specific questions rather than guessing — that is normal, and it is faster than correcting assumptions later.</p>
+        <p>Once everything has arrived, I confirm within two working days whether anything is outstanding and give you a start date in writing. That confirmation is the point at which your project officially begins.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing-callout">
+    <div class="shell callout-grid">
+      <div>
+        <p class="eyebrow eyebrow-light">Before you send this</p>
+        <h2>Read the scope again if anything is unclear.</h2>
+      </div>
+      <div>
+        <p>Everything included, excluded and expected is set out in full on the service page, and the terms this purchase is made under are published there too.</p>
+        <a href="{{ cfg.urls.service | relative_url }}" class="button button-light">Read the full scope again</a>
+      </div>
+    </div>
+  </section>
+</div>

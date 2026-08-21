@@ -1,0 +1,13 @@
+{
+  "name": "aw-qa-browser",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Browser-based QA harness for the rendered _preview/ site.",
+  "scripts": {
+    "qa": "node run.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.49.0"
+  }
+}

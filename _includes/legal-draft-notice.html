@@ -1,0 +1,24 @@
+{%- comment -%}
+  Internal development label for unapproved legal wording.
+
+  Rendered only while site.data.legal.approved is false. Once the wording has
+  been reviewed and _data/legal.yml sets approved: true, this notice disappears
+  from every legal page at once and is never shown to customers again.
+
+  Usage: {% include legal-draft-notice.html scope="These service terms" %}
+{%- endcomment -%}
+{%- unless site.data.legal.approved -%}
+{%- assign scope = include.scope | default: 'This document' -%}
+<div class="legal-draft-notice" role="note">
+  <p><strong>Draft — requires review by a UK commercial solicitor before live use.</strong></p>
+  <p>
+    {{ scope }} {{ include.detail | default: 'describes how the service is intended to operate.' }}
+    It has <strong>not</strong> been reviewed or approved by a solicitor and
+    must not be described as legally approved, legally checked or
+    professionally drafted. Passages marked <span class="legal-flag">⚖</span>
+    need that review most, and items in
+    <span class="legal-todo">[square brackets]</span> are placeholders that must
+    be completed before publication.
+  </p>
+</div>
+{%- endunless -%}

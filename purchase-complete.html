@@ -1,0 +1,158 @@
+---
+layout: default
+title: Purchase complete
+description: What happens after the Stripe checkout for a Straightforward Website, and how to complete the Website Content Questionnaire so the project can begin.
+permalink: /purchase-complete/
+page_css: /assets/css/catalogue-refresh.css
+noindex: true
+sitemap: false
+---
+
+{%- comment -%}
+  Stripe post-payment redirect target.
+
+  IMPORTANT: this page is a static page on a static site. It receives no
+  payment data, verifies nothing, and creates no project record. Reaching this
+  URL is NOT evidence that a payment succeeded — anyone can type the address.
+  Payment is confirmed only in the Stripe Dashboard. Nothing in this repository
+  may treat a visit to this page as proof of payment.
+{%- endcomment -%}
+
+<div class="catalogue-refresh purchase-page thankyou-page">
+
+  <section class="page-hero thankyou-hero section-paper">
+    <div class="shell page-hero-grid">
+      <div>
+        <p class="eyebrow">Straightforward Website · Checkout</p>
+        <h1>Thank you. The payment process has been completed.</h1>
+      </div>
+      <div>
+        <p class="hero-lead">If the payment was taken, Stripe will email a receipt to the address you entered at checkout. Please keep it — that receipt, and your card or bank statement, are the record of payment. This page receives no payment information of any kind and cannot confirm anything on Stripe's behalf.</p>
+        <p class="hero-note">There is one thing to do next, and it is the thing that starts your project.</p>
+        <a class="button button-dark" href="{{ '/services/straightforward-website/questionnaire/' | relative_url }}">Complete the Website Content Questionnaire</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="thankyou-truth section-mist">
+    <div class="shell">
+      <div class="section-heading-row">
+        <div>
+          <p class="eyebrow">What has and has not happened</p>
+          <h2>Checkout is finished. Your project has not started yet.</h2>
+        </div>
+        <p>No project has been created automatically. This website is a set of ordinary web pages — it has no account system, no automatic scheduling and no connection to Stripe. Nothing was triggered by your arriving here. Everything from this point is done by a person.</p>
+      </div>
+
+      <div class="truth-grid">
+        <article>
+          <h3>What Stripe handles</h3>
+          <ul>
+            <li>Taking the payment, and confirming it to you</li>
+            <li>Emailing your receipt — the only confirmation that counts</li>
+            <li>Recording the transaction, which I check in the Stripe dashboard</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Not done yet</h3>
+          <ul>
+            <li>Your questionnaire has not been completed</li>
+            <li>Your materials have not been received or checked</li>
+            <li>No start date has been agreed</li>
+            <li>No build work has begun</li>
+          </ul>
+        </article>
+        <article>
+          <h3>When it officially begins</h3>
+          <p><strong>Your project officially begins once your completed Website Content Questionnaire and required materials have been received and checked, and I have confirmed the start date in writing.</strong></p>
+          <p>That confirmation is the moment the two to four week build window starts.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="thankyou-next section-paper">
+    <div class="shell">
+      <div class="section-heading-row">
+        <div>
+          <p class="eyebrow">Your next step</p>
+          <h2>Complete the Website Content Questionnaire.</h2>
+        </div>
+        <p>It collects everything I need in one place. You can start it now and finish it later, though the project cannot begin until it is complete.</p>
+      </div>
+
+      <div class="next-grid">
+        <div class="next-action">
+          <a class="button button-dark" href="{{ '/services/straightforward-website/questionnaire/' | relative_url }}">Open the questionnaire</a>
+          <p class="buy-small">It prepares an email in your own email app. Nothing you type is stored by this website.</p>
+        </div>
+
+        <div class="next-materials">
+          <h3>What you will need to gather</h3>
+          <ul>
+            <li><strong>Your chosen design</strong> — the name of the website design from the collection</li>
+            <li><strong>Final, approved page copy</strong> for each of your pages, proofread and ready to publish</li>
+            <li><strong>Practice details</strong> — qualifications, memberships and registration numbers, fees, availability, how you work</li>
+            <li><strong>Contact details</strong> exactly as you want them published</li>
+            <li><strong>Photographs</strong> you own or are licensed to use, at the largest size you have</li>
+            <li><strong>Your logo</strong>, if you have one — ideally SVG, EPS or AI, otherwise the largest PNG available</li>
+            <li><strong>Colour direction</strong> — either specific colours or the design's own palette</li>
+            <li><strong>Your domain name</strong>, and who it is registered with</li>
+            <li><strong>Existing website address</strong>, if you have one</li>
+          </ul>
+          <p class="scope-note">Large files are easiest sent as a shared folder link. If you would rather send everything by email, that is fine too.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="thankyou-reply section-mist">
+    <div class="shell revision-grid">
+      <div>
+        <p class="eyebrow">When you will hear from me</p>
+        <h2>A personal email within two working days.</h2>
+      </div>
+      <div>
+        <p>Once I have seen the payment in Stripe, I will email you personally — within two working days of the checkout — confirming what I have received and answering anything outstanding. That email is written by me, not generated by this website.</p>
+        <p>Once your completed questionnaire and materials arrive, I will confirm within two working days whether anything is missing, and give you a start date in writing.</p>
+        <p>Working days are Monday to Friday, excluding English bank holidays.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="thankyou-problem section-paper" id="no-confirmation">
+    <div class="shell revision-grid">
+      <div>
+        <p class="eyebrow">If something has gone wrong</p>
+        <h2>Paid, but heard nothing?</h2>
+      </div>
+      <div>
+        <p>If more than two working days have passed with no email from me, please get in touch. Check your spam or junk folder first — replies from a small studio address sometimes land there.</p>
+        <p class="contact-route">
+          <a href="mailto:hello@alexanderwatson.co.uk?subject=Straightforward%20Website%20payment%20%E2%80%94%20no%20confirmation%20received">hello@alexanderwatson.co.uk</a>
+        </p>
+        <p>Please include the name and email address you used at checkout, and the date you paid. Do not send card numbers, and you do not need to send your Stripe receipt unless I ask for it.</p>
+        <p>You can also use the <a href="{{ '/contact/' | relative_url }}">contact page</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="thankyou-disclaimer section-mist">
+    <div class="shell">
+      <p class="disclaimer-note" role="note">
+        <strong>This page is not a receipt, and it is not proof of payment.</strong>
+        It is simply the page Stripe returns you to after checkout, at a public
+        web address that anyone could open directly. It receives nothing from
+        Stripe, checks nothing and records nothing. Your proof of payment is the
+        receipt Stripe emails you and the entry on your card or bank statement.
+        If neither of those shows a payment, no payment has been taken — please
+        get in touch before trying again.
+      </p>
+      <p class="disclaimer-links">
+        <a href="{{ '/service-terms/straightforward-website/' | relative_url }}">Service terms</a>
+        <a href="{{ '/cancellation-and-refunds/' | relative_url }}">Cancellation and refunds</a>
+        <a href="{{ '/privacy/' | relative_url }}">Privacy notice</a>
+      </p>
+    </div>
+  </section>
+</div>

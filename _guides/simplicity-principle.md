@@ -208,9 +208,9 @@ It is about making the journey lighter.
 
 <section id="effort"></section>
 
-# Emotional effort
+## Emotional effort
 
-## The hidden weight of small decisions
+### The hidden weight of small decisions
 
 Most websites ask people to make decisions.
 
@@ -272,7 +272,7 @@ A therapist website should reduce emotional effort, not quietly increase it.
 
 ---
 
-## Simplicity is an act of care
+### Simplicity is an act of care
 
 Simplicity is often mistaken for a visual style.
 
@@ -317,9 +317,9 @@ It is another expression of care.
 ---
 <section id="principle"></section>
 
-# The Simplicity Principle
+## The Simplicity Principle
 
-## Simplicity is about reducing effort
+### Simplicity is about reducing effort
 
 For a long time I thought simplicity meant saying less.
 
@@ -369,7 +369,7 @@ I started asking what the visitor should never have to carry.
 
 ---
 
-## Emotional effort accumulates
+### Emotional effort accumulates
 
 Most unnecessary effort feels insignificant on its own.
 
@@ -421,9 +421,9 @@ It is about removing unnecessary weight.
 
 <section id="choices"></section>
 
-# Too many choices
+## Too many choices
 
-## More choice is not always more helpful
+### More choice is not always more helpful
 
 Website design often assumes that giving people more options is generous.
 
@@ -489,7 +489,7 @@ Because they should not have to decide quite so much.
 
 ---
 
-## Good structure makes decisions unnecessary
+### Good structure makes decisions unnecessary
 
 The strongest therapist websites quietly make many decisions on behalf of the visitor.
 
@@ -537,7 +537,7 @@ Not figuring out how your website works.
 
 ---
 
-## Sequence matters more than quantity
+### Sequence matters more than quantity
 
 Many therapist websites contain exactly the right information.
 
@@ -579,7 +579,7 @@ That is simplicity in practice.
 
 ---
 
-## Simplicity creates confidence
+### Simplicity creates confidence
 
 When a website becomes easier to understand...
 
@@ -626,9 +626,9 @@ A calm website is one where the next step always feels obvious.
 ---
 <section id="mistakes"></section>
 
-# Common simplicity mistakes
+## Common simplicity mistakes
 
-## 1. Mistaking simplicity for minimalism
+### 1. Mistaking simplicity for minimalism
 
 Some websites become so minimal that they stop being useful.
 
@@ -666,7 +666,7 @@ The difference is that nothing feels difficult to find or understand.
 
 ---
 
-## 2. Explaining everything immediately
+### 2. Explaining everything immediately
 
 Another common mistake is trying to answer every possible question on the homepage.
 
@@ -706,7 +706,7 @@ simplicity disappears.
 
 ---
 
-## 3. Creating unnecessary choices
+### 3. Creating unnecessary choices
 
 Imagine opening a homepage and seeing:
 
@@ -737,7 +737,7 @@ By gently guiding them.
 
 ---
 
-## 4. Repeating information
+### 4. Repeating information
 
 Many therapist websites unknowingly repeat themselves.
 
@@ -767,7 +767,7 @@ Not repeat the last one.
 
 ---
 
-## 5. Designing for yourself
+### 5. Designing for yourself
 
 Perhaps the most common mistake of all.
 
@@ -819,9 +819,9 @@ or is it simply unnecessary effort?"
 
 <section id="structure"></section>
 
-# A simple structure
+## A simple structure
 
-## Every page should have one primary responsibility
+### Every page should have one primary responsibility
 
 One of the biggest shifts in Practice Clarity is recognising that pages should not compete with one another.
 
@@ -847,7 +847,7 @@ Because each piece of content appears exactly when it becomes useful.
 
 ---
 
-## Simplicity is thoughtful sequencing
+### Simplicity is thoughtful sequencing
 
 Many people assume simplicity is achieved through editing.
 
@@ -893,9 +893,9 @@ It is about saying the right thing at the right moment.
 
 ---
 
-# Simplicity in the wider journey
+## Simplicity in the wider journey
 
-## The website begins feeling effortless
+### The website begins feeling effortless
 
 By now the visitor is carrying far less uncertainty than when they first arrived.
 
@@ -959,7 +959,7 @@ It is the absence of unnecessary effort.
 
 <section id="reflection"></section>
 
-# Reflection
+## Reflection
 
 <p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
 
@@ -1034,7 +1034,7 @@ When every interaction feels coherent, trust deepens without needing more explan
 
 ---
 
-# About this principle
+## About this principle
 
 The Simplicity Principle emerged from a pattern I kept noticing while reviewing therapist websites.
 

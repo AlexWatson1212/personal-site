@@ -147,9 +147,9 @@ If you're new to Practice Clarity, start here.
 
 <section id="problem"></section>
 
-# The problem beneath the website
+## The problem beneath the website
 
-## The question nobody prepares you for
+### The question nobody prepares you for
 
 "Tell me what you do."
 
@@ -261,9 +261,9 @@ That was the point I stopped paying attention only to the words and started payi
 
 <section id="definers-block"></section>
 
-# Definer's Block
+## Definer's Block
 
-## It wasn't the writing
+### It wasn't the writing
 
 Here's what I slowly realised.
 
@@ -365,9 +365,9 @@ The Waiting Room Principle asks the next question.
 
 <section id="pattern"></section>
 
-# The pattern
+## The pattern
 
-## The same pattern kept repeating
+### The same pattern kept repeating
 
 Once I started looking for it, I began seeing the same pattern everywhere.
 
@@ -447,7 +447,7 @@ The website did not help another person understand it publicly.
 
 ---
 
-## What they all had in common
+### What they all had in common
 
 Every one of those therapists understood their work with remarkable fluency.
 
@@ -559,9 +559,9 @@ Everything that follows builds from there.
 
 <section id="principle"></section>
 
-# The Mirror Principle
+## The Mirror Principle
 
-## The observation that changed everything
+### The observation that changed everything
 
 For months I thought I was designing websites.
 
@@ -637,9 +637,9 @@ That is where Practice Clarity begins.
 
 <section id="practice-clarity"></section>
 
-# Practice Clarity
+## Practice Clarity
 
-## Before anything else
+### Before anything else
 
 Most therapists assume they need a better website.
 
@@ -673,7 +673,7 @@ Everything else grows from the answer.
 
 ---
 
-## Clarity changes more than your website
+### Clarity changes more than your website
 
 It is tempting to think clarity only affects a homepage.
 
@@ -705,7 +705,7 @@ The words follow afterwards.
 
 ---
 
-## Practice Clarity is not a marketing framework
+### Practice Clarity is not a marketing framework
 
 People sometimes assume Practice Clarity is a copywriting system.
 
@@ -757,7 +757,7 @@ The goal is to become recognisable.
 
 ---
 
-## Why this principle comes first
+### Why this principle comes first
 
 Every other principle in Practice Clarity quietly depends on this one.
 
@@ -781,7 +781,7 @@ Because every other principle quietly assumes it.
 
 <section id="reflection"></section>
 
-# Reflection
+## Reflection
 
 <p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
 
@@ -858,7 +858,7 @@ The Waiting Room Principle asks what happens once that understanding exists:
 
 ---
 
-# About this principle
+## About this principle
 
 The Mirror Principle wasn't invented in a single moment.
 

@@ -3,7 +3,11 @@
   "private": true,
   "scripts": {
     "build:css": "node scripts/build-css.mjs",
-    "build": "npm run build:css && bundle exec jekyll build --trace"
+    "build": "npm run config:purchasing && npm run build:css && bundle exec jekyll build --trace",
+    "test": "node scripts/qa.mjs",
+    "test:site": "npm run build && node scripts/qa.mjs",
+    "config:purchasing": "node scripts/purchasing-config.mjs",
+    "preview": "node scripts/preview/render.mjs"
   },
   "devDependencies": {
     "lightningcss": "1.33.0",

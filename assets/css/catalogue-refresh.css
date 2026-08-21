@@ -68,7 +68,7 @@ p { color: var(--muted); }
 .mini-nav i { width: 18px; height: 2px; background: var(--mini-ink); opacity: .32; }
 .mini-hero { display: grid; grid-template-columns: 1.15fr .85fr; min-height: 190px; align-items: center; gap: 5%; padding: 8% 7%; }
 .mini-hero small { display: block; margin-bottom: 8px; font-family: var(--sans); font-size: 5.5px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
-.mini-hero h3 { max-width: 12ch; margin: 0 0 10px; color: var(--mini-ink); font-size: clamp(18px, 2.5vw, 32px); line-height: .93; }
+.mini-hero .mini-title { max-width: 12ch; font-family: var(--font-heading, Georgia, serif); font-weight: 400; margin: 0 0 10px; color: var(--mini-ink); font-size: clamp(18px, 2.5vw, 32px); line-height: .93; }
 .mini-hero p { width: 90%; height: 3px; margin: 4px 0; background: var(--mini-ink); opacity: .19; }
 .mini-hero p:nth-of-type(2) { width: 65%; }
 .mini-hero button { margin-top: 13px; border: 0; border-radius: 999px; padding: 6px 10px; background: var(--mini-ink); color: var(--mini-paper); font-size: 5.5px; font-weight: 800; text-transform: uppercase; }
@@ -198,7 +198,7 @@ p { color: var(--muted); }
   .hero-stack-back { width: 70%; }
   .hero-stack > p { right: 0; bottom: -1.5rem; }
   .mini-hero { min-height: 145px; }
-  .mini-hero h3 { font-size: 18px; }
+  .mini-hero .mini-title { font-size: 18px; }
   .quality-row { grid-template-columns: repeat(2,1fr); }
   .quality-row span { border-bottom: 1px solid var(--line); }
   .quality-row span:last-child { grid-column: 1 / -1; }
@@ -252,7 +252,7 @@ p { color: var(--muted); }
 .detail-canvas { margin-top: clamp(3rem,6vw,5rem); padding: clamp(1rem,4vw,4.5rem); background: var(--mist); }
 .detail-canvas .mini-site { width: min(920px,100%); margin-inline: auto; }
 .detail-canvas .mini-hero { min-height: clamp(230px,40vw,470px); }
-.detail-canvas .mini-hero h3 { font-size: clamp(2rem,5vw,5.2rem); }
+.detail-canvas .mini-hero .mini-title { font-size: clamp(2rem,5vw,5.2rem); }
 .design-rationale { padding: clamp(5rem,10vw,9rem) 0; }
 .rationale-grid { display: grid; grid-template-columns: minmax(0,.9fr) minmax(340px,.65fr); gap: clamp(3rem,9vw,9rem); }
 .rationale-grid h2 { max-width: 10ch; margin: 0; }
@@ -427,4 +427,415 @@ p { color: var(--muted); }
   .contact-facts p { grid-column: 2; }
   .before-contact > .shell > div:first-child { grid-template-columns: 1fr; gap: 1rem; }
   .palette { height: 82px; }
+}
+
+/* =========================================================
+   ONLINE PURCHASING — STRAIGHTFORWARD WEBSITE
+   Purchase page, post-payment page and content questionnaire.
+   Built on the existing catalogue-refresh tokens and grids.
+   ========================================================= */
+
+.purchase-page .hero-note { margin: 1.25rem 0 1.5rem; color: var(--forest); font-size: .95rem; font-weight: 600; letter-spacing: 0; line-height: 1.7; text-transform: none; }
+
+/* Buy action -------------------------------------------------- */
+.buy-block { display: grid; justify-items: start; gap: 1rem; margin-top: 2rem; }
+.buy-terms { max-width: 46ch; margin: 0; font-size: .84rem; line-height: 1.6; }
+.buy-terms a { border-bottom: 1px solid currentColor; color: var(--forest); font-weight: 650; }
+.buy-action { padding-inline: 1.6rem; font-size: .9rem; }
+.buy-action.is-unavailable { border: 0; opacity: .45; cursor: not-allowed; }
+.buy-action.is-unavailable:hover { transform: none; }
+.buy-secondary { padding-inline: 1.35rem; }
+.buy-small { max-width: 46ch; margin: 0; font-size: .78rem; line-height: 1.6; }
+.buy-unavailable { border-left: 3px solid var(--accent); padding-left: 1rem; }
+.buy-unavailable strong { color: var(--ink); }
+
+/* Price panel ------------------------------------------------- */
+.price-panel { padding: clamp(3.5rem,7vw,6rem) 0; border-bottom: 1px solid var(--line); }
+.price-grid { display: grid; grid-template-columns: minmax(0,.9fr) minmax(340px,.6fr); gap: clamp(3rem,9vw,8rem); align-items: start; }
+.price-grid h2 { max-width: 13ch; margin: 0; }
+.price-grid p { line-height: 1.76; }
+.price-caveat { border-top: 1px solid var(--line); padding-top: 1.1rem; font-size: .85rem; }
+.price-caveat a, .scope-note a, .care-alt a { border-bottom: 1px solid currentColor; color: var(--forest); font-weight: 650; }
+
+/* Scope columns ----------------------------------------------- */
+.scope-note { margin: 1.4rem 0 0; color: var(--muted); font-size: .8rem; line-height: 1.6; }
+
+/* Responsibilities and ownership ------------------------------- */
+.responsibility-section, .ownership-section, .additional-section, .cancellation-section, .checkout-section, .thankyou-truth, .thankyou-next, .thankyou-reply, .thankyou-problem, .questionnaire-section { padding: clamp(4rem,8vw,7rem) 0; }
+.responsibility-grid, .ownership-grid, .truth-grid { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--line); }
+.responsibility-grid > article, .ownership-grid > article, .truth-grid > article { padding: 2rem 2rem 0 0; border-right: 1px solid var(--line); }
+.responsibility-grid > article + article, .ownership-grid > article + article, .truth-grid > article + article { padding-left: 2rem; }
+.responsibility-grid > article:last-child, .ownership-grid > article:last-child, .truth-grid > article:last-child { border-right: 0; }
+.responsibility-grid h3, .ownership-grid h3, .truth-grid h3 { font-size: 1.5rem; }
+.responsibility-grid ul, .truth-grid ul { margin: 0; padding: 0; list-style: none; }
+.responsibility-grid li, .truth-grid li { position: relative; border-top: 1px solid var(--line); padding: .8rem 0 .8rem 1.1rem; color: var(--muted); font-size: .85rem; line-height: 1.55; }
+.responsibility-grid li::before, .truth-grid li::before { content: "—"; position: absolute; left: 0; color: var(--ink); }
+.ownership-grid p, .truth-grid p { font-size: .88rem; line-height: 1.7; }
+
+/* After launch ------------------------------------------------- */
+.care-lead { margin-top: 1.5rem; max-width: 46ch; line-height: 1.75; }
+.care-alt { margin-top: 1.1rem; border-top: 1px solid var(--line); padding-top: 1.1rem; font-size: .85rem; }
+.process-lead { margin-top: 1.5rem; max-width: 34ch; line-height: 1.75; }
+
+/* Checkout ----------------------------------------------------- */
+.checkout-section { scroll-margin-top: 100px; }
+.checkout-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(340px,.62fr); gap: clamp(3rem,8vw,7rem); align-items: start; }
+.checkout-copy h2 { max-width: 13ch; margin: 0 0 1.5rem; }
+.checkout-copy a { border-bottom: 1px solid currentColor; color: var(--forest); font-weight: 650; }
+.checkout-list { margin: 1.75rem 0 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+.checkout-list li { position: relative; border-bottom: 1px solid var(--line); padding: .8rem 0 .8rem 1.1rem; color: var(--muted); font-size: .86rem; }
+.checkout-list li::before { content: "—"; position: absolute; left: 0; color: var(--ink); }
+.checkout-action { border: 1px solid var(--line); padding: clamp(1.75rem,4vw,2.75rem); background: var(--white); }
+.checkout-action .buy-block { margin-top: 0; }
+.checkout-links { display: flex; flex-wrap: wrap; gap: 1.1rem; margin: 1.75rem 0 0; border-top: 1px solid var(--line); padding-top: 1.25rem; font-size: .78rem; font-weight: 700; }
+.checkout-links a { border-bottom: 1px solid currentColor; color: var(--forest); }
+
+/* Post-payment page -------------------------------------------- */
+.thankyou-hero h1 { max-width: 16ch; }
+.next-grid { display: grid; grid-template-columns: minmax(0,.55fr) minmax(340px,1fr); gap: clamp(2.5rem,7vw,6rem); align-items: start; }
+.next-action { display: grid; justify-items: start; gap: 1rem; }
+.next-materials h3 { margin: 0 0 1.25rem; font-size: 1.55rem; }
+.next-materials ul { margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+.next-materials li { border-bottom: 1px solid var(--line); padding: .85rem 0; color: var(--muted); font-size: .88rem; line-height: 1.6; }
+.next-materials strong { color: var(--ink); }
+.contact-route { margin: 1.25rem 0; font-family: var(--serif); font-size: clamp(1.35rem,2.4vw,1.9rem); }
+.contact-route a { border-bottom: 1px solid currentColor; color: var(--forest); }
+.thankyou-disclaimer { padding: clamp(3rem,6vw,4.5rem) 0; }
+.disclaimer-note { max-width: 62ch; margin: 0 auto; border: 1px solid var(--line); border-left: 4px solid var(--accent); padding: 1.4rem 1.6rem; background: var(--white); font-size: .88rem; line-height: 1.7; }
+.disclaimer-note strong { color: var(--ink); }
+.disclaimer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem; margin: 1.5rem 0 0; font-size: .78rem; font-weight: 700; }
+.disclaimer-links a { border-bottom: 1px solid currentColor; color: var(--forest); }
+
+/* Questionnaire ------------------------------------------------ */
+.questionnaire-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(320px,.72fr); gap: clamp(2.5rem,6vw,4.5rem); align-items: start; }
+.questionnaire-form fieldset { margin: 0 0 1.75rem; border: 0; border-top: 1px solid var(--line); padding: 1.5rem 0 0; }
+.questionnaire-form fieldset:first-of-type { border-top: 0; padding-top: 0; }
+.questionnaire-form legend { padding: 0 0 1rem; color: var(--forest); font-size: .69rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.questionnaire-form label { margin-bottom: 1.1rem; }
+.field-help { margin: 0 0 1rem; font-size: .8rem; line-height: 1.6; }
+.questionnaire-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+.form-errors { border-left: 3px solid #a63b21; padding: .25rem 0 .25rem 1rem; color: #7a2c18; font-size: .85rem; }
+.form-errors ul { margin: .5rem 0 0; padding-left: 1.1rem; }
+.form-errors li { color: inherit; }
+.questionnaire-output { position: sticky; top: 110px; border: 1px solid var(--line); padding: clamp(1.5rem,3vw,2.25rem); background: var(--white); }
+.questionnaire-output h2 { margin: 0 0 1rem; font-size: clamp(1.6rem,2.4vw,2.1rem); }
+.output-label span { display: block; margin: 1.25rem 0 .45rem; color: var(--forest); font-size: .69rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.questionnaire-output textarea { width: 100%; border: 1px solid rgba(28,41,36,.23); border-radius: 2px; padding: .82rem 1rem; background: rgba(255,255,255,.58); color: var(--ink); font-size: .82rem; line-height: 1.6; resize: vertical; }
+.output-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.1rem; }
+.output-actions .button { border: 0; cursor: pointer; }
+.questionnaire-output .form-status { margin-top: 1rem; }
+
+@media (max-width: 980px) {
+  .price-grid, .checkout-grid, .next-grid, .questionnaire-grid { grid-template-columns: 1fr; }
+  .price-grid h2, .checkout-copy h2 { max-width: 15ch; }
+  .responsibility-grid, .ownership-grid, .truth-grid { grid-template-columns: 1fr; }
+  .responsibility-grid > article, .responsibility-grid > article + article,
+  .ownership-grid > article, .ownership-grid > article + article,
+  .truth-grid > article, .truth-grid > article + article { border-right: 0; border-bottom: 1px solid var(--line); padding: 2rem 0; }
+  .questionnaire-output { position: static; }
+}
+
+@media (max-width: 720px) {
+  .buy-block { justify-items: stretch; }
+  .buy-action, .buy-secondary { width: 100%; text-align: center; }
+  .checkout-links, .disclaimer-links { gap: .75rem 1rem; }
+  .output-actions .button { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .buy-action, .buy-secondary { transition: none; }
+}
+
+/* Service route actions --------------------------------------- */
+.service-actions, .offer-actions { display: flex; flex-wrap: wrap; gap: .85rem 1.25rem; align-items: center; margin-top: 1.25rem; }
+.service-price-note { margin: .5rem 0 0; font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.service-sequence { margin-top: 1.1rem; border-left: 3px solid var(--accent); padding-left: 1rem; font-size: .88rem; line-height: 1.7; }
+.text-link-light { color: rgba(255,255,255,.85); }
+.text-link-light:hover { color: #fff; }
+
+@media (max-width: 560px) {
+  .service-actions .button, .offer-actions .button { width: 100%; text-align: center; }
+}
+
+/* Dark callout headings -----------------------------------------
+   main.css forces `h1, h2, h3, h4, blockquote { color: var(--logo-ink)
+   !important }`, which turns the headings inside the dark closing callout
+   near-black on deep forest — a contrast failure on every catalogue page.
+   These overrides restore the intended light heading colour. */
+.closing-callout h1,
+.closing-callout h2,
+.closing-callout h3 { color: var(--white) !important; }
+
+/* Utility pages read better with a slightly smaller display size. */
+.thankyou-page .page-hero h1 { font-size: clamp(2.6rem, 5.2vw, 5rem); }
+.questionnaire-page .page-hero h1 { font-size: clamp(2.4rem, 4.6vw, 4.4rem); }
+
+/* =========================================================
+   TYPOGRAPHIC AND CONSISTENCY REFINEMENTS
+   -------------------------------------------------------
+   One controlled pass over the refreshed pages (home, work,
+   service, about, contact and the purchase journey).
+
+   What this block does, and why:
+
+   1. Lowers the small-screen floor of the display scale. The
+      previous floor put a 60px headline on a 320px screen,
+      which forced two words per line and made every hero
+      several screens tall. The desktop ceiling is unchanged,
+      so the editorial character is kept.
+   2. Replaces the per-component heading max-widths (8ch–11ch)
+      with two shared measure tokens. Narrow measure is part of
+      the identity; 8ch was tipping into one word per line and
+      producing orphans on almost every heading.
+   3. Contains the decorative homepage artwork, which was
+      pushing the page 10–24px wider than the viewport at 320,
+      375, 768 and at 200% zoom. The page-level
+      `overflow-x: hidden` was hiding that rather than fixing it.
+   4. Restores heading colour in dark sections. `main.css` sets
+      `h1…h6 { color: … !important }` site-wide, which silently
+      overrode the dark-card heading colours here. The
+      `!important` below counters that one rule; retiring the
+      blanket rule is logged in OPEN_DECISIONS.md.
+   ========================================================= */
+
+:root {
+  /* Shared measure for display and section headings. */
+  --measure-display: 13ch;
+  --measure-heading: 14ch;
+  --measure-prose: 62ch;
+}
+
+@media (max-width: 980px) {
+  :root { --measure-display: 15ch; --measure-heading: 16ch; }
+}
+
+@media (max-width: 560px) {
+  :root { --measure-display: 18ch; --measure-heading: 19ch; }
+}
+
+/* 1. Responsive display scale — rem+vw so it also scales under zoom. */
+.catalogue-refresh h1 { font-size: clamp(2.6rem, 5.93vw + 1.41rem, 7.7rem); }
+.catalogue-refresh h2 { font-size: clamp(2rem, 4.79vw + 1.04rem, 5.35rem); }
+.catalogue-refresh h3 { font-size: clamp(1.4rem, 1.5vw + 1.1rem, 2.45rem); }
+
+.catalogue-refresh h1,
+.catalogue-refresh h2,
+.catalogue-refresh h3 {
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.catalogue-refresh p,
+.catalogue-refresh li,
+.catalogue-refresh dd,
+.catalogue-refresh figcaption {
+  text-wrap: pretty;
+}
+
+/* 2. Shared measure, replacing the per-component values above. */
+.catalogue-refresh .home-hero-copy h1,
+.catalogue-refresh .page-hero h1,
+.catalogue-refresh .design-detail-heading h1,
+.catalogue-refresh .about-hero h1,
+.catalogue-refresh .contact-copy > h1 {
+  max-width: var(--measure-display);
+}
+
+.catalogue-refresh .split-heading h2,
+.catalogue-refresh .section-heading-row h2,
+.catalogue-refresh .not-template-grid h2,
+.catalogue-refresh .process-grid h2,
+.catalogue-refresh .callout-grid h2,
+.catalogue-refresh .choice-guide h2,
+.catalogue-refresh .rationale-grid h2,
+.catalogue-refresh .service-detail h2,
+.catalogue-refresh .revision-grid h2,
+.catalogue-refresh .care-grid h2,
+.catalogue-refresh .strength-grid h2,
+.catalogue-refresh .working-style h2,
+.catalogue-refresh .before-contact h2 {
+  max-width: var(--measure-heading);
+}
+
+.catalogue-refresh .hero-lead,
+.catalogue-refresh .process-lead,
+.catalogue-refresh .care-lead {
+  max-width: var(--measure-prose);
+}
+
+/* The about hero used its own smaller ceiling; keep it in the same system. */
+.catalogue-refresh .about-hero h1 { font-size: clamp(2.4rem, 5.2vw + 1.3rem, 6.8rem); }
+
+/* 3. Containment of decorative artwork. */
+.catalogue-refresh .home-hero { overflow: visible; overflow-x: clip; }
+
+@media (max-width: 980px) {
+  .catalogue-refresh .hero-stack { overflow-x: clip; padding-block-end: 3rem; }
+  .catalogue-refresh .hero-stack-back { left: 0; width: 62%; transform: rotate(-4deg); }
+  .catalogue-refresh .hero-stack-front { right: 0; width: 90%; }
+}
+
+.catalogue-refresh .not-template-card,
+.catalogue-refresh .not-template-grid > * { overflow-x: clip; }
+
+.catalogue-refresh .definition-mark {
+  right: 0;
+  bottom: -3rem;
+  color: color-mix(in srgb, var(--mist) 78%, var(--paper));
+  font-size: clamp(7rem, 14vw, 18rem);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* 4. Dark sections keep a light heading. Counters the blanket
+      `h1…h6 { color: … !important }` rule in main.css. */
+.catalogue-refresh .closing-callout h2,
+.catalogue-refresh .callout-grid h2,
+.catalogue-refresh .lens-card-dark h2,
+.catalogue-refresh .lens-card-dark h3,
+.catalogue-refresh .section-forest h2,
+.catalogue-refresh .section-forest h3 {
+  color: var(--white) !important;
+}
+
+.catalogue-refresh .lens-card-dark p:not(.eyebrow),
+.catalogue-refresh .closing-callout p:not(.eyebrow) {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.catalogue-refresh .eyebrow-light { color: rgba(255, 255, 255, 0.78); }
+
+/* 5. Contact facts read as a definition table, not as display headings. */
+.catalogue-refresh .contact-facts h2 {
+  font-size: clamp(1.32rem, 0.35vw + 1.2rem, 1.5rem);
+  line-height: 1.22;
+}
+
+/* 6. Card alignment. The previous min-height values only aligned
+      cards whose headings happened to wrap to the same number of
+      lines; "Practice Clarity + Bespoke Website" did not. */
+.catalogue-refresh .offer-card h3 { min-height: 0; }
+.catalogue-refresh .offer-card > p:not(.offer-price) { min-height: 0; margin-bottom: 1.5rem; }
+.catalogue-refresh .offer-card strong { margin-top: auto; }
+.catalogue-refresh .offer-actions { display: flex; flex-wrap: wrap; gap: .9rem; align-items: center; }
+
+.catalogue-refresh .belief-grid article,
+.catalogue-refresh .responsibility-grid article,
+.catalogue-refresh .truth-grid article,
+.catalogue-refresh .ownership-grid article {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 7. In-page anchors clear the sticky header. */
+.catalogue-refresh :target,
+.catalogue-refresh section[id],
+.catalogue-refresh article[id],
+.catalogue-refresh h2[id],
+.catalogue-refresh h3[id] { scroll-margin-top: 96px; }
+
+/* 8. Purchase-journey and questionnaire specifics. */
+.catalogue-refresh .buy-block { display: flex; flex-direction: column; gap: 1rem; align-items: flex-start; }
+.catalogue-refresh .buy-terms { max-width: var(--measure-prose); margin: 0; font-size: .92rem; line-height: 1.65; }
+.catalogue-refresh .buy-unavailable { border-left: 3px solid var(--accent); padding-left: 1rem; }
+.catalogue-refresh .buy-action.is-unavailable { background: #4a544f; cursor: not-allowed; opacity: 1; }
+.catalogue-refresh .buy-action.is-unavailable:hover { transform: none; }
+.catalogue-refresh .buy-small { max-width: var(--measure-prose); margin: 0; color: var(--muted); font-size: .82rem; line-height: 1.6; }
+.catalogue-refresh .form-errors { border-left: 3px solid #9c3b28; padding: .9rem 1rem; background: rgba(156,59,40,.06); color: #7d2f20; }
+.catalogue-refresh .form-errors ul { margin: .5rem 0 0; padding-left: 1.2rem; }
+
+@media (max-width: 720px) {
+  .catalogue-refresh .buy-block > .button { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .catalogue-refresh *,
+  .catalogue-refresh *::before,
+  .catalogue-refresh *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Questionnaire: required/optional marking, acknowledgements and the
+   client-confidentiality warning. */
+.catalogue-refresh .questionnaire-form .req {
+  color: #7f5039;
+  font-size: .78em;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+.catalogue-refresh .questionnaire-form .opt {
+  color: var(--muted);
+  font-size: .78em;
+  font-weight: 600;
+}
+
+.catalogue-refresh .questionnaire-warning {
+  margin: 0 0 2rem;
+  border: 1px solid rgba(127, 80, 57, .5);
+  border-left: 4px solid #7f5039;
+  border-radius: 4px;
+  padding: 1rem 1.15rem;
+  background: rgba(167, 111, 85, .07);
+}
+
+.catalogue-refresh .questionnaire-warning p {
+  margin: 0;
+  color: var(--ink);
+  font-size: .92rem;
+  line-height: 1.6;
+}
+
+.catalogue-refresh .questionnaire-form label.check {
+  display: grid;
+  grid-template-columns: 1.35rem 1fr;
+  gap: .7rem;
+  align-items: start;
+  margin-bottom: .9rem;
+  font-size: .92rem;
+  line-height: 1.55;
+}
+
+.catalogue-refresh .questionnaire-form label.check input {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: .18rem;
+  accent-color: var(--forest);
+}
+
+.catalogue-refresh .questionnaire-form label.check a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.catalogue-refresh .field-help {
+  max-width: var(--measure-prose);
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.6;
+}
+
+/* `main.css` styles `main p > a:only-child` as a button. A link that is the
+   only ELEMENT child of a paragraph is not necessarily a call to action — in
+   "Please read the Service Terms before paying." it is a word in a sentence,
+   and it was rendering as a bordered button mid-sentence. Inside the refreshed
+   pages, prose links stay prose links; real buttons carry .button. */
+.catalogue-refresh p > a:only-child:not(.button):not(.text-link) {
+  display: inline;
+  width: auto;
+  min-height: 0;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  border-radius: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--forest);
+  font: inherit;
+  font-weight: 650;
 }

@@ -214,9 +214,9 @@ Its purpose is to reduce enough uncertainty that contact begins to feel possible
 
 <section id="question"></section>
 
-# The real About page question
+## The real About page question
 
-## A biography is not what people came for
+### A biography is not what people came for
 
 It is easy to assume that an About page exists to answer one question.
 
@@ -274,7 +274,7 @@ Through quiet clarity.
 
 ---
 
-## An About page carries a different responsibility
+### An About page carries a different responsibility
 
 A homepage introduces the practice.
 
@@ -323,9 +323,9 @@ They are looking for enough of you to decide whether beginning a conversation fe
 ---
 <section id="principle"></section>
 
-# The About Principle
+## The About Principle
 
-## The page where trust becomes personal
+### The page where trust becomes personal
 
 For a long time I thought an About page existed to introduce the therapist.
 
@@ -383,7 +383,7 @@ More thoughtfully.
 
 ---
 
-## Trust grows through humanity
+### Trust grows through humanity
 
 Trust does not grow because someone knows every detail of your career.
 
@@ -435,9 +435,9 @@ They trust therapists because enough feels quietly true.
 
 <section id="story"></section>
 
-# Your story in service of theirs
+## Your story in service of theirs
 
-## The visitor is still the central character
+### The visitor is still the central character
 
 One of the easiest mistakes to make is forgetting whose journey the website is describing.
 
@@ -471,7 +471,7 @@ the visitor quietly disappears from the page.
 
 ---
 
-## Why your story matters
+### Why your story matters
 
 Some therapists respond by removing themselves almost entirely.
 
@@ -541,7 +541,7 @@ If it doesn't help answer that question, it may not need to be there.
 
 ---
 
-## Values communicate more than facts
+### Values communicate more than facts
 
 Facts matter.
 
@@ -593,7 +593,7 @@ The best About pages communicate both.
 
 ---
 
-## What people remember
+### What people remember
 
 Very few prospective clients finish reading an About page remembering every detail.
 
@@ -647,9 +647,9 @@ not simply what you wrote.
 ---
 <section id="mistakes"></section>
 
-# Common About page mistakes
+## Common About page mistakes
 
-## 1. Writing a CV instead of an introduction
+### 1. Writing a CV instead of an introduction
 
 Many therapist About pages begin like this:
 
@@ -687,7 +687,7 @@ The strongest About pages answer both.
 
 ---
 
-## 2. Trying to sound professional
+### 2. Trying to sound professional
 
 Professionalism matters.
 
@@ -725,7 +725,7 @@ Those qualities happily exist together.
 
 ---
 
-## 3. Oversharing personal history
+### 3. Oversharing personal history
 
 The opposite problem is becoming too personal.
 
@@ -779,7 +779,7 @@ Because it makes the visitor's decision clearer.
 
 ---
 
-## 4. Speaking only about yourself
+### 4. Speaking only about yourself
 
 It sounds obvious.
 
@@ -811,7 +811,7 @@ A thoughtful About page keeps answering that question.
 
 ---
 
-## 5. Trying to become memorable
+### 5. Trying to become memorable
 
 Some About pages try very hard to stand out.
 
@@ -851,9 +851,9 @@ It is to become believable.
 
 <section id="structure"></section>
 
-# A simple About page structure
+## A simple About page structure
 
-## Your About page only needs a few things
+### Your About page only needs a few things
 
 Like every other principle in Practice Clarity, simplicity usually creates more trust than complexity.
 
@@ -891,7 +891,7 @@ Just honestly enough.
 
 ---
 
-## The About page belongs inside the wider journey
+### The About page belongs inside the wider journey
 
 One reason many About pages struggle is because they are expected to carry too much responsibility.
 
@@ -933,9 +933,9 @@ It is helping someone imagine the first conversation.
 
 ---
 
-# The About page in the wider journey
+## The About page in the wider journey
 
-## The questions continue becoming more personal
+### The questions continue becoming more personal
 
 Notice how the Practice Clarity journey keeps evolving.
 
@@ -999,7 +999,7 @@ It exists to help someone quietly imagine beginning theirs with you.
 
 <section id="reflection"></section>
 
-# Reflection
+## Reflection
 
 <p class="acw-guide-reflection-time">Estimated reflection time: 5 minutes</p>
 
@@ -1074,7 +1074,7 @@ Once trust becomes personal, clarity should become effortless.
 
 ---
 
-# About this principle
+## About this principle
 
 The About Principle emerged from watching how prospective clients actually use therapist websites.
 

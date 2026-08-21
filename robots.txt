@@ -1,0 +1,15 @@
+---
+permalink: /robots.txt
+sitemap: false
+layout: null
+---
+User-agent: *
+Allow: /
+
+# The purchase-complete page and the intake questionnaire belong to a private
+# journey between a client and the studio. They are excluded from the sitemap
+# and carry noindex; this is the third place that is stated.
+Disallow: /purchase-complete/
+Disallow: /services/straightforward-website/questionnaire/
+
+Sitemap: {{ site.url }}/sitemap.xml

@@ -20,7 +20,8 @@ const sharedContent = [
 ];
 const allContent = [
   path.join(projectRoot, "*.html"),
-  path.join(projectRoot, "contact/**/*.html"),
+  path.join(projectRoot, "services/**/*.html"),
+  path.join(projectRoot, "links/**/*.html"),
   path.join(projectRoot, "_includes/**/*.html"),
   path.join(projectRoot, "_layouts/**/*.html"),
   path.join(projectRoot, "_pages/**/*.{html,md,markdown}"),
@@ -35,11 +36,16 @@ const bundles = [
   ["work", [path.join(projectRoot, "work.html")]],
   ["about", [path.join(projectRoot, "about.html")]],
   ["blog", [path.join(projectRoot, "blog.html"), path.join(projectRoot, "_posts/**/*.{html,md,markdown}")]],
-  ["contact", [path.join(projectRoot, "contact/**/*.html")]],
+  ["contact", [path.join(projectRoot, "contact.html"), path.join(projectRoot, "assets/js/contact-enquiry.js")]],
   ["guide", [path.join(projectRoot, "_guides/**/*.{html,md,markdown}"), path.join(projectRoot, "_layouts/guide.html")]],
   ["post", [path.join(projectRoot, "_posts/**/*.{html,md,markdown}"), path.join(projectRoot, "_layouts/post.html")]],
   ["legal", [path.join(projectRoot, "_pages/**/*.{html,md,markdown}"), path.join(projectRoot, "_layouts/page.html")]],
   ["404", [path.join(projectRoot, "404.html")]],
+  ["purchase", [
+    path.join(projectRoot, "services/**/*.html"),
+    path.join(projectRoot, "purchase-complete.html"),
+    path.join(projectRoot, "assets/js/straightforward-questionnaire.js")
+  ]],
   ["site", allContent]
 ];
 
