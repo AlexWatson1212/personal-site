@@ -18,3 +18,9 @@ scripts/responsive-qa/*-report.json
 scripts/responsive-qa/typography-*.json
 scripts/responsive-qa/a11y-*.json
 scripts/responsive-qa/computed-*.json
+scripts/responsive-qa/primary-targets.json
+
+# Evidence and transfer archives from the August 2026 responsive pass.
+# Kept on disk locally for reference; never part of the site or the repo.
+_responsive-pass/
+_to_delete/

@@ -1578,7 +1578,12 @@ main :is(.acw-section-label, .eyebrow, .acw-blog-meta) {
    Standalone links — breadcrumbs, jump lists, anchor panels, footer
    navigation, tag and chip rows — are not "inline in a sentence", so WCAG
    2.2 target size applies to them. Padding rather than height keeps the
-   existing rhythm while making the target real. */
+   existing rhythm while making the target real.
+
+   The :not() list matters: without it this rule also matched the real
+   buttons inside those containers — the "Continue reading" action in the
+   guide navigation cards, for one — and pulled their 48px floor down to 24,
+   which is the opposite of the point. A floor for bare links only. */
 :is(
   .acw-guide-breadcrumb,
   .acw-guide-jump-links,
@@ -1593,7 +1598,7 @@ main :is(.acw-section-label, .eyebrow, .acw-blog-meta) {
   .checkout-links,
   .nav__links,
   .nav__subnav
-) a,
+) a:not(.acw-btn):not(.button):not(.nav__cta):not(.nav-cta),
 a.acw-post-back-link,
 a.acw-guide-back-link {
   display: inline-flex;
@@ -1814,3 +1819,35 @@ fieldset {
   padding-inline: 0;
   border: 0;
 }
+
+/* 12. PRIMARY TOUCH TARGETS --------------------------------------------------
+   WCAG 2.2 AA asks for 24 x 24 and the site meets that everywhere. This raises
+   the controls a thumb actually goes for to 44 x 44 — the size Apple and
+   Google both publish. Only controls already within six pixels of it are
+   moved, so nothing is redrawn: the round card link goes 42 to 44, the filter
+   chips 42 to 44, and the library disclosure 38 to 44 inside a header that
+   is already 78px tall. The .acw-btn family needed nothing — its own rules
+   already set 46 and 48px; it was reading 43 only because of the target-size
+   regression fixed in section 5 above.
+
+   The standalone arrow links (.text-link, .acw-library-card-link) sit at
+   24-25px. They pass AA, and reaching 44 would mean either visible padding
+   that changes the card rhythm or an invisible hit area that can overlap a
+   neighbouring control — a judgement call, so they are left alone and
+   reported instead. */
+.catalogue-refresh .circle-link {
+  width: var(--tap-comfortable);
+  height: var(--tap-comfortable);
+}
+
+.catalogue-refresh .filter-chips button {
+  min-height: var(--tap-comfortable);
+}
+
+.nav__links summary,
+.nav__library summary {
+  display: flex;
+  min-height: var(--tap-comfortable);
+  align-items: center;
+}
+
