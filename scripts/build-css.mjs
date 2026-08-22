@@ -57,7 +57,13 @@ for (const [name, pageContent] of bundles) {
       standard: ["active", "is-active", "is-open", "menu-open", "open"],
       greedy: [/^has-/, /^is-/, /^menu-/, /^nav__/]
     },
-    fontFace: true,
+    /* PurgeCSS decides an @font-face is "unused" by looking for the family
+       name in a `font-family` declaration. Every family here is referenced
+       through a custom property (`--font-heading`, `--font-body`), which it
+       cannot follow, so `fontFace: true` silently stripped all three faces
+       from all thirteen bundles: the site preloaded Instrument Serif and then
+       rendered in Georgia. The faces are three declarations — keep them. */
+    fontFace: false,
     keyframes: true,
     variables: false
   });

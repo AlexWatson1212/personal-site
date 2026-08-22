@@ -11,3 +11,10 @@ _data/purchasing_resolved.yml
 scripts/qa-browser/node_modules/
 _shots/
 scripts/qa-browser/report.json
+scripts/responsive-qa/node_modules/
+scripts/responsive-qa/shots/
+scripts/responsive-qa/comparison/
+scripts/responsive-qa/*-report.json
+scripts/responsive-qa/typography-*.json
+scripts/responsive-qa/a11y-*.json
+scripts/responsive-qa/computed-*.json

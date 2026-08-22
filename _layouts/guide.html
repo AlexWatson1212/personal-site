@@ -34,7 +34,7 @@ layout: default
 
           {% assign guide_read_time = page.reading_time | default: page.read_time %}
           {% if guide_read_time %}
-            <div class="acw-guide-meta" aria-label="Guide details">
+            <div class="acw-guide-meta" role="group" aria-label="Guide details">
               <span>{{ guide_read_time }}</span>
             </div>
           {% endif %}
@@ -128,7 +128,9 @@ layout: default
             alt="A printed Practice Clarity blueprint and working notes on the studio desk"
             loading="lazy"
             decoding="async"
-          >
+    width="1536"
+    height="1024"
+  >
         </figure>
       </div>
     </div>

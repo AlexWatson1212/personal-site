@@ -315,7 +315,15 @@ window.__qa = (function () {
       var totalWords = text.split(/\s+/).filter(Boolean).length;
       var lastLineWords = lines.length ? lines[lines.length - 1].words.length : 0;
       var fontSize = parseFloat(cs.fontSize) || 0;
-      var clipped = el.scrollHeight > el.clientHeight + 1;
+      // A scrollHeight taller than clientHeight only means text is lost when
+      // the box actually clips. On a heading whose overflow is visible it just
+      // means the glyphs extend past the content box, which is what a display
+      // serif with tight leading does: Instrument Serif overshoots a 1.2
+      // line-height by two or three pixels on every two-line heading. Judge
+      // the overflow only where something is there to cut it off.
+      var clipsOwnOverflow =
+        cs.overflow !== "visible" || cs.overflowY !== "visible" || cs.overflowX !== "visible";
+      var clipped = clipsOwnOverflow && el.scrollHeight > el.clientHeight + 1;
       out.push({
         selector: selPath(el),
         level: el.tagName.toLowerCase(),

@@ -298,6 +298,8 @@ Because it creates a calmer relationship long before therapy begins.
     src="{{ '/assets/images/brand/brand-guidelines-desk.webp' | relative_url }}"
     alt="A brand guideline sheet bringing logo, colour and typography choices into one system."
     loading="lazy"
+    width="1536"
+    height="1024"
   >
 </figure>
 
@@ -570,6 +572,8 @@ Everything ultimately returns there.
     src="{{ '/assets/images/brand/practice-to-website-journey.webp' | relative_url }}"
     alt="A website, printed documents and identity materials shown as one connected practice system."
     loading="lazy"
+    width="1456"
+    height="816"
   >
 </figure>
 
@@ -785,6 +789,8 @@ Whenever a visitor moves from one stage of your practice to the next, ask yourse
     src="{{ '/assets/images/brand/brand-blueprint-desk.webp' | relative_url }}"
     alt="The printed Practice Clarity blueprint beside the working materials that informed it."
     loading="lazy"
+    width="1536"
+    height="1024"
   >
 </figure>
 

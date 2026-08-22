@@ -9,7 +9,10 @@
   --line: rgba(28, 41, 36, 0.15);
   --white: #fffdfa;
   --accent: #a76f55;
-  --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  /* The brand serif is self-hosted (visual-system.css). The system stack that
+     used to sit here rendered as Iowan on macOS, Palatino on Windows and a
+     generic serif on Linux and Android — three different sites. */
+  --serif: "Instrument Serif", Georgia, serif;
   --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -21,7 +24,12 @@ a { color: inherit; text-decoration: none; }
 button, input, select, textarea { font: inherit; }
 img { max-width: 100%; }
 h1, h2, h3, p { margin-top: 0; }
-h1, h2, h3 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.045em; line-height: 0.98; text-wrap: balance; }
+/* The heading face, weight, tracking and leading are the site-wide voice set
+   in main.css. This layer used to restate them (and named a system serif
+   stack that resolves differently on every platform); those declarations
+   were dead under the old !important blanket and are removed rather than
+   revived, so the refreshed pages and the rest of the site stay one system. */
+h1, h2, h3 { text-wrap: balance; }
 h1 { font-size: clamp(3.75rem, 7.6vw, 7.7rem); }
 h2 { font-size: clamp(2.75rem, 5vw, 5.35rem); }
 h3 { font-size: clamp(1.55rem, 2.4vw, 2.45rem); }
@@ -71,7 +79,10 @@ p { color: var(--muted); }
 .mini-hero .mini-title { max-width: 12ch; font-family: var(--font-heading, Georgia, serif); font-weight: 400; margin: 0 0 10px; color: var(--mini-ink); font-size: clamp(18px, 2.5vw, 32px); line-height: .93; }
 .mini-hero p { width: 90%; height: 3px; margin: 4px 0; background: var(--mini-ink); opacity: .19; }
 .mini-hero p:nth-of-type(2) { width: 65%; }
-.mini-hero button { margin-top: 13px; border: 0; border-radius: 999px; padding: 6px 10px; background: var(--mini-ink); color: var(--mini-paper); font-size: 5.5px; font-weight: 800; text-transform: uppercase; }
+/* The pill in the artwork is a picture of a button, not a button: a real
+   control nested inside the role="img" wrapper is a nested-interactive
+   failure, and a decorative pill has nothing to activate. */
+.mini-hero .mini-btn { display: inline-block; margin-top: 13px; border-radius: 999px; padding: 6px 10px; background: var(--mini-ink); color: var(--mini-paper); font-size: 5.5px; font-weight: 800; line-height: 1; text-transform: uppercase; }
 .mini-art { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 46% 46% 8px 8px; background: var(--mini-soft); }
 .mini-art::before, .mini-art::after, .mini-art span { content: ""; position: absolute; border-radius: 50%; }
 .mini-art::before { inset: 15% -25% 30% 32%; background: var(--mini-accent); opacity: .8; }
@@ -84,7 +95,7 @@ p { color: var(--muted); }
 /* Home hero */
 .home-hero { overflow: hidden; padding: clamp(4.5rem, 9vw, 8.5rem) 0 clamp(5rem, 10vw, 9rem); }
 .home-hero-grid { display: grid; grid-template-columns: minmax(0,.9fr) minmax(430px,1.05fr); align-items: center; gap: clamp(3rem,8vw,8rem); }
-.home-hero-copy h1 { max-width: 9.2ch; margin: 0 0 1.55rem; }
+.home-hero-copy h1 { max-width: var(--measure-display); margin: 0 0 1.55rem; }
 .hero-lead { max-width: 55ch; margin-bottom: 1.8rem; font-size: clamp(1.05rem,1.5vw,1.22rem); line-height: 1.75; }
 .hero-note { margin: 1.4rem 0 0; font-size: .72rem; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; }
 .hero-stack { position: relative; min-height: 520px; }
@@ -97,7 +108,7 @@ p { color: var(--muted); }
 /* Home sections */
 .manifesto-section { padding: clamp(4.5rem,9vw,8rem) 0; border-top: 1px solid var(--line); }
 .split-heading { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(320px,.7fr); gap: clamp(3rem,9vw,9rem); align-items: start; }
-.split-heading h2 { max-width: 11ch; margin: 0; }
+.split-heading h2 { max-width: var(--measure-heading); margin: 0; }
 .split-heading p { font-size: 1.04rem; line-height: 1.76; }
 .split-heading p:last-child { margin-bottom: 0; }
 .quality-row { display: grid; grid-template-columns: repeat(5,1fr); margin-top: 5rem; border-block: 1px solid var(--line); }
@@ -105,7 +116,7 @@ p { color: var(--muted); }
 .quality-row span:last-child { border: 0; }
 .collection-preview, .offers-section { padding: clamp(5rem,10vw,9rem) 0; }
 .section-heading-row { display: grid; grid-template-columns: minmax(0,1fr) minmax(290px,.45fr); gap: 4rem; align-items: end; margin-bottom: clamp(2.8rem,6vw,5rem); }
-.section-heading-row h2 { max-width: 11ch; margin: 0; }
+.section-heading-row h2 { max-width: var(--measure-heading); margin: 0; }
 .section-heading-row > div:last-child p, .section-heading-row > p { line-height: 1.72; }
 .project-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: clamp(2rem,5vw,5rem) 2rem; }
 .project-card { min-width: 0; }
@@ -114,14 +125,14 @@ p { color: var(--muted); }
 .project-meta { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start; padding-top: 1.5rem; }
 .project-meta .eyebrow { margin-bottom: .55rem; }
 .project-meta h3 { margin: 0 0 .75rem; font-size: clamp(1.9rem,3vw,3.15rem); }
-.project-meta p:not(.eyebrow) { max-width: 55ch; margin: 0; font-size: .92rem; line-height: 1.7; }
+.project-meta p:not(.eyebrow) { max-width: var(--measure-prose); margin: 0; font-size: max(var(--text-min), .92rem); line-height: 1.7; }
 .circle-link { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid var(--line); border-radius: 50%; transition: background .2s, color .2s; }
 .circle-link:hover { background: var(--forest); color: white; }
 .tag-list { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1rem 0 0; padding: 0; list-style: none; }
 .tag-list li { border: 1px solid var(--line); border-radius: 999px; padding: .35rem .65rem; color: var(--muted); font-size: .66rem; font-weight: 700; letter-spacing: .05em; }
 .not-template { padding: clamp(5rem,10vw,9rem) 0; }
 .not-template-grid { display: grid; grid-template-columns: minmax(0,.85fr) minmax(380px,.7fr); gap: clamp(3rem,9vw,9rem); align-items: start; }
-.not-template-grid h2 { max-width: 10ch; margin: 0; }
+.not-template-grid h2 { max-width: var(--measure-heading); margin: 0; }
 .definition-card { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 4px; padding: clamp(2rem,4vw,3.8rem); background: var(--white); }
 .definition-card p, .definition-card strong { position: relative; z-index: 1; }
 .definition-card p { font-family: var(--serif); color: var(--ink); font-size: clamp(1.45rem,2.3vw,2.15rem); letter-spacing: -.03em; line-height: 1.2; }
@@ -133,7 +144,7 @@ p { color: var(--muted); }
 .difference-grid article:last-child { border-right: 0; }
 .difference-grid span, .offer-card-top { color: var(--muted); font-size: .69rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
 .difference-grid h3 { margin: 1.5rem 0 .75rem; font-size: 1.65rem; }
-.difference-grid p { margin: 0; font-size: .9rem; line-height: 1.65; }
+.difference-grid p { margin: 0; font-size: max(var(--text-min), .9rem); line-height: 1.65; }
 .compact-heading { align-items: start; }
 .offer-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
 .offer-card { display: flex; min-height: 500px; flex-direction: column; border: 1px solid var(--line); padding: clamp(1.4rem,3vw,2.3rem); background: rgba(255,255,255,.6); }
@@ -146,22 +157,22 @@ p { color: var(--muted); }
 .offer-card .text-link { align-self: flex-start; }
 .process-section { padding: clamp(5rem,10vw,9rem) 0; }
 .process-grid { display: grid; grid-template-columns: minmax(0,.75fr) minmax(420px,.9fr); gap: clamp(3rem,10vw,9rem); align-items: start; }
-.process-grid h2 { max-width: 10ch; margin: 0; }
+.process-grid h2 { max-width: var(--measure-heading); margin: 0; }
 .process-grid ol { margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
 .process-grid li { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; border-bottom: 1px solid var(--line); padding: 1.5rem 0; }
 .process-grid li > span { color: var(--muted); font-size: .68rem; font-weight: 800; }
 .process-grid h3 { margin: 0 0 .45rem; font-size: 1.65rem; }
-.process-grid p { margin: 0; font-size: .9rem; line-height: 1.65; }
+.process-grid p { margin: 0; font-size: max(var(--text-min), .9rem); line-height: 1.65; }
 
 /* Callout and footer */
 .closing-callout { padding: clamp(4.5rem,9vw,8rem) 0; background: var(--forest); color: var(--white); }
 .callout-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(320px,.55fr); gap: clamp(3rem,9vw,9rem); align-items: end; }
-.callout-grid h2 { max-width: 11ch; margin: 0; color: white; }
+.callout-grid h2 { max-width: var(--measure-heading); margin: 0; color: white; }
 .callout-grid p:not(.eyebrow) { color: rgba(255,255,255,.72); line-height: 1.75; }
 .site-footer { padding: 4rem 0 2rem; background: #d6ded7; }
 .footer-main { display: grid; grid-template-columns: 1.3fr .5fr .7fr; gap: 4rem; }
 .footer-intro { max-width: 410px; }
-.footer-intro p { margin: 1.7rem 0; font-size: .9rem; line-height: 1.7; }
+.footer-intro p { margin: 1.7rem 0; font-size: max(var(--text-min), .9rem); line-height: 1.7; }
 .footer-main > div:not(.footer-intro) { display: flex; flex-direction: column; align-items: flex-start; gap: .55rem; font-size: .78rem; }
 .footer-main > div span { color: var(--muted); }
 .footer-label { margin-bottom: .7rem; }
@@ -174,7 +185,7 @@ p { color: var(--muted); }
   .home-hero-copy { max-width: 760px; }
   .hero-stack { width: min(720px,100%); min-height: 540px; margin-inline: auto; }
   .split-heading, .not-template-grid, .process-grid, .callout-grid { grid-template-columns: 1fr; }
-  .split-heading h2, .not-template-grid h2, .process-grid h2 { max-width: 13ch; }
+  .split-heading h2, .not-template-grid h2, .process-grid h2 { max-width: var(--measure-heading); }
   .section-heading-row { grid-template-columns: 1fr; gap: 1.5rem; }
   .section-heading-row > div:last-child { max-width: 550px; }
   .offer-grid { grid-template-columns: 1fr; }
@@ -190,7 +201,10 @@ p { color: var(--muted); }
   h1 { font-size: clamp(3.25rem,15vw,5rem); }
   h2 { font-size: clamp(2.55rem,12vw,4rem); }
   .header-inner { min-height: 68px; }
-  .site-header nav > a:not(.nav-cta) { display: none; }
+  /* Hide the inline navigation links, never the brand link: the wordmark is
+     a direct child of `nav` in this site's header markup, so the original
+     `nav > a:not(.nav-cta)` also hid the only way back to the home page. */
+  .site-header nav > a:not(.nav-cta):not(.nav__brand) { display: none; }
   .nav-cta { min-height: 40px; font-size: .72rem; }
   .home-hero { padding-top: 3.5rem; }
   .hero-stack { min-height: 380px; }
@@ -218,7 +232,7 @@ p { color: var(--muted); }
 /* Shared interior pages */
 .page-hero { padding: clamp(4rem, 8vw, 8rem) 0; }
 .page-hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(340px, .55fr); gap: clamp(3rem, 9vw, 9rem); align-items: end; }
-.page-hero h1 { max-width: 10ch; margin: 0; }
+.page-hero h1 { max-width: var(--measure-display); margin: 0; }
 .page-hero .hero-lead { margin-bottom: 1.2rem; }
 .page-hero-note { border-left: 1px solid var(--line); padding-left: 1rem; font-size: .78rem; line-height: 1.65; }
 
@@ -238,13 +252,13 @@ p { color: var(--muted); }
 .no-results h2 { margin-bottom: 1rem; }
 .choice-guide { padding: clamp(5rem, 10vw, 9rem) 0; }
 .choice-guide-grid { display: grid; grid-template-columns: minmax(0,.9fr) minmax(340px,.6fr); gap: clamp(3rem,9vw,9rem); }
-.choice-guide h2 { max-width: 10ch; margin: 0; }
+.choice-guide h2 { max-width: var(--measure-heading); margin: 0; }
 
 /* Design detail */
 .design-detail-hero { padding: 2rem 0 clamp(5rem, 9vw, 8rem); }
 .back-link { display: inline-block; margin-bottom: 3.5rem; border-bottom: 1px solid var(--line); padding-bottom: .2rem; color: var(--muted); font-size: .74rem; font-weight: 750; }
 .design-detail-heading { display: grid; grid-template-columns: minmax(0,1fr) minmax(300px,.45fr); gap: 4rem; align-items: end; }
-.design-detail-heading h1 { max-width: 11ch; margin: 0 0 1.4rem; }
+.design-detail-heading h1 { max-width: var(--measure-display); margin: 0 0 1.4rem; }
 .design-detail-heading dl { margin: 0; border-top: 1px solid var(--line); }
 .design-detail-heading dl div { border-bottom: 1px solid var(--line); padding: 1rem 0; }
 .design-detail-heading dt { color: var(--muted); font-size: .65rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
@@ -255,7 +269,7 @@ p { color: var(--muted); }
 .detail-canvas .mini-hero .mini-title { font-size: clamp(2rem,5vw,5.2rem); }
 .design-rationale { padding: clamp(5rem,10vw,9rem) 0; }
 .rationale-grid { display: grid; grid-template-columns: minmax(0,.9fr) minmax(340px,.65fr); gap: clamp(3rem,9vw,9rem); }
-.rationale-grid h2 { max-width: 10ch; margin: 0; }
+.rationale-grid h2 { max-width: var(--measure-heading); margin: 0; }
 .rationale-grid > div:last-child > p { line-height: 1.76; }
 .palette { display: grid; grid-template-columns: repeat(4,1fr); height: 110px; margin-top: 2.5rem; }
 .palette span { display: flex; align-items: end; padding: .55rem; }
@@ -270,7 +284,7 @@ p { color: var(--muted); }
 .live-note { padding: 3rem 0; }
 .live-note-inner { display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; border: 1px solid var(--line); padding: clamp(2rem,5vw,4rem); background: var(--white); }
 .live-note h2 { margin: 0 0 1rem; font-size: clamp(2.4rem,4vw,4rem); }
-.live-note p:not(.eyebrow) { max-width: 60ch; margin-bottom: 0; }
+.live-note p:not(.eyebrow) { max-width: var(--measure-prose-wide); margin-bottom: 0; }
 .related-section { padding: clamp(5rem,10vw,9rem) 0; }
 .related-section > .shell > .eyebrow { margin-bottom: 3rem; }
 
@@ -283,7 +297,7 @@ p { color: var(--muted); }
 .service-detail { scroll-margin-top: 100px; padding: clamp(4rem,8vw,8rem) 0; border-bottom: 1px solid var(--line); }
 .service-detail:last-child { border-bottom: 0; }
 .service-detail-head { display: grid; grid-template-columns: minmax(0,1fr) minmax(360px,.55fr); gap: clamp(3rem,8vw,8rem); align-items: start; }
-.service-detail h2 { max-width: 10ch; margin: 0; }
+.service-detail h2 { max-width: var(--measure-heading); margin: 0; }
 .service-price { margin: 1rem 0 0; color: var(--ink); font-family: var(--serif); font-size: clamp(3rem,5vw,5.8rem); letter-spacing: -.07em; }
 .service-promise { color: var(--ink); font-family: var(--serif); font-size: clamp(1.5rem,2.4vw,2.2rem); letter-spacing: -.03em; line-height: 1.25; }
 .service-detail-head .button { margin-top: 1rem; }
@@ -293,7 +307,7 @@ p { color: var(--muted); }
 .service-scope-grid > div:last-child { border-right: 0; }
 .service-scope-grid h3 { font-size: 1.6rem; }
 .service-scope-grid ul, .legal-content ul { margin: 0; padding: 0; list-style: none; }
-.service-scope-grid li, .legal-content li { position: relative; border-top: 1px solid var(--line); padding: .85rem 0 .85rem 1.1rem; color: var(--muted); font-size: .86rem; line-height: 1.55; }
+.service-scope-grid li, .legal-content li { position: relative; border-top: 1px solid var(--line); padding: .85rem 0 .85rem 1.1rem; color: var(--muted); font-size: max(var(--text-min), .86rem); line-height: 1.55; }
 .service-scope-grid li::before, .legal-content li::before { content: "—"; position: absolute; left: 0; color: var(--ink); }
 .comparison-section { padding: clamp(5rem,10vw,9rem) 0; }
 .comparison-table { border-top: 1px solid var(--ink); }
@@ -304,18 +318,18 @@ p { color: var(--muted); }
 .comparison-head span { color: var(--ink); font-size: .65rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
 .revision-section { padding: clamp(5rem,10vw,9rem) 0; }
 .revision-grid, .care-grid { display: grid; grid-template-columns: minmax(0,.9fr) minmax(340px,.58fr); gap: clamp(3rem,9vw,9rem); }
-.revision-grid h2, .care-grid h2 { max-width: 10ch; margin: 0; }
+.revision-grid h2, .care-grid h2 { max-width: var(--measure-heading); margin: 0; }
 .revision-grid p { line-height: 1.76; }
 .revision-grid strong { display: block; margin-top: 2rem; border-left: 3px solid var(--accent); padding-left: 1rem; font-family: var(--serif); font-size: 1.25rem; font-weight: 400; }
 .care-section { padding: clamp(5rem,10vw,9rem) 0; }
 .care-card { border: 1px solid var(--line); padding: clamp(2rem,4vw,3rem); background: var(--white); }
 .care-card > span { font-size: .66rem; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
-.care-card h3 { margin: 1.7rem 0; font-size: clamp(2rem,3vw,3.25rem); line-height: 1.05; }
+.care-card h3 { margin: 1.7rem 0; font-size: clamp(2rem,3vw,3.25rem); }
 .care-card p { margin: 0; }
 
 /* About */
 .about-hero-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(340px,.48fr); gap: clamp(3rem,9vw,9rem); align-items: center; }
-.about-hero h1 { max-width: 11ch; margin: 0 0 1.5rem; font-size: clamp(3.4rem,6.5vw,6.8rem); }
+.about-hero h1 { max-width: var(--measure-display); margin: 0 0 1.5rem; font-size: clamp(3.4rem,6.5vw,6.8rem); }
 .about-portrait { position: relative; display: flex; min-height: 520px; flex-direction: column; justify-content: space-between; overflow: hidden; border-radius: 48% 48% 4px 4px; padding: 2rem; background: linear-gradient(145deg,#cbd4cc,#6f7c73); color: white; }
 .about-portrait::before { content: ""; position: absolute; width: 80%; aspect-ratio: 1; right: -25%; top: 15%; border: 1px solid rgba(255,255,255,.45); border-radius: 50%; }
 .about-portrait::after { content: ""; position: absolute; width: 65%; aspect-ratio: .76; bottom: -20%; left: 15%; border-radius: 48% 48% 0 0; background: var(--forest); }
@@ -324,16 +338,16 @@ p { color: var(--muted); }
 .about-portrait small { color: rgba(255,255,255,.7); font-size: .65rem; letter-spacing: .08em; text-transform: uppercase; }
 .strength-section, .beliefs-section, .two-lenses, .working-style, .background-note { padding: clamp(5rem,10vw,9rem) 0; }
 .strength-grid { display: grid; grid-template-columns: minmax(0,.9fr) minmax(340px,.6fr); gap: clamp(3rem,9vw,9rem); }
-.strength-grid h2 { max-width: 10ch; margin: 0; }
+.strength-grid h2 { max-width: var(--measure-heading); margin: 0; }
 .strength-grid p { line-height: 1.76; }
-.strength-grid blockquote { margin: 2.5rem 0 0; border-left: 1px solid var(--forest); padding-left: 1.5rem; color: var(--ink); font-family: var(--serif); font-size: 1.5rem; line-height: 1.3; }
+.strength-grid blockquote { margin: 2.5rem 0 0; border-left: 1px solid var(--forest); padding-left: 1.5rem; font-family: var(--serif); font-size: 1.5rem; line-height: 1.3; }
 .belief-grid { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--line); }
 .belief-grid article { min-height: 300px; border-right: 1px solid var(--line); padding: 1.5rem; }
 .belief-grid article:first-child { padding-left: 0; }
 .belief-grid article:last-child { border: 0; }
 .belief-grid span { font-size: .66rem; font-weight: 800; }
 .belief-grid h3 { margin: 4rem 0 1rem; font-size: 1.6rem; }
-.belief-grid p { margin: 0; font-size: .88rem; }
+.belief-grid p { margin: 0; font-size: max(var(--text-min), .88rem); }
 .two-lenses-grid { display: grid; grid-template-columns: repeat(2,1fr); }
 .lens-card { min-height: 530px; padding: clamp(2rem,5vw,5rem); background: var(--white); }
 .lens-card h2 { margin: 0 0 2rem; font-size: clamp(2.6rem,4.5vw,4.7rem); }
@@ -342,29 +356,29 @@ p { color: var(--muted); }
 .lens-card-dark h2 { color: white; }
 .lens-card-dark p:last-child { color: rgba(255,255,255,.7); }
 .working-style-grid { display: grid; grid-template-columns: minmax(0,.7fr) minmax(390px,.8fr); gap: clamp(3rem,9vw,9rem); }
-.working-style h2 { max-width: 10ch; margin: 0 0 1.5rem; }
+.working-style h2 { max-width: var(--measure-heading); margin: 0 0 1.5rem; }
 .working-style dl { margin: 0; border-top: 1px solid var(--line); }
 .working-style dl div { display: grid; grid-template-columns: 130px 1fr; gap: 2rem; border-bottom: 1px solid var(--line); padding: 1.3rem 0; }
 .working-style dt { color: var(--ink); font-weight: 750; }
 .working-style dd { margin: 0; color: var(--muted); }
-.background-grid { display: grid; grid-template-columns: .55fr 1.2fr; gap: 4rem; }
+.background-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 4rem; }
 .background-grid h2 { margin: 0; }
 .fact-grid { display: grid; grid-template-columns: repeat(2,1fr); border-top: 1px solid var(--line); }
 .fact-grid article { min-height: 180px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1.5rem; }
 .fact-grid article:nth-child(even) { border-right: 0; }
 .fact-grid strong { font-family: var(--serif); font-size: 1.25rem; font-weight: 400; }
-.fact-grid p { margin: 1rem 0 0; font-size: .85rem; }
+.fact-grid p { margin: 1rem 0 0; font-size: max(var(--text-min), .85rem); }
 
 /* Contact */
 .contact-page { padding: clamp(4rem,8vw,8rem) 0; }
 .contact-grid { display: grid; grid-template-columns: minmax(0,.72fr) minmax(440px,.72fr); gap: clamp(3rem,9vw,9rem); align-items: start; }
 .contact-copy { position: sticky; top: 120px; }
-.contact-copy > h1 { max-width: 8ch; margin: 0 0 1.5rem; }
+.contact-copy > h1 { max-width: var(--measure-display); margin: 0 0 1.5rem; }
 .contact-facts { display: grid; margin: 3rem 0; border-top: 1px solid var(--line); }
-.contact-facts article { display: grid; grid-template-columns: 2rem 150px 1fr; gap: 1rem; align-items: start; border-bottom: 1px solid var(--line); padding: 1.2rem 0; }
+.contact-facts article { display: grid; grid-template-columns: 2rem minmax(10rem, 16rem) 1fr; gap: 1rem; align-items: start; border-bottom: 1px solid var(--line); padding: 1.2rem 0; }
 .contact-facts span { color: var(--muted); font-size: .66rem; font-weight: 800; }
-.contact-facts h2 { margin: 0; font-size: 1.2rem; line-height: 1.2; }
-.contact-facts p { margin: 0; font-size: .82rem; }
+.contact-facts h2 { margin: 0; font-size: 1.2rem; }
+.contact-facts p { margin: 0; font-size: max(var(--text-min), .82rem); }
 .direct-email { display: grid; gap: .35rem; }
 .direct-email .eyebrow { margin: 0; }
 .direct-email a { justify-self: start; border-bottom: 1px solid currentColor; font-family: var(--serif); font-size: 1.25rem; }
@@ -372,7 +386,7 @@ p { color: var(--muted); }
 .contact-form { display: grid; gap: 1.2rem; border: 1px solid var(--line); padding: clamp(1.5rem,4vw,3rem); background: var(--white); }
 .form-heading { margin-bottom: 1rem; }
 .form-heading h2 { margin: 0 0 1rem; font-size: clamp(2.3rem,4vw,4rem); }
-.form-heading p:last-child { font-size: .82rem; }
+.form-heading p:last-child { font-size: max(var(--text-min), .82rem); }
 .contact-form label { display: grid; gap: .45rem; }
 .field-row { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; }
 .contact-form textarea { resize: vertical; }
@@ -380,12 +394,12 @@ p { color: var(--muted); }
 .form-status { margin: 0; border-left: 2px solid var(--accent); padding-left: 1rem; font-size: .82rem; }
 .before-contact { padding: clamp(5rem,10vw,9rem) 0; }
 .before-contact > .shell > div:first-child { display: grid; grid-template-columns: .45fr 1fr; gap: 4rem; align-items: start; }
-.before-contact h2 { max-width: 10ch; margin: 0; }
+.before-contact h2 { max-width: var(--measure-heading); margin: 0; }
 .before-grid { display: grid; grid-template-columns: repeat(2,1fr); margin: 4rem 0 2rem; border-top: 1px solid var(--line); }
 .before-grid article { padding: 1.7rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .before-grid article:nth-child(even) { border-right: 0; }
 .before-grid h3 { font-size: 1.4rem; }
-.before-grid p { margin: 0; font-size: .86rem; }
+.before-grid p { margin: 0; font-size: max(var(--text-min), .86rem); }
 
 /* Legal */
 .legal-page { padding: clamp(4rem,8vw,8rem) 0; }
@@ -452,13 +466,13 @@ p { color: var(--muted); }
 /* Price panel ------------------------------------------------- */
 .price-panel { padding: clamp(3.5rem,7vw,6rem) 0; border-bottom: 1px solid var(--line); }
 .price-grid { display: grid; grid-template-columns: minmax(0,.9fr) minmax(340px,.6fr); gap: clamp(3rem,9vw,8rem); align-items: start; }
-.price-grid h2 { max-width: 13ch; margin: 0; }
+.price-grid h2 { max-width: var(--measure-heading); margin: 0; }
 .price-grid p { line-height: 1.76; }
-.price-caveat { border-top: 1px solid var(--line); padding-top: 1.1rem; font-size: .85rem; }
+.price-caveat { border-top: 1px solid var(--line); padding-top: 1.1rem; font-size: max(var(--text-min), .85rem); }
 .price-caveat a, .scope-note a, .care-alt a { border-bottom: 1px solid currentColor; color: var(--forest); font-weight: 650; }
 
 /* Scope columns ----------------------------------------------- */
-.scope-note { margin: 1.4rem 0 0; color: var(--muted); font-size: .8rem; line-height: 1.6; }
+.scope-note { margin: 1.4rem 0 0; color: var(--muted); font-size: max(var(--text-min), .8rem); line-height: 1.6; }
 
 /* Responsibilities and ownership ------------------------------- */
 .responsibility-section, .ownership-section, .additional-section, .cancellation-section, .checkout-section, .thankyou-truth, .thankyou-next, .thankyou-reply, .thankyou-problem, .questionnaire-section { padding: clamp(4rem,8vw,7rem) 0; }
@@ -468,22 +482,22 @@ p { color: var(--muted); }
 .responsibility-grid > article:last-child, .ownership-grid > article:last-child, .truth-grid > article:last-child { border-right: 0; }
 .responsibility-grid h3, .ownership-grid h3, .truth-grid h3 { font-size: 1.5rem; }
 .responsibility-grid ul, .truth-grid ul { margin: 0; padding: 0; list-style: none; }
-.responsibility-grid li, .truth-grid li { position: relative; border-top: 1px solid var(--line); padding: .8rem 0 .8rem 1.1rem; color: var(--muted); font-size: .85rem; line-height: 1.55; }
+.responsibility-grid li, .truth-grid li { position: relative; border-top: 1px solid var(--line); padding: .8rem 0 .8rem 1.1rem; color: var(--muted); font-size: max(var(--text-min), .85rem); line-height: 1.55; }
 .responsibility-grid li::before, .truth-grid li::before { content: "—"; position: absolute; left: 0; color: var(--ink); }
-.ownership-grid p, .truth-grid p { font-size: .88rem; line-height: 1.7; }
+.ownership-grid p, .truth-grid p { font-size: max(var(--text-min), .88rem); line-height: 1.7; }
 
 /* After launch ------------------------------------------------- */
 .care-lead { margin-top: 1.5rem; max-width: 46ch; line-height: 1.75; }
-.care-alt { margin-top: 1.1rem; border-top: 1px solid var(--line); padding-top: 1.1rem; font-size: .85rem; }
+.care-alt { margin-top: 1.1rem; border-top: 1px solid var(--line); padding-top: 1.1rem; font-size: max(var(--text-min), .85rem); }
 .process-lead { margin-top: 1.5rem; max-width: 34ch; line-height: 1.75; }
 
 /* Checkout ----------------------------------------------------- */
 .checkout-section { scroll-margin-top: 100px; }
 .checkout-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(340px,.62fr); gap: clamp(3rem,8vw,7rem); align-items: start; }
-.checkout-copy h2 { max-width: 13ch; margin: 0 0 1.5rem; }
+.checkout-copy h2 { max-width: var(--measure-heading); margin: 0 0 1.5rem; }
 .checkout-copy a { border-bottom: 1px solid currentColor; color: var(--forest); font-weight: 650; }
 .checkout-list { margin: 1.75rem 0 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
-.checkout-list li { position: relative; border-bottom: 1px solid var(--line); padding: .8rem 0 .8rem 1.1rem; color: var(--muted); font-size: .86rem; }
+.checkout-list li { position: relative; border-bottom: 1px solid var(--line); padding: .8rem 0 .8rem 1.1rem; color: var(--muted); font-size: max(var(--text-min), .86rem); }
 .checkout-list li::before { content: "—"; position: absolute; left: 0; color: var(--ink); }
 .checkout-action { border: 1px solid var(--line); padding: clamp(1.75rem,4vw,2.75rem); background: var(--white); }
 .checkout-action .buy-block { margin-top: 0; }
@@ -491,17 +505,17 @@ p { color: var(--muted); }
 .checkout-links a { border-bottom: 1px solid currentColor; color: var(--forest); }
 
 /* Post-payment page -------------------------------------------- */
-.thankyou-hero h1 { max-width: 16ch; }
+.thankyou-hero h1 { max-width: var(--measure-display); }
 .next-grid { display: grid; grid-template-columns: minmax(0,.55fr) minmax(340px,1fr); gap: clamp(2.5rem,7vw,6rem); align-items: start; }
 .next-action { display: grid; justify-items: start; gap: 1rem; }
 .next-materials h3 { margin: 0 0 1.25rem; font-size: 1.55rem; }
 .next-materials ul { margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
-.next-materials li { border-bottom: 1px solid var(--line); padding: .85rem 0; color: var(--muted); font-size: .88rem; line-height: 1.6; }
+.next-materials li { border-bottom: 1px solid var(--line); padding: .85rem 0; color: var(--muted); font-size: max(var(--text-min), .88rem); line-height: 1.6; }
 .next-materials strong { color: var(--ink); }
 .contact-route { margin: 1.25rem 0; font-family: var(--serif); font-size: clamp(1.35rem,2.4vw,1.9rem); }
 .contact-route a { border-bottom: 1px solid currentColor; color: var(--forest); }
 .thankyou-disclaimer { padding: clamp(3rem,6vw,4.5rem) 0; }
-.disclaimer-note { max-width: 62ch; margin: 0 auto; border: 1px solid var(--line); border-left: 4px solid var(--accent); padding: 1.4rem 1.6rem; background: var(--white); font-size: .88rem; line-height: 1.7; }
+.disclaimer-note { max-width: var(--measure-prose-wide); margin: 0 auto; border: 1px solid var(--line); border-left: 4px solid var(--accent); padding: 1.4rem 1.6rem; background: var(--white); font-size: max(var(--text-min), .88rem); line-height: 1.7; }
 .disclaimer-note strong { color: var(--ink); }
 .disclaimer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem; margin: 1.5rem 0 0; font-size: .78rem; font-weight: 700; }
 .disclaimer-links a { border-bottom: 1px solid currentColor; color: var(--forest); }
@@ -512,7 +526,7 @@ p { color: var(--muted); }
 .questionnaire-form fieldset:first-of-type { border-top: 0; padding-top: 0; }
 .questionnaire-form legend { padding: 0 0 1rem; color: var(--forest); font-size: .69rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .questionnaire-form label { margin-bottom: 1.1rem; }
-.field-help { margin: 0 0 1rem; font-size: .8rem; line-height: 1.6; }
+.field-help { margin: 0 0 1rem; font-size: max(var(--text-min), .8rem); line-height: 1.6; }
 .questionnaire-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
 .form-errors { border-left: 3px solid #a63b21; padding: .25rem 0 .25rem 1rem; color: #7a2c18; font-size: .85rem; }
 .form-errors ul { margin: .5rem 0 0; padding-left: 1.1rem; }
@@ -527,7 +541,7 @@ p { color: var(--muted); }
 
 @media (max-width: 980px) {
   .price-grid, .checkout-grid, .next-grid, .questionnaire-grid { grid-template-columns: 1fr; }
-  .price-grid h2, .checkout-copy h2 { max-width: 15ch; }
+  .price-grid h2, .checkout-copy h2 { max-width: var(--measure-heading); }
   .responsibility-grid, .ownership-grid, .truth-grid { grid-template-columns: 1fr; }
   .responsibility-grid > article, .responsibility-grid > article + article,
   .ownership-grid > article, .ownership-grid > article + article,
@@ -549,7 +563,7 @@ p { color: var(--muted); }
 /* Service route actions --------------------------------------- */
 .service-actions, .offer-actions { display: flex; flex-wrap: wrap; gap: .85rem 1.25rem; align-items: center; margin-top: 1.25rem; }
 .service-price-note { margin: .5rem 0 0; font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
-.service-sequence { margin-top: 1.1rem; border-left: 3px solid var(--accent); padding-left: 1rem; font-size: .88rem; line-height: 1.7; }
+.service-sequence { margin-top: 1.1rem; border-left: 3px solid var(--accent); padding-left: 1rem; font-size: max(var(--text-min), .88rem); line-height: 1.7; }
 .text-link-light { color: rgba(255,255,255,.85); }
 .text-link-light:hover { color: #fff; }
 
@@ -598,20 +612,11 @@ p { color: var(--muted); }
       blanket rule is logged in OPEN_DECISIONS.md.
    ========================================================= */
 
-:root {
-  /* Shared measure for display and section headings. */
-  --measure-display: 13ch;
-  --measure-heading: 14ch;
-  --measure-prose: 62ch;
-}
-
-@media (max-width: 980px) {
-  :root { --measure-display: 15ch; --measure-heading: 16ch; }
-}
-
-@media (max-width: 560px) {
-  :root { --measure-display: 18ch; --measure-heading: 19ch; }
-}
+/* The measure tokens are declared once, in visual-system.css, and shared with
+   the acw- pages. The narrower values that used to sit here (13ch display,
+   14ch heading) were the reason ordinary headings such as "Different
+   practices need different rooms." set three lines with "Different" alone on
+   the first: a 13ch column cannot hold two words of display type. */
 
 /* 1. Responsive display scale — rem+vw so it also scales under zoom. */
 .catalogue-refresh h1 { font-size: clamp(2.6rem, 5.93vw + 1.41rem, 7.7rem); }
@@ -708,7 +713,6 @@ p { color: var(--muted); }
 /* 5. Contact facts read as a definition table, not as display headings. */
 .catalogue-refresh .contact-facts h2 {
   font-size: clamp(1.32rem, 0.35vw + 1.2rem, 1.5rem);
-  line-height: 1.22;
 }
 
 /* 6. Card alignment. The previous min-height values only aligned
@@ -736,11 +740,11 @@ p { color: var(--muted); }
 
 /* 8. Purchase-journey and questionnaire specifics. */
 .catalogue-refresh .buy-block { display: flex; flex-direction: column; gap: 1rem; align-items: flex-start; }
-.catalogue-refresh .buy-terms { max-width: var(--measure-prose); margin: 0; font-size: .92rem; line-height: 1.65; }
+.catalogue-refresh .buy-terms { max-width: var(--measure-prose); margin: 0; font-size: max(var(--text-min), .92rem); line-height: 1.65; }
 .catalogue-refresh .buy-unavailable { border-left: 3px solid var(--accent); padding-left: 1rem; }
 .catalogue-refresh .buy-action.is-unavailable { background: #4a544f; cursor: not-allowed; opacity: 1; }
 .catalogue-refresh .buy-action.is-unavailable:hover { transform: none; }
-.catalogue-refresh .buy-small { max-width: var(--measure-prose); margin: 0; color: var(--muted); font-size: .82rem; line-height: 1.6; }
+.catalogue-refresh .buy-small { max-width: var(--measure-prose); margin: 0; color: var(--muted); font-size: max(var(--text-min), .82rem); line-height: 1.6; }
 .catalogue-refresh .form-errors { border-left: 3px solid #9c3b28; padding: .9rem 1rem; background: rgba(156,59,40,.06); color: #7d2f20; }
 .catalogue-refresh .form-errors ul { margin: .5rem 0 0; padding-left: 1.2rem; }
 
@@ -787,13 +791,13 @@ p { color: var(--muted); }
 .catalogue-refresh .questionnaire-warning p {
   margin: 0;
   color: var(--ink);
-  font-size: .92rem;
+  font-size: max(var(--text-min), .92rem);
   line-height: 1.6;
 }
 
 .catalogue-refresh .questionnaire-form label.check {
   display: grid;
-  grid-template-columns: 1.35rem 1fr;
+  grid-template-columns: var(--tap-min) 1fr;
   gap: .7rem;
   align-items: start;
   margin-bottom: .9rem;
@@ -802,9 +806,10 @@ p { color: var(--muted); }
 }
 
 .catalogue-refresh .questionnaire-form label.check input {
-  width: 1.15rem;
-  height: 1.15rem;
-  margin-top: .18rem;
+  /* WCAG 2.2 target size — the checkbox was 18x18. */
+  width: var(--tap-min);
+  height: var(--tap-min);
+  margin-top: 0;
   accent-color: var(--forest);
 }
 
@@ -816,7 +821,7 @@ p { color: var(--muted); }
 .catalogue-refresh .field-help {
   max-width: var(--measure-prose);
   color: var(--muted);
-  font-size: .88rem;
+  font-size: max(var(--text-min), .88rem);
   line-height: 1.6;
 }
 
@@ -838,4 +843,254 @@ p { color: var(--muted); }
   color: var(--forest);
   font: inherit;
   font-weight: 650;
+}
+
+/* =========================================================
+   RESPONSIVE REFINEMENT — AUGUST 2026
+   -------------------------------------------------------
+   Three things, all systemic rather than per-screen:
+
+   1. Display type is capped by the width of the column it
+      sits in, so a heading can never be set so large that
+      its column strands single words. The cap is expressed
+      in container units, which is the only unit that knows
+      how wide the column actually is.
+   2. Multi-column blocks reflow intrinsically instead of at
+      hand-placed breakpoints, so no column is ever squeezed
+      below the width its content needs.
+   3. Card heights come from the grid rather than from
+      hand-tuned `min-height` values.
+   ========================================================= */
+
+/* 1. DISPLAY COLUMNS --------------------------------------------------------
+   The cap is a share of the container's inline size. Instrument Serif sets
+   about 1.84 characters per unit of (containerWidth / fontSize), so a cap of
+   14.2cqi holds ~13 characters a line, 12.3cqi holds ~15 and 10.2cqi ~18.
+
+   Where the heading sits inside its own wrapper the wrapper is the container
+   and the cap is stated directly. Where the heading is a direct child of the
+   grid, the grid is the container and the cap is scaled by that column's
+   share of the grid — reset to the full share once the grid has stacked. */
+
+.catalogue-refresh .home-hero-copy,
+.catalogue-refresh .about-hero-grid > div:first-child,
+.catalogue-refresh .contact-copy,
+.catalogue-refresh .page-hero-grid > div:first-child,
+.catalogue-refresh .design-detail-heading > div:first-child,
+.catalogue-refresh .section-heading-row > div:first-child,
+.catalogue-refresh .service-detail-head > div:first-child,
+.catalogue-refresh .lens-card,
+.catalogue-refresh .care-card,
+.catalogue-refresh .offer-card,
+.catalogue-refresh .project-meta,
+.catalogue-refresh .difference-grid article,
+.catalogue-refresh .belief-grid article,
+.catalogue-refresh .adapt-grid article,
+.catalogue-refresh .before-grid article,
+.catalogue-refresh .service-scope-grid > div,
+.catalogue-refresh .form-heading,
+.catalogue-refresh .live-note-inner > div:first-child {
+  container-type: inline-size;
+}
+
+.catalogue-refresh .home-hero-copy h1,
+.catalogue-refresh .about-hero-grid > div:first-child h1,
+.catalogue-refresh .contact-copy > h1,
+.catalogue-refresh .page-hero-grid > div:first-child h1,
+.catalogue-refresh .design-detail-heading > div:first-child h1 {
+  font-size: min(clamp(2.6rem, 5.93vw + 1.41rem, 7.7rem), 12cqi);
+}
+
+.catalogue-refresh .section-heading-row > div:first-child h2,
+.catalogue-refresh .service-detail-head > div:first-child h2,
+.catalogue-refresh .lens-card h2,
+.catalogue-refresh .form-heading h2,
+.catalogue-refresh .live-note-inner > div:first-child h2 {
+  font-size: min(clamp(2rem, 4.79vw + 1.04rem, 5.35rem), 10cqi);
+}
+
+.catalogue-refresh .offer-card h3,
+.catalogue-refresh .project-meta h3,
+.catalogue-refresh .care-card h3,
+.catalogue-refresh .difference-grid h3,
+.catalogue-refresh .belief-grid h3,
+.catalogue-refresh .adapt-grid h3,
+.catalogue-refresh .before-grid h3,
+.catalogue-refresh .service-scope-grid h3 {
+  font-size: min(clamp(1.4rem, 1.5vw + 1.1rem, 2.45rem), 9.5cqi);
+}
+
+/* Split grids: the heading is a direct grid child, so the grid is the
+   container and the cap is that track's share of it (~0.55). */
+.catalogue-refresh .split-heading,
+.catalogue-refresh .not-template-grid,
+.catalogue-refresh .process-grid,
+.catalogue-refresh .callout-grid,
+.catalogue-refresh .rationale-grid,
+.catalogue-refresh .revision-grid,
+.catalogue-refresh .care-grid,
+.catalogue-refresh .strength-grid,
+.catalogue-refresh .working-style-grid,
+.catalogue-refresh .choice-guide-grid,
+.catalogue-refresh .service-detail-head,
+.catalogue-refresh .background-grid,
+.catalogue-refresh .before-contact > .shell > div:first-child {
+  container-type: inline-size;
+}
+
+.catalogue-refresh .split-heading h2,
+.catalogue-refresh .not-template-grid h2,
+.catalogue-refresh .process-grid h2,
+.catalogue-refresh .callout-grid h2,
+.catalogue-refresh .rationale-grid h2,
+.catalogue-refresh .revision-grid h2,
+.catalogue-refresh .care-grid h2,
+.catalogue-refresh .strength-grid h2,
+.catalogue-refresh .working-style-grid h2,
+.catalogue-refresh .choice-guide-grid h2,
+.catalogue-refresh .service-detail-head h2,
+.catalogue-refresh .background-grid h2,
+.catalogue-refresh .before-contact > .shell > div:first-child h2 {
+  font-size: min(clamp(2rem, 4.79vw + 1.04rem, 5.35rem), 4.8cqi);
+}
+
+@container (width < 62rem) {
+  .catalogue-refresh .split-heading h2,
+  .catalogue-refresh .not-template-grid h2,
+  .catalogue-refresh .process-grid h2,
+  .catalogue-refresh .callout-grid h2,
+  .catalogue-refresh .rationale-grid h2,
+  .catalogue-refresh .revision-grid h2,
+  .catalogue-refresh .care-grid h2,
+  .catalogue-refresh .strength-grid h2,
+  .catalogue-refresh .working-style-grid h2,
+  .catalogue-refresh .choice-guide-grid h2,
+  .catalogue-refresh .service-detail-head h2,
+  .catalogue-refresh .background-grid h2,
+  .catalogue-refresh .before-contact > .shell > div:first-child h2 {
+    font-size: min(clamp(2rem, 4.79vw + 1.04rem, 5.35rem), 10cqi);
+  }
+}
+
+/* 2. INTRINSIC MULTI-COLUMN BLOCKS -----------------------------------------
+   `repeat(auto-fit, minmax(min(100%, <the width this content needs>), 1fr))`
+   drops a column the moment the remaining ones would fall below that width,
+   at any viewport, with no breakpoint to keep in sync. `min(100%, …)` is what
+   stops the track floor from causing overflow at 320px. */
+.catalogue-refresh .quality-row {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 8.5rem), 1fr));
+}
+
+.catalogue-refresh .difference-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+}
+
+.catalogue-refresh .offer-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  align-items: stretch;
+}
+
+.catalogue-refresh .project-grid {
+  /* The collection is designed two-up. `auto-fit` alone cannot express "at
+     most two", and a floor high enough to prevent a third column at 1180
+     also dropped the grid to a single column at 1024 — so the floor keeps
+     the reflow honest below the desktop range, and the desktop range states
+     the two columns it was designed for. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr));
+}
+
+@media (min-width: 62rem) {
+  .catalogue-refresh .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.catalogue-refresh .service-scope-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+}
+
+.catalogue-refresh .belief-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+}
+
+.catalogue-refresh .two-lenses-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
+}
+
+.catalogue-refresh .adapt-grid,
+.catalogue-refresh .fact-grid,
+.catalogue-refresh .before-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+}
+
+.catalogue-refresh .field-row {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+}
+
+/* The split layouts keep their asymmetry, and now stack on the width of the
+   block rather than the width of the window — the same rule works wherever
+   the component is reused. */
+@container (width < 62rem) {
+  .catalogue-refresh .split-heading,
+  .catalogue-refresh .not-template-grid,
+  .catalogue-refresh .process-grid,
+  .catalogue-refresh .callout-grid,
+  .catalogue-refresh .rationale-grid,
+  .catalogue-refresh .revision-grid,
+  .catalogue-refresh .care-grid,
+  .catalogue-refresh .strength-grid,
+  .catalogue-refresh .working-style-grid,
+  .catalogue-refresh .choice-guide-grid,
+  .catalogue-refresh .service-detail-head,
+  .catalogue-refresh .background-grid,
+  .catalogue-refresh .before-contact > .shell > div:first-child {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 3. CARD HEIGHT ------------------------------------------------------------
+   The offer cards used `min-height: 500px` on the card and `min-height: 2em`
+   / `5em` on their heading and body to fake alignment. Grid stretch does it
+   properly, and the action stays pinned to the bottom on every card. */
+.catalogue-refresh .offer-card {
+  min-height: 0;
+  block-size: 100%;
+}
+
+.catalogue-refresh .offer-card h3,
+.catalogue-refresh .offer-card > p:not(.offer-price) {
+  min-height: 0;
+}
+
+.catalogue-refresh .lens-card,
+.catalogue-refresh .belief-grid article,
+.catalogue-refresh .adapt-grid article,
+.catalogue-refresh .fact-grid article {
+  min-height: 0;
+}
+
+/* 4. HERO HEIGHT ------------------------------------------------------------
+   The artwork column reserved 520px whether or not the screen had it, which
+   on a short laptop pushed the promise and the primary action below the
+   fold. It now reserves height only in proportion to its own width. */
+.catalogue-refresh .hero-stack {
+  min-height: 0;
+  aspect-ratio: 5 / 4;
+}
+
+@media (max-width: 980px) {
+  .catalogue-refresh .hero-stack {
+    aspect-ratio: 16 / 11;
+  }
+}
+
+/* 6. 200% ZOOM AND 320px ----------------------------------------------------
+   At 200% zoom on a phone the CSS viewport is under 200px. Nothing may push
+   the page sideways there either. */
+.catalogue-refresh .comparison-table {
+  overflow-x: auto;
+}
+
+.catalogue-refresh :is(.shell, .offer-card, .project-card, .lens-card, .care-card) {
+  min-inline-size: 0;
 }

@@ -1,0 +1,20 @@
+{
+  "name": "aw-responsive-qa",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Responsive + editorial-typography QA harness for the rendered _preview/ site.",
+  "scripts": {
+    "shots": "node shots.mjs",
+    "typography": "node typography.mjs",
+    "a11y": "node a11y.mjs",
+    "compare": "node compare.mjs",
+    "computed": "node computed-audit.mjs"
+  },
+  "dependencies": {
+    "axe-core": "^4.13.0",
+    "pixelmatch": "^5.3.0",
+    "playwright": "^1.49.0",
+    "pngjs": "^7.0.0"
+  }
+}

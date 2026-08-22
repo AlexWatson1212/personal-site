@@ -311,6 +311,8 @@ It is another expression of care.
     src="{{ '/assets/images/brand/inside-practice-clarity-blueprint.webp' | relative_url }}"
     alt="A restrained document layout using space and hierarchy to make information easier to follow."
     loading="lazy"
+    width="1024"
+    height="1024"
   >
 </figure>
 
@@ -574,6 +576,8 @@ That is simplicity in practice.
     src="{{ '/assets/images/brand/practice-to-website-journey.webp' | relative_url }}"
     alt="A simple sequence connecting practice strategy, website structure and the next client step."
     loading="lazy"
+    width="1456"
+    height="816"
   >
 </figure>
 
@@ -812,6 +816,8 @@ or is it simply unnecessary effort?"
     src="{{ '/assets/images/brand/website-strategy-mockup.webp' | relative_url }}"
     alt="A focused website wireframe with only the pages and actions needed for the client journey."
     loading="lazy"
+    width="1536"
+    height="1024"
   >
 </figure>
 

@@ -254,6 +254,8 @@ That was the point I stopped paying attention only to the words and started payi
     src="{{ '/assets/images/library/mirror-question.webp' | relative_url }}"
     alt="A therapist's notebook open beside coffee and handwritten notes in soft morning light."
     loading="lazy"
+    width="1586"
+    height="992"
   >
 </figure>
 
@@ -552,6 +554,8 @@ Everything that follows builds from there.
     src="{{ '/assets/images/library/mirror-understanding-diagram.webp' | relative_url }}"
     alt="A simple diagram showing understanding becoming clarity, communication, recognition, trust and enquiry."
     loading="lazy"
+    width="1586"
+    height="992"
   >
 </figure>
 

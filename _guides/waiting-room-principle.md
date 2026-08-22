@@ -233,6 +233,8 @@ And for understandable reasons, many therapists become uneasy.
     src="{{ '/assets/images/brand/practice-to-website-journey.webp' | relative_url }}"
     alt="The journey from practice strategy to an independent therapist website shown through working materials."
     loading="lazy"
+    width="1456"
+    height="816"
   >
 </figure>
 
@@ -729,6 +731,8 @@ Your website should too.
     src="{{ '/assets/images/brand/process-planning-board.webp' | relative_url }}"
     alt="Search intentions and discovery routes mapped through printed pages and working notes."
     loading="lazy"
+    width="1536"
+    height="1024"
   >
 </figure>
 

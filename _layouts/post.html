@@ -33,7 +33,7 @@ layout: default
 
           {% assign post_read_time = page.reading_time | default: page.read_time %}
           {% if page.date or post_read_time %}
-            <div class="acw-post-meta-row" aria-label="Article details">
+            <div class="acw-post-meta-row" role="group" aria-label="Article details">
               {% if page.date %}
                 <span>{{ page.date | date: "%-d %B %Y" }}</span>
               {% endif %}
@@ -123,7 +123,9 @@ layout: default
             alt="A printed Practice Clarity blueprint and working notes on the studio desk"
             loading="lazy"
             decoding="async"
-          >
+    width="1536"
+    height="1024"
+  >
         </figure>
       </div>
     </div>

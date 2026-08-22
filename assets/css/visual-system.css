@@ -693,7 +693,7 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
 }
 
 .footer-alternate-logo {
-  width: 132px;
+  width: min(132px, 100%);
   height: auto;
 }
 
@@ -851,21 +851,14 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
   }
 
   .site-content h1 {
-    max-width: 12ch;
-    font-size: clamp(2.65rem, 11vw, 3.25rem);
-    letter-spacing: -0.05em;
-    line-height: 0.98;
+    max-width: var(--measure-display);
+    font-size: min(clamp(2.65rem, 11vw, 3.25rem), 12cqi);
+
   }
 
   .site-content h2 {
-    font-size: clamp(2.15rem, 9vw, 2.9rem);
-    letter-spacing: -0.045em;
-    line-height: 1.02;
-  }
+    font-size: min(clamp(2.15rem, 9vw, 2.9rem), 10cqi);
 
-  .site-content h3 {
-    letter-spacing: -0.035em;
-    line-height: 1.14;
   }
 
   .acw-section-heading,
@@ -1027,7 +1020,7 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
   }
 
   .acw-work-decision h2 {
-    font-size: clamp(1.75rem, 7vw, 2.15rem);
+    font-size: min(clamp(1.75rem, 7vw, 2.15rem), 10cqi);
   }
 
   .acw-contact-page {
@@ -1053,7 +1046,7 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
   }
 
   .acw-contact-person p {
-    font-size: 0.9375rem;
+    font-size: max(var(--text-min), 0.9375rem);
     line-height: 1.5;
   }
 
@@ -1117,12 +1110,12 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
   }
 
   .acw-form-reassurance p {
-    font-size: 0.875rem;
+    font-size: max(var(--text-min), 0.875rem);
     line-height: 1.6;
   }
 
   .acw-service-page .acw-service-hero h1 {
-    font-size: clamp(2.65rem, 11vw, 3.3rem) !important;
+    font-size: min(clamp(2.65rem, 11vw, 3.3rem), 12cqi) !important;
   }
 
   .acw-service-page .acw-service-hero-grid {
@@ -1206,7 +1199,7 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
   }
 
   .footer-alternate-logo {
-    width: 116px;
+    width: min(116px, 100%);
   }
 
   .footer-description {
@@ -1332,22 +1325,21 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
    ========================================================= */
 
 .acw-reading-width {
-  max-width: 68ch;
+  max-width: var(--measure-prose-wide);
 }
 
 .acw-reading-width h2 {
   max-width: 34ch;
   margin-top: 3.25rem;
-  font-size: clamp(1.5rem, 1.1vw + 1.2rem, 2.1rem);
-  line-height: 1.16;
-  letter-spacing: -0.02em;
+  font-size: min(clamp(1.5rem, 1.1vw + 1.2rem, 2.1rem), 10cqi);
+
 }
 
 .acw-reading-width h3 {
   max-width: 38ch;
   margin-top: 2rem;
-  font-size: clamp(1.12rem, 0.5vw + 1rem, 1.38rem);
-  line-height: 1.25;
+  font-size: min(clamp(1.12rem, 0.5vw + 1rem, 1.38rem), 9.5cqi);
+  
 }
 
 .acw-reading-width p,
@@ -1361,12 +1353,12 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
 
 /* Legal pages are documents, not campaigns: a calmer hero. */
 .acw-page-hero h1 {
-  max-width: 16ch;
+  max-width: var(--measure-display);
 }
 
 .acw-reading-width ~ * h1,
 .acw-page-hero .acw-page-intro {
-  max-width: 58ch;
+  max-width: var(--measure-prose-wide);
 }
 
 /* Body copy in the guides and journal reads better a little wider. */
@@ -1402,12 +1394,12 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
    refreshed pages. The previous values (h1 12.5ch / h2 13ch, with a
    50px floor on a 320px screen) produced two-word lines, very tall
    heroes and a single-word last line on most headings. */
-h1 { max-width: 15ch; font-size: clamp(2.5rem, 4.3vw + 1.14rem, 5.2rem); }
-h2 { max-width: 16ch; font-size: clamp(2rem, 3.2vw + 0.99rem, 4.3rem); }
+h1 { max-width: var(--measure-display); font-size: min(clamp(2.5rem, 4.3vw + 1.14rem, 5.2rem), 12cqi); }
+h2 { max-width: var(--measure-heading); font-size: min(clamp(2rem, 3.2vw + 0.99rem, 4.3rem), 10cqi); }
 
 @media (max-width: 980px) {
-  h1 { max-width: 17ch; }
-  h2 { max-width: 18ch; }
+  h1 { max-width: var(--measure-display); }
+  h2 { max-width: var(--measure-heading); }
 }
 
 @media (max-width: 560px) {
@@ -1431,17 +1423,17 @@ h2 { max-width: 16ch; font-size: clamp(2rem, 3.2vw + 0.99rem, 4.3rem); }
 }
 
 .acw-page-hero-inner {
-  max-width: 68ch;
+  max-width: var(--measure-prose-wide);
   margin-inline: auto;
 }
 
 .acw-page-hero h1 {
-  max-width: 18ch;
+  max-width: var(--measure-display);
   margin-bottom: 1.1rem;
 }
 
 .acw-page-hero .acw-page-intro {
-  max-width: 58ch;
+  max-width: var(--measure-prose-wide);
   margin-bottom: 0;
 }
 
@@ -1459,4 +1451,366 @@ h2 { max-width: 16ch; font-size: clamp(2rem, 3.2vw + 0.99rem, 4.3rem); }
   box-shadow: none;
   color: var(--accent-dark);
   font: inherit;
+}
+
+/* =========================================================
+   RESPONSIVE SYSTEM — MEASURE, SCALE, WRAPPING, TARGETS
+   -------------------------------------------------------
+   One shared layer for both stylesheet generations: the
+   acw- pages served from main.css and the refreshed pages
+   that additionally load catalogue-refresh.css.
+
+   The measures are stated in characters because that is the
+   unit the reader experiences. They are floors as much as
+   ceilings: a display column narrow enough to strand single
+   words is as much a defect as a line of body copy running
+   past eighty characters.
+   ========================================================= */
+
+/* 1. MEASURES ---------------------------------------------------------------
+   `ch` is the width of "0", which is not the width of an average character.
+   Measured across this site's rendered text: Instrument Serif sets about
+   0.92 characters per ch at heading sizes, Inter about 1.33 at body sizes.
+   The prose tokens are therefore smaller than the character count they aim
+   at — 49ch sets about 65 characters and 55ch about 73, inside the 55–70
+   band and never past 80.
+
+   Display measures widen as the viewport narrows: the type ramp shrinks more
+   slowly than the container does, so the same ch count buys fewer words. */
+:root {
+  --measure-display: 20ch;        /* h1 */
+  --measure-heading: 22ch;        /* h2 */
+  --measure-subhead: 26ch;        /* h3–h6, card titles */
+  --measure-prose-tight: 40ch;    /* captions, notes, card copy ≈ 53 chars */
+  --measure-prose: 49ch;          /* default body measure       ≈ 65 chars */
+  --measure-prose-wide: 55ch;     /* long-form ceiling          ≈ 73 chars */
+  --tap-min: 24px;                /* WCAG 2.2 AA target size */
+  --tap-comfortable: 44px;
+  --text-min: 0.95rem;            /* nothing that reads as prose sets smaller */
+}
+
+@media (max-width: 980px) {
+  :root {
+    --measure-display: 22ch;
+    --measure-heading: 24ch;
+    --measure-subhead: 28ch;
+  }
+}
+
+@media (max-width: 560px) {
+  :root {
+    --measure-display: 26ch;
+    --measure-heading: 28ch;
+    --measure-subhead: 32ch;
+  }
+}
+
+/* 2. BOUNDED FLUID SCALE ----------------------------------------------------
+   Every step is `clamp(min, <rem> + <vw>, max)`. The rem term is what keeps
+   the ramp usable under browser zoom: a preferred size expressed in vw alone
+   halves when the user zooms to 200%, because the CSS viewport halves with
+   it. h1 and h2 are already stated in this form above; h3 was not. */
+h3 {
+  font-size: min(clamp(1.18rem, 0.55vw + 1.05rem, 1.55rem), 9.5cqi);
+}
+
+/* 3. WRAPPING ---------------------------------------------------------------
+   `balance` for headings — Chromium applies it to the first six lines, which
+   is the whole useful range for a heading and is why the measures above
+   matter more than the property does. `pretty` for anything that reads as a
+   sentence, which pushes the last-line orphan back up into the paragraph. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figcaption,
+caption,
+.acw-page-intro,
+.acw-section-intro {
+  text-wrap: balance;
+}
+
+p,
+li,
+dd,
+dt,
+blockquote,
+summary,
+td,
+th,
+figcaption {
+  text-wrap: pretty;
+}
+
+/* Long words must break rather than push the page sideways. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 4. PROSE MEASURE ----------------------------------------------------------
+   A default, not an override: any component that states its own measure still
+   wins on specificity. This only catches copy that had no measure at all,
+   which is where every over-80-character line came from. */
+main :is(p, li, dd) {
+  max-inline-size: min(100%, var(--measure-prose));
+}
+
+/* Long-form documents — guides, journal posts, legal pages — read on the
+   wider ceiling rather than the default band. */
+:is(.acw-reading-width, .acw-guide-body, .acw-post-body, .legal-content) :is(p, li, dd) {
+  max-inline-size: min(100%, var(--measure-prose-wide));
+}
+
+/* Uppercase micro-labels are not prose and keep their own width. `.hero-note`
+   is not in this list: on the purchase pages it is a full sentence. */
+main :is(.acw-section-label, .eyebrow, .acw-blog-meta) {
+  max-inline-size: none;
+}
+
+/* 5. TARGET SIZE ------------------------------------------------------------
+   Standalone links — breadcrumbs, jump lists, anchor panels, footer
+   navigation, tag and chip rows — are not "inline in a sentence", so WCAG
+   2.2 target size applies to them. Padding rather than height keeps the
+   existing rhythm while making the target real. */
+:is(
+  .acw-guide-breadcrumb,
+  .acw-guide-jump-links,
+  .acw-post-jump-links,
+  .acw-guide-anchor-panel,
+  .acw-principle-navigation-card,
+  .site-footer-inner,
+  .footer-main,
+  .footer-base,
+  .acw-footer-nav,
+  .disclaimer-links,
+  .checkout-links,
+  .nav__links,
+  .nav__subnav
+) a,
+a.acw-post-back-link,
+a.acw-guide-back-link {
+  display: inline-flex;
+  min-height: var(--tap-min);
+  align-items: center;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  inline-size: var(--tap-min);
+  block-size: var(--tap-min);
+}
+
+/* 6. VIEWPORT-HEIGHT SAFETY -------------------------------------------------
+   Opening sections used fixed pixel or `100vh` minimums, which on a short
+   laptop or a phone in landscape pushed the promise and the primary action
+   off the first screen. The minimum now only applies when there is height to
+   spend, and uses the small-viewport unit so mobile browser chrome cannot
+   make the section taller than the screen. */
+.acw-hero,
+.acw-home-hero,
+.acw-page-hero,
+.acw-library-hero,
+.acw-blog-hero,
+.acw-contact-page,
+.acw-links-page {
+  min-height: 0;
+}
+
+@media (min-height: 720px) and (min-width: 761px) {
+  .acw-hero,
+  .acw-home-hero {
+    min-height: min(38rem, 78svh);
+  }
+}
+
+/* 7. NO SIDEWAYS SCROLL -----------------------------------------------------
+   `overflow-x: hidden` on html/body hides overflow rather than preventing it.
+   These are the containment rules that stop it happening. */
+img,
+svg,
+video,
+canvas,
+iframe,
+table {
+  max-inline-size: 100%;
+}
+
+pre,
+code {
+  overflow-wrap: anywhere;
+}
+
+.acw-container,
+.container,
+.shell {
+  min-inline-size: 0;
+}
+
+/* 8. DISPLAY COLUMNS AS SIZE CONTAINERS -------------------------------------
+   Every heading ramp in this stylesheet is now written
+   `min(clamp(min, rem + vw, max), Ncqi)`. The clamp is the designed ramp; the
+   container term is a ceiling that says "never so large that this column
+   cannot hold a sensible number of characters". 13cqi on an h1 leaves roughly
+   thirteen characters a line, 12cqi on an h2 about fourteen, 11cqi on an h3
+   about fifteen.
+
+   Without a size container `cqi` resolves against the viewport, where the
+   ceiling is loose enough never to bind on a full-width heading. Declaring
+   the wrappers below as containers is what makes it bind where it matters —
+   a heading inside a 210px card column on a 320px screen. */
+.acw-page-hero-inner,
+.acw-guide-hero-content,
+.acw-post-hero-content,
+.acw-blog-hero-copy,
+.acw-guide-cta-copy,
+.acw-post-cta-copy,
+.acw-guide-next-card,
+.acw-guide-content,
+.acw-post-content,
+.acw-guide-learning-summary,
+.acw-library-latest-copy,
+.acw-library-roadmap,
+.acw-principle-navigation-card,
+.acw-blog-index-card,
+.acw-link-card,
+.aw-links__hero,
+.aw-links__card-content,
+.aw-links__thread-copy,
+.acw-404-panel,
+.acw-offer-card,
+.acw-choice-panel,
+.acw-comparison-card,
+.acw-inclusion-card,
+.acw-connected-stage,
+.acw-process-step,
+.acw-blueprint-card,
+.acw-package-recognition-card,
+.acw-package-process-step,
+.acw-package-inclusion-card,
+.acw-pc-question-card,
+.acw-pc-blueprint-card,
+.acw-pc-service-grid > *,
+.acw-library-resource-card {
+  container-type: inline-size;
+}
+
+/* The page column itself, so a full-width hero heading is measured against
+   the column rather than against the window. */
+.acw-page-hero-inner,
+.acw-reading-width {
+  container-type: inline-size;
+}
+
+/* The legal and policy hero is a layout column, not a line of prose: the
+   measure belongs on the paragraph inside it, not on the wrapper. */
+.acw-page-hero-inner {
+  max-width: min(100%, 56rem);
+}
+
+/* 9. VERY NARROW VIEWPORTS ---------------------------------------------------
+   200% browser zoom on a 390px phone leaves a 195px CSS viewport. The header
+   logo and the footer logo were the two fixed-width elements that pushed the
+   page sideways there. */
+.nav__logo,
+.footer-alternate-logo,
+.footer-logo {
+  max-inline-size: 100%;
+  height: auto;
+}
+
+@media (max-width: 26rem) {
+  .nav__logo {
+    inline-size: min(154px, 46vw);
+  }
+
+  .nav__toggle {
+    flex: 0 0 var(--tap-comfortable);
+    inline-size: var(--tap-comfortable);
+    block-size: var(--tap-comfortable);
+  }
+}
+
+/* A heading is balanced, never prettified: `pretty` optimises the last line of
+   a paragraph, which on a two-line heading is the wrong trade. */
+:is(h1, h2, h3, h4, h5, h6) {
+  text-wrap: balance;
+}
+
+/* Long links and addresses break rather than push the page sideways. */
+main :is(p, li, dd) a,
+.direct-email a,
+.acw-contact-email {
+  overflow-wrap: anywhere;
+}
+
+/* 10. LINKS IN PROSE --------------------------------------------------------
+   WCAG 1.4.1: a link inside a block of text must be distinguishable without
+   relying on colour. On the document pages these carried colour alone. */
+:is(.acw-reading-width, .acw-guide-body, .acw-post-body, .acw-guide-content,
+    .acw-post-content, .legal-content) :is(p, li, dd) a {
+  text-decoration: underline;
+  text-decoration-thickness: from-font;
+  text-underline-offset: 0.18em;
+}
+
+:is(.acw-reading-width, .acw-guide-body, .acw-post-body, .acw-guide-content,
+    .acw-post-content, .legal-content) :is(p, li, dd) a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* A horizontally scrollable region needs to be reachable by keyboard, and a
+   focusable region needs a visible focus ring. */
+.comparison-table:focus-visible {
+  outline: 3px solid #bd6e4f;
+  outline-offset: 4px;
+}
+
+/* 11. THE LAST OF THE SIDEWAYS SCROLL ---------------------------------------
+   Everything below is only reachable at a CSS viewport under about 200px —
+   200% browser zoom on a 390px phone. WCAG 1.4.10 asks for 320px, which this
+   site already meets with nothing to spare; these make the extreme case
+   behave too. */
+
+/* Two logos and a divider on one flex line cannot fit 195px. */
+.footer-brand-link {
+  flex-wrap: wrap;
+  row-gap: var(--space-8);
+}
+
+@media (max-width: 26rem) {
+  .footer-brand-divider {
+    display: none;
+  }
+}
+
+/* A long unbroken token in a policy document — an address, a reference — must
+   break rather than widen the column. */
+:is(.acw-reading-width, .legal-content, .acw-guide-body, .acw-post-body)
+  :is(p, li, dd, strong, em, code, td) {
+  overflow-wrap: break-word;
+}
+
+/* Form controls default to a content-based minimum width that ignores the
+   grid track they are in. */
+input,
+select,
+textarea,
+fieldset,
+legend,
+label {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+fieldset {
+  margin-inline: 0;
+  padding-inline: 0;
+  border: 0;
 }

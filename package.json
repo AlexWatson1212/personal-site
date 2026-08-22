@@ -7,7 +7,14 @@
     "test": "node scripts/qa.mjs",
     "test:site": "npm run build && node scripts/qa.mjs",
     "config:purchasing": "node scripts/purchasing-config.mjs",
-    "preview": "node scripts/preview/render.mjs"
+    "preview": "node scripts/preview/render.mjs",
+    "qa:preview": "node scripts/preview/render.mjs",
+    "qa:browser": "node scripts/qa-browser/run.mjs",
+    "qa:typography": "node scripts/responsive-qa/typography.mjs",
+    "qa:a11y": "node scripts/responsive-qa/a11y.mjs",
+    "qa:shots": "node scripts/responsive-qa/shots.mjs",
+    "qa:compare": "node scripts/responsive-qa/compare.mjs",
+    "qa:all": "npm run qa:preview && npm run qa:browser && npm run qa:typography && npm run qa:a11y"
   },
   "devDependencies": {
     "lightningcss": "1.33.0",

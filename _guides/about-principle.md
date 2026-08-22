@@ -269,6 +269,8 @@ Through quiet clarity.
     src="{{ '/assets/images/brand/about-hero-portrait.webp' | relative_url }}"
     alt="Portrait of Alexander Watson in the studio."
     loading="lazy"
+    width="1535"
+    height="1024"
   >
 </figure>
 
@@ -588,6 +590,8 @@ The best About pages communicate both.
     src="{{ '/assets/images/brand/therapist-identity-notes.webp' | relative_url }}"
     alt="Annotated notes exploring a therapist's identity and working perspective."
     loading="lazy"
+    width="1232"
+    height="928"
   >
 </figure>
 
@@ -844,6 +848,8 @@ It is to become believable.
     src="{{ '/assets/images/brand/about-communication-and-care.webp' | relative_url }}"
     alt="Alexander reviewing written material about communication and care."
     loading="lazy"
+    width="960"
+    height="1200"
   >
 </figure>
 

@@ -299,6 +299,8 @@ It is the place where they realise they may already be in the right place.
     src="{{ '/assets/images/brand/website-strategy-mockup.webp' | relative_url }}"
     alt="A homepage wireframe being reviewed alongside written strategy notes."
     loading="lazy"
+    width="1536"
+    height="1024"
   >
 </figure>
 
@@ -773,6 +775,8 @@ Through orientation.
     src="{{ '/assets/images/brand/process-planning-board.webp' | relative_url }}"
     alt="Printed homepage layouts and client-journey notes arranged for review."
     loading="lazy"
+    width="1536"
+    height="1024"
   >
 </figure>
 

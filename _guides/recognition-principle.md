@@ -242,6 +242,8 @@ That is recognition.
     src="{{ '/assets/images/brand/therapist-identity-notes.webp' | relative_url }}"
     alt="Annotated language notes with key phrases marked for recognition and clarity."
     loading="lazy"
+    width="1232"
+    height="928"
   >
 </figure>
 
@@ -541,6 +543,8 @@ Because it demonstrates genuine understanding somewhere real.
     src="{{ '/assets/images/brand/practice-clarity-workspace.webp' | relative_url }}"
     alt="Practice Clarity notes grouped into themes and recurring client patterns."
     loading="lazy"
+    width="1232"
+    height="928"
   >
 </figure>
 
@@ -794,6 +798,8 @@ It is uncovered.
     src="{{ '/assets/images/brand/inside-practice-clarity-blueprint.webp' | relative_url }}"
     alt="A structured Practice Clarity document translating observations into usable language."
     loading="lazy"
+    width="1024"
+    height="1024"
   >
 </figure>
 

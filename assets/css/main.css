@@ -205,25 +205,21 @@ h3 {
   color: var(--text);
   font-family: var(--font-heading);
   font-weight: 880;
-  letter-spacing: -0.055em;
   text-wrap: balance;
 }
 
 h1 {
-  max-width: 12.5ch;
-  font-size: clamp(3.15rem, 5vw, 5.2rem);
-  line-height: 0.96;
+  max-width: var(--measure-display);
+  font-size: min(clamp(3.15rem, 5vw, 5.2rem), 12cqi);
 }
 
 h2 {
-  max-width: 13ch;
-  font-size: clamp(2.5rem, 3.8vw, 4.3rem);
-  line-height: 0.98;
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.5rem, 3.8vw, 4.3rem), 10cqi);
 }
 
 h3 {
-  font-size: clamp(1.18rem, 1.35vw, 1.42rem);
-  line-height: 1.18;
+  font-size: min(clamp(1.18rem, 1.35vw, 1.42rem), 9.5cqi);
 }
 
 p {
@@ -553,12 +549,10 @@ p {
 }
 
 .acw-hero-cover h1 {
-  max-width: 10.5ch;
+  max-width: var(--measure-display);
   margin-bottom: 1.25rem;
   color: #FAF8F6;
-  font-size: clamp(3.45rem, 5.2vw, 5.8rem);
-  line-height: 0.91;
-  letter-spacing: -0.07em;
+  font-size: min(clamp(3.45rem, 5.2vw, 5.8rem), 12cqi);
   text-shadow: 0 2px 22px rgba(0, 0, 0, 0.22);
 }
 
@@ -701,12 +695,10 @@ p {
   }
 
   .acw-hero-cover h1 {
-    max-width: 11.5ch;
+    max-width: var(--measure-display);
     margin-bottom: 1rem;
     color: var(--text);
-    font-size: clamp(2.45rem, 10.5vw, 3.25rem);
-    line-height: 0.94;
-    letter-spacing: -0.06em;
+    font-size: min(clamp(2.45rem, 10.5vw, 3.25rem), 12cqi);
     text-shadow: none;
   }
 
@@ -768,11 +760,11 @@ p {
 }
 
 .acw-page-hero h1 {
-  max-width: 13ch;
+  max-width: var(--measure-display);
 }
 
 .acw-page-intro {
-  max-width: 60ch;
+  max-width: var(--measure-prose-wide);
 }
 
 /* =========================================================
@@ -789,7 +781,7 @@ p {
 }
 
 .acw-statement h2 {
-  max-width: 12ch;
+  max-width: var(--measure-heading);
 }
 
 .acw-statement p:not(.acw-section-number) {
@@ -1047,8 +1039,8 @@ p {
 }
 
 .acw-offer-card h3 {
-  max-width: 11.5ch;
-  font-size: clamp(1.48rem, 1.65vw, 1.92rem);
+  max-width: var(--measure-subhead);
+  font-size: min(clamp(1.48rem, 1.65vw, 1.92rem), 9.5cqi);
 }
 
 .acw-offer-card ul {
@@ -1063,7 +1055,7 @@ p {
   position: relative;
   padding-left: 1.2rem;
   color: rgba(26, 33, 25, 0.74);
-  font-size: 0.91rem;
+  font-size: max(var(--text-min), 0.91rem);
   font-weight: 720;
   line-height: 1.5;
 }
@@ -1114,9 +1106,9 @@ p {
 }
 
 .acw-choice-panel h3 {
-  max-width: 14ch;
+  max-width: var(--measure-subhead);
   margin-bottom: 0.9rem;
-  font-size: clamp(1.6rem, 2.3vw, 2.35rem);
+  font-size: min(clamp(1.6rem, 2.3vw, 2.35rem), 9.5cqi);
 }
 
 .acw-choice-panel p {
@@ -1199,17 +1191,16 @@ p {
 }
 
 .acw-process-step h3 {
-  max-width: 9ch;
+  max-width: var(--measure-subhead);
   margin-bottom: 0.55rem;
-  font-size: clamp(1.05rem, 1.2vw, 1.28rem);
-  line-height: 1.08;
+  font-size: min(clamp(1.05rem, 1.2vw, 1.28rem), 9.5cqi);
 }
 
 .acw-process-step p {
   max-width: 18ch;
   margin: 0;
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: max(var(--text-min), 0.88rem);
   line-height: 1.55;
 }
 
@@ -1283,7 +1274,7 @@ p {
 }
 
 .acw-showcase-copy p:not(.acw-section-number):not(.acw-section-label) {
-  max-width: 68ch;
+  max-width: var(--measure-prose-wide);
   color: var(--muted);
 }
 
@@ -1362,9 +1353,8 @@ p {
 }
 
 .acw-about-copy h2 {
-  max-width: 14.5ch;
-  font-size: clamp(2.45rem, 3.55vw, 4.2rem);
-  line-height: 0.98;
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.45rem, 3.55vw, 4.2rem), 10cqi);
 }
 
 .acw-about-side {
@@ -1471,9 +1461,8 @@ p {
 }
 
 .acw-contact-copy h2 {
-  max-width: 14.5ch;
-  font-size: clamp(2.55rem, 3.85vw, 4.55rem);
-  line-height: 0.98;
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.55rem, 3.85vw, 4.55rem), 10cqi);
 }
 
 .acw-contact-email {
@@ -1535,7 +1524,7 @@ p {
 }
 
 .acw-contact-page-copy h1 {
-  max-width: 12.5ch;
+  max-width: var(--measure-display);
 }
 
 .acw-contact-page-emphasis {
@@ -1576,10 +1565,9 @@ p {
 }
 
 .acw-form-heading h2 {
-  max-width: 14ch;
+  max-width: var(--measure-heading);
   margin-bottom: 0.7rem;
-  font-size: clamp(1.8rem, 2.4vw, 2.7rem);
-  line-height: 1;
+  font-size: min(clamp(1.8rem, 2.4vw, 2.7rem), 10cqi);
 }
 
 .acw-form-heading p {
@@ -1670,11 +1658,9 @@ p {
 }
 
 .acw-library-hero h1 {
-  max-width: 11ch;
+  max-width: var(--measure-display);
   margin-bottom: 1.25rem;
-  font-size: clamp(3.35rem, 5.8vw, 6.2rem);
-  line-height: 0.9;
-  letter-spacing: -0.072em;
+  font-size: min(clamp(3.35rem, 5.8vw, 6.2rem), 12cqi);
 }
 
 .acw-library-hero-intro {
@@ -1749,7 +1735,7 @@ p {
 .acw-library-orientation-heading h2,
 .acw-library-resources-heading h2,
 .acw-library-latest-heading h2 {
-  max-width: 12ch;
+  max-width: var(--measure-heading);
   margin: 0;
 }
 
@@ -1859,10 +1845,9 @@ p {
 }
 
 .acw-library-chapter-intro h3 {
-  max-width: 15ch;
+  max-width: var(--measure-subhead);
   margin-bottom: 0.9rem;
-  font-size: clamp(2rem, 3.25vw, 3.6rem);
-  line-height: 0.98;
+  font-size: min(clamp(2rem, 3.25vw, 3.6rem), 9.5cqi);
 }
 
 .acw-library-chapter-intro div > p:last-child {
@@ -1928,9 +1913,7 @@ p {
 .acw-library-resource-card h4 {
   margin: 0 0 0.85rem;
   color: var(--text);
-  font-size: clamp(1.3rem, 1.55vw, 1.7rem);
-  letter-spacing: -0.045em;
-  line-height: 1.08;
+  font-size: min(clamp(1.3rem, 1.55vw, 1.7rem), 9.5cqi);
 }
 
 .acw-library-principle-body h4 a {
@@ -1979,10 +1962,9 @@ p {
 }
 
 .acw-library-resource-copy h3 {
-  max-width: 12ch;
+  max-width: var(--measure-subhead);
   margin-bottom: 1rem;
-  font-size: clamp(2rem, 3.2vw, 3.55rem);
-  line-height: 0.98;
+  font-size: min(clamp(2rem, 3.2vw, 3.55rem), 9.5cqi);
 }
 
 .acw-library-resource-copy > p:not(.acw-section-label) {
@@ -2032,7 +2014,7 @@ p {
 .acw-library-resource-card p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: max(var(--text-min), 0.92rem);
   line-height: 1.65;
 }
 
@@ -2076,10 +2058,9 @@ p {
 }
 
 .acw-library-latest-card h3 {
-  max-width: 16ch;
+  max-width: var(--measure-subhead);
   margin-bottom: 0.65rem;
-  font-size: clamp(1.2rem, 1.5vw, 1.55rem);
-  line-height: 1.08;
+  font-size: min(clamp(1.2rem, 1.5vw, 1.55rem), 9.5cqi);
 }
 
 .acw-library-latest-card h3 a {
@@ -2088,7 +2069,7 @@ p {
 
 .acw-library-latest-card div > p:not(.acw-blog-meta) {
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: max(var(--text-min), 0.9rem);
   line-height: 1.6;
 }
 
@@ -2139,7 +2120,7 @@ p {
 }
 
 .acw-library-blueprint-copy h2 {
-  max-width: 13ch;
+  max-width: var(--measure-heading);
   margin-bottom: 1rem;
 }
 
@@ -2206,7 +2187,7 @@ p {
 }
 
 .acw-library-closing-card h2 {
-  max-width: 15ch;
+  max-width: var(--measure-heading);
   margin-bottom: 1rem;
 }
 
@@ -2238,7 +2219,7 @@ p {
 }
 
 .acw-post-hero h1 {
-  max-width: 15ch;
+  max-width: var(--measure-display);
 }
 
 .acw-post-meta {
@@ -2328,9 +2309,8 @@ p {
   }
 
   .acw-library-hero h1 {
-    max-width: 10.5ch;
-    font-size: clamp(2.65rem, 12vw, 4rem);
-    line-height: 0.92;
+    max-width: var(--measure-display);
+    font-size: min(clamp(2.65rem, 12vw, 4rem), 12cqi);
   }
 
   .acw-library-hero-actions,
@@ -2565,12 +2545,12 @@ p {
 }
 
 .acw-404-inner h1 {
-  max-width: 10.5ch;
+  max-width: var(--measure-display);
   margin-bottom: 1.2rem;
 }
 
 .acw-404-text {
-  max-width: 68ch;
+  max-width: var(--measure-prose-wide);
   color: var(--muted);
   font-size: clamp(1rem, 1.1vw, 1.12rem);
   line-height: 1.7;
@@ -2607,10 +2587,9 @@ p {
 }
 
 .acw-404-panel h2 {
-  max-width: 16ch;
+  max-width: var(--measure-heading);
   margin-bottom: 1rem;
-  font-size: clamp(2rem, 3vw, 3.2rem);
-  line-height: 1;
+  font-size: min(clamp(2rem, 3vw, 3.2rem), 10cqi);
 }
 
 .acw-404-panel p:last-child {
@@ -2689,11 +2668,9 @@ p {
 
 .acw-links-copy h1,
 .acw-links-hero h1 {
-  max-width: 11ch;
+  max-width: var(--measure-display);
   margin-bottom: 0.8rem;
-  font-size: clamp(3.1rem, 6vw, 5.4rem);
-  line-height: 0.94;
-  letter-spacing: -0.065em;
+  font-size: min(clamp(3.1rem, 6vw, 5.4rem), 12cqi);
 }
 
 .acw-links-text {
@@ -2766,7 +2743,7 @@ p {
 }
 
 .acw-link-card p {
-  max-width: 56ch;
+  max-width: var(--measure-prose-wide);
   margin: 0;
   color: var(--muted);
   font-size: 0.95rem;
@@ -3275,11 +3252,11 @@ Practice Notes, legal pages, updated contact form and footer
   }
 
   h1 {
-    font-size: clamp(2.45rem, 9.5vw, 3.35rem);
+    font-size: min(clamp(2.45rem, 9.5vw, 3.35rem), 12cqi);
   }
 
   h2 {
-    font-size: clamp(2.05rem, 8.5vw, 3.25rem);
+    font-size: min(clamp(2.05rem, 8.5vw, 3.25rem), 10cqi);
   }
 
   .acw-blueprint-grid,
@@ -3326,8 +3303,8 @@ Practice Notes, legal pages, updated contact form and footer
 
   .acw-post-title,
   .acw-guide-title {
-    max-width: 12ch;
-    font-size: clamp(2.55rem, 11vw, 3.65rem);
+    max-width: var(--measure-display);
+    font-size: min(clamp(2.55rem, 11vw, 3.65rem), 12cqi);
   }
 
   .acw-post-description,
@@ -3364,13 +3341,13 @@ Practice Notes, legal pages, updated contact form and footer
   .acw-post-content h2,
   .acw-guide-content h2 {
     margin-top: 3.6rem;
-    font-size: clamp(2.1rem, 10vw, 3.45rem);
+    font-size: min(clamp(2.1rem, 10vw, 3.45rem), 10cqi);
   }
 
   .acw-post-content h3,
   .acw-guide-content h3 {
     margin-top: 2.4rem;
-    font-size: clamp(1.35rem, 6vw, 1.85rem);
+    font-size: min(clamp(1.35rem, 6vw, 1.85rem), 9.5cqi);
   }
 
   .acw-post-content img,
@@ -3417,7 +3394,7 @@ Practice Notes, legal pages, updated contact form and footer
   }
 
   .acw-404-inner h1 {
-    max-width: 10.8ch;
+    max-width: var(--measure-display);
   }
 
   .acw-404-panel {
@@ -3561,7 +3538,7 @@ Practice Notes, legal pages, updated contact form and footer
 
   .acw-links-copy h1,
   .acw-links-hero h1 {
-    font-size: clamp(3rem, 15vw, 4.3rem);
+    font-size: min(clamp(3rem, 15vw, 4.3rem), 12cqi);
   }
 
   .acw-link-card {
@@ -3575,9 +3552,8 @@ Practice Notes, legal pages, updated contact form and footer
 /* Hero copy balance */
 
 .acw-hero-cover h1 {
-  max-width: 11.8ch;
-  font-size: clamp(3.25rem, 4.9vw, 5.45rem);
-  line-height: 0.93;
+  max-width: var(--measure-display);
+  font-size: min(clamp(3.25rem, 4.9vw, 5.45rem), 12cqi);
 }
 
 .acw-hero-cover .acw-hero-text {
@@ -3772,7 +3748,7 @@ Practice Notes, legal pages, updated contact form and footer
 }
 
 .acw-home-transformation .acw-offer-card h3 {
-  max-width: 10.5ch;
+  max-width: var(--measure-subhead);
 }
 
 .acw-home-transformation .acw-offer-card ul {
@@ -3824,7 +3800,7 @@ Practice Notes, legal pages, updated contact form and footer
 
 .acw-home-proof-note {
   position: relative;
-  max-width: 58ch;
+  max-width: var(--measure-prose-wide);
   margin-top: 1.35rem;
   margin-bottom: 0;
   padding-left: 1rem;
@@ -3906,7 +3882,7 @@ Practice Notes, legal pages, updated contact form and footer
 .acw-home-about .acw-about-note p {
   max-width: 44ch;
   color: rgba(26, 33, 25, 0.68);
-  font-size: 0.94rem;
+  font-size: max(var(--text-min), 0.94rem);
   line-height: 1.72;
 }
 
@@ -3957,7 +3933,7 @@ Practice Notes, legal pages, updated contact form and footer
 }
 
 .acw-home-faq .acw-faq-item p {
-  max-width: 64ch;
+  max-width: var(--measure-prose-wide);
   padding: 0 2rem 1.55rem 0;
 }
 
@@ -4045,9 +4021,8 @@ Practice Notes, legal pages, updated contact form and footer
 
 @media (max-width: 760px) {
   .acw-hero-cover h1 {
-    max-width: 12.2ch;
-    font-size: clamp(2.35rem, 10vw, 3.1rem);
-    line-height: 0.95;
+    max-width: var(--measure-display);
+    font-size: min(clamp(2.35rem, 10vw, 3.1rem), 12cqi);
   }
 
   .acw-section-lead {
@@ -4219,9 +4194,8 @@ Practice Notes, legal pages, updated contact form and footer
 }
 
 .acw-identity-hero-copy h1 {
-  max-width: 10.6ch;
-  font-size: clamp(3.65rem, 5.9vw, 6.15rem);
-  line-height: 0.90;
+  max-width: var(--measure-display);
+  font-size: min(clamp(3.65rem, 5.9vw, 6.15rem), 12cqi);
 }
 
 .acw-section-lead {
@@ -4304,7 +4278,7 @@ Practice Notes, legal pages, updated contact form and footer
 
 .acw-identity-question-grid .acw-blueprint-card h3,
 .acw-identity-outcome-grid .acw-blueprint-card h3 {
-  max-width: 15ch;
+  max-width: var(--measure-subhead);
 }
 
 .acw-identity-question-grid .acw-blueprint-card p,
@@ -4389,7 +4363,7 @@ Practice Notes, legal pages, updated contact form and footer
 }
 
 .acw-identity-faq .acw-faq-item p {
-  max-width: 62ch;
+  max-width: var(--measure-prose-wide);
   padding: 0 2rem 1.5rem 0;
 }
 
@@ -4478,8 +4452,7 @@ Practice Notes, legal pages, updated contact form and footer
   }
 
   .acw-identity-hero-copy h1 {
-    font-size: clamp(2.5rem, 10vw, 3.35rem);
-    line-height: 0.94;
+    font-size: min(clamp(2.5rem, 10vw, 3.35rem), 12cqi);
   }
 
   .acw-section-lead {
@@ -4594,9 +4567,8 @@ Practice Notes, legal pages, updated contact form and footer
   }
 
   .acw-hero-cover h1 {
-    max-width: 13ch;
-    font-size: clamp(3.2rem, 4.45vw, 4.95rem);
-    line-height: 0.93;
+    max-width: var(--measure-display);
+    font-size: min(clamp(3.2rem, 4.45vw, 4.95rem), 12cqi);
   }
 
   .acw-hero-cover h1 span {
@@ -4689,8 +4661,8 @@ Practice Notes, legal pages, updated contact form and footer
 }
 
 .acw-home-problem-grid .acw-blueprint-card h3 {
-  max-width: 15ch;
-  font-size: clamp(1.25rem, 1.45vw, 1.55rem);
+  max-width: var(--measure-subhead);
+  font-size: min(clamp(1.25rem, 1.45vw, 1.55rem), 9.5cqi);
 }
 
 /* Every navigational action should look intentionally clickable. */
@@ -4826,7 +4798,7 @@ Practice Notes, legal pages, updated contact form and footer
 }
 
 .acw-home-about .acw-about-copy h2 {
-  max-width: 15ch;
+  max-width: var(--measure-heading);
 }
 
 .acw-home-about .acw-about-side {
@@ -4859,7 +4831,7 @@ Practice Notes, legal pages, updated contact form and footer
 }
 
 .acw-home-final-copy h2 {
-  max-width: 14ch;
+  max-width: var(--measure-heading);
 }
 
 .acw-home-final-copy .acw-cta-row {
@@ -4938,7 +4910,7 @@ Practice Notes, legal pages, updated contact form and footer
 
   .acw-home-about .acw-about-copy h2,
   .acw-home-final-copy h2 {
-    max-width: 13ch;
+    max-width: var(--measure-heading);
   }
 
   .acw-home-guides-grid .acw-blueprint-card {
@@ -4977,7 +4949,7 @@ Append to the end of the main stylesheet.
 }
 
 .acw-service-hero-copy h1 {
-  max-width: 11ch;
+  max-width: var(--measure-display);
 }
 
 .acw-service-hero-note {
@@ -5064,8 +5036,8 @@ Append to the end of the main stylesheet.
 }
 
 .acw-connected-stage h3 {
-  max-width: 12ch;
-  font-size: clamp(1.45rem, 1.7vw, 1.95rem);
+  max-width: var(--measure-subhead);
+  font-size: min(clamp(1.45rem, 1.7vw, 1.95rem), 9.5cqi);
 }
 
 .acw-connected-stage p {
@@ -5086,7 +5058,7 @@ Append to the end of the main stylesheet.
   position: relative;
   padding-left: 1.15rem;
   color: rgba(26, 33, 25, 0.72);
-  font-size: 0.89rem;
+  font-size: max(var(--text-min), 0.89rem);
   font-weight: 710;
   line-height: 1.5;
 }
@@ -5222,8 +5194,8 @@ Append to the end of the main stylesheet.
 }
 
 .acw-inclusion-card-featured h3 {
-  max-width: 15ch;
-  font-size: clamp(1.9rem, 3vw, 3.15rem);
+  max-width: var(--measure-subhead);
+  font-size: min(clamp(1.9rem, 3vw, 3.15rem), 9.5cqi);
 }
 
 .acw-inclusion-card-featured p {
@@ -5268,8 +5240,8 @@ Append to the end of the main stylesheet.
 }
 
 .acw-foundation-source h3 {
-  max-width: 11ch;
-  font-size: clamp(2rem, 3vw, 3.1rem);
+  max-width: var(--measure-subhead);
+  font-size: min(clamp(2rem, 3vw, 3.1rem), 9.5cqi);
 }
 
 .acw-foundation-source p {
@@ -5605,7 +5577,7 @@ Append to the end of the main stylesheet.
 }
 
 .acw-collaboration-card h3 {
-  max-width: 13ch;
+  max-width: var(--measure-subhead);
 }
 
 .acw-collaboration-card p {
@@ -5629,9 +5601,9 @@ Append to the end of the main stylesheet.
 }
 
 .acw-project-note h3 {
-  max-width: 17ch;
+  max-width: var(--measure-subhead);
   margin-bottom: 0;
-  font-size: clamp(1.55rem, 2.2vw, 2.35rem);
+  font-size: min(clamp(1.55rem, 2.2vw, 2.35rem), 9.5cqi);
 }
 
 .acw-project-note > p {
@@ -5777,11 +5749,11 @@ Append to the end of the main stylesheet.
 }
 
 .acw-about-hero-copy h1 {
-  max-width: 12ch;
+  max-width: var(--measure-display);
 }
 
 .acw-about-hero-copy .acw-page-intro {
-  max-width: 58ch;
+  max-width: var(--measure-prose-wide);
 }
 
 .acw-about-hero-meta {
@@ -5940,7 +5912,7 @@ Append to the end of the main stylesheet.
 
 .acw-about-perspective-heading h2,
 .acw-about-case-study-copy h2 {
-  max-width: 14ch;
+  max-width: var(--measure-heading);
 }
 
 .acw-about-perspective-heading .acw-section-intro {
@@ -6007,7 +5979,7 @@ Append to the end of the main stylesheet.
 }
 
 .acw-about-perspective-grid h3 {
-  max-width: 14ch;
+  max-width: var(--measure-subhead);
 }
 
 .acw-about-perspective-grid p {
@@ -6031,7 +6003,7 @@ Append to the end of the main stylesheet.
 }
 
 .acw-about-case-study-copy > p:not(.acw-section-number) {
-  max-width: 57ch;
+  max-width: var(--measure-prose-wide);
 }
 
 /* Working relationship */
@@ -6319,10 +6291,9 @@ Append to the end of the main stylesheet.
 }
 
 .footer-practice-notes h2 {
-  max-width: 15ch;
+  max-width: var(--measure-heading);
   margin-bottom: 0.75rem;
-  font-size: clamp(1.35rem, 1.8vw, 1.9rem);
-  line-height: 1.08;
+  font-size: min(clamp(1.35rem, 1.8vw, 1.9rem), 10cqi);
 }
 
 .footer-practice-notes-text {
@@ -6463,10 +6434,8 @@ Append to the end of the main stylesheet.
 }
 
 .acw-library-hero h1 {
-  max-width: 14.5ch;
-  font-size: clamp(3.35rem, 5.35vw, 5.9rem);
-  line-height: 0.91;
-  letter-spacing: -0.07em;
+  max-width: var(--measure-display);
+  font-size: min(clamp(3.35rem, 5.35vw, 5.9rem), 12cqi);
 }
 
 .acw-library-hero h1 .acw-keep {
@@ -6516,7 +6485,7 @@ Append to the end of the main stylesheet.
   border: 1px solid rgba(26, 33, 25, 0.08);
   border-radius: 16px;
   color: var(--muted);
-  font-size: 0.79rem;
+  font-size: max(var(--text-min), 0.79rem);
   line-height: 1.55;
 }
 
@@ -6536,7 +6505,7 @@ Append to the end of the main stylesheet.
 }
 
 .acw-library-orientation-heading h2 {
-  max-width: 16ch;
+  max-width: var(--measure-heading);
 }
 
 .acw-library-orientation-heading h2 .acw-keep {
@@ -6586,7 +6555,7 @@ Append to the end of the main stylesheet.
 }
 
 .acw-library-map h2 {
-  max-width: 14ch;
+  max-width: var(--measure-heading);
   margin-bottom: 0;
 }
 
@@ -6628,7 +6597,7 @@ Append to the end of the main stylesheet.
   max-width: 49ch;
   margin: 0;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: max(var(--text-min), 0.9rem);
 }
 
 /* Principles */
@@ -6637,7 +6606,7 @@ Append to the end of the main stylesheet.
 }
 
 .acw-library-section-heading h2 {
-  max-width: 16ch;
+  max-width: var(--measure-heading);
 }
 
 .acw-library-chapter-intro {
@@ -6645,9 +6614,8 @@ Append to the end of the main stylesheet.
 }
 
 .acw-library-chapter-intro h3 {
-  max-width: 20ch;
-  font-size: clamp(2.25rem, 3.6vw, 4rem);
-  line-height: 0.96;
+  max-width: var(--measure-subhead);
+  font-size: min(clamp(2.25rem, 3.6vw, 4rem), 9.5cqi);
 }
 
 .acw-library-principle-grid {
@@ -6659,9 +6627,8 @@ Append to the end of the main stylesheet.
 }
 
 .acw-library-principle-body h4 {
-  max-width: 15ch;
-  font-size: clamp(1.18rem, 1.4vw, 1.48rem);
-  line-height: 1.08;
+  max-width: var(--measure-subhead);
+  font-size: min(clamp(1.18rem, 1.4vw, 1.48rem), 9.5cqi);
 }
 
 .acw-library-principle-body p {
@@ -6685,7 +6652,7 @@ Append to the end of the main stylesheet.
 
 /* Featured practical guide */
 .acw-library-resources-heading h2 {
-  max-width: 17ch;
+  max-width: var(--measure-heading);
 }
 
 .acw-library-resource-feature {
@@ -6694,14 +6661,13 @@ Append to the end of the main stylesheet.
 }
 
 .acw-library-resource-copy h3 {
-  max-width: 15ch;
-  font-size: clamp(2rem, 3.4vw, 3.8rem);
-  line-height: 0.95;
+  max-width: var(--measure-subhead);
+  font-size: min(clamp(2rem, 3.4vw, 3.8rem), 9.5cqi);
 }
 
 /* Latest writing */
 .acw-library-latest-heading h2 {
-  max-width: 17ch;
+  max-width: var(--measure-heading);
 }
 
 .acw-library-latest-grid {
@@ -6737,9 +6703,8 @@ Append to the end of the main stylesheet.
 }
 
 .acw-library-latest-card h3 {
-  max-width: 19ch;
-  font-size: clamp(1.16rem, 1.4vw, 1.48rem);
-  line-height: 1.12;
+  max-width: var(--measure-subhead);
+  font-size: min(clamp(1.16rem, 1.4vw, 1.48rem), 9.5cqi);
 }
 
 /* Blueprint and closing */
@@ -6748,7 +6713,7 @@ Append to the end of the main stylesheet.
 }
 
 .acw-library-blueprint-copy h2 {
-  max-width: 18ch;
+  max-width: var(--measure-heading);
 }
 
 .acw-library-blueprint-note {
@@ -6770,8 +6735,8 @@ Append to the end of the main stylesheet.
 }
 
 .acw-library-closing-card h2 {
-  max-width: 18ch;
-  font-size: clamp(2.35rem, 4vw, 4.5rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.35rem, 4vw, 4.5rem), 10cqi);
 }
 
 .acw-library-closing-card h2 .acw-keep {
@@ -6790,7 +6755,7 @@ Append to the end of the main stylesheet.
   }
 
   .acw-library-chapter-intro h3 {
-    max-width: 22ch;
+    max-width: var(--measure-subhead);
   }
 }
 
@@ -6810,8 +6775,8 @@ Append to the end of the main stylesheet.
   }
 
   .acw-library-hero h1 {
-    max-width: 12.8ch;
-    font-size: clamp(2.7rem, 12vw, 4rem);
+    max-width: var(--measure-display);
+    font-size: min(clamp(2.7rem, 12vw, 4rem), 12cqi);
   }
 
   .acw-library-hero-guidance {
@@ -6851,8 +6816,8 @@ Append to the end of the main stylesheet.
   }
 
   .acw-library-chapter-intro h3 {
-    max-width: 15ch;
-    font-size: clamp(2.1rem, 9.5vw, 3rem);
+    max-width: var(--measure-subhead);
+    font-size: min(clamp(2.1rem, 9.5vw, 3rem), 9.5cqi);
   }
 
   .acw-library-resource-copy h3,
@@ -6883,7 +6848,7 @@ Append to the end of the main stylesheet.
 
 /* Library hierarchy */
 .acw-library-hero h1 {
-  max-width: 13.5ch;
+  max-width: var(--measure-display);
 }
 
 .acw-library-hero-guidance {
@@ -6924,7 +6889,7 @@ Append to the end of the main stylesheet.
 }
 
 .acw-library-section-heading h2 {
-  max-width: 17ch;
+  max-width: var(--measure-heading);
 }
 
 .acw-library-chapter {
@@ -6954,7 +6919,7 @@ Append to the end of the main stylesheet.
 }
 
 .acw-library-principle-body p {
-  font-size: 0.91rem;
+  font-size: max(var(--text-min), 0.91rem);
 }
 
 .acw-library-resource-feature {
@@ -7002,7 +6967,7 @@ Append to the end of the main stylesheet.
 
 .footer-description {
   max-width: 39ch;
-  font-size: 0.93rem;
+  font-size: max(var(--text-min), 0.93rem);
 }
 
 .footer-practice-notes {
@@ -7013,8 +6978,8 @@ Append to the end of the main stylesheet.
 }
 
 .footer-practice-notes h2 {
-  max-width: 16ch;
-  font-size: clamp(1.3rem, 1.65vw, 1.75rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(1.3rem, 1.65vw, 1.75rem), 10cqi);
 }
 
 .site-footer-bottom {
@@ -7103,7 +7068,7 @@ This final block intentionally overrides earlier Library experiments.
 .acw-library-resource-copy > p:not(.acw-section-label),
 .acw-library-blueprint-copy > p:not(.acw-section-label),
 .acw-library-closing-card div:first-child > p:last-child {
-  max-width: 58ch;
+  max-width: var(--measure-prose-wide);
   color: var(--muted);
   font-size: clamp(1rem, 1.05vw, 1.08rem);
   line-height: 1.72;
@@ -7125,11 +7090,9 @@ This final block intentionally overrides earlier Library experiments.
 }
 
 .acw-library-hero h1 {
-  max-width: 12.5ch;
+  max-width: var(--measure-display);
   margin-bottom: 1.25rem;
-  font-size: clamp(3.2rem, 5.1vw, 5.55rem);
-  line-height: 0.94;
-  letter-spacing: -0.065em;
+  font-size: min(clamp(3.2rem, 5.1vw, 5.55rem), 12cqi);
   text-wrap: balance;
 }
 
@@ -7149,7 +7112,7 @@ This final block intentionally overrides earlier Library experiments.
 
 .acw-library-hero-guidance p {
   min-width: 0;
-  font-size: 0.84rem;
+  font-size: max(var(--text-min), 0.84rem);
   line-height: 1.55;
 }
 
@@ -7171,10 +7134,9 @@ This final block intentionally overrides earlier Library experiments.
 .acw-library-orientation-heading h2,
 .acw-library-resources-heading h2,
 .acw-library-latest-heading h2 {
-  max-width: 14ch;
+  max-width: var(--measure-heading);
   margin: 0;
-  font-size: clamp(2.55rem, 3.9vw, 4.35rem);
-  line-height: 0.98;
+  font-size: min(clamp(2.55rem, 3.9vw, 4.35rem), 10cqi);
   text-wrap: balance;
 }
 
@@ -7206,9 +7168,8 @@ This final block intentionally overrides earlier Library experiments.
 }
 
 .acw-library-map h2 {
-  max-width: 10ch;
-  font-size: clamp(2.7rem, 4vw, 4.5rem);
-  line-height: 0.96;
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.7rem, 4vw, 4.5rem), 10cqi);
 }
 
 .acw-library-map-list li {
@@ -7217,7 +7178,7 @@ This final block intentionally overrides earlier Library experiments.
 
 .acw-library-map-list p {
   max-width: 50ch;
-  font-size: 0.92rem;
+  font-size: max(var(--text-min), 0.92rem);
   line-height: 1.6;
 }
 
@@ -7228,10 +7189,9 @@ This final block intentionally overrides earlier Library experiments.
 }
 
 .acw-library-section-heading h2 {
-  max-width: 16ch;
+  max-width: var(--measure-heading);
   margin-bottom: 1rem;
-  font-size: clamp(2.65rem, 4vw, 4.45rem);
-  line-height: 0.98;
+  font-size: min(clamp(2.65rem, 4vw, 4.45rem), 10cqi);
 }
 
 .acw-library-chapter-intro {
@@ -7241,11 +7201,9 @@ This final block intentionally overrides earlier Library experiments.
 }
 
 .acw-library-chapter-intro h3 {
-  max-width: 20ch;
+  max-width: var(--measure-subhead);
   margin-bottom: 0.8rem;
-  font-size: clamp(2.2rem, 3.35vw, 3.75rem);
-  line-height: 0.98;
-  letter-spacing: -0.055em;
+  font-size: min(clamp(2.2rem, 3.35vw, 3.75rem), 9.5cqi);
   text-wrap: balance;
 }
 
@@ -7269,14 +7227,12 @@ This final block intentionally overrides earlier Library experiments.
 .acw-library-principle-body h4 {
   max-width: none;
   margin-bottom: 0.65rem;
-  font-size: clamp(1.12rem, 1.25vw, 1.35rem);
-  line-height: 1.12;
-  letter-spacing: -0.035em;
+  font-size: min(clamp(1.12rem, 1.25vw, 1.35rem), 9.5cqi);
   text-wrap: balance;
 }
 
 .acw-library-principle-body > p:not(.acw-library-step) {
-  font-size: 0.9rem;
+  font-size: max(var(--text-min), 0.9rem);
   line-height: 1.62;
 }
 
@@ -7296,11 +7252,9 @@ This final block intentionally overrides earlier Library experiments.
 }
 
 .acw-library-resource-copy h3 {
-  max-width: 14ch;
+  max-width: var(--measure-subhead);
   margin-bottom: 1rem;
-  font-size: clamp(2.2rem, 3.5vw, 3.9rem);
-  line-height: 0.96;
-  letter-spacing: -0.06em;
+  font-size: min(clamp(2.2rem, 3.5vw, 3.9rem), 9.5cqi);
   text-wrap: balance;
 }
 
@@ -7321,14 +7275,12 @@ This final block intentionally overrides earlier Library experiments.
 .acw-library-latest-card h3 {
   max-width: none;
   margin-bottom: 0.65rem;
-  font-size: clamp(1.08rem, 1.25vw, 1.35rem);
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  font-size: min(clamp(1.08rem, 1.25vw, 1.35rem), 9.5cqi);
   text-wrap: balance;
 }
 
 .acw-library-latest-card div > p:not(.acw-blog-meta) {
-  font-size: 0.88rem;
+  font-size: max(var(--text-min), 0.88rem);
   line-height: 1.58;
 }
 
@@ -7340,15 +7292,14 @@ This final block intentionally overrides earlier Library experiments.
 }
 
 .acw-library-blueprint-copy h2 {
-  max-width: 15ch;
+  max-width: var(--measure-heading);
   margin-bottom: 1rem;
-  font-size: clamp(2.6rem, 4vw, 4.4rem);
-  line-height: 0.98;
+  font-size: min(clamp(2.6rem, 4vw, 4.4rem), 10cqi);
   text-wrap: balance;
 }
 
 .acw-library-blueprint-panel li {
-  font-size: 0.9rem;
+  font-size: max(var(--text-min), 0.9rem);
   line-height: 1.5;
 }
 
@@ -7365,10 +7316,9 @@ This final block intentionally overrides earlier Library experiments.
 }
 
 .acw-library-closing-card h2 {
-  max-width: 16ch;
+  max-width: var(--measure-heading);
   margin-bottom: 1rem;
-  font-size: clamp(2.6rem, 4.2vw, 4.65rem);
-  line-height: 0.96;
+  font-size: min(clamp(2.6rem, 4.2vw, 4.65rem), 10cqi);
   text-wrap: balance;
 }
 
@@ -7390,9 +7340,8 @@ This final block intentionally overrides earlier Library experiments.
 }
 
 .footer-practice-notes h2 {
-  max-width: 17ch;
-  font-size: clamp(1.35rem, 1.7vw, 1.8rem);
-  line-height: 1.08;
+  max-width: var(--measure-heading);
+  font-size: min(clamp(1.35rem, 1.7vw, 1.8rem), 10cqi);
   text-wrap: balance;
 }
 
@@ -7452,9 +7401,8 @@ This final block intentionally overrides earlier Library experiments.
   }
 
   .acw-library-hero h1 {
-    max-width: 12ch;
-    font-size: clamp(2.55rem, 11.5vw, 3.75rem);
-    line-height: 0.96;
+    max-width: var(--measure-display);
+    font-size: min(clamp(2.55rem, 11.5vw, 3.75rem), 12cqi);
   }
 
   .acw-library-hero-guidance,
@@ -7484,9 +7432,8 @@ This final block intentionally overrides earlier Library experiments.
   .acw-library-latest-heading h2,
   .acw-library-blueprint-copy h2,
   .acw-library-closing-card h2 {
-    max-width: 15ch;
-    font-size: clamp(2.15rem, 9.2vw, 3rem);
-    line-height: 1;
+    max-width: var(--measure-heading);
+    font-size: min(clamp(2.15rem, 9.2vw, 3rem), 10cqi);
   }
 
   .acw-library-chapter-intro {
@@ -7495,9 +7442,8 @@ This final block intentionally overrides earlier Library experiments.
   }
 
   .acw-library-chapter-intro h3 {
-    max-width: 16ch;
-    font-size: clamp(2rem, 8.5vw, 2.8rem);
-    line-height: 1;
+    max-width: var(--measure-subhead);
+    font-size: min(clamp(2rem, 8.5vw, 2.8rem), 9.5cqi);
   }
 
   .acw-library-resource-copy {
@@ -7505,9 +7451,8 @@ This final block intentionally overrides earlier Library experiments.
   }
 
   .acw-library-resource-copy h3 {
-    max-width: 15ch;
-    font-size: clamp(2rem, 8.5vw, 2.8rem);
-    line-height: 1;
+    max-width: var(--measure-subhead);
+    font-size: min(clamp(2rem, 8.5vw, 2.8rem), 9.5cqi);
   }
 
   .site-footer-top,
@@ -7711,11 +7656,9 @@ This final block intentionally overrides earlier Library experiments.
 .footer-practice-notes h2 {
   position: relative;
   z-index: 1;
-  max-width: 13ch;
+  max-width: var(--measure-heading);
   margin: 0 0 1rem;
-  font-size: clamp(1.7rem, 2vw, 2.15rem);
-  line-height: 1.04;
-  letter-spacing: -0.045em;
+  font-size: min(clamp(1.7rem, 2vw, 2.15rem), 10cqi);
   text-wrap: balance;
 }
 
@@ -7911,8 +7854,8 @@ This final block intentionally overrides earlier Library experiments.
   }
 
   .footer-practice-notes h2 {
-    max-width: 15ch;
-    font-size: clamp(1.65rem, 8vw, 2.15rem);
+    max-width: var(--measure-heading);
+    font-size: min(clamp(1.65rem, 8vw, 2.15rem), 10cqi);
   }
 
   .footer-practice-notes-text {
@@ -7967,11 +7910,9 @@ This final block intentionally overrides earlier Library experiments.
 }
 
 .acw-library-hero h1 {
-  max-width: 11.5ch;
+  max-width: var(--measure-display);
   margin: 0 0 1.35rem;
-  font-size: clamp(3.45rem, 5.25vw, 5.75rem);
-  line-height: 0.94;
-  letter-spacing: -0.067em;
+  font-size: min(clamp(3.45rem, 5.25vw, 5.75rem), 12cqi);
   text-wrap: balance;
 }
 
@@ -8051,7 +7992,7 @@ This final block intentionally overrides earlier Library experiments.
   }
 
   .acw-library-hero h1 {
-    font-size: clamp(3rem, 6vw, 4.7rem);
+    font-size: min(clamp(3rem, 6vw, 4.7rem), 12cqi);
   }
 }
 
@@ -8066,9 +8007,8 @@ This final block intentionally overrides earlier Library experiments.
   }
 
   .acw-library-hero h1 {
-    max-width: 12ch;
-    font-size: clamp(2.6rem, 11vw, 3.8rem);
-    line-height: 0.97;
+    max-width: var(--measure-display);
+    font-size: min(clamp(2.6rem, 11vw, 3.8rem), 12cqi);
   }
 
   .acw-library-hero-intro {
@@ -8123,10 +8063,8 @@ without altering shared component behaviour elsewhere.
 /* Hero */
 
 .acw-hero-cover h1 {
-  max-width: 11.3ch;
-  font-size: clamp(3.55rem, 5.25vw, 5.85rem);
-  line-height: 0.93;
-  letter-spacing: -0.068em;
+  max-width: var(--measure-display);
+  font-size: min(clamp(3.55rem, 5.25vw, 5.85rem), 12cqi);
   text-wrap: balance;
 }
 
@@ -8153,7 +8091,7 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-home-reflection h2 {
-  max-width: 11.5ch;
+  max-width: var(--measure-heading);
 }
 
 .acw-home-reflection .acw-editorial-media img {
@@ -8168,8 +8106,8 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-home-problem-heading h2 {
-  max-width: 12.5ch;
-  font-size: clamp(2.5rem, 3.5vw, 3.9rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.5rem, 3.5vw, 3.9rem), 10cqi);
 }
 
 .acw-home-problem-grid {
@@ -8184,9 +8122,8 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-home-problem-grid .acw-blueprint-card h3 {
-  max-width: 16ch;
-  font-size: clamp(1.28rem, 1.55vw, 1.62rem);
-  line-height: 1.14;
+  max-width: var(--measure-subhead);
+  font-size: min(clamp(1.28rem, 1.55vw, 1.62rem), 9.5cqi);
 }
 
 .acw-home-problem-grid .acw-blueprint-card p {
@@ -8204,7 +8141,7 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-home-transformation .acw-section-heading h2 {
-  max-width: 12ch;
+  max-width: var(--measure-heading);
 }
 
 .acw-home-transformation .acw-offer-grid-four {
@@ -8219,13 +8156,13 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-home-transformation .acw-offer-card h3 {
-  max-width: 10.5ch;
-  font-size: clamp(1.38rem, 1.55vw, 1.72rem);
+  max-width: var(--measure-subhead);
+  font-size: min(clamp(1.38rem, 1.55vw, 1.72rem), 9.5cqi);
 }
 
 .acw-home-transformation .acw-offer-card > p {
   min-height: 7.3em;
-  font-size: 0.94rem;
+  font-size: max(var(--text-min), 0.94rem);
   line-height: 1.63;
 }
 
@@ -8237,7 +8174,7 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-home-transformation .acw-offer-card li {
-  font-size: 0.86rem;
+  font-size: max(var(--text-min), 0.86rem);
 }
 
 /* Outcome */
@@ -8249,8 +8186,8 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-home-outcome h2 {
-  max-width: 10.5ch;
-  font-size: clamp(2.55rem, 3.6vw, 4rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.55rem, 3.6vw, 4rem), 10cqi);
 }
 
 .acw-home-outcome .acw-showcase-copy > p {
@@ -8269,8 +8206,8 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-home-work .acw-section-heading h2 {
-  max-width: 12ch;
-  font-size: clamp(2.45rem, 3.4vw, 3.85rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.45rem, 3.4vw, 3.85rem), 10cqi);
 }
 
 .acw-home-work .acw-cards-two {
@@ -8302,8 +8239,8 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-home-about h2 {
-  max-width: 11ch;
-  font-size: clamp(2.55rem, 3.7vw, 4.15rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.55rem, 3.7vw, 4.15rem), 10cqi);
 }
 
 .acw-home-about .acw-about-image {
@@ -8318,8 +8255,8 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-home-guides .acw-section-heading h2 {
-  max-width: 11ch;
-  font-size: clamp(2.45rem, 3.45vw, 3.9rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.45rem, 3.45vw, 3.9rem), 10cqi);
 }
 
 .acw-home-library-feature {
@@ -8344,10 +8281,9 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-home-library-primary h3 {
-  max-width: 11ch;
+  max-width: var(--measure-subhead);
   margin-top: 0.35rem;
-  font-size: clamp(2rem, 3vw, 3.05rem);
-  line-height: 0.99;
+  font-size: min(clamp(2rem, 3vw, 3.05rem), 9.5cqi);
 }
 
 .acw-home-library-primary p {
@@ -8418,8 +8354,8 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-home-faq .acw-section-heading h2 {
-  max-width: 10ch;
-  font-size: clamp(2.35rem, 3.3vw, 3.65rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.35rem, 3.3vw, 3.65rem), 10cqi);
 }
 
 /* Final CTA */
@@ -8431,7 +8367,7 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-home-final h2 {
-  max-width: 10.5ch;
+  max-width: var(--measure-heading);
 }
 
 .acw-home-final-media img {
@@ -8502,8 +8438,8 @@ without altering shared component behaviour elsewhere.
   }
 
   .acw-hero-cover h1 {
-    max-width: 11.5ch;
-    font-size: clamp(2.55rem, 10.5vw, 3.35rem);
+    max-width: var(--measure-display);
+    font-size: min(clamp(2.55rem, 10.5vw, 3.35rem), 12cqi);
   }
 
   .acw-home-transformation .acw-offer-grid-four {
@@ -8550,9 +8486,8 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-service-hero h1 {
-  max-width: 10.5ch;
-  font-size: clamp(3.45rem, 5.1vw, 5.45rem);
-  line-height: 0.93;
+  max-width: var(--measure-display);
+  font-size: min(clamp(3.45rem, 5.1vw, 5.45rem), 12cqi);
 }
 
 .acw-service-hero .acw-page-intro {
@@ -8630,8 +8565,8 @@ without altering shared component behaviour elsewhere.
 .acw-service-sequence h2,
 .acw-service-proof-section h2,
 .acw-service-final h2 {
-  max-width: 11.5ch;
-  font-size: clamp(2.6rem, 3.7vw, 4.2rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.6rem, 3.7vw, 4.2rem), 10cqi);
 }
 
 /* Four connected stages */
@@ -8642,7 +8577,7 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-service-method .acw-section-heading h2 {
-  max-width: 12.5ch;
+  max-width: var(--measure-heading);
 }
 
 .acw-connected-process {
@@ -8675,15 +8610,15 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-connected-stage h3 {
-  max-width: 11ch;
+  max-width: var(--measure-subhead);
   margin-top: 0.3rem;
-  font-size: clamp(1.42rem, 1.65vw, 1.8rem);
+  font-size: min(clamp(1.42rem, 1.65vw, 1.8rem), 9.5cqi);
 }
 
 .acw-connected-stage > p {
   min-height: 7.2em;
   color: var(--muted);
-  font-size: 0.94rem;
+  font-size: max(var(--text-min), 0.94rem);
   line-height: 1.62;
 }
 
@@ -8700,7 +8635,7 @@ without altering shared component behaviour elsewhere.
   position: relative;
   padding-left: 1.05rem;
   color: rgba(26, 33, 25, 0.72);
-  font-size: 0.86rem;
+  font-size: max(var(--text-min), 0.86rem);
   font-weight: 720;
 }
 
@@ -8722,8 +8657,8 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-service-difference .acw-section-heading h2 {
-  max-width: 12ch;
-  font-size: clamp(2.5rem, 3.5vw, 3.95rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.5rem, 3.5vw, 3.95rem), 10cqi);
 }
 
 .acw-comparison-grid {
@@ -8739,8 +8674,8 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-comparison-card h3 {
-  max-width: 20ch;
-  font-size: clamp(1.25rem, 1.5vw, 1.55rem);
+  max-width: var(--measure-subhead);
+  font-size: min(clamp(1.25rem, 1.5vw, 1.55rem), 9.5cqi);
 }
 
 /* Outcomes and inclusions */
@@ -8756,8 +8691,8 @@ without altering shared component behaviour elsewhere.
 .acw-service-inclusions .acw-section-heading h2,
 .acw-service-directions .acw-section-heading h2,
 .acw-service-fit .acw-section-heading h2 {
-  max-width: 12ch;
-  font-size: clamp(2.45rem, 3.4vw, 3.85rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.45rem, 3.4vw, 3.85rem), 10cqi);
 }
 
 .acw-outcome-grid,
@@ -8815,8 +8750,8 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-collaboration-intro h2 {
-  max-width: 11ch;
-  font-size: clamp(2.45rem, 3.4vw, 3.85rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.45rem, 3.4vw, 3.85rem), 10cqi);
 }
 
 .acw-collaboration-grid {
@@ -8839,8 +8774,8 @@ without altering shared component behaviour elsewhere.
 }
 
 .acw-service-faq .acw-section-heading h2 {
-  max-width: 10ch;
-  font-size: clamp(2.35rem, 3.2vw, 3.55rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.35rem, 3.2vw, 3.55rem), 10cqi);
 }
 
 .acw-service-final .acw-blog-cta {
@@ -8902,7 +8837,7 @@ without altering shared component behaviour elsewhere.
   }
 
   .acw-service-hero h1 {
-    font-size: clamp(2.6rem, 11vw, 3.45rem);
+    font-size: min(clamp(2.6rem, 11vw, 3.45rem), 12cqi);
   }
 
   .acw-service-proof {
@@ -8951,10 +8886,8 @@ variation in scale, density and editorial pacing.
 }
 
 .acw-service-hero h1 {
-  max-width: 9.5ch;
-  font-size: clamp(4rem, 6.1vw, 6.4rem);
-  line-height: 0.89;
-  letter-spacing: -0.074em;
+  max-width: var(--measure-display);
+  font-size: min(clamp(4rem, 6.1vw, 6.4rem), 12cqi);
 }
 
 .acw-service-hero .acw-page-intro {
@@ -9022,9 +8955,9 @@ variation in scale, density and editorial pacing.
 }
 
 .acw-comparison-side h3 {
-  max-width: 19ch;
+  max-width: var(--measure-subhead);
   margin-bottom: 0.75rem;
-  font-size: clamp(1.3rem, 1.7vw, 1.72rem);
+  font-size: min(clamp(1.3rem, 1.7vw, 1.72rem), 9.5cqi);
 }
 
 .acw-comparison-side p {
@@ -9078,10 +9011,9 @@ variation in scale, density and editorial pacing.
 }
 
 .acw-service-editorial-copy h2 {
-  max-width: 10.5ch;
+  max-width: var(--measure-heading);
   margin: 0;
-  font-size: clamp(3.3rem, 5.6vw, 6rem);
-  line-height: 0.91;
+  font-size: min(clamp(3.3rem, 5.6vw, 6rem), 10cqi);
 }
 
 .acw-service-editorial-text {
@@ -9135,10 +9067,9 @@ variation in scale, density and editorial pacing.
 }
 
 .acw-outcome-card-large h3 {
-  max-width: 15ch;
+  max-width: var(--measure-subhead);
   margin-top: 4rem;
-  font-size: clamp(1.5rem, 2vw, 2rem);
-  line-height: 1.08;
+  font-size: min(clamp(1.5rem, 2vw, 2rem), 9.5cqi);
 }
 
 .acw-outcome-card-large p {
@@ -9208,7 +9139,7 @@ variation in scale, density and editorial pacing.
 }
 
 .acw-collaboration-card p {
-  font-size: 0.93rem;
+  font-size: max(var(--text-min), 0.93rem);
 }
 
 /* Final CTA: unboxed, spacious ending */
@@ -9231,9 +9162,8 @@ variation in scale, density and editorial pacing.
 }
 
 .acw-service-final .acw-service-final-cta h2 {
-  max-width: 10.5ch;
-  font-size: clamp(3.3rem, 5.4vw, 5.8rem);
-  line-height: 0.92;
+  max-width: var(--measure-heading);
+  font-size: min(clamp(3.3rem, 5.4vw, 5.8rem), 10cqi);
 }
 
 .acw-service-final .acw-service-final-cta > p:not(.acw-section-label) {
@@ -9263,7 +9193,7 @@ variation in scale, density and editorial pacing.
   }
 
   .acw-service-editorial-copy h2 {
-    max-width: 11ch;
+    max-width: var(--measure-heading);
   }
 
   .acw-service-editorial-text {
@@ -9284,9 +9214,8 @@ variation in scale, density and editorial pacing.
   }
 
   .acw-service-hero h1 {
-    max-width: 10.5ch;
-    font-size: clamp(2.85rem, 12vw, 4rem);
-    line-height: 0.92;
+    max-width: var(--measure-display);
+    font-size: min(clamp(2.85rem, 12vw, 4rem), 12cqi);
   }
 
   .acw-comparison-pair {
@@ -9306,7 +9235,7 @@ variation in scale, density and editorial pacing.
   }
 
   .acw-service-editorial-copy h2 {
-    font-size: clamp(2.75rem, 12vw, 4rem);
+    font-size: min(clamp(2.75rem, 12vw, 4rem), 10cqi);
   }
 
   .acw-service-editorial .acw-showcase-image img {
@@ -9336,7 +9265,7 @@ variation in scale, density and editorial pacing.
   }
 
   .acw-service-final .acw-service-final-cta h2 {
-    font-size: clamp(2.75rem, 12vw, 4.1rem);
+    font-size: min(clamp(2.75rem, 12vw, 4.1rem), 10cqi);
   }
 }
 
@@ -9347,10 +9276,9 @@ Instrument Serif is used for headings; Aileron is used everywhere else.
 This final layer intentionally overrides earlier exploratory typography.
 ========================================================= */
 
-:root {
-  --font-heading: "Instrument Serif", Georgia, serif;
-  --font-body: "Aileron", "Helvetica Neue", Arial, sans-serif;
-}
+/* Font tokens are declared once, in visual-system.css, which is concatenated
+   after this file by scripts/build-css.mjs and is the final authority. The
+   duplicate `:root` that used to sit here still named the retired Aileron. */
 
 html,
 body,
@@ -9361,32 +9289,8 @@ textarea {
   font-family: var(--font-body);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-blockquote {
-  font-family: var(--font-heading) !important;
-  font-weight: 400 !important;
-  letter-spacing: 0 !important;
-}
-
-h1 {
-  line-height: 1.15 !important;
-}
-
-h2 {
-  line-height: 1.2 !important;
-}
-
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1.3 !important;
-}
+/* The blanket `!important` heading block that used to sit here is now stated
+   once, without !important, in section 44 below. */
 
 blockquote {
   line-height: 1.2;
@@ -9419,6 +9323,13 @@ body {
   color: var(--logo-ink);
 }
 
+/* Shared heading voice. Stated once, late in the cascade, WITHOUT
+   !important: components below and in catalogue-refresh.css are expected to
+   set their own size and measure, and previously could not — the !important
+   version silently discarded every per-component letter-spacing, line-height
+   and font-family in the stylesheet, including the whole catalogue-refresh
+   heading layer. Colour is restated per surface where a dark panel needs a
+   light heading. */
 h1,
 h2,
 h3,
@@ -9426,10 +9337,27 @@ h4,
 h5,
 h6,
 blockquote {
-  color: var(--logo-ink) !important;
-  font-family: var(--font-heading) !important;
-  font-weight: 400 !important;
-  letter-spacing: 0 !important;
+  color: var(--logo-ink);
+  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* Established leading. Previously stated with !important, which is why the
+   tighter per-component values further down this file never applied. */
+h1 {
+  line-height: 1.15; /* base-leading */
+}
+
+h2 {
+  line-height: 1.2; /* base-leading */
+}
+
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.3; /* base-leading */
 }
 
 .acw-section-number,
@@ -9763,9 +9691,9 @@ main img {
   }
 
   .acw-hero-cover h1 {
-    max-width: 10.7ch;
+    max-width: var(--measure-display);
     margin-bottom: 1rem;
-    font-size: clamp(3.15rem, 4.7vw, 5.1rem);
+    font-size: min(clamp(3.15rem, 4.7vw, 5.1rem), 12cqi);
     line-height: 1.01 !important;
   }
 
@@ -9871,10 +9799,10 @@ restores high-contrast cover copy and supports three proof cards.
   }
 
   .acw-hero-cover h1 {
-    max-width: 10.8ch;
+    max-width: var(--measure-display);
     margin-bottom: 0.9rem;
     color: var(--warm-white) !important;
-    font-size: clamp(3rem, 4.25vw, 4.8rem);
+    font-size: min(clamp(3rem, 4.25vw, 4.8rem), 12cqi);
     line-height: 0.96 !important;
     letter-spacing: -0.055em !important;
   }
@@ -10003,10 +9931,9 @@ prevents awkward text orphans and supports the two-card showcase.
 }
 
 .acw-service-hero h1 {
-  max-width: 12.75ch;
+  max-width: var(--measure-display);
   margin-bottom: 1.15rem;
-  font-size: clamp(3.35rem, 4.65vw, 5.45rem);
-  line-height: 0.97;
+  font-size: min(clamp(3.35rem, 4.65vw, 5.45rem), 12cqi);
   letter-spacing: -0.035em !important;
   text-wrap: balance;
 }
@@ -10102,15 +10029,15 @@ prevents awkward text orphans and supports the two-card showcase.
 .acw-service-proof-section .acw-section-heading h2,
 .acw-service-directions .acw-section-heading h2,
 .acw-service-fit .acw-section-heading h2 {
-  max-width: 17ch;
+  max-width: var(--measure-heading);
 }
 
 .acw-collaboration-intro h2 {
-  max-width: 14ch;
+  max-width: var(--measure-heading);
 }
 
 .acw-service-faq .acw-section-heading h2 {
-  max-width: 14ch;
+  max-width: var(--measure-heading);
 }
 
 /* Two equal examples: one concept direction and one live website. */
@@ -10165,8 +10092,8 @@ prevents awkward text orphans and supports the two-card showcase.
   }
 
   .acw-service-hero h1 {
-    max-width: 12ch;
-    font-size: clamp(3.25rem, 8vw, 5.1rem);
+    max-width: var(--measure-display);
+    font-size: min(clamp(3.25rem, 8vw, 5.1rem), 12cqi);
   }
 
   .acw-service-hero-media {
@@ -10190,9 +10117,8 @@ prevents awkward text orphans and supports the two-card showcase.
   }
 
   .acw-service-hero h1 {
-    max-width: 11.5ch;
-    font-size: clamp(2.8rem, 13vw, 4.1rem);
-    line-height: 0.99;
+    max-width: var(--measure-display);
+    font-size: min(clamp(2.8rem, 13vw, 4.1rem), 12cqi);
   }
 
   .acw-service-hero .acw-page-intro {
@@ -10211,8 +10137,8 @@ prevents awkward text orphans and supports the two-card showcase.
 
 @media (max-width: 430px) {
   .acw-service-hero h1 {
-    max-width: 10.75ch;
-    font-size: clamp(2.7rem, 13.5vw, 3.55rem);
+    max-width: var(--measure-display);
+    font-size: min(clamp(2.7rem, 13.5vw, 3.55rem), 12cqi);
   }
 
   .acw-service-hero .acw-cta-row {
@@ -10249,8 +10175,8 @@ price → fit → practical reassurance → enquiry.
 }
 
 .acw-complete-package h2 {
-  max-width: 15ch;
-  font-size: clamp(2.7rem, 4.2vw, 4.7rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.7rem, 4.2vw, 4.7rem), 10cqi);
   line-height: 1.03 !important;
 }
 
@@ -10279,9 +10205,8 @@ Authoritative corrections for /service/.
 }
 
 .acw-service-page .acw-service-hero h1 {
-  max-width: 14.5ch;
-  font-size: clamp(3rem, 4.25vw, 4.85rem);
-  line-height: 0.94;
+  max-width: var(--measure-display);
+  font-size: min(clamp(3rem, 4.25vw, 4.85rem), 12cqi);
   letter-spacing: -0.062em !important;
   text-wrap: pretty;
 }
@@ -10327,7 +10252,7 @@ Authoritative corrections for /service/.
 }
 
 .acw-service-page .acw-service-work-copy h2 {
-  max-width: 16ch;
+  max-width: var(--measure-heading);
   text-wrap: pretty;
 }
 
@@ -10353,8 +10278,8 @@ Authoritative corrections for /service/.
   }
 
   .acw-service-page .acw-service-hero h1 {
-    max-width: 12.5ch;
-    font-size: clamp(2.65rem, 11.5vw, 3.55rem);
+    max-width: var(--measure-display);
+    font-size: min(clamp(2.65rem, 11.5vw, 3.55rem), 12cqi);
   }
 }
 
@@ -10365,13 +10290,13 @@ Authoritative corrections for /service/.
 .acw-links-shell { max-width:1100px; }
 .acw-links-hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(280px,.54fr); gap:clamp(3rem,9vw,8rem); align-items:center; min-height:clamp(420px,45vw,570px); padding-bottom:clamp(4.5rem,8vw,7rem); }
 .acw-links-copy { max-width:640px; }
-.acw-links-copy h1 { max-width:10ch; margin-bottom:1.25rem; font-size:clamp(3.4rem,5.6vw,6.1rem); line-height:.9; letter-spacing:-.07em; }
+.acw-links-copy h1 { max-width: var(--measure-display); margin-bottom:1.25rem; font-size: min(clamp(3.4rem,5.6vw,6.1rem), 12cqi); }
 .acw-links-text { max-width:47ch; margin-bottom:1.8rem; color:var(--muted); font-size:clamp(1.02rem,1.2vw,1.15rem); line-height:1.7; }
 .acw-links-portrait { width:min(100%,390px); justify-self:end; margin:0; }
 .acw-links-portrait img { display:block; width:100%; aspect-ratio:4 / 5; object-fit:cover; object-position:center; border:1px solid var(--line); border-radius:18px; box-shadow:0 22px 52px rgba(26,33,25,.1); }
 .acw-links-destinations { padding:clamp(4.5rem,8vw,7rem) 0; border-top:1px solid var(--line); }
 .acw-links-section-heading { display:grid; grid-template-columns:minmax(0,.85fr) minmax(280px,.65fr); gap:clamp(2rem,7vw,6rem); align-items:end; margin-bottom:2.8rem; }
-.acw-links-section-heading h2 { max-width:11ch; margin-bottom:0; }
+.acw-links-section-heading h2 { max-width: var(--measure-heading); margin-bottom:0; }
 .acw-links-section-heading > p:last-child { max-width:47ch; margin:0; color:var(--muted); }
 .acw-links-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
 .acw-link-card { position:relative; display:flex; min-height:270px; padding:clamp(1.5rem,3.2vw,2.2rem); flex-direction:column; overflow:hidden; color:var(--text); background:rgba(255,255,255,.76); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow-xs); }
@@ -10383,7 +10308,7 @@ Authoritative corrections for /service/.
 .acw-link-card-contact strong,.acw-link-card-contact p,.acw-link-card-contact .acw-link-label { color:inherit; }
 .acw-link-label { display:block; margin-bottom:1.1rem; color:var(--accent-dark); font-size:.68rem; font-weight:900; letter-spacing:.14em; line-height:1; text-transform:uppercase; }
 .acw-link-card strong { max-width:20ch; margin-bottom:.75rem; font-family:var(--font-heading); font-size:clamp(1.6rem,2.2vw,2.2rem); font-weight:880; letter-spacing:-.05em; line-height:1.02; }
-.acw-link-card p { max-width:42ch; margin:0; color:var(--muted); font-size:.93rem; line-height:1.65; }
+.acw-link-card p { max-width:42ch; margin:0; color:var(--muted); font-size: max(var(--text-min), .93rem); line-height:1.65; }
 .acw-link-arrow { display:inline-flex; margin-top:auto; padding-top:1.6rem; color:inherit; font-size:1.2rem; }
 .acw-links-footer { display:flex; gap:1.5rem; align-items:center; justify-content:space-between; padding-top:2.4rem; border-top:1px solid var(--line); }
 .acw-links-footer p { max-width:38ch; margin:0; color:var(--muted); font-family:var(--font-heading); font-size:clamp(1.35rem,2vw,1.8rem); line-height:1.08; }
@@ -10392,7 +10317,7 @@ Authoritative corrections for /service/.
 .acw-404-inner { max-width:1100px; }
 .acw-404-heading { display:grid; grid-template-columns:minmax(0,1fr) minmax(280px,.54fr); gap:clamp(3rem,9vw,8rem); align-items:center; min-height:clamp(430px,45vw,570px); padding-bottom:clamp(4.5rem,8vw,7rem); }
 .acw-404-copy { max-width:650px; }
-.acw-404-heading h1 { max-width:10ch; margin-bottom:1.35rem; font-size:clamp(3.5rem,5.8vw,6.4rem); line-height:.9; letter-spacing:-.075em; }
+.acw-404-heading h1 { max-width: var(--measure-display); margin-bottom:1.35rem; font-size: min(clamp(3.5rem,5.8vw,6.4rem), 12cqi); }
 .acw-404-text { max-width:49ch; margin-bottom:0; color:var(--muted); font-size:clamp(1rem,1.2vw,1.13rem); line-height:1.7; }
 .acw-404-heading .acw-cta-row { display:flex; max-width:none; margin-top:1.9rem; gap:.8rem; }
 .acw-404-hero-media { position:relative; width:min(100%,390px); justify-self:end; margin:0; }
@@ -10400,21 +10325,21 @@ Authoritative corrections for /service/.
 .acw-404-hero-media figcaption { position:absolute; right:1rem; bottom:1rem; padding:.55rem .7rem; color:var(--warm-white); background:rgba(26,33,25,.76); border:1px solid rgba(255,255,255,.28); border-radius:4px; font-size:.65rem; font-weight:850; letter-spacing:.11em; text-transform:uppercase; }
 .acw-404-options { padding:clamp(4.5rem,8vw,7rem) 0; border-top:1px solid var(--line); }
 .acw-404-options-heading { display:grid; grid-template-columns:minmax(0,.74fr) minmax(300px,.6fr); gap:clamp(2rem,7vw,6rem); align-items:end; max-width:none; margin-bottom:2.8rem; }
-.acw-404-options-heading h2 { max-width:15ch; margin:0; }
+.acw-404-options-heading h2 { max-width: var(--measure-heading); margin:0; }
 .acw-404-options-heading .acw-section-label { margin:0 0 .8rem; }
 .acw-404-options-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
 .acw-404-option { position:relative; display:flex; min-height:300px; padding:clamp(1.5rem,3vw,2rem); flex-direction:column; overflow:hidden; color:var(--text); background:rgba(255,255,255,.76); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow-xs); }
 .acw-404-option::before { position:absolute; top:0; right:0; left:0; height:3px; background:rgba(121,131,113,.55); content:""; }
 .acw-404-option:hover { color:var(--text); border-color:rgba(40,58,56,.22); box-shadow:var(--shadow-sm); transform:translateY(-3px); }
-.acw-404-option h3 { max-width:15ch; margin-bottom:.85rem; font-size:clamp(1.55rem,2vw,2.05rem); letter-spacing:-.05em; line-height:1.04; }
+.acw-404-option h3 { max-width: var(--measure-subhead); margin-bottom:.85rem; font-size: min(clamp(1.55rem,2vw,2.05rem), 9.5cqi); }
 .acw-404-option > p:not(.acw-section-label) { margin:0; color:var(--muted); font-size:.93rem; line-height:1.65; }
 .acw-404-option span { display:inline-flex; margin-top:auto; padding-top:1.6rem; color:var(--accent-dark); font-size:.82rem; font-weight:800; }
 .acw-404-panel { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:clamp(2rem,6vw,5rem); align-items:end; padding:clamp(2.2rem,5vw,4.2rem); background:var(--surface-soft); border:1px solid var(--line); border-radius:20px; box-shadow:var(--shadow-xs); }
-.acw-404-panel h2 { max-width:15ch; margin-bottom:1rem; }
+.acw-404-panel h2 { max-width: var(--measure-heading); margin-bottom:1rem; }
 .acw-404-panel div > p:last-child { max-width:54ch; margin:0; color:var(--muted); }
 
 @media (max-width:820px) { .acw-links-hero,.acw-links-section-heading,.acw-404-heading,.acw-404-options-heading,.acw-404-panel { grid-template-columns:1fr; } .acw-links-hero,.acw-404-heading { min-height:0; } .acw-links-portrait,.acw-404-hero-media { width:min(100%,390px); justify-self:start; } .acw-404-options-grid { grid-template-columns:1fr; } .acw-404-option { min-height:0; } }
-@media (max-width:600px) { .acw-links-page,.acw-404-page { padding-top:3.5rem; } .acw-links-copy h1,.acw-404-heading h1 { font-size:clamp(2.9rem,13vw,4.2rem); } .acw-links-list { grid-template-columns:1fr; } .acw-link-card-primary { grid-column:auto; } .acw-link-card { min-height:0; } .acw-links-footer { align-items:flex-start; flex-direction:column; } .acw-404-heading .acw-cta-row { align-items:stretch; flex-direction:column; } .acw-404-heading .acw-btn,.acw-404-panel .acw-btn { width:100%; } }
+@media (max-width:600px) { .acw-links-page,.acw-404-page { padding-top:3.5rem; } .acw-links-copy h1,.acw-404-heading h1 { font-size: min(clamp(2.9rem,13vw,4.2rem), 12cqi); } .acw-links-list { grid-template-columns:1fr; } .acw-link-card-primary { grid-column:auto; } .acw-link-card { min-height:0; } .acw-links-footer { align-items:flex-start; flex-direction:column; } .acw-404-heading .acw-cta-row { align-items:stretch; flex-direction:column; } .acw-404-heading .acw-btn,.acw-404-panel .acw-btn { width:100%; } }
 
 /* =========================================================
 57. CURRENT SITE CHROME — FINAL CASCADE AUTHORITY
@@ -10500,7 +10425,7 @@ Must remain at the end of this stylesheet.
 }
 
 .acw-contact-page-copy { padding-top: clamp(1.5rem, 5vw, 5rem); }
-.acw-contact-page-copy h1 { max-width: 11.5ch; }
+.acw-contact-page-copy h1 { max-width: var(--measure-display); }
 
 .acw-contact-form-card {
   border-radius: 20px;
@@ -10508,9 +10433,8 @@ Must remain at the end of this stylesheet.
 }
 
 .acw-form-heading h2 {
-  max-width: 16ch;
-  font-size: clamp(1.9rem, 2.55vw, 2.8rem);
-  line-height: 1.03;
+  max-width: var(--measure-heading);
+  font-size: min(clamp(1.9rem, 2.55vw, 2.8rem), 10cqi);
 }
 
 .acw-contact-form { gap: 1.1rem; }
@@ -10704,7 +10628,7 @@ This intentionally supersedes earlier experimental footer/navigation passes.
 }
 
 .acw-contact-page-copy h1 {
-  max-width: 11.5ch;
+  max-width: var(--measure-display);
 }
 
 .acw-contact-form-card {
@@ -10713,9 +10637,8 @@ This intentionally supersedes earlier experimental footer/navigation passes.
 }
 
 .acw-form-heading h2 {
-  max-width: 16ch;
-  font-size: clamp(1.9rem, 2.55vw, 2.8rem);
-  line-height: 1.03;
+  max-width: var(--measure-heading);
+  font-size: min(clamp(1.9rem, 2.55vw, 2.8rem), 10cqi);
 }
 
 .acw-contact-form {
@@ -10884,7 +10807,7 @@ This intentionally supersedes earlier experimental footer/navigation passes.
 .acw-blog-hero { padding: clamp(5rem, 9vw, 8.75rem) 0 clamp(4.5rem, 8vw, 7rem); background: radial-gradient(circle at 18% 0, rgba(215,221,216,.22), transparent 36%), var(--surface); }
 .acw-blog-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, .58fr); gap: clamp(3rem, 8vw, 8.5rem); align-items: center; }
 .acw-blog-hero-copy { max-width: 660px; }
-.acw-blog-hero h1 { max-width: 10.8ch; margin-bottom: 1.35rem; font-size: clamp(3.35rem, 5.45vw, 6.1rem); line-height: .9; letter-spacing: -.07em; }
+.acw-blog-hero h1 { max-width: var(--measure-display); margin-bottom: 1.35rem; font-size: min(clamp(3.35rem, 5.45vw, 6.1rem), 12cqi); }
 .acw-blog-hero-copy > p:not(.acw-section-label) { max-width: 48ch; margin: 0; color: var(--muted); font-size: clamp(1.04rem, 1.3vw, 1.2rem); line-height: 1.72; }
 .acw-blog-hero-copy .acw-library-text-link { margin-top: 1.8rem; }
 .acw-blog-hero-media { width: min(100%, 440px); justify-self: end; margin: 0; }
@@ -10892,12 +10815,12 @@ This intentionally supersedes earlier experimental footer/navigation passes.
 
 .acw-blog-index { padding: clamp(4.75rem, 8vw, 7.75rem) 0; background: var(--surface-quiet); border-top: 1px solid var(--line); }
 .acw-blog-index-heading { max-width: 660px; margin-bottom: clamp(2.7rem, 5vw, 4.5rem); }
-.acw-blog-index-heading h2 { max-width: 11ch; margin-bottom: 1rem; }
+.acw-blog-index-heading h2 { max-width: var(--measure-heading); margin-bottom: 1rem; }
 .acw-blog-index-heading > p:last-child { max-width: 52ch; color: var(--muted); }
 .acw-blog-index-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; }
 .acw-blog-index-card { display: flex; min-width: 0; overflow: hidden; flex-direction: column; background: rgba(255,255,255,.86); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow-xs); }
 .acw-blog-index-card-copy { display: flex; min-height: 260px; padding: 1.45rem; flex-direction: column; }
-.acw-blog-index-card h3 { max-width: none; margin-bottom: .7rem; font-size: clamp(1.3rem, 1.6vw, 1.65rem); letter-spacing: -.045em; line-height: 1.08; }
+.acw-blog-index-card h3 { max-width: none; margin-bottom: .7rem; font-size: min(clamp(1.3rem, 1.6vw, 1.65rem), 9.5cqi); }
 .acw-blog-index-card h3 a { color: var(--text); }
 .acw-blog-index-card-copy > p:not(.acw-blog-meta) { color: var(--muted); font-size: .91rem; line-height: 1.6; }
 .acw-blog-index-card .acw-library-card-link { margin-top: auto; }
@@ -10907,7 +10830,7 @@ This intentionally supersedes earlier experimental footer/navigation passes.
 
 .acw-blog-clarity-cta { padding: clamp(4.75rem, 8vw, 7.5rem) 0; background: var(--surface); }
 .acw-blog-clarity-cta-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, .42fr); gap: clamp(2rem, 6vw, 5rem); align-items: end; padding: clamp(2.25rem, 5vw, 4.5rem); background: radial-gradient(circle at 100% 0, rgba(215,221,216,.26), transparent 35%), rgba(255,255,255,.84); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow-sm); }
-.acw-blog-clarity-cta h2 { max-width: 13ch; margin-bottom: 1rem; }
+.acw-blog-clarity-cta h2 { max-width: var(--measure-heading); margin-bottom: 1rem; }
 .acw-blog-clarity-cta div:first-child > p:last-child { max-width: 53ch; margin: 0; color: var(--muted); }
 .acw-blog-clarity-cta-actions { display: flex; gap: 1rem; align-items: flex-start; flex-direction: column; }
 .acw-blog-clarity-cta-actions .acw-btn { width: fit-content; }
@@ -10921,7 +10844,7 @@ This intentionally supersedes earlier experimental footer/navigation passes.
 
 @media (max-width: 680px) {
   .acw-blog-hero { padding: 4rem 0 4.5rem; }
-  .acw-blog-hero h1 { font-size: clamp(2.8rem, 12vw, 4rem); }
+  .acw-blog-hero h1 { font-size: min(clamp(2.8rem, 12vw, 4rem), 12cqi); }
   .acw-blog-index-grid { grid-template-columns: 1fr; }
   .acw-blog-clarity-cta-actions .acw-btn { width: 100%; }
 }
@@ -10936,7 +10859,7 @@ This intentionally supersedes earlier experimental footer/navigation passes.
 .acw-library-hero{padding:clamp(5rem,9vw,9rem) 0 clamp(4.5rem,8vw,7.5rem);background:radial-gradient(circle at 12% 5%,rgba(215,221,216,.26),transparent 34%),var(--surface)}
 .acw-library-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.58fr);gap:clamp(3rem,8vw,8.5rem);align-items:center}
 .acw-library-hero-copy{max-width:650px}
-.acw-library-hero h1{max-width:10.8ch;margin-bottom:1.35rem;font-size:clamp(3.4rem,5.5vw,6.25rem);line-height:.9;letter-spacing:-.07em}
+.acw-library-hero h1{max-width: var(--measure-display);margin-bottom:1.35rem;font-size: min(clamp(3.4rem,5.5vw,6.25rem), 12cqi);}
 .acw-library-hero-intro{max-width:48ch;margin:0;color:var(--muted);font-size:clamp(1.04rem,1.3vw,1.2rem);line-height:1.72}
 .acw-library-hero-actions{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-top:2rem}
 .acw-library-hero-media{width:min(100%,440px);justify-self:end;margin:0}
@@ -10945,32 +10868,32 @@ This intentionally supersedes earlier experimental footer/navigation passes.
 .acw-library-text-link:hover,.acw-library-card-link:hover{color:var(--text);border-bottom-color:var(--text)}
 .acw-library-introduction{padding:clamp(4.5rem,8vw,7.5rem) 0;border-top:1px solid var(--line)}
 .acw-library-introduction-grid{display:grid;grid-template-columns:minmax(0,.88fr) minmax(320px,.72fr);gap:clamp(2.5rem,8vw,8rem);align-items:start}
-.acw-library-introduction h2{max-width:11ch}.acw-library-introduction-grid>div:last-child>p{max-width:48ch;color:var(--muted)}
+.acw-library-introduction h2{max-width: var(--measure-heading)}.acw-library-introduction-grid>div:last-child>p{max-width:48ch;color:var(--muted)}
 .acw-library-stage-nav{display:grid;grid-template-columns:repeat(3,1fr);margin-top:2.4rem;border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong)}
 .acw-library-stage-nav a{padding:1rem 0;color:var(--text);border-right:1px solid var(--line-strong)}.acw-library-stage-nav a:not(:first-child){padding-left:1rem}.acw-library-stage-nav a:last-child{border-right:0}
 .acw-library-stage-nav span,.acw-library-stage-heading>p,.acw-library-principle-list>article>p{display:block;margin:0 0 .4rem;color:var(--accent-dark);font-size:.68rem;font-weight:900;letter-spacing:.14em;line-height:1;text-transform:uppercase}
 .acw-library-stage-nav strong{display:block;font-family:var(--font-heading);font-size:1.35rem;letter-spacing:-.04em}
-.acw-library-pathway{padding:clamp(5rem,9vw,9rem) 0;background:var(--surface-quiet)}.acw-library-pathway-heading{max-width:700px;margin-bottom:clamp(4rem,7vw,6.5rem)}.acw-library-pathway-heading h2{max-width:12ch;margin-bottom:1rem}.acw-library-pathway-heading>p:last-child{max-width:53ch;color:var(--muted)}
+.acw-library-pathway{padding:clamp(5rem,9vw,9rem) 0;background:var(--surface-quiet)}.acw-library-pathway-heading{max-width:700px;margin-bottom:clamp(4rem,7vw,6.5rem)}.acw-library-pathway-heading h2{max-width: var(--measure-heading);margin-bottom:1rem}.acw-library-pathway-heading>p:last-child{max-width:53ch;color:var(--muted)}
 .acw-library-stage+.acw-library-stage{margin-top:clamp(5rem,9vw,8rem);padding-top:clamp(4rem,7vw,6.5rem);border-top:1px solid var(--line-strong)}
-.acw-library-stage-heading{display:grid;grid-template-columns:120px minmax(0,700px);column-gap:2rem;align-items:start;margin-bottom:2.7rem}.acw-library-stage-heading>p{grid-row:1 / span 2;margin-top:.7rem}.acw-library-stage-heading h3{max-width:17ch;margin:0;font-size:clamp(2.1rem,3.2vw,3.65rem);line-height:.98}.acw-library-stage-heading span{max-width:55ch;margin-top:.8rem;color:var(--muted)}
-.acw-library-principle-list{border-top:1px solid var(--line-strong)}.acw-library-principle-list article{display:grid;grid-template-columns:70px minmax(0,1fr) auto;gap:1.5rem;align-items:center;padding:1.7rem 0;border-bottom:1px solid var(--line-strong)}.acw-library-principle-list>article>p{margin:0}.acw-library-principle-list h4{margin:0 0 .35rem;font-size:clamp(1.32rem,1.8vw,1.72rem);letter-spacing:-.045em;line-height:1.1}.acw-library-principle-list h4 a{color:var(--text)}.acw-library-principle-list div>p{max-width:61ch;margin:0;color:var(--muted);font-size:.94rem;line-height:1.6}
-.acw-library-featured-guide{padding:clamp(5rem,9vw,8rem) 0}.acw-library-featured-guide-heading{max-width:650px;margin-bottom:2.8rem}.acw-library-featured-guide-heading h2{max-width:12ch}.acw-library-guide-feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.78fr);overflow:hidden;background:rgba(255,255,255,.74);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-sm)}.acw-library-guide-copy{display:flex;padding:clamp(2.2rem,5vw,4.5rem);flex-direction:column;justify-content:center}.acw-library-guide-copy h3{max-width:13ch;margin-bottom:1rem;font-size:clamp(2rem,3.1vw,3.5rem);line-height:.98}.acw-library-guide-copy>p:not(.acw-section-label){max-width:45ch;color:var(--muted)}.acw-library-guide-copy .acw-btn{width:fit-content;margin-top:1rem}.acw-library-guide-feature img{width:100%;height:100%;min-height:430px;object-fit:cover}
-.acw-library-latest{padding:clamp(5rem,9vw,8rem) 0}.acw-library-latest-heading{display:grid;grid-template-columns:minmax(0,.9fr) minmax(300px,.7fr);gap:clamp(2rem,6vw,5rem);align-items:end;margin-bottom:2.8rem}.acw-library-latest-heading h2{max-width:12ch}.acw-library-latest-heading>p{max-width:48ch;margin:0;color:var(--muted)}
-.acw-library-latest-grid,.acw-blog-index-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem}.acw-library-latest-card,.acw-blog-index-card{display:flex;min-width:0;overflow:hidden;flex-direction:column;background:rgba(255,255,255,.84);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-xs)}.acw-library-latest-copy,.acw-blog-index-card>div{display:flex;min-height:255px;padding:1.45rem;flex-direction:column}.acw-blog-meta{margin:0 0 .85rem;color:rgba(26,33,25,.58);font-size:.68rem;font-weight:850;letter-spacing:.1em;line-height:1.4;text-transform:uppercase}.acw-library-latest-card h3,.acw-blog-index-card h2{max-width:none;margin-bottom:.7rem;font-size:clamp(1.3rem,1.6vw,1.65rem);line-height:1.08}.acw-library-latest-card h3 a,.acw-blog-index-card h2 a{color:var(--text)}.acw-library-latest-copy>p:not(.acw-blog-meta),.acw-blog-index-card>div>p:not(.acw-blog-meta){color:var(--muted);font-size:.91rem;line-height:1.6}.acw-library-latest-copy .acw-library-card-link,.acw-blog-index-card .acw-library-card-link{margin-top:auto}.acw-library-latest-image-link,.acw-blog-index-image{display:block;overflow:hidden}.acw-library-latest-image-link img,.acw-blog-index-image img{width:100%;aspect-ratio:16 / 10;object-fit:cover;transition:transform .7s ease}.acw-library-latest-card:hover img,.acw-blog-index-card:hover img{transform:scale(1.025)}.acw-library-all-posts{margin:2rem 0 0;text-align:right}.acw-library-empty{padding:2rem;border:1px solid var(--line);border-radius:18px}
-.acw-library-closing{padding:clamp(4.5rem,8vw,7rem) 0}.acw-library-closing-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:end;padding:clamp(2.2rem,5vw,4.5rem);background:radial-gradient(circle at 100% 0%,rgba(215,221,216,.25),transparent 35%),rgba(255,255,255,.82);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-sm)}.acw-library-closing-card h2{max-width:12ch}.acw-library-closing-card div>p:last-child{max-width:50ch;margin:0;color:var(--muted)}
-.acw-blog-hero{padding:clamp(5rem,9vw,8.5rem) 0 clamp(4rem,7vw,6.5rem);background:radial-gradient(circle at 86% 15%,rgba(215,221,216,.28),transparent 30%),var(--surface)}.acw-blog-hero h1{max-width:11ch;margin-bottom:1.3rem}.acw-blog-hero>.acw-container>p:last-child{max-width:54ch;color:var(--muted);font-size:1.08rem}.acw-blog-index{padding:clamp(4.5rem,8vw,7.5rem) 0;border-top:1px solid var(--line)}.acw-blog-index-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}.acw-blog-index-card>div{min-height:285px}
+.acw-library-stage-heading{display:grid;grid-template-columns:120px minmax(0,700px);column-gap:2rem;align-items:start;margin-bottom:2.7rem}.acw-library-stage-heading>p{grid-row:1 / span 2;margin-top:.7rem}.acw-library-stage-heading h3{max-width: var(--measure-subhead);margin:0;font-size: min(clamp(2.1rem,3.2vw,3.65rem), 9.5cqi);}.acw-library-stage-heading span{max-width:55ch;margin-top:.8rem;color:var(--muted)}
+.acw-library-principle-list{border-top:1px solid var(--line-strong)}.acw-library-principle-list article{display:grid;grid-template-columns:70px minmax(0,1fr) auto;gap:1.5rem;align-items:center;padding:1.7rem 0;border-bottom:1px solid var(--line-strong)}.acw-library-principle-list>article>p{margin:0}.acw-library-principle-list h4{margin:0 0 .35rem;font-size: min(clamp(1.32rem,1.8vw,1.72rem), 9.5cqi);}.acw-library-principle-list h4 a{color:var(--text)}.acw-library-principle-list div>p{max-width: var(--measure-prose-wide);margin:0;color:var(--muted);font-size: max(var(--text-min), .94rem);line-height:1.6}
+.acw-library-featured-guide{padding:clamp(5rem,9vw,8rem) 0}.acw-library-featured-guide-heading{max-width:650px;margin-bottom:2.8rem}.acw-library-featured-guide-heading h2{max-width: var(--measure-heading)}.acw-library-guide-feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.78fr);overflow:hidden;background:rgba(255,255,255,.74);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-sm)}.acw-library-guide-copy{display:flex;padding:clamp(2.2rem,5vw,4.5rem);flex-direction:column;justify-content:center}.acw-library-guide-copy h3{max-width: var(--measure-subhead);margin-bottom:1rem;font-size: min(clamp(2rem,3.1vw,3.5rem), 9.5cqi);}.acw-library-guide-copy>p:not(.acw-section-label){max-width:45ch;color:var(--muted)}.acw-library-guide-copy .acw-btn{width:fit-content;margin-top:1rem}.acw-library-guide-feature img{width:100%;height:100%;min-height:430px;object-fit:cover}
+.acw-library-latest{padding:clamp(5rem,9vw,8rem) 0}.acw-library-latest-heading{display:grid;grid-template-columns:minmax(0,.9fr) minmax(300px,.7fr);gap:clamp(2rem,6vw,5rem);align-items:end;margin-bottom:2.8rem}.acw-library-latest-heading h2{max-width: var(--measure-heading)}.acw-library-latest-heading>p{max-width:48ch;margin:0;color:var(--muted)}
+.acw-library-latest-grid,.acw-blog-index-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem}.acw-library-latest-card,.acw-blog-index-card{display:flex;min-width:0;overflow:hidden;flex-direction:column;background:rgba(255,255,255,.84);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-xs)}.acw-library-latest-copy,.acw-blog-index-card>div{display:flex;min-height:255px;padding:1.45rem;flex-direction:column}.acw-blog-meta{margin:0 0 .85rem;color:rgba(26,33,25,.58);font-size:.68rem;font-weight:850;letter-spacing:.1em;line-height:1.4;text-transform:uppercase}.acw-library-latest-card h3,.acw-blog-index-card h2{max-width:none;margin-bottom:.7rem;font-size:clamp(1.3rem,1.6vw,1.65rem);}.acw-library-latest-card h3 a,.acw-blog-index-card h2 a{color:var(--text)}.acw-library-latest-copy>p:not(.acw-blog-meta),.acw-blog-index-card>div>p:not(.acw-blog-meta){color:var(--muted);font-size:max(var(--text-min),.91rem);line-height:1.6}.acw-library-latest-copy .acw-library-card-link,.acw-blog-index-card .acw-library-card-link{margin-top:auto}.acw-library-latest-image-link,.acw-blog-index-image{display:block;overflow:hidden}.acw-library-latest-image-link img,.acw-blog-index-image img{width:100%;aspect-ratio:16 / 10;object-fit:cover;transition:transform .7s ease}.acw-library-latest-card:hover img,.acw-blog-index-card:hover img{transform:scale(1.025)}.acw-library-all-posts{margin:2rem 0 0;text-align:right}.acw-library-empty{padding:2rem;border:1px solid var(--line);border-radius:18px}
+.acw-library-closing{padding:clamp(4.5rem,8vw,7rem) 0}.acw-library-closing-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:end;padding:clamp(2.2rem,5vw,4.5rem);background:radial-gradient(circle at 100% 0%,rgba(215,221,216,.25),transparent 35%),rgba(255,255,255,.82);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-sm)}.acw-library-closing-card h2{max-width: var(--measure-heading)}.acw-library-closing-card div>p:last-child{max-width:50ch;margin:0;color:var(--muted)}
+.acw-blog-hero{padding:clamp(5rem,9vw,8.5rem) 0 clamp(4rem,7vw,6.5rem);background:radial-gradient(circle at 86% 15%,rgba(215,221,216,.28),transparent 30%),var(--surface)}.acw-blog-hero h1{max-width: var(--measure-display);margin-bottom:1.3rem}.acw-blog-hero>.acw-container>p:last-child{max-width:54ch;color:var(--muted);font-size:1.08rem}.acw-blog-index{padding:clamp(4.5rem,8vw,7.5rem) 0;border-top:1px solid var(--line)}.acw-blog-index-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}.acw-blog-index-card>div{min-height:285px}
 
 @media (max-width:900px){.acw-library-hero-grid,.acw-library-introduction-grid,.acw-library-guide-feature,.acw-library-latest-heading{grid-template-columns:1fr}.acw-library-hero-media{width:min(100%,520px);justify-self:start}.acw-library-latest-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.acw-library-latest-heading{gap:1rem}}
-@media (max-width:680px){.acw-library-hero{padding:4rem 0 4.5rem}.acw-library-hero h1{font-size:clamp(2.8rem,12vw,4rem)}.acw-library-hero-actions,.acw-library-hero-actions .acw-btn{width:100%}.acw-library-stage-nav{grid-template-columns:1fr}.acw-library-stage-nav a,.acw-library-stage-nav a:not(:first-child){padding:1rem 0;border-right:0;border-bottom:1px solid var(--line-strong)}.acw-library-stage-nav a:last-child{border-bottom:0}.acw-library-stage-heading{grid-template-columns:1fr;gap:.75rem}.acw-library-stage-heading>p{grid-row:auto;margin:0}.acw-library-principle-list article{grid-template-columns:42px 1fr;gap:1rem;align-items:start}.acw-library-principle-list .acw-library-card-link{grid-column:2}.acw-library-guide-feature img{min-height:0;aspect-ratio:4 / 3}.acw-library-guide-copy .acw-btn{width:100%}.acw-library-latest-grid,.acw-blog-index-grid{grid-template-columns:1fr}.acw-library-closing-card{grid-template-columns:1fr;align-items:start}.acw-library-closing-card .acw-btn{width:100%}}
+@media (max-width:680px){.acw-library-hero{padding:4rem 0 4.5rem}.acw-library-hero h1{font-size: min(clamp(2.8rem,12vw,4rem), 12cqi)}.acw-library-hero-actions,.acw-library-hero-actions .acw-btn{width:100%}.acw-library-stage-nav{grid-template-columns:1fr}.acw-library-stage-nav a,.acw-library-stage-nav a:not(:first-child){padding:1rem 0;border-right:0;border-bottom:1px solid var(--line-strong)}.acw-library-stage-nav a:last-child{border-bottom:0}.acw-library-stage-heading{grid-template-columns:1fr;gap:.75rem}.acw-library-stage-heading>p{grid-row:auto;margin:0}.acw-library-principle-list article{grid-template-columns:42px 1fr;gap:1rem;align-items:start}.acw-library-principle-list .acw-library-card-link{grid-column:2}.acw-library-guide-feature img{min-height:0;aspect-ratio:4 / 3}.acw-library-guide-copy .acw-btn{width:100%}.acw-library-latest-grid,.acw-blog-index-grid{grid-template-columns:1fr}.acw-library-closing-card{grid-template-columns:1fr;align-items:start}.acw-library-closing-card .acw-btn{width:100%}}
 
 /* 45. BLOG PAGE — PORTRAIT HERO + PRACTICE CLARITY CTA */
 .acw-blog-hero{padding:clamp(5rem,9vw,8.75rem) 0 clamp(4.5rem,8vw,7rem);background:radial-gradient(circle at 18% 0,rgba(215,221,216,.22),transparent 36%),var(--surface)}
 .acw-blog-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.58fr);gap:clamp(3rem,8vw,8.5rem);align-items:center}
-.acw-blog-hero-copy{max-width:660px}.acw-blog-hero h1{max-width:10.8ch;margin-bottom:1.35rem;font-size:clamp(3.35rem,5.45vw,6.1rem);line-height:.9;letter-spacing:-.07em}.acw-blog-hero-copy>p:not(.acw-section-label){max-width:48ch;margin:0;color:var(--muted);font-size:clamp(1.04rem,1.3vw,1.2rem);line-height:1.72}.acw-blog-hero-copy .acw-library-text-link{margin-top:1.8rem}.acw-blog-hero-media{width:min(100%,440px);justify-self:end;margin:0}.acw-blog-hero-media img{width:100%;aspect-ratio:4 / 5;object-fit:cover;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}
-.acw-blog-index{padding:clamp(4.75rem,8vw,7.75rem) 0;background:var(--surface-quiet);border-top:1px solid var(--line)}.acw-blog-index-heading{max-width:660px;margin-bottom:clamp(2.7rem,5vw,4.5rem)}.acw-blog-index-heading h2{max-width:11ch;margin-bottom:1rem}.acw-blog-index-heading>p:last-child{max-width:52ch;color:var(--muted)}.acw-blog-index-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem}.acw-blog-index-card{background:rgba(255,255,255,.86)}.acw-blog-index-card-copy{min-height:260px}.acw-blog-index-card h3{max-width:none;margin-bottom:.7rem;font-size:clamp(1.3rem,1.6vw,1.65rem);letter-spacing:-.045em;line-height:1.08}.acw-blog-index-card h3 a{color:var(--text)}
-.acw-blog-clarity-cta{padding:clamp(4.75rem,8vw,7.5rem) 0;background:var(--surface)}.acw-blog-clarity-cta-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.42fr);gap:clamp(2rem,6vw,5rem);align-items:end;padding:clamp(2.25rem,5vw,4.5rem);background:radial-gradient(circle at 100% 0,rgba(215,221,216,.26),transparent 35%),rgba(255,255,255,.84);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-sm)}.acw-blog-clarity-cta h2{max-width:13ch;margin-bottom:1rem}.acw-blog-clarity-cta div:first-child>p:last-child{max-width:53ch;margin:0;color:var(--muted)}.acw-blog-clarity-cta-actions{display:flex;gap:1rem;align-items:flex-start;flex-direction:column}.acw-blog-clarity-cta-actions .acw-btn{width:fit-content}
+.acw-blog-hero-copy{max-width:660px}.acw-blog-hero h1{max-width: var(--measure-display);margin-bottom:1.35rem;font-size: min(clamp(3.35rem,5.45vw,6.1rem), 12cqi);}.acw-blog-hero-copy>p:not(.acw-section-label){max-width:48ch;margin:0;color:var(--muted);font-size:clamp(1.04rem,1.3vw,1.2rem);line-height:1.72}.acw-blog-hero-copy .acw-library-text-link{margin-top:1.8rem}.acw-blog-hero-media{width:min(100%,440px);justify-self:end;margin:0}.acw-blog-hero-media img{width:100%;aspect-ratio:4 / 5;object-fit:cover;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}
+.acw-blog-index{padding:clamp(4.75rem,8vw,7.75rem) 0;background:var(--surface-quiet);border-top:1px solid var(--line)}.acw-blog-index-heading{max-width:660px;margin-bottom:clamp(2.7rem,5vw,4.5rem)}.acw-blog-index-heading h2{max-width: var(--measure-heading);margin-bottom:1rem}.acw-blog-index-heading>p:last-child{max-width:52ch;color:var(--muted)}.acw-blog-index-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem}.acw-blog-index-card{background:rgba(255,255,255,.86)}.acw-blog-index-card-copy{min-height:260px}.acw-blog-index-card h3{max-width:none;margin-bottom:.7rem;font-size: min(clamp(1.3rem,1.6vw,1.65rem), 9.5cqi);}.acw-blog-index-card h3 a{color:var(--text)}
+.acw-blog-clarity-cta{padding:clamp(4.75rem,8vw,7.5rem) 0;background:var(--surface)}.acw-blog-clarity-cta-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.42fr);gap:clamp(2rem,6vw,5rem);align-items:end;padding:clamp(2.25rem,5vw,4.5rem);background:radial-gradient(circle at 100% 0,rgba(215,221,216,.26),transparent 35%),rgba(255,255,255,.84);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-sm)}.acw-blog-clarity-cta h2{max-width: var(--measure-heading);margin-bottom:1rem}.acw-blog-clarity-cta div:first-child>p:last-child{max-width:53ch;margin:0;color:var(--muted)}.acw-blog-clarity-cta-actions{display:flex;gap:1rem;align-items:flex-start;flex-direction:column}.acw-blog-clarity-cta-actions .acw-btn{width:fit-content}
 @media (max-width:900px){.acw-blog-hero-grid,.acw-blog-clarity-cta-card{grid-template-columns:1fr}.acw-blog-hero-media{width:min(100%,520px);justify-self:start}.acw-blog-index-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:680px){.acw-blog-hero{padding:4rem 0 4.5rem}.acw-blog-hero h1{font-size:clamp(2.8rem,12vw,4rem)}.acw-blog-index-grid{grid-template-columns:1fr}.acw-blog-clarity-cta-actions .acw-btn{width:100%}}
+@media (max-width:680px){.acw-blog-hero{padding:4rem 0 4.5rem}.acw-blog-hero h1{font-size: min(clamp(2.8rem,12vw,4rem), 12cqi)}.acw-blog-index-grid{grid-template-columns:1fr}.acw-blog-clarity-cta-actions .acw-btn{width:100%}}
 
 /* =========================================================
 55. HEADER — CANONICAL LIBRARY SUBNAVIGATION
@@ -11256,11 +11179,9 @@ Canonical styles for _layouts/post.html.
 }
 
 .acw-post-title {
-  max-width: 15ch;
+  max-width: var(--measure-display);
   margin-bottom: 1rem;
-  font-size: clamp(2.7rem, 4.45vw, 4.8rem);
-  line-height: 0.96;
-  letter-spacing: -0.058em;
+  font-size: min(clamp(2.7rem, 4.45vw, 4.8rem), 12cqi);
   text-wrap: balance;
 }
 
@@ -11419,17 +11340,15 @@ Canonical styles for _layouts/post.html.
 }
 
 .acw-post-content h2 {
-  max-width: 15ch;
+  max-width: var(--measure-heading);
   margin: 3.35em 0 0.75em;
-  font-size: clamp(2rem, 3.15vw, 3.25rem);
-  line-height: 0.98;
+  font-size: min(clamp(2rem, 3.15vw, 3.25rem), 10cqi);
 }
 
 .acw-post-content h3 {
-  max-width: 20ch;
+  max-width: var(--measure-subhead);
   margin: 2.6em 0 0.72em;
-  font-size: clamp(1.45rem, 2vw, 1.9rem);
-  line-height: 1.05;
+  font-size: min(clamp(1.45rem, 2vw, 1.9rem), 9.5cqi);
 }
 
 .acw-post-content a {
@@ -11494,9 +11413,9 @@ Canonical styles for _layouts/post.html.
 }
 
 .acw-post-section-heading h2 {
-  max-width: 14ch;
+  max-width: var(--measure-heading);
   margin-bottom: 0;
-  font-size: clamp(2.25rem, 3.5vw, 3.8rem);
+  font-size: min(clamp(2.25rem, 3.5vw, 3.8rem), 10cqi);
 }
 
 .acw-post-footer-cta {
@@ -11519,9 +11438,8 @@ Canonical styles for _layouts/post.html.
 }
 
 .acw-post-cta-copy h2 {
-  max-width: 12ch;
-  font-size: clamp(2.35rem, 3.75vw, 4rem);
-  line-height: 0.98;
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.35rem, 3.75vw, 4rem), 10cqi);
 }
 
 .acw-post-cta-copy > p:not(.acw-section-label) {
@@ -11557,8 +11475,8 @@ Canonical styles for _layouts/post.html.
   }
 
   .acw-post-title {
-    max-width: 12.5ch;
-    font-size: clamp(2.5rem, 11.5vw, 3.6rem);
+    max-width: var(--measure-display);
+    font-size: min(clamp(2.5rem, 11.5vw, 3.6rem), 12cqi);
   }
 
   .acw-post-jump-nav-inner {
@@ -11617,11 +11535,11 @@ Canonical styles for _layouts/post.html.
 
   .acw-post-content h2 {
     margin-top: 2.8rem;
-    font-size: clamp(1.95rem, 9.5vw, 2.75rem);
+    font-size: min(clamp(1.95rem, 9.5vw, 2.75rem), 10cqi);
   }
 
   .acw-post-content h3 {
-    font-size: clamp(1.4rem, 7vw, 1.75rem);
+    font-size: min(clamp(1.4rem, 7vw, 1.75rem), 9.5cqi);
   }
 
   .acw-post-cta-copy {
@@ -11663,10 +11581,9 @@ Refinement for the final post reading experience.
 }
 
 .acw-post-title {
-  max-width: 14ch;
+  max-width: var(--measure-display);
   margin-bottom: 1.15rem;
-  font-size: clamp(2.45rem, 3.9vw, 4.2rem);
-  line-height: 0.96;
+  font-size: min(clamp(2.45rem, 3.9vw, 4.2rem), 12cqi);
 }
 
 .acw-post-meta-row {
@@ -11724,7 +11641,7 @@ Refinement for the final post reading experience.
 }
 
 .acw-post-summary {
-  max-width: 60ch;
+  max-width: var(--measure-prose-wide);
   margin: 0;
   color: var(--text);
   font-size: clamp(1.05rem, 1.35vw, 1.22rem);
@@ -11764,10 +11681,9 @@ Refinement for the final post reading experience.
 }
 
 .acw-post-library-invitation h2 {
-  max-width: 16ch;
+  max-width: var(--measure-heading);
   margin-bottom: 0.7rem;
-  font-size: clamp(2rem, 3vw, 3.1rem);
-  line-height: 1;
+  font-size: min(clamp(2rem, 3vw, 3.1rem), 10cqi);
 }
 
 .acw-post-library-invitation p:not(.acw-section-label) {
@@ -11814,8 +11730,8 @@ Refinement for the final post reading experience.
   }
 
   .acw-post-title {
-    max-width: 12.5ch;
-    font-size: clamp(2.35rem, 10.5vw, 3.25rem);
+    max-width: var(--measure-display);
+    font-size: min(clamp(2.35rem, 10.5vw, 3.25rem), 12cqi);
   }
 
   .acw-post-jump-nav-inner {
@@ -11926,11 +11842,9 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-guide-title {
-  max-width: 14ch;
+  max-width: var(--measure-display);
   margin-bottom: 1.15rem;
-  font-size: clamp(2.45rem, 3.9vw, 4.2rem);
-  line-height: 0.96;
-  letter-spacing: -0.058em;
+  font-size: min(clamp(2.45rem, 3.9vw, 4.2rem), 12cqi);
   text-wrap: balance;
 }
 
@@ -12021,7 +11935,7 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-guide-summary {
-  max-width: 60ch;
+  max-width: var(--measure-prose-wide);
   margin: 0;
   color: var(--text);
   font-size: clamp(1.05rem, 1.35vw, 1.22rem);
@@ -12084,17 +11998,15 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-guide-content h2 {
-  max-width: 15ch;
+  max-width: var(--measure-heading);
   margin: 3.35em 0 0.75em;
-  font-size: clamp(2rem, 3.15vw, 3.25rem);
-  line-height: 0.98;
+  font-size: min(clamp(2rem, 3.15vw, 3.25rem), 10cqi);
 }
 
 .acw-guide-content h3 {
-  max-width: 20ch;
+  max-width: var(--measure-subhead);
   margin: 2.6em 0 0.72em;
-  font-size: clamp(1.45rem, 2vw, 1.9rem);
-  line-height: 1.05;
+  font-size: min(clamp(1.45rem, 2vw, 1.9rem), 9.5cqi);
 }
 
 .acw-guide-content a {
@@ -12172,10 +12084,9 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-guide-library-invitation h2 {
-  max-width: 16ch;
+  max-width: var(--measure-heading);
   margin-bottom: 0.7rem;
-  font-size: clamp(2rem, 3vw, 3.1rem);
-  line-height: 1;
+  font-size: min(clamp(2rem, 3vw, 3.1rem), 10cqi);
 }
 
 .acw-guide-library-invitation p:not(.acw-section-label) {
@@ -12228,9 +12139,8 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-guide-cta-copy h2 {
-  max-width: 12ch;
-  font-size: clamp(2.35rem, 3.75vw, 4rem);
-  line-height: 0.98;
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.35rem, 3.75vw, 4rem), 10cqi);
 }
 
 .acw-guide-cta-copy > p:not(.acw-section-label) {
@@ -12260,8 +12170,8 @@ Canonical styles for _layouts/guide.html.
   }
 
   .acw-guide-title {
-    max-width: 12.5ch;
-    font-size: clamp(2.35rem, 10.5vw, 3.25rem);
+    max-width: var(--measure-display);
+    font-size: min(clamp(2.35rem, 10.5vw, 3.25rem), 12cqi);
   }
 
   .acw-guide-jump-nav-inner {
@@ -12320,11 +12230,11 @@ Canonical styles for _layouts/guide.html.
 
   .acw-guide-content h2 {
     margin-top: 2.8rem;
-    font-size: clamp(1.95rem, 9.5vw, 2.75rem);
+    font-size: min(clamp(1.95rem, 9.5vw, 2.75rem), 10cqi);
   }
 
   .acw-guide-content h3 {
-    font-size: clamp(1.4rem, 7vw, 1.75rem);
+    font-size: min(clamp(1.4rem, 7vw, 1.75rem), 9.5cqi);
   }
 
   .acw-guide-library-button,
@@ -12343,30 +12253,30 @@ Canonical styles for _layouts/guide.html.
 .acw-service-jump-nav-inner { display: flex; gap: 0.35rem 1.25rem; align-items: center; min-height: 3.4rem; overflow-x: auto; scrollbar-width: thin; }
 .acw-service-jump-nav a { flex: 0 0 auto; padding-block: 0.18rem; color: rgba(26, 33, 25, 0.67); border-bottom: 1px solid transparent; font-size: 0.7rem; font-weight: 850; letter-spacing: 0.09em; text-decoration: none; text-transform: uppercase; }
 .acw-service-jump-nav a:hover, .acw-service-jump-nav a:focus-visible { color: var(--accent-dark); border-bottom-color: currentColor; }
-.acw-service-page .acw-service-hero h1 { max-width: 15.5ch; font-size: clamp(2.9rem, 4vw, 4.45rem); line-height: 0.96; }
+.acw-service-page .acw-service-hero h1 { max-width: var(--measure-display); font-size: min(clamp(2.9rem, 4vw, 4.45rem), 12cqi); }
 .acw-service-page .acw-service-hero-grid { grid-template-columns: minmax(0, 1.03fr) minmax(365px, 0.82fr); gap: clamp(2.5rem, 5vw, 5.5rem); }
 .acw-service-page .acw-service-hero-media { width: min(100%, 470px); }
 .acw-service-page .acw-service-hero-media--portrait img { aspect-ratio: 4 / 5; object-position: 54% center; }
-.acw-service-page .acw-service-heading h2, .acw-service-page .acw-service-management-copy h2, .acw-service-page .acw-service-next-copy h2 { font-size: clamp(2.2rem, 3.35vw, 3.65rem); line-height: 0.98; letter-spacing: -0.055em; }
+.acw-service-page .acw-service-heading h2, .acw-service-page .acw-service-management-copy h2, .acw-service-page .acw-service-next-copy h2 { font-size: min(clamp(2.2rem, 3.35vw, 3.65rem), 10cqi); }
 .acw-service-page .acw-service-deliverable-grid { gap: 1.15rem; }
 .acw-service-page .acw-service-deliverable, .acw-service-page .acw-service-deliverable-featured { min-height: 100%; background: #ffffff; border-color: rgba(26, 33, 25, 0.11); }
-.acw-service-page .acw-service-deliverable h3 { max-width: 15ch; font-size: clamp(1.35rem, 1.65vw, 1.8rem); line-height: 1.03; }
-.acw-service-page .acw-service-management-list h3 { max-width: 19ch; font-size: clamp(1.2rem, 1.55vw, 1.58rem); line-height: 1.08; }
+.acw-service-page .acw-service-deliverable h3 { max-width: var(--measure-subhead); font-size: min(clamp(1.35rem, 1.65vw, 1.8rem), 9.5cqi); }
+.acw-service-page .acw-service-management-list h3 { max-width: var(--measure-subhead); font-size: min(clamp(1.2rem, 1.55vw, 1.58rem), 9.5cqi); }
 .acw-service-page .acw-service-management-list article { min-height: 198px; }
 .acw-service-page .acw-service-price-card-featured, .acw-service-page .acw-service-price-card-featured * { color: #ffffff; }
 .acw-service-page .acw-service-price-card-featured p, .acw-service-page .acw-service-price-card-featured li { color: rgba(255, 255, 255, 0.84); }
 .acw-service-page .acw-service-price-card-featured .acw-btn-primary { color: #283a38; }
 .acw-service-page .acw-service-next-grid { gap: clamp(3.5rem, 7vw, 6.5rem); }
-.acw-service-page .acw-service-next-copy h2 { max-width: 15ch; }
+.acw-service-page .acw-service-next-copy h2 { max-width: var(--measure-heading); }
 @media (max-width: 980px) { .acw-service-page .acw-service-hero-grid { grid-template-columns: 1fr; } .acw-service-page .acw-service-hero-media { width: min(100%, 520px); justify-self: start; } }
-@media (max-width: 760px) { .acw-service-jump-nav-inner { min-height: 3.1rem; gap: 1rem; } .acw-service-jump-nav a { font-size: 0.65rem; } .acw-service-page .acw-service-hero h1 { max-width: 14ch; font-size: clamp(2.45rem, 10.3vw, 3.25rem); } .acw-service-page .acw-service-hero-media, .acw-service-page .acw-service-hero-media--portrait { width: 100%; } .acw-service-page .acw-service-hero-media--portrait img { aspect-ratio: 4 / 5; } .acw-service-page .acw-service-heading h2, .acw-service-page .acw-service-management-copy h2, .acw-service-page .acw-service-next-copy h2 { font-size: clamp(2.05rem, 8.8vw, 2.8rem); line-height: 1; } .acw-service-page .acw-service-management-list h3 { max-width: 22ch; font-size: 1.25rem; } .acw-service-page .acw-service-management-list article { min-height: 0; } .acw-service-page .acw-service-next-grid { gap: 2.75rem; } }
+@media (max-width: 760px) { .acw-service-jump-nav-inner { min-height: 3.1rem; gap: 1rem; } .acw-service-jump-nav a { font-size: 0.65rem; } .acw-service-page .acw-service-hero h1 { max-width: var(--measure-display); font-size: min(clamp(2.45rem, 10.3vw, 3.25rem), 12cqi); } .acw-service-page .acw-service-hero-media, .acw-service-page .acw-service-hero-media--portrait { width: 100%; } .acw-service-page .acw-service-hero-media--portrait img { aspect-ratio: 4 / 5; } .acw-service-page .acw-service-heading h2, .acw-service-page .acw-service-management-copy h2, .acw-service-page .acw-service-next-copy h2 { font-size: min(clamp(2.05rem, 8.8vw, 2.8rem), 10cqi); } .acw-service-page .acw-service-management-list h3 { max-width: var(--measure-subhead); font-size: 1.25rem; } .acw-service-page .acw-service-management-list article { min-height: 0; } .acw-service-page .acw-service-next-grid { gap: 2.75rem; } }
 
 /* 50. SERVICE PAGE — VISUAL GUIDE DOCUMENT */
 .acw-service-visual-guide { margin-top: clamp(4.5rem, 8vw, 7rem); padding-top: clamp(3.5rem, 6vw, 5.5rem); border-top: 1px solid rgba(26, 33, 25, 0.14); }
 .acw-service-visual-guide-heading { display: grid; grid-template-columns: minmax(0, 0.94fr) minmax(300px, 0.66fr); gap: clamp(2rem, 6vw, 5rem); align-items: end; margin-bottom: clamp(2rem, 4vw, 3.5rem); }
-.acw-service-visual-guide-heading h3 { max-width: 15ch; margin: 0; font-size: clamp(2.2rem, 3.35vw, 3.65rem); line-height: 0.98; letter-spacing: -0.055em; }
+.acw-service-visual-guide-heading h3 { max-width: var(--measure-subhead); margin: 0; font-size: min(clamp(2.2rem, 3.35vw, 3.65rem), 9.5cqi); }
 .acw-service-visual-guide-heading > p { max-width: 48ch; margin: 0; color: var(--muted); }
-@media (max-width: 760px) { .acw-service-visual-guide-heading { grid-template-columns: 1fr; gap: 1rem; } .acw-service-visual-guide-heading h3 { font-size: clamp(2.05rem, 8.8vw, 2.8rem); line-height: 1; } }
+@media (max-width: 760px) { .acw-service-visual-guide-heading { grid-template-columns: 1fr; gap: 1rem; } .acw-service-visual-guide-heading h3 { font-size: min(clamp(2.05rem, 8.8vw, 2.8rem), 9.5cqi); } }
 
 /* =========================================================
 48. SERVICE PAGE — HIERARCHY, NAVIGATION & SPACING REFINEMENT
@@ -12379,21 +12289,21 @@ Canonical styles for _layouts/guide.html.
 .acw-service-jump-nav a { flex: 0 0 auto; padding-block: 0.18rem; color: rgba(26, 33, 25, 0.67); border-bottom: 1px solid transparent; font-size: 0.7rem; font-weight: 850; letter-spacing: 0.09em; text-decoration: none; text-transform: uppercase; }
 .acw-service-jump-nav a:hover, .acw-service-jump-nav a:focus-visible { color: var(--accent-dark); border-bottom-color: currentColor; }
 
-.acw-service-page .acw-service-hero h1 { max-width: 15.5ch; font-size: clamp(2.9rem, 4vw, 4.45rem); line-height: 0.96; }
+.acw-service-page .acw-service-hero h1 { max-width: var(--measure-display); font-size: min(clamp(2.9rem, 4vw, 4.45rem), 12cqi); }
 .acw-service-page .acw-service-hero-grid { grid-template-columns: minmax(0, 1.03fr) minmax(365px, 0.82fr); gap: clamp(2.5rem, 5vw, 5.5rem); }
 .acw-service-page .acw-service-hero-media { width: min(100%, 470px); }
 .acw-service-page .acw-service-hero-media--portrait img { aspect-ratio: 4 / 5; object-position: 54% center; }
 
 .acw-service-page .acw-service-heading h2,
 .acw-service-page .acw-service-management-copy h2,
-.acw-service-page .acw-service-next-copy h2 { font-size: clamp(2.2rem, 3.35vw, 3.65rem); line-height: 0.98; letter-spacing: -0.055em; }
+.acw-service-page .acw-service-next-copy h2 { font-size: min(clamp(2.2rem, 3.35vw, 3.65rem), 10cqi); }
 
 .acw-service-page .acw-service-deliverable-grid { gap: 1.15rem; }
 .acw-service-page .acw-service-deliverable,
 .acw-service-page .acw-service-deliverable-featured { min-height: 100%; background: #ffffff; border-color: rgba(26, 33, 25, 0.11); }
-.acw-service-page .acw-service-deliverable h3 { max-width: 15ch; font-size: clamp(1.35rem, 1.65vw, 1.8rem); line-height: 1.03; }
+.acw-service-page .acw-service-deliverable h3 { max-width: var(--measure-subhead); font-size: min(clamp(1.35rem, 1.65vw, 1.8rem), 9.5cqi); }
 
-.acw-service-page .acw-service-management-list h3 { max-width: 19ch; font-size: clamp(1.2rem, 1.55vw, 1.58rem); line-height: 1.08; }
+.acw-service-page .acw-service-management-list h3 { max-width: var(--measure-subhead); font-size: min(clamp(1.2rem, 1.55vw, 1.58rem), 9.5cqi); }
 .acw-service-page .acw-service-management-list article { min-height: 198px; }
 
 .acw-service-page .acw-service-price-card-featured,
@@ -12403,7 +12313,7 @@ Canonical styles for _layouts/guide.html.
 .acw-service-page .acw-service-price-card-featured .acw-btn-primary { color: #283a38; }
 
 .acw-service-page .acw-service-next-grid { gap: clamp(3.5rem, 7vw, 6.5rem); }
-.acw-service-page .acw-service-next-copy h2 { max-width: 15ch; }
+.acw-service-page .acw-service-next-copy h2 { max-width: var(--measure-heading); }
 
 @media (max-width: 980px) {
   .acw-service-page .acw-service-hero-grid { grid-template-columns: 1fr; }
@@ -12413,14 +12323,14 @@ Canonical styles for _layouts/guide.html.
 @media (max-width: 760px) {
   .acw-service-jump-nav-inner { min-height: 3.1rem; gap: 1rem; }
   .acw-service-jump-nav a { font-size: 0.65rem; }
-  .acw-service-page .acw-service-hero h1 { max-width: 14ch; font-size: clamp(2.45rem, 10.3vw, 3.25rem); }
+  .acw-service-page .acw-service-hero h1 { max-width: var(--measure-display); font-size: min(clamp(2.45rem, 10.3vw, 3.25rem), 12cqi); }
   .acw-service-page .acw-service-hero-media,
   .acw-service-page .acw-service-hero-media--portrait { width: 100%; }
   .acw-service-page .acw-service-hero-media--portrait img { aspect-ratio: 4 / 5; }
   .acw-service-page .acw-service-heading h2,
   .acw-service-page .acw-service-management-copy h2,
-  .acw-service-page .acw-service-next-copy h2 { font-size: clamp(2.05rem, 8.8vw, 2.8rem); line-height: 1; }
-  .acw-service-page .acw-service-management-list h3 { max-width: 22ch; font-size: 1.25rem; }
+  .acw-service-page .acw-service-next-copy h2 { font-size: min(clamp(2.05rem, 8.8vw, 2.8rem), 10cqi); }
+  .acw-service-page .acw-service-management-list h3 { max-width: var(--measure-subhead); font-size: 1.25rem; }
   .acw-service-page .acw-service-management-list article { min-height: 0; }
   .acw-service-page .acw-service-next-grid { gap: 2.75rem; }
 }
@@ -12451,9 +12361,9 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-complete-package .acw-package-hero h1 {
-  max-width: 11.25ch;
+  max-width: var(--measure-display);
   margin-bottom: 1.25rem;
-  font-size: clamp(3.65rem, 5.5vw, 6.25rem);
+  font-size: min(clamp(3.65rem, 5.5vw, 6.25rem), 12cqi);
   line-height: 0.96 !important;
 }
 
@@ -12483,7 +12393,7 @@ Canonical styles for _layouts/guide.html.
   position: relative;
   padding-left: 0.8rem;
   color: var(--brand-charcoal);
-  font-size: 0.76rem;
+  font-size: max(var(--text-min), 0.76rem);
   font-weight: 750;
   line-height: 1.4;
 }
@@ -12586,15 +12496,15 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-package-recognition-card h3 {
-  max-width: 15ch;
-  font-size: clamp(1.45rem, 1.8vw, 1.9rem);
+  max-width: var(--measure-subhead);
+  font-size: min(clamp(1.45rem, 1.8vw, 1.9rem), 9.5cqi);
 }
 
 .acw-package-recognition-card p {
   max-width: 34ch;
   margin: auto 0 0;
   color: var(--brand-charcoal);
-  font-size: 0.94rem;
+  font-size: max(var(--text-min), 0.94rem);
   line-height: 1.65;
 }
 
@@ -12642,7 +12552,7 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-package-foundation-copy h2 {
-  max-width: 11.5ch;
+  max-width: var(--measure-heading);
 }
 
 .acw-package-foundation-copy .acw-section-lead {
@@ -12679,7 +12589,7 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-package-chapter-heading h2 {
-  max-width: 13ch;
+  max-width: var(--measure-heading);
   margin-bottom: 1rem;
 }
 
@@ -12717,15 +12627,15 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-package-process-step h3 {
-  max-width: 11ch;
-  font-size: clamp(1.55rem, 2vw, 2.05rem);
+  max-width: var(--measure-subhead);
+  font-size: min(clamp(1.55rem, 2vw, 2.05rem), 9.5cqi);
 }
 
 .acw-package-process-step > p:last-child {
   max-width: 30ch;
   margin: 1rem 0 0;
   color: var(--brand-charcoal);
-  font-size: 0.92rem;
+  font-size: max(var(--text-min), 0.92rem);
   line-height: 1.65;
 }
 
@@ -12737,8 +12647,8 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-package-proof-heading h2 {
-  max-width: 10ch;
-  font-size: clamp(3.2rem, 5vw, 5.6rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(3.2rem, 5vw, 5.6rem), 10cqi);
   line-height: 0.98 !important;
 }
 
@@ -12755,8 +12665,8 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-package-artifact-copy h3 {
-  max-width: 14ch;
-  font-size: clamp(1.9rem, 3vw, 3.2rem);
+  max-width: var(--measure-subhead);
+  font-size: min(clamp(1.9rem, 3vw, 3.2rem), 9.5cqi);
 }
 
 .acw-package-artifact-copy > p:last-child {
@@ -12821,8 +12731,8 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-package-work-body h3 {
-  max-width: 16ch;
-  font-size: clamp(1.55rem, 2vw, 2.05rem);
+  max-width: var(--measure-subhead);
+  font-size: min(clamp(1.55rem, 2vw, 2.05rem), 9.5cqi);
 }
 
 .acw-package-work-body > p:not(.acw-card-label) {
@@ -12842,7 +12752,7 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-package-disclosure {
-  max-width: 75ch;
+  max-width: var(--measure-prose-wide);
   margin: 1.6rem 0 0;
   padding-left: 1rem;
   color: var(--brand-charcoal);
@@ -12872,8 +12782,8 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-package-about-copy h2 {
-  max-width: 11.5ch;
-  font-size: clamp(3.1rem, 5vw, 5.5rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(3.1rem, 5vw, 5.5rem), 10cqi);
   line-height: 0.98 !important;
 }
 
@@ -12931,8 +12841,8 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-package-inclusion-card h3 {
-  max-width: 16ch;
-  font-size: clamp(1.6rem, 2.2vw, 2.35rem);
+  max-width: var(--measure-subhead);
+  font-size: min(clamp(1.6rem, 2.2vw, 2.35rem), 9.5cqi);
 }
 
 .acw-package-inclusion-card ul {
@@ -12952,7 +12862,7 @@ Canonical styles for _layouts/guide.html.
   position: relative;
   padding-left: 1rem;
   color: var(--brand-charcoal);
-  font-size: 0.9rem;
+  font-size: max(var(--text-min), 0.9rem);
   line-height: 1.55;
 }
 
@@ -12996,7 +12906,7 @@ Canonical styles for _layouts/guide.html.
 .acw-package-practical-grid dd {
   margin: 0;
   color: var(--brand-charcoal);
-  font-size: 0.85rem;
+  font-size: max(var(--text-min), 0.85rem);
   line-height: 1.6;
 }
 
@@ -13048,8 +12958,8 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-complete-package .acw-package-price-card h3 {
-  max-width: 15ch;
-  font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+  max-width: var(--measure-subhead);
+  font-size: min(clamp(1.8rem, 2.8vw, 2.8rem), 9.5cqi);
 }
 
 .acw-complete-package .acw-package-price-card-featured h3 {
@@ -13104,7 +13014,7 @@ Canonical styles for _layouts/guide.html.
   position: relative;
   padding-left: 1rem;
   color: var(--brand-charcoal);
-  font-size: 0.9rem;
+  font-size: max(var(--text-min), 0.9rem);
   line-height: 1.55;
 }
 
@@ -13209,8 +13119,8 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-package-faq .acw-package-chapter-heading h2 {
-  max-width: 10.5ch;
-  font-size: clamp(2.5rem, 3.5vw, 3.8rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.5rem, 3.5vw, 3.8rem), 10cqi);
 }
 
 .acw-package-faq .acw-faq-list {
@@ -13231,7 +13141,7 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-package-faq .acw-faq-item p {
-  max-width: 67ch;
+  max-width: var(--measure-prose-wide);
   padding: 0 2rem 1.5rem 0;
   color: var(--brand-charcoal);
 }
@@ -13257,8 +13167,8 @@ Canonical styles for _layouts/guide.html.
 }
 
 .acw-package-final-copy h2 {
-  max-width: 11ch;
-  font-size: clamp(3.2rem, 5vw, 5.5rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(3.2rem, 5vw, 5.5rem), 10cqi);
   line-height: 0.98 !important;
 }
 
@@ -13423,8 +13333,8 @@ Canonical styles for _layouts/guide.html.
   }
 
   .acw-complete-package .acw-package-hero h1 {
-    max-width: 11.5ch;
-    font-size: clamp(2.8rem, 12.5vw, 4rem);
+    max-width: var(--measure-display);
+    font-size: min(clamp(2.8rem, 12.5vw, 4rem), 12cqi);
     line-height: 0.99 !important;
   }
 
@@ -13432,8 +13342,8 @@ Canonical styles for _layouts/guide.html.
   .acw-package-proof-heading h2,
   .acw-package-about-copy h2,
   .acw-package-final-copy h2 {
-    max-width: 14ch;
-    font-size: clamp(2.4rem, 10.5vw, 3.35rem);
+    max-width: var(--measure-heading);
+    font-size: min(clamp(2.4rem, 10.5vw, 3.35rem), 10cqi);
     line-height: 1.03 !important;
   }
 
@@ -13618,7 +13528,7 @@ creates distinct rhythms for questions, process, proof and price.
 .acw-pc-founding-bar p {
   margin: 0;
   color: rgba(247, 244, 239, 0.86);
-  font-size: 0.84rem;
+  font-size: max(var(--text-min), 0.84rem);
   line-height: 1.5;
 }
 
@@ -13665,9 +13575,9 @@ creates distinct rhythms for questions, process, proof and price.
 }
 
 .acw-practice-clarity-page .acw-pc-hero h1 {
-  max-width: 11.5ch;
+  max-width: var(--measure-display);
   margin-bottom: 1.35rem;
-  font-size: clamp(3.65rem, 5.7vw, 6.15rem);
+  font-size: min(clamp(3.65rem, 5.7vw, 6.15rem), 12cqi);
   line-height: 0.96 !important;
 }
 
@@ -13734,8 +13644,8 @@ creates distinct rhythms for questions, process, proof and price.
 }
 
 .acw-pc-introduction h2 {
-  max-width: 12ch;
-  font-size: clamp(2.65rem, 4vw, 4.55rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.65rem, 4vw, 4.55rem), 10cqi);
   line-height: 1.02 !important;
 }
 
@@ -13763,13 +13673,13 @@ creates distinct rhythms for questions, process, proof and price.
 }
 
 .acw-pc-section-heading h2 {
-  max-width: 14ch;
-  font-size: clamp(2.65rem, 4vw, 4.55rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.65rem, 4vw, 4.55rem), 10cqi);
   line-height: 1.02 !important;
 }
 
 .acw-pc-section-heading .acw-section-lead {
-  max-width: 56ch;
+  max-width: var(--measure-prose-wide);
 }
 
 /* Questions */
@@ -13802,9 +13712,9 @@ creates distinct rhythms for questions, process, proof and price.
 }
 
 .acw-pc-question-card h3 {
-  max-width: 13ch;
+  max-width: var(--measure-subhead);
   margin-bottom: 1rem;
-  font-size: clamp(1.45rem, 1.8vw, 1.9rem);
+  font-size: min(clamp(1.45rem, 1.8vw, 1.9rem), 9.5cqi);
   line-height: 1.14 !important;
 }
 
@@ -13812,7 +13722,7 @@ creates distinct rhythms for questions, process, proof and price.
   max-width: 33ch;
   margin: 0;
   color: var(--brand-charcoal);
-  font-size: 0.94rem;
+  font-size: max(var(--text-min), 0.94rem);
   line-height: 1.67;
 }
 
@@ -13850,15 +13760,15 @@ creates distinct rhythms for questions, process, proof and price.
 
 .acw-pc-confidentiality h3,
 .acw-pc-practitioner-note h3 {
-  max-width: 16ch;
+  max-width: var(--measure-subhead);
   margin: 0;
-  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-size: min(clamp(1.5rem, 2vw, 2rem), 9.5cqi);
   line-height: 1.12 !important;
 }
 
 .acw-pc-confidentiality > p,
 .acw-pc-practitioner-note > p {
-  max-width: 62ch;
+  max-width: var(--measure-prose-wide);
   margin: 0;
   color: var(--brand-charcoal);
   line-height: 1.72;
@@ -13879,8 +13789,8 @@ creates distinct rhythms for questions, process, proof and price.
 }
 
 .acw-pc-process-intro h2 {
-  max-width: 11ch;
-  font-size: clamp(2.75rem, 4.2vw, 4.75rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(2.75rem, 4.2vw, 4.75rem), 10cqi);
   line-height: 1.01 !important;
 }
 
@@ -13921,15 +13831,15 @@ creates distinct rhythms for questions, process, proof and price.
 }
 
 .acw-pc-process-list h3 {
-  max-width: 13ch;
-  font-size: clamp(1.35rem, 1.55vw, 1.65rem);
+  max-width: var(--measure-subhead);
+  font-size: min(clamp(1.35rem, 1.55vw, 1.65rem), 9.5cqi);
   line-height: 1.14 !important;
 }
 
 .acw-pc-process-list p {
   margin: 0;
   color: var(--brand-charcoal);
-  font-size: 0.9rem;
+  font-size: max(var(--text-min), 0.9rem);
   line-height: 1.62;
 }
 
@@ -13953,7 +13863,7 @@ creates distinct rhythms for questions, process, proof and price.
 }
 
 .acw-pc-blueprint-sample figcaption {
-  max-width: 62ch;
+  max-width: var(--measure-prose-wide);
   margin-top: 0.8rem;
   color: var(--brand-charcoal);
   font-size: 0.76rem;
@@ -13979,9 +13889,9 @@ creates distinct rhythms for questions, process, proof and price.
 }
 
 .acw-pc-blueprint-card h3 {
-  max-width: 15ch;
+  max-width: var(--measure-subhead);
   margin-bottom: 0.8rem;
-  font-size: clamp(1.25rem, 1.5vw, 1.55rem);
+  font-size: min(clamp(1.25rem, 1.5vw, 1.55rem), 9.5cqi);
   line-height: 1.15 !important;
 }
 
@@ -13989,14 +13899,14 @@ creates distinct rhythms for questions, process, proof and price.
   max-width: 34ch;
   margin: 0;
   color: var(--brand-charcoal);
-  font-size: 0.9rem;
+  font-size: max(var(--text-min), 0.9rem);
   line-height: 1.62;
 }
 
 /* Connected service */
 
 .acw-pc-connected-service .acw-pc-section-heading h2 {
-  max-width: 17ch;
+  max-width: var(--measure-heading);
 }
 
 .acw-pc-service-grid {
@@ -14016,16 +13926,16 @@ creates distinct rhythms for questions, process, proof and price.
 }
 
 .acw-pc-service-grid h3 {
-  max-width: 13ch;
+  max-width: var(--measure-subhead);
   margin-bottom: 1rem;
-  font-size: clamp(1.4rem, 1.65vw, 1.72rem);
+  font-size: min(clamp(1.4rem, 1.65vw, 1.72rem), 9.5cqi);
   line-height: 1.13 !important;
 }
 
 .acw-pc-service-grid article > p:last-child {
   margin: 0;
   color: var(--brand-charcoal);
-  font-size: 0.91rem;
+  font-size: max(var(--text-min), 0.91rem);
   line-height: 1.65;
 }
 
@@ -14065,9 +13975,9 @@ creates distinct rhythms for questions, process, proof and price.
 }
 
 .acw-pc-price-card h3 {
-  max-width: 14ch;
+  max-width: var(--measure-subhead);
   margin-bottom: 0;
-  font-size: clamp(1.65rem, 2.1vw, 2.2rem);
+  font-size: min(clamp(1.65rem, 2.1vw, 2.2rem), 9.5cqi);
   line-height: 1.1 !important;
 }
 
@@ -14098,7 +14008,7 @@ creates distinct rhythms for questions, process, proof and price.
   position: relative;
   padding-left: 1.15rem;
   color: var(--brand-charcoal);
-  font-size: 0.91rem;
+  font-size: max(var(--text-min), 0.91rem);
   line-height: 1.5;
 }
 
@@ -14129,7 +14039,7 @@ creates distinct rhythms for questions, process, proof and price.
 }
 
 .acw-pc-faq .acw-section-heading h2 {
-  max-width: 11ch;
+  max-width: var(--measure-heading);
 }
 
 .acw-pc-faq .acw-faq-list {
@@ -14152,7 +14062,7 @@ creates distinct rhythms for questions, process, proof and price.
 }
 
 .acw-pc-faq .acw-faq-item p {
-  max-width: 68ch;
+  max-width: var(--measure-prose-wide);
   padding: 0 2rem 1.55rem 0;
 }
 
@@ -14177,8 +14087,8 @@ creates distinct rhythms for questions, process, proof and price.
 }
 
 .acw-pc-final h2 {
-  max-width: 11ch;
-  font-size: clamp(3.15rem, 5vw, 5.5rem);
+  max-width: var(--measure-heading);
+  font-size: min(clamp(3.15rem, 5vw, 5.5rem), 10cqi);
   line-height: 0.98 !important;
 }
 
@@ -14318,7 +14228,7 @@ creates distinct rhythms for questions, process, proof and price.
   }
 
   .acw-pc-founding-bar p {
-    font-size: 0.79rem;
+    font-size: max(var(--text-min), 0.79rem);
   }
 
   .acw-practice-clarity-page .acw-pc-hero {
@@ -14327,8 +14237,8 @@ creates distinct rhythms for questions, process, proof and price.
   }
 
   .acw-practice-clarity-page .acw-pc-hero h1 {
-    max-width: 11ch;
-    font-size: clamp(2.8rem, 12.5vw, 4rem);
+    max-width: var(--measure-display);
+    font-size: min(clamp(2.8rem, 12.5vw, 4rem), 12cqi);
     line-height: 1 !important;
   }
 
@@ -14354,8 +14264,8 @@ creates distinct rhythms for questions, process, proof and price.
   .acw-pc-introduction h2,
   .acw-pc-section-heading h2,
   .acw-pc-process-intro h2 {
-    max-width: 14ch;
-    font-size: clamp(2.25rem, 9.5vw, 3.15rem);
+    max-width: var(--measure-heading);
+    font-size: min(clamp(2.25rem, 9.5vw, 3.15rem), 10cqi);
     line-height: 1.04 !important;
   }
 
@@ -14426,7 +14336,7 @@ creates distinct rhythms for questions, process, proof and price.
   }
 
   .acw-pc-final h2 {
-    font-size: clamp(2.75rem, 11.5vw, 4rem);
+    font-size: min(clamp(2.75rem, 11.5vw, 4rem), 10cqi);
   }
 
   .acw-pc-final-media {
@@ -14533,9 +14443,8 @@ Purpose: a compact editorial opening, clean contrast and dependable wrapping.
 }
 
 .acw-service-page .acw-service-hero h1 {
-  max-width: 14.5ch;
-  font-size: clamp(3rem, 4.25vw, 4.85rem);
-  line-height: 0.94;
+  max-width: var(--measure-display);
+  font-size: min(clamp(3rem, 4.25vw, 4.85rem), 12cqi);
   letter-spacing: -0.062em !important;
   text-wrap: pretty;
 }
@@ -14581,7 +14490,7 @@ Purpose: a compact editorial opening, clean contrast and dependable wrapping.
 }
 
 .acw-service-page .acw-service-work-copy h2 {
-  max-width: 16ch;
+  max-width: var(--measure-heading);
   text-wrap: pretty;
 }
 
@@ -14607,8 +14516,8 @@ Purpose: a compact editorial opening, clean contrast and dependable wrapping.
   }
 
   .acw-service-page .acw-service-hero h1 {
-    max-width: 12.5ch;
-    font-size: clamp(2.65rem, 11.5vw, 3.55rem);
+    max-width: var(--measure-display);
+    font-size: min(clamp(2.65rem, 11.5vw, 3.55rem), 12cqi);
   }
 }
 /* =========================================================
@@ -14636,7 +14545,7 @@ Paste at the end of the stylesheet.
 }
 
 .acw-contact-page-copy h1 {
-  max-width: 11.5ch;
+  max-width: var(--measure-display);
 }
 
 .acw-contact-copy-details {
@@ -14706,7 +14615,7 @@ Paste at the end of the stylesheet.
 .acw-contact-person p {
   margin: 0;
   color: var(--text);
-  font-size: 0.9rem;
+  font-size: max(var(--text-min), 0.9rem);
   font-weight: 700;
   line-height: 1.4;
 }
@@ -14724,10 +14633,9 @@ Paste at the end of the stylesheet.
 }
 
 .acw-form-heading h2 {
-  max-width: 16ch;
+  max-width: var(--measure-heading);
   margin-bottom: 0.7rem;
-  font-size: clamp(1.9rem, 2.55vw, 2.8rem);
-  line-height: 1.03;
+  font-size: min(clamp(1.9rem, 2.55vw, 2.8rem), 10cqi);
 }
 
 .acw-form-heading p {
@@ -14805,7 +14713,7 @@ Paste at the end of the stylesheet.
 .acw-form-reassurance p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: max(var(--text-min), 0.82rem);
   line-height: 1.55;
 }
 
@@ -14865,7 +14773,7 @@ FIT / NOT FIT
 }
 
 .acw-package-fit .acw-package-chapter-heading h2 {
-  max-width: 13ch;
+  max-width: var(--measure-heading);
   margin-bottom: 1rem;
 }
 
@@ -14960,11 +14868,11 @@ PRACTICAL DETAILS STRIP
 }
 
 .acw-package-practical-copy h3 {
-  max-width: 20ch;
+  max-width: var(--measure-subhead);
   margin: 0 0 0.7rem;
 
   color: var(--logo-ink);
-  font-size: clamp(1.75rem, 2.4vw, 2.45rem);
+  font-size: min(clamp(1.75rem, 2.4vw, 2.45rem), 9.5cqi);
   line-height: 1.08 !important;
   text-wrap: balance;
 }
@@ -15041,7 +14949,7 @@ TABLET
   }
 
   .acw-package-practical-copy h3 {
-    max-width: 22ch;
+    max-width: var(--measure-subhead);
   }
 
   .acw-package-practical-action {
@@ -15083,8 +14991,8 @@ MOBILE
   }
 
   .acw-package-practical-copy h3 {
-    max-width: 22ch;
-    font-size: clamp(1.7rem, 8vw, 2.1rem);
+    max-width: var(--measure-subhead);
+    font-size: min(clamp(1.7rem, 8vw, 2.1rem), 9.5cqi);
     line-height: 1.08 !important;
   }
 
@@ -15213,7 +15121,7 @@ REDUCED MOTION
   margin-top: 2.5rem;
   border-top: 1px solid rgba(28, 41, 36, 0.15);
   padding-top: 1.25rem;
-  font-size: 0.9rem;
+  font-size: max(var(--text-min), 0.9rem);
   opacity: 0.85;
 }
 

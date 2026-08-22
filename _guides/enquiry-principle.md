@@ -308,6 +308,8 @@ It simply removes unnecessary uncertainty.
     src="{{ '/assets/images/brand/website-strategy-mockup.webp' | relative_url }}"
     alt="A website enquiry route being reviewed alongside its supporting notes."
     loading="lazy"
+    width="1536"
+    height="1024"
   >
 </figure>
 
@@ -547,6 +549,8 @@ That distinction quietly removes enormous pressure.
     src="{{ '/assets/images/brand/process-planning-board.webp' | relative_url }}"
     alt="A client journey mapped through printed pages and annotated decision points."
     loading="lazy"
+    width="1536"
+    height="1024"
   >
 </figure>
 
@@ -771,6 +775,8 @@ Because reassurance is often what allows action to happen.
     src="{{ '/assets/images/brand/therapist-identity-notes.webp' | relative_url }}"
     alt="Written notes refining the language and reassurance around an enquiry form."
     loading="lazy"
+    width="1232"
+    height="928"
   >
 </figure>
 

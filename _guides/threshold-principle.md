@@ -809,6 +809,8 @@ There is a difference.
     src="{{ '/assets/images/brand/website-strategy-mockup.webp' | relative_url }}"
     alt="A homepage arrival experience being reviewed through its wireframe and supporting notes."
     loading="lazy"
+    width="1536"
+    height="1024"
   >
 </figure>
 

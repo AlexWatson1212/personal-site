@@ -289,6 +289,68 @@ const liquid = new Liquid({
 marked.setOptions({ gfm: true, breaks: false, pedantic: false });
 
 /**
+ * kramdown inline attribute lists. `## Heading {#some-id}` sets the heading's
+ * id in Jekyll; marked has no idea and renders the braces as literal text,
+ * which then shows up in QA as a heading ending in "{#some-id". Strip the
+ * trailing IAL and apply an id when one is given, so measurements are taken
+ * against what Jekyll actually ships. Block-level `{: .class}` lines are
+ * dropped for the same reason.
+ */
+const IAL_TRAILING = /[ \t]*\{:?([^{}\n]*)\}[ \t]*$/;
+const HEADING_WITH_IAL = /^[ \t]{0,3}(#{1,6})\s+(.*?)[ \t]*\{:?\s*#([A-Za-z][\w:.-]*)[^{}\n]*\}[ \t]*$/;
+
+/** Strips block-level IAL lines and pulls `{#id}` off headings. */
+function extractInlineAttributeLists(md) {
+  const ids = [];
+  const out = md
+    .split("\n")
+    .filter((line) => !/^[ \t]*\{:[^{}\n]*\}[ \t]*$/.test(line))
+    .map((line) => {
+      const m = HEADING_WITH_IAL.exec(line);
+      if (m) {
+        ids.push({ level: m[1].length, text: m[2].trim(), id: m[3] });
+        return `${m[1]} ${m[2].trim()}`;
+      }
+      return /^[ \t]{0,3}#{1,6}\s/.test(line) ? line.replace(IAL_TRAILING, "") : line;
+    })
+    .join("\n");
+  return { md: out, ids };
+}
+
+/** Puts the ids back on the rendered headings, the way kramdown would. */
+function applyHeadingIds(html, ids) {
+  let result = html;
+  for (const { level, text, id } of ids) {
+    if (new RegExp(`id=["']${id}["']`).test(result)) continue;
+    const norm = (v) =>
+      v
+        .replace(/<[^>]+>/g, "")
+        .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
+        .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCharCode(parseInt(n, 16)))
+        .replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+        .replace(/&quot;/g, '"').replace(/&#39;|&rsquo;|&apos;/g, "'")
+        .replace(/[*_`\[\]()]/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+    const plain = norm(text);
+    const re = new RegExp(`<h${level}(?![^>]*\\bid=)([^>]*)>([\\s\\S]*?)</h${level}>`, "g");
+    result = result.replace(re, (whole, attrs, inner) => {
+      if (norm(inner) !== plain) return whole;
+      return `<h${level} id="${id}"${attrs}>${inner}</h${level}>`;
+    });
+  }
+  return result;
+}
+
+function renderMarkdownWithIals(input, pre) {
+  /* `pre` (the raw-HTML dedent) runs first: a heading written inside an HTML
+     region can be indented, and an indented `## Heading {#id}` would not match
+     the heading pattern. */
+  const { md, ids } = extractInlineAttributeLists(pre ? pre(input) : input);
+  return applyHeadingIds(marked.parse(md), ids);
+}
+
+/**
  * Kramdown treats a block-level HTML element as one raw region: everything
  * between `<section>` and `</section>` is passed through, blank lines and all,
  * and indentation inside it never becomes a code block. CommonMark (marked)
@@ -350,9 +412,10 @@ function dedentHtmlRegions(body) {
   return out.join("\n");
 }
 
-const markdownify = (input) => (toS(input).length ? marked.parse(toS(input)) : "");
+const markdownify = (input) =>
+  (toS(input).length ? renderMarkdownWithIals(toS(input)) : "");
 const markdownifyDocument = (input) =>
-  (toS(input).length ? marked.parse(dedentHtmlRegions(toS(input))) : "");
+  (toS(input).length ? renderMarkdownWithIals(toS(input), dedentHtmlRegions) : "");
 
 function stripHtml(input) {
   return toS(input)
