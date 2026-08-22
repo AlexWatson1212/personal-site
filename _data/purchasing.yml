@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# Straightforward Website — purchasing configuration (committed, safe defaults)
+# Choose Your Practice Website — purchasing configuration (committed, safe defaults)
 #
 # This file contains NO secrets and NO Payment Link. It holds the prices the
 # site displays and the URLs the purchase journey links to.
@@ -12,15 +12,15 @@
 # page falls back to the "Ask a question first" route. That is the safe state.
 # ─────────────────────────────────────────────────────────────────────────────
 
-# Straightforward Therapist Website
-price_display: "£495"
-price_numeric: "495.00"
+# Choose Your Practice Website
+price_display: "£995"
+price_numeric: "995.00"
 currency: "GBP"
 
-# Guided Website and Practice Clarity + Bespoke Website are enquiry-led and
-# proposal-led respectively. They have no online checkout, by design.
-guided_price_display: "£995"
-bespoke_price_display: "£1,995"
+# Practice Clarity + Bespoke Website is proposal-led. It has no online
+# checkout, by design: the price is confirmed in writing before anything is
+# payable, so it is displayed as an indicative figure rather than a fixed one.
+bespoke_price_display: "Around £2,000"
 
 # Optional Website Care. Content and configuration points only — no
 # subscription is built or activated in this release.
@@ -31,14 +31,14 @@ website_care:
 
 # Routes the purchase journey depends on.
 urls:
-  service: "/services/straightforward-website/"
-  questionnaire: "/services/straightforward-website/questionnaire/"
-  service_terms: "/service-terms/straightforward-website/"
+  service: "/services/practice-website/"
+  questionnaire: "/services/practice-website/questionnaire/"
+  service_terms: "/service-terms/practice-website/"
   cancellation: "/cancellation-and-refunds/"
   privacy: "/privacy/"
   terms: "/terms/"
   purchase_complete: "/purchase-complete/"
-  enquiry: "/contact/?service=straightforward"
+  enquiry: "/contact/?service=practice-website"
 
 # Studio contact route used on the purchase-complete page.
 support_email: "hello@alexanderwatson.co.uk"

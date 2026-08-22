@@ -2,7 +2,11 @@
 
 This is the single reference for page-level visual decisions. Source rules live in `assets/css/main.css` and `assets/css/visual-system.css`, with the visual-system file remaining authoritative in source order. `npm run build:css` removes unused selectors and creates minified route-specific bundles in `assets/css/`, plus `site.min.css` as a complete fallback. Each page downloads only the styles required by its template while the maintainable source remains unchanged.
 
-The production site self-hosts its existing Instrument Serif and Inter families from `assets/fonts/`. The homepage uses responsive AVIF imagery with WebP fallbacks and preloads only the image the page actually displays.
+The production site self-hosts two families from `assets/fonts/`: **Newsreader** (variable, 200–800) for headings and **Inter** (variable) for everything else. Newsreader replaced Instrument Serif in August 2026 — see "Heading typeface" below. Only the heading face is preloaded; the home page hero is drawn in CSS rather than photographed, so no image preload is needed.
+
+### Heading typeface
+
+Instrument Serif ships a single weight at a single optical size. Every heading on the site — a 60px display line and a 17px card title alike — was set from that one master, which is why small headings looked spindly and long ones looked cramped. Newsreader is a variable text serif with a 200–800 weight axis designed for reading at a range of sizes: it holds a display line without becoming theatrical and a card title without becoming thin. It is open-licensed (OFL), self-hosted as one 58 KB woff2 covering the whole range, and replaces two separate Instrument Serif files. The italic is not shipped: nothing in the heading system sets italic.
 
 ## Surfaces
 

@@ -10,6 +10,6 @@ Allow: /
 # journey between a client and the studio. They are excluded from the sitemap
 # and carry noindex; this is the third place that is stated.
 Disallow: /purchase-complete/
-Disallow: /services/straightforward-website/questionnaire/
+Disallow: /services/practice-website/questionnaire/
 
 Sitemap: {{ site.url }}/sitemap.xml

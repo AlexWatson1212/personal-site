@@ -1,4 +1,4 @@
-# Stripe setup — Straightforward Website (£495)
+# Stripe setup — Choose Your Practice Website (£995)
 
 Manual steps for Alexander, in order, after the website has been reviewed.
 
@@ -22,7 +22,7 @@ Two rules that never bend:
 
 ### 1. Review and approve the service terms
 
-Read `/service-terms/straightforward-website/` in full, then
+Read `/service-terms/practice-website/` in full, then
 `/cancellation-and-refunds/`, `/privacy/` and `/terms/`. Everything in
 `LEGAL_REVIEW.md` needs answering, and the `[square bracket]` placeholders need
 filling, before anything is sold under them.
@@ -39,7 +39,7 @@ disappears from every legal page at once, and the version block switches from
 
 Deploy so the following URLs are publicly readable without logging in:
 
-- `https://alexanderwatson.co.uk/service-terms/straightforward-website/`
+- `https://alexanderwatson.co.uk/service-terms/practice-website/`
 - `https://alexanderwatson.co.uk/cancellation-and-refunds/`
 - `https://alexanderwatson.co.uk/privacy/`
 - `https://alexanderwatson.co.uk/purchase-complete/`
@@ -55,7 +55,7 @@ browser window.
 
 Stripe Dashboard → **Settings → Business → Public details**.
 
-- Terms of service URL: `https://alexanderwatson.co.uk/service-terms/straightforward-website/`
+- Terms of service URL: `https://alexanderwatson.co.uk/service-terms/practice-website/`
 - Privacy policy URL: `https://alexanderwatson.co.uk/privacy/`
 - Support email: `hello@alexanderwatson.co.uk`
 
@@ -63,13 +63,13 @@ These appear on receipts and on the checkout page.
 
 ### 4. Edit the existing sandbox Payment Link
 
-Sandbox → **Payment Links** → the existing *Straightforward Therapist Website*
+Sandbox → **Payment Links** → the existing *Choose Your Practice Website*
 link. Confirm it still matches:
 
 | Setting | Value |
 | --- | --- |
-| Product | Straightforward Therapist Website |
-| Price | £495 GBP |
+| Product | Choose Your Practice Website |
+| Price | £995 GBP |
 | Price type | One-off, paid in full |
 | Product category | Website Design |
 | Managed Payments | Disabled |
@@ -83,7 +83,7 @@ link. Confirm it still matches:
 
 In that Payment Link → **After payment / Options**, switch on *Require customers
 to accept your terms of service* and point it at
-`https://alexanderwatson.co.uk/service-terms/straightforward-website/`.
+`https://alexanderwatson.co.uk/service-terms/practice-website/`.
 
 This is how acceptance is recorded, and clause 4 of the service terms says so.
 Without it, the terms are published but not agreed.
@@ -119,7 +119,7 @@ In the sandbox payment, check that all of these came through:
 
 ### 9. Verify the transaction in Stripe
 
-Confirm the payment appears in the sandbox dashboard at £495.00 GBP, that the
+Confirm the payment appears in the sandbox dashboard at £995.00 GBP, that the
 receipt email arrived, that the receipt carries the terms and privacy links from
 step 3, and that the redirect landed on `/purchase-complete/`.
 
@@ -193,7 +193,7 @@ and `/purchase-complete/` still carries `noindex`.
 ### 17. Make one controlled real payment
 
 Buy it yourself, with a real card, at the real price. Then refund it in the
-Stripe Dashboard. £495 through and back is a cheap way to find out that the
+Stripe Dashboard. £995 through and back is a cheap way to find out that the
 receipt has the wrong terms URL on it.
 
 ### 18. Verify the whole loop once more, in live mode

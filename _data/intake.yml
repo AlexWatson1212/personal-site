@@ -3,7 +3,7 @@
 #
 # The Studio's approved intake (15 required questions and 7 optional ones) was
 # not present in the supplied project, so the questions on
-# /services/straightforward-website/questionnaire/ are a DRAFT reconstruction
+# /services/practice-website/questionnaire/ are a DRAFT reconstruction
 # built to that shape. See OPEN_DECISIONS.md.
 #
 # questionnaire_approved: false → the page shows a draft notice.

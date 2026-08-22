@@ -32,21 +32,10 @@
   rel="preload"
   as="font"
   type="font/woff2"
-  href="{{ '/assets/fonts/instrument-serif-latin-400-normal.woff2' | relative_url }}"
+  href="{{ '/assets/fonts/newsreader-latin-wght-normal.woff2' | relative_url }}"
   crossorigin
 >
 
-{% if page.url == "/" %}
-<link
-  rel="preload"
-  as="image"
-  type="image/avif"
-  href="{{ '/assets/images/service/service-hero-landscape-640.avif' | relative_url }}"
-  imagesrcset="{{ '/assets/images/service/service-hero-landscape-640.avif' | relative_url }} 640w, {{ '/assets/images/service/service-hero-landscape-720.avif' | relative_url }} 720w, {{ '/assets/images/service/service-hero-landscape-960.avif' | relative_url }} 960w, {{ '/assets/images/service/service-hero-landscape-1280.avif' | relative_url }} 1280w"
-  imagesizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1279px) calc(100vw - 128px), min(1200px, calc(100vw - 128px))"
-  fetchpriority="high"
->
-{% endif %}
 
 {% assign css_bundle = 'site.min.css' %}
 
@@ -68,11 +57,11 @@
   {% assign css_bundle = 'blog.min.css' %}
 {% elsif page.url == '/contact/' %}
   {% assign css_bundle = 'contact.min.css' %}
-{% elsif page.url == '/services/straightforward-website/' or page.url == '/services/straightforward-website/questionnaire/' or page.url == '/purchase-complete/' %}
+{% elsif page.url == '/services/practice-website/' or page.url == '/services/practice-website/questionnaire/' or page.url == '/purchase-complete/' %}
   {% assign css_bundle = 'purchase.min.css' %}
 {% elsif page.url == '/404.html' %}
   {% assign css_bundle = '404.min.css' %}
-{% elsif page.url == '/privacy/' or page.url == '/terms/' or page.url == '/accessibility/' or page.url == '/service-terms/straightforward-website/' or page.url == '/cancellation-and-refunds/' %}
+{% elsif page.url == '/privacy/' or page.url == '/terms/' or page.url == '/accessibility/' or page.url == '/service-terms/practice-website/' or page.url == '/cancellation-and-refunds/' %}
   {% assign css_bundle = 'legal.min.css' %}
 {% endif %}
 

@@ -66,7 +66,6 @@
   margin: 0 0 1.4rem;
   color: var(--links-text);
   font-family: var(--font-heading, Georgia, serif);
-  font-size: min(clamp(3.6rem, 5.1vw, 5.6rem), 12cqi);
   font-weight: 400;
 
   text-wrap: balance;
@@ -159,7 +158,6 @@
   margin: 0;
   color: var(--links-text);
   font-family: var(--font-heading, Georgia, serif);
-  font-size: min(clamp(2.8rem, 4.1vw, 4.6rem), 10cqi);
   font-weight: 400;
 
   text-wrap: balance;
@@ -248,7 +246,6 @@
   margin: 0 0 0.85rem;
   color: var(--links-text);
   font-family: var(--font-heading, Georgia, serif);
-  font-size: min(clamp(1.85rem, 2.5vw, 2.8rem), 9.5cqi);
   font-weight: 400;
 
   text-wrap: balance;
@@ -319,7 +316,6 @@
   margin: 0;
   color: #f7f4ef !important;
   font-family: var(--font-heading, Georgia, serif);
-  font-size: min(clamp(3rem, 4.2vw, 4.7rem), 10cqi);
   font-weight: 400;
 
   text-wrap: balance;
@@ -432,7 +428,6 @@
 
   .aw-links__hero h1 {
     max-width: var(--measure-display);
-    font-size: min(clamp(2.9rem, 12vw, 3.8rem), 12cqi);
     
   }
 
@@ -473,13 +468,11 @@
 
   .aw-links__section-heading h2 {
     max-width: var(--measure-heading);
-    font-size: min(clamp(2.5rem, 10.5vw, 3.35rem), 10cqi);
     
   }
 
   .aw-links__thread h2 {
     max-width: var(--measure-heading);
-    font-size: min(clamp(2.55rem, 10vw, 3.3rem), 10cqi);
     
   }
 
@@ -492,7 +485,6 @@
 
   .aw-links__card h3 {
     max-width: var(--measure-subhead);
-    font-size: min(clamp(1.7rem, 7.5vw, 2.25rem), 9.5cqi);
     
   }
 

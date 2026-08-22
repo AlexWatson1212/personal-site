@@ -3,20 +3,29 @@
    Final authority for surfaces, spacing, cards, labels and actions.
    ========================================================= */
 
-@font-face {
-  font-family: "Instrument Serif";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/assets/fonts/instrument-serif-latin-400-normal.woff2") format("woff2");
-}
+/* Newsreader replaces Instrument Serif as the heading face.
 
+   Instrument Serif ships a single weight. Every heading on the site was
+   therefore 400, and hierarchy had to be carried by size alone — which is
+   why the scale had drifted into two hundred and thirty-eight separate
+   font-size declarations. Newsreader is a variable text serif with a
+   200-800 weight axis, so a heading can be distinguished by weight as well
+   as size, and a small heading can hold its own without being enlarged.
+
+   It is also the face named in the studio's own Brand & Digital Identity
+   Guidelines v1.1, which the website had not yet followed: the site and the
+   client-facing documents are now one system rather than two.
+
+   SIL Open Font License, self-hosted (assets/fonts/OFL-Newsreader.txt).
+   One 58KB variable file, latin subset — smaller than the pair it replaces
+   plus the weights it would otherwise have needed. No external request,
+   which matters: netlify.toml sets font-src 'self'. */
 @font-face {
-  font-family: "Instrument Serif";
-  font-style: italic;
-  font-weight: 400;
+  font-family: "Newsreader";
+  font-style: normal;
+  font-weight: 200 800;
   font-display: swap;
-  src: url("/assets/fonts/instrument-serif-latin-400-italic.woff2") format("woff2");
+  src: url("/assets/fonts/newsreader-latin-wght-normal.woff2") format("woff2");
 }
 
 @font-face {
@@ -90,7 +99,7 @@
   --shadow-sm: none;
   --shadow: none;
   --shadow-lg: none;
-  --font-heading: "Instrument Serif", Georgia, serif;
+  --font-heading: "Newsreader", Georgia, "Times New Roman", serif;
   --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
   --transition: 180ms ease;
 }
@@ -585,7 +594,7 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
 
 .acw-guide-process-diagram ol {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 110px), 1fr));
   gap: 1px;
   margin: 0;
   padding: 0;
@@ -852,12 +861,6 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
 
   .site-content h1 {
     max-width: var(--measure-display);
-    font-size: min(clamp(2.65rem, 11vw, 3.25rem), 12cqi);
-
-  }
-
-  .site-content h2 {
-    font-size: min(clamp(2.15rem, 9vw, 2.9rem), 10cqi);
 
   }
 
@@ -1019,10 +1022,6 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
     padding: var(--space-40) 0;
   }
 
-  .acw-work-decision h2 {
-    font-size: min(clamp(1.75rem, 7vw, 2.15rem), 10cqi);
-  }
-
   .acw-contact-page {
     padding-block: var(--space-64) !important;
   }
@@ -1112,10 +1111,6 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
   .acw-form-reassurance p {
     font-size: max(var(--text-min), 0.875rem);
     line-height: 1.6;
-  }
-
-  .acw-service-page .acw-service-hero h1 {
-    font-size: min(clamp(2.65rem, 11vw, 3.3rem), 12cqi) !important;
   }
 
   .acw-service-page .acw-service-hero-grid {
@@ -1331,14 +1326,12 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
 .acw-reading-width h2 {
   max-width: 34ch;
   margin-top: 3.25rem;
-  font-size: min(clamp(1.5rem, 1.1vw + 1.2rem, 2.1rem), 10cqi);
 
 }
 
 .acw-reading-width h3 {
   max-width: 38ch;
   margin-top: 2rem;
-  font-size: min(clamp(1.12rem, 0.5vw + 1rem, 1.38rem), 9.5cqi);
   
 }
 
@@ -1394,8 +1387,8 @@ html body .site-content .acw-complete-package .acw-package-price-card-featured l
    refreshed pages. The previous values (h1 12.5ch / h2 13ch, with a
    50px floor on a 320px screen) produced two-word lines, very tall
    heroes and a single-word last line on most headings. */
-h1 { max-width: var(--measure-display); font-size: min(clamp(2.5rem, 4.3vw + 1.14rem, 5.2rem), 12cqi); }
-h2 { max-width: var(--measure-heading); font-size: min(clamp(2rem, 3.2vw + 0.99rem, 4.3rem), 10cqi); }
+h1 { max-width: var(--measure-display); }
+h2 { max-width: var(--measure-heading); }
 
 @media (max-width: 980px) {
   h1 { max-width: var(--measure-display); }
@@ -1503,15 +1496,6 @@ h2 { max-width: var(--measure-heading); font-size: min(clamp(2rem, 3.2vw + 0.99r
     --measure-heading: 28ch;
     --measure-subhead: 32ch;
   }
-}
-
-/* 2. BOUNDED FLUID SCALE ----------------------------------------------------
-   Every step is `clamp(min, <rem> + <vw>, max)`. The rem term is what keeps
-   the ramp usable under browser zoom: a preferred size expressed in vw alone
-   halves when the user zooms to 200%, because the CSS viewport halves with
-   it. h1 and h2 are already stated in this form above; h3 was not. */
-h3 {
-  font-size: min(clamp(1.18rem, 0.55vw + 1.05rem, 1.55rem), 9.5cqi);
 }
 
 /* 3. WRAPPING ---------------------------------------------------------------
@@ -1851,3 +1835,216 @@ fieldset {
   align-items: center;
 }
 
+
+/* =========================================================
+   13. THE TYPE SCALE — ONE SYSTEM, EVERY ROUTE
+   -------------------------------------------------------
+   Before this block the site carried 238 separate heading
+   font-size declarations. An h2 could be 28px on one page
+   and 86px two sections later, and nothing said which was
+   correct. They have all been removed. What is left is
+   four levels, two modifiers, and nothing else.
+
+   Every step is clamp(min, rem + vw, max): the rem term is
+   what keeps the ramp growing under browser zoom, where a
+   preferred size in vw alone would not. Each is also capped
+   in container units, so a heading in a narrow card column
+   can never be set larger than that column can hold.
+   ========================================================= */
+
+:root {
+  /* Display — the opening line of a page, and nothing else. */
+  --step-display: clamp(2.6rem, 3.6vw + 1.55rem, 4.75rem);
+
+  /* h1 — page title.        38 → 62px */
+  --step-1: clamp(2.35rem, 2.7vw + 1.55rem, 3.9rem);
+  /* h2 — section title.     30 → 46px */
+  --step-2: clamp(1.85rem, 1.7vw + 1.4rem, 2.85rem);
+  /* h3 — card and sub-head. 21 → 27px */
+  --step-3: clamp(1.24rem, 0.45vw + 1.13rem, 1.55rem);
+  /* h4 — the smallest heading, and dense card titles. */
+  --step-4: clamp(1.06rem, 0.22vw + 1.01rem, 1.2rem);
+
+  /* Body roles. */
+  --step-lead: clamp(1.08rem, 0.34vw + 1rem, 1.25rem);
+  --step-body: 1rem;
+  --step-small: 0.95rem;
+  --step-label: 0.7rem;
+
+  /* Leading tightens as type grows; tracking closes with it. */
+  --leading-display: 1.02;
+  --leading-1: 1.06;
+  --leading-2: 1.12;
+  --leading-3: 1.28;
+  --leading-4: 1.35;
+  --leading-body: 1.66;
+  --leading-lead: 1.6;
+
+  --tracking-display: -0.022em;
+  --tracking-1: -0.018em;
+  --tracking-2: -0.014em;
+  --tracking-3: -0.008em;
+  --tracking-4: -0.004em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--ink-text);
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-synthesis-weight: none;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: min(var(--step-1), 12cqi);
+  line-height: var(--leading-1);
+  letter-spacing: var(--tracking-1);
+}
+
+h2 {
+  font-size: min(var(--step-2), 9cqi);
+  line-height: var(--leading-2);
+  letter-spacing: var(--tracking-2);
+}
+
+h3 {
+  font-size: min(var(--step-3), 8.2cqi);
+  font-weight: 500;
+  line-height: var(--leading-3);
+  letter-spacing: var(--tracking-3);
+}
+
+h4,
+h5,
+h6 {
+  font-size: var(--step-4);
+  font-weight: 600;
+  line-height: var(--leading-4);
+  letter-spacing: var(--tracking-4);
+}
+
+/* The two sanctioned modifiers.
+
+   `.t-display` is for the first line of a page that is doing the work of a
+   cover — the home page, and nowhere else by default. `.t-compact` is for a
+   heading inside a dense card, where the h3 step would crowd its own copy.
+   Anything that needs a third exception needs a reason first. */
+.t-display {
+  font-size: min(var(--step-display), 11cqi);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+}
+
+.t-compact {
+  font-size: var(--step-4);
+  font-weight: 600;
+  line-height: var(--leading-4);
+  letter-spacing: var(--tracking-4);
+}
+
+/* Body roles. */
+body {
+  font-size: var(--step-body);
+  line-height: var(--leading-body);
+}
+
+.hero-lead,
+.acw-page-intro,
+.acw-section-intro,
+.acw-hero-text {
+  font-size: var(--step-lead);
+  line-height: var(--leading-lead);
+}
+
+/* The uppercase label above a heading. Small, spaced, and never a heading
+   itself — it is a signpost, so it is set in the body face. */
+.eyebrow,
+.acw-section-label,
+.acw-eyebrow,
+.footer-label {
+  font-family: var(--font-body);
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* Newsreader is a text serif: at display sizes it wants a little more weight
+   than a display serif would, and none of the extra tracking Instrument
+   Serif needed. Deep surfaces get the light-on-dark optical correction. */
+.section-forest h1,
+.section-forest h2,
+.section-forest h3,
+.closing-callout h2,
+.lens-card-dark h2,
+.lens-card-dark h3,
+.acw-surface-ink h1,
+.acw-surface-ink h2,
+.acw-surface-ink h3 {
+  font-weight: 380;
+}
+
+/* The legal pages set the studio email address in <strong> inside a reading
+   column. At 200% zoom on a phone the CSS viewport is under 200px and a
+   27-character address is wider than the column, pushing the page sideways.
+   `anywhere` only breaks a word that cannot otherwise fit, so at every real
+   width the address still sets on one line. */
+.acw-reading-width strong,
+.acw-reading-width code {
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   14. 200% ZOOM ON A PHONE — THE LAST 195px
+   Under about 240 CSS pixels a padded card and a long word are the two
+   remaining ways to push the page sideways. Both are relaxed only here,
+   far below any real device width.
+   ========================================================= */
+@media (max-width: 15rem) {
+  .acw-guide-process-diagram {
+    padding: var(--space-16);
+  }
+
+  .acw-guide-process-diagram li {
+    min-height: 0;
+    padding: var(--space-16);
+  }
+
+  .catalogue-refresh h1,
+  .catalogue-refresh h2,
+  .catalogue-refresh h3 {
+    /* `break-word` lets a long word wrap but still reports the whole word as
+       the element's min-content width, which is what sizes the grid track it
+       sits in. `anywhere` reports the broken width, so the track fits. */
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Fenced code in a guide scrolls inside its own box rather than widening the
+   page. */
+.acw-guide-content pre {
+  overflow-x: auto;
+}
+
+@media (max-width: 15rem) {
+  .acw-guide-process-diagram li strong,
+  .acw-guide-process-diagram li span {
+    overflow-wrap: anywhere;
+  }
+
+  /* A fenced block still scrolls inside its own box at every real width; at
+     200% zoom on a phone it wraps instead, because a horizontal scroller
+     narrower than a thumb is not usable. */
+  .acw-guide-content pre,
+  .acw-guide-content pre code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+}

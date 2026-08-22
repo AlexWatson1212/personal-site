@@ -21,7 +21,7 @@ not in `_legacy/`, not in the git history, not in any data file. It was searched
 for by name, by shape and by keyword before anything was written.
 
 **What was built instead.** A clearly marked **draft** at
-`/services/straightforward-website/questionnaire/`, built to exactly that shape
+`/services/practice-website/questionnaire/`, built to exactly that shape
 — 15 required questions, 7 optional — covering client and practice identity,
 contact details, chosen design, required pages, approved copy, professional
 facts, colour direction, logo status, image status and permissions, domain and
@@ -58,26 +58,27 @@ a decision already taken. Three questions are unanswered:
 
 **Decision needed.** Answer all three, then have the clause reviewed.
 
-**Then.** Update clause 13 of `_pages/service-terms-straightforward-website.html`
+**Then.** Update clause 13 of `_pages/service-terms-practice-website.html`
 and the "Ownership and licensing" section of
-`services/straightforward-website.html` together — the QA suite checks they
+`services/practice-website.html` together — the QA suite checks they
 agree.
 
 ---
 
-## 3. Whether Guided and Practice Clarity prices are fixed or indicative
+## 3. Whether the Practice Clarity price stays indicative
 
-**State.** The site now shows **£995** and **£1,995** as flat prices, because
-that is how the brief states them. Before this pass the site said "From £995"
-and "From £1,995".
+**State.** The site shows **£995** as a fixed price for Choose Your Practice
+Website, and **around £2,000** for Practice Clarity + Bespoke Website. The
+Guided Website tier has been retired: there are two routes, not three.
 
-**Why it is open.** Both routes are enquiry-led and proposal-led respectively;
-neither can be bought online. A flat price is a stronger commercial position and
-is easier to defend as consistent. An indicative "from" price is safer if the
-scope genuinely varies, but it weakens the page and invites the "how much
-really?" conversation the site is trying to avoid.
+**Why it is open.** Practice Clarity is proposal-led, so "around £2,000" is
+honest about a scope that genuinely varies — but a visitor comparing two
+numbers reads a fixed figure more confidently than an approximate one. If most
+proposals land at the same number in practice, fixing it would strengthen the
+page.
 
-**Decision needed.** Fixed, or "from".
+**Decision needed.** Keep "around", or fix the figure once enough proposals
+have been written to know what it actually is.
 
 **Then.** If "from" is chosen, change it in `index.html`, `service.html`,
 `_pages/terms.html` and `_data/purchasing.yml` together, and update the QA

@@ -44,10 +44,10 @@ Change both, or neither.
 | `/links/` | `links/index.html` |
 | `/404.html` | `404.html` |
 | `/robots.txt` | `robots.txt` |
-| **`/services/straightforward-website/`** | `services/straightforward-website.html` |
-| **`/services/straightforward-website/questionnaire/`** | `services/straightforward-website-questionnaire.html` — `noindex`, `sitemap: false` |
+| **`/services/practice-website/`** | `services/practice-website.html` |
+| **`/services/practice-website/questionnaire/`** | `services/practice-website-questionnaire.html` — `noindex`, `sitemap: false` |
 | **`/purchase-complete/`** | `purchase-complete.html` — `noindex`, `sitemap: false` |
-| **`/service-terms/straightforward-website/`** | `_pages/service-terms-straightforward-website.html` |
+| **`/service-terms/practice-website/`** | `_pages/service-terms-practice-website.html` |
 | **`/cancellation-and-refunds/`** | `_pages/cancellation-and-refunds.html` |
 | `/privacy/` | `_pages/privacy.html` |
 | **`/terms/`** | `_pages/terms.html` |
@@ -75,7 +75,7 @@ Three files, one responsibility each.
   disabled branch, and the page shows "Online purchasing is opening shortly".
   **Absent is a safe state, not a broken one.**
 
-`_includes/straightforward-website-buy.html` is the only file permitted to emit
+`_includes/practice-website-buy.html` is the only file permitted to emit
 a checkout link, and it re-validates the resolved URL rather than trusting it.
 `npm test` fails if any other file hard-codes a `buy.stripe.com` URL.
 

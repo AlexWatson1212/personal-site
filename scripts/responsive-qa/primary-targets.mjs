@@ -82,7 +82,7 @@ const main = async () => {
       for (const o of r.overflow.slice(0, 10)) report.overflow.push({ viewport: vp.label, route, ...o });
 
       /* Focus visibility: tab through the first 15 stops and compare styles. */
-      if (vp.width === 390 && ["/", "/contact/", "/work/", "/services/straightforward-website/"].includes(route)) {
+      if (vp.width === 390 && ["/", "/contact/", "/work/", "/services/practice-website/"].includes(route)) {
         const focus = await page.evaluate(async () => {
           const res = [];
           const f = [...document.querySelectorAll('a[href],button:not([disabled]),input:not([type=hidden]):not([disabled]),select,textarea,summary,[tabindex]:not([tabindex="-1"])')]

@@ -45,7 +45,7 @@ const OUTDIR = path.resolve(process.cwd(), argOf("--out", path.join(HERE, "shots
 /** Routes that also get the short-height and zoom captures. */
 const DEEP_ROUTES = [
   "/", "/service/", "/work/", "/about/", "/contact/", "/practice-clarity/",
-  "/blog/", "/services/straightforward-website/",
+  "/blog/", "/services/practice-website/",
 ];
 
 const main = async () => {

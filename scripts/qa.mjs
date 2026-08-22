@@ -164,7 +164,7 @@ const publishedBodies = new Map(
 const LEGAL_PAGES = [
   "_pages/privacy.html",
   "_pages/terms.html",
-  "_pages/service-terms-straightforward-website.html",
+  "_pages/service-terms-practice-website.html",
   "_pages/cancellation-and-refunds.html",
 ];
 const LEGAL_SURFACE = new Set([...LEGAL_PAGES, "_includes/legal-draft-notice.html", "_pages/accessibility.html"]);
@@ -173,8 +173,8 @@ const LEGAL_SURFACE = new Set([...LEGAL_PAGES, "_includes/legal-draft-notice.htm
 const ROUTES = [
   ["index.html", "/"],
   ["service.html", "/service/"],
-  ["services/straightforward-website.html", "/services/straightforward-website/"],
-  ["services/straightforward-website-questionnaire.html", "/services/straightforward-website/questionnaire/"],
+  ["services/practice-website.html", "/services/practice-website/"],
+  ["services/practice-website-questionnaire.html", "/services/practice-website/questionnaire/"],
   ["purchase-complete.html", "/purchase-complete/"],
   ["work.html", "/work/"],
   ["about.html", "/about/"],
@@ -185,17 +185,17 @@ const ROUTES = [
   ["404.html", "/404.html"],
   ["_pages/privacy.html", "/privacy/"],
   ["_pages/terms.html", "/terms/"],
-  ["_pages/service-terms-straightforward-website.html", "/service-terms/straightforward-website/"],
+  ["_pages/service-terms-practice-website.html", "/service-terms/practice-website/"],
   ["_pages/cancellation-and-refunds.html", "/cancellation-and-refunds/"],
   ["_pages/accessibility.html", "/accessibility/"],
 ];
 
 /** Routes that must never be indexed or listed. */
-const PRIVATE_ROUTES = ["/purchase-complete/", "/services/straightforward-website/questionnaire/"];
+const PRIVATE_ROUTES = ["/purchase-complete/", "/services/practice-website/questionnaire/"];
 
-const BUY_INCLUDE = "_includes/straightforward-website-buy.html";
-const PURCHASE_PAGE = "services/straightforward-website.html";
-const QUESTIONNAIRE = "services/straightforward-website-questionnaire.html";
+const BUY_INCLUDE = "_includes/practice-website-buy.html";
+const PURCHASE_PAGE = "services/practice-website.html";
+const QUESTIONNAIRE = "services/practice-website-questionnaire.html";
 const COMPLETE_PAGE = "purchase-complete.html";
 const SUPPORT_EMAIL = "hello@alexanderwatson.co.uk";
 
@@ -216,8 +216,12 @@ const KEY_PREFIXES = [
 const PUBLISHABLE_PREFIXES = [["pk", "live"].join("_") + "_", ["pk", "test"].join("_") + "_"];
 const STRIPE_SDK_HOST = "js." + "stripe.com";
 
-const APPROVED_PRICES = new Set(["£495", "£995", "£1,995", "£29", "£290"]);
-const RETIRED_PRICES = ["795", "1,495", "2,195"].map((n) => "£" + n);
+const APPROVED_PRICES = new Set(["£995", "£2,000", "£29", "£290"]);
+/* Third-party figures the site quotes — annual directory subscription costs —
+   rather than studio prices. Held separately so the studio's own price list
+   stays exact and a stray offer price cannot hide among them. */
+const CITED_AMOUNTS = new Set(["£300", "£550"]);
+const RETIRED_PRICES = ["495", "795", "1,495", "1,995", "2,195"].map((n) => "£" + n);
 
 const purchasingYml = read("_data/purchasing.yml");
 const legalYml = read("_data/legal.yml");
@@ -293,7 +297,7 @@ check("Prices", "Every £ amount in published source is an approved price", () =
     for (const match of body.matchAll(/£\s*\d(?:[\d,]*\d)?(?:\.\d{2})?/g)) {
       amounts += 1;
       const amount = match[0].replace(/\s+/g, "");
-      if (APPROVED_PRICES.has(amount)) continue;
+      if (APPROVED_PRICES.has(amount) || CITED_AMOUNTS.has(amount)) continue;
       offenders.push(`${rel}:${lineAt(body, match.index)} — ${amount}`);
     }
   }
@@ -322,9 +326,9 @@ check("Prices", "Retired amounts appear nowhere in the repository", () => {
 });
 
 check("Prices", "The displayed prices come from _data/purchasing.yml", () => {
-  assert(/^price_display:\s*"£495"\s*$/m.test(purchasingYml), "price_display is not £495");
-  assert(/^guided_price_display:\s*"£995"\s*$/m.test(purchasingYml), "guided_price_display is not £995");
-  assert(/^bespoke_price_display:\s*"£1,995"\s*$/m.test(purchasingYml), "bespoke_price_display is not £1,995");
+  assert(/^price_display:\s*"£995"\s*$/m.test(purchasingYml), "price_display is not £995");
+  assert(/^bespoke_price_display:\s*"Around £2,000"\s*$/m.test(purchasingYml), 'bespoke_price_display is not "Around £2,000"');
+  assert(!/guided_price_display/.test(purchasingYml), "guided_price_display is still declared — the Guided tier was retired");
   assert(/monthly:\s*"£29"/.test(purchasingYml), "Website Care monthly price is not £29");
   assert(/annual:\s*"£290"/.test(purchasingYml), "Website Care annual price is not £290");
 });
@@ -357,14 +361,14 @@ check("Checkout scope", "The buy component is included only on the Straightforwa
   const including = [];
   for (const [rel, body] of publishedBodies) {
     if (rel === BUY_INCLUDE) continue; // its own usage comment is not a placement
-    if (/\{%-?\s*include\s+straightforward-website-buy\.html/.test(body)) including.push(rel);
+    if (/\{%-?\s*include\s+practice-website-buy\.html/.test(body)) including.push(rel);
   }
   assert(including.length > 0, "nothing includes the buy component — the purchase journey has no buy action");
   assert(
     including.length === 1 && including[0] === PURCHASE_PAGE,
     `the buy component is included by: ${including.join(", ")} — only ${PURCHASE_PAGE} may include it`
   );
-  const count = (purchasePage.match(/include straightforward-website-buy\.html/g) || []).length;
+  const count = (purchasePage.match(/include practice-website-buy\.html/g) || []).length;
   assert(count >= 1, `${PURCHASE_PAGE} does not include the buy component`);
   return `${count} placements on ${PURCHASE_PAGE}`;
 });
@@ -379,74 +383,68 @@ check("Checkout scope", "The buy component carries the stated Straightforward CT
   assert(secondaries >= 2, `${BUY_INCLUDE} must offer "Ask a question first" in both the open and closed states (found ${secondaries})`);
 });
 
-/** Guided and Practice Clarity blocks, on the services page and the home page. */
+/** The route blocks, on the services page and the home page. */
 function serviceBlocks() {
   const blocks = [];
   for (const match of servicePage.matchAll(/<article id="([^"]+)"[\s\S]*?<\/article>/g)) {
     blocks.push({ file: "service.html", id: match[1], body: match[0] });
   }
-  const cards = homePage.split('<article class="offer-card"').slice(1);
-  for (const card of cards) {
-    const heading = (card.match(/<h3>([^<]+)<\/h3>/) || [])[1] || "(unnamed)";
-    blocks.push({ file: "index.html", id: heading.trim(), body: card.split("</article>")[0] });
+  for (const match of homePage.matchAll(/<article class="route-card" id="([^"]+)"[\s\S]*?<\/article>/g)) {
+    blocks.push({ file: "index.html", id: match[1], body: match[0] });
   }
   return blocks;
 }
 
-check("Checkout scope", "Guided and Practice Clarity carry no purchase action", () => {
+check("Checkout scope", "Practice Clarity carries no purchase action", () => {
   const blocks = serviceBlocks();
-  assert(blocks.length >= 6, `only ${blocks.length} service blocks found across service.html and index.html`);
-  const straightforward = /straightforward/i;
+  assert(blocks.length >= 4, `only ${blocks.length} route blocks found across service.html and index.html`);
+  const clarity = /clarity/i;
   let inspected = 0;
   for (const block of blocks) {
-    if (straightforward.test(block.id)) continue;
+    if (!clarity.test(block.id)) continue;
     inspected += 1;
     assert(
-      !/straightforward-website-buy\.html/.test(block.body),
+      !/practice-website-buy\.html/.test(block.body),
       `${block.file} · ${block.id} includes the buy component`
     );
-    assert(!/Pay\s+(£495|\{\{)/.test(block.body), `${block.file} · ${block.id} shows a pay action`);
+    assert(!/Pay\s+(£995|\{\{)/.test(block.body), `${block.file} · ${block.id} shows a pay action`);
     assert(
-      !/\/services\/straightforward-website\//.test(block.body),
+      !/\/services\/practice-website\//.test(block.body),
       `${block.file} · ${block.id} links into the checkout page`
     );
   }
-  assert(inspected >= 4, `only ${inspected} non-Straightforward blocks inspected`);
-  return `${inspected} Guided / Practice Clarity blocks`;
+  assert(inspected >= 2, `only ${inspected} Practice Clarity blocks inspected`);
+  return `${inspected} Practice Clarity blocks`;
 });
 
 /* ------------------------------------------------------------------ *
  * 4. Service models
  * ------------------------------------------------------------------ */
 
-check("Service routes", "Guided Website stays enquiry-led at £995", () => {
-  const block = servicePage.split('<article id="guided"')[1] || "";
-  assert(block.length > 200, "the Guided section could not be read from service.html");
-  assert(/£995/.test(block), "the Guided section does not show £995");
-  assert(/>Discuss your website</.test(block), 'the Guided CTA is not "Discuss your website"');
-  assert(/\/contact\/\?service=guided/.test(block), "the Guided CTA does not lead to an enquiry");
-  assert(/Not bought online/i.test(block), "the Guided section does not say it is not bought online");
-  assert(/written scope/i.test(block), "the Guided section does not mention a written scope");
-  assert(!/buy\.stripe\.com|straightforward-website-buy/.test(block), "the Guided section offers an online payment");
-});
-
-check("Service routes", "Practice Clarity stays proposal-led at £1,995", () => {
+check("Service routes", "Practice Clarity stays proposal-led at around £2,000", () => {
   const block = servicePage.split('<article id="practice-clarity"')[1] || "";
   assert(block.length > 200, "the Practice Clarity section could not be read from service.html");
-  assert(/£1,995/.test(block), "the Practice Clarity section does not show £1,995");
+  assert(/Around £2,000/.test(block), "the Practice Clarity section does not show Around £2,000");
   assert(/>Start a conversation</.test(block), 'the Practice Clarity CTA is not "Start a conversation"');
   assert(/\/contact\/\?service=practice-clarity/.test(block), "the Practice Clarity CTA does not lead to an enquiry");
   assert(/proposal/i.test(block), "the Practice Clarity section does not mention a proposal");
-  assert(/Not bought online/i.test(block), "the Practice Clarity section does not say it is not bought online");
-  assert(!/buy\.stripe\.com|straightforward-website-buy/.test(block), "the Practice Clarity section offers an online payment");
+  assert(!/buy\.stripe\.com|practice-website-buy/.test(block), "the Practice Clarity section offers an online payment");
 });
 
-check("Service routes", "Straightforward Website is the only route with an online checkout", () => {
-  const block = servicePage.split('<article id="straightforward-website"')[1] || "";
-  assert(block.length > 200, "the Straightforward section could not be read from service.html");
-  assert(/£495/.test(block), "the Straightforward section does not show £495");
-  assert(/Buy it online/i.test(block), "the Straightforward section does not say it is bought online");
-  assert(/\/services\/straightforward-website\//.test(block), "the Straightforward section does not link to the purchase page");
+check("Service routes", "Choose Your Practice Website is the only route with an online checkout", () => {
+  const block = servicePage.split('<article id="practice-website"')[1] || "";
+  assert(block.length > 200, "the Choose Your Practice Website section could not be read from service.html");
+  assert(/£995/.test(block), "the Choose Your Practice Website section does not show £995");
+  assert(/Bought online/i.test(block), "the section does not say it is bought online");
+  assert(/\/services\/practice-website\//.test(block), "the section does not link to the purchase page");
+});
+
+check("Service routes", "Only two routes are offered anywhere", () => {
+  const ids = serviceBlocks().map((b) => b.id);
+  const unexpected = ids.filter((id) => !/^(practice-website|practice-clarity|route-website|route-clarity)$/.test(id));
+  assert(unexpected.length === 0, `unexpected route blocks: ${unexpected.join(", ")}`);
+  assert(ids.length === 4, `expected two routes on each of service.html and index.html, found ${ids.length} blocks`);
+  return ids.join(", ");
 });
 
 /* ------------------------------------------------------------------ *
@@ -474,7 +472,7 @@ check("Website Care", "No subscription is built or activated", () => {
     const index = body.indexOf("Website Care");
     if (index === -1) continue;
     const block = body.slice(Math.max(0, index - 1200), index + 1200);
-    if (/https:\/\/buy\.stripe\.com|straightforward-website-buy|data-purchase-action/.test(block)) {
+    if (/https:\/\/buy\.stripe\.com|practice-website-buy|data-purchase-action/.test(block)) {
       offenders.push(`${rel}:${lineAt(body, index)} places a checkout action beside Website Care`);
     }
   }
@@ -689,7 +687,7 @@ check("Secrets", "No publishable key or Stripe SDK in the front end", () => {
  * ------------------------------------------------------------------ */
 
 const JOURNEY_LEGAL = [
-  ["/service-terms/straightforward-website/", "_pages/service-terms-straightforward-website.html"],
+  ["/service-terms/practice-website/", "_pages/service-terms-practice-website.html"],
   ["/cancellation-and-refunds/", "_pages/cancellation-and-refunds.html"],
   ["/privacy/", "_pages/privacy.html"],
 ];
@@ -712,7 +710,7 @@ check("Legal", "The purchase journey links to the terms it is made under", () =>
     [QUESTIONNAIRE, questionnaire],
   ];
   const cfgAlias = {
-    "/service-terms/straightforward-website/": "cfg.urls.service_terms",
+    "/service-terms/practice-website/": "cfg.urls.service_terms",
     "/cancellation-and-refunds/": "cfg.urls.cancellation",
     "/privacy/": "cfg.urls.privacy",
   };
@@ -731,7 +729,7 @@ check("Legal", "The purchase journey links to the terms it is made under", () =>
 });
 
 check("Legal", "The terms are readable before checkout", () => {
-  const terms = read("_pages/service-terms-straightforward-website.html");
+  const terms = read("_pages/service-terms-practice-website.html");
   assert(!/^noindex:\s*true/m.test(frontMatter(terms)), "the service terms are hidden from indexing");
   assert(!/<form/i.test(terms), "the service terms sit behind a form");
   assert(/cfg\.urls\.service_terms/.test(buyInclude), "the buy component does not link to the service terms");
@@ -823,7 +821,7 @@ check("Purchase complete", "Explains that the project begins only after the inta
   );
   assert(/materials have been received and checked/i.test(completePage), "the page does not say the materials are checked first");
   assert(/no project has been created automatically/i.test(completePage), "the page does not deny automatic project creation");
-  assert(completePage.includes("/services/straightforward-website/questionnaire/"), "the page does not link to the questionnaire");
+  assert(completePage.includes("/services/practice-website/questionnaire/"), "the page does not link to the questionnaire");
   assert(completePage.includes(SUPPORT_EMAIL), "the page gives no contact route if nothing arrives");
 });
 
@@ -836,7 +834,7 @@ check("Purchase complete", "Carries no analytics call and reads no payment param
     [PURCHASE_PAGE, purchasePage],
     [QUESTIONNAIRE, questionnaire],
     [BUY_INCLUDE, buyInclude],
-    ["assets/js/straightforward-questionnaire.js", read("assets/js/straightforward-questionnaire.js")],
+    ["assets/js/practice-website-questionnaire.js", read("assets/js/practice-website-questionnaire.js")],
   ];
   for (const [rel, body] of surfaces) {
     assert(
@@ -906,7 +904,7 @@ check("Questionnaire", "Every field is labelled and every fieldset has a legend"
 
 check("Questionnaire", "Errors are announced, and checkboxes are read by checked state", () => {
   assert(/data-questionnaire-errors[^>]*role="alert"/.test(questionnaire), "the error container has no role=\"alert\"");
-  const js = read("assets/js/straightforward-questionnaire.js");
+  const js = read("assets/js/practice-website-questionnaire.js");
   assert(/type === "checkbox"/.test(js), "the questionnaire script does not distinguish checkboxes");
   assert(/checkbox"\s*\?\s*field\.checked/.test(js) || /field\.checked \? /.test(js), "checkbox answers are not read from .checked");
   assert(/f\.type === "checkbox" \? !f\.checked/.test(js), "checkbox validation does not use .checked");
@@ -920,7 +918,7 @@ check("Questionnaire", "Errors are announced, and checkboxes are read by checked
     const expression = branch[1].trim();
     assert(
       /\.checked\b/.test(expression) && !/\.value\b/.test(expression),
-      `a checkbox is read by .value rather than .checked: "${expression}" (assets/js/straightforward-questionnaire.js:${lineAt(js, branch.index)})`
+      `a checkbox is read by .value rather than .checked: "${expression}" (assets/js/practice-website-questionnaire.js:${lineAt(js, branch.index)})`
     );
   }
 });
@@ -1335,7 +1333,7 @@ check("Built site", "The sitemap lists the public routes and none of the private
 
 check("Built site", "The purchase page loads its stylesheet", () => {
   if (!hasSite) skip("no _site directory — run `npm run build` first");
-  const body = readSite("services/straightforward-website/index.html");
+  const body = readSite("services/practice-website/index.html");
   assert(/purchase\.min\.css/.test(body), "the built purchase page loads no base stylesheet");
   assert(/catalogue-refresh\.css/.test(body), "the built purchase page does not load catalogue-refresh.css");
 });

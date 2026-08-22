@@ -44,7 +44,7 @@ const bundles = [
   ["purchase", [
     path.join(projectRoot, "services/**/*.html"),
     path.join(projectRoot, "purchase-complete.html"),
-    path.join(projectRoot, "assets/js/straightforward-questionnaire.js")
+    path.join(projectRoot, "assets/js/practice-website-questionnaire.js")
   ]],
   ["site", allContent]
 ];
@@ -54,7 +54,11 @@ for (const [name, pageContent] of bundles) {
     content: [...sharedContent, ...pageContent],
     css: [{ raw: combinedCss, extension: "css" }],
     safelist: {
-      standard: ["active", "is-active", "is-open", "menu-open", "open"],
+      /* Fenced code blocks are written as ``` in the guide and post markdown,
+         so the words "pre" and "code" never appear in the scanned source and
+         PurgeCSS removed every rule targeting them. They are elements the
+         renderer produces, not classes an author writes. */
+      standard: ["active", "is-active", "is-open", "menu-open", "open", "pre", "code", "kbd", "samp"],
       greedy: [/^has-/, /^is-/, /^menu-/, /^nav__/]
     },
     /* PurgeCSS decides an @font-face is "unused" by looking for the family

@@ -35,7 +35,7 @@ claim cannot be reintroduced by accident.
 
 | Page | Route |
 | --- | --- |
-| Straightforward Website Service Terms | `/service-terms/straightforward-website/` |
+| Choose Your Practice Website Service Terms | `/service-terms/practice-website/` |
 | Cancellation and Refund Information | `/cancellation-and-refunds/` |
 | Terms and Conditions (general) | `/terms/` |
 | Privacy Policy | `/privacy/` |
@@ -57,7 +57,7 @@ wrapped in `[square brackets]` and rendered in italics.
    `/terms/`, and the controller section of `/privacy/`. All three must say the
    same thing.
 2. **VAT position.** Whether the Studio is VAT registered and, if so, whether
-   £495 is inclusive or exclusive. Placeholder in clause 3 of the service terms.
+   £995 is inclusive or exclusive. Placeholder in clause 3 of the service terms.
    This also determines whether Stripe automatic tax should ever be switched on
    (see `STRIPE_SETUP.md`, step 10).
 3. **Limitation of liability.** Clause 16 deliberately contains only the
@@ -108,10 +108,10 @@ wrapped in `[square brackets]` and rendered in italics.
 - **Clause 21** — applying the version of the terms current at the time of
   payment. Consider archiving each published version with its effective date so
   the applicable version can be produced later if it is ever disputed.
-- **`/terms/` clause 2** — the statement that only the Straightforward Website
+- **`/terms/` clause 2** — the statement that only the Choose Your Practice Website
   checkout is an offer capable of acceptance, and that prices shown elsewhere
-  are indicative rather than quotations. This is what keeps the £995 and £1,995
-  figures from being treated as offers.
+  are indicative rather than quotations. This is what keeps the "around
+  £2,000" figure from being treated as an offer.
 - **`/terms/` clause 5** — the statement that the website collection designs are
   Studio work rather than commissioned client projects, and that the practices
   shown are illustrative. This matters: presenting Studio designs as client work

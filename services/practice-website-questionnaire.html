@@ -1,10 +1,10 @@
 ---
 layout: default
 title: Website Content Questionnaire
-description: The Website Content Questionnaire for the £495 Straightforward Website. Complete it after checkout so your project can begin.
-permalink: /services/straightforward-website/questionnaire/
+description: The Website Content Questionnaire for the £995 Choose Your Practice Website. Complete it after checkout so your project can begin.
+permalink: /services/practice-website/questionnaire/
 page_css: /assets/css/catalogue-refresh.css
-page_js: /assets/js/straightforward-questionnaire.js
+page_js: /assets/js/practice-website-questionnaire.js
 noindex: true
 sitemap: false
 ---
@@ -16,12 +16,12 @@ sitemap: false
   <section class="page-hero section-paper">
     <div class="shell page-hero-grid">
       <div>
-        <p class="eyebrow">Straightforward Website · Step one</p>
+        <p class="eyebrow">Choose Your Practice Website · Step one</p>
         <h1>Website Content Questionnaire</h1>
       </div>
       <div>
         <p class="hero-lead">This collects everything I need to build your website: {{ site.data.intake.required_questions }} questions I need an answer to, and {{ site.data.intake.optional_questions }} that are useful when they apply. Your project officially begins once this is complete, your materials have arrived and I have confirmed the start date in writing.</p>
-        <p class="hero-note">Nothing you type here is sent to or stored by this website. When you have finished, the page assembles your answers in your browser so you can copy them, save them, or open them in your own email app.</p>
+        <p class="page-hero-note">Nothing you type here is sent to or stored by this website. When you have finished, the page assembles your answers in your browser so you can copy them, save them, or open them in your own email app.</p>
       </div>
     </div>
   </section>
@@ -97,12 +97,12 @@ sitemap: false
           <legend>Your pages and your words</legend>
           <p class="field-help" id="pages-help">Up to five core pages are included. List the pages you want, in the order they should appear in the menu.</p>
           <label><span>5. Your five pages <b class="req">(required)</b></span><textarea name="pages" rows="4" aria-describedby="pages-help" placeholder="For example: Home, About, How I Work, Fees, Contact" required></textarea></label>
-          <label><span>6. Where is your final, approved page copy? <b class="req">(required)</b></span>
+          <label><span>6. Where is your page copy? It does not need to be finished <b class="req">(required)</b></span>
             <select name="copyStatus" required>
               <option value="" disabled selected>Select the closest answer</option>
               <option>Attached to the email I am about to send</option>
               <option>In a shared folder — link below</option>
-              <option>Still being finished — I will send it shortly</option>
+              <option>Still in draft — I will send it shortly</option>
             </select>
           </label>
           <label><span>Link to your copy, images and logo, if you are using a shared folder <span class="opt">(optional)</span></span><input name="materialsLink" type="url" inputmode="url" placeholder="https://"></label>
@@ -132,7 +132,7 @@ sitemap: false
               <option value="" disabled selected>Select the closest answer</option>
               <option>I am sending logo files (SVG, EPS or AI)</option>
               <option>I am sending a PNG or JPG logo only</option>
-              <option>I have no logo — please provide an AI-assisted logo direction</option>
+              <option>I have no logo — please make me a typographic wordmark</option>
             </select>
           </label>
         </fieldset>
@@ -164,7 +164,7 @@ sitemap: false
           <label class="check"><input type="checkbox" name="ackAccurate" value="yes" aria-describedby="ack-help" required> <span>The professional facts above — qualifications, memberships, registrations and fees — are accurate and current.</span></label>
           <label class="check"><input type="checkbox" name="ackRights" value="yes" required> <span>I own, or am licensed to use, the words, photographs and logo I am supplying.</span></label>
           <label class="check"><input type="checkbox" name="ackNoClientData" value="yes" required> <span>Nothing I am sending contains information about my own clients.</span></label>
-          <label class="check"><input type="checkbox" name="ackTerms" value="yes" required> <span>I have read the <a href="{{ cfg.urls.service_terms | relative_url }}">Straightforward Website Service Terms</a> and the <a href="{{ cfg.urls.privacy | relative_url }}">privacy notice</a>.</span></label>
+          <label class="check"><input type="checkbox" name="ackTerms" value="yes" required> <span>I have read the <a href="{{ cfg.urls.service_terms | relative_url }}">Choose Your Practice Website Service Terms</a> and the <a href="{{ cfg.urls.privacy | relative_url }}">privacy notice</a>.</span></label>
         </fieldset>
 
         <div class="questionnaire-actions">

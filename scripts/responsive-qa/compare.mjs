@@ -71,7 +71,7 @@ fs.writeFileSync(path.join(OUT, "height-comparison.json"), JSON.stringify({ rows
 
 /* Side-by-side sheets, scaled to a common height so the pair reads as one image. */
 if (wantSheets) {
-  const routes = argOf("--routes", "/,/service/,/work/,/about/,/contact/,/blog/,/practice-clarity/,/services/straightforward-website/")
+  const routes = argOf("--routes", "/,/service/,/work/,/about/,/contact/,/blog/,/practice-clarity/,/services/practice-website/")
     .split(",").map((s) => s.trim());
   const viewports = argOf("--viewports", "w320,w390,w768,w1024,w1440").split(",");
   let n = 0;

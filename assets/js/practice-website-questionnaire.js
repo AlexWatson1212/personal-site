@@ -1,5 +1,5 @@
 /**
- * Website Content Questionnaire — Straightforward Website.
+ * Website Content Questionnaire — Choose Your Practice Website.
  *
  * Assembles the visitor's answers in their own browser and hands them back as
  * text they can copy or open in their own email app. Nothing is transmitted to
@@ -108,7 +108,7 @@
   }
 
   function buildSummary() {
-    var lines = ["Website Content Questionnaire — Straightforward Website", ""];
+    var lines = ["Website Content Questionnaire — Choose Your Practice Website", ""];
     SECTIONS.forEach(function (section) {
       var heading = section[0];
       var fields = section[1];
@@ -146,7 +146,7 @@
     if (summaryField) summaryField.value = summary;
 
     if (mailtoLink) {
-      var subject = "Website Content Questionnaire — " + (valueOf("practiceName") || valueOf("name") || "Straightforward Website");
+      var subject = "Website Content Questionnaire — " + (valueOf("practiceName") || valueOf("name") || "Choose Your Practice Website");
       mailtoLink.href =
         "mailto:hello@alexanderwatson.co.uk?subject=" +
         encodeURIComponent(subject) +
