@@ -1,0 +1,87 @@
+Applying the refinement pass
+============================
+
+Three commits now sit on top of 7131edd ("updates"), which is where GitHub
+still is:
+
+  45a8964  Integrate the responsive pass
+  77efff3  Rebuild the site around the two-route offer
+  78ea5aa  Refine the site: distinct portfolio, calmer rhythm, enforcing CSP
+
+DO NOT DEPLOY YET if you want to review first — the third commit is the one
+you asked to review before deployment.
+
+To get them into your repository
+--------------------------------
+
+If you already ran the earlier instructions, you have a branch called
+studio-update at 77efff3. Replace it:
+
+  git fetch "studio-refinement.bundle" main:studio-refinement --force
+
+Otherwise, from scratch:
+
+  git fetch "studio-refinement.bundle" main:studio-refinement
+
+Neither command touches your working tree or your current branch.
+
+To review before deciding
+-------------------------
+
+  git log --oneline main..studio-refinement
+  git diff main..studio-refinement --stat
+  git diff main..studio-refinement -- index.html work.html service.html
+
+To look at it running, locally:
+
+  git switch studio-refinement
+  npm ci
+  bundle install
+  npm run build          # this is the step that has never run in my environment
+  bundle exec jekyll serve
+
+Read the build output. `npm run build` now ends with a publish-directory
+check that fails the build rather than deploying anything forbidden.
+
+To deploy, when you are satisfied
+---------------------------------
+
+  git switch main
+  git reset --hard studio-refinement
+  git push origin main
+  git branch -d studio-refinement
+
+`reset --hard` is safe: your working tree has no content differences from
+7131edd — only line endings — so nothing uncommitted is lost.
+
+After deploying, two minutes of checks
+--------------------------------------
+
+  curl -sSI https://alexanderwatson.co.uk/ | sort
+  curl -sSI https://alexanderwatson.co.uk/ | grep -i content-security-policy
+  curl -sSI http://alexanderwatson.co.uk/ | grep -i '^location'
+
+  for p in /.git/config /package.json /netlify.toml /REFINEMENT-REPORT.md; do
+    printf '%s ' "$p"
+    curl -sS -o /dev/null -w '%{http_code}\n' "https://alexanderwatson.co.uk$p"
+  done      # all four should print 404
+
+The Content-Security-Policy is now ENFORCING rather than report-only. It was
+verified against all 31 routes locally with zero violations, but the first
+thing to check after deploying is that no page has a blocked resource — open
+the browser console on the home page, the collection, a guide and the terms
+page and confirm it is silent.
+
+Reports to read
+---------------
+
+  REFINEMENT-REPORT.md    what changed, measured, and the open decisions
+  SECURITY.md             threat model, findings, controls, what needs you
+  WEBSITE-CARE.md         the £29 recommendation and exact scope
+  MOTION-AND-IMAGERY.md   motion inventory, image inventory, photo briefs
+  RECOVERY.md             rollback, recovery, maintenance checklist
+  ARCHITECTURE-DECISION.md  static vs WordPress
+
+Housekeeping — untracked, not deployed, delete whenever:
+  studio-two-routes.bundle, studio-refinement.bundle, APPLY-*.txt
+  _responsive-pass\  _to_delete\  _transfer\  _transfer-src.tgz
