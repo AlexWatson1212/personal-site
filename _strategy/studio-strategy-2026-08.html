@@ -1,0 +1,1248 @@
+<title>Alexander Watson Studio Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,400;0,600;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
+<style>
+  :root {
+    --ground: #F1F2F0;
+    --surface: #FAFAF8;
+    --surface-2: #E8EAE6;
+    --ink: #1C2422;
+    --ink-soft: #3D4845;
+    --muted: #626C69;
+    --rule: #D6DAD5;
+    --rule-soft: #E2E5E0;
+    --accent: #2C5A63;
+    --accent-soft: #E1EAEB;
+    --caution: #7D6218;
+    --caution-soft: #F0E9D5;
+    --shadow: 0 1px 2px rgba(28,36,34,.05);
+
+    --serif: "Literata", "Iowan Old Style", Palatino, Georgia, serif;
+    --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --measure: 68ch;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #141817;
+      --surface: #1C2220;
+      --surface-2: #232A28;
+      --ink: #E7EAE6;
+      --ink-soft: #C6CCC8;
+      --muted: #939C98;
+      --rule: #2C3432;
+      --rule-soft: #242B29;
+      --accent: #86B7BC;
+      --accent-soft: #1E2E30;
+      --caution: #C8A758;
+      --caution-soft: #2B2617;
+      --shadow: none;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #141817;
+    --surface: #1C2220;
+    --surface-2: #232A28;
+    --ink: #E7EAE6;
+    --ink-soft: #C6CCC8;
+    --muted: #939C98;
+    --rule: #2C3432;
+    --rule-soft: #242B29;
+    --accent: #86B7BC;
+    --accent-soft: #1E2E30;
+    --caution: #C8A758;
+    --caution-soft: #2B2617;
+    --shadow: none;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+    font-optical-sizing: auto;
+  }
+
+  .shell {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 28px 120px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* ---------- Masthead ---------- */
+
+  .masthead {
+    padding: 72px 0 40px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .kicker {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 22px;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2.1rem, 5.2vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.018em;
+    margin: 0 0 20px;
+    max-width: 20ch;
+    text-wrap: balance;
+  }
+
+  .standfirst {
+    font-size: clamp(1.05rem, 2.1vw, 1.24rem);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 58ch;
+    margin: 0 0 32px;
+  }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+    font-family: var(--sans);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .meta-row b {
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Verdict strip ---------- */
+
+  .verdicts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .verdict {
+    background: var(--ground);
+    padding: 30px 26px 34px 0;
+  }
+  .verdict:not(:first-child) { padding-left: 26px; }
+  .verdict .label {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 12px;
+  }
+  .verdict .call {
+    font-size: 1.22rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin: 0 0 8px;
+  }
+  .verdict .why {
+    font-family: var(--sans);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* ---------- Body layout ---------- */
+
+  .body-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  @media (min-width: 1000px) {
+    .body-grid {
+      grid-template-columns: 208px minmax(0, 1fr);
+      gap: 64px;
+      align-items: start;
+    }
+    .toc {
+      position: sticky;
+      top: 32px;
+      padding-top: 64px;
+    }
+  }
+
+  .toc {
+    font-family: var(--sans);
+    font-size: 13px;
+    padding-top: 40px;
+  }
+  .toc-head {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 16px;
+  }
+  .toc ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .toc a {
+    display: flex;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 5px 0;
+    line-height: 1.35;
+    border-bottom: 1px solid transparent;
+  }
+  .toc a:hover { color: var(--ink); }
+  .toc a .n {
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+    flex: 0 0 auto;
+    opacity: .8;
+  }
+  .toc a:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  main { padding-top: 40px; }
+  @media (min-width: 1000px) { main { padding-top: 64px; } }
+
+  section { margin-bottom: 76px; scroll-margin-top: 24px; }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 26px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .sec-head .n {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    flex: 0 0 auto;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 3.2vw, 2rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+    margin: 38px 0 12px;
+    max-width: var(--measure);
+  }
+
+  h4 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 11.5px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 32px 0 10px;
+  }
+
+  p, ul, ol { max-width: var(--measure); }
+  p { margin: 0 0 16px; }
+
+  ul, ol { margin: 0 0 16px; padding-left: 1.15em; }
+  li { margin-bottom: 8px; }
+  li::marker { color: var(--muted); }
+
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+
+  a { color: var(--accent); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+
+  .lede {
+    font-size: 1.1rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin-bottom: 26px;
+  }
+
+  /* ---------- Callouts ---------- */
+
+  .call-out {
+    border-left: 2px solid var(--accent);
+    background: var(--accent-soft);
+    padding: 20px 24px;
+    margin: 26px 0;
+    max-width: var(--measure);
+  }
+  .call-out.caution {
+    border-left-color: var(--caution);
+    background: var(--caution-soft);
+  }
+  .call-out .co-label {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .call-out.caution .co-label { color: var(--caution); }
+  .call-out p:last-child, .call-out ul:last-child { margin-bottom: 0; }
+  .call-out p, .call-out ul { max-width: none; }
+
+  /* ---------- Tables ---------- */
+
+  .table-wrap {
+    overflow-x: auto;
+    margin: 24px 0 28px;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--sans);
+    font-size: 13.5px;
+    line-height: 1.45;
+    min-width: 560px;
+  }
+  th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 10.5px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 12px 16px 12px 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: bottom;
+  }
+  td {
+    padding: 13px 16px 13px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+    color: var(--ink-soft);
+  }
+  td:first-child { color: var(--ink); font-weight: 500; }
+  .num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .src {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--muted);
+    max-width: var(--measure);
+    margin: -14px 0 26px;
+  }
+  .src a { color: var(--muted); }
+  .src a:hover { color: var(--accent); }
+
+  /* ---------- Status tags ---------- */
+
+  .tag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 3px 7px;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    color: var(--muted);
+    white-space: nowrap;
+    vertical-align: 2px;
+  }
+  .tag.verified { color: var(--accent); border-color: var(--accent); }
+  .tag.judgement { color: var(--caution); border-color: var(--caution); }
+
+  /* ---------- Directions grid ---------- */
+
+  .dirs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 26px 0 8px;
+  }
+  .dir {
+    background: var(--surface);
+    padding: 24px 22px 26px;
+  }
+  .dir-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .dir-name {
+    font-family: var(--serif);
+    font-size: 1.14rem;
+    font-weight: 600;
+    letter-spacing: -0.008em;
+    margin: 0;
+  }
+  .dir-state {
+    font-family: var(--sans);
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .dir-state.built { color: var(--accent); }
+  .dir dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+  .dir dt {
+    font-family: var(--sans);
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 3px;
+  }
+  .dir dd {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.48;
+    color: var(--ink-soft);
+  }
+  .dir .verdict-line {
+    margin-top: 16px;
+    padding-top: 13px;
+    border-top: 1px solid var(--rule-soft);
+    font-family: var(--sans);
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+  .dir .verdict-line b {
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .dir .verdict-line b.weak { color: var(--caution); }
+
+  /* ---------- Plan ---------- */
+
+  .phase {
+    margin: 30px 0;
+    padding-left: 20px;
+    border-left: 2px solid var(--rule);
+    max-width: var(--measure);
+  }
+  .phase-head {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 4px;
+  }
+  .phase-goal {
+    font-family: var(--serif);
+    font-size: 1.02rem;
+    color: var(--ink);
+    margin: 0 0 16px;
+  }
+  .phase ol { padding-left: 1.3em; }
+
+  /* ---------- Final action ---------- */
+
+  .finale {
+    border: 1px solid var(--ink);
+    padding: 40px 34px;
+    margin-top: 8px;
+    max-width: var(--measure);
+    background: var(--surface);
+  }
+  .finale .co-label {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 14px;
+  }
+  .finale h3 {
+    margin: 0 0 16px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  footer {
+    margin-top: 90px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--sans);
+    font-size: 12.5px;
+    color: var(--muted);
+    max-width: var(--measure);
+  }
+  footer p { max-width: none; }
+
+  @media (max-width: 640px) {
+    body { font-size: 16.5px; }
+    .shell { padding: 0 20px 80px; }
+    .masthead { padding-top: 48px; }
+    .verdict { padding: 24px 0 26px; }
+    .verdict:not(:first-child) { padding-left: 0; padding-top: 24px; }
+    .verdicts { gap: 0; background: transparent; }
+    .verdict + .verdict { border-top: 1px solid var(--rule); }
+    .finale { padding: 28px 22px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+
+<div class="shell">
+
+  <header class="masthead">
+    <p class="kicker">Strategy review · Alexander Watson Studio</p>
+    <h1>A specialist studio, one offer, and nobody paying yet</h1>
+    <p class="standfirst">Market evidence, a single recommended model, and the decisions standing between eight finished website directions and a first real client.</p>
+    <div class="meta-row">
+      <span><b>Prepared</b> 22 August 2026</span>
+      <span><b>For</b> Alexander Watson</span>
+      <span><b>Scope</b> UK therapist &amp; counsellor market</span>
+    </div>
+  </header>
+
+  <div class="verdicts">
+    <div class="verdict">
+      <span class="label">Entry offer</span>
+      <p class="call">Choose Your Practice Website — yes, as the main door.</p>
+      <p class="why">It is the only route you can sell without a call, and the only one that turns having no clients into an asset.</p>
+    </div>
+    <div class="verdict">
+      <span class="label">Platform</span>
+      <p class="call">One stack. Bespoke, with an editing layer.</p>
+      <p class="why">Two platforms doubles your QA surface and halves your differentiation. Squarespace is where your price gets argued down.</p>
+    </div>
+    <div class="verdict">
+      <span class="label">Price</span>
+      <p class="call">£950 and £2,450. Not £495, £995 and £1,995.</p>
+      <p class="why">£495 undercuts a Wix five-pager and contradicts everything else the studio says about itself.</p>
+    </div>
+  </div>
+
+  <div class="body-grid">
+
+    <nav class="toc" aria-label="Contents">
+      <p class="toc-head">Contents</p>
+      <ol>
+        <li><a href="#s1"><span class="n">1</span><span>Executive verdict</span></a></li>
+        <li><a href="#s2"><span class="n">2</span><span>Evidence and market</span></a></li>
+        <li><a href="#s3"><span class="n">3</span><span>Recommended model</span></a></li>
+        <li><a href="#s4"><span class="n">4</span><span>90-day plan</span></a></li>
+        <li><a href="#s5"><span class="n">5</span><span>The directions</span></a></li>
+        <li><a href="#s6"><span class="n">6</span><span>Offer and delivery</span></a></li>
+        <li><a href="#s7"><span class="n">7</span><span>Risks and decisions</span></a></li>
+        <li><a href="#s8"><span class="n">8</span><span>Do not do yet</span></a></li>
+        <li><a href="#s9"><span class="n">9</span><span>This week</span></a></li>
+      </ol>
+    </nav>
+
+    <main>
+
+      <!-- ============ 1 ============ -->
+      <section id="s1">
+        <div class="sec-head"><span class="n">01</span><h2>Executive verdict</h2></div>
+
+        <p><em>Choose Your Practice Website</em> is the right entry point, and it is commercially stronger than a clarity-first bespoke offer for three testable reasons. It is the only route you can sell without a sales call. It converts your largest weakness — no third-party clients — into your main asset, eight complete directions a buyer can look at and judge. And no UK studio occupies the slot: the template shops in this niche are American Squarespace sellers at $179–$399, and the UK specialists are either £16–£45/month subscriptions or quote-only agencies with no published prices.</p>
+
+        <p>Three things in the current plan are wrong.</p>
+
+        <p><strong>£495 is too low.</strong> It sits below a five-page Wix build at £695 and signals the opposite of what you are selling. Two tiers, at £950 and £2,450. Delete the middle one.</p>
+
+        <p><strong>Twelve directions before a single paying client is overbuilding.</strong> You have eight. Finish six to an unarguable standard and stop. Add one per two websites sold, driven by what buyers ask for and cannot find.</p>
+
+        <p><strong>You are one platform, not two.</strong> Build on your existing stack and add a small editing layer for the four or five fields that actually change — fees, availability, bio, a note. Squarespace as a second tier would double your QA surface, halve your differentiation, and place you beside designers charging £1,700–£4,000 for the same platform.</p>
+
+        <p>The binding constraint is not systems, directions or software. It is that nobody has paid you yet. Everything else here is secondary to three named, credited clients before December. Your cohort, placement colleagues and supervisor are the fastest honest route, and you have already said you are comfortable marketing there.</p>
+
+        <p>Decide the price on Monday. Send twenty messages by Friday.</p>
+      </section>
+
+      <!-- ============ 2 ============ -->
+      <section id="s2">
+        <div class="sec-head"><span class="n">02</span><h2>Evidence and market observations</h2></div>
+
+        <p class="lede">Everything below is tagged. <span class="tag verified">Verified</span> means a primary source was fetched and the figure is quoted. <span class="tag">Inferred</span> means it is a reasonable reading of partial evidence. <span class="tag judgement">Judgement</span> means it is my opinion, not a fact.</p>
+
+        <h3>The market is large, growing and unusually easy to reach</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Body</th><th>Members</th><th>As at</th><th>Note</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>BACP</td><td class="num">73,528</td><td class="num">31 Mar 2025</td><td>Up from 69,508 — net growth of 4,020 in one year</td></tr>
+              <tr><td>NCPS</td><td class="num">18,000+</td><td class="num">Feb 2025</td><td>Stated in written evidence to Parliament</td></tr>
+              <tr><td>UKCP</td><td class="num">~11,450</td><td class="num">2024</td><td>Implied from member survey response rate</td></tr>
+              <tr><td>HCPC practitioner psychologists</td><td class="num">32,206</td><td class="num">Aug 2026</td><td>All specialisms; counselling psychology not broken out</td></tr>
+              <tr><td>PCPB umbrella (six bodies)</td><td class="num">~105,000</td><td class="num">2025–26</td><td>Their own figure; contains unquantified double-counting</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="src"><span class="tag verified">Verified</span> Sources: <a href="https://www.bacp.co.uk/media/23858/bacp-annual-review-financial-statements-2024-to-2025.pdf">BACP Annual Review 2024–25</a> · <a href="https://bills.parliament.uk/publications/58598/documents/5908">NCPS written evidence</a> · <a href="https://www.psychotherapy.org.uk/media/bj2b25ce/2024-ukcp-member-report.pdf">UKCP 2024 Member Survey</a> · <a href="https://www.hcpc-uk.org/data/the-register/register-summary/">HCPC Register Summary</a> · <a href="https://www.pcpb.org.uk/">PCPB</a></p>
+
+        <p><strong>Most of them work privately.</strong> UKCP's own 2024 survey: <em>"The majority of respondents worked in private or independent practice (77%)."</em> BACP's 2022–23 workplace mapping, reported in their <a href="https://www.bacp.co.uk/bacp-journals/private-practice/2025/articles-march/a-pathway-to-private-practice/">Private Practice journal</a>: <em>"nearly 70%"</em>. <span class="tag verified">Verified</span></p>
+
+        <p><strong>They are addressable without advertising.</strong> Unlike almost any other small-business niche, this market has a single national conversation — professional bodies, local networks, supervision relationships, training cohorts and a handful of directories. BACP alone added roughly four thousand net members in a year; each newly qualified therapist entering private practice is someone who has never had a website before. You do not need reach. You need to be findable and recommended in an unusually well-connected profession. <span class="tag judgement">Judgement</span></p>
+
+        <h3>What they already pay for</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Directory</th><th>Cost</th><th>Note</th></tr></thead>
+            <tbody>
+              <tr><td>Counselling Directory</td><td class="num">£24.50/mo · £245/yr</td><td>Free for registered charities</td></tr>
+              <tr><td>Psychology Today UK</td><td class="num">£19.95/mo</td><td>Six-month free trial for new members</td></tr>
+              <tr><td>BACP Therapist Directory</td><td class="num">£76/yr</td><td>Covers up to six listings; members only</td></tr>
+              <tr><td>Welldoing</td><td class="num">£45+VAT/quarter</td><td>Plus £15+VAT annual verification; ~1,000 therapists</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="src"><span class="tag verified">Verified</span> Fetched 22 Aug 2026 from <a href="https://secure.counselling-directory.org.uk/join.html">Counselling Directory</a> · <a href="https://join.psychologytoday.com/gb/signup">Psychology Today UK</a> · <a href="https://www.bacp.co.uk/membership/directories/therapist-directory/">BACP</a> · <a href="https://welldoing.org/practitioners/therapist-info">Welldoing</a></p>
+
+        <p>A therapist running two directory listings is already spending <strong>£300–£550 a year, indefinitely, on rented visibility they do not own</strong>. That is the number your price should be argued against, not a competitor's build fee. A £950 website is roughly two years of directory rent, once. This is the single most useful commercial framing available to you and it is not currently on your site. <span class="tag judgement">Judgement</span></p>
+
+        <p>Session fees give the second anchor. No official BACP fee survey exists; convergent secondary sources put typical UK private sessions at <strong>£40–£70</strong>, rising to £65–£150 for specialists and central London. <span class="tag">Inferred</span> On that basis £950 is roughly fifteen sessions and £2,450 is roughly forty. For a newly qualified therapist that is a serious decision; for an established one with a full caseload it is not.</p>
+
+        <h3>The competitive landscape, with prices</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Provider</th><th>Model</th><th>Price</th><th>Platform</th></tr></thead>
+            <tbody>
+              <tr><td><a href="https://www.therapywebsites.uk/website-packages/">Therapy Websites</a></td><td>Subscription</td><td class="num">£15.99–£21.99/mo + £99–£199 setup</td><td>Unstated</td></tr>
+              <tr><td><a href="https://www.therapywebgenie.com/pricing/">Therapy Webgenie</a></td><td>Subscription + bespoke</td><td class="num">£20–£45/mo + £145–£180 setup</td><td>Unstated</td></tr>
+              <tr><td><a href="https://builtfortherapy.com/">Built for Therapy</a></td><td>Subscription</td><td class="num">£24.99/mo + £224 setup</td><td>WordPress</td></tr>
+              <tr><td><a href="https://websites4counsellors.co.uk/pricing/">Websites 4 Counsellors</a></td><td>Subscription</td><td class="num">£43/mo +VAT, no setup</td><td>Managed</td></tr>
+              <tr><td><a href="https://www.yourtherapywebsite.co.uk/websites-for-therapists-cost">Your Therapy Website</a></td><td>One-off</td><td class="num">£245 (1 page) · £695 (5 pages)</td><td>Wix</td></tr>
+              <tr><td><a href="https://www.therapywebs.co.uk">Therapy Webs</a></td><td>One-off</td><td class="num">£649 · £999</td><td>WordPress theme</td></tr>
+              <tr><td><a href="https://www.phoenixwebservices.co.uk/therapist-website-design/">Phoenix Web Services</a></td><td>Project</td><td class="num">£250–£1,800</td><td>WordPress</td></tr>
+              <tr><td><a href="https://therapywebdesigns.co.uk/">Therapy Web Designs</a></td><td>Project + retainer</td><td class="num">£1,200 · £2,500 · £5,000</td><td>Unstated</td></tr>
+              <tr><td><a href="https://www.kirstym.com/squarespace-websites-for-therapists-counsellors">Kirsty M Design</a></td><td>Project</td><td class="num">From £1,700, typical £2,000–£4,000</td><td>Squarespace</td></tr>
+              <tr><td><a href="https://www.holdspacecreative.com/squarespace-template-shop">Hold Space Creative</a> (US)</td><td>Template shop</td><td class="num">$179–$399</td><td>Squarespace</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="src"><span class="tag verified">Verified</span> All pricing pages fetched 22 Aug 2026. Also found and confirmed as publishing <em>no</em> prices at all: Verum Design, HealthHosts, WebHealer, Therapy In Design, Wellness Web Design.</p>
+
+        <h3>Four things this tells you</h3>
+
+        <ul>
+          <li><strong>There is a hole in the middle.</strong> The UK market is a barbell: cheap subscriptions at £16–£45/month, cheap one-offs at £245–£999, and quote-only agencies. Between "templated Wix build" and "£2,000+ custom project" there is almost nobody, and nobody at all doing it with a curated, browsable, therapist-specific catalogue. That is your slot. <span class="tag judgement">Judgement</span></li>
+          <li><strong>Pricing opacity is the sector's weakest point.</strong> Five of the UK providers found publish no prices whatsoever. For a buyer who is already anxious about being sold to — which is precisely the therapist temperament — a clear published price is not just convenience, it is a trust signal. You already do this. Say why you do it. <span class="tag judgement">Judgement</span></li>
+          <li><strong>Subscription is the incumbent model, and it is your best contrast.</strong> £30/month for ten years is £3,600 and you own nothing. A one-off fee plus an optional care plan you can leave is a genuinely better deal, and it is easy to say plainly.</li>
+          <li><strong>The US template shops prove the catalogue model works, and have not crossed the Atlantic.</strong> Hold Space Creative describes itself as <em>"the original Squarespace template shop dedicated specifically to therapists &amp; coaches"</em>. No UK equivalent was found. <span class="tag verified">Verified</span></li>
+        </ul>
+
+        <h3>What is actually wrong with therapist websites</h3>
+
+        <p>From two specialist critiques with named, observed defects rather than generic UX advice (<a href="https://www.designfortherapists.com/the-biggest-therapist-website-mistakes-and-how-to-fix-them/">Design for Therapists</a>, <a href="https://www.highfivedesign.co/blog/biggest-mistakes-to-fix-now">High Five Design</a>): a live site with an entirely empty footer; a Wix watermark still in the header; verbatim textbook passages describing modalities; a Bitmoji used as the professional headshot; fees omitted because the therapist fears deterring people, which <em>"often creates more hesitation"</em> instead; specialisms buried inside long About paragraphs; group practices forcing visitors to click through every therapist's bio to find the right one; and — my favourite, because it is so specific — <em>"your website should reflect you, not the Brené fan club."</em> <span class="tag verified">Verified</span></p>
+
+        <p>Note what is <em>not</em> on that list: bad taste. The failures are structural and editorial — missing information, buried decisions, borrowed language. Your instinct that generic marketing feels uncomfortable to therapists is right, but the commercial opportunity is slightly different from the aesthetic one. <strong>Most therapist websites are not ugly. They are unusable at the moment of decision.</strong> <span class="tag judgement">Judgement</span></p>
+
+        <h3>What therapy clients appear to value — the strongest evidence available</h3>
+
+        <div class="call-out">
+          <span class="co-label">The single most useful research finding for this business</span>
+          <p>Jane May's 2018 doctoral thesis at the University of Brighton, <em>What factors influence a client's choice of counsellor or psychotherapist in a private practice setting?</em>, found that third-party recommendation was the primary selection factor; where that was unavailable, clients searched online for location, experience and perceived relatability. Critically: clients <em>"assessed these factors using the photograph and rhetoric on the therapist's website or directory entry"</em>, relying substantially on <em>"unconscious projection and 'gut instinct'"</em> — with qualifications, professional standing and modality given comparatively <strong>little</strong> weight.</p>
+        </div>
+        <p class="src"><span class="tag verified">Verified</span> <a href="https://research.brighton.ac.uk/en/studentTheses/what-factors-influence-a-clients-choice-of-counsellor-or-psychoth/">University of Brighton research repository</a></p>
+
+        <p>This is UK-specific, on-point doctoral research that says the two things your studio actually sells — <strong>the photograph and the words</strong> — are the primary drivers of an emotionally-led decision, ahead of credentials. It is corroborated experimentally by a 2025 <em>Psychotherapy Research</em> paper finding facial attractiveness independently raises the likelihood of a psychotherapist being chosen, separate from perceived trustworthiness (<a href="https://pubmed.ncbi.nlm.nih.gov/40356087/">DOI 10.1080/10503307.2025.2494272</a>; title and journal verified, full text paywalled).</p>
+
+        <p>Two consequences. First, <strong>photography is not a nice-to-have add-on, it is close to the core product</strong>, and almost every therapist has a bad photo. Second, you can say this to a prospective client with evidence behind it, which is a much better sales conversation than "I have good taste."</p>
+
+        <p>General web-credibility research supports the same direction without being specific to therapy: Lindgaard et al. (2006) put visual-appeal formation at roughly 50 milliseconds, correlating with later credibility judgements; the <a href="https://credibility.stanford.edu/guidelines/index.html">Stanford Web Credibility guidelines</a> (2002, foundational rather than current) list real contact details, displayed credentials, professional design, visible maintenance and error-free presentation as trust factors. Both are well-established; neither is new. <span class="tag verified">Verified</span></p>
+
+        <h3>Two evidence gaps you should know about</h3>
+
+        <p>Extensive searching found <strong>no published data on what proportion of UK therapists have their own website</strong>, and <strong>no credible survey of where UK therapists actually get clients from</strong> — the organic-search versus directory versus word-of-mouth split. These are the two most decision-relevant numbers for your business and they do not exist publicly. Do not let anyone, including me, quote them at you. You can generate the first yourself in an afternoon: sample 150 Counselling Directory profiles in three regions and count outbound website links. That is real proprietary evidence, and it is also a publishable article. <span class="tag judgement">Judgement</span></p>
+      </section>
+
+      <!-- ============ 3 ============ -->
+      <section id="s3">
+        <div class="sec-head"><span class="n">03</span><h2>Recommended business model</h2></div>
+
+        <p class="lede">One recommendation. A curated catalogue as the front door, one technical platform, two commercial tiers, and a scarcity rule that makes the word "template" untrue rather than merely unwelcome.</p>
+
+        <h3>The catalogue is the entry point. The bespoke route is the ceiling, not the door.</h3>
+
+        <p>Five reasons, in order of weight:</p>
+
+        <ol>
+          <li><strong>It is the only offer you can sell without a call.</strong> You have said you can sustain twenty to thirty minutes a day on marketing and will not become a loud online personality. An enquiry-led bespoke offer requires a sales conversation for every single unit. That is not a marketing constraint, it is a capacity ceiling — and it caps you at whatever number of consultations you can bear per month.</li>
+          <li><strong>It solves your credibility problem instead of exposing it.</strong> You have no third-party client work. A bespoke-first studio asks a buyer to trust a process they cannot see. A catalogue asks them to look at eight finished things. The evidence in §2 says buyers in this market decide on what they can see and feel, not on stated process.</li>
+          <li><strong>Clarity-first has a positioning problem you have already sensed.</strong> "Get clear before you get a website" implies the buyer is unclear. Therapists are trained in self-reflection and many will find that faintly insulting. As an <em>optional deeper route</em> it reads as generous; as the <em>required front door</em> it reads as a gate.</li>
+          <li><strong>The slot is empty in the UK.</strong> See §2. The nearest comparable products are American Squarespace templates at $179–$399 with no tailoring and no UK compliance awareness.</li>
+          <li><strong>It matches how you like to work.</strong> Deep-focus building against a defined system, not open-ended discovery. A catalogue turns your best hours into a reusable asset. Bespoke turns them into a one-off.</li>
+        </ol>
+
+        <div class="call-out caution">
+          <span class="co-label">The condition this depends on</span>
+          <p>The catalogue is only profitable if the tailoring is genuinely bounded. If "a tailored first version" quietly becomes a bespoke build every time, £950 becomes loss-making at around eighteen hours. The single operational discipline that makes or breaks this business is your willingness to say "that is outside this route — here is what it would cost, or here is the direction that already does it." Write that sentence down now, before you need it.</p>
+        </div>
+
+        <h3>Platform: one stack, bespoke, with a small editing layer</h3>
+
+        <p>The honest case for each option, then the decision.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Option</th><th>For</th><th>Against</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Bespoke coded (current stack)</td>
+                <td>Highest quality ceiling; total design control; fastest pages; no platform rent for the client; matches your skills; the catalogue is genuinely yours</td>
+                <td>The client cannot edit anything. Every fee change becomes an email to you. Either you absorb it, charge for it, or lose goodwill</td>
+              </tr>
+              <tr>
+                <td>Squarespace</td>
+                <td>Client can edit; familiar; lower support burden; easier handover if you stop</td>
+                <td>Caps design quality; imposes £17–£29/month rent on the client forever; puts you next to designers at £1,700–£4,000 on the same platform; anyone can rebuild your catalogue</td>
+              </tr>
+              <tr>
+                <td>Two-tier (both)</td>
+                <td>Serves budget and premium; editable option available</td>
+                <td>Two component libraries, two QA suites, two accessibility passes, two update paths, two sets of knowledge to keep current — for one person at two sites a month. This is the fastest route to the cognitive overload you said you want to avoid</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Recommendation: bespoke coded on your existing Jekyll/Netlify stack, plus a git-backed editing layer</strong> — Decap, Sveltia or CloudCannon — exposing only the fields that genuinely change: fees, availability, a short practice note, blog posts, and the contact block. Not the layout. Not the type. Not the colours.</p>
+
+        <p>This resolves the only real objection to bespoke, and it does it in a way Squarespace cannot match: the client gets to change what matters without being able to break what they paid you for. It also makes Website Care an honest convenience rather than a hostage arrangement, which matters enormously to a brand built on ethics.</p>
+
+        <p><strong>Two commercial tiers on one technical platform. Never two technical platforms.</strong> If a buyer's real constraint is £250 rather than £950, they are not your customer, and the right answer is to say so warmly and point them at Your Therapy Website. Turning away the wrong client is a positioning act.</p>
+
+        <p><strong>Shopify is not relevant.</strong> Therapists do not sell products; a handful sell courses or workbooks, and Stripe Payment Links or a single Gumroad page handles that without introducing an ecommerce platform. If a client ever needs a real shop, that is a referral, not a service line.</p>
+
+        <h3>The scarcity rule — the most important idea in this document</h3>
+
+        <div class="call-out">
+          <span class="co-label">Policy</span>
+          <p>Each direction is issued to a limited number of practices, and never twice to the same specialism in the same city or region. Publish the count remaining. When a direction is exhausted, retire it and replace it.</p>
+        </div>
+
+        <p>You are right to worry about the word "template". But the word is only unfair if it is untrue, and it is only untrue if two buyers cannot end up with recognisably the same website. A scarcity rule makes it structurally true rather than rhetorically denied. It does three things at once:</p>
+
+        <ul>
+          <li>It protects the client's actual commercial interest — no therapist wants to discover the practice two towns over has their website.</li>
+          <li>It justifies the price without any sales language. Limited issue is a reason; "bespoke feel" is a claim.</li>
+          <li>It gives you a legitimate reason to retire and refresh directions, which keeps the catalogue alive without endless additions.</li>
+        </ul>
+
+        <p>It also creates a genuine deadline in a market that has none, which is the single hardest problem with selling to therapists: nothing forces the decision. <span class="tag judgement">Judgement</span></p>
+      </section>
+
+      <!-- ============ 4 ============ -->
+      <section id="s4">
+        <div class="sec-head"><span class="n">04</span><h2>What to build now — ranked 90-day plan</h2></div>
+
+        <p class="lede">Ranked by what removes the largest obstacle to a first sale. Anything not on this list is in §8.</p>
+
+        <div class="phase">
+          <p class="phase-head">Days 1–14 · Make it possible to buy</p>
+          <p class="phase-goal">Five things block a sale today. None of them is a design task.</p>
+          <ol>
+            <li><strong>Set the price and collapse to two tiers.</strong> One hour of decision, half a day of edits across <code>index.html</code>, <code>service.html</code>, <code>_pages/terms.html</code> and <code>_data/purchasing.yml</code>, plus the QA price-consistency check. Nothing else can be sold until this is settled.</li>
+            <li><strong>Publish live demo subdomains for the six priority directions.</strong> <em>(OPEN_DECISIONS #6.)</em> The collection is your entire sales asset and seven of eight entries currently link to an enquiry form rather than a website. A buyer who cannot walk through the thing cannot choose it. Use the concept-safety rules you have already written — notice banner, noindex, no real contact details, inert forms.</li>
+            <li><strong>Settle ownership and licensing.</strong> <em>(OPEN_DECISIONS #2.)</em> My recommendation, in §7. This blocks going live and it is a fifteen-minute decision once you accept that generosity here costs you almost nothing.</li>
+            <li><strong>Fill the legal identity placeholders.</strong> <em>(OPEN_DECISIONS #7.)</em> Sole trader or limited, and a service address. Four contractual pages, one pass.</li>
+            <li><strong>Replace the mailto enquiry flow with real form handling.</strong> <em>(OPEN_DECISIONS #9.)</em> You correctly identified this as friction. It is worse than friction — a therapist reading your site on a phone will not compose and send an email to complete an enquiry. See §7 for how to do it without mishandling health data.</li>
+          </ol>
+        </div>
+
+        <div class="phase">
+          <p class="phase-head">Days 1–90 · Twenty to thirty minutes a day, every day</p>
+          <p class="phase-goal">The outreach runs in parallel with everything else and is never postponed for build work.</p>
+          <ol>
+            <li><strong>Twenty named people.</strong> Cohort, placement colleagues, supervisor, tutors, local BACP network. One honest personal message each — not a pitch, a note saying what you have built and asking whether they know anyone setting up in practice.</li>
+            <li><strong>Three founding clients at a reduced fee</strong>, on the explicit condition of a named credit and a short written note about working with you. Say plainly that the price is founding because they are first. This is not discounting; it is buying evidence.</li>
+            <li><strong>Five supervisors, two course providers, two therapy-room rental businesses.</strong> Supervisors see newly qualified therapists constantly and are asked "how do I set up?" several times a year. One supervisor who mentions you to six supervisees is worth more than any social channel, and costs one email.</li>
+          </ol>
+        </div>
+
+        <div class="phase">
+          <p class="phase-head">Days 15–45 · Make six directions unarguable</p>
+          <p class="phase-goal">Not twelve. Six, finished to a standard where you would be content for a designer you respect to open the dev tools.</p>
+          <ol>
+            <li><strong>The responsive and visual-QA foundation</strong>, applied identically across all six. This is the right priority and you have already named it. It is also the thing that makes six directions cost less than six times one direction.</li>
+            <li><strong>WCAG 2.2 AA across the six</strong>, tested not asserted — contrast, focus states, keyboard paths, form labels, headings, motion.</li>
+            <li><strong>Core Web Vitals within Google's thresholds</strong> (LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1) on a mid-range Android over 4G, not on your desktop.</li>
+            <li><strong>The content patterns that actually rank</strong> baked into every direction: a fees page, a "what happens in the first session" page, and a common questions page. These are the pages that win a therapist's local search terms. See §7 on E-E-A-T.</li>
+            <li><strong>The compliance layer.</strong> Intake captures professional body, membership number and exact permitted designation. Testimonials module off by default. A one-page "what you can and cannot say" sheet for clients. Details in §7 — this is a real differentiator and nobody else in the UK market appears to do it.</li>
+            <li><strong>Approve the questionnaire.</strong> <em>(OPEN_DECISIONS #1.)</em> The 15/7 draft is built. Approve it or replace it and set <code>questionnaire_approved</code>.</li>
+          </ol>
+        </div>
+
+        <div class="phase">
+          <p class="phase-head">Days 46–90 · Deliver, measure, correct</p>
+          <p class="phase-goal">The first builds are research, not just revenue.</p>
+          <ol>
+            <li><strong>Ship the first paying build and time every stage.</strong> Intake, first version, each revision round, launch, handover. Your price is a hypothesis until you have three real timesheets.</li>
+            <li><strong>Publish the first real credited work</strong> the day it launches. One real named client outranks eight fictional concepts.</li>
+            <li><strong>Launch Website Care as an invoice, not a subscription</strong>. Recurring Stripe checkout is a materially larger piece of work — webhooks, dunning, cancellation, its own terms. Invoice annually until you have fifteen subscribers.</li>
+            <li><strong>Review at 90 days against three numbers only:</strong> enquiries received, proportion converted, and actual hours per build. Adjust price, not effort.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ============ 5 ============ -->
+      <section id="s5">
+        <div class="sec-head"><span class="n">05</span><h2>The first twelve directions</h2></div>
+
+        <div class="call-out caution">
+          <span class="co-label">Answering the question you asked</span>
+          <p>Twelve is too many before you have sold anything. Build <strong>six</strong> to an unarguable standard; cap the visible collection at <strong>eight</strong>. Beyond eight, a browsing buyer stops choosing and starts deferring — and every additional direction multiplies your QA, accessibility and maintenance surface forever. Directions 9–12 below are a <em>demand-led backlog</em>, not a build list. Add one per two websites sold, and only when a buyer has asked for something the collection cannot do.</p>
+        </div>
+
+        <p class="lede">Eight exist. Four are proposed. Each entry states what makes it structurally rather than decoratively different — because if two directions differ only in palette, one of them is not a direction.</p>
+
+        <div class="dirs">
+
+          <article class="dir">
+            <div class="dir-top"><h3 class="dir-name">Rowan Hill</h3><span class="dir-state built">Built · Priority 1</span></div>
+            <dl>
+              <dt>For</dt><dd>The solo integrative or person-centred therapist working from home or a rented room. The largest single segment in the market.</dd>
+              <dt>Tone</dt><dd>Unhurried, sheltering, quietly warm. Room to arrive.</dd>
+              <dt>Structure</dt><dd>Short pages, long vertical rhythm, a single unforced enquiry route repeated calmly rather than urgently.</dd>
+              <dt>Visual</dt><dd>Generous whitespace, soft contrast, humanist serif headings at modest sizes; no hard edges, no strong grid.</dd>
+              <dt>Imagery</dt><dd>Landscape and natural light, never people in distress. Room interiors shot as spaces, not as staging.</dd>
+              <dt>Different because</dt><dd>It is the only direction that deliberately reduces information density. Everything else on this list adds structure; this one removes it.</dd>
+            </dl>
+            <p class="verdict-line"><b>Strongest commercially.</b> Broadest audience, lowest objection rate, and the one most likely to be chosen by a first-time buyer.</p>
+          </article>
+
+          <article class="dir">
+            <div class="dir-top"><h3 class="dir-name">Helen Calder</h3><span class="dir-state built">In progress · Priority 2</span></div>
+            <dl>
+              <dt>For</dt><dd>The established integrative practitioner, fifteen-plus years in, full or nearly full caseload, replacing a site built in 2014.</dd>
+              <dt>Tone</dt><dd>Assured, mature, unshowy. Someone with nothing to prove.</dd>
+              <dt>Structure</dt><dd>A substantial About that leads rather than follows; depth on approach; fees stated without apology.</dd>
+              <dt>Visual</dt><dd>Offset arch and threshold motif, Lora with Source Sans 3, warm paper against deep mulberry, moss and clay.</dd>
+              <dt>Imagery</dt><dd>A properly made portrait doing most of the work. Architectural detail rather than landscape.</dd>
+              <dt>Different because</dt><dd>Built around a person rather than a practice. The identity is the therapist's own presence, not an atmosphere.</dd>
+            </dl>
+            <p class="verdict-line"><b>Highest value per client.</b> Established therapists have budget, decide quickly, and refer. You already identified this as the most broadly appealing direction; the evidence supports you.</p>
+          </article>
+
+          <article class="dir">
+            <div class="dir-top"><h3 class="dir-name">Stillpoint</h3><span class="dir-state built">Built · Priority 3</span></div>
+            <dl>
+              <dt>For</dt><dd>The therapist who finds the nature-and-warmth register faintly embarrassing. CBT, psychodynamic, existential. Disproportionately male practitioners and clients.</dd>
+              <dt>Tone</dt><dd>Measured, precise, adult. Not cold, but not comforting either.</dd>
+              <dt>Structure</dt><dd>Strong modular grid, clear section boundaries, information stated plainly and early. Fees visible from the homepage.</dd>
+              <dt>Visual</dt><dd>Architectural composition, tight typographic scale, restrained palette, visible structure as the aesthetic.</dd>
+              <dt>Imagery</dt><dd>Minimal and abstract — light, surface, shadow. Photography used as punctuation, not atmosphere.</dd>
+              <dt>Different because</dt><dd>It is the deliberate opposite of Rowan Hill. Between them they cover the whole emotional range of solo practice, which is why both must exist.</dd>
+            </dl>
+            <p class="verdict-line"><b>Commercially essential.</b> Not the most-chosen, but the one that stops you losing buyers who reject the warm register entirely.</p>
+          </article>
+
+          <article class="dir">
+            <div class="dir-top"><h3 class="dir-name">Different Minds</h3><span class="dir-state built">Built · Priority 4</span></div>
+            <dl>
+              <dt>For</dt><dd>Neurodivergence-affirming practitioners and small centres. ADHD, autism, assessment-adjacent support.</dd>
+              <dt>Tone</dt><dd>Direct, unpatronising, choice-giving. Says the thing rather than gesturing at it.</dd>
+              <dt>Structure</dt><dd>Multiple routes through the same content; summaries before detail; explicit sensory and process information ("what the room is like", "what happens if you need to leave").</dd>
+              <dt>Visual</dt><dd>More expressive and higher contrast than the rest of the collection; clear typographic signposting; generous target sizes.</dd>
+              <dt>Imagery</dt><dd>Diagrammatic and illustrative over photographic. Avoids the puzzle-piece vocabulary entirely.</dd>
+              <dt>Different because</dt><dd>Its structure is the accessibility argument. It is the only direction where the navigation itself is the differentiator.</dd>
+            </dl>
+            <p class="verdict-line"><b>Fast-growing and underserved.</b> Also carries your accessibility credibility publicly, which supports everything else in the catalogue.</p>
+          </article>
+
+          <article class="dir">
+            <div class="dir-top"><h3 class="dir-name">Common Ground</h3><span class="dir-state built">Built · Priority 5</span></div>
+            <dl>
+              <dt>For</dt><dd>Couples and relationship therapists, mediators, family practitioners.</dd>
+              <dt>Tone</dt><dd>Balanced and non-aligned. Must read as fair to two people who disagree.</dd>
+              <dt>Structure</dt><dd>The distinguishing problem: two readers, often with opposed motivations, on the same page. Needs paired framing, a "what if only one of us wants this" answer, and joint-enquiry mechanics.</dd>
+              <dt>Visual</dt><dd>Composed, symmetrical, neutral. Deliberately avoids gendered colour cues.</dd>
+              <dt>Imagery</dt><dd>Spaces and objects rather than couples. Photographs of couples are a trap here.</dd>
+              <dt>Different because</dt><dd>The only direction written for two simultaneous readers. That is a structural constraint, not a mood.</dd>
+            </dl>
+            <p class="verdict-line"><b>High fee niche.</b> Couples sessions command higher rates and clients search with more intent. Small pool, good margin.</p>
+          </article>
+
+          <article class="dir">
+            <div class="dir-top"><h3 class="dir-name">North &amp; Vale</h3><span class="dir-state built">Built · Priority 6</span></div>
+            <dl>
+              <dt>For</dt><dd>Multi-practitioner psychology practices, associate models, small clinics.</dd>
+              <dt>Tone</dt><dd>Authoritative, ordered, clinically literate without being cold.</dd>
+              <dt>Structure</dt><dd>Solves the group-practice failure named in §2: a single comparison view of practitioners with specialism, availability and fee, rather than making visitors click every bio. Plus service pages, referral routes and a practitioner content model.</dd>
+              <dt>Visual</dt><dd>Publication-inspired, dense readable detail, strong hierarchy, serious typographic discipline.</dd>
+              <dt>Imagery</dt><dd>Consistent portrait treatment across practitioners — the hardest and most valuable thing to specify.</dd>
+              <dt>Different because</dt><dd>It is the only direction with a genuine content model rather than a page set.</dd>
+            </dl>
+            <p class="verdict-line"><b>Highest ticket, slowest sale.</b> Group practices pay more and decide by committee. Worth having; do not expect it to convert quickly.</p>
+          </article>
+
+          <article class="dir">
+            <div class="dir-top"><h3 class="dir-name">Harbour</h3><span class="dir-state">Built · Hold at 7</span></div>
+            <dl>
+              <dt>For</dt><dd>Children, young people and family practitioners. Parents are the buyers; young people are a second audience.</dd>
+              <dt>Tone</dt><dd>Protective and steady. Neither clinical nor babyish.</dd>
+              <dt>Structure</dt><dd>Audience routing from the homepage; a page addressed directly to teenagers; an unusually detailed description of the space.</dd>
+              <dt>Visual</dt><dd>Soft curves, four-hue palette, restrained illustration.</dd>
+              <dt>Imagery</dt><dd>Objects, rooms and materials. Photographs of children are a safeguarding and consent problem you do not want.</dd>
+              <dt>Different because</dt><dd>The only direction with two distinct readerships and an explicit routing decision on the homepage.</dd>
+            </dl>
+            <p class="verdict-line"><b class="weak">Keep, do not prioritise.</b> Smaller private-pay market, more safeguarding complexity, and parents are slower buyers. Excellent portfolio evidence of range.</p>
+          </article>
+
+          <article class="dir">
+            <div class="dir-top"><h3 class="dir-name">Face to Face</h3><span class="dir-state">Built · Portfolio only</span></div>
+            <dl>
+              <dt>For</dt><dd>Community counselling services, charities, low-cost and volunteer-led organisations.</dd>
+              <dt>Tone</dt><dd>Welcoming, plain, practical. Local rather than professional.</dd>
+              <dt>Structure</dt><dd>Costs, eligibility, waiting times and first steps surfaced immediately; volunteer and funder routes alongside the client route.</dd>
+              <dt>Visual</dt><dd>Legacy identity retained, higher-contrast, accessibility-forward, deliberately unpolished in the right places.</dd>
+              <dt>Imagery</dt><dd>Real place and real community, not stock warmth.</dd>
+              <dt>Different because</dt><dd>The only direction serving an organisation with three audiences and no marketing budget.</dd>
+            </dl>
+            <p class="verdict-line"><b class="weak">Do not count this as a revenue line.</b> Charities are the worst-paying segment in the sector — Counselling Directory lists them free for a reason. Keep it visible as proof you can work outside a luxury register. Sell it rarely and at cost, for reputation.</p>
+          </article>
+
+          <article class="dir">
+            <div class="dir-top"><h3 class="dir-name">Threshold <span style="font-weight:400;color:var(--muted)">(proposed)</span></h3><span class="dir-state">Backlog 9</span></div>
+            <dl>
+              <dt>For</dt><dd>Trauma, EMDR, sexual violence and complex-trauma practitioners.</dd>
+              <dt>Tone</dt><dd>Contained and predictable. The site's job is to be safe to read while dysregulated.</dd>
+              <dt>Structure</dt><dd>Content warnings before difficult sections; no autoplay, no motion, no surprise; a visible exit; a page describing exactly what happens and what will not be asked. Fees and process before any description of trauma.</dd>
+              <dt>Visual</dt><dd>Very low stimulus. Restricted palette, low contrast between sections, high contrast in text, no imagery competing with words.</dd>
+              <dt>Imagery</dt><dd>Almost none. This is the one direction where the absence of photography is the design.</dd>
+              <dt>Different because</dt><dd>It is designed against a nervous-system constraint rather than an aesthetic one. Nothing else in the collection does that.</dd>
+            </dl>
+            <p class="verdict-line"><b>Promising, and defensible.</b> A specialism with genuine unmet need and real willingness to pay. Also the direction that best demonstrates your therapeutic training.</p>
+          </article>
+
+          <article class="dir">
+            <div class="dir-top"><h3 class="dir-name">Longline <span style="font-weight:400;color:var(--muted)">(proposed)</span></h3><span class="dir-state">Backlog 10</span></div>
+            <dl>
+              <dt>For</dt><dd>Online-only practitioners with no consulting room and no geography.</dd>
+              <dt>Tone</dt><dd>Capable and current. Reassuring about the medium without apologising for it.</dd>
+              <dt>Structure</dt><dd>Replaces the location page with a "how online sessions work" page: platform, connection, confidentiality at both ends, what happens if the call drops, time zones, cross-border practice limits.</dd>
+              <dt>Visual</dt><dd>Screen-native rather than room-native. Clean, slightly cooler, comfortable at laptop scale because that is where it will be read.</dd>
+              <dt>Imagery</dt><dd>Portrait-led. With no room to show, the therapist's face carries everything — which the May research says it largely does anyway.</dd>
+              <dt>Different because</dt><dd>The only direction with no place in it. That removes the single strongest visual device every other direction relies on.</dd>
+            </dl>
+            <p class="verdict-line"><b>Strong and growing.</b> Online practice expanded permanently after 2020 and these practitioners compete nationally, which makes a good website worth more to them than to anyone else on this list.</p>
+          </article>
+
+          <article class="dir">
+            <div class="dir-top"><h3 class="dir-name">Practice Row <span style="font-weight:400;color:var(--muted)">(proposed)</span></h3><span class="dir-state">Backlog 11</span></div>
+            <dl>
+              <dt>For</dt><dd>Clinical supervisors, trainers and CPD providers. They sell to therapists, not to therapy clients.</dd>
+              <dt>Tone</dt><dd>Collegial and credentialled. Peer-to-peer, not practitioner-to-client.</dd>
+              <dt>Structure</dt><dd>A different site entirely: dated events and cohorts, booking with capacity, a CPD-hours statement, supervision contracts, a resources area. The only direction with a calendar.</dd>
+              <dt>Visual</dt><dd>Document-like and information-dense. Closer to an institution than a practice.</dd>
+              <dt>Imagery</dt><dd>Rooms with people in them; materials, handouts, whiteboards. Work rather than atmosphere.</dd>
+              <dt>Different because</dt><dd>Different buyer, different reader, different content model. It is the only B2B direction in the collection.</dd>
+            </dl>
+            <p class="verdict-line"><b>The best strategic bet on the list.</b> Supervisors and trainers are your highest-value referral sources. Building the direction they need is also the most natural reason to talk to them.</p>
+          </article>
+
+          <article class="dir">
+            <div class="dir-top"><h3 class="dir-name">Plainspoken <span style="font-weight:400;color:var(--muted)">(proposed)</span></h3><span class="dir-state">Backlog 12</span></div>
+            <dl>
+              <dt>For</dt><dd>Practitioners working with men, addiction and recovery, anger, and people who arrive reluctantly.</dd>
+              <dt>Tone</dt><dd>Unsentimental and concrete. No softness, no invitation to feelings the reader has not offered.</dd>
+              <dt>Structure</dt><dd>Answers the reluctant reader's questions in order: what happens, how long, how much, do I have to talk about my childhood, can I stop. Short blocks, no lyrical passages.</dd>
+              <dt>Visual</dt><dd>Higher contrast, tighter measure, sans-led rather than serif-led. The only direction in the collection that is not typographically warm.</dd>
+              <dt>Imagery</dt><dd>Sparse and matter-of-fact. Nothing that could be read as therapeutic gesture.</dd>
+              <dt>Different because</dt><dd>Written for someone who does not want to be reading it. Every other direction assumes a willing reader.</dd>
+            </dl>
+            <p class="verdict-line"><b>Genuinely underserved.</b> A real gap in the market and a strong point of difference — but a smaller pool of practitioners specialising here. Build it eleventh, not first.</p>
+          </article>
+
+        </div>
+
+        <div class="call-out caution">
+          <span class="co-label">One thing to fix in the current collection</span>
+          <p><strong>Alexander Watson Counselling should not be a purchasable direction.</strong> It is your own practice's live website. Selling its design to another therapist means a buyer's site resembles yours — while you are also a practising counsellor in the same country. Keep it in the collection as a demonstration, clearly marked "the studio's own practice — not available", and let it do the credibility work it is genuinely good at. That also frees a slot in the visible eight.</p>
+        </div>
+      </section>
+
+      <!-- ============ 6 ============ -->
+      <section id="s6">
+        <div class="sec-head"><span class="n">06</span><h2>Offer and delivery model</h2></div>
+
+        <h3>Two tiers</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th></th><th>Practice Website</th><th>Practice Clarity + Bespoke Website</th></tr></thead>
+            <tbody>
+              <tr><td>Price</td><td class="num">£950 fixed</td><td class="num">£2,450 from</td></tr>
+              <tr><td>How it is bought</td><td>Online, in full, no call required</td><td>Written fit note, then proposal, agreement and 50% deposit</td></tr>
+              <tr><td>Starting point</td><td>A direction from the collection</td><td>A direction adapted substantially, or an original</td></tr>
+              <tr><td>Words</td><td>You shape and edit what the client supplies</td><td>You write, with the client</td></tr>
+              <tr><td>Identity</td><td>The direction's wordmark treatment, set to their name</td><td>Developed wordmark and full brand system</td></tr>
+              <tr><td>Includes</td><td>Intake, tailored first version, two consolidated revision rounds, launch, handover, editing layer</td><td>All of the above, plus positioning, audience, naming and wording work, photography direction, and a Practice Clarity document</td></tr>
+              <tr><td>Realistic hours</td><td class="num">12–16</td><td class="num">30–40</td></tr>
+              <tr><td>Effective rate</td><td class="num">£59–£79/hr</td><td class="num">£61–£82/hr</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Delete the middle tier.</strong> A buyer choosing between £950 and £2,450 is making a real choice about how much help they want. A buyer choosing between £495, £995 and £1,995 is making a choice about how much they trust you, which is a worse question and produces the middle option by default. Three tiers also means three sets of scope boundaries to defend.</p>
+
+        <div class="call-out">
+          <span class="co-label">Why £950 rather than £495</span>
+          <p>You have no customers at £495, so you have no evidence it works — you only have evidence that it is below Your Therapy Website's £695 five-page Wix build. In a trust-led category, price is read as a quality claim. At £950 you sit clearly above every templated UK option and clearly below Kirsty M Design's £1,700–£4,000 Squarespace work, which is exactly where a curated tailored direction belongs. Against the buyer's real reference point — £300–£550 a year in directory rent, forever — £950 is two years, once.</p>
+        </div>
+
+        <h3>Fixed, tailored, and never included</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Fixed — never changes</th><th>Tailored — within the direction</th><th>Never included by default</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Page structure and count · layout system · component set · typographic scale · responsive behaviour · accessibility conformance · SEO structure · performance budget · code</td>
+                <td>Practice name and wordmark treatment · colour, from the direction's tested set · imagery selection · all words · page names · fees, availability, contact route · one page swapped from a defined menu</td>
+                <td>Copywriting from scratch · logo design from scratch · photography · domain and hosting fees · ongoing edits · booking systems · blog migration · email setup · third-party integrations · custom illustration · extra pages · payments · client portals · anything touching clinical records</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>That last column is the profit. Every item on it is a thing a client will reasonably ask for, and every one of them is a paid add-on or a no.</p>
+
+        <h3>Revision boundaries</h3>
+
+        <ul>
+          <li><strong>Two rounds. Consolidated. In writing.</strong> One document per round, submitted once. Feedback arriving in five separate emails counts as one round and you say so at the time, warmly, the first time it happens.</li>
+          <li><strong>Ten working days per round.</strong> Feedback not received within thirty days pauses the project; re-entry is scheduled into the next available slot rather than resumed immediately. You already have this in the Engagement Confirmation — keep it.</li>
+          <li><strong>Beyond two rounds is billed</strong> at a published half-day rate. Publish it. A rate you have to invent in the moment is a rate you will not charge.</li>
+          <li><strong>Approval is explicit.</strong> Launch follows a written approval, not silence.</li>
+        </ul>
+
+        <h3>Care, add-ons and the second sale</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Item</th><th>Price</th><th>Reasoning</th></tr></thead>
+            <tbody>
+              <tr><td>Website Care</td><td class="num">£39/mo · £390/yr</td><td>Hosting, updates, backups, uptime, security, <strong>and 30 minutes of content edits a month</strong>. The edit allowance is the point — it converts your biggest support leak into recurring revenue. £29 is below the UK basic band of £25–£50 and undervalues the interruption cost</td></tr>
+              <tr><td>Annual Review</td><td class="num">£250</td><td>For clients who will not subscribe. One yearly pass: content refresh, checks, a short written note. Keeps a relationship alive without a subscription</td></tr>
+              <tr><td>Photography Direction</td><td class="num">£250</td><td>Shot list, brief, wardrobe and light guidance, a vetted photographer for their region, and your judgement on selection. Sells the highest-value thing in §2 without you travelling</td></tr>
+              <tr><td>Portrait session</td><td class="num">£450 half day</td><td>Only within reasonable travel. Priced so it is worth the day, not as a favour</td></tr>
+              <tr><td>Additional page</td><td class="num">£150</td><td>Within the direction's system</td></tr>
+              <tr><td>Page written for them</td><td class="num">£140</td><td>Not editing what they sent — writing it</td></tr>
+              <tr><td>Wordmark development</td><td class="num">£350</td><td>Beyond the direction's treatment</td></tr>
+              <tr><td>Content migration</td><td class="num">£180</td><td>Existing blog or article archive</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>The second sale is where the money actually is. A therapist who launches with you comes back when they add an associate, start supervising, need a second site, or refresh in three years — and tells other therapists in between. <strong>Price the first sale to win it; earn on the relationship.</strong></p>
+
+        <h3>Realistic revenue, with the assumptions stated</h3>
+
+        <p><strong>Assumptions.</strong> No team, no subcontractors. Roughly twenty working days a month with therapy training and practice alongside. Twelve to sixteen hours per Practice Website; thirty to forty per bespoke engagement. Marketing at twenty to thirty minutes a day. Enquiry-to-sale conversion of 25–35%, so roughly three to four enquiries per sale. Care taken up by around 60% of clients. Year one starts cold with no third-party clients and a real ramp.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Year</th><th>Websites</th><th>Bespoke</th><th>Add-ons</th><th>Care</th><th>Revenue</th></tr></thead>
+            <tbody>
+              <tr><td>Year 1 — conservative</td><td class="num">10 × £950</td><td class="num">3 × £2,450</td><td class="num">£1,500</td><td class="num">~£1,900</td><td class="num"><strong>~£20,250</strong></td></tr>
+              <tr><td>Year 2 — base</td><td class="num">20 × £950</td><td class="num">6 × £2,450</td><td class="num">£4,000</td><td class="num">~£9,400</td><td class="num"><strong>~£47,100</strong></td></tr>
+              <tr><td>Year 3 — base</td><td class="num">24 × £950</td><td class="num">8 × £2,450</td><td class="num">£6,000</td><td class="num">~£16,400</td><td class="num"><strong>~£64,800</strong></td></tr>
+              <tr><td>Year 3 — prices raised</td><td class="num">24 × £1,200</td><td class="num">8 × £3,000</td><td class="num">£8,000</td><td class="num">~£18,000</td><td class="num"><strong>~£78,800</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="src"><span class="tag judgement">Judgement</span> These are modelled from the capacity and price assumptions above, not from observed sales. Nothing here is a forecast — treat them as a test of whether the model can work at all, which it can.</p>
+
+        <div class="call-out caution">
+          <span class="co-label">The honest ceiling</span>
+          <p>A one-person studio at this quality tops out somewhere around <strong>£70,000–£90,000</strong> without a structural change. Twenty-four websites and eight bespoke engagements a year is already close to full given therapy training and practice alongside. There are exactly three levers past that: <strong>raise prices</strong> (much the best; you are underpriced now and will be underpriced again in two years), <strong>grow the care base</strong> (it compounds and costs little), or <strong>add a person</strong> (which you have said you do not want, and which would change the work). A course or paid guide is a fourth in theory, but it requires the audience-building you have ruled out — so treat it as unavailable rather than pending.</p>
+        </div>
+
+        <p><strong>Where the enjoyment protection actually lives:</strong> in the scope table, the two-round rule and the dormancy clause. Nothing drains a solo studio faster than three half-finished projects whose clients went quiet, and no amount of good positioning fixes it. Those three boundaries are worth more to your working life than any pricing decision here.</p>
+      </section>
+
+      <!-- ============ 7 ============ -->
+      <section id="s7">
+        <div class="sec-head"><span class="n">07</span><h2>Risks, blind spots and decisions you must make</h2></div>
+
+        <h3>Compliance — the biggest genuine gap, and a real opportunity</h3>
+
+        <p>You are putting words on regulated professionals' websites. Nobody else in the UK market appears to handle this properly, and it is the most defensible differentiator available to you.</p>
+
+        <div class="call-out caution">
+          <span class="co-label">A live precedent, from 2025</span>
+          <p>Stockport Counselling Services was ruled against by the ASA over website copy stating the therapist was <em>"accredited by"</em> BACP when she was registered, not accredited. The advertiser said she had intended to remove the claim but <em>"could not access the website to do so."</em> The complaint was brought <strong>by BACP itself</strong>. Ruling published 12 March 2025.</p>
+          <p>Two lessons for you. The first is the copy risk. The second is quieter and more damaging: she could not edit her own site. That is exactly the failure mode a bespoke build creates — and exactly what your editing layer prevents.</p>
+        </div>
+
+        <ul>
+          <li><strong>Designation wording is exact.</strong> BACP permits only specific forms: "Registered Member MBACP", "Registered Member MBACP (Accred)", "Registered Member MBACP (Snr Accred)". On lapse, a member <em>"may not refer to yourself using any designatory letters or titles"</em> — immediately. The logo may be displayed but <em>"only use the logos in their original format – don't change things like the colour, typeface, orientation or aspect ratio"</em>, which constrains your palette work. <span class="tag verified">Verified</span> · <a href="https://www.bacp.co.uk/membership/promoting-your-membership/">BACP</a></li>
+          <li><strong>UKCP members may not use client testimonials at all.</strong> Code of Ethics 2019, clause 13: <em>"Not make any claims which you cannot demonstrate to be true or include testimonials from clients in any advertising."</em> Unambiguous. <span class="tag verified">Verified</span> · <a href="https://www.psychotherapy.org.uk/media/bkjdm33f/ukcp-code-of-ethics-and-professional-practice-2019.pdf">UKCP</a></li>
+          <li><strong>ASA rules bite on everyone, member or not.</strong> CAP rule 12.2: claims to <em>"diagnose, treat, help with or cure a medical condition"</em> require appropriate qualification and evidence. "Helps with anxiety" is defensible; "treats anxiety" is not. Testimonials <em>"alone do not constitute substantiation"</em> — so a testimonial saying "she cured my panic attacks" is a rule 12.2 problem even where the body permits testimonials. <span class="tag verified">Verified</span> · <a href="https://www.asa.org.uk/advice-online/health-therapies-and-references-to-medical-conditions.html">ASA</a></li>
+        </ul>
+
+        <p><strong>What to build:</strong> intake captures professional body, membership number and category, and generates the exact permitted designation string. The testimonials module ships off and is only enabled after the body is confirmed. A one-page "what you can and cannot say on your website" sheet goes to every client. A clause in your terms has the client warrant that professional claims they supply are accurate. This costs you a day and is worth more than any design feature in the catalogue.</p>
+
+        <h3>Enquiry forms and health data — the decision you are currently avoiding</h3>
+
+        <p>Your forms assemble text in the browser and hand it back for the visitor to email themselves. That is honest and costs nothing, and you already flagged it as friction. It is worse than friction: a distressed person reading on a phone will not complete that flow. You are losing enquiries now, on your own site, and so would every client site built this way.</p>
+
+        <p>But the reason for the caution is real. The moment someone writes "I've been struggling with depression since March" into a message box, that is special-category health data under UK GDPR Article 9, which requires <em>both</em> an Article 6 lawful basis <em>and</em> a separate Article 9 condition. <span class="tag verified">Verified</span> · <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/special-category-data/what-are-the-rules-on-special-category-data/">ICO</a></p>
+
+        <p><strong>Recommendation.</strong> Use a UK or EU-hosted form handler, encrypted in transit, with no long-term storage of message bodies. Add microcopy at the message field asking people not to include clinical detail at this stage — that reduces the data collected and is also better practice clinically. Link the therapist's own privacy notice at the point of submission. Sign a short data processing agreement with each client where you configure the handler. On the ICO's own test, a studio that builds and hands over is typically <em>neither</em> controller nor processor — but if your tooling touches enquiry data on an ongoing basis, you become a processor with your own obligations. <strong>Decide that deliberately rather than discovering it.</strong> <span class="tag verified">Verified</span> · <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/controllers-and-processors/controllers-and-processors-a-guide/">ICO</a></p>
+
+        <h3>Ownership and licensing — my recommendation on OPEN_DECISIONS #2</h3>
+
+        <p>Answer all three questions generously:</p>
+
+        <ul>
+          <li><strong>Perpetual, and independent of Website Care.</strong> A licence that dies when a subscription lapses is a hostage arrangement, and it is fatally at odds with a brand built on ethics and boundaries. It will also never be enforced.</li>
+          <li><strong>They may move it anywhere and have anyone modify it</strong> — with support and warranty voided on modified code, stated plainly and without rancour.</li>
+          <li><strong>One licence per practice website.</strong> A second site is a new licence, offered at a returning-client rate. That is a commercial opportunity, not a restriction.</li>
+        </ul>
+
+        <p>The cost of this generosity is close to zero — almost no therapist will ever move a site — and the trust it buys in a profession that talks constantly to itself is considerable.</p>
+
+        <h3>Accessibility — build it, don't sell fear with it</h3>
+
+        <p>The Equality Act 2010 places an <em>anticipatory</em> reasonable-adjustments duty on service providers, and your clients are service providers. But WCAG is not itself UK law for private businesses, no UK case law was found establishing precedent against a private-sector site for inaccessibility, and the European Accessibility Act does not apply — it is not UK law and its scope list does not include a therapist's brochure site. <span class="tag verified">Verified</span></p>
+
+        <p>So do not sell it as compliance risk; that would be the manipulative marketing you have said you will not do. Sell it as what it is: a meaningful proportion of the people arriving at a therapist's website are neurodivergent, visually impaired, or reading on a phone while distressed. Build to WCAG 2.2 AA, test it, say so plainly, and let it be a quiet quality signal against Wix and Squarespace builds. <span class="tag judgement">Judgement</span></p>
+
+        <h3>SEO — what is actually true</h3>
+
+        <p>Google states that for topics that <em>"could significantly impact the health, financial stability, or safety of people"</em> its systems give more weight to E-E-A-T, and that <em>"of these aspects, trust is most important."</em> Mental health is squarely in that category. Google also <em>"strongly encourage[s] adding accurate authorship information."</em> <span class="tag verified">Verified</span> · <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content">Google</a></p>
+
+        <p>Practically: a real About page with real credentials, real body links and a genuine bio is not a nicety, it is Google's stated signal for exactly this content type. Core Web Vitals <em>are</em> used in ranking but Google explicitly calls relevance primary — speed is a tiebreaker between two similar local competitors, which is often precisely the situation. <span class="tag verified">Verified</span></p>
+
+        <p><strong>Two things follow.</strong> Never sell ranking outcomes — sell foundations and content patterns, and say the difference out loud. And note the mismatch in your current content strategy: your guides library is excellent and it is written for <em>therapists</em>, who are your buyers. The pages that win your <em>clients'</em> local search terms are fees, first session, and common questions. Build those patterns into every direction. <span class="tag judgement">Judgement</span></p>
+
+        <h3>Things you have not raised at all</h3>
+
+        <ul>
+          <li><strong>You are a therapist marketing to therapists.</strong> You have said you are comfortable with your cohort, supervisor and tutors, and I agree there is no dual-relationship problem there. But write a short policy anyway: what happens if a studio client later wants to be a counselling client, or is a supervisee, or refers someone to you clinically. It is a five-line document and having it makes you the kind of practitioner therapists want to hire.</li>
+          <li><strong>Your two businesses share your name.</strong> A prospective counselling client googling you finds a studio; a prospective studio client finds a counsellor. This is probably fine and arguably an asset — but decide it consciously and make sure each site handles the crossover gracefully.</li>
+          <li><strong>You are a single point of failure for every site you build.</strong> Mitigate cheaply: the client's domain and hosting live in the <em>client's own accounts</em>, never yours; the handover pack is genuinely sufficient for another developer; static hosting means nothing breaks if you disappear for a month. Three decisions, all free, that make the offer materially safer to buy.</li>
+          <li><strong>VAT is a pricing cliff, not a tax detail.</strong> Your clients are almost all unregistered sole traders who cannot reclaim VAT, so crossing the registration threshold makes you 20% more expensive overnight to every buyer. At Year 3 base you are not near it; at raised prices plus care you are approaching it. Check the current threshold and model the crossing before it happens, with an accountant. <span class="tag judgement">Judgement</span></li>
+          <li><strong>Consumer cancellation rights on the online purchase.</strong> A sole-trader therapist buying personally may count as a consumer, which brings a 14-day cancellation right on distance-sold services unless they expressly request that work begins immediately and acknowledge losing the right. That express waiver is a specific mechanism, not a general clause. Add it to your solicitor's list.</li>
+          <li><strong>Every portfolio piece is fictional.</strong> Eight invented practices is impressive craft and it has a hard ceiling — buyers pattern-match to "has not done this for real." Three named credited clients changes the business more than three new directions would.</li>
+          <li><strong>Concentration risk.</strong> One country, one profession, one offer. If a funded competitor enters or the sector softens you have no second leg. Do not build one — but know that supervisors and trainers, celebrants, osteopaths and small charities are tonally adjacent, and that your system would transfer.</li>
+        </ul>
+
+        <h3>The five decisions only you can make</h3>
+
+        <ol>
+          <li><strong>Price.</strong> £950 and £2,450, or your own numbers — but two tiers, decided this week, and not £495.</li>
+          <li><strong>Licence terms.</strong> The three answers above, or your own. It blocks going live.</li>
+          <li><strong>Legal identity.</strong> Sole trader or limited, and the address you publish.</li>
+          <li><strong>Form handling.</strong> Real submission with a considered data posture, or keep the mailto flow and accept the enquiry loss. There is no third option.</li>
+          <li><strong>Founding clients.</strong> Whether you will offer three reduced-fee places in exchange for named credit. This is the fastest route out of the fictional-portfolio problem and it has a cost.</li>
+        </ol>
+      </section>
+
+      <!-- ============ 8 ============ -->
+      <section id="s8">
+        <div class="sec-head"><span class="n">08</span><h2>Do not do yet</h2></div>
+
+        <p class="lede">Everything here is defensible in isolation. All of it competes with the only thing that matters this quarter.</p>
+
+        <ul>
+          <li><strong>Do not build directions nine to twelve.</strong> Not one of them. They are a backlog, unlocked by sales.</li>
+          <li><strong>Do not build recurring Stripe checkout.</strong> Webhooks, dunning, cancellation and separate terms, for a product with zero subscribers. Invoice Website Care annually until fifteen people are on it.</li>
+          <li><strong>Do not build a client portal, client dashboard or booking system.</strong> Email and a questionnaire are sufficient at two projects a month, and you have already ruled out clinical records for good reasons.</li>
+          <li><strong>Do not add Squarespace.</strong> See §3. If you find yourself building the second platform, you have accepted a client you should have declined.</li>
+          <li><strong>Do not take photography shoots yet.</strong> Sell Photography Direction at £250. Travel across the UK for £450 half-days will destroy your margin and your calendar simultaneously.</li>
+          <li><strong>Do not write a course, book, lead magnet or funnel.</strong> All require the audience-building you have explicitly ruled out.</li>
+          <li><strong>Do not start Instagram as a channel.</strong> Twenty to thirty minutes a day spent on named individuals beats the same time spent on a feed, by a wide margin, in a profession this well-connected.</li>
+          <li><strong>Do not chase charity or low-cost services as revenue.</strong> Face to Face is portfolio evidence. Counselling Directory lists charities free because the sector cannot pay.</li>
+          <li><strong>Do not rebuild the Practice Clarity and Master Templates PDFs yet.</strong> The retired typefaces in them are a real inconsistency and they are not blocking a single sale.</li>
+          <li><strong>Do not redesign the studio site again.</strong> It is good enough to sell from. The demo subdomains are not — that is the gap.</li>
+          <li><strong>Do not incorporate, hire or subcontract.</strong> Revisit at the VAT threshold, not before.</li>
+          <li><strong>Do not retire the blanket <code>!important</code> heading rule</strong> <em>(OPEN_DECISIONS #5)</em> mid-quarter. It is a whole-site visual change dressed as a tidy-up. Do it deliberately in a quiet week or not at all.</li>
+        </ul>
+      </section>
+
+      <!-- ============ 9 ============ -->
+      <section id="s9">
+        <div class="sec-head"><span class="n">09</span><h2>This week</h2></div>
+
+        <div class="finale">
+          <span class="co-label">The single most meaningful next action</span>
+          <h3>Write down twenty names, and send twenty messages.</h3>
+          <p>Cohort. Placement colleagues. Supervisor. Tutors. Anyone from training now in private practice. Not a campaign — twenty individual notes, in your own voice, saying what you have built, that you are opening three founding places at a reduced fee in exchange for being credited, and asking whether they know anyone setting up.</p>
+          <p>The one-hour precondition, on Monday morning: <strong>set the price.</strong> You cannot send the message while the offer says £495 and you are about to change it.</p>
+          <p>Everything else in this document is real and most of it matters. None of it is worth anything until someone has paid you. You have eight finished website directions, a working delivery system, a document suite, a dashboard, legal drafts and a purchasing journey — and zero customers. That ratio is the whole problem, and it is not a design problem.</p>
+        </div>
+      </section>
+
+      <footer>
+        <p><strong>On the evidence in this document.</strong> Figures tagged Verified were fetched from primary sources on 22 August 2026 and the links are included. Two things could not be verified anywhere and are worth repeating: there is no published data on what proportion of UK therapists have their own website, and no credible survey of where UK therapists get clients from. Several legal points here — the consumer cancellation waiver, your licence wording, and anything in your Engagement Confirmation marked for review — need a UK solicitor, not a strategist. ICO cookie guidance is mid-revision under the Data (Use and Access) Act 2025 with final guidance expected in 2026; re-check before writing anything durable about it.</p>
+      </footer>
+
+    </main>
+  </div>
+</div>

@@ -1,0 +1,1326 @@
+<title>The Direction Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Petrona:wght@400;500&family=Schibsted+Grotesk:wght@400;600&family=EB+Garamond:ital,wght@0,400;1,400&family=Atkinson+Hyperlegible:wght@400;700&family=Bitter:wght@400;600&family=Karla:wght@400;600&display=swap">
+
+<style>
+  :root {
+    --ground:#EFEFF1; --surface:#FAFAFB; --sunk:#E5E6EA;
+    --ink:#1A1B20; --ink-soft:#3A3C44; --muted:#5E6068;
+    --rule:#D8D9DE; --rule-soft:#E5E6EA; --rule-strong:#8D8F98;
+    --accent:#3E4C7A; --accent-soft:#E4E6EF;
+    --flag:#7A4A18; --flag-soft:#F2E8DC;
+    --display:"Newsreader","Iowan Old Style",Palatino,Georgia,serif;
+    --ui:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    --measure:70ch;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#131418; --surface:#1B1D22; --sunk:#22242A;
+      --ink:#E8E9EC; --ink-soft:#C4C6CC; --muted:#9698A1;
+      --rule:#2B2D34; --rule-soft:#23252B; --rule-strong:#6E717C;
+      --accent:#9AA7D6; --accent-soft:#1E2130;
+      --flag:#D0A971; --flag-soft:#2A2318;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#131418; --surface:#1B1D22; --sunk:#22242A;
+    --ink:#E8E9EC; --ink-soft:#C4C6CC; --muted:#9698A1;
+    --rule:#2B2D34; --rule-soft:#23252B; --rule-strong:#6E717C;
+    --accent:#9AA7D6; --accent-soft:#1E2130;
+    --flag:#D0A971; --flag-soft:#2A2318;
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--display);
+    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;font-optical-sizing:auto}
+  .shell{max-width:1280px;margin:0 auto;padding:0 28px 120px}
+
+  /* masthead */
+  .masthead{padding:72px 0 36px;border-bottom:2px solid var(--ink)}
+  .kicker{font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:.17em;
+    text-transform:uppercase;color:var(--accent);margin:0 0 20px}
+  h1{font-family:var(--display);font-weight:300;font-size:clamp(2.3rem,6vw,4rem);line-height:1.02;
+    letter-spacing:-.022em;margin:0 0 20px;max-width:16ch;text-wrap:balance}
+  .standfirst{font-size:clamp(1.06rem,2.1vw,1.28rem);line-height:1.5;color:var(--ink-soft);
+    max-width:60ch;margin:0 0 30px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 30px;font-family:var(--ui);font-size:12.5px;color:var(--muted)}
+  .meta b{font-weight:600;color:var(--ink-soft)}
+
+  /* layout */
+  .grid{display:grid;grid-template-columns:1fr}
+  /* Grid children default to min-width:auto, so the 600px min-width on the
+     comparison tables would push the whole track — and therefore the page —
+     wider than a phone. min-width:0 lets the track shrink and hands the
+     scrolling back to .tw, where it belongs. */
+  .grid > *{min-width:0}
+  .tw{max-width:100%}
+  @media(min-width:1040px){
+    .grid{grid-template-columns:206px minmax(0,1fr);gap:60px;align-items:start}
+    .toc{position:sticky;top:28px;padding-top:56px}
+  }
+  .toc{font-family:var(--ui);font-size:13px;padding-top:36px}
+  .toc-head{font-size:10.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 14px}
+  .toc ul{list-style:none;margin:0 0 22px;padding:0;display:flex;flex-direction:column;gap:1px}
+  .toc a{display:flex;gap:9px;text-decoration:none;color:var(--muted);padding:4px 0;line-height:1.3}
+  .toc a:hover{color:var(--ink)}
+  .toc .n{font-family:var(--mono);font-size:11px;color:var(--accent);flex:0 0 auto;padding-top:1px}
+  a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+  main{padding-top:36px}
+  @media(min-width:1040px){main{padding-top:56px}}
+  section{margin-bottom:72px;scroll-margin-top:22px}
+
+  .sec-head{display:flex;align-items:baseline;gap:15px;margin-bottom:24px;padding-bottom:12px;
+    border-bottom:1px solid var(--ink)}
+  .sec-head .n{font-family:var(--mono);font-size:12px;color:var(--accent);flex:0 0 auto}
+  h2{font-family:var(--display);font-weight:400;font-size:clamp(1.5rem,3.2vw,2.05rem);line-height:1.12;
+    letter-spacing:-.018em;margin:0;text-wrap:balance}
+  h3{font-family:var(--display);font-weight:500;font-size:1.16rem;line-height:1.28;margin:34px 0 11px;
+    max-width:var(--measure)}
+  h4{font-family:var(--ui);font-weight:600;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--muted);margin:26px 0 9px}
+
+  p,ul,ol{max-width:var(--measure)}
+  p{margin:0 0 15px}
+  ul,ol{margin:0 0 15px;padding-left:1.15em}
+  li{margin-bottom:7px}
+  li::marker{color:var(--muted)}
+  strong{font-weight:500}
+  a{color:var(--accent);text-underline-offset:2px;text-decoration-thickness:1px}
+  .lede{font-size:1.08rem;line-height:1.52;color:var(--ink-soft);max-width:64ch;margin-bottom:24px}
+  code,.mono{font-family:var(--mono);font-size:.86em}
+
+  /* callouts */
+  .box{border-left:2px solid var(--accent);background:var(--accent-soft);padding:19px 23px;margin:24px 0;
+    max-width:var(--measure)}
+  .box.flag{border-left-color:var(--flag);background:var(--flag-soft)}
+  .box .lbl{font-family:var(--ui);font-size:10.5px;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent);display:block;margin-bottom:8px}
+  .box.flag .lbl{color:var(--flag)}
+  .box p,.box ul{max-width:none}
+  .box p:last-child,.box ul:last-child{margin-bottom:0}
+
+  /* tables */
+  .tw{overflow-x:auto;margin:22px 0 26px;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
+  table{width:100%;border-collapse:collapse;font-family:var(--ui);font-size:13px;line-height:1.42;min-width:600px}
+  th{text-align:left;font-weight:600;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);padding:11px 14px 11px 0;border-bottom:1px solid var(--rule);vertical-align:bottom}
+  td{padding:12px 14px 12px 0;border-bottom:1px solid var(--rule-soft);vertical-align:top;color:var(--ink-soft)}
+  td:first-child{color:var(--ink);font-weight:500}
+  tbody tr:last-child td{border-bottom:none}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+  /* direction sheet */
+  .sheet{border:1px solid var(--rule-strong);background:var(--surface);margin:0 0 28px;overflow:hidden}
+  .sheet-head{padding:26px 26px 22px;border-bottom:1px solid var(--rule)}
+  .sheet-no{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.08em}
+  .sheet-name{font-family:var(--display);font-weight:400;font-size:clamp(1.6rem,3.4vw,2.15rem);
+    line-height:1.06;letter-spacing:-.02em;margin:6px 0 8px}
+  .sheet-role{font-family:var(--ui);font-size:12px;font-weight:600;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+  .sheet-line{font-size:1.04rem;color:var(--ink-soft);margin:0;max-width:62ch}
+
+  /* swatches */
+  .swatch-block{padding:22px 26px;border-bottom:1px solid var(--rule)}
+  .swatch-label{font-family:var(--ui);font-size:10px;font-weight:600;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--muted);margin:0 0 9px}
+  .strip{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--rule-strong)}
+  .sw{flex:1 1 92px;min-width:92px;padding:14px 10px 12px;font-family:var(--mono);font-size:9.5px;
+    line-height:1.5;min-height:78px;display:flex;flex-direction:column;justify-content:flex-end}
+  .sw b{display:block;font-family:var(--ui);font-size:9px;font-weight:600;letter-spacing:.1em;
+    text-transform:uppercase;margin-bottom:3px}
+  .strip.grey{filter:grayscale(1);margin-top:10px}
+  .grey-note{font-family:var(--ui);font-size:11.5px;color:var(--muted);margin:8px 0 0;max-width:none}
+
+  /* specimen */
+  .spec{padding:24px 26px;border-bottom:1px solid var(--rule);background:var(--sunk)}
+  .spec-line{margin:0 0 6px;line-height:1.14;letter-spacing:-.015em;max-width:none;
+    font-size:clamp(1.35rem,3.6vw,2rem)}
+  .spec-body{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink-soft);max-width:56ch}
+  .spec-meta{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin:12px 0 0;max-width:none}
+
+  .sheet-body{padding:22px 26px 28px}
+  .sheet-body > h4:first-child{margin-top:0}
+
+  dl.fields{margin:0 0 4px;display:grid;grid-template-columns:1fr;gap:0}
+  @media(min-width:720px){dl.fields{grid-template-columns:150px minmax(0,1fr);column-gap:22px}}
+  dl.fields dt{font-family:var(--ui);font-size:10px;font-weight:600;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);padding:11px 0 2px;border-top:1px solid var(--rule-soft)}
+  dl.fields dd{margin:0;padding:11px 0;font-size:14.6px;line-height:1.52;color:var(--ink-soft);
+    border-top:1px solid var(--rule-soft)}
+  @media(max-width:719px){dl.fields dd{border-top:0;padding-top:0}}
+  dl.fields dd strong{color:var(--ink);font-weight:600}
+
+  details.more{margin:18px 0 0;border-top:1px solid var(--rule)}
+  details.more > summary{cursor:pointer;list-style:none;padding:13px 0 12px;font-family:var(--ui);
+    font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);
+    display:flex;justify-content:space-between;align-items:center;gap:12px}
+  details.more > summary::-webkit-details-marker{display:none}
+  details.more > summary::after{content:"+";font-family:var(--mono);font-size:15px;color:var(--muted)}
+  details.more[open] > summary::after{content:"–"}
+  details.more > div{padding-bottom:8px}
+
+  .tag{display:inline-block;font-family:var(--ui);font-size:9.5px;font-weight:600;letter-spacing:.1em;
+    text-transform:uppercase;padding:3px 7px;border:1px solid var(--rule-strong);border-radius:2px;
+    color:var(--muted);white-space:nowrap}
+  .tag.on{color:var(--accent);border-color:var(--accent)}
+  .tag.no{color:var(--flag);border-color:var(--flag)}
+
+  .prompt{font-family:var(--mono);font-size:12px;line-height:1.55;background:var(--sunk);
+    border-left:2px solid var(--rule-strong);padding:12px 15px;margin:0 0 10px;max-width:none;
+    color:var(--ink-soft)}
+
+  footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-family:var(--ui);
+    font-size:12.5px;color:var(--muted);max-width:var(--measure)}
+  footer p{max-width:none}
+
+  @media(max-width:640px){
+    body{font-size:16.5px}
+    .shell{padding:0 18px 80px}
+    .masthead{padding-top:46px}
+    .sheet-head,.swatch-block,.spec,.sheet-body{padding-left:18px;padding-right:18px}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;
+    scroll-behavior:auto!important}}
+</style>
+
+<div class="shell">
+
+<header class="masthead">
+  <p class="kicker">Phase one · Alexander Watson Studio</p>
+  <h1>The Direction Library</h1>
+  <p class="standfirst">An audit of the seven existing concepts, six new practice-website directions defined as complete identity and content systems, and the shared foundation they should be built on. No code written.</p>
+  <div class="meta">
+    <span><b>Prepared</b> 22 August 2026</span>
+    <span><b>Audited</b> 7 concepts · 8 properties</span>
+    <span><b>Proposes</b> 6 directions</span>
+  </div>
+</header>
+
+<div class="grid">
+
+<nav class="toc" aria-label="Contents">
+  <p class="toc-head">Contents</p>
+  <ul>
+    <li><a href="#audit"><span class="n">01</span><span>Audit of what exists</span></a></li>
+    <li><a href="#compare"><span class="n">02</span><span>The six, compared</span></a></li>
+    <li><a href="#d1"><span class="n">D1</span><span>Long Room</span></a></li>
+    <li><a href="#d2"><span class="n">D2</span><span>Broadsheet</span></a></li>
+    <li><a href="#d3"><span class="n">D3</span><span>Sounding</span></a></li>
+    <li><a href="#d4"><span class="n">D4</span><span>Plain Terms</span></a></li>
+    <li><a href="#d5"><span class="n">D5</span><span>Two Chairs</span></a></li>
+    <li><a href="#d6"><span class="n">D6</span><span>Noticeboard</span></a></li>
+    <li><a href="#foundation"><span class="n">03</span><span>Shared foundation</span></a></li>
+    <li><a href="#order"><span class="n">04</span><span>Build order</span></a></li>
+    <li><a href="#questions"><span class="n">05</span><span>Open questions</span></a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- ================= AUDIT ================= -->
+<section id="audit">
+  <div class="sec-head"><span class="n">01</span><h2>Audit of what already exists</h2></div>
+
+  <p class="lede">Seven concepts were read from <code>Desktop/Sites/Concepts</code>, plus the studio site and the counselling site. What follows is what the source files say, not what the collection page claims about them.</p>
+
+  <h3>Finding one — the collection is far less various than it reads</h3>
+
+  <p>The collection page describes eight designs in eight different registers. The token files do not support that. Every one of the seven concepts is built on a warm off-white ground, and six of the seven put a rust, terracotta, clay or coral accent on top of it.</p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Concept</th><th>Ground</th><th>Principal accent</th><th>Display / body</th><th>Stack</th></tr></thead>
+      <tbody>
+        <tr><td>Rowan Hill</td><td class="num">#FBF7F2</td><td class="num">#9E5140 coral</td><td>Spectral / Archivo</td><td>Vite + Cloudflare Worker</td></tr>
+        <tr><td>Stillpoint</td><td class="num">#F2F2EE</td><td class="num">#8A4A2E rust</td><td>Source Serif 4</td><td>Astro 5</td></tr>
+        <tr><td>Common Ground</td><td class="num">#F5F0E8</td><td class="num">#CE6F55 coral</td><td>Fraunces / Archivo</td><td>Bespoke <code>build.mjs</code></td></tr>
+        <tr><td>Harbour</td><td class="num">#FBF7F1</td><td class="num">#A9501F + #F2B441</td><td>Fraunces / Figtree</td><td>Bespoke build</td></tr>
+        <tr><td>Different Minds</td><td class="num">#FBF6EE</td><td class="num">#B23E17 clementine</td><td>Bricolage / Atkinson</td><td>Astro 7</td></tr>
+        <tr><td>Face to Face</td><td class="num">#FBFAF7</td><td class="num">#A9482A brick</td><td>Faustina / Atkinson</td><td>Astro 5</td></tr>
+        <tr><td>North &amp; Vale</td><td class="num">#F2F0EC</td><td class="num">#6B2028 oxblood</td><td>Source Serif 4 / Archivo</td><td>Astro 7</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>Seven of seven light. Six of seven orange-family. Seven of seven serif-display over sans-body.</strong> Archivo appears three times, Fraunces twice, Source Serif 4 twice, Atkinson twice. North &amp; Vale's oxblood is the only accent that leaves the orange family, and even that reads as a warm red.</p>
+
+  <p>Your own stated test for a new concept is that it should be obviously different from the others <em>in a greyscale screenshot</em>. Applied to the current seven, that test fails: strip the hue and Rowan Hill, Stillpoint, North &amp; Vale and Face to Face are four light-grey pages with a dark serif heading. Every direction sheet below carries its palette twice — once in colour, once desaturated — so this stops being an opinion.</p>
+
+  <h3>Finding two — the range has two holes and two duplicates</h3>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Required range</th><th>Currently covered by</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>Calm, grounded private practice</td><td>Rowan Hill, and Stillpoint partly</td><td>Covered twice, neither fully resolved</td></tr>
+        <tr><td>Contemporary and culturally literate</td><td>—</td><td><span class="tag no">Absent</span></td></tr>
+        <tr><td>Depth-oriented / reflective</td><td>—</td><td><span class="tag no">Absent</span> — Stillpoint is measured, not depth-oriented; North &amp; Vale is clinical psychology</td></tr>
+        <tr><td>Neurodivergent-affirming</td><td>Different Minds</td><td><span class="tag on">Covered</span> — the strongest concept in the set</td></tr>
+        <tr><td>Relationship, couples or family</td><td>Common Ground <em>and</em> Harbour</td><td>Covered twice, overlapping</td></tr>
+        <tr><td>Warm, practical, local</td><td>Face to Face</td><td><span class="tag on">Covered</span> — but shaped as a charity, not a private practice</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Finding three — six technical stacks across eight properties</h3>
+
+  <p>This is the finding that matters most, because it makes "consistently refined over time" impossible as things stand.</p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Property</th><th>Stack</th><th>QA present</th><th>Hosting implied</th></tr></thead>
+      <tbody>
+        <tr><td>Different Minds · North &amp; Vale</td><td>Astro <span class="num">^7.2.3</span></td><td>Different Minds only</td><td>Static</td></tr>
+        <tr><td>Stillpoint · Face to Face</td><td>Astro <span class="num">^5.1.1</span> / <span class="num">^5.18.2</span></td><td>Both, differently</td><td>Static · Cloudflare Pages</td></tr>
+        <tr><td>Rowan Hill</td><td>Vite + Wrangler + Worker</td><td>Playwright</td><td>Cloudflare Workers</td></tr>
+        <tr><td>Harbour</td><td>Bespoke build + axe-core</td><td>Playwright + axe</td><td>Static</td></tr>
+        <tr><td>Common Ground</td><td>Bespoke <code>build.mjs</code></td><td>None found</td><td>Static</td></tr>
+        <tr><td>alexanderwatson.co.uk</td><td>Jekyll + Node QA</td><td>Extensive</td><td>Netlify</td></tr>
+        <tr><td>Alexander Watson Counselling</td><td>Next.js + Drizzle + database</td><td>Some</td><td>Node runtime</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Two Astro major versions, two bespoke build scripts, a Worker, a Jekyll site and a database-backed Next.js app. Nothing ports between them. A fix made to one concept reaches none of the others.</p>
+
+  <h3>Finding four — the ethical furniture is patchy</h3>
+
+  <p>These are the items your own brief calls non-negotiable. Presence was checked in each concept's <code>src</code>.</p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Concept</th><th>Fees page</th><th>Accessibility page</th><th>Privacy</th><th>Urgent-support content</th><th>Concept disclosure</th></tr></thead>
+      <tbody>
+        <tr><td>Face to Face</td><td>n/a — contribution table</td><td>Yes</td><td>Yes</td><td>18 files</td><td><span class="tag on">Yes</span></td></tr>
+        <tr><td>Different Minds</td><td>Yes</td><td>Yes</td><td>Yes</td><td>4 files</td><td><span class="tag no">No</span></td></tr>
+        <tr><td>North &amp; Vale</td><td>Yes</td><td>Yes</td><td>Yes</td><td>4 files</td><td><span class="tag no">No</span></td></tr>
+        <tr><td>Stillpoint</td><td>Yes</td><td><span class="tag no">No</span></td><td>Yes</td><td>8 files</td><td><span class="tag no">No</span></td></tr>
+        <tr><td>Common Ground</td><td>Yes</td><td><span class="tag no">No</span></td><td>Yes</td><td>5 files</td><td><span class="tag no">No</span></td></tr>
+        <tr><td>Harbour</td><td><span class="tag no">No</span></td><td><span class="tag no">No</span></td><td><span class="tag no">No</span></td><td>11 files</td><td><span class="tag no">No</span></td></tr>
+        <tr><td>Rowan Hill</td><td><span class="tag no">No</span></td><td><span class="tag no">No</span></td><td><span class="tag no">No</span></td><td>1 file</td><td><span class="tag no">No</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box flag">
+    <span class="lbl">Worth acting on separately from this brief</span>
+    <p>Only Face to Face carries a concept disclosure, and the published rule you set is that every concept page must carry a persistent portfolio-concept notice. Six concepts are currently short of that rule. Rowan Hill — the most likely first sale — has no fees page, no accessibility page, no privacy page and one passing reference to urgent support.</p>
+  </div>
+
+  <h3>What is worth keeping</h3>
+
+  <ul>
+    <li><strong>The QA harness from the studio site.</strong> <code>scripts/responsive-qa/</code> — <code>typography.mjs</code>, <code>a11y.mjs</code>, <code>shots.mjs</code>, <code>compare.mjs</code>, <code>primary-targets.mjs</code> — already runs axe-core 4.13 across 31 routes at four viewports including 200% zoom, and measures line length, target size and horizontal overflow. This is the single most valuable reusable asset in the whole estate and it is currently pointed at one site.</li>
+    <li><strong>Face to Face's ethical components.</strong> <code>CrisisPanel</code>, <code>ConceptNotice</code>, <code>EligibilityChecker</code>, <code>ContributionTable</code>, <code>Disclosure</code>, <code>ServiceStatus</code>. The best-built set in the collection.</li>
+    <li><strong>Different Minds' structural components.</strong> <code>RouteGrid</code>, <code>InShort</code>, <code>DiagramProfile</code> — real answers to real accessibility problems.</li>
+    <li><strong>Rowan Hill's font handling.</strong> <code>@fontsource</code> self-hosting with a build step, which is also the licensing-clean answer for handover.</li>
+    <li><strong>North &amp; Vale's content collections.</strong> Typed Markdown for the insights section, which every direction with writing will want.</li>
+  </ul>
+
+  <p><strong>What should not be carried forward:</strong> the two bespoke build scripts, the Cloudflare Worker, and the split between Astro 5 and Astro 7.</p>
+</section>
+
+<!-- ================= COMPARISON ================= -->
+<section id="compare">
+  <div class="sec-head"><span class="n">02</span><h2>The six directions, compared</h2></div>
+
+  <p class="lede">Each is a different kind of therapist and a different kind of client relationship — not one design in six colourways. The columns are the axes on which they must not converge.</p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Direction</th><th>Visitor journey</th><th>Layout</th><th>Type</th><th>Imagery</th><th>Ground</th></tr></thead>
+      <tbody>
+        <tr><td>D1 Long Room</td><td>Read straight through, once</td><td>One column, no cards anywhere</td><td>Single serif, whole site</td><td>Interior light only</td><td class="num">#F1F1ED</td></tr>
+        <tr><td>D2 Broadsheet</td><td>Read three essays, return, enquire</td><td>Asymmetric two-column, dateline</td><td>Grotesque only, no serif</td><td>B&amp;W portrait or nothing</td><td class="num">#FCFCFA</td></tr>
+        <tr><td>D3 Sounding</td><td>Slow. Written enquiry, paid consultation</td><td>Narrow measure, space not rules</td><td>Old-style serif, 1.75 leading</td><td>Almost none</td><td class="num">#16161C <span class="tag">dark</span></td></tr>
+        <tr><td>D4 Plain Terms</td><td>Choose your route on arrival</td><td>Summary box before every page</td><td>Atkinson Hyperlegible, sans only</td><td>Diagram + sensory photo</td><td class="num">#FFFFFF</td></tr>
+        <tr><td>D5 Two Chairs</td><td>Two readers, often disagreeing</td><td>Paired panels of equal weight</td><td>Slab serif + sans</td><td>Objects, never couples</td><td class="num">#F4F2F4</td></tr>
+        <tr><td>D6 Noticeboard</td><td>Decide in ninety seconds</td><td>Facts above the fold, dense</td><td>Humanist grotesque, sans only</td><td>The actual building</td><td class="num">#FBFAF6</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Direction</th><th>Voice</th><th>Motif</th><th>Structural distinction</th><th>Pages</th><th>Tier</th></tr></thead>
+      <tbody>
+        <tr><td>D1 Long Room</td><td>Second person, no metaphor</td><td>Full-measure hairline</td><td>The only one with no grid</td><td class="num">5</td><td>Straightforward</td></tr>
+        <tr><td>D2 Broadsheet</td><td>Essayistic first person</td><td>Dateline + thick top rule</td><td>Writing is the front door</td><td class="num">6 + archive</td><td>Guided / Bespoke</td></tr>
+        <tr><td>D3 Sounding</td><td>Third person for the work</td><td>Manuscript rule at left margin</td><td>Organised by the shape of the work, not by symptom</td><td class="num">7</td><td>Bespoke</td></tr>
+        <tr><td>D4 Plain Terms</td><td>Literal. No idiom</td><td>The "In short" panel</td><td>Reading controls that work</td><td class="num">8</td><td>Guided</td></tr>
+        <tr><td>D5 Two Chairs</td><td>Plural second person</td><td>The paired block</td><td>Written for two readers at once</td><td class="num">7</td><td>Guided</td></tr>
+        <tr><td>D6 Noticeboard</td><td>Plain, warm, short</td><td>The status panel</td><td>The hero is a table</td><td class="num">6</td><td>Straightforward</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box">
+    <span class="lbl">How this answers the audit</span>
+    <p><strong>Two challenge the calm-beige convention outright.</strong> Broadsheet is near-white on near-black with a single vermilion and no botanical imagery at all. Sounding is the only dark direction in the library.</p>
+    <p><strong>Only two of six are serif-led</strong>, against seven of seven now. Two are sans-only, one is grotesque-only, one is single-family.</p>
+    <p><strong>No two share an accent hue family:</strong> moss, vermilion, old gold, blue, slate-and-walnut, deep teal. Nothing in the orange-clay family that six of the current seven occupy.</p>
+    <p><strong>Absorptions.</strong> D4 supersedes Different Minds and inherits its components. D5 absorbs Common Ground. D6 inherits Face to Face's structural work but is re-shaped for a private practice. Harbour, North &amp; Vale and Stillpoint are out of scope for these six and stay as portfolio evidence.</p>
+  </div>
+</section>
+
+
+<!-- ================= D1 ================= -->
+<section id="d1">
+  <div class="sec-head"><span class="n">D1</span><h2>Long Room</h2></div>
+
+  <div class="sheet">
+    <div class="sheet-head">
+      <p class="sheet-no">DIRECTION 01</p>
+      <h3 class="sheet-name" style="font-family:'Petrona',Georgia,serif;font-weight:400">Long Room</h3>
+      <p class="sheet-role">Calm, grounded private practice</p>
+      <p class="sheet-line">One continuous read, four minutes end to end. The only direction in the library with no card grid anywhere.</p>
+    </div>
+
+    <div class="swatch-block">
+      <p class="swatch-label">Palette</p>
+      <div class="strip">
+        <div class="sw" style="background:#F1F1ED;color:#22241F"><b>Paper</b>#F1F1ED</div>
+        <div class="sw" style="background:#E3E7DC;color:#22241F"><b>Quiet</b>#E3E7DC</div>
+        <div class="sw" style="background:#22241F;color:#F1F1ED"><b>Ink 13.8:1</b>#22241F</div>
+        <div class="sw" style="background:#5C5F55;color:#F1F1ED"><b>Muted 5.8:1</b>#5C5F55</div>
+        <div class="sw" style="background:#41562F;color:#fff"><b>Moss 7.1:1</b>#41562F</div>
+        <div class="sw" style="background:#84877D;color:#fff"><b>Rule 3.2:1</b>#84877D</div>
+        <div class="sw" style="background:#D7D8D0;color:#22241F"><b>Hairline</b>#D7D8D0</div>
+      </div>
+      <div class="strip grey" aria-hidden="true">
+        <div class="sw" style="background:#F1F1ED;color:#22241F"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#E3E7DC;color:#22241F"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#22241F;color:#F1F1ED"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#5C5F55;color:#F1F1ED"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#41562F;color:#fff"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#84877D;color:#fff"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#D7D8D0;color:#22241F"><b>&nbsp;</b>&nbsp;</div>
+      </div>
+      <p class="grey-note">Greyscale test — a soft five-step ramp. Reads as quiet and low-contrast even without hue, which is the intent here.</p>
+    </div>
+
+    <div class="spec">
+      <p class="spec-line" style="font-family:'Petrona',Georgia,serif;font-weight:400">Therapy in Shrewsbury, at an unhurried pace</p>
+      <p class="spec-body" style="font-family:'Petrona',Georgia,serif">The same family sets the body text. One typeface for the whole site, sized and spaced rather than contrasted — the distinguishing typographic decision of this direction.</p>
+      <p class="spec-meta">Petrona 400/500 · fallback: Georgia, "Iowan Old Style", serif · base 18px / 1.7</p>
+    </div>
+
+    <div class="sheet-body">
+      <dl class="fields">
+        <dt>Best suited to</dt>
+        <dd>Solo integrative, person-centred or humanistic counsellor, three to fifteen years qualified, working from a home room or a rented room one or two days a week. <strong>Client group:</strong> adults 28–55, usually first time in therapy, anxious about the enquiry itself. Anxiety, low mood, life transitions, self-worth. <strong>Practice stage:</strong> established enough to have a waiting list occasionally, not building a brand. <strong>Tone:</strong> unhurried, sheltering, adult.</dd>
+
+        <dt>Journey</dt>
+        <dd>Arrive, read to the end, enquire. One visit. A quiet anchored index follows the scroll but there is nowhere else to go — the sub-pages exist for people who want more, not because the homepage withheld anything.</dd>
+
+        <dt>Layout</dt>
+        <dd>Single 60ch column throughout. No cards, no grids, no tiles, no icon rows. Sections are separated by vertical space and one full-measure hairline. Two images only: one at the fold, one at the close.</dd>
+
+        <dt>Typography</dt>
+        <dd>Petrona at 400 and 500 for everything, including body. Headings are large and light; body is 18px at 1.7. The hierarchy is size and space, never a second family.</dd>
+
+        <dt>Imagery</dt>
+        <dd>Interior light only. The room, the chair, the window, the door — shot at seated eye height, natural light, no people. Explicitly not landscape, not plants, not hands, not a mug.</dd>
+
+        <dt>Voice</dt>
+        <dd>Second person, short declarative sentences, no metaphor at all. "You can email me and I will reply within two working days." Never "a space to explore", never "a journey".</dd>
+
+        <dt>Motif</dt>
+        <dd>A hairline rule at the full text measure. It is the only ornament in the direction; nothing else is decorative.</dd>
+
+        <dt>Different because</dt>
+        <dd>It is the only direction that <strong>removes</strong> structure. Every other one on this list adds a device — a dateline, a summary box, a paired panel, a status table. This one has a single column and a rule, and its quality is entirely in spacing, measure and restraint. It is also the only single-typeface direction.</dd>
+      </dl>
+
+      <details class="more">
+        <summary>Worked example, brand system and website system</summary>
+        <div>
+          <h4>Fictional worked example</h4>
+          <p><strong>Wenlock Counselling</strong> — Shrewsbury, Shropshire. Practitioner: <strong>Ruth Sandiford</strong>. Positioning line: <em>"Counselling in Shrewsbury, at an unhurried pace."</em> Integrative counsellor, adults, one-to-one, in person and online. Fee stated as <span class="mono">£55</span>, with two lower-cost places noted as sometimes available.</p>
+          <p><strong>Concept disclosure, on every page:</strong> "This is a design concept by Alexander Watson Studio. Wenlock Counselling is not a real practice and no service is offered here." Professional status appears only as a placeholder — <span class="mono">[Registration body] · [Membership category]</span> — never a body name, number, qualification, insurer or claim. No testimonials. No statement that anything is treated or cured.</p>
+
+          <h4>Wordmark concept</h4>
+          <p>Set, not drawn: the practice name in Petrona 400 at a generous tracking of <span class="mono">0.02em</span>, with the place name beneath in the same face at 55% size and <span class="mono">0.14em</span>. Implemented as inline SVG with the text converted to outlines at build time so the mark is stable and does not reflow. No symbol, no monogram, no leaf. A single hairline sits above the name at the same weight as the section rule, tying the mark to the page's only ornament.</p>
+
+          <h4>Colour tokens and accessibility roles</h4>
+          <div class="tw"><table>
+            <thead><tr><th>Token</th><th>Hex</th><th>Role</th><th>Measured</th></tr></thead>
+            <tbody>
+              <tr><td><code>--paper</code></td><td class="num">#F1F1ED</td><td>Page ground</td><td class="num">—</td></tr>
+              <tr><td><code>--quiet</code></td><td class="num">#E3E7DC</td><td>Alternating section ground</td><td class="num">ink 12.5:1</td></tr>
+              <tr><td><code>--ink</code></td><td class="num">#22241F</td><td>Body and headings</td><td class="num">13.8:1 AAA</td></tr>
+              <tr><td><code>--muted</code></td><td class="num">#5C5F55</td><td>Metadata, captions</td><td class="num">5.8:1 AA</td></tr>
+              <tr><td><code>--moss</code></td><td class="num">#41562F</td><td>Links, buttons, focus</td><td class="num">7.1:1 AA · white on it 8.1:1</td></tr>
+              <tr><td><code>--rule-strong</code></td><td class="num">#84877D</td><td>Form borders, UI edges</td><td class="num">3.2:1 — meets WCAG 2.2 non-text</td></tr>
+              <tr><td><code>--hairline</code></td><td class="num">#D7D8D0</td><td>Decorative rule only</td><td class="num">1.3:1 — barred from text and borders</td></tr>
+            </tbody>
+          </table></div>
+
+          <h4>Spacing, border, button, form</h4>
+          <ul>
+            <li><strong>Spacing scale:</strong> 8 / 16 / 24 / 40 / 64 / 96 / 144. Section rhythm is 96 on mobile, 144 on desktop — the most generous in the library, and the thing that makes the direction work.</li>
+            <li><strong>Borders:</strong> 1px only, and only <code>--hairline</code> horizontally. No boxes, no radii above 0, no shadows anywhere.</li>
+            <li><strong>Buttons:</strong> one style — a filled moss rectangle, 4px radius, 52px tall, 24px horizontal padding, white label at 15px/600. One primary per section, maximum. Secondary actions are underlined text links, never outlined buttons.</li>
+            <li><strong>Forms:</strong> 1px <code>--rule-strong</code> border, 4px radius, 52px tall, 16px text so iOS does not zoom, label always visible above the field, never a placeholder as a label. Focus is a 2px moss outline at 2px offset.</li>
+          </ul>
+
+          <h4>Image art direction and prompts</h4>
+          <p>Photographed, not generated, wherever the client can manage it — the research on client choice weights the real photograph heavily. Where a placeholder is needed:</p>
+          <p class="prompt">Interior of a small counselling room in an English house, photographed at seated eye height. Late afternoon daylight from a sash window at frame left. One upholstered armchair in muted olive, a low side table, a plain wall. No people, no plants in flower, no candles, no cushions arranged. Natural colour, slightly cool shadows, 35mm, f/4, no vignette.</p>
+          <p class="prompt">A Georgian terraced doorway on a quiet Shropshire street, closed, painted a soft dark green, brass numeral. Overcast even light. Shot straight on from six feet. No people, no signage, no car. Documentary, not architectural-magazine.</p>
+
+          <h4>Voice guidance</h4>
+          <p>Write as though speaking to one person who has already decided to look. Sentences under 20 words. Say what happens, in order. Answer the practical question before the emotional one. Never open with a question. Never describe the therapy as a space, a journey, a container or a safe place.</p>
+
+          <h4>Avoid list</h4>
+          <p>Cards. Icon rows. Testimonials. Nature photography. Plants. Stones. Sunsets. Open hands. Mugs. Script or handwriting faces. Any second typeface. Colour outside the token set. Drop shadows. Parallax. Fade-in-on-scroll. The words <em>journey, space, safe space, unpack, hold, container, authentic self, wellness, holistic</em>. Any claim to treat or cure.</p>
+
+          <h4>Accessibility notes</h4>
+          <p>Base 18px. Line length capped at 68 characters at every breakpoint. Target size 52px on all primary controls, above the 44px WCAG 2.2 floor. Contrast measured above. Because the direction is one long page, the anchored index must be a real <code>&lt;nav&gt;</code> with a skip link ahead of it, and each anchored section needs a focusable heading. No motion beyond a 150ms colour transition, disabled under <code>prefers-reduced-motion</code>.</p>
+
+          <h4>Fixed versus customisable</h4>
+          <p><strong>Direction-fixed:</strong> single column, single typeface, no cards, section rhythm, the hairline motif, page count, homepage order, button and form rules.<br>
+          <strong>Client-customisable:</strong> practice and place name, all words, the two photographs, the accent within a supplied set of four tested alternatives to moss, fee figures, contact route, and one optional extra page from a defined menu.</p>
+
+          <h4>Website system</h4>
+          <p><strong>Sitemap:</strong> Home · About · Fees and practicalities · Contact · Privacy · Accessibility · 404. Five visible pages, two in the footer.</p>
+          <p><strong>Homepage order:</strong> (1) Name and one-sentence positioning, no image above it. (2) Who I work with, plainly listed — the specificity the market evidence says is usually buried. (3) What happens when you get in touch, in three steps with real timings. (4) About, short, with the portrait. (5) Fee, session length, in person and online, location. (6) Enquiry. (7) Urgent-support boundary, always last, never styled as an alarm.</p>
+          <p><strong>Components:</strong> anchored index, hairline section rule, step list, fee block, enquiry form, urgent-support panel, registration placeholder, concept notice.</p>
+          <p><strong>Calls to action:</strong> one, repeated verbatim three times — "Send an enquiry". No second verb anywhere.</p>
+          <p><strong>SEO:</strong> one town, one modality, one client group. Title pattern <span class="mono">Counselling in [town] — [Name]</span>. A real About page with the practitioner as a named author, per Google's stated E-E-A-T weighting for health topics. <code>LocalBusiness</code> structured data only if the client publishes a real address; never <code>MedicalBusiness</code>, never a named-person health schema.</p>
+          <p><strong>Mobile priorities:</strong> the fee and the enquiry route must both be reachable within two thumb-scrolls. The portrait loads at 2:3, not 16:9. The anchored index collapses to a single sticky "Contact" affordance rather than a menu.</p>
+          <p><strong>Trust and factual checklist:</strong> fee stated · session length stated · in-person and online stated · town stated · response time stated · registration placeholder present and unfilled · urgent-support boundary present · privacy notice covering enquiry data · no testimonials · no treatment claims · concept disclosure on every page.</p>
+          <p><strong>Content required from the client:</strong> roughly 700 words across five sections, one professional portrait, two room or place photographs, fee and session facts, and their exact registration wording as issued by their body.</p>
+
+          <h4>Commercial fit</h4>
+          <p><strong>Straightforward Website.</strong> It is the default choice and will be the most-picked, so it must be deliverable with almost no decisions. The content burden on the client is the lowest of the six, the page count is the lowest, and there is no editorial work to do beyond shaping what they send. It is not a Bespoke candidate — its whole value is that it is finished.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= D2 ================= -->
+<section id="d2">
+  <div class="sec-head"><span class="n">D2</span><h2>Broadsheet</h2></div>
+
+  <div class="sheet">
+    <div class="sheet-head">
+      <p class="sheet-no">DIRECTION 02 · CHALLENGES THE CATEGORY CONVENTION</p>
+      <h3 class="sheet-name" style="font-family:'Schibsted Grotesk',Helvetica,Arial,sans-serif;font-weight:600;letter-spacing:-.035em">Broadsheet</h3>
+      <p class="sheet-role">Contemporary and culturally literate</p>
+      <p class="sheet-line">The writing is the front door. A dated front page where the most recent essay sits above the practice information.</p>
+    </div>
+
+    <div class="swatch-block">
+      <p class="swatch-label">Palette — no warmth, no botanical register</p>
+      <div class="strip">
+        <div class="sw" style="background:#FCFCFA;color:#131316"><b>Paper</b>#FCFCFA</div>
+        <div class="sw" style="background:#F1F1EE;color:#131316"><b>Quiet</b>#F1F1EE</div>
+        <div class="sw" style="background:#131316;color:#FCFCFA"><b>Ink 18.1:1</b>#131316</div>
+        <div class="sw" style="background:#55555C;color:#FCFCFA"><b>Muted 7.2:1</b>#55555C</div>
+        <div class="sw" style="background:#B32D19;color:#fff"><b>Vermilion 6.2:1</b>#B32D19</div>
+        <div class="sw" style="background:#8E8E97;color:#fff"><b>Rule 3.2:1</b>#8E8E97</div>
+        <div class="sw" style="background:#DCDCE0;color:#131316"><b>Hairline</b>#DCDCE0</div>
+      </div>
+      <div class="strip grey" aria-hidden="true">
+        <div class="sw" style="background:#FCFCFA"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#F1F1EE"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#131316"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#55555C"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#B32D19"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#8E8E97"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#DCDCE0"><b>&nbsp;</b>&nbsp;</div>
+      </div>
+      <p class="grey-note">Greyscale test — the widest tonal spread in the library. Near-white against near-black is legible as a distinct design with the hue removed entirely.</p>
+    </div>
+
+    <div class="spec">
+      <p class="spec-line" style="font-family:'Schibsted Grotesk',Helvetica,Arial,sans-serif;font-weight:600;letter-spacing:-.032em">On being tired in a way sleep doesn't fix</p>
+      <p class="spec-body" style="font-family:'Schibsted Grotesk',Helvetica,Arial,sans-serif">No serif appears anywhere in this direction. Hierarchy comes from weight, size and tracking within one grotesque, which is what gives it its contemporary register.</p>
+      <p class="spec-meta">Schibsted Grotesk 400/600 · fallback: Helvetica Neue, Arial, sans-serif · headings tracked −0.03em</p>
+    </div>
+
+    <div class="sheet-body">
+      <dl class="fields">
+        <dt>Best suited to</dt>
+        <dd>A therapist who writes and is read — a Substack, a column, a book in progress, conference papers. Often works with people in media, academia, the arts and the third sector; often specialises in meaning, identity, work, burnout, or the social dimension of distress. <strong>Client group:</strong> 25–45, culturally engaged, allergic to wellness language, likely to read three pieces before enquiring. <strong>Practice stage:</strong> established, with a public voice already. <strong>Tone:</strong> literate, direct, unsentimental, alive.</dd>
+
+        <dt>Journey</dt>
+        <dd>Multi-visit by design. Arrive from a shared link, read, leave, return, then enquire. The only direction where the enquiry is not expected on the first visit, and the only one whose homepage changes when the client publishes.</dd>
+
+        <dt>Layout</dt>
+        <dd>A masthead with a real dateline and a thick top rule. Asymmetric two-column below: the current piece takes two-thirds, a standing column of practice facts takes one-third and stays put. Archive is a dated list, not a card grid.</dd>
+
+        <dt>Typography</dt>
+        <dd>One grotesque, no serif at all. Headlines at 600 with tight negative tracking; body at 400/1.62. Standfirsts at 1.25rem in muted. The type <em>is</em> the design.</dd>
+
+        <dt>Imagery</dt>
+        <dd>No nature, no interiors, no stock. Black-and-white portraiture, editorial illustration, or nothing — and "nothing" is a legitimate finished state here. Where an image runs, it runs full-bleed and uncaptioned.</dd>
+
+        <dt>Voice</dt>
+        <dd>Essayistic first person. Opinions actually held. No hedging, no "it can be helpful to". Titles are statements, not questions.</dd>
+
+        <dt>Motif</dt>
+        <dd>Press furniture: the dateline, the 4px top rule, the vertical column rule, the small-caps section kicker. Nothing organic anywhere.</dd>
+
+        <dt>Different because</dt>
+        <dd>It is the only direction where the homepage is <strong>editorial rather than promotional</strong>, and the only one that gets better the longer the client uses it. It is also the deliberate opposite of the category norm — the audit found seven of seven warm and serif-led; this is cool, high-contrast and sans-only.</dd>
+      </dl>
+
+      <details class="more">
+        <summary>Worked example, brand system and website system</summary>
+        <div>
+          <h4>Fictional worked example</h4>
+          <p><strong>Marchmont Practice</strong> — Edinburgh. Practitioner: <strong>Iona Bhatt</strong>. Positioning line: <em>"Psychotherapy, and writing about it, from Edinburgh."</em> Adults, longer-term individual work, in person in Marchmont and online across the UK. Fee stated as <span class="mono">£75</span>.</p>
+          <p><strong>Concept disclosure, on every page:</strong> "A design concept by Alexander Watson Studio. Marchmont Practice is not a real practice and no service is offered here." Sample essays are written as clearly fictional demonstration text and labelled as such. Professional status is a placeholder only. No testimonials — and note that if a real client here were UKCP-registered, testimonials would be prohibited outright by clause 13 of their 2019 Code, so this direction ships with the testimonial component absent rather than merely unused.</p>
+
+          <h4>Wordmark concept</h4>
+          <p>Purely typographic: the practice name in Schibsted Grotesk 600, tracked <span class="mono">−0.03em</span>, sitting on a 4px full-width rule with the dateline set flush right in 500 at 11px. The mark and the masthead are the same object — there is no logo separate from the page furniture. Implemented as an SVG with outlined text for the header lockup, plus a live HTML version for the archive pages so the date can update.</p>
+
+          <h4>Colour tokens and accessibility roles</h4>
+          <div class="tw"><table>
+            <thead><tr><th>Token</th><th>Hex</th><th>Role</th><th>Measured</th></tr></thead>
+            <tbody>
+              <tr><td><code>--paper</code></td><td class="num">#FCFCFA</td><td>Page ground</td><td class="num">—</td></tr>
+              <tr><td><code>--quiet</code></td><td class="num">#F1F1EE</td><td>Standing column ground</td><td class="num">ink 16.4:1</td></tr>
+              <tr><td><code>--ink</code></td><td class="num">#131316</td><td>Body, headlines</td><td class="num">18.1:1 AAA</td></tr>
+              <tr><td><code>--muted</code></td><td class="num">#55555C</td><td>Standfirst, dateline, bylines</td><td class="num">7.2:1 AAA</td></tr>
+              <tr><td><code>--vermilion</code></td><td class="num">#B32D19</td><td>Links, kickers, the one accent</td><td class="num">6.2:1 AA · white on it 6.4:1</td></tr>
+              <tr><td><code>--rule-strong</code></td><td class="num">#8E8E97</td><td>Column rule, form borders</td><td class="num">3.2:1 — meets WCAG 2.2 non-text</td></tr>
+              <tr><td><code>--hairline</code></td><td class="num">#DCDCE0</td><td>Archive dividers only</td><td class="num">1.3:1 — barred from text</td></tr>
+            </tbody>
+          </table></div>
+
+          <h4>Spacing, border, button, form</h4>
+          <ul>
+            <li><strong>Spacing scale:</strong> 4 / 8 / 12 / 20 / 32 / 52 / 84. Tighter than every other direction — density is part of the register.</li>
+            <li><strong>Borders:</strong> the 4px masthead rule, a 1px vertical column rule, 1px archive dividers. Radius <span class="mono">0</span> everywhere, without exception. No shadows.</li>
+            <li><strong>Buttons:</strong> a square-cornered ink rectangle with a white label, 48px tall. Vermilion is reserved for links and kickers and is never a button fill, so the accent never competes with the call to action.</li>
+            <li><strong>Forms:</strong> square, 1px <code>--rule-strong</code>, 48px, label above in 11px small-caps tracked <span class="mono">0.12em</span>. Focus is a 2px vermilion outline.</li>
+          </ul>
+
+          <h4>Image art direction and prompts</h4>
+          <p class="prompt">Black-and-white environmental portrait of a woman in her forties at a desk by a tall Georgian window, Edinburgh tenement interior, mid-morning. She is looking away from camera, mid-thought, not smiling. Grain visible, deep blacks, 50mm, f/2. Documentary register, not corporate headshot. No props, no bookshelf staging.</p>
+          <p class="prompt">Black-and-white, high contrast: rain on a sash window with an out-of-focus stone tenement beyond. No people. Abstract enough to run full-bleed behind a headline without competing with it.</p>
+          <p>Illustration alternative: single-weight line drawing in ink on paper, one colour, no gradients — commissioned, never generated, if the client can afford it.</p>
+
+          <h4>Voice guidance</h4>
+          <p>Write essays, not blog posts. Begin in the middle. Use the first person and mean it. Cite what you have actually read. Do not end with a call to action — the standing column already carries it. The practice pages should read as though written by the same person as the essays, which means the About page can be interesting rather than reassuring.</p>
+
+          <h4>Avoid list</h4>
+          <p>Any serif. Warm neutrals. Beige, cream, sage, terracotta. Nature photography of any kind. Stock imagery. Rounded corners. Soft shadows. Pastel anything. Inspirational quotations. Pull-quotes in script. The words <em>curated, mindful, holistic, wellness, thought leader, deep dive</em>. Newsletter pop-ups. Reading-time estimates. Social share counts.</p>
+
+          <h4>Accessibility notes</h4>
+          <p>High contrast is an asset here but the tight tracking is a risk: never track body text, only headlines above 28px. Base 17px minimum. The asymmetric grid must reflow to a single column below 900px with the standing column moving <em>below</em> the current piece, not above it. Archive dates need <code>&lt;time datetime&gt;</code>. The masthead rule is decorative and must be <code>aria-hidden</code>. Essays need real heading hierarchy — this is the only direction where long-form structure carries screen-reader navigation.</p>
+
+          <h4>Fixed versus customisable</h4>
+          <p><strong>Direction-fixed:</strong> the grotesque-only rule, radius 0, the masthead and dateline, the asymmetric grid, the archive-as-list, the absence of testimonials, vermilion reserved from buttons.<br>
+          <strong>Client-customisable:</strong> the accent hue within four tested alternatives to vermilion, all words, portrait, essay taxonomy, whether the standing column shows fee or availability first.</p>
+
+          <h4>Website system</h4>
+          <p><strong>Sitemap:</strong> Home (front page) · Writing (archive) · Writing/[piece] · Therapy · About · Contact · Privacy · Accessibility · 404.</p>
+          <p><strong>Homepage order:</strong> (1) Masthead with dateline. (2) The current piece — headline, standfirst, first three paragraphs, continue link. (3) Standing column: who I work with, fee, where, next step. (4) Three previous pieces as a dated list. (5) About, two paragraphs. (6) Enquiry. (7) Urgent-support boundary.</p>
+          <p><strong>Components:</strong> masthead, dateline, standfirst, standing column, archive list, tag chip, essay layout, enquiry form, urgent-support panel, registration placeholder, concept notice.</p>
+          <p><strong>Calls to action:</strong> two, deliberately unequal — "Read more writing" as the primary in-page action, "Enquire about therapy" standing quietly in the fixed column. The direction accepts a slower conversion in exchange for a better-qualified one.</p>
+          <p><strong>SEO:</strong> the strongest organic candidate of the six, because it publishes. Essays carry author bylines linking to a substantive About page, which is exactly what Google says it weights for health topics. Article structured data on essays; no health or medical schema anywhere.</p>
+          <p><strong>Mobile priorities:</strong> the standing column must not become a wall of facts between the headline and the essay — it moves below the fold. Reading measure caps at 66 characters. Tap targets in the archive list are full-row, not just the title.</p>
+          <p><strong>Trust and factual checklist:</strong> fee stated in the standing column · location and online stated · response time stated · registration placeholder present · urgent-support boundary present · essays clearly dated · author identified · privacy notice covering enquiry data · no testimonials component in the build at all · no treatment claims · concept disclosure on every page.</p>
+          <p><strong>Content required from the client:</strong> three finished essays of 800–1,500 words <em>before launch</em>, and a realistic commitment to one more per quarter. One black-and-white portrait. This is the highest content burden in the library and the direction fails without it.</p>
+
+          <div class="box flag" style="margin-top:18px">
+            <span class="lbl">Sales rule for this direction</span>
+            <p>Do not sell Broadsheet to a therapist who does not already write. An empty archive makes the homepage look abandoned within three months, which is worse than the site they had. Ask to see three existing pieces before accepting the brief.</p>
+          </div>
+
+          <h4>Commercial fit</h4>
+          <p><strong>Guided Website, or Practice Clarity + Bespoke.</strong> Not Straightforward. The direction depends on editorial judgement — what to publish, how to title it, how the essays and the practice pages speak in one voice — and that is exactly the work the Guided tier exists to sell. Where the therapist has a public profile worth positioning around, it justifies the Bespoke tier on its own.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= D3 ================= -->
+<section id="d3">
+  <div class="sec-head"><span class="n">D3</span><h2>Sounding</h2></div>
+
+  <div class="sheet">
+    <div class="sheet-head">
+      <p class="sheet-no">DIRECTION 03 · CHALLENGES THE CATEGORY CONVENTION</p>
+      <h3 class="sheet-name" style="font-family:'EB Garamond',Garamond,Georgia,serif;font-weight:400">Sounding</h3>
+      <p class="sheet-role">Depth-oriented / reflective psychotherapy</p>
+      <p class="sheet-line">The only dark direction in the library, and the only one not organised by presenting problem.</p>
+    </div>
+
+    <div class="swatch-block">
+      <p class="swatch-label">Palette — dark ground, warm parchment text</p>
+      <div class="strip">
+        <div class="sw" style="background:#16161C;color:#EDE7DA"><b>Ground</b>#16161C</div>
+        <div class="sw" style="background:#1E1E26;color:#EDE7DA"><b>Raised</b>#1E1E26</div>
+        <div class="sw" style="background:#EDE7DA;color:#16161C"><b>Text 14.6:1</b>#EDE7DA</div>
+        <div class="sw" style="background:#A9A296;color:#16161C"><b>Muted 7.1:1</b>#A9A296</div>
+        <div class="sw" style="background:#C2A25C;color:#16161C"><b>Gold 7.4:1</b>#C2A25C</div>
+        <div class="sw" style="background:#6E6E7C;color:#fff"><b>Rule 3.6:1</b>#6E6E7C</div>
+        <div class="sw" style="background:#33333E;color:#EDE7DA"><b>Hairline</b>#33333E</div>
+      </div>
+      <div class="strip grey" aria-hidden="true">
+        <div class="sw" style="background:#16161C"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#1E1E26"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#EDE7DA"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#A9A296"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#C2A25C"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#6E6E7C"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#33333E"><b>&nbsp;</b>&nbsp;</div>
+      </div>
+      <p class="grey-note">Greyscale test — inverted against every other direction in the library. Identifiable at a glance with no hue at all, which no two of the current seven concepts are.</p>
+    </div>
+
+    <div class="spec" style="background:#16161C">
+      <p class="spec-line" style="font-family:'EB Garamond',Garamond,Georgia,serif;font-weight:400;color:#EDE7DA">What open-ended therapy asks of you</p>
+      <p class="spec-body" style="font-family:'EB Garamond',Garamond,Georgia,serif;color:#C6BFB0">Old-style figures, true italics used for emphasis rather than bold, and leading at 1.75 — the most generous in the library, because reading light text on a dark ground is harder and the design has to pay for it.</p>
+      <p class="spec-meta" style="color:#A9A296">EB Garamond 400 + italic · fallback: Garamond, Georgia, serif · base 19px / 1.75 · measure 56ch</p>
+    </div>
+
+    <div class="sheet-body">
+      <dl class="fields">
+        <dt>Best suited to</dt>
+        <dd>Psychodynamic, Jungian, existential or relational psychotherapist, typically UKCP or BPC registered, offering weekly or twice-weekly open-ended work and often taking supervisees. <strong>Client group:</strong> 30–60, frequently has had therapy before and wants something longer, willing to commit time and money. <strong>Practice stage:</strong> senior; may be a training therapist. <strong>Tone:</strong> contained, serious, quiet, unhurried to the point of stillness.</dd>
+
+        <dt>Journey</dt>
+        <dd>Deliberately slow and deliberately filtered. There is no booking button. The next step is a written enquiry followed by a paid initial consultation, and the site says so plainly. It converts fewer visitors on purpose, and better ones.</dd>
+
+        <dt>Layout</dt>
+        <dd>Dark ground, 56ch measure, very large top and bottom margins. Sections divided by space alone — no rules, no boxes, no alternating grounds. The page is mostly empty and that is the point.</dd>
+
+        <dt>Typography</dt>
+        <dd>EB Garamond at 19px, 1.75 leading, old-style figures. Italic does the work bold does elsewhere. Headings are barely larger than body — hierarchy is space, not scale.</dd>
+
+        <dt>Imagery</dt>
+        <dd>Almost none. One abstract long-exposure or texture image, or none at all. No portrait above the fold — the practitioner appears once, low on the About page.</dd>
+
+        <dt>Voice</dt>
+        <dd>Third person when describing the work, first person sparingly and only where it is genuinely personal. Complete paragraphs, not fragments. The one direction where a long sentence is correct.</dd>
+
+        <dt>Motif</dt>
+        <dd>A single thin vertical rule at the left edge of the reading column, running the full height of the text — a manuscript rule. It is the only line on the page.</dd>
+
+        <dt>Different because</dt>
+        <dd>Two structural inversions, not one. It is the only <strong>dark</strong> direction; and it is the only one <strong>not organised by presenting problem</strong>. There is no "I can help with anxiety, depression, trauma" grid. The navigation is the shape of the work: what open-ended therapy is, what frequency means, the first three sessions, and how endings are handled.</dd>
+      </dl>
+
+      <details class="more">
+        <summary>Worked example, brand system and website system</summary>
+        <div>
+          <h4>Fictional worked example</h4>
+          <p><strong>Ardleigh Psychotherapy</strong> — Clifton, Bristol. Practitioner: <strong>Neil Ashworth</strong>. Positioning line: <em>"Open-ended psychotherapy in Bristol."</em> Adults, once or twice weekly, in person only, with an initial consultation charged at the session fee. Fee stated as <span class="mono">£90</span>, consultation <span class="mono">£90</span>.</p>
+          <p><strong>Concept disclosure, on every page:</strong> "A design concept by Alexander Watson Studio. Ardleigh Psychotherapy is not a real practice and no service is offered here." <strong>Deliberately avoided in this example:</strong> the title "Dr". UKCP clause 12 requires any use of "Dr" to indicate whether it is medical or academic, and a fictional practitioner cannot demonstrate that honestly — so the worked example carries no doctoral title at all, and the direction's About template prompts for the distinction rather than assuming it. No registration numbers, no training institutes named, no testimonials, no claims about outcomes.</p>
+
+          <h4>Wordmark concept</h4>
+          <p>The practice name set in EB Garamond 400 at 1.4rem with wide letter spacing (<span class="mono">0.08em</span>), in parchment on the dark ground, with a 1px vertical gold rule to its left echoing the manuscript motif. No symbol. Delivered as SVG with outlined text, plus a light-ground variant with the same geometry for letterheads and the client's directory listings.</p>
+
+          <h4>Colour tokens and accessibility roles</h4>
+          <div class="tw"><table>
+            <thead><tr><th>Token</th><th>Hex</th><th>Role</th><th>Measured</th></tr></thead>
+            <tbody>
+              <tr><td><code>--ground</code></td><td class="num">#16161C</td><td>Page ground</td><td class="num">—</td></tr>
+              <tr><td><code>--raised</code></td><td class="num">#1E1E26</td><td>Quote and note blocks</td><td class="num">text 13.4:1</td></tr>
+              <tr><td><code>--text</code></td><td class="num">#EDE7DA</td><td>Body and headings</td><td class="num">14.6:1 AAA</td></tr>
+              <tr><td><code>--muted</code></td><td class="num">#A9A296</td><td>Captions, metadata</td><td class="num">7.1:1 AAA</td></tr>
+              <tr><td><code>--gold</code></td><td class="num">#C2A25C</td><td>Links, the manuscript rule, focus</td><td class="num">7.4:1 AA · ground on it 7.4:1</td></tr>
+              <tr><td><code>--rule-strong</code></td><td class="num">#6E6E7C</td><td>Form borders</td><td class="num">3.6:1 — meets WCAG 2.2 non-text</td></tr>
+              <tr><td><code>--hairline</code></td><td class="num">#33333E</td><td>Decorative only</td><td class="num">1.4:1 — barred from text</td></tr>
+            </tbody>
+          </table></div>
+
+          <h4>Spacing, border, button, form</h4>
+          <ul>
+            <li><strong>Spacing scale:</strong> 8 / 16 / 28 / 48 / 80 / 128 / 200. The 200 step exists only here, for the space above and below a page's single heading.</li>
+            <li><strong>Borders:</strong> the 1px manuscript rule, and form borders. Nothing else. Radius <span class="mono">2px</span> on inputs only.</li>
+            <li><strong>Buttons:</strong> one, and it is not a fill. A gold 1px outline with a gold label, 52px tall, which sits correctly on a dark ground where a solid block would glare. Hover raises to a filled gold with ground-colour text.</li>
+            <li><strong>Forms:</strong> transparent field on <code>--raised</code>, 1px <code>--rule-strong</code>, 52px, 17px text. Focus is a 2px gold outline at 3px offset — larger than elsewhere because focus rings are harder to see on dark grounds.</li>
+          </ul>
+
+          <h4>Image art direction and prompts</h4>
+          <p class="prompt">Long-exposure photograph of deep water at dusk, no horizon visible, no boat, no shoreline. Almost abstract; tonal range compressed into blues and near-blacks with a single faint highlight. Landscape crop, very low visual noise. Intended to sit behind nothing and be seen once.</p>
+          <p class="prompt">Close texture study: the surface of an old plastered wall in low raking light, warm grey, shallow depth of field, no objects, no symbols, no faces. Shot to be printed at low contrast so text never sits on it.</p>
+          <p>Portrait, used once and low on the About page: seated, dark clothing, dark ground, single soft light source from the side, looking at camera, not smiling, warm tonality. Never cut out, never on white.</p>
+
+          <h4>Voice guidance</h4>
+          <p>Describe the work, not the outcome. Say what will be asked of the reader — frequency, duration, cost over time, what happens when they want to stop. Do not reassure. Do not list conditions. The reader for this direction is deciding whether to give someone two hours a week for two years, and honesty about that is the whole proposition.</p>
+
+          <h4>Avoid list</h4>
+          <p>Any light-ground section. Symptom lists. Modality acronym soup. Stock imagery of any kind. Nature. Candles, mandalas, spirals, Jungian symbols, mythological illustration — this direction is one careless decision away from looking occult, and that is its principal failure mode. Gradients. Glows. Serif-italic pull quotes at large sizes. The words <em>shadow work, inner child, transformation, awakening, sacred, held space</em>. Any implication that longer therapy is better therapy.</p>
+
+          <h4>Accessibility notes</h4>
+          <p>Dark grounds carry specific obligations and this direction takes them seriously. Body text is measured at 14.6:1, well above the 7:1 AAA threshold, because light-on-dark reads thinner. Font weight never drops below 400. Letter spacing on body is <span class="mono">0.01em</span> positive to counter halation. Focus rings are 2px at 3px offset. The design must be checked at 200% zoom and in Windows High Contrast Mode, where a dark-first design most often breaks. It ships with a light-ground reading toggle that persists per visitor — not a full theme system, one control.</p>
+
+          <h4>Fixed versus customisable</h4>
+          <p><strong>Direction-fixed:</strong> the dark ground, the 56ch measure, the manuscript rule, the space-not-rules section rhythm, the absence of a symptom grid, the outline-only button, the paid-consultation step.<br>
+          <strong>Client-customisable:</strong> the accent within three tested alternatives to gold, all words, whether the light-ground toggle is offered, the single image or its absence, fee and frequency facts.</p>
+
+          <h4>Website system</h4>
+          <p><strong>Sitemap:</strong> Home · The work · Frequency and commitment · Beginning · Endings · About · Contact · Privacy · Accessibility · 404. Seven visible pages, and not one of them named after a symptom.</p>
+          <p><strong>Homepage order:</strong> (1) Practice name and one sentence, in a great deal of space. (2) What this kind of therapy is, three paragraphs. (3) What it asks — frequency, duration, cost over time, stated plainly. (4) How to begin: written enquiry, then a paid consultation, then a decision by both people. (5) Who I am, four lines and a link. (6) Enquiry. (7) Urgent-support boundary — carrying extra weight here, because a direction that deliberately slows down must be unambiguous that it is not for a crisis.</p>
+          <p><strong>Components:</strong> manuscript rule, note block, fee-over-time table, step sequence, enquiry form, urgent-support panel, light-ground toggle, registration placeholder, concept notice.</p>
+          <p><strong>Calls to action:</strong> one, and it is honest about friction — "Write to me about starting". No booking, no calendar, no instant anything.</p>
+          <p><strong>SEO:</strong> the weakest of the six, and knowingly so. Nobody searches for "open-ended psychotherapy Bristol" in volume. This direction is found by referral and by supervisors, so the site's job is to convert a name someone was already given. Title pattern <span class="mono">[Name] — Psychotherapy in [town]</span>. Structured data limited to <code>Person</code> and <code>LocalBusiness</code>. Do not sell search performance with this direction.</p>
+          <p><strong>Mobile priorities:</strong> the 200 spacing step halves on mobile or the page becomes absurd. Measure caps at 52 characters. The light-ground toggle must be reachable without scrolling, since a phone in a bright room is exactly when it is needed.</p>
+          <p><strong>Trust and factual checklist:</strong> fee stated · consultation fee stated separately · frequency stated · in-person-only stated · town stated · what the first contact involves stated · registration placeholder present · urgent-support boundary present and prominent · privacy notice · no testimonials · no symptom or outcome claims · concept disclosure on every page.</p>
+          <p><strong>Content required from the client:</strong> roughly 1,400 words of considered prose — the highest per-page burden in the library, though across few pages. One portrait. Willingness to state a real fee and a real commitment.</p>
+
+          <h4>Commercial fit</h4>
+          <p><strong>Practice Clarity + Bespoke Website.</strong> The positioning <em>is</em> the product here: deciding not to list symptoms, deciding to charge for the consultation, deciding to describe endings on a public page. Those are clarity decisions, not design decisions, and no therapist arrives with them already made. It could be delivered as Guided at the top of that tier, but it should never be sold as Straightforward.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= D4 ================= -->
+<section id="d4">
+  <div class="sec-head"><span class="n">D4</span><h2>Plain Terms</h2></div>
+
+  <div class="sheet">
+    <div class="sheet-head">
+      <p class="sheet-no">DIRECTION 04 · SUPERSEDES "DIFFERENT MINDS"</p>
+      <h3 class="sheet-name" style="font-family:'Atkinson Hyperlegible',Verdana,sans-serif;font-weight:700">Plain Terms</h3>
+      <p class="sheet-role">Neurodivergent-affirming and clear</p>
+      <p class="sheet-line">Every page opens with a summary before any prose, and the reading controls actually work.</p>
+    </div>
+
+    <div class="swatch-block">
+      <p class="swatch-label">Palette — maximum contrast, conventional link colour</p>
+      <div class="strip">
+        <div class="sw" style="background:#FFFFFF;color:#14161A"><b>Paper</b>#FFFFFF</div>
+        <div class="sw" style="background:#EEF1F5;color:#14161A"><b>Panel</b>#EEF1F5</div>
+        <div class="sw" style="background:#14161A;color:#fff"><b>Ink 18.1:1</b>#14161A</div>
+        <div class="sw" style="background:#4A4E56;color:#fff"><b>Muted 8.4:1</b>#4A4E56</div>
+        <div class="sw" style="background:#1F4FA8;color:#fff"><b>Blue 7.7:1</b>#1F4FA8</div>
+        <div class="sw" style="background:#757B84;color:#fff"><b>Rule 4.3:1</b>#757B84</div>
+        <div class="sw" style="background:#7A4A00;color:#fff"><b>Note 7.0:1</b>#7A4A00</div>
+      </div>
+      <div class="strip grey" aria-hidden="true">
+        <div class="sw" style="background:#FFFFFF"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#EEF1F5"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#14161A"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#4A4E56"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#1F4FA8"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#757B84"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#7A4A00"><b>&nbsp;</b>&nbsp;</div>
+      </div>
+      <p class="grey-note">Greyscale test — the only pure-white ground in the library, and the widest steps between adjacent tones. Status is never carried by colour alone; every coloured element also carries a word or an icon.</p>
+    </div>
+
+    <div class="spec">
+      <p class="spec-line" style="font-family:'Atkinson Hyperlegible',Verdana,sans-serif;font-weight:700;font-size:clamp(1.25rem,3vw,1.7rem)">In short: what happens in a first session</p>
+      <p class="spec-body" style="font-family:'Atkinson Hyperlegible',Verdana,sans-serif">Atkinson Hyperlegible was drawn for low-vision readers: unambiguous letterforms, distinct I / l / 1, open apertures. Sans only, 18px base, 1.7 leading, and never justified.</p>
+      <p class="spec-meta">Atkinson Hyperlegible 400/700 · fallback: Verdana, Tahoma, sans-serif · base 18px / 1.7</p>
+    </div>
+
+    <div class="sheet-body">
+      <dl class="fields">
+        <dt>Best suited to</dt>
+        <dd>Neurodivergence-affirming counsellors and psychotherapists; practitioners working with late-diagnosed autistic and ADHD adults; therapists who are themselves neurodivergent and say so. <strong>Client group:</strong> any adult age, often exhausted by services that were hard to use, frequently pre-diagnosis and unsure whether they qualify for anything. <strong>Practice stage:</strong> any — this is a specialism, not a seniority. <strong>Tone:</strong> direct, unpatronising, low-demand.</dd>
+
+        <dt>Journey</dt>
+        <dd>The reader chooses their own route on arrival, from three plainly-labelled options: the short version, the detailed version, or what the room and the process are actually like. No other direction hands over navigation this early.</dd>
+
+        <dt>Layout</dt>
+        <dd>Every page begins with a bordered "In short" panel — three to five bullet points — before any prose. Wide gutters, short blocks, no long unbroken text, 56px targets, nothing that requires precise pointing.</dd>
+
+        <dt>Typography</dt>
+        <dd>Atkinson Hyperlegible throughout, sans only, 18px base, 1.7 leading, left-aligned always. Bold for emphasis, never italic, never all-caps in running text.</dd>
+
+        <dt>Imagery</dt>
+        <dd>Diagrammatic and illustrative rather than photographic — except for one honest photograph of the room, chosen and captioned to show sensory detail: where the light comes from, whether there is a clock, how loud the street is.</dd>
+
+        <dt>Voice</dt>
+        <dd>Literal. No idiom, no metaphor, no implicature. "You do not have to make eye contact." "If you need to stop, say stop, and we will stop." The absence of figurative language is the accessibility feature.</dd>
+
+        <dt>Motif</dt>
+        <dd>The "In short" panel itself — a bordered box with a labelled heading, repeated identically on every page so the reader learns its shape once.</dd>
+
+        <dt>Different because</dt>
+        <dd>It is the only direction where <strong>the interface is the argument</strong>. A persistent reading-controls bar — text size, line spacing, reduced motion, plain or expanded view — is built, tested and works, rather than being claimed in a paragraph about inclusivity. Every other direction is accessible; this one is demonstrably usable in a way the visitor can feel.</dd>
+      </dl>
+
+      <details class="more">
+        <summary>Worked example, brand system and website system</summary>
+        <div>
+          <h4>Fictional worked example</h4>
+          <p><strong>Ashfield Practice</strong> — Leeds. Practitioner: <strong>Priya Vance</strong>. Positioning line: <em>"Counselling for autistic and ADHD adults in Leeds."</em> Adults, one-to-one, in person in Leeds and online, with email-only contact offered as a first-class option rather than a fallback. Fee stated as <span class="mono">£60</span>, and a stated policy that appointments can be rescheduled by message without explanation.</p>
+          <p><strong>Concept disclosure, on every page:</strong> "A design concept by Alexander Watson Studio. Ashfield Practice is not a real practice and no service is offered here." No diagnostic claims, no assessment offered, no suggestion that therapy identifies or confirms neurodivergence, no registration numbers or training bodies named, no testimonials. The direction is affirming about identity without making any clinical claim, and that line must hold in the copy.</p>
+
+          <h4>Wordmark concept</h4>
+          <p>The practice name in Atkinson Hyperlegible 700 at normal tracking, with a two-line strapline beneath in 400. The only graphic element is a bracket — a square open bracket to the left of the name, at text weight — echoing the "In short" panel border. Deliberately plain, deliberately legible at 16px, and it must survive being read by a screen reader as ordinary text: the SVG carries a <code>&lt;title&gt;</code> and the header also renders the name as real text for assistive technology.</p>
+
+          <h4>Colour tokens and accessibility roles</h4>
+          <div class="tw"><table>
+            <thead><tr><th>Token</th><th>Hex</th><th>Role</th><th>Measured</th></tr></thead>
+            <tbody>
+              <tr><td><code>--paper</code></td><td class="num">#FFFFFF</td><td>Page ground — deliberately pure white for maximum contrast</td><td class="num">—</td></tr>
+              <tr><td><code>--panel</code></td><td class="num">#EEF1F5</td><td>"In short" panel and note grounds</td><td class="num">ink 16.0:1</td></tr>
+              <tr><td><code>--ink</code></td><td class="num">#14161A</td><td>Body and headings</td><td class="num">18.1:1 AAA</td></tr>
+              <tr><td><code>--muted</code></td><td class="num">#4A4E56</td><td>Captions — still AAA, so it can carry real content</td><td class="num">8.4:1 AAA</td></tr>
+              <tr><td><code>--blue</code></td><td class="num">#1F4FA8</td><td>Links and buttons — a conventional link blue, on purpose</td><td class="num">7.7:1 AA · white on it 7.7:1</td></tr>
+              <tr><td><code>--rule-strong</code></td><td class="num">#757B84</td><td>Panel and form borders</td><td class="num">4.3:1 — comfortably over the 3:1 floor</td></tr>
+              <tr><td><code>--note</code></td><td class="num">#7A4A00</td><td>Advisory notes, always paired with the word "Note"</td><td class="num">7.0:1 AAA</td></tr>
+            </tbody>
+          </table></div>
+          <p>The link colour is not a brand decision. Blue underlined links are what readers already know, and this is the one direction where convention beats distinctiveness.</p>
+
+          <h4>Spacing, border, button, form</h4>
+          <ul>
+            <li><strong>Spacing scale:</strong> 8 / 16 / 24 / 32 / 48 / 72 / 104. Even and predictable; no clever ratios.</li>
+            <li><strong>Borders:</strong> 2px on the "In short" panel — heavier than anywhere else in the library, so the shape is unmistakable. 6px radius throughout, the softest in the library, because sharp corners read as clinical here.</li>
+            <li><strong>Buttons:</strong> filled blue, 6px radius, <strong>56px tall</strong>, 15px gap between any two stacked controls. Text is 16px/600 and never abbreviates.</li>
+            <li><strong>Forms:</strong> 2px <code>--rule-strong</code>, 56px, 17px text. Every field has a visible label and, where it helps, a plain-language hint above the input rather than below it. Errors appear beside the field, in words, prefixed "Problem:" — never colour alone, never a red border on its own. No time limits anywhere.</li>
+          </ul>
+
+          <h4>Image art direction and prompts</h4>
+          <p>Illustration is the primary register — flat, two-colour, no gradients, no textures, no faces.</p>
+          <p class="prompt">Flat two-colour vector diagram showing three routes through a page, drawn as three simple labelled paths from a single starting point. Ink and blue only, no gradients, no shadow, generous line weight, no icons of people. Reads clearly at 320px wide.</p>
+          <p class="prompt">Honest photograph of a small therapy room, wide angle, showing the whole space including the door and the window, taken with normal room lighting rather than styled light. Two chairs at an angle, not facing directly. A clock visible. No decoration added or removed. The image will be captioned with sensory facts, so it must show them.</p>
+          <p>Every image carries a real alt text written by the studio, and the room photograph additionally carries a written sensory description beside it — not in the alt attribute, as visible text everyone can read.</p>
+
+          <h4>Voice guidance</h4>
+          <p>Say the thing. Give the number. State what is allowed. Where a social expectation exists, name it and then release it. Write in the second person and the present tense. Keep sentences to one clause where possible. Never use "just", "simply", "of course", or "obviously". Never say "we all" anything.</p>
+
+          <h4>Avoid list</h4>
+          <p>Puzzle pieces. Rainbow infinity used decoratively as a brand device rather than deliberately as identity. Jigsaw, lightbulb and brain iconography. Superpower framing. Deficit framing. Autoplay. Carousels. Hover-only content. Motion on scroll. Colour-only status. Justified text. Italics in running text. Text over images. Modal pop-ups. Phone number as the only contact route. The words <em>high-functioning, mild, severe, suffers from, normal, quirky, special interest</em> used loosely.</p>
+
+          <h4>Accessibility notes</h4>
+          <p>Targets WCAG 2.2 AA in full and AAA on contrast and text spacing. The reading-controls bar persists per visitor in local storage and must degrade to the default if storage is unavailable. Text must survive the WCAG 1.4.12 spacing override — 200% line height, 0.12em letter spacing — with no clipping. Full keyboard operation with a visible 3px focus ring. Reduced motion honoured absolutely, including the controls bar itself. The three route options are real links, not tabs, so they survive with JavaScript disabled.</p>
+
+          <h4>Fixed versus customisable</h4>
+          <p><strong>Direction-fixed:</strong> Atkinson Hyperlegible, the "In short" panel on every page, the reading-controls bar, 56px targets, blue links, the route-choice landing, the literal-language rule, the sensory description beside the room photograph.<br>
+          <strong>Client-customisable:</strong> all words, the illustration accent within three tested alternatives, the room photograph, fee and policy facts, which three routes are offered, whether email-only contact is the default.</p>
+
+          <h4>Website system</h4>
+          <p><strong>Sitemap:</strong> Home · Short version · Full version · What it's like (the room and the process) · Fees · About · Contact · Accessibility · Privacy · 404. Eight visible pages — the most in the library, because splitting content by depth is the whole idea.</p>
+          <p><strong>Homepage order:</strong> (1) Name and one plain sentence. (2) "In short" panel — five facts: who, where, cost, how to contact, how long a reply takes. (3) Route choice, three labelled links. (4) What I can and cannot help with, in two plain lists. (5) The room, with the photograph and its sensory description. (6) Contact, with email offered first. (7) Urgent-support boundary.</p>
+          <p><strong>Components:</strong> "In short" panel, reading-controls bar, route grid, plain/expanded toggle, sensory description block, note block, fee block, enquiry form, urgent-support panel, registration placeholder, concept notice.</p>
+          <p><strong>Calls to action:</strong> two, both low-demand — "Send an email" and "Ask a question first". The second exists because for this client group the barrier is usually the enquiry itself, not the therapy.</p>
+          <p><strong>SEO:</strong> strong and specific. "Autistic adults counselling [city]", "ADHD counselling [city]", "late diagnosis support [city]" are real, searched, under-served terms. The plain-language content is genuinely what the searcher wants, which is the honest version of an SEO strategy. Avoid every diagnostic and treatment claim while doing it.</p>
+          <p><strong>Mobile priorities:</strong> the controls bar must not consume more than 48px of a phone screen and must be dismissible. The "In short" panel is the first thing on screen, above any image. Route links are full-width rows.</p>
+          <p><strong>Trust and factual checklist:</strong> fee stated · session length stated · in-person and online stated · city stated · reply time stated · rescheduling policy stated · registration placeholder present · urgent-support boundary present · accessibility statement that is specific and true rather than boilerplate · privacy notice · no diagnostic or assessment claims · no testimonials · concept disclosure on every page.</p>
+          <p><strong>Content required from the client:</strong> two versions of the core content — short and full — which is real work and the reason this is a Guided-tier direction. One room photograph plus honest sensory facts. Their policies on rescheduling, contact method and lateness, written down.</p>
+
+          <h4>Commercial fit</h4>
+          <p><strong>Guided Website.</strong> The short-and-full split, the sensory description and the plain-language rewrite are not things most therapists produce unaided, and they are exactly the writing support the Guided tier sells. It is also the direction that most visibly demonstrates the studio's accessibility claim, which makes it worth more to the studio than its fee suggests.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= D5 ================= -->
+<section id="d5">
+  <div class="sec-head"><span class="n">D5</span><h2>Two Chairs</h2></div>
+
+  <div class="sheet">
+    <div class="sheet-head">
+      <p class="sheet-no">DIRECTION 05 · ABSORBS "COMMON GROUND"</p>
+      <h3 class="sheet-name" style="font-family:'Bitter',Georgia,serif;font-weight:600">Two Chairs</h3>
+      <p class="sheet-role">Relationship, couples or family</p>
+      <p class="sheet-line">Written for two people reading the same page with opposite motivations.</p>
+    </div>
+
+    <div class="swatch-block">
+      <p class="swatch-label">Palette — two accents of equal weight, one per reader</p>
+      <div class="strip">
+        <div class="sw" style="background:#F4F2F4;color:#201D24"><b>Paper</b>#F4F2F4</div>
+        <div class="sw" style="background:#FFFFFF;color:#201D24"><b>Panel</b>#FFFFFF</div>
+        <div class="sw" style="background:#201D24;color:#F4F2F4"><b>Ink 14.9:1</b>#201D24</div>
+        <div class="sw" style="background:#5A5460;color:#fff"><b>Muted 6.6:1</b>#5A5460</div>
+        <div class="sw" style="background:#355264;color:#fff"><b>Slate 7.4:1</b>#355264</div>
+        <div class="sw" style="background:#6E4E3A;color:#fff"><b>Walnut 6.7:1</b>#6E4E3A</div>
+        <div class="sw" style="background:#8C8690;color:#fff"><b>Rule 3.2:1</b>#8C8690</div>
+      </div>
+      <div class="strip grey" aria-hidden="true">
+        <div class="sw" style="background:#F4F2F4"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#FFFFFF"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#201D24"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#5A5460"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#355264"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#6E4E3A"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#8C8690"><b>&nbsp;</b>&nbsp;</div>
+      </div>
+      <p class="grey-note">Greyscale test — slate and walnut land within 0.7:1 of each other by design, so neither reader's frame looks more important than the other's when hue is removed or when the page is printed.</p>
+    </div>
+
+    <div class="spec">
+      <p class="spec-line" style="font-family:'Bitter',Georgia,serif;font-weight:600">If you're the one who suggested this</p>
+      <p class="spec-body" style="font-family:'Bitter',Georgia,serif;font-weight:400">A slab serif is neither soft nor clinical, which is the exact register this direction needs — it cannot look tender, because one of its two readers did not want to be here.</p>
+      <p class="spec-meta">Bitter 400/600 headings · Karla 400 body · fallback: Georgia, serif / system sans · base 17.5px / 1.65</p>
+    </div>
+
+    <div class="sheet-body">
+      <dl class="fields">
+        <dt>Best suited to</dt>
+        <dd>Couples counsellors, relationship therapists, family practitioners and mediators — including two-practitioner practices. <strong>Client group:</strong> two adults, usually with asymmetric motivation: one has been reading therapist websites for a fortnight, the other opened the link an hour ago and is not convinced. <strong>Practice stage:</strong> specialist, often with additional couples training. <strong>Tone:</strong> even-handed, unsentimental, hopeful without promising anything.</dd>
+
+        <dt>Journey</dt>
+        <dd>Two people arrive at different moments with different questions and must both find themselves addressed. The site anticipates the reluctant reader explicitly rather than writing for the enthusiastic one and hoping.</dd>
+
+        <dt>Layout</dt>
+        <dd>A genuinely paired grid: two panels of equal width, equal weight and equal length, side by side, each addressing one reader. On mobile they stack with clear labels and alternate which comes first between pages, so neither is consistently second.</dd>
+
+        <dt>Typography</dt>
+        <dd>Bitter for headings — a slab serif, sturdy, used nowhere in the existing collection. Karla for body. The pairing is deliberately unglamorous.</dd>
+
+        <dt>Imagery</dt>
+        <dd><strong>No photographs of couples, ever.</strong> Two chairs at an angle. Two cups. A table with two places. A doorway. The moment you photograph a real couple you exclude by age, race, gender composition and disability, and this direction's entire proposition is that it takes no side.</dd>
+
+        <dt>Voice</dt>
+        <dd>Plural second person — "you both", "each of you". Scrupulous with blame language: never "the partner who won't engage". Names the reluctance directly and treats it as reasonable.</dd>
+
+        <dt>Motif</dt>
+        <dd>The paired block: two bordered panels of identical weight, one in slate and one in walnut, never stacked on desktop and never differing in size.</dd>
+
+        <dt>Different because</dt>
+        <dd>It is the only direction with <strong>two simultaneous readers</strong>, and that is a structural constraint rather than a mood. It carries a page nothing else needs — "What if only one of us wants to?" — and a joint-enquiry mechanism where one person sends and the other is invited to confirm, which no other direction requires.</dd>
+      </dl>
+
+      <details class="more">
+        <summary>Worked example, brand system and website system</summary>
+        <div>
+          <h4>Fictional worked example</h4>
+          <p><strong>Halstead Relationship Therapy</strong> — Norwich. Practitioners: <strong>Marianne Okonjo</strong> and <strong>Tom Rees</strong>, a two-person practice, which also lets the direction demonstrate a practitioner-comparison view rather than the bio-by-bio click-through the market evidence identifies as a common group-practice failure. Positioning line: <em>"Relationship counselling in Norwich, for both of you."</em> Couples and individuals working on relationships, in person and online. Fee stated as <span class="mono">£85</span> for a 60-minute couples session.</p>
+          <p><strong>Concept disclosure, on every page:</strong> "A design concept by Alexander Watson Studio. Halstead Relationship Therapy is not a real practice and no service is offered here." No success rates, no claims that relationships are saved or repaired, no testimonials — and the direction deliberately does not name any branded couples model, since claiming a model requires the training to back it.</p>
+
+          <h4>Wordmark concept</h4>
+          <p>The practice name in Bitter 600, with a rule beneath it broken into two equal segments — one slate, one walnut — meeting at the centre. The break is the mark. It scales to a 24px favicon as two short strokes with a gap, and it works in one colour by rendering as two segments with a visible gap rather than two hues. SVG, outlined text, with a stacked variant for narrow contexts.</p>
+
+          <h4>Colour tokens and accessibility roles</h4>
+          <div class="tw"><table>
+            <thead><tr><th>Token</th><th>Hex</th><th>Role</th><th>Measured</th></tr></thead>
+            <tbody>
+              <tr><td><code>--paper</code></td><td class="num">#F4F2F4</td><td>Page ground — cool, faintly lilac, deliberately not warm</td><td class="num">—</td></tr>
+              <tr><td><code>--panel</code></td><td class="num">#FFFFFF</td><td>Paired-block ground</td><td class="num">ink 16.6:1</td></tr>
+              <tr><td><code>--ink</code></td><td class="num">#201D24</td><td>Body and headings</td><td class="num">14.9:1 AAA</td></tr>
+              <tr><td><code>--muted</code></td><td class="num">#5A5460</td><td>Metadata</td><td class="num">6.6:1 AAA</td></tr>
+              <tr><td><code>--slate</code></td><td class="num">#355264</td><td>Reader A frame, links</td><td class="num">7.4:1 · white on it 8.3:1</td></tr>
+              <tr><td><code>--walnut</code></td><td class="num">#6E4E3A</td><td>Reader B frame — equal status, never secondary</td><td class="num">6.7:1 · white on it 7.5:1</td></tr>
+              <tr><td><code>--rule-strong</code></td><td class="num">#8C8690</td><td>Panel and form borders</td><td class="num">3.2:1 — meets WCAG 2.2 non-text</td></tr>
+            </tbody>
+          </table></div>
+          <p>The two accents are within 0.7:1 of each other against the ground. That is a deliberate constraint: if one were noticeably stronger, the design would be taking a side.</p>
+
+          <h4>Spacing, border, button, form</h4>
+          <ul>
+            <li><strong>Spacing scale:</strong> 8 / 16 / 24 / 40 / 56 / 88 / 128. Paired blocks always sit at the 40 gutter so neither can be read as subordinate.</li>
+            <li><strong>Borders:</strong> 1px panel borders in the panel's own accent, 3px radius. The two panels must be given equal minimum heights via the grid, never left to content length.</li>
+            <li><strong>Buttons:</strong> filled slate for the shared primary action; the walnut accent never becomes a button, so no action ever looks like it belongs to one partner. 50px tall, 3px radius.</li>
+            <li><strong>Forms:</strong> 1px <code>--rule-strong</code>, 50px, 16px text. The joint enquiry form asks for two names and one contact email, with a plainly-worded checkbox confirming that the other person knows the enquiry is being sent. That checkbox is a real ethical control, not decoration.</li>
+          </ul>
+
+          <h4>Image art direction and prompts</h4>
+          <p class="prompt">Two upholstered chairs in a plain room, set at a slight angle to each other rather than facing directly, equal distance from a small side table. Empty. Natural light from the right. Muted colour, no cushions, no throw, no plant. Shot straight on at seated height, 35mm.</p>
+          <p class="prompt">Overhead, two plain cups of tea on a wooden table, equal fill level, set apart by about thirty centimetres. No hands, no faces, no biscuits, no styling. Soft daylight, honest colour.</p>
+          <p>Prohibited outright: any photograph containing two identifiable people, silhouettes of a couple, holding hands, a bridge, a sunset, an anatomical heart, or a broken-then-mended object.</p>
+
+          <h4>Voice guidance</h4>
+          <p>Address both, always. Where you describe a common pattern, describe it from both sides in the same number of words. Say what happens if one person does not want to come. Say what happens if the outcome is separating — this direction should be one of the few therapist websites that says it plainly, because pretending otherwise costs trust with the reluctant reader.</p>
+
+          <h4>Avoid list</h4>
+          <p>Photographs of couples. Hearts, rings, infinity symbols, interlocking circles. Pink or red as an accent. Script faces. "Reignite", "rekindle", "save your marriage", "get the spark back". Any success rate or statistic. Gendered assumptions in examples. Framing one partner as the problem. Anything implying the goal is staying together.</p>
+
+          <h4>Accessibility notes</h4>
+          <p>The paired grid is the accessibility risk. Each panel must be a labelled region with its own heading so a screen-reader user knows which frame they are in, and the two must appear in a sensible source order that alternates between pages. Colour must never be the only thing distinguishing the two frames — each carries its own visible heading. On mobile the panels stack with the same headings and no visual trickery. Equal-height panels must be achieved with grid, never with fixed heights that clip at 200% zoom.</p>
+
+          <h4>Fixed versus customisable</h4>
+          <p><strong>Direction-fixed:</strong> the paired block, two accents of equal weight, the "only one of us" page, the joint-enquiry consent checkbox, the no-couples-photography rule, the alternating mobile order.<br>
+          <strong>Client-customisable:</strong> both accents within a tested pair set, all words, imagery, fee and session length, number of practitioners, whether individual work is offered alongside couples work.</p>
+
+          <h4>Website system</h4>
+          <p><strong>Sitemap:</strong> Home · How it works · What if only one of us wants to? · Fees · The practitioners · Contact · Privacy · Accessibility · 404.</p>
+          <p><strong>Homepage order:</strong> (1) Name and one sentence addressed to both. (2) The first paired block — "If you suggested this" / "If you were asked to come". (3) What actually happens in a session, plainly, including who talks. (4) Fee, length, where, online option. (5) Practitioner comparison — specialism, availability and fee in one view, not a click-through per person. (6) The "only one of us" question, previewed with a link. (7) Joint enquiry. (8) Urgent-support boundary, including a specific line about domestic abuse and where to go instead.</p>
+          <p><strong>Components:</strong> paired block, practitioner comparison table, step sequence, fee block, joint enquiry form with consent checkbox, urgent-support panel with an abuse-specific route, registration placeholder, concept notice.</p>
+          <p><strong>Calls to action:</strong> one shared action — "Send a joint enquiry" — plus a quieter single-person route, "Ask about coming on your own first", which is often the honest first step.</p>
+          <p><strong>SEO:</strong> good intent and decent volume. "Couples counselling [town]", "relationship counselling [town]", and the long tail around the reluctant partner, which almost nobody writes for and which the "only one of us" page owns outright.</p>
+          <p><strong>Mobile priorities:</strong> paired blocks stack, and the order alternates page by page. The comparison table becomes stacked cards with the same fields in the same order. The consent checkbox must never be pre-ticked and must be reachable without horizontal scroll.</p>
+          <p><strong>Trust and factual checklist:</strong> fee and session length stated · both-of-you framing present on every key page · the one-partner question answered · abuse-specific urgent-support route present · practitioners identified with registration placeholders · online option stated · privacy notice covering a joint enquiry, which involves a third party's data · no testimonials · no success claims · concept disclosure on every page.</p>
+          <p><strong>Content required from the client:</strong> paired copy for three key pages — written twice, from both sides — which is the hardest writing in the library. One or two portraits, two object photographs, fee facts, and a stated position on what happens if the couple separates.</p>
+
+          <h4>Commercial fit</h4>
+          <p><strong>Guided Website.</strong> The paired copy cannot be templated: it has to be written for a particular practice's clientele, and getting the reluctant-reader voice right is a judgement call every time. It is a natural Bespoke candidate for a larger relationship practice with several practitioners, but it should not be offered as Straightforward — a paired structure filled with unpaired copy is worse than not having it.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= D6 ================= -->
+<section id="d6">
+  <div class="sec-head"><span class="n">D6</span><h2>Noticeboard</h2></div>
+
+  <div class="sheet">
+    <div class="sheet-head">
+      <p class="sheet-no">DIRECTION 06 · INHERITS "FACE TO FACE" STRUCTURE</p>
+      <h3 class="sheet-name" style="font-family:'Karla',Helvetica,Arial,sans-serif;font-weight:600;letter-spacing:-.02em">Noticeboard</h3>
+      <p class="sheet-role">Warm, practical, accessible local counselling</p>
+      <p class="sheet-line">The hero is a table. Cost, place, waiting time and next step, above the fold.</p>
+    </div>
+
+    <div class="swatch-block">
+      <p class="swatch-label">Palette</p>
+      <div class="strip">
+        <div class="sw" style="background:#FBFAF6;color:#1B1D1C"><b>Paper</b>#FBFAF6</div>
+        <div class="sw" style="background:#DDEDE7;color:#1B1D1C"><b>Status</b>#DDEDE7</div>
+        <div class="sw" style="background:#1B1D1C;color:#FBFAF6"><b>Ink 16.2:1</b>#1B1D1C</div>
+        <div class="sw" style="background:#565A57;color:#fff"><b>Muted 6.7:1</b>#565A57</div>
+        <div class="sw" style="background:#0F5C4A;color:#fff"><b>Teal 7.6:1</b>#0F5C4A</div>
+        <div class="sw" style="background:#868A86;color:#fff"><b>Rule 3.4:1</b>#868A86</div>
+        <div class="sw" style="background:#8A4B00;color:#fff"><b>Notice 6.9:1</b>#8A4B00</div>
+      </div>
+      <div class="strip grey" aria-hidden="true">
+        <div class="sw" style="background:#FBFAF6"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#DDEDE7"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#1B1D1C"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#565A57"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#0F5C4A"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#868A86"><b>&nbsp;</b>&nbsp;</div>
+        <div class="sw" style="background:#8A4B00"><b>&nbsp;</b>&nbsp;</div>
+      </div>
+      <p class="grey-note">Greyscale test — the status panel stays visibly distinct from the page ground without hue, which matters because this is the one element the whole direction depends on being noticed.</p>
+    </div>
+
+    <div class="spec">
+      <p class="spec-line" style="font-family:'Karla',Helvetica,Arial,sans-serif;font-weight:600;letter-spacing:-.018em">£25 a session. Wakefield city centre. No waiting list at present.</p>
+      <p class="spec-body" style="font-family:'Karla',Helvetica,Arial,sans-serif">Humanist grotesque — friendly letterforms without softness, and it holds up in a dense table, which a warmer face would not.</p>
+      <p class="spec-meta">Karla 400/600 · fallback: Helvetica Neue, Arial, sans-serif · base 17px / 1.6 · tabular figures in the status panel</p>
+    </div>
+
+    <div class="sheet-body">
+      <dl class="fields">
+        <dt>Best suited to</dt>
+        <dd>Low-cost and sliding-scale services, community counselling, newly qualified therapists building a caseload, and practices in areas where cost is the deciding factor. <strong>Client group:</strong> local, cost-sensitive, possibly signposted by a GP, a food bank or a support worker, possibly waiting for NHS talking therapies and looking for something sooner. <strong>Practice stage:</strong> early, or deliberately low-fee by principle. <strong>Tone:</strong> plain, welcoming, and completely unembarrassed about money.</dd>
+
+        <dt>Journey</dt>
+        <dd>Ninety seconds to a decision. Everything that determines whether this is possible for the reader — cost, place, availability, eligibility, how to start — is visible before any scrolling.</dd>
+
+        <dt>Layout</dt>
+        <dd>A status panel is the hero. Dense, wide, high information rate — the opposite of Long Room. There is no aspirational headline and no full-bleed image above the fold.</dd>
+
+        <dt>Typography</dt>
+        <dd>Karla throughout, sans only, with tabular figures in the status panel so numbers align. 17px base. Headings are modest; the table is the loudest thing on the page.</dd>
+
+        <dt>Imagery</dt>
+        <dd>The actual place. The building, the street, the door with its number, the waiting area. Photographed plainly, not styled. Not nature, not stock, not abstract.</dd>
+
+        <dt>Voice</dt>
+        <dd>Plain, warm, short. Says "£25", not "affordable rates". Says "usually about two weeks", not "limited availability". Says what a reader gets and what they do not.</dd>
+
+        <dt>Motif</dt>
+        <dd>The status panel — a bordered block of labelled facts with a "last checked" date, which is also the one thing the client actually maintains.</dd>
+
+        <dt>Different because</dt>
+        <dd>It is the only direction where <strong>the first thing a visitor sees is a table of facts</strong>, and the only one designed around a reader whose first question is whether they can afford it. It inherits the structural work already proven in Face to Face — eligibility, contribution, service status — but reshaped for a private practice rather than a charity.</dd>
+      </dl>
+
+      <details class="more">
+        <summary>Worked example, brand system and website system</summary>
+        <div>
+          <h4>Fictional worked example</h4>
+          <p><strong>Kirkgate Counselling</strong> — Wakefield, West Yorkshire. Practitioner: <strong>Dan Whitcombe</strong>. Positioning line: <em>"Low-cost counselling in Wakefield. £25 a session."</em> Adults, one-to-one, in person in the city centre and online, with a stated sliding scale of <span class="mono">£15–£35</span> and no means-testing beyond a single question.</p>
+          <p><strong>Concept disclosure, on every page:</strong> "A design concept by Alexander Watson Studio. Kirkgate Counselling is not a real practice and no service is offered here." The status panel's figures are demonstration values and are labelled as such. No registration numbers, no funder or partner organisations named, no claims about NHS waiting times as fact, no testimonials.</p>
+
+          <h4>Wordmark concept</h4>
+          <p>The practice name in Karla 600, tracked slightly tight, with the town beneath in 400 at 60% size. To the left, a simple 2px square outline — a pinned card, the noticeboard reference — sized to the cap height. It reads at 20px on a phone header, survives one colour, and can be printed on a paper flyer for a GP surgery noticeboard, which for this direction's client is a genuine use case and should shape the SVG delivery.</p>
+
+          <h4>Colour tokens and accessibility roles</h4>
+          <div class="tw"><table>
+            <thead><tr><th>Token</th><th>Hex</th><th>Role</th><th>Measured</th></tr></thead>
+            <tbody>
+              <tr><td><code>--paper</code></td><td class="num">#FBFAF6</td><td>Page ground</td><td class="num">—</td></tr>
+              <tr><td><code>--status</code></td><td class="num">#DDEDE7</td><td>Status panel ground</td><td class="num">ink 14.0:1</td></tr>
+              <tr><td><code>--ink</code></td><td class="num">#1B1D1C</td><td>Body, headings, table values</td><td class="num">16.2:1 AAA</td></tr>
+              <tr><td><code>--muted</code></td><td class="num">#565A57</td><td>Table labels, "last checked"</td><td class="num">6.7:1 AAA</td></tr>
+              <tr><td><code>--teal</code></td><td class="num">#0F5C4A</td><td>Links, buttons, focus</td><td class="num">7.6:1 · white on it 7.9:1</td></tr>
+              <tr><td><code>--rule-strong</code></td><td class="num">#868A86</td><td>Table and form borders</td><td class="num">3.4:1 — meets WCAG 2.2 non-text</td></tr>
+              <tr><td><code>--notice</code></td><td class="num">#8A4B00</td><td>Waiting-list and closure notices, always with a word</td><td class="num">6.9:1 AAA</td></tr>
+            </tbody>
+          </table></div>
+
+          <h4>Spacing, border, button, form</h4>
+          <ul>
+            <li><strong>Spacing scale:</strong> 4 / 8 / 12 / 20 / 32 / 48 / 72. Compact — density is the point, and generous whitespace here would read as evasive about the facts.</li>
+            <li><strong>Borders:</strong> 2px around the status panel, 1px table rules, 2px radius. The panel is the only heavily-bordered object on the page.</li>
+            <li><strong>Buttons:</strong> filled teal, 2px radius, 50px tall, and the primary action repeats at the top and bottom of every page because this reader may decide at any point.</li>
+            <li><strong>Forms:</strong> 1px <code>--rule-strong</code>, 50px, 16px text, the shortest form in the library — name, contact, and one optional line. Explicit microcopy asks the visitor not to include health details at this stage, which reduces the special-category data collected as well as being better practice.</li>
+          </ul>
+
+          <h4>Image art direction and prompts</h4>
+          <p class="prompt">The exterior of a modest town-centre building entrance in a northern English city, painted door, visible street number, ordinary daylight, a passer-by out of focus. Shot straight on from across the pavement. Documentary, unstyled, honest about the building being unglamorous.</p>
+          <p class="prompt">A small plain waiting area: three chairs against a wall, a low table with a box of tissues and a jug of water, a noticeboard with leaflets. No people. Ordinary overhead lighting, not corrected to look warm. The photograph should reassure by being real rather than by being beautiful.</p>
+
+          <h4>Voice guidance</h4>
+          <p>Lead with the number. Answer the money question in the first sentence. Use short paragraphs and plain words at roughly a reading age of nine — not because readers are unsophisticated but because they may be distressed, rushed, or reading on a phone with poor signal. Never apologise for the fee being low; never imply the service is lesser for it.</p>
+
+          <h4>Avoid list</h4>
+          <p>Aspirational hero headlines. Full-bleed imagery above the fold. Nature. Stock photography of any kind. The words <em>affordable, competitive, budget, reduced-rate, deserving, worthy</em>. Any implication of means-testing beyond what is genuinely operated. Charity framing for a private practice. Fake urgency about places remaining. Any waiting-time figure that is not actually maintained.</p>
+
+          <h4>Accessibility notes</h4>
+          <p>The status panel is a real <code>&lt;table&gt;</code> or a description list with proper labels, never a visual grid of divs, so it can be read in order by assistive technology. Tabular figures throughout. On mobile it becomes stacked label-value rows, never a horizontally scrolling table. Notices carry a word as well as a colour. The "last checked" date is real and machine-readable, and if it goes stale the direction has failed at the thing it exists to do.</p>
+
+          <h4>Fixed versus customisable</h4>
+          <p><strong>Direction-fixed:</strong> the status panel as hero, no image above the fold, fee stated in the first sentence, the "last checked" date, the compact scale, sans-only type, the short enquiry form and its health-details microcopy.<br>
+          <strong>Client-customisable:</strong> the accent within three tested alternatives to teal, all words, the place photographs, every value in the status panel, whether a sliding scale is shown as a range or a single figure.</p>
+
+          <h4>Website system</h4>
+          <p><strong>Sitemap:</strong> Home · What to expect · Fees and how it works · Where to find us · Contact · Privacy · Accessibility · 404. Six visible pages.</p>
+          <p><strong>Homepage order:</strong> (1) Name, town, one sentence including the fee. (2) The status panel — fee, session length, location, online option, current availability, "last checked" date. (3) Who this is for and who it is not for, in two short lists. (4) What happens when you get in touch, three steps with real timings. (5) Where to find us, with the photograph and transport and access notes. (6) Enquiry. (7) Urgent-support boundary, which for this direction should also signpost genuinely free options, because some readers will not be able to afford even this.</p>
+          <p><strong>Components:</strong> status panel, availability notice, fee range block, who-it-is-and-isn't-for lists, step sequence, access and transport block, short enquiry form, urgent-support panel with free alternatives, registration placeholder, concept notice.</p>
+          <p><strong>Calls to action:</strong> one, repeated top and bottom of every page — "Ask about a first session".</p>
+          <p><strong>SEO:</strong> the highest-intent search behaviour of the six. "Low cost counselling [town]", "counselling [town] £", "cheap therapy near me" are searched with immediate intent. Strong local signals matter here more than anywhere: a genuine address, consistent name-address-phone, and a Google Business Profile. Do not promise rankings; do build the foundations and say which are the client's to maintain.</p>
+          <p><strong>Mobile priorities:</strong> the whole status panel must fit one phone screen without scrolling — that constraint sets how many rows it may have. The primary action is reachable with one thumb at the top of the page. Total page weight under 250KB, because this reader is more likely to be on a poor connection or a metered plan than any other in the library.</p>
+          <p><strong>Trust and factual checklist:</strong> fee stated in the first sentence · sliding scale explained if offered · session length stated · address and transport stated · online option stated · current availability with a real "last checked" date · who it is not for, stated honestly · registration placeholder present · urgent-support boundary including free alternatives · privacy notice · no testimonials · no treatment claims · concept disclosure on every page.</p>
+          <p><strong>Content required from the client:</strong> the least of the six — around 450 words, a set of facts, and two photographs of the actual place. The real commitment is maintenance: the status panel must be updated, and the direction should be sold with that said out loud.</p>
+
+          <h4>Commercial fit</h4>
+          <p><strong>Straightforward Website.</strong> Deliberately the cheapest of the six to deliver: fewest words, most fixed structure, least editorial judgement. That matters because this direction's buyers have the least money — a newly qualified therapist or a low-fee service cannot fund a Guided engagement, and pricing it as though they could would mean the direction never sells. It also pairs naturally with a care plan, since the status panel is the one thing that genuinely needs maintaining.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= FOUNDATION ================= -->
+<section id="foundation">
+  <div class="sec-head"><span class="n">03</span><h2>The shared technical foundation</h2></div>
+
+  <p class="lede">One stack, one component kit, one QA harness, six token sets. The rule that makes these directions rather than themes: what is shared is <em>never</em> visual.</p>
+
+  <h3>Stack</h3>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Layer</th><th>Decision</th><th>Why this one</th></tr></thead>
+      <tbody>
+        <tr><td>Framework</td><td><strong>Astro 7</strong>, static output, zero client JS by default</td><td>Four of seven concepts already use Astro and two are already on 7.x. Static-first, islands only where needed — which for these sites is the reading-controls bar and nothing else.</td></tr>
+        <tr><td>Content</td><td>Typed content collections, one schema shared by all six directions</td><td>North &amp; Vale already proves the pattern. A shared schema means practice facts — fee, session length, town, registration wording, urgent-support text — are structured data, not prose, and can be QA-checked for presence.</td></tr>
+        <tr><td>Component kit</td><td>A local workspace package, <code>direction-kit</code></td><td>Holds only what must never differ: layout shell, head and SEO, skip link, urgent-support panel, registration placeholder, concept notice, enquiry form, fee block, privacy and accessibility page scaffolds.</td></tr>
+        <tr><td>Tokens</td><td>A tokens <em>contract</em>: every direction exports the same names, with different values</td><td>This is the load-bearing idea. Same names means one QA harness can test six directions identically; different values means they never look alike. A direction becomes a token file plus a component override set, not a fork.</td></tr>
+        <tr><td>Fonts</td><td><code>@fontsource</code>, self-hosted, subset, preloaded</td><td>Rowan Hill already does this. It is also the licensing-clean answer at handover — the client owns a site that does not phone a third party for its typography.</td></tr>
+        <tr><td>QA</td><td>Lift <code>scripts/responsive-qa/</code> from the studio site wholesale</td><td>Already runs axe-core 4.13 across four viewports including 200% zoom, plus line length, target size, horizontal overflow and missing assets. Point it at six sites instead of one and it becomes the studio's actual quality claim.</td></tr>
+        <tr><td>Hosting</td><td>One provider for all six demo sites</td><td>Currently split across Netlify, Cloudflare Pages and Cloudflare Workers. Which one matters less than choosing.</td></tr>
+        <tr><td>Repository</td><td>One monorepo, six directions plus the kit</td><td>A fix to the urgent-support panel should reach six sites in one commit. Today it reaches one.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>The line between shared and never-shared</h3>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Always shared</th><th>Never shared</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Accessibility conformance · performance budget · SEO structure · form handling and its data posture · urgent-support boundary · registration placeholder mechanics · privacy and accessibility page scaffolds · concept disclosure · build, deploy and QA · the token <em>names</em></td>
+          <td>Layout grid · type families and scale · colour values · section rhythm and spacing scale · motif · homepage order · page count and names · imagery register · voice · call-to-action wording · the token <em>values</em></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>If a buyer could pick two directions and end up with recognisably the same website, the word "template" would be accurate. The right-hand column is what makes it inaccurate, and it is worth being able to point at.</p>
+
+  <h3>The compliance layer, built once</h3>
+
+  <p>Every direction inherits the same five obligations, drawn from the evidence dossier rather than invented:</p>
+
+  <ul>
+    <li><strong>Registration placeholder that cannot be filled loosely.</strong> The schema takes a body, a category and a number, and renders only the exact permitted string. BACP prescribes its wording precisely, and in March 2025 the ASA ruled against a UK counselling practice for saying "accredited by" when the therapist was registered — a complaint brought by BACP itself. A free-text field invites exactly that error.</li>
+    <li><strong>No testimonials component exists in the kit.</strong> UKCP's 2019 Code, clause 13, prohibits client testimonials in advertising outright. Building the component and leaving it unused would mean a UKCP-registered client could switch it on.</li>
+    <li><strong>Copy rules enforced at review, not by the framework.</strong> CAP rule 12.2 bars claims to "diagnose, treat, help with or cure" without appropriate qualification and evidence. "Helps with anxiety" is defensible; "treats anxiety" is not. This belongs in a one-page sheet handed to every client, not in code.</li>
+    <li><strong>Enquiry forms that minimise special-category data.</strong> A message box inviting someone to describe what brings them to therapy collects health data under UK GDPR Article 9 the moment it is answered. Every direction's form carries microcopy asking people not to include clinical detail yet, and links the client's own privacy notice at the point of submission.</li>
+    <li><strong>Urgent-support boundary on every page of every direction.</strong> Never styled as an alarm, never omitted, and in two directions — Sounding and Two Chairs — carrying additional specificity that the others do not need.</li>
+  </ul>
+
+  <h3>Deliverability</h3>
+
+  <p>A direction is realistically finished when it passes the shared harness at four viewports, hits the Core Web Vitals thresholds on a mid-range Android over 4G, carries every item on its own trust checklist, and reads correctly in greyscale. That is a testable definition, and it is the same for all six — which is what "consistently refined over time" actually requires.</p>
+</section>
+
+
+<!-- ================= ORDER ================= -->
+<section id="order">
+  <div class="sec-head"><span class="n">04</span><h2>Build order</h2></div>
+
+  <div class="box">
+    <span class="lbl">Build first</span>
+    <p><strong>D1 Long Room.</strong> It is the direction most buyers will choose, it carries the least content burden, and its structure is the simplest in the library — which makes it the right first test of the foundation rather than a test of the foundation <em>and</em> a hard design at once. Rowan Hill's content and shot list transfer as a starting draft; its Vite-and-Worker code does not, and porting it is the migration proof.</p>
+  </div>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>#</th><th>Direction</th><th>Why here</th><th>Reuses</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td>Long Room</td><td>Broadest audience, simplest structure, proves the foundation on an easy case. Sells at the Straightforward tier from day one.</td><td>Rowan Hill content and shot list</td></tr>
+        <tr><td class="num">2</td><td>Plain Terms</td><td>Different Minds is already the most technically advanced concept, so this is a refinement rather than a build. It also makes the accessibility claim publicly demonstrable, which supports every other direction's price.</td><td>Different Minds: RouteGrid, InShort, DiagramProfile</td></tr>
+        <tr><td class="num">3</td><td>Noticeboard</td><td>Second Straightforward-tier direction, so the cheap tier has a real choice. Face to Face's structural components port almost directly.</td><td>Face to Face: EligibilityChecker, ContributionTable, ServiceStatus, CrisisPanel</td></tr>
+        <tr><td class="num">4</td><td>Two Chairs</td><td>First Guided-tier direction. Absorbs Common Ground, which is on a bespoke build script and needs migrating anyway.</td><td>Common Ground content</td></tr>
+        <tr><td class="num">5</td><td>Broadsheet</td><td>Nothing to reuse — a genuine new build. Worth doing fifth, once the kit is proven, because it is the one that most tests whether the foundation can host a design that breaks the house habits.</td><td>Nothing</td></tr>
+        <tr><td class="num">6</td><td>Sounding</td><td>Last, deliberately. A dark direction needs the accessibility harness to be mature before it is built, and it is the hardest to sell, so it should not consume early capacity.</td><td>Nothing</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box flag">
+    <span class="lbl">Two directions carry real risk</span>
+    <p><strong>Sounding can go wrong quietly.</strong> Dark ground, old-style serif and depth language sit one careless decision away from looking occult. It needs a hard editorial line — no symbols, no mythology, no gold flourishes beyond the single rule — and testing in Windows High Contrast Mode, where dark-first designs most often break.</p>
+    <p><strong>Broadsheet fails without content.</strong> Its homepage is a front page; an empty archive makes it look abandoned within a quarter. Do not sell it to a therapist who does not already write, and ask to see three finished pieces before accepting the brief.</p>
+  </div>
+</section>
+
+
+<!-- ================= QUESTIONS ================= -->
+<section id="questions">
+  <div class="sec-head"><span class="n">05</span><h2>Questions to settle before any code</h2></div>
+
+  <p class="lede">Twelve. The first four are blocking; the rest can be answered as the first direction is built, but not later than that.</p>
+
+  <h3>Blocking</h3>
+  <ol>
+    <li><strong>Astro 5 or Astro 7?</strong> Two concepts on each. The kit cannot span both, and whichever loses needs its concepts migrated or retired.</li>
+    <li><strong>One monorepo, or a repository per direction?</strong> This determines whether a fix to the urgent-support panel reaches six sites or one, and it is very hard to change later.</li>
+    <li><strong>One hosting provider — which?</strong> Netlify, Cloudflare Pages and Cloudflare Workers are all in use across the estate. The Worker in Rowan Hill is the outlier and needs a decision either way.</li>
+    <li><strong>Does a client edit their own content, and through what?</strong> The answer changes the content-collection design fundamentally, and it is the question a buyer will ask in the first conversation.</li>
+  </ol>
+
+  <h3>Needed during the first build</h3>
+  <ol start="5">
+    <li><strong>Enquiry-form handling.</strong> Still open on the studio site itself. Real server-side submission means special-category data in transit and a processor relationship; the current browser-only approach avoids that and loses enquiries. Every direction inherits whichever answer you give.</li>
+    <li><strong>Fonts: <code>@fontsource</code> self-hosted, or Google Fonts?</strong> Self-hosting is the licensing-clean answer at handover, but it adds a build step to every direction. Six of the nine faces proposed here are SIL Open Font License, which makes self-hosting straightforward — worth confirming the remaining three before committing.</li>
+    <li><strong>Is the concept disclosure required on all six demo sites?</strong> Your published rule says yes; six of seven current concepts do not carry it. Confirm the rule, then apply it retrospectively.</li>
+    <li><strong>Is the fee published by default in every direction?</strong> The evidence says omitting it creates hesitation rather than removing it. But it is the client's call, and the directions differ: Noticeboard cannot work without it, Sounding barely needs it above the fold.</li>
+  </ol>
+
+  <h3>Commercial, and needed before the collection is published</h3>
+  <ol start="9">
+    <li><strong>How many practices may buy each direction, and is the number stated publicly?</strong> This is what makes "not a template" structurally true rather than a claim. It also needs a rule about geography and specialism.</li>
+    <li><strong>Photography: who supplies it, and what happens when the client has none?</strong> Four of the six directions depend on a real photograph of a real place. The prompts here are placeholders, and placeholders that ship are a known failure mode.</li>
+    <li><strong>Are the fictional worked examples published as live demo sites?</strong> If yes, they need the concept-safety rules applied in full — noindex, no sitemap, no real domain or contact details, inert forms — and the studio needs to be comfortable that six invented practices are visible under its name.</li>
+    <li><strong>What happens to Harbour, North &amp; Vale and Stillpoint?</strong> They are outside these six. Kept as portfolio evidence, refined later, or retired — but they should not sit in the collection implying they are buyable if they are not.</li>
+  </ol>
+</section>
+
+<footer>
+  <p>Phase one. No website code was written or altered. Contrast figures in every palette were computed against the stated ground and are quoted to two decimal places; every text pair meets WCAG 2.2 AA and most meet AAA, and every <code>rule-strong</code> token clears the 3:1 non-text floor. The audit findings in §1 come from reading the concept source files directly, not from the collection page's descriptions of them. Regulatory points are drawn from the market evidence dossier and carry its limitations — in particular, the NCPS advertising position and the ASA ruling still need primary-source verification before either is relied on in client-facing material.</p>
+</footer>
+
+</main>
+</div>
+</div>

@@ -1,0 +1,46 @@
+Deploying the two-route rebuild
+===============================
+
+The commits are ALREADY in your repository. I fetched them from the bundle
+into a local branch called studio-update:
+
+  77efff3  Rebuild the site around the two-route offer
+  45a8964  Integrate the responsive pass: fix a target-size regression,
+           untrack QA archives
+
+Both sit directly on top of 7131edd ("updates"), which is where your main
+branch and GitHub both still are. Your working tree was not touched.
+
+What is left is the push, and only you can do it: this session cannot reach
+GitHub at all, and the Cowork workspace that can see your folder has no git
+credentials attached. Run these in your normal terminal, in the repository
+folder:
+
+  git checkout main
+  git reset --hard studio-update
+  git push origin main
+  git branch -d studio-update
+
+`reset --hard` is safe here. I checked: `git diff --ignore-cr-at-eol` on your
+working tree is completely empty, so the only differences from 7131edd were
+line endings. There is no uncommitted work to lose.
+
+Netlify builds from GitHub, so the push is the deploy. The build runs
+`npm run build` — purchasing config, then the CSS bundles, then
+`bundle exec jekyll build`. Watch it in the Netlify dashboard; that build is
+the one check I could not run here, because rubygems.org is unreachable from
+this environment.
+
+Afterwards, worth a look on the live site:
+  /                              the two route cards
+  /service/                      the comparison table and the decider
+  /services/practice-website/    the £995 scope
+  /services/straightforward-website/   should 301 to the line above
+
+Housekeeping — none of these are tracked by git or deployed, delete whenever:
+  studio-two-routes.bundle   this bundle, now redundant
+  APPLY-two-routes.txt       this file
+  _responsive-pass\          the earlier zips and bundle
+  _to_delete\                old tarball, stale git lock files, one stray
+                             git temp file I moved out of .git
+  _transfer\  and  _transfer-src.tgz

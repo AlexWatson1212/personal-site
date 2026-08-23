@@ -1,0 +1,882 @@
+<title>UK Therapist Website Market</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,400;0,600;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
+<style>
+  :root {
+    --ground: #F1F2F0;
+    --surface: #FAFAF8;
+    --surface-2: #E8EAE6;
+    --ink: #1C2422;
+    --ink-soft: #3D4845;
+    --muted: #626C69;
+    --rule: #D6DAD5;
+    --rule-soft: #E2E5E0;
+    --accent: #2C5A63;
+    --accent-soft: #E1EAEB;
+    --caution: #7D6218;
+    --caution-soft: #F0E9D5;
+
+    --serif: "Literata", "Iowan Old Style", Palatino, Georgia, serif;
+    --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --measure: 68ch;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #141817;
+      --surface: #1C2220;
+      --surface-2: #232A28;
+      --ink: #E7EAE6;
+      --ink-soft: #C6CCC8;
+      --muted: #939C98;
+      --rule: #2C3432;
+      --rule-soft: #242B29;
+      --accent: #86B7BC;
+      --accent-soft: #1E2E30;
+      --caution: #C8A758;
+      --caution-soft: #2B2617;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #141817;
+    --surface: #1C2220;
+    --surface-2: #232A28;
+    --ink: #E7EAE6;
+    --ink-soft: #C6CCC8;
+    --muted: #939C98;
+    --rule: #2C3432;
+    --rule-soft: #242B29;
+    --accent: #86B7BC;
+    --accent-soft: #1E2E30;
+    --caution: #C8A758;
+    --caution-soft: #2B2617;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+    font-optical-sizing: auto;
+  }
+
+  .shell {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 28px 120px;
+  }
+
+  /* ---------- Masthead ---------- */
+
+  .masthead {
+    padding: 72px 0 40px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .kicker {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 22px;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2.1rem, 5.2vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.018em;
+    margin: 0 0 20px;
+    max-width: 20ch;
+    text-wrap: balance;
+  }
+
+  .standfirst {
+    font-size: clamp(1.05rem, 2.1vw, 1.24rem);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 58ch;
+    margin: 0 0 32px;
+  }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+    font-family: var(--sans);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .meta-row b { font-weight: 600; color: var(--ink-soft); }
+
+  /* ---------- Scope note ---------- */
+
+  .scope {
+    border-bottom: 1px solid var(--rule);
+    padding: 30px 0 34px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 28px 44px;
+  }
+  .scope-item .label {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .scope-item p {
+    font-family: var(--sans);
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: none;
+  }
+
+  /* ---------- Body layout ---------- */
+
+  .body-grid { display: grid; grid-template-columns: 1fr; }
+
+  @media (min-width: 1000px) {
+    .body-grid {
+      grid-template-columns: 216px minmax(0, 1fr);
+      gap: 64px;
+      align-items: start;
+    }
+    .toc { position: sticky; top: 32px; padding-top: 64px; }
+  }
+
+  .toc {
+    font-family: var(--sans);
+    font-size: 13px;
+    padding-top: 40px;
+  }
+  .toc-head {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 16px;
+  }
+  .toc ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .toc a {
+    display: flex;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 5px 0;
+    line-height: 1.35;
+  }
+  .toc a:hover { color: var(--ink); }
+  .toc a .n {
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+    flex: 0 0 auto;
+    opacity: .8;
+  }
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  main { padding-top: 40px; }
+  @media (min-width: 1000px) { main { padding-top: 64px; } }
+
+  section { margin-bottom: 76px; scroll-margin-top: 24px; }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 26px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .sec-head .n {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    flex: 0 0 auto;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 3.2vw, 2rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+    margin: 38px 0 12px;
+    max-width: var(--measure);
+  }
+
+  p, ul, ol { max-width: var(--measure); }
+  p { margin: 0 0 16px; }
+
+  ul, ol { margin: 0 0 16px; padding-left: 1.15em; }
+  li { margin-bottom: 9px; }
+  li::marker { color: var(--muted); }
+
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+
+  a { color: var(--accent); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+
+  .lede {
+    font-size: 1.1rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin-bottom: 26px;
+  }
+
+  /* ---------- Callouts ---------- */
+
+  .call-out {
+    border-left: 2px solid var(--accent);
+    background: var(--accent-soft);
+    padding: 20px 24px;
+    margin: 26px 0;
+    max-width: var(--measure);
+  }
+  .call-out.caution {
+    border-left-color: var(--caution);
+    background: var(--caution-soft);
+  }
+  .call-out .co-label {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .call-out.caution .co-label { color: var(--caution); }
+  .call-out p:last-child, .call-out ul:last-child { margin-bottom: 0; }
+  .call-out p, .call-out ul { max-width: none; }
+
+  /* ---------- Tables ---------- */
+
+  .table-wrap {
+    overflow-x: auto;
+    margin: 24px 0 28px;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--sans);
+    font-size: 13.5px;
+    line-height: 1.45;
+    min-width: 560px;
+  }
+  th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 10.5px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 12px 16px 12px 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: bottom;
+  }
+  td {
+    padding: 13px 16px 13px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+    color: var(--ink-soft);
+  }
+  td:first-child { color: var(--ink); font-weight: 500; }
+  .num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .src {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--muted);
+    max-width: var(--measure);
+    margin: -14px 0 26px;
+  }
+  .src a { color: var(--muted); }
+  .src a:hover { color: var(--accent); }
+
+  /* ---------- Status tags ---------- */
+
+  .tag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 3px 7px;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    color: var(--muted);
+    white-space: nowrap;
+    vertical-align: 2px;
+  }
+  .tag.verified { color: var(--accent); border-color: var(--accent); }
+  .tag.gap { color: var(--caution); border-color: var(--caution); }
+
+  /* ---------- Findings list ---------- */
+
+  .findings {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 28px;
+    max-width: var(--measure);
+    border-top: 1px solid var(--rule);
+  }
+  .findings > li {
+    margin: 0;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .findings .f-head {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 7px;
+  }
+  .findings p { margin: 0 0 9px; max-width: none; }
+  .findings p:last-child { margin-bottom: 0; }
+
+  /* ---------- Limitations ---------- */
+
+  .limits {
+    border: 1px solid var(--caution);
+    background: var(--caution-soft);
+    padding: 34px 30px;
+    max-width: var(--measure);
+  }
+  .limits h3:first-of-type { margin-top: 0; }
+  .limits ol { margin-bottom: 0; }
+  .limits p, .limits ol { max-width: none; }
+
+  footer {
+    margin-top: 80px;
+    padding-top: 26px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--sans);
+    font-size: 12.5px;
+    color: var(--muted);
+    max-width: var(--measure);
+  }
+  footer p { max-width: none; }
+
+  @media (max-width: 640px) {
+    body { font-size: 16.5px; }
+    .shell { padding: 0 20px 80px; }
+    .masthead { padding-top: 48px; }
+    .limits { padding: 24px 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+
+<div class="shell">
+
+  <header class="masthead">
+    <p class="kicker">Evidence dossier · Prepared for Alexander Watson Studio</p>
+    <h1>The UK therapist website market</h1>
+    <p class="standfirst">What therapists buy, what they pay, who supplies it, what the rules require, and what the research says about how clients choose. Findings only — no recommendations.</p>
+    <div class="meta-row">
+      <span><b>Compiled</b> 22 August 2026</span>
+      <span><b>Method</b> Primary-source retrieval</span>
+      <span><b>Scope</b> United Kingdom</span>
+    </div>
+  </header>
+
+  <div class="scope">
+    <div class="scope-item">
+      <span class="label">What this is</span>
+      <p>A record of what could be verified about the UK therapist and counsellor website market on 22 August 2026, with sources attached to every figure.</p>
+    </div>
+    <div class="scope-item">
+      <span class="label">How claims are marked</span>
+      <p><span class="tag verified">Verified</span> a primary source was retrieved and the figure is quoted from it. <span class="tag">Inferred</span> a reasonable reading of partial or secondary evidence. <span class="tag gap">Gap</span> searched for and not found.</p>
+    </div>
+    <div class="scope-item">
+      <span class="label">What is not here</span>
+      <p>No business-model recommendation, pricing proposal, product direction or plan of action. Interpretation is limited to describing what the evidence shows. Unverified items are listed in §10.</p>
+    </div>
+  </div>
+
+  <div class="body-grid">
+
+    <nav class="toc" aria-label="Contents">
+      <p class="toc-head">Contents</p>
+      <ol>
+        <li><a href="#s1"><span class="n">1</span><span>Market size</span></a></li>
+        <li><a href="#s2"><span class="n">2</span><span>What therapists pay</span></a></li>
+        <li><a href="#s3"><span class="n">3</span><span>Provider landscape</span></a></li>
+        <li><a href="#s4"><span class="n">4</span><span>Observed weaknesses</span></a></li>
+        <li><a href="#s5"><span class="n">5</span><span>Notable examples</span></a></li>
+        <li><a href="#s6"><span class="n">6</span><span>Professional rules</span></a></li>
+        <li><a href="#s7"><span class="n">7</span><span>Data protection</span></a></li>
+        <li><a href="#s8"><span class="n">8</span><span>Accessibility law</span></a></li>
+        <li><a href="#s9"><span class="n">9</span><span>Search &amp; client choice</span></a></li>
+        <li><a href="#s10"><span class="n">10</span><span>Research limitations</span></a></li>
+      </ol>
+    </nav>
+
+    <main>
+
+      <!-- ============ 1 ============ -->
+      <section id="s1">
+        <div class="sec-head"><span class="n">01</span><h2>Size and structure of the UK market</h2></div>
+
+        <h3>Professional body membership</h3>
+
+        <p>Each body publishes two different numbers: total membership, which includes students, trainees and non-accredited members, and a smaller Professional Standards Authority accredited-register figure. The two are not interchangeable.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Body</th><th>Total members</th><th>As at</th><th>PSA register</th><th>As at</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>BACP</td><td class="num">73,528</td><td class="num">31 Mar 2025</td><td class="num">52,017</td><td class="num">1 Jan 2024</td></tr>
+              <tr><td>NCPS</td><td class="num">18,000+</td><td class="num">Feb 2025</td><td class="num">11,573*</td><td class="num">23 Oct 2024</td></tr>
+              <tr><td>UKCP</td><td class="num">~11,450</td><td class="num">2024</td><td class="num">8,652</td><td class="num">1 Jan 2024</td></tr>
+              <tr><td>BABCP / CBT Register UK</td><td class="num">not found</td><td class="num">—</td><td class="num">12,856</td><td class="num">4 Apr 2023</td></tr>
+              <tr><td>HCPC practitioner psychologists</td><td class="num">32,206</td><td class="num">Aug 2026</td><td class="num">n/a</td><td class="num">—</td></tr>
+              <tr><td>COSCA (Scotland)</td><td class="num">not found</td><td class="num">—</td><td class="num">787</td><td class="num">1 Jan 2024</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="src">*Combined figure for NCPS and the National Hypnotherapy Society; not broken out. HCPC figure covers all practitioner-psychologist specialisms; counselling psychology is not published separately. <span class="tag verified">Verified</span> <a href="https://www.bacp.co.uk/media/23858/bacp-annual-review-financial-statements-2024-to-2025.pdf">BACP Annual Review 2024–25</a> · <a href="https://www.professionalstandards.org.uk/sites/default/files/attachments/Full%20Renewal%20Report%20BACP%20Feb%202025.pdf">PSA BACP renewal report</a> · <a href="https://bills.parliament.uk/publications/58598/documents/5908">NCPS written evidence to Parliament</a> · <a href="https://www.psychotherapy.org.uk/media/bj2b25ce/2024-ukcp-member-report.pdf">UKCP 2024 Member Survey</a> · <a href="https://www.hcpc-uk.org/data/the-register/register-summary/">HCPC Register Summary</a></p>
+
+        <p><strong>BACP membership grew by 4,020 in the year to 31 March 2025</strong>, from 69,508 to 73,528. This is net growth — joiners minus leavers — and therefore understates the gross number of new entrants. <span class="tag verified">Verified</span></p>
+
+        <p><strong>Sector-wide aggregate.</strong> The Partnership of Counselling and Psychotherapy Bodies, a coalition of six bodies (ACC, BACP, BPC, Human Givens Institute, NCPS, UKCP), states it represents <em>"approximately 75,000 registrants"</em> on PSA-accredited registers and, in a separate VAT policy submission, <em>"a wider 105,000 members"</em>. This excludes BABCP, BPS/HCPC and COSCA, and contains unquantified double-counting from practitioners holding dual registration. <span class="tag verified">Verified</span> · <a href="https://www.pcpb.org.uk/">PCPB</a></p>
+
+        <h3>Proportion in private practice</h3>
+
+        <ul>
+          <li><strong>UKCP, 2024 member survey:</strong> <em>"The majority of respondents worked in private or independent practice (77%)."</em> A separate 37% had at some point worked in NHS-funded posts; the categories are not mutually exclusive. <span class="tag verified">Verified</span> · <a href="https://www.psychotherapy.org.uk/media/bj2b25ce/2024-ukcp-member-report.pdf">Source</a></li>
+          <li><strong>BACP, 2022–23 workplace mapping survey,</strong> reported in BACP's own <em>Private Practice</em> journal: <em>"the largest majority of members worked in private practice (nearly 70%)"</em>, against <em>"nearly one third (30%) worked in the third, charitable and voluntary sector."</em> <span class="tag verified">Verified</span> · <a href="https://www.bacp.co.uk/bacp-journals/private-practice/2025/articles-march/a-pathway-to-private-practice/">Source</a></li>
+        </ul>
+
+        <h3>Session fees and practitioner income</h3>
+
+        <p>No primary BACP or UKCP fee survey was located. The figures below come from convergent secondary sources and are <span class="tag">Inferred</span>, not verified:</p>
+
+        <ul>
+          <li>Typical UK private counselling sessions <strong>£40–£70</strong>; specialists, psychologists and central London <strong>£65–£150+</strong>. One source states that <em>"more than half of the therapists listed on [BACP's] directory advertise between £40 and £60"</em> (<a href="https://www.getwobble.co.uk/blog/how-much-is-private-therapy-uk">Wobble</a>, updated Aug 2026). Counselling Directory's own article gives trainees £15–£25, qualified £30–£60, specialists £60–£150+ (<a href="https://www.counselling-directory.org.uk/articles/lets-talk-fees">source</a>).</li>
+          <li>No official survey of annual private-practice income was found. Blog-based worked examples range from roughly £30,500 take-home to £52,800 gross, explicitly not sourced to any survey. These should be treated as illustrations, not data.</li>
+        </ul>
+      </section>
+
+      <!-- ============ 2 ============ -->
+      <section id="s2">
+        <div class="sec-head"><span class="n">02</span><h2>What therapists currently pay for</h2></div>
+
+        <p class="lede">Directory listings are the principal recurring marketing cost in this profession. All prices below were retrieved directly from the providers' own join pages on 22 August 2026.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Directory</th><th>Price</th><th>Terms</th><th>Scale</th></tr></thead>
+            <tbody>
+              <tr><td>Counselling Directory <span style="color:var(--muted)">(Memiah/Happiful)</span></td><td class="num">£24.50/mo · £245/yr</td><td>Rolling monthly, 30 days' notice; free for registered charities</td><td>Part of a five-directory network with 24,000+ combined members (Aug 2024)</td></tr>
+              <tr><td>Psychology Today UK</td><td class="num">£19.95/mo</td><td>Six-month free trial for new members</td><td>Not published</td></tr>
+              <tr><td>BACP Therapist Directory</td><td class="num">£76/yr</td><td>Covers up to six listings incl. supervisor/trainer; BACP registered members only</td><td>Not published</td></tr>
+              <tr><td>Welldoing</td><td class="num">£45+VAT/quarter</td><td>Annual option gives two months free; plus £15+VAT annual verification fee</td><td>States <em>"1000 therapists"</em></td></tr>
+              <tr><td>Harley Therapy</td><td class="num">not found</td><td>Help-centre pages describe a fee structure without stating the rate</td><td>Not published</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="src"><span class="tag verified">Verified</span> <a href="https://secure.counselling-directory.org.uk/join.html">Counselling Directory</a> · <a href="https://join.psychologytoday.com/gb/signup">Psychology Today UK</a> · <a href="https://www.bacp.co.uk/membership/directories/therapist-directory/">BACP</a> · <a href="https://welldoing.org/practitioners/therapist-info">Welldoing</a> · <a href="https://memiah.co.uk/what-we-do/">Memiah</a></p>
+
+        <p><strong>Observation on the arithmetic.</strong> A practitioner holding a Counselling Directory listing and a Psychology Today listing pays £245 + £239 = £484 a year on a rolling basis. Adding the BACP directory takes it to £560. These are recurring costs for rented placement rather than owned assets. This is a statement about the numbers above, not an argument about what a website is worth.</p>
+
+        <h3>DIY platform costs</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Platform</th><th>Tiers</th><th>Currency confirmed</th></tr></thead>
+            <tbody>
+              <tr><td>Squarespace</td><td class="num">£12 · £17 · £29 · £79 /mo</td><td>GBP, annual billing (monthly billing higher)</td></tr>
+              <tr><td>Wix</td><td class="num">£9 · £16 · £25 · £119 /mo</td><td>GBP, annual billing; Wix Payments 2.1% + 20p per UK transaction</td></tr>
+              <tr><td>WordPress.com</td><td class="num">$4 · $8 · $25 · $45 /mo</td><td><strong>USD only</strong> — GBP not confirmed</td></tr>
+              <tr><td>Webflow</td><td class="num">$15 · $25 /mo</td><td><strong>USD only</strong> — GBP not confirmed</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="src">Squarespace and Wix figures via UK pricing guides (<a href="https://startups.co.uk/websites/builders/squarespace-pricing/">Startups.co.uk</a>, updated Sept 2025; <a href="https://www.expertsure.com/uk/web-design/wix-pricing-uk/">ExpertSure</a>, updated Aug 2026); official pages did not render GBP to this retrieval. WordPress.com and Webflow figures from <a href="https://wordpress.com/pricing/">their own pricing pages</a> in USD. See §10.</p>
+
+        <h3>Maintenance and care plans</h3>
+
+        <p>UK market bands, from a 2026 practitioner guide (<a href="https://edthedev.co.uk/blog/website-maintenance-cost-uk/">edthedev.co.uk</a>): basic (security updates, backups, monitoring) <strong>£25–£50/month</strong>; standard (adds content changes and performance tracking) <strong>£50–£100/month</strong>, described as the common band for small businesses; fully managed <strong>£100–£200/month</strong>. <span class="tag">Inferred</span> — a single guide, not a survey.</p>
+
+        <h3>Bespoke build pricing outside the therapy niche</h3>
+
+        <p>For a 5–8 page brochure site for a UK small business in 2026, one industry guide gives: freelance developer <strong>£2,000–£5,000</strong>; small studio or agency <strong>£5,000–£15,000</strong>; with a worked example of a five-page local-service site at £3,200 over three weeks (<a href="https://havis.dev/blog/how-much-does-a-small-business-website-cost-uk-2026/">havis.dev</a>). <span class="tag">Inferred</span> — a single source.</p>
+      </section>
+
+      <!-- ============ 3 ============ -->
+      <section id="s3">
+        <div class="sec-head"><span class="n">03</span><h2>The provider landscape</h2></div>
+
+        <p class="lede">Sixteen UK providers were identified and their pricing pages retrieved where published. Prices are as displayed on 22 August 2026.</p>
+
+        <h3>UK specialist therapist website providers</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Provider</th><th>Model</th><th>Price</th><th>Platform</th></tr></thead>
+            <tbody>
+              <tr><td><a href="https://www.therapywebsites.uk/website-packages/">Therapy Websites</a></td><td>Setup + monthly</td><td class="num">£15.99–£21.99/mo + £99–£199 setup</td><td>Unstated</td></tr>
+              <tr><td><a href="https://www.therapywebgenie.com/pricing/">Therapy Webgenie</a></td><td>Setup + monthly, plus bespoke</td><td class="num">£20–£45+VAT/mo + £145–£180+VAT setup; bespoke £1.5k–£10k+</td><td>Unstated</td></tr>
+              <tr><td><a href="https://builtfortherapy.com/">Built for Therapy</a></td><td>Setup + monthly</td><td class="num">£24.99/mo + £224 setup (promo; normally £280); branding £379.99</td><td>WordPress</td></tr>
+              <tr><td><a href="https://websites4counsellors.co.uk/pricing/">Websites 4 Counsellors</a></td><td>Monthly only</td><td class="num">£43/mo +VAT, no setup fee, 30-day trial</td><td>Managed</td></tr>
+              <tr><td><a href="https://youcanconsulting.co.uk/therapysites/package-website-therapist/starter-website">YouCan Consulting</a></td><td>Setup + hosting</td><td class="num">£229 + £8.90/mo</td><td>Joomla</td></tr>
+              <tr><td><a href="https://www.yourtherapywebsite.co.uk/websites-for-therapists-cost">Your Therapy Website</a></td><td>One-off</td><td class="num">£245 (1 page) · £695 (5 pages)</td><td>Wix (client owns hosting)</td></tr>
+              <tr><td><a href="https://www.therapywebs.co.uk">Therapy Webs</a></td><td>One-off, priced by page count</td><td class="num">£649 (20pp) · £999 (40pp)</td><td>WordPress + premium theme</td></tr>
+              <tr><td><a href="https://www.phoenixwebservices.co.uk/therapist-website-design/">Phoenix Web Services</a></td><td>Project</td><td class="num">£250–£1,800</td><td>WordPress</td></tr>
+              <tr><td><a href="https://therapywebdesigns.co.uk/">Therapy Web Designs</a></td><td>Project + optional retainer</td><td class="num">£1,200 · £2,500 · £5,000; retainer £150/mo</td><td>Unstated</td></tr>
+              <tr><td><a href="https://www.kirstym.com/squarespace-websites-for-therapists-counsellors">Kirsty M Design</a></td><td>Project</td><td class="num">From £1,700; typical £2,000–£4,000+</td><td>Squarespace</td></tr>
+              <tr><td><a href="https://verumdesign.co.uk/">Verum Design</a></td><td>Consult only</td><td class="num">not published</td><td>Unstated</td></tr>
+              <tr><td><a href="https://www.healthhosts.com/website-design-therapists/counselling/">HealthHosts</a></td><td>Quote only</td><td class="num">not published</td><td>Unstated</td></tr>
+              <tr><td><a href="https://www.webhealer.net/">WebHealer</a></td><td>Quote only; free trial site offered</td><td class="num">not published</td><td>Unstated</td></tr>
+              <tr><td><a href="https://therapyindesign.com/">Therapy In Design</a></td><td>All-inclusive monthly, <strong>12-month minimum contract</strong></td><td class="num">not published</td><td>Unstated</td></tr>
+              <tr><td><a href="https://wellnesswebdesign.co.uk/therapist-website-design/">Wellness Web Design</a></td><td>Quote only</td><td class="num">not published</td><td>Unstated</td></tr>
+              <tr><td>The Digital Therapist</td><td>Packages</td><td class="num">not retrievable</td><td>WordPress (per URL)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="src"><span class="tag verified">Verified</span> except The Digital Therapist, whose site blocked automated retrieval — <span class="tag">search result only</span>.</p>
+
+        <div class="call-out">
+          <span class="co-label">Two structural observations about this table</span>
+          <p><strong>Five of sixteen publish no price at all</strong> (Verum, HealthHosts, WebHealer, Therapy In Design, Wellness Web Design), and a sixth could not be retrieved.</p>
+          <p><strong>Published prices cluster at two poles.</strong> Recurring subscriptions run £15.99–£45/month; one-off builds run £229–£999 at the low end and £1,200–£5,000 at the professional end. Between £999 and £1,200 the retrieved sample contains nothing. This describes the sample obtained; it is not a claim that no such provider exists.</p>
+        </div>
+
+        <h3>Names checked and ruled out</h3>
+
+        <p>The following were searched for as UK therapist-website specialists and <strong>do not exist as such</strong>: <em>Bright Site / brightsite.co.uk</em> (the real <a href="https://www.bright-site.co.uk/">Bright-Site</a> is a general Brighton agency whose clients include Fly London and Brighton &amp; Hove Albion); <em>Hello Brio</em> (a US digital-minimalism content brand); <em>Sarah Cooper</em> as a UK designer (all results are US therapists of that name); <em>therapistwebsites.co.uk</em>; <em>mywebsitedesign</em>; <em>WeMake Websites</em>; <em>Roots Therapy Websites</em>; <em>Kindred Studio</em>. <em>BrighterSpaces</em> surfaced in search but is a therapy-room rental business, not a web provider. <span class="tag verified">Verified</span></p>
+
+        <h3>International specialists</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Provider</th><th>Price</th><th>UK availability</th></tr></thead>
+            <tbody>
+              <tr><td><a href="https://www.brightervision.com/pricing/">Brighter Vision</a></td><td class="num">$78–$349/mo + $0–$100 setup</td><td>Site states it serves professionals <em>"worldwide except in the EU"</em>; UK status ambiguous post-Brexit</td></tr>
+              <tr><td><a href="https://www.therapysites.com/pricing">TherapySites</a></td><td class="num">$199 design + $69–$336/mo</td><td>No international mention</td></tr>
+              <tr><td><a href="https://empathysites.com/pricing/">Empathysites</a></td><td class="num">$1,499–$2,499 setup + $97/mo; one-off builds from $6,000</td><td>No international mention</td></tr>
+              <tr><td><a href="https://therapist.zencare.co/pricing">Zencare</a></td><td class="num">From $59/mo + $80 setup</td><td>Appears US-only; pricing is state-specific</td></tr>
+              <tr><td>SimplePractice</td><td class="num">Bundled into EHR subscription</td><td>Predominantly US</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Template shops targeting therapists</h3>
+
+        <p><a href="https://www.holdspacecreative.com/squarespace-template-shop">Hold Space Creative</a> describes itself as <em>"the original Squarespace template shop dedicated specifically to therapists &amp; coaches"</em>, selling mini sites at $179 and full 7–8 page templates at $399. <a href="https://www.kseniiakrasilich.com/squarespace-templates/p/wellness-therapists-squarespace-71-website-template">Kseniia Krasilich</a> sells a wellness/therapist Squarespace 7.1 template at $229. <a href="https://squarekicker.com/blog/best-therapy-templates-for-squarespace-2025">SquareKicker</a> curates others. <span class="tag verified">Verified</span></p>
+
+        <p><strong>No UK-based therapist-specific template shop was found.</strong> Every identified shop in this category is US-based or, in SquareKicker's case, New Zealand-based. <span class="tag verified">Verified</span> as a search result; absence of evidence, and recorded as such in §10.</p>
+      </section>
+
+      <!-- ============ 4 ============ -->
+      <section id="s4">
+        <div class="sec-head"><span class="n">04</span><h2>Observed weaknesses in therapist websites</h2></div>
+
+        <p class="lede">Two specialist critiques document named, observed defects rather than generic usability advice. Both were retrieved in full: <a href="https://www.designfortherapists.com/the-biggest-therapist-website-mistakes-and-how-to-fix-them/">Design for Therapists</a> (12 items) and <a href="https://www.highfivedesign.co/blog/biggest-mistakes-to-fix-now">High Five Design</a> (20 items). <span class="tag verified">Verified</span></p>
+
+        <ul class="findings">
+          <li>
+            <span class="f-head">Specific defects observed on live sites</span>
+            <p>An entirely empty footer. A <em>"This website was created by Wix.com"</em> watermark still present in the header. Verbatim-copied textbook passages describing therapy approaches. A Bitmoji cartoon used in place of a professional headshot.</p>
+          </li>
+          <li>
+            <span class="f-head">Withheld information</span>
+            <p>Fees and insurance details omitted. The source attributes this to therapists fearing that stated prices deter enquiries, and observes that omission <em>"often creates more hesitation"</em> instead. Specialisms buried inside long About-page paragraphs rather than stated up front. Contact and booking routes hidden, requiring visitors to <em>"play detective."</em></p>
+          </li>
+          <li>
+            <span class="f-head">Language</span>
+            <p>Professional jargon — <em>"modality," "somatic attunement," "evidence-based integrative approach"</em> — used in place of the plain terms a prospective client would search for. About sections turning <em>"memoir-like"</em> with childhood pets and favourite holidays. Over-reliance on quotation: <em>"your website should reflect you, not the Brené fan club."</em></p>
+          </li>
+          <li>
+            <span class="f-head">Positioning</span>
+            <p>Sites attempting to serve <em>"individuals, couples, teens, families"</em> and multiple presenting issues simultaneously. The source connects this directly to weak search visibility as well as unclear messaging.</p>
+          </li>
+          <li>
+            <span class="f-head">Imagery</span>
+            <p><em>"Generic stock photos of people staring out windows and holding mugs,"</em> lotuses and sunsets, and <em>"chameleon"</em> text blending into its background.</p>
+          </li>
+          <li>
+            <span class="f-head">Technical and typographic debt</span>
+            <p>Arial-era typefaces, double spacing after punctuation, type too small to read, and credential badges clustered in clashing colours and sizes.</p>
+          </li>
+          <li>
+            <span class="f-head">Group practice navigation</span>
+            <p>Visitors required to open every individual practitioner's bio page in turn rather than being given a single comparison view.</p>
+          </li>
+        </ul>
+
+        <p><strong>Observation on the pattern.</strong> Across both sources, the documented failures are predominantly informational and editorial — missing fees, buried specialisms, hidden contact routes, borrowed language — rather than matters of visual taste. This describes the composition of these two lists; it is not a general claim about the population of therapist websites, which was not sampled.</p>
+      </section>
+
+      <!-- ============ 5 ============ -->
+      <section id="s5">
+        <div class="sec-head"><span class="n">05</span><h2>Notable examples</h2></div>
+
+        <p class="lede">UK therapist sites identified as well-executed, with the specific features observed on each. Assessment of design quality is inherently a judgement; what is recorded here is what is verifiably present on each page.</p>
+
+        <ul class="findings">
+          <li>
+            <span class="f-head"><a href="https://shonaghwrightphillips.co.uk">Shonagh Wright-Phillips Counselling</a> — Colchester, North Essex</span>
+            <p>Muted green and dark-ink palette; naturalistic photography of fields and plants with candid portraiture; copy carrying a consistent growth metaphor (<em>"like nature, growth can be gentle," "refugia"</em>); enquiry calls to action placed consistently and prominently rather than buried.</p>
+          </li>
+          <li>
+            <span class="f-head"><a href="https://www.sallyblackmorecounselling.co.uk">Sally Blackmore Counselling</a> — built by Kirsty M Design</span>
+            <p>Earthy palette with leaf iconography; nature photography selected to signal safety and support; content deliberately broken into scannable sections rather than dense blocks. A directly comparable example of a UK Squarespace build at the £1,700+ band.</p>
+          </li>
+          <li>
+            <span class="f-head"><a href="https://ramonaburrage.co.uk">Dr Ramona Burrage</a></span>
+            <p>Gold-accent, teal and neutral palette; copy naming specific modalities (CBT, ACT, EMDR) alongside a Kintsugi metaphor without lapsing into jargon; calls to action present but deliberately understated.</p>
+          </li>
+          <li>
+            <span class="f-head"><a href="https://therapyin.london">Therapy in London</a> — a directory, not a single practice</span>
+            <p>Press-logo trust bar (Guardian, Independent, GQ, Yahoo News); a numbered three-step process reducing the perceived complexity of finding a therapist; a distinctive envelope and stamp illustration motif.</p>
+          </li>
+          <li>
+            <span class="f-head">International reference points</span>
+            <p>From <a href="https://www.wildberry.studio/blog/top-therapist-websites-design-inspiration">Wildberry Studio's</a> curated list: <a href="https://thepracticetherapy.com">The Practice</a> (custom modality icons, a lime-green palette departing from the category norm); <a href="https://myeverroot.com">Everroot</a> (restrained neutral minimalism); <a href="https://maciej-mackowiak.pl">Maciej Maćkowiak</a> (horizontal-scroll navigation built around a forest metaphor — the most structurally unusual example found).</p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ============ 6 ============ -->
+      <section id="s6">
+        <div class="sec-head"><span class="n">06</span><h2>Professional and advertising rules</h2></div>
+
+        <p class="lede">Distinguishing legal requirement, professional-body rule, and guidance. The ASA/CAP Code has legal underpinning through the Consumer Protection from Unfair Trading Regulations 2008 and is enforceable by Trading Standards; body rules bind members only.</p>
+
+        <h3>BACP</h3>
+
+        <p>The 2018 Ethical Framework contains <strong>no standalone advertising section</strong>. The operative clauses are general: §43, <em>"We will maintain high standards of honesty and probity in all aspects of our work"</em>; §45, <em>"Whenever we communicate our qualifications, professional experience and working methods, we will do so accurately and honestly."</em> <span class="tag verified">Verified</span> · <a href="https://www.bacp.co.uk/media/3103/bacp-ethical-framework-for-the-counselling-professions-2018.pdf">Framework PDF</a></p>
+
+        <p><strong>Designation wording is prescribed exactly.</strong> Only current paid members may use these terms, and only in these forms: <em>"Registered Member of BACP"</em> / <em>"Registered counsellor"</em> / <em>"Registered Member MBACP"</em>; <em>"Accredited Member of BACP"</em> / <em>"Registered Member MBACP (Accred)"</em>; <em>"Registered Member MBACP (Snr Accred)"</em>. On lapse or cancellation a member <em>"may not refer to yourself using any designatory letters or titles"</em> — with no grace period stated. <span class="tag verified">Verified</span> · <a href="https://www.bacp.co.uk/membership/promoting-your-membership/">BACP</a></p>
+
+        <p><strong>Logo use:</strong> <em>"You can display your logo on your website and printed materials"</em> but <em>"only use the logos in their original format – don't change things like the colour, typeface, orientation or aspect ratio."</em> <span class="tag verified">Verified</span></p>
+
+        <h3>UKCP — an explicit testimonial prohibition</h3>
+
+        <p>Two UKCP documents were retrieved and agree. The <em>Code of Ethics and Professional Practice 2019</em>, clause 13: <em>"Not make any claims which you cannot demonstrate to be true or include testimonials from clients in any advertising."</em> Clause 11 requires advertising that is <em>"accurate and in a responsible and professional manner, without exaggeration."</em> Clause 12 governs titles and post-nominals, requiring that use of "Dr" indicate whether it is medical or academic. The organisational <em>Ethical Principles and Code of Professional Conduct</em> mirrors this at §11.1 and §11.3. <span class="tag verified">Verified</span> · <a href="https://www.psychotherapy.org.uk/media/bkjdm33f/ukcp-code-of-ethics-and-professional-practice-2019.pdf">UKCP 2019 Code</a></p>
+
+        <h3>NCPS</h3>
+
+        <p>The dedicated advertising-policy URL returned no retrievable policy text, and a Code of Ethics PDF found in search returned 404. A secondary source, <strong>not independently verified against NCPS primary text</strong>, reports that the Code requires advertising presenting <em>"a truthful, honest and accurate picture"</em> and directs members to CAP Code compliance rather than prohibiting testimonials. <span class="tag gap">Not verified</span> — see §10.</p>
+
+        <h3>ASA and the CAP Code — applies to all advertisers</h3>
+
+        <ul>
+          <li><strong>Rule 12.2:</strong> claims that a therapy can <em>"diagnose, treat, help with or cure a medical condition"</em> are unacceptable unless the advertiser is <em>"suitably qualified to diagnose or treat that symptom or condition"</em> and holds supporting evidence.</li>
+          <li><strong>Rule 12.1:</strong> advertisers must hold <em>"robust evidence to support the efficacy claim."</em></li>
+          <li><strong>ASA hypnotherapy guidance,</strong> applicable by analogy: <em>"Claims to treat depression, addiction, eating disorders and other serious mental or psychological conditions are likely to be considered claims to treat serious medical conditions and practitioners should not refer to the treatment of these conditions unless that treatment is to be carried out under the supervision of a suitably qualified health professional."</em></li>
+          <li><strong>Testimonials, rules 3.48–3.49:</strong> factual claims within testimonials must not mislead, and — the operative point — <em>"testimonials alone do not constitute substantiation so marketers should not rely on testimonials as support for any direct or implied claims."</em></li>
+        </ul>
+        <p class="src"><span class="tag verified">Verified</span> <a href="https://www.asa.org.uk/advice-online/health-therapies-and-references-to-medical-conditions.html">ASA health therapies</a> · <a href="https://www.asa.org.uk/advice-online/health-hypnotherapy.html">ASA hypnotherapy</a> · <a href="https://www.asa.org.uk/advice-online/claims-in-testimonials-and-endorsements.html">ASA testimonials</a></p>
+
+        <div class="call-out">
+          <span class="co-label">Documented enforcement precedent</span>
+          <p><strong>Stockport Counselling Services</strong> (therapist Dawn Hazeldine). The website stated she was a member of BACP and <em>"was accredited by the body."</em> The ASA found the claim could not be substantiated — she was registered, not accredited. The advertiser stated she <em>"had intended to remove the claim but could not access the website to do so."</em> Outcome: the advertisement <em>"must not appear again in its current form."</em> Advertisement seen September 2024; ruling published 12 March 2025. <strong>The complaint was brought by BACP itself.</strong></p>
+          <p><span class="tag verified">Verified</span> via <a href="https://www.marketing-beat.co.uk/2025/03/12/asa-rulings/">trade reporting of the adjudication</a>. The ASA's own ruling page was not retrieved directly — see §10.</p>
+        </div>
+
+        <h3>CQC registration</h3>
+
+        <p>CQC registration is required for "regulated activities" under the Health and Social Care Act 2008 (Regulated Activities) Regulations, the relevant one being <em>"treatment of disease, disorder or injury."</em> Secondary sources consistently describe this as centred on medical and clinical treatment — diagnosis, prescribing, treatment under the Mental Health Act 1983 — rather than standalone talking therapy delivered by a counsellor or psychotherapist without a medical qualification. <strong>cqc.org.uk blocked automated retrieval on every attempt</strong>, so no primary quotation was obtained. <span class="tag gap">Not verified</span> — see §10.</p>
+      </section>
+
+      <!-- ============ 7 ============ -->
+      <section id="s7">
+        <div class="sec-head"><span class="n">07</span><h2>Data protection</h2></div>
+
+        <h3>Special category data in enquiry forms</h3>
+
+        <p>ICO guidance states that <em>"Article 9 prohibits the processing of special category data"</em> subject to conditions. Health data is special category. For a therapist the relevant condition is <em>"(h) Health or social care (with a basis in law)"</em>, and DPA 2018 §11(1) <em>"clarifies when the requirement for a professional obligation of secrecy will be met under UK law."</em></p>
+
+        <p>Two separate tests must both be satisfied: an Article 6 lawful basis <strong>and</strong> an Article 9 condition plus a DPA 2018 Schedule 1 condition. <span class="tag verified">Verified</span> · <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/special-category-data/what-are-the-rules-on-special-category-data/">ICO</a></p>
+
+        <p><strong>Observation.</strong> A contact form inviting a visitor to describe what brings them to therapy will collect health data as soon as anyone answers substantively. This is a statement about what Article 9 covers, not advice on form design.</p>
+
+        <h3>Controller and processor status</h3>
+
+        <p>ICO's test: <em>"If you exercise overall control of the purpose and means of the processing of personal data – ie, you decide what data to process and why – you are a controller. If you don't have any purpose of your own for processing the data and you only act on a client's instructions, you are likely to be a processor."</em> On that test, a studio that builds a site and hands it over, without hosting or processing enquiries afterwards, is typically neither; the therapist is sole controller. A studio whose own tooling handles enquiry data on an ongoing basis would fall into processor status with its own obligations. <span class="tag verified">Verified</span> · <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/controllers-and-processors/controllers-and-processors-a-guide/">ICO</a></p>
+
+        <h3>Cookies and PECR — mid-revision</h3>
+
+        <ul>
+          <li><strong>Established position:</strong> consent is required for first-party analytics cookies, and a consent mechanism that <em>"emphasizes 'agree' or 'allow' over 'reject' or 'block' represents a non-compliant approach."</em></li>
+          <li><strong>Change in progress:</strong> the Data (Use and Access) Act 2025, enacted 19 June 2025, amends PECR to introduce five purpose-limited exemptions where consent will not be required, with an opt-out right retained. ICO issued updated draft cookies guidance in July 2025; a second consultation closed 26 September 2025; final guidance was expected in 2026. PECR penalties are being aligned upward toward UK GDPR levels.</li>
+          <li><strong>Enforcement activity:</strong> ICO reviewed the top 1,000 UK websites for cookie compliance from January 2025. Of 200 assessed, <strong>134 received warning letters</strong> — for pre-ticked boxes, non-prominent reject buttons and lack of granular consent. The sweep targeted the largest UK sites, not small businesses.</li>
+        </ul>
+        <p class="src"><span class="tag verified">Verified</span> <a href="https://www.burges-salmon.com/articles/102l7bs/key-insights-from-the-icos-updated-draft-cookies-guidance-following-duaa/">Burges Salmon on the DUAA changes</a> · <a href="https://www.didomi.io/blog/ico-review-uk-websites-cookie-compliance">ICO review reporting</a>. Whether the final ICO guidance has since been published was not confirmed — see §10.</p>
+      </section>
+
+      <!-- ============ 8 ============ -->
+      <section id="s8">
+        <div class="sec-head"><span class="n">08</span><h2>Accessibility law</h2></div>
+
+        <ul class="findings">
+          <li>
+            <span class="f-head">Equality Act 2010 — a duty, but not a WCAG mandate</span>
+            <p>Section 20 places an <strong>anticipatory</strong> reasonable-adjustments duty on service providers — not a reactive duty triggered by complaint. The three limbs are modifying practices that disadvantage disabled people, removing or altering barriers, and providing auxiliary aids. Adjustments need only be <em>"reasonable"</em>, weighed against organisation size, cost and practicability. <strong>WCAG 2.0, 2.1 and 2.2 are not themselves legally mandated for private-sector businesses</strong> under current UK law, though WCAG is the standard a regulator or court would be likely to reference. <span class="tag verified">Verified</span> via <a href="https://www.taylorwessing.com/en/interface/2025/accessibility/the-uks-regulatory-approach-to-accessibility">Taylor Wessing analysis</a></p>
+          </li>
+          <li>
+            <span class="f-head">No UK private-sector case law located</span>
+            <p>No UK legal case establishing precedent against a private business specifically for an inaccessible website was found, in contrast to extensive US ADA litigation. The same source describes UK enforcement as <em>"patchy at best,"</em> attributing this to the absence of a dedicated regulator and the cost of court action. <span class="tag gap">Absence of evidence</span> — recorded in §10.</p>
+          </li>
+          <li>
+            <span class="f-head">WCAG 2.2 status</span>
+            <p>Became a W3C Recommendation on <strong>12 December 2024</strong>. WCAG 3.0 is in parallel development, described by W3C as <em>"a more substantial restructuring... a multi-year effort"</em> — not a near-term replacement. <span class="tag verified">Verified</span> · <a href="https://www.w3.org/TR/WCAG22/">W3C</a></p>
+          </li>
+          <li>
+            <span class="f-head">European Accessibility Act</span>
+            <p>In force 28 June 2025, with pre-existing services having until 28 June 2030. <strong>It does not transpose into UK law</strong>, but binds UK businesses supplying in-scope goods and services to EU consumers. Annex I scope is a closed list: computers and operating systems, ATMs and ticketing machines, smartphones, TV equipment, telephony, audiovisual media access, passenger transport, banking, e-books and e-commerce. Micro-enterprises are exempt; the numerical threshold was not confirmed from primary EU text. A UK therapist's brochure site with no EU clients and no e-commerce falls outside the listed sectors. <span class="tag verified">Verified</span> · <a href="https://abilitynet.org.uk/resources/european-accessibility-act/eaa-faqs">AbilityNet</a></p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ============ 9 ============ -->
+      <section id="s9">
+        <div class="sec-head"><span class="n">09</span><h2>Search visibility and how clients choose</h2></div>
+
+        <h3>Google's own stated position</h3>
+
+        <ul>
+          <li><strong>E-E-A-T and YMYL.</strong> Google's developer documentation: <em>"experience, expertise, authoritativeness, and trustworthiness, or what we call E-E-A-T"</em>, and <em>"our systems give even more weight to content that aligns with strong E-E-A-T for topics that could significantly impact the health, financial stability, or safety of people."</em> Mental health falls within that category. <em>"Of these aspects, trust is most important."</em> On authorship, Google <em>"strongly encourage[s] adding accurate authorship information, such as bylines"</em>, ideally leading to further information about the author. <span class="tag verified">Verified</span> · <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content">Google</a></li>
+          <li><strong>Local ranking.</strong> Google Business Profile Help states local results are ranked on <em>"Relevance, distance, and popularity/prominence"</em>, with prominence based on <em>"website links, reviews, and ratings"</em> among other signals. Service-area-business specifics for a home-based practitioner were not covered in the pages retrieved. <span class="tag verified">Verified</span> · <a href="https://support.google.com/business/answer/7091?hl=en">Google</a></li>
+          <li><strong>Core Web Vitals.</strong> Google states <em>"Core Web Vitals are used by our ranking systems"</em> but also that <em>"Google Search always seeks to show the most relevant content, even if the page experience is sub-par"</em>, and that page experience contributes <em>"for many queries [where] there is lots of helpful content available."</em> Current thresholds for a "good" rating: LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1. <span class="tag verified">Verified</span> · <a href="https://developers.google.com/search/docs/appearance/page-experience">Google</a> · <a href="https://web.dev/articles/vitals">web.dev</a></li>
+        </ul>
+
+        <h3>Research on how clients select a therapist</h3>
+
+        <div class="call-out">
+          <span class="co-label">UK doctoral research, directly on point</span>
+          <p>May, J. (2018). <em>What factors influence a client's choice of counsellor or psychotherapist in a private practice setting?</em> Doctoral thesis, University of Brighton (supervisor: Diane Waller).</p>
+          <p><strong>Findings:</strong> third-party recommendation was the primary selection factor. Where unavailable, clients searched online for location, experience and perceived relatability. Clients <em>"assessed these factors using the photograph and rhetoric on the therapist's website or directory entry, as well as during the first face-to-face meeting,"</em> relying substantially on <em>"unconscious projection and 'gut instinct'."</em> Qualifications, professional standing and modality were given comparatively little weight. The study also found widespread public misassumption that the profession is statutorily regulated, and low client awareness of the need to verify credentials.</p>
+          <p><span class="tag verified">Verified</span> · <a href="https://research.brighton.ac.uk/en/studentTheses/what-factors-influence-a-clients-choice-of-counsellor-or-psychoth/">University of Brighton repository</a>. Single qualitative study; sample size and composition not extracted — see §10.</p>
+        </div>
+
+        <ul class="findings">
+          <li>
+            <span class="f-head">Facial attractiveness and therapist selection</span>
+            <p><em>"Facial attractiveness increases the likelihood of choosing a psychotherapist, irrespective of sexual preferences and perceived trustworthiness."</em> <em>Psychotherapy Research</em>, 2025, DOI 10.1080/10503307.2025.2494272, <a href="https://pubmed.ncbi.nlm.nih.gov/40356087/">PubMed 40356087</a>. Title, journal and DOI verified via PubMed indexing; <strong>full text was blocked by the publisher</strong>, so no figures, method or sample details were extracted. <span class="tag gap">Partially verified</span></p>
+          </li>
+          <li>
+            <span class="f-head">First-impression formation</span>
+            <p>Lindgaard, G., Fernandes, G., Dudek, C., &amp; Brown, J. (2006). <em>Attention web designers: You have 50 milliseconds to make a good first impression!</em> Behaviour &amp; Information Technology, 25(2), 115–126. Citation confirmed across the publisher record, Semantic Scholar and ResearchGate; 1,000+ citations. Full text was returned as 403, so the headline finding — visual-appeal judgements forming within roughly 50ms and correlating with later credibility judgements — is reported from the established literature rather than re-extracted. <span class="tag gap">Citation verified, text not retrieved</span></p>
+          </li>
+          <li>
+            <span class="f-head">Web credibility factors</span>
+            <p>Stanford Web Credibility Project guidelines: verifiable information and citations, visible legitimacy markers such as a physical address, clear display of credentials and professional affiliations, humanising about-content, easy contact details, polished consistent visual design, genuine usability, visible freshness, minimal overt advertising, and error-free presentation. <strong>Published 2002</strong> — foundational and widely cited, but not current empirical data. <span class="tag verified">Verified</span> · <a href="https://credibility.stanford.edu/guidelines/index.html">Stanford</a></p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ============ 10 ============ -->
+      <section id="s10">
+        <div class="sec-head"><span class="n">10</span><h2>Research limitations</h2></div>
+
+        <div class="limits">
+          <h3>Evidence that does not exist publicly</h3>
+          <ol>
+            <li><strong>What proportion of UK therapists have their own website.</strong> Searched extensively across industry blogs, professional bodies and marketing agencies serving this sector. No published figure of any kind was located. This is a genuine gap in the literature, not merely an unverified number.</li>
+            <li><strong>Where UK therapists actually get clients from.</strong> No credible survey quantifying the split between Google organic and local search, Counselling Directory, Psychology Today and word-of-mouth referral was found. Counselling Directory's own statistics page gives only a supply-side figure. Any channel-mix claim from any source should be treated as anecdote.</li>
+            <li><strong>Official session-fee and income data.</strong> No primary BACP or UKCP fee survey exists. The £40–£70 and £65–£150 bands in §1 are secondary syntheses of directory listings, and the income figures are blog worked examples explicitly not sourced to any survey.</li>
+          </ol>
+
+          <h3>Sources that blocked retrieval</h3>
+          <ol start="4">
+            <li><strong>CQC (cqc.org.uk)</strong> returned 403 or 404 on every attempt. The registration boundary in §6 rests on secondary sources with no primary quotation. Confirm via CQC's "Scope of registration" guidance or a direct enquiry before relying on it.</li>
+            <li><strong>NCPS advertising policy.</strong> The dedicated policy URL returned no content; a Code of Ethics PDF found in search returned 404. NCPS's position on testimonials is characterised from a secondary source only and should not be assumed to mirror UKCP's prohibition.</li>
+            <li><strong>The ASA ruling itself.</strong> The Stockport Counselling Services adjudication is reported via trade press, not read from the ASA's own database. The primary ruling should be located on asa.org.uk before the case is cited anywhere public.</li>
+            <li><strong>Psychotherapy Research 2025 paper.</strong> Publisher bot-check blocked the full text. Title, journal and DOI are confirmed; effect sizes, method and sample are not.</li>
+            <li><strong>Lindgaard et al. (2006).</strong> Returned 403. Citation confirmed; text not re-read.</li>
+            <li><strong>The Digital Therapist</strong> could not be retrieved, so is absent from the price comparison in §3.</li>
+          </ol>
+
+          <h3>Figures needing a direct check</h3>
+          <ol start="10">
+            <li><strong>WordPress.com and Webflow prices are in USD.</strong> The pages did not render GBP to this retrieval. Check both from a UK connection before quoting sterling figures.</li>
+            <li><strong>Squarespace and Wix GBP figures are from third-party UK pricing guides</strong>, not the platforms' own pages. Verify against squarespace.com and wix.com directly.</li>
+            <li><strong>ICO cookie guidance was mid-consultation</strong> when the sources in §7 were written, with final guidance expected in 2026. Whether it has since been published was not confirmed.</li>
+            <li><strong>EAA micro-enterprise threshold.</strong> The exemption is confirmed to exist; the numerical staff and turnover threshold was not confirmed from primary EU text.</li>
+            <li><strong>BABCP, COSCA, ACC and BPS current membership.</strong> No current total was found for any of these. The BPS figure circulating (60,604) dates from 2019. HCPC does not publish counselling psychologists separately from the 32,206 all-specialism total.</li>
+          </ol>
+
+          <h3>Methodological caveats</h3>
+          <ol start="15">
+            <li><strong>The PCPB aggregate contains double-counting.</strong> Practitioners holding dual BACP and UKCP registration are counted twice; the overlap is known to be material and is not quantified anywhere. No de-duplicated national figure for unique practitioners exists.</li>
+            <li><strong>The provider list in §3 is a search sample, not a census.</strong> Sixteen UK providers were found; there may be others, particularly sole traders without search visibility. Statements about price clustering and gaps describe this sample only.</li>
+            <li><strong>"No UK therapist template shop was found" is absence of evidence.</strong> It reflects the searches run, not a proven absence.</li>
+            <li><strong>The weaknesses in §4 come from two curated critique articles</strong> written by competing designers, who have a commercial interest in the failures they document. No systematic sample of therapist websites was taken, and the list should not be read as representative of the population.</li>
+            <li><strong>The examples in §5 involve aesthetic judgement.</strong> What is recorded is the features observed on each page; "well-executed" is not a measured property.</li>
+            <li><strong>WebSearch is US-weighted.</strong> UK-specific results were reached largely through site-targeted queries and direct retrieval, which may have missed UK providers or sources that rank poorly in a US-biased index.</li>
+            <li><strong>All prices and page contents are as at 22 August 2026</strong> and will drift. Anything load-bearing should be re-checked at the point of use.</li>
+          </ol>
+
+          <h3>Outside the competence of this document</h3>
+          <ol start="22">
+            <li>Nothing here is legal advice. The Article 9 analysis, the consumer-contract position, licensing wording and the CQC boundary all require a UK solicitor. The professional-body rules are quoted accurately but their application to a specific practitioner's circumstances is not something desk research can settle.</li>
+          </ol>
+        </div>
+      </section>
+
+      <footer>
+        <p>Compiled 22 August 2026 by primary-source retrieval. Every figure is linked to the page it was taken from. Items marked <span class="tag gap">Gap</span> or listed in §10 were searched for and not obtained, and should be verified manually before use. This document records findings and does not recommend a course of action.</p>
+      </footer>
+
+    </main>
+  </div>
+</div>
