@@ -629,22 +629,35 @@ p { text-wrap: pretty; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: color-mix(in srgb, var(--paper) 88%, transparent);
   border-block-end: var(--hairline) solid transparent;
-  transition:
-    background var(--dur) var(--ease-inout),
-    border-color var(--dur) var(--ease-inout);
+  transition: border-color var(--dur) var(--ease-inout);
+}
+
+/* The ground is painted by a pseudo-element rather than by the header
+   itself. `backdrop-filter` on an element makes it the containing block for
+   every fixed-position descendant, which quietly trapped the mobile
+   navigation panel inside the 4.5rem header instead of letting it cover the
+   viewport. Moving the blur to ::before keeps the effect and gives the panel
+   the viewport back. */
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  transition: background var(--dur) var(--ease-inout);
 }
 
 @supports (backdrop-filter: blur(6px)) {
-  .site-header { backdrop-filter: blur(10px) saturate(1.1); }
+  .site-header::before { backdrop-filter: blur(10px) saturate(1.1); }
 }
 
 /* The scroll state is a flip, not a shrink: a hairline appears and the
    ground becomes opaque. Nothing moves, so nothing reflows. */
-.site-header.is-scrolled {
+.site-header.is-scrolled { border-block-end-color: var(--line); }
+
+.site-header.is-scrolled::before {
   background: color-mix(in srgb, var(--paper) 97%, transparent);
-  border-block-end-color: var(--line);
 }
 
 .nav {
@@ -672,8 +685,7 @@ p { text-wrap: pretty; }
   gap: clamp(1rem, 2.2vw, 2rem);
 }
 
-.nav__links a,
-.nav__disclosure summary {
+.nav__links a {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
@@ -688,54 +700,9 @@ p { text-wrap: pretty; }
   transition: color var(--dur) var(--ease-inout), background-size var(--dur) var(--ease-out);
 }
 
-.nav__links a:hover,
-.nav__disclosure summary:hover { color: var(--text); background-size: 100% 1px; }
+.nav__links a:hover { color: var(--text); background-size: 100% 1px; }
 
 .nav__links a[aria-current="page"] { color: var(--text); background-size: 100% 1px; }
-
-.nav__disclosure { position: relative; }
-
-.nav__disclosure summary {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  gap: 0.4rem;
-  list-style: none;
-  cursor: pointer;
-}
-
-.nav__disclosure summary::-webkit-details-marker { display: none; }
-
-.nav__chev {
-  width: 7px; height: 7px;
-  border-right: 1.4px solid currentColor;
-  border-bottom: 1.4px solid currentColor;
-  transform: translateY(-2px) rotate(45deg);
-  transition: transform var(--dur) var(--ease-out);
-}
-
-.nav__disclosure[open] .nav__chev { transform: translateY(1px) rotate(-135deg); }
-
-.nav__submenu {
-  position: absolute;
-  top: calc(100% + 0.85rem);
-  left: -1rem;
-  min-width: 15rem;
-  padding: 0.85rem 0;
-  background: var(--paper);
-  border: var(--hairline) solid var(--line);
-  border-radius: var(--r);
-  box-shadow: 0 18px 40px -22px rgba(28, 42, 39, 0.4);
-}
-
-.nav__submenu a {
-  display: block;
-  padding: 0.5rem 1.25rem;
-  background-size: 0 1px;
-  font-size: var(--t-small);
-}
-
-.nav__submenu a:hover { background-size: 0 1px; color: var(--text); }
 
 .nav__cta {
   display: inline-flex;
@@ -818,33 +785,13 @@ p { text-wrap: pretty; }
 
   .nav__links > li { border-block-end: var(--hairline) solid var(--line-soft); }
 
-  .nav__links a,
-  .nav__disclosure summary {
+  .nav__links a {
     padding-block: var(--s-4);
     font-family: var(--serif);
     font-size: 1.45rem;
     font-weight: 400;
     color: var(--text);
     background-size: 0 1px;
-  }
-
-  .nav__disclosure summary { justify-content: space-between; }
-
-  .nav__submenu {
-    position: static;
-    min-width: 0;
-    padding: 0 0 var(--s-4);
-    background: none;
-    border: 0;
-    box-shadow: none;
-  }
-
-  .nav__submenu a {
-    padding: var(--s-2) 0 var(--s-2) var(--s-4);
-    font-family: var(--sans);
-    font-size: var(--t-small);
-    color: var(--text-quiet);
-    border-left: var(--hairline) solid var(--line);
   }
 
   .nav__cta { justify-content: center; width: 100%; padding-block: 0.95rem; }
@@ -1558,6 +1505,17 @@ p { text-wrap: pretty; }
 .way__said::before { content: "\201C"; }
 .way__said::after { content: "\201D"; }
 
+/* The same voice as .way__said, but a statement rather than something
+   somebody said, so it takes no quotation marks. */
+.statement {
+  max-width: 22ch;
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.35rem);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
 .way__meta {
   display: flex;
   flex-wrap: wrap;
@@ -2236,6 +2194,57 @@ p { text-wrap: pretty; }
   font-size: var(--t-small);
 }
 
+/* A block of detail somebody may want and most people will not. Same
+   mechanism as the FAQ, but it opens onto a full-width component rather
+   than a paragraph. */
+.disclosure {
+  border-block: var(--hairline) solid var(--line-strong);
+}
+
+.disclosure > summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-3) var(--s-5);
+  padding-block: var(--s-5);
+  list-style: none;
+  cursor: pointer;
+}
+
+.disclosure > summary::-webkit-details-marker { display: none; }
+
+.disclosure__title {
+  font-family: var(--serif);
+  font-size: var(--t-h3);
+  line-height: 1.25;
+  letter-spacing: -0.014em;
+}
+
+.disclosure__hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  color: var(--text-quiet);
+  font-size: var(--t-small);
+  font-weight: 600;
+}
+
+.disclosure__hint::after {
+  content: "";
+  width: 10px; height: 10px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.disclosure[open] > summary .disclosure__hint::after { transform: translateY(2px) rotate(-135deg); }
+.disclosure[open] > summary .disclosure__hint .closed { display: none; }
+.disclosure:not([open]) > summary .disclosure__hint .opened { display: none; }
+
+.disclosure__body { padding-block: var(--s-3) var(--s-7); }
+
 .faq__body p + p { margin-block-start: var(--s-3); }
 
 /* ==========================================================================
@@ -2485,6 +2494,16 @@ legend {
 
 @media (min-width: 54rem) {
   .principle { grid-template-columns: 5.5rem minmax(0, 1fr) minmax(0, 1.15fr) auto; }
+  /* A note has no place in a numbered sequence, so it has no number. */
+  .principle--note { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) 6rem auto; }
+}
+
+.principle__meta {
+  color: var(--text-faint);
+  font-size: var(--t-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .principle:hover { background: color-mix(in srgb, var(--paper-deep) 65%, transparent); }

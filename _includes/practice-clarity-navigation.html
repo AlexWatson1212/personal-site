@@ -36,7 +36,7 @@
       {% if previous.intro %}
         <p>{{ previous.intro }}</p>
       {% elsif previous.excerpt %}
-        <p>{{ previous.excerpt | strip_html | truncate: 120 }}</p>
+        <p>{{ previous.excerpt | strip_html | truncatewords: 18 }}</p>
       {% endif %}
 
       <a href="{{ previous.url | relative_url }}">
@@ -60,7 +60,7 @@
       {% if next.intro %}
         <p>{{ next.intro }}</p>
       {% elsif next.excerpt %}
-        <p>{{ next.excerpt | strip_html | truncate: 120 }}</p>
+        <p>{{ next.excerpt | strip_html | truncatewords: 18 }}</p>
       {% endif %}
 
       <a class="acw-btn acw-btn-primary" href="{{ next.url | relative_url }}">

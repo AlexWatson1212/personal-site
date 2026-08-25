@@ -36,16 +36,16 @@ page_js: /assets/js/website-library.js
     <div class="library-tools">
       <div class="chips" role="group" aria-label="Filter directions">
         <button type="button" aria-pressed="true" data-filter="all">All</button>
-        <button type="button" aria-pressed="false" data-filter="solo">Solo therapist</button>
-        <button type="button" aria-pressed="false" data-filter="centre">Centres &amp; services</button>
+        <button type="button" aria-pressed="false" data-filter="solo">One therapist</button>
+        <button type="button" aria-pressed="false" data-filter="centre">A centre or service</button>
         <button type="button" aria-pressed="false" data-filter="families">Families</button>
-        <button type="button" aria-pressed="false" data-filter="warm">Warm</button>
-        <button type="button" aria-pressed="false" data-filter="editorial">Editorial</button>
-        <button type="button" aria-pressed="false" data-filter="accessible">Accessible</button>
+        <button type="button" aria-pressed="false" data-filter="quiet">Quiet</button>
+        <button type="button" aria-pressed="false" data-filter="ordered">Ordered</button>
+        <button type="button" aria-pressed="false" data-filter="plain">Plain-speaking</button>
       </div>
       <label class="search-field">
         <span>Search the collection</span>
-        <input type="search" data-website-search placeholder="Try warm, families or editorial">
+        <input type="search" data-website-search placeholder="Try quiet, families or clinical">
       </label>
     </div>
 
@@ -140,6 +140,11 @@ page_js: /assets/js/website-library.js
           direction can borrow a feature from another where that improves the result.
         </p>
         <p><a class="tlink" href="{{ '/contact/' | relative_url }}">Tell me which ones <span aria-hidden="true">&rarr;</span></a></p>
+        <p class="small quiet divider-top">
+          If it helps to know what a therapist&rsquo;s homepage actually has to do before
+          you judge a direction on it:
+          <a class="inline-link" href="{{ '/guidance/homepage-contents/' | relative_url }}">the five things people look for</a>.
+        </p>
       </div>
     </div>
   </div>

@@ -12,7 +12,6 @@
   var header = document.querySelector("[data-site-header]");
   var toggle = document.querySelector(".nav__toggle");
   var panel = document.querySelector("[data-nav-panel]");
-  var disclosures = Array.prototype.slice.call(document.querySelectorAll("[data-nav-disclosure]"));
   var mobile = window.matchMedia("(max-width: 61.99rem)");
 
   /* ---- Header state ---- */
@@ -55,7 +54,6 @@
       setOpen(false);
       toggle.focus();
     }
-    disclosures.forEach(function (item) { item.open = false; });
   });
 
   panel.addEventListener("click", function (event) {
@@ -66,28 +64,4 @@
     setOpen(false);
   });
 
-  /* ---- Library disclosure: hover to preview on pointer devices, click
-     everywhere. Closes when focus or the pointer leaves. ---- */
-
-  disclosures.forEach(function (item) {
-    var fine = window.matchMedia("(hover: hover) and (pointer: fine)");
-
-    item.addEventListener("mouseenter", function () {
-      if (fine.matches && !mobile.matches) item.open = true;
-    });
-
-    item.addEventListener("mouseleave", function () {
-      if (fine.matches && !mobile.matches) item.open = false;
-    });
-
-    item.addEventListener("focusout", function (event) {
-      if (!item.contains(event.relatedTarget)) item.open = false;
-    });
-  });
-
-  document.addEventListener("click", function (event) {
-    disclosures.forEach(function (item) {
-      if (item.open && !item.contains(event.target)) item.open = false;
-    });
-  });
 })();

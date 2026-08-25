@@ -196,7 +196,7 @@ const ROUTES = [
   ["work.html", "/work/"],
   ["about.html", "/about/"],
   ["contact.html", "/contact/"],
-  ["blog.html", "/blog/"],
+  ["guidance.html", "/guidance/"],
   ["practice-clarity.html", "/practice-clarity/"],
   ["links/index.html", "/links/"],
   ["404.html", "/404.html"],
@@ -457,6 +457,34 @@ check("Commercial architecture", "One product, one add-on, one care plan", () =>
   assert(/£29/.test(servicePage), "service.html does not show the £29 Website Care price");
   assert(/[Cc]ustom project/.test(servicePage), "service.html does not offer a custom project route");
   return "£995 · +£500 · £1,495 · £29 · custom quoted";
+});
+
+check("Information architecture", "One resource section, one front door", () => {
+  /* The Journal index and the Library index folded into /guidance/ in August
+     2026. The nav must offer exactly one way in, the retired indexes must
+     redirect rather than 404, and nothing may link at /blog/ any more. */
+  const header = read("_includes/header.html");
+  const navLinks = [...header.matchAll(/<li><a href="\{\{ '([^']+)'/g)].map((m) => m[1]);
+  assert(navLinks.length === 4, `expected four primary nav links, found ${navLinks.length}`);
+  assert(navLinks.includes("/guidance/"), "the navigation does not offer /guidance/");
+  assert(!header.includes("/blog/"), "the navigation still links to the retired Journal index");
+  assert(!/<details/.test(header), "the navigation still uses a dropdown");
+
+  const redirects = read("_redirects");
+  for (const gone of ["/blog/", "/library/"]) {
+    assert(new RegExp("^" + gone.replace(/\//g, "\\/") + "\\s", "m").test(redirects),
+      `${gone} has no redirect`);
+  }
+
+  const offenders = [];
+  for (const [rel, body] of publishedBodies) {
+    if (rel === "_redirects") continue;
+    for (const m of body.matchAll(/'\/blog\/'/g)) {
+      offenders.push(`${rel}:${lineAt(body, m.index)}`);
+    }
+  }
+  assert(offenders.length === 0, `links to the retired Journal index: ${offenders.join(", ")}`);
+  return `${navLinks.length} nav links, /blog/ and /library/ redirected`;
 });
 
 check("Commercial architecture", "The retired offer structure is gone", () => {

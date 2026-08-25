@@ -14,13 +14,13 @@
   name: Rowan Hill Therapy
   variant: warm
   practice: Solo therapist
-  atmosphere: Warm and grounded
+  atmosphere: Quiet and unhurried
   note: >-
     Generous space, a natural palette and an unhurried route to enquiry. Made
     for a practitioner whose work is slow and relational, and whose website
     should not be in a hurry either.
-  tags: [Solo therapist, Warm, Nature-led]
-  search: rowan hill solo therapist adults warm grounded nature minimal quiet space
+  tags: [One therapist, Quiet, Unhurried]
+  search: rowan hill solo therapist one therapist adults quiet unhurried warm gentle nature spacious calm
   paper: "#f3eee5"
   ink: "#1f3027"
   soft: "#75806d"
@@ -36,13 +36,13 @@
   name: Stillpoint
   variant: editorial
   practice: Solo therapist
-  atmosphere: Measured and editorial
+  atmosphere: Precise and calm
   note: >-
     Architectural and precisely ordered, for a practitioner who wants to read
     as exact without reading as clinical. Rules, indices and a tight measure do
     the work that decoration usually does.
-  tags: [Solo therapist, Editorial, Structured]
-  search: stillpoint solo therapist adults measured editorial structured precise minimal
+  tags: [One therapist, Precise, Ordered]
+  search: stillpoint solo therapist one therapist adults quiet precise ordered structured measured exact minimal
   paper: "#f1efe9"
   ink: "#252a2d"
   soft: "#66727b"
@@ -57,13 +57,13 @@
   name: Harbour
   variant: care
   practice: Counselling centre
-  atmosphere: Protective and warm
+  atmosphere: Warm, made for families
   note: >-
     Built for a service that has to speak to a parent, a teenager and a school
     on the same page. Soft forms, and the audience routing offered before
     anything else is asked of anyone.
-  tags: [Centre, Families, Warm]
-  search: harbour counselling centre parents children young people families protective warm supportive
+  tags: [A centre, Families, Warm]
+  search: harbour counselling centre service parents children young people families warm protective reassuring supportive
   paper: "#f7f0e6"
   ink: "#243f42"
   soft: "#6f99a0"
@@ -79,13 +79,13 @@
   name: Common Ground
   variant: balance
   practice: Family service
-  atmosphere: Calm and balanced
+  atmosphere: Even-handed
   note: >-
     Symmetrical by design, because the work is. Nothing on the page is raised
     above anything else, which is what lets it hold two sides of a difficult
     situation without appearing to take one.
-  tags: [Families, Service, Editorial]
-  search: common ground family service separating families couples calm balanced neutral editorial
+  tags: [A service, Families, Even-handed]
+  search: common ground family service centre families couples separating quiet ordered even handed balanced neutral fair calm
   paper: "#f1eee8"
   ink: "#263738"
   soft: "#a6a98e"
@@ -100,13 +100,13 @@
   name: Different Minds
   variant: choice
   practice: Therapy centre
-  atmosphere: Clear and neuroaffirming
+  atmosphere: Direct and welcoming
   note: >-
     More expressive and more direct, with choice built into the structure: the
     same information is offered plainly, in summary, or straight to costs, and
     none of the three routes is the lesser one.
-  tags: [Centre, Neurodiversity, Accessible]
-  search: different minds therapy centre neurodivergent neurodiversity accessible expressive clear affirming autism adhd
+  tags: [A centre, Neurodivergent clients, Plain-speaking]
+  search: different minds therapy centre service neurodivergent neurodiversity autism adhd plain speaking direct welcoming accessible clear choice
   paper: "#f6f0df"
   ink: "#243750"
   soft: "#8171a4"
@@ -123,13 +123,13 @@
   name: North &amp; Vale
   variant: clinical
   practice: Psychology practice
-  atmosphere: Assured and clinical
+  atmosphere: Ordered and clinical
   note: >-
     Publication-inspired, for a multi-practitioner service that has to make
     authority, order and a lot of readable detail sit together — assessments,
     practitioners, reports, fees.
-  tags: [Clinic, Professional, Editorial]
-  search: north vale psychology clinic adults organisations assured clinical professional editorial structured assessment
+  tags: [A clinic, Ordered, Clinical]
+  search: north vale psychology clinic centre service adults organisations ordered clinical precise professional assessment authoritative
   paper: "#f5f2ec"
   ink: "#21333d"
   soft: "#9ba8ad"
@@ -148,13 +148,13 @@
   name: Face to Face
   variant: community
   practice: Community counselling
-  atmosphere: Welcoming and practical
+  atmosphere: Local and practical
   note: >-
     Costs and first steps said out loud, near the top, without flattening the
     character of the organisation. Made for services where the person reading
     needs to know quickly whether they can afford to come.
-  tags: [Community, Charity, Accessible]
-  search: face to face community counselling local charity accessible warm welcoming practical low cost sliding scale
+  tags: [Community, Low cost, Plain-speaking]
+  search: face to face community counselling centre service local charity plain speaking practical affordable welcoming low cost sliding scale accessible
   paper: "#f6f1e7"
   ink: "#26422d"
   soft: "#7b9e72"
@@ -173,15 +173,15 @@
   name: Alexander Watson Counselling
   variant: direct
   practice: The studio's own practice
-  atmosphere: Direct
+  atmosphere: Plain and direct
   available: false
   href: https://alexanderwatsoncounselling.co.uk/
   note: >-
     My own counselling website, shown so the standard can be judged on a live
     practice rather than a demonstration. It is not one of the directions you
     can choose.
-  tags: [Solo therapist, Editorial, Direct]
-  search: alexander watson counselling solo therapist adults direct human editorial personal live
+  tags: [One therapist, Plain, Direct]
+  search: alexander watson counselling solo therapist one therapist adults plain speaking direct personal live
   paper: "#eee9df"
   ink: "#1d2925"
   soft: "#6d7772"

@@ -13,9 +13,9 @@ page_js: /assets/js/contact-enquiry.js
         <p class="label">Start here</p>
         <h1 class="measure-3xs">Tell me which design you like.</h1>
         <p class="lead">
-          That is genuinely the whole brief. Name the direction you keep returning
-          to, say what is already written, and I will reply with the clearest
-          suitable route &mdash; including if that is the smaller one.
+          That is genuinely the whole brief. Name the one you keep returning to,
+          say roughly where you are up to, and I will write back with what I would
+          suggest &mdash; including if that is the cheaper option, or somebody else.
         </p>
 
         <div class="divider-top">
@@ -53,25 +53,16 @@ page_js: /assets/js/contact-enquiry.js
             </select>
           </p>
 
-          <p class="field">
-            <label for="f-service">Which are you thinking about?</label>
-            <select id="f-service" name="service">
-              <option value="">Please help me choose</option>
-              <option value="practice-website">Therapist Website — £995</option>
-              <option value="practice-clarity">Practice Clarity + Website — £1,495</option>
-              <option value="custom">Something outside the normal scope</option>
-              <option value="not-sure">I am not sure which fits</option>
-            </select>
-          </p>
+          <input type="hidden" name="service" value="">
 
           <p class="field">
-            <label for="f-readiness">What is already ready?</label>
+            <label for="f-readiness">Where are you up to?</label>
             <select id="f-readiness" name="readiness" required>
-              <option value="" disabled selected>Select the closest answer</option>
-              <option>My words, images and direction are ready</option>
-              <option>I have rough words and a clear idea of my practice</option>
-              <option>I know my practice but need help expressing it</option>
-              <option>I am still working out the practice itself</option>
+              <option value="" disabled selected>Whichever is closest</option>
+              <option>My words and images are more or less ready</option>
+              <option>I have rough notes and a clear idea of my practice</option>
+              <option>I know my practice but find it hard to put into words</option>
+              <option>I am still working out what the practice is</option>
             </select>
           </p>
 
@@ -81,9 +72,9 @@ page_js: /assets/js/contact-enquiry.js
           </p>
 
           <p class="field">
-            <label for="f-message">What would you like me to know?</label>
+            <label for="f-message">Anything you would like me to know</label>
             <textarea id="f-message" name="message" rows="6" required></textarea>
-            <span class="field__hint">For example: what you like about the direction, who you work with, what you would want changed, and any timing you have in mind.</span>
+            <span class="field__hint">A couple of lines is plenty. Who you work with, what you like about the direction, anything you already know you want changed.</span>
           </p>
 
           <button type="submit" class="btn">Prepare my enquiry email<span class="btn__arrow" aria-hidden="true">&rarr;</span></button>

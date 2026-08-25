@@ -41,15 +41,16 @@ current `_pages/accessibility.html` statement.
 
 ## Live checks after deployment
 
-- `/`, `/service/`, `/about/`, `/work/` and `/contact/`
+- `/`, `/service/`, `/about/`, `/work/`, `/contact/`
+- `/guidance/` and all five guidance notes
 - `/practice-clarity/` and all nine principle routes
 - `/practice-clarity/counselling-directory-profile/`
 - `/practice-clarity/beyond-counselling-directory/`
-- `/blog/` and both Journal articles
-- `/library/` redirects to `/practice-clarity/`
-- `/practice-notes/` redirects to `/blog/`
+- `/blog/`, `/blog`, `/practice-notes/` and `/library/` all redirect to a live page
 - `/terms/` contains the Studio Terms
+- `/service-terms/practice-website/` contains the Website Care clause
 - `/accessibility/` contains the Studio Accessibility Statement
-- `/links/`, `/library/framework` and `/practice-clarity/framework` expose no old content
+- `/links/` exposes no retired route
 
-Finish with one mobile pass and a Screaming Frog crawl. The photography replacement is optional and is specified in `PHOTOGRAPHY-SHOT-LIST.md`.
+Finish with one mobile pass and a Screaming Frog crawl. The photography
+replacement is optional and is specified in `PHOTOGRAPHY-SHOT-LIST.md`.

@@ -1,10 +1,22 @@
-/practice-notes/ /blog/ 301
-/professional-identity/ /service/ 301
-/library /practice-clarity/ 301
-/library/ /practice-clarity/ 301
-/beyond-counselling-directory/ /practice-clarity/beyond-counselling-directory/ 301
-/library/practical-guides/counselling-directory-profile/ /practice-clarity/counselling-directory-profile/ 301
-/practice-clarity.html /practice-clarity/ 301
-/services/straightforward-website/ /services/practice-website/ 301
-/services/straightforward-website/questionnaire/ /services/practice-website/questionnaire/ 301
-/service-terms/straightforward-website/ /service-terms/practice-website/ 301
+# Retired routes. Netlify matches these exactly, so a redirect on a parent
+# path leaves its children alone.
+
+# The Journal folded into Useful guidance in August 2026. The two articles
+# keep their own URLs; only the index moved.
+/blog                                                       /guidance/ 301
+/blog/                                                      /guidance/ 301
+/practice-notes/                                            /guidance/ 301
+
+# The Library became the Practice Clarity principles, one level below the
+# new guidance index.
+/library                                                    /practice-clarity/ 301
+/library/                                                   /practice-clarity/ 301
+/practice-clarity.html                                      /practice-clarity/ 301
+/library/practical-guides/counselling-directory-profile/    /practice-clarity/counselling-directory-profile/ 301
+/beyond-counselling-directory/                              /practice-clarity/beyond-counselling-directory/ 301
+
+# Earlier service names.
+/professional-identity/                                     /service/ 301
+/services/straightforward-website/                          /services/practice-website/ 301
+/services/straightforward-website/questionnaire/            /services/practice-website/questionnaire/ 301
+/service-terms/straightforward-website/                     /service-terms/practice-website/ 301

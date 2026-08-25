@@ -720,7 +720,7 @@ async function main() {
     overflow: [], headingQuality: [], clipping: [],
     zoomOverflow: [], zoomClipping: [],
     focus: [], landmarks: [], reducedMotion: [], contrast: [],
-    pageErrors: [],
+    mobileNav: [], pageErrors: [],
   };
   const notAssessed = { missingAssets: [], contrastSkipped: [], notes: [] };
 
@@ -837,6 +837,71 @@ async function main() {
     await ctx.close();
   }
 
+  /* ── Phase 2b: the mobile navigation panel actually opens ────────────── */
+  /* A `backdrop-filter` on the header makes it the containing block for every
+     fixed-position descendant, which silently collapses the panel into the
+     header strip. Nothing in the closed state shows it, so it is checked open. */
+  {
+    for (const width of [320, 375, 768]) {
+      const ctx = await newContext(browser, { width, height: HEIGHT, reducedMotion: "reduce" });
+      const page = await ctx.newPage();
+      await gotoRoute(page, base, "/");
+      const opened = await page.evaluate(() => {
+        const toggle = document.querySelector(".nav__toggle");
+        const panel = document.querySelector("[data-nav-panel]");
+        if (!toggle || !panel) return { problem: "no toggle or panel in the document" };
+        if (getComputedStyle(toggle).display === "none") return { skip: true };
+        toggle.click();
+        return { clicked: true };
+      });
+      /* Let the open transition settle before measuring, so a slow panel is
+         reported as a real problem and a normal one is not. */
+      if (opened.clicked) await page.waitForTimeout(600);
+      const result = opened.clicked ? await page.evaluate(() => {
+        const toggle = document.querySelector(".nav__toggle");
+        const panel = document.querySelector("[data-nav-panel]");
+        const cs = getComputedStyle(panel);
+        const box = panel.getBoundingClientRect();
+        const links = [...panel.querySelectorAll("a")];
+        const outside = links
+          .filter((a) => {
+            const r = a.getBoundingClientRect();
+            return r.bottom > box.bottom + 1 || r.top < box.top - 1;
+          })
+          .map((a) => a.textContent.trim());
+        return {
+          expanded: toggle.getAttribute("aria-expanded"),
+          opacity: cs.opacity,
+          visibility: cs.visibility,
+          height: Math.round(box.height),
+          viewport: window.innerHeight,
+          linkCount: links.length,
+          outside,
+        };
+      }) : opened;
+      if (!result.skip) {
+        const problems = [];
+        if (result.problem) problems.push(result.problem);
+        else {
+          if (result.expanded !== "true") problems.push("aria-expanded did not become true");
+          if (result.visibility !== "visible" || Number(result.opacity) < 1) {
+            problems.push(`panel stayed ${result.visibility} at opacity ${result.opacity}`);
+          }
+          if (result.height < result.viewport * 0.6) {
+            problems.push(`panel is ${result.height}px tall in a ${result.viewport}px viewport — it is not covering the page`);
+          }
+          if (result.outside.length) {
+            problems.push(`links fall outside the panel box: ${result.outside.join(", ")}`);
+          }
+          if (result.linkCount < 3) problems.push(`only ${result.linkCount} link(s) inside the panel`);
+        }
+        for (const problem of problems) findings.mobileNav.push({ route: "/", viewport: width, problem });
+      }
+      await page.close();
+      await ctx.close();
+    }
+  }
+
   /* ── Phase 3: 200% zoom, two ways ────────────────────────────────────── */
   const zoomModes = [
     { label: "640x450@2x (deviceScaleFactor 2)", width: 640, height: 450, deviceScaleFactor: 2 },
@@ -913,6 +978,7 @@ async function main() {
       landmarks: sortBy(findings.landmarks, "route"),
       reducedMotion: sortBy(findings.reducedMotion, "route"),
       contrast: sortBy(findings.contrast, "route", "selector"),
+      mobileNavigation: sortBy(findings.mobileNav, "viewport", "problem"),
       pageErrors: sortBy(findings.pageErrors, "route", "viewport", "message"),
     },
     warnings: {
@@ -1032,6 +1098,11 @@ function printSummary(r) {
     bullet(l.route);
     for (const p of l.problems) console.log(`      ${p}`);
   }
+
+  hr(`6b. Mobile navigation panel — ${f.mobileNavigation.length} problem(s)`);
+  if (!f.mobileNavigation.length) bullet("the panel opens, covers the page and holds every link at 320, 375 and 768");
+  for (const mn of f.mobileNavigation) bullet(`w${mn.viewport} ${mn.route} — ${mn.problem}`);
+  console.log("");
 
   hr(`7. Reduced motion — ${f.reducedMotion.length} route(s) still animating`);
   if (!f.reducedMotion.length) bullet("no element exceeds 0.05s animation/transition under prefers-reduced-motion: reduce");

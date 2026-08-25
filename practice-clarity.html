@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Practice Clarity Library
-description: Nine short principles and two practical guides for therapists who have to describe their own work — free to read, and the thinking behind the Practice Clarity service.
+title: The nine principles
+description: Nine longer pieces on understanding a practice well enough to describe it — free to read, and the thinking behind the Practice Clarity service.
 permalink: /practice-clarity/
 image: /assets/images/library/library-hero.webp
 ---
@@ -14,12 +14,18 @@ image: /assets/images/library/library-hero.webp
   <div class="wrap">
     <div class="split split--wide-left align-end">
       <div class="stack stack--loose">
-        <p class="label">Practice Clarity Library</p>
-        <h1 class="measure-2xs">Nine short principles for describing your own work.</h1>
+        <a class="back-link" href="{{ '/guidance/' | relative_url }}"><span aria-hidden="true">&larr;</span> Useful guidance</a>
+        <p class="label">The Practice Clarity principles</p>
+        <h1 class="measure-2xs">Nine pieces on describing your own work.</h1>
         <p class="lead">
-          Free to read, in any order. This is the thinking the Practice Clarity
-          service does with you &mdash; written down so you can use it without
-          buying anything.
+          Longer than the notes, and a set rather than a list of tips. This is
+          the thinking the Practice Clarity service does with you, written down
+          so you can use it without buying anything.
+        </p>
+        <p class="small quiet">
+          Most therapists do not need to read these to get a good website. They
+          are here if putting the practice into words is the part that has
+          stalled.
         </p>
       </div>
       <figure class="portrait portrait--wide">
@@ -59,7 +65,7 @@ image: /assets/images/library/library-hero.webp
           <a class="principle" href="{{ principle.url | relative_url }}">
             <span class="principle__n">{{ principle.featured_order | prepend: '0' | slice: -2, 2 }}</span>
             <span class="principle__name">{{ principle.title }}</span>
-            <span class="principle__note">{{ principle.excerpt | default: principle.description | strip_html | truncate: 130 }}</span>
+            <span class="principle__note">{{ principle.excerpt | default: principle.description | strip_html | truncatewords: 22 }}</span>
             <span class="direction__go">Read <span aria-hidden="true">&rarr;</span></span>
           </a>
         {% endfor %}
@@ -74,54 +80,6 @@ image: /assets/images/library/library-hero.webp
   </div>
 </section>
 
-<section class="band on-paper">
-  <div class="wrap">
-    <div class="split split--wide-left mb-7">
-      <div>
-        <p class="label">Practical guides</p>
-        <h2 class="measure-xs">Longer pieces, for a specific job.</h2>
-      </div>
-      <p class="quiet" style="align-self:end">
-        Evergreen guidance for the places prospective clients actually find and
-        judge a practice.
-      </p>
-    </div>
-
-    <div class="article-grid">
-      {% for guide in practical %}
-        <article class="article-card">
-          <a class="article-card__link" href="{{ guide.url | relative_url }}">
-            {% if guide.hero_image %}
-              <div class="article-card__media">
-                <img src="{{ guide.hero_image | relative_url }}" alt="" loading="lazy" decoding="async" width="1586" height="992">
-              </div>
-            {% endif %}
-            <p class="article-card__meta"><span>Guide</span>{% if guide.read_time %}<span>{{ guide.read_time }}</span>{% endif %}</p>
-            <h3>{{ guide.title }}</h3>
-            <p>{{ guide.excerpt | default: guide.description | strip_html | truncate: 150 }}</p>
-            <span class="tlink">Read the guide <span aria-hidden="true">&rarr;</span></span>
-          </a>
-        </article>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="band band--sm on-paper-deep">
-  <div class="wrap">
-    <div class="split split--wide-left">
-      <div>
-        <p class="label">Shorter pieces</p>
-        <h2 class="measure-2xs">The Journal.</h2>
-      </div>
-      <div class="stack stack--loose">
-        <p class="quiet">Reflections on therapist websites, private-practice clarity and the decisions that make online trust easier to build.</p>
-        <p><a class="tlink" href="{{ '/blog/' | relative_url }}">Browse the Journal <span aria-hidden="true">&rarr;</span></a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="band on-ink">
   <div class="wrap">
     <div class="split split--wide-left">
@@ -131,8 +89,8 @@ image: /assets/images/library/library-hero.webp
       </div>
       <div class="stack stack--loose">
         <p>
-          If reading it through is enough, that is a good outcome and it costs nothing.
-          If you would rather have it decided with you and written down, that is
+          If reading these is enough, that is a good outcome and it costs nothing.
+          If you would rather have it worked out with you and written down, that is
           Practice Clarity &mdash; £500 alongside a website.
         </p>
         <div class="actions">

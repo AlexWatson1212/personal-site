@@ -1,0 +1,142 @@
+---
+layout: default
+title: Useful guidance
+description: A few short, practical notes for therapists thinking about a website — what belongs on a homepage, how much to say about yourself, and whether you need a redesign at all.
+permalink: /guidance/
+image: /assets/images/library/library-hero.webp
+---
+
+{% assign notes = site.guides | where: "category", "Guidance" | sort: "guidance_order" %}
+{% assign practical = site.guides | where: "category", "Practical Guides" %}
+{% assign principles = site.guides | where: "category", "Practice Clarity" | where: "featured", true | sort: "featured_order" %}
+
+<section class="band band--sm on-paper">
+  <div class="wrap">
+    <div class="split split--wide-left align-end">
+      <div class="stack stack--loose">
+        <p class="label">Useful guidance</p>
+        <h1 class="measure-2xs">A few things worth knowing before you think about a website.</h1>
+        <p class="lead">
+          Short, practical, free to read. Nothing here asks you to become
+          good at marketing.
+        </p>
+      </div>
+      <figure class="portrait portrait--wide">
+        <img src="{{ '/assets/images/library/library-hero.webp' | relative_url }}"
+             alt="Handwritten notes and printed pages on a desk in warm afternoon light"
+             loading="eager" decoding="async" width="1586" height="992">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band on-sage">
+  <div class="wrap">
+    <div class="split split--wide-left mb-7">
+      <div>
+        <p class="label">Start here</p>
+        <h2 class="measure-sm">Five notes, ten minutes each.</h2>
+      </div>
+      <p class="quiet align-end">
+        Written for the therapist who would rather not have to think about
+        websites at all, and would like the one they end up with to be right.
+      </p>
+    </div>
+
+    <div class="principles">
+      {% for note in notes %}
+        <a class="principle principle--note" href="{{ note.url | relative_url }}">
+          <span class="principle__name">{{ note.title }}</span>
+          <span class="principle__note">{{ note.excerpt | strip_html | strip_newlines | strip }}</span>
+          <span class="principle__meta">{{ note.read_time }}</span>
+          <span class="direction__go">Read <span aria-hidden="true">&rarr;</span></span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="band on-paper">
+  <div class="wrap">
+    <div class="split split--wide-left mb-7">
+      <div>
+        <p class="label">Two longer guides</p>
+        <h2 class="measure-xs">For a specific job, when you have more than ten minutes.</h2>
+      </div>
+      <p class="quiet align-end">
+        Both are about the places prospective clients actually find and judge
+        a practice, which for most therapists is a directory before it is a
+        website.
+      </p>
+    </div>
+
+    <div class="article-grid">
+      {% for guide in practical %}
+        <article class="article-card">
+          <a class="article-card__link" href="{{ guide.url | relative_url }}">
+            {% if guide.hero_image %}
+              <div class="article-card__media">
+                <img src="{{ guide.hero_image | relative_url }}" alt="" loading="lazy" decoding="async" width="1586" height="992">
+              </div>
+            {% endif %}
+            <p class="article-card__meta"><span>Guide</span>{% if guide.read_time %}<span>{{ guide.read_time }}</span>{% endif %}</p>
+            <h3>{{ guide.title }}</h3>
+            <p>{{ guide.description | default: guide.excerpt | strip_html | strip_newlines | strip }}</p>
+            <span class="tlink">Read the guide <span aria-hidden="true">&rarr;</span></span>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="band band--sm on-paper-deep">
+  <div class="wrap">
+    <div class="split split--wide-left">
+      <div>
+        <p class="label">If you want the whole framework</p>
+        <h2 class="measure-xs">The Practice Clarity principles.</h2>
+      </div>
+      <div class="stack stack--loose">
+        <p class="quiet">
+          Nine longer pieces on understanding a practice well enough to
+          describe it. They are a set rather than a series of tips, and they
+          take an afternoon rather than ten minutes. Most people do not need
+          them to get a good website &mdash; they are there if the describing
+          is the part you are stuck on.
+        </p>
+        <p><a class="tlink" href="{{ '/practice-clarity/' | relative_url }}">Read the nine principles <span aria-hidden="true">&rarr;</span></a></p>
+
+        {% assign posts = site.posts %}
+        {% if posts.size > 0 %}
+          <p class="small quiet divider-top">
+            Shorter reflections:
+            {% for post in posts %}<a class="inline-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band on-ink">
+  <div class="wrap">
+    <div class="split split--wide-left">
+      <div>
+        <p class="label">When reading has done its job</p>
+        <h2 class="measure-2xs">The quickest way to understand a website is to look at one.</h2>
+      </div>
+      <div class="stack stack--loose">
+        <p>
+          Eight complete directions, each one a finished design you can start
+          from. £995 to have one tailored around your practice, including the
+          first year of care.
+        </p>
+        <div class="actions">
+          <a class="btn" href="{{ '/work/' | relative_url }}">See the collection<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="tlink" href="{{ '/service/' | relative_url }}">What it costs <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -5,7 +5,11 @@ layout: default
 <article class="band band--sm on-paper">
   <div class="wrap">
     {% unless page.self_contained_guide %}
-      <a class="back-link" href="{{ '/practice-clarity/' | relative_url }}"><span aria-hidden="true">&larr;</span> Practice Clarity Library</a>
+      {% if page.category == 'Practice Clarity' %}
+        <a class="back-link" href="{{ '/practice-clarity/' | relative_url }}"><span aria-hidden="true">&larr;</span> The nine principles</a>
+      {% else %}
+        <a class="back-link" href="{{ '/guidance/' | relative_url }}"><span aria-hidden="true">&larr;</span> Useful guidance</a>
+      {% endif %}
 
       <header class="article-hero" style="padding-block-start:0">
         <p class="label">{{ page.kicker | default: page.category | default: "Practice Clarity" }}</p>
@@ -39,11 +43,11 @@ layout: default
     <div class="split split--wide-left">
       <div>
         <p class="label">Keep reading</p>
-        <h2 class="measure-xs">Nine principles, one connected pathway.</h2>
+        <h2 class="measure-xs">The rest of the guidance.</h2>
       </div>
       <div class="stack stack--loose">
-        <p class="quiet">Each principle is short and stands on its own. Start at the beginning, or go straight to the decision in front of you.</p>
-        <p><a class="tlink" href="{{ '/practice-clarity/' | relative_url }}">The Practice Clarity Library <span aria-hidden="true">&rarr;</span></a></p>
+        <p class="quiet">Short notes on the practical decisions, and nine longer principles if the describing is the part you are stuck on.</p>
+        <p><a class="tlink" href="{{ '/guidance/' | relative_url }}">Useful guidance <span aria-hidden="true">&rarr;</span></a></p>
       </div>
     </div>
   </div>

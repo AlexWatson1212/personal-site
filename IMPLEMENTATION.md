@@ -20,6 +20,23 @@ headline shown in the drawing, and which layout personality to use.
 personalities. The home page, the collection page and the contact form's design
 select all read from that one file. **Adding a direction is adding an entry.**
 
+## One resource surface
+
+`/guidance/` is the only free content front door. `guidance.html` reads the
+five `category: Guidance` notes from `_guides/` in `guidance_order`, then lists
+the two longer practical guides, then links out to `/practice-clarity/` for the
+nine principles. `practice-clarity.html` is a reference page, not a second
+index: it no longer carries its own guides or journal sections, and it opens by
+saying most therapists do not need to read it.
+
+`blog.html` has been deleted. `_redirects` sends `/blog`, `/blog/` and
+`/practice-notes/` to `/guidance/`, and `/library`, `/library/` and
+`/practice-clarity.html` to `/practice-clarity/`. The two Journal articles keep
+their own permalinks and are surfaced from `/guidance/`. A QA check ("One
+resource section, one front door") fails if the header grows past four links,
+regains a `<details>` dropdown, loses `/guidance/`, drops either redirect, or if
+any published file links to `/blog/` again.
+
 ## Article bodies
 
 `_layouts/guide.html` and `_layouts/post.html` put the article body in a
@@ -36,7 +53,7 @@ they are restated on the new tokens in §20.
 
 ## What the QA harnesses will catch
 
-- `scripts/qa.mjs` — 64 checks. Prices, retired offer language, checkout scope,
+- `scripts/qa.mjs` — 65 checks. Prices, retired offer language, checkout scope,
   Website Care claims, legal routes, private routes, questionnaire structure,
   client-data hygiene, front matter, links, anchors, assets, built output.
 - `scripts/qa-browser/run.mjs` — overflow at six widths, heading wrapping,
