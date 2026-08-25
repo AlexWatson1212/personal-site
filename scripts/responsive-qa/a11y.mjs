@@ -13,7 +13,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
-import { HERE, launchBrowser, startServer, enumerateRoutes, settle } from "./lib.mjs";
+import { HERE, launchBrowser, startServer, enumerateRoutes, settle, FREEZE_CSS } from "./lib.mjs";
 
 const require = createRequire(import.meta.url);
 const axeSource = fs.readFileSync(require.resolve("axe-core/axe.min.js"), "utf8");
@@ -48,6 +48,11 @@ const main = async () => {
     const page = await ctx.newPage();
     for (const route of routes) {
       await page.goto(`http://127.0.0.1:${port}${route}`, { waitUntil: "domcontentloaded", timeout: 30000 });
+      /* axe composites the colour it actually sees. An element caught part
+         way through its entrance animation reports the contrast of that
+         frame, which is a transient state and not a WCAG failure — so the
+         page is frozen in its settled state before it is audited. */
+      await page.addStyleTag({ content: FREEZE_CSS });
       await settle(page, { scroll: false });
       await page.addScriptTag({ content: axeSource });
       const res = await page.evaluate(async (tags) =>

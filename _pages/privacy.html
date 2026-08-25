@@ -7,19 +7,19 @@ permalink: /privacy/
 
 {%- assign cfg = site.data.purchasing -%}
 
-<section class="acw-section acw-page-hero">
-  <div class="acw-container acw-page-hero-inner">
-    <p class="acw-section-label">Privacy</p>
+<section class="band band--sm on-paper acw-page-hero">
+  <div class="wrap--mid">
+    <p class="label">Privacy</p>
     <h1>Privacy Policy</h1>
-    <p class="acw-page-intro">
+    <p class="lead">
       What information this studio holds about you, why it holds it, how long it
       keeps it, and what you can ask it to do with it.
     </p>
   </div>
 </section>
 
-<section class="acw-section">
-  <div class="acw-container acw-reading-width">
+<section class="band band--sm on-paper">
+  <div class="wrap--mid prose">
 
     {% include legal-draft-notice.html scope="This policy" detail="describes how information is intended to be handled, including once online purchasing is switched on." %}
 
@@ -73,7 +73,7 @@ permalink: /privacy/
     <h3>2. Stripe checkout</h3>
     <p>
       If you buy the
-      <a href="{{ cfg.urls.service | relative_url }}">Choose Your Practice Website</a>
+      <a href="{{ cfg.urls.service | relative_url }}">Therapist Website</a>
       online, the payment is taken by Stripe Payments UK, Ltd. and its group
       companies (“Stripe”).
     </p>
@@ -246,7 +246,7 @@ permalink: /privacy/
 
     <p>
       See also the <a href="{{ cfg.urls.terms | relative_url }}">website terms</a>,
-      the <a href="{{ cfg.urls.service_terms | relative_url }}">Choose Your Practice Website Service Terms</a>
+      the <a href="{{ cfg.urls.service_terms | relative_url }}">Therapist Website Service Terms</a>
       and the <a href="{{ cfg.urls.cancellation | relative_url }}">cancellation and refund information</a>.
     </p>
 

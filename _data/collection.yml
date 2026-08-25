@@ -1,0 +1,192 @@
+# The website collection.
+#
+# One entry per design direction. Everything a direction needs — its palette,
+# its typographic behaviour, its layout personality and its metadata — is held
+# here, and _includes/plate.html draws it. Adding a direction is adding an
+# entry; nothing in the templates changes.
+#
+# `variant` selects the layout personality in studio.css (§09):
+#   warm | editorial | care | balance | choice | clinical | community | direct
+# `foot` selects what sits below the hero: strip | routes | index
+
+- ref: "01"
+  key: rowan-hill
+  name: Rowan Hill Therapy
+  variant: warm
+  practice: Solo therapist
+  atmosphere: Warm and grounded
+  note: >-
+    Generous space, a natural palette and an unhurried route to enquiry. Made
+    for a practitioner whose work is slow and relational, and whose website
+    should not be in a hurry either.
+  tags: [Solo therapist, Warm, Nature-led]
+  search: rowan hill solo therapist adults warm grounded nature minimal quiet space
+  paper: "#f3eee5"
+  ink: "#1f3027"
+  soft: "#75806d"
+  accent: "#c88e72"
+  word: Rowan Hill
+  eyebrow: Room to arrive
+  headline: Therapy with space to hear yourself think.
+  foot: strip
+  feature: true
+
+- ref: "02"
+  key: stillpoint
+  name: Stillpoint
+  variant: editorial
+  practice: Solo therapist
+  atmosphere: Measured and editorial
+  note: >-
+    Architectural and precisely ordered, for a practitioner who wants to read
+    as exact without reading as clinical. Rules, indices and a tight measure do
+    the work that decoration usually does.
+  tags: [Solo therapist, Editorial, Structured]
+  search: stillpoint solo therapist adults measured editorial structured precise minimal
+  paper: "#f1efe9"
+  ink: "#252a2d"
+  soft: "#66727b"
+  accent: "#b0604f"
+  word: Stillpoint
+  eyebrow: A measured practice
+  headline: A quiet place to look at what is difficult.
+  foot: strip
+
+- ref: "03"
+  key: harbour
+  name: Harbour
+  variant: care
+  practice: Counselling centre
+  atmosphere: Protective and warm
+  note: >-
+    Built for a service that has to speak to a parent, a teenager and a school
+    on the same page. Soft forms, and the audience routing offered before
+    anything else is asked of anyone.
+  tags: [Centre, Families, Warm]
+  search: harbour counselling centre parents children young people families protective warm supportive
+  paper: "#f7f0e6"
+  ink: "#243f42"
+  soft: "#6f99a0"
+  accent: "#e5a376"
+  word: Harbour
+  eyebrow: Held through change
+  headline: Support for families when life feels unsteady.
+  foot: routes
+  routes: [For parents, For young people, For schools]
+
+- ref: "04"
+  key: common-ground
+  name: Common Ground
+  variant: balance
+  practice: Family service
+  atmosphere: Calm and balanced
+  note: >-
+    Symmetrical by design, because the work is. Nothing on the page is raised
+    above anything else, which is what lets it hold two sides of a difficult
+    situation without appearing to take one.
+  tags: [Families, Service, Editorial]
+  search: common ground family service separating families couples calm balanced neutral editorial
+  paper: "#f1eee8"
+  ink: "#263738"
+  soft: "#a6a98e"
+  accent: "#b87663"
+  word: Common Ground
+  eyebrow: A steadier next step
+  headline: Helping families find a way forward, together.
+  foot: strip
+
+- ref: "05"
+  key: different-minds
+  name: Different Minds
+  variant: choice
+  practice: Therapy centre
+  atmosphere: Clear and neuroaffirming
+  note: >-
+    More expressive and more direct, with choice built into the structure: the
+    same information is offered plainly, in summary, or straight to costs, and
+    none of the three routes is the lesser one.
+  tags: [Centre, Neurodiversity, Accessible]
+  search: different minds therapy centre neurodivergent neurodiversity accessible expressive clear affirming autism adhd
+  paper: "#f6f0df"
+  ink: "#243750"
+  soft: "#8171a4"
+  accent: "#e5845d"
+  word: Different Minds
+  eyebrow: Different routes welcome
+  headline: Therapy that makes room for how your mind works.
+  foot: routes
+  routes: [Read it plainly, See a summary, Skip to costs]
+  feature: true
+
+- ref: "06"
+  key: north-and-vale
+  name: North &amp; Vale
+  variant: clinical
+  practice: Psychology practice
+  atmosphere: Assured and clinical
+  note: >-
+    Publication-inspired, for a multi-practitioner service that has to make
+    authority, order and a lot of readable detail sit together — assessments,
+    practitioners, reports, fees.
+  tags: [Clinic, Professional, Editorial]
+  search: north vale psychology clinic adults organisations assured clinical professional editorial structured assessment
+  paper: "#f5f2ec"
+  ink: "#21333d"
+  soft: "#9ba8ad"
+  accent: "#c5a167"
+  word: North &amp; Vale
+  eyebrow: Psychology, plainly
+  headline: Thoughtful psychological care, clearly explained.
+  foot: index
+  rows:
+    - { n: "01", label: Assessment, meta: 60 min }
+    - { n: "02", label: Individual therapy, meta: 50 min }
+    - { n: "03", label: Reports, meta: On request }
+
+- ref: "07"
+  key: face-to-face
+  name: Face to Face
+  variant: community
+  practice: Community counselling
+  atmosphere: Welcoming and practical
+  note: >-
+    Costs and first steps said out loud, near the top, without flattening the
+    character of the organisation. Made for services where the person reading
+    needs to know quickly whether they can afford to come.
+  tags: [Community, Charity, Accessible]
+  search: face to face community counselling local charity accessible warm welcoming practical low cost sliding scale
+  paper: "#f6f1e7"
+  ink: "#26422d"
+  soft: "#7b9e72"
+  accent: "#d7a846"
+  word: Face to Face
+  eyebrow: A place in the community
+  headline: Counselling that is local, human and within reach.
+  foot: index
+  rows:
+    - { label: Adult counselling, meta: Sliding scale }
+    - { label: Young people, meta: Free }
+    - { label: Group work, meta: Weekly }
+
+- ref: "08"
+  key: alexander-watson-counselling
+  name: Alexander Watson Counselling
+  variant: direct
+  practice: The studio's own practice
+  atmosphere: Direct
+  available: false
+  href: https://alexanderwatsoncounselling.co.uk/
+  note: >-
+    My own counselling website, shown so the standard can be judged on a live
+    practice rather than a demonstration. It is not one of the directions you
+    can choose.
+  tags: [Solo therapist, Editorial, Direct]
+  search: alexander watson counselling solo therapist adults direct human editorial personal live
+  paper: "#eee9df"
+  ink: "#1d2925"
+  soft: "#6d7772"
+  accent: "#b58965"
+  word: Alexander Watson
+  eyebrow: Knowing is not the same as changing
+  headline: You have probably thought about it enough.
+  foot: strip

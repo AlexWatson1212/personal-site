@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ site.lang | default: 'en-GB' }}">
 <head>
   {% include head.html %}
 </head>
@@ -15,14 +15,7 @@
 
   {% include footer.html %}
 
-  {% if site.google_analytics %}
-    {% include analytics.html %}
-  {% endif %}
-
   <script src="{{ '/assets/js/nav.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
-  {% if page.url == '/service/' %}
-    <script src="{{ '/assets/js/service-documents.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
-  {% endif %}
   {% if page.page_js %}
     <script src="{{ page.page_js | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
   {% endif %}

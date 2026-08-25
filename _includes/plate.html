@@ -1,0 +1,42 @@
+{%- comment -%}
+  One design direction, drawn.
+
+  Parameters
+    d      a member of site.data.collection
+    class  extra classes for the outer element
+    phone  "true" to draw the phone view instead of the desktop one
+
+  The container is identical for every direction. What differs inside it —
+  palette, typographic behaviour, layout personality — is what carries the
+  range. Decorative throughout: the caption beside it carries the meaning.
+{%- endcomment -%}
+<div
+  class="plate plate--{{ include.d.variant }}{% if include.phone %} plate--phone{% endif %}{% if include.class %} {{ include.class }}{% endif %}"
+  style="--p-paper:{{ include.d.paper }};--p-ink:{{ include.d.ink }};--p-soft:{{ include.d.soft }};--p-accent:{{ include.d.accent }}"
+  aria-hidden="true"
+>
+  <div class="plate__sheet"><div class="plate__page">
+    <div class="plate__nav">
+      <span class="plate__word">{{ include.d.word }}</span>
+      <span class="plate__menu"><i></i><i></i><i></i></span>
+    </div>
+
+    <div class="plate__hero">
+      <div>
+        <span class="plate__eyebrow">{{ include.d.eyebrow }}</span>
+        <p class="plate__title">{{ include.d.headline }}</p>
+        <span class="plate__body"><i></i><i></i></span>
+        <span class="plate__cta">Begin here</span>
+      </div>
+      <div class="plate__art"><span></span><span></span><span></span></div>
+    </div>
+
+    {% if include.d.foot == "routes" %}
+      <div class="plate__routes">{% for route in include.d.routes %}<b>{{ route }}</b>{% endfor %}</div>
+    {% elsif include.d.foot == "index" %}
+      <div class="plate__index">{% for row in include.d.rows %}<b>{% if row.n %}<em>{{ row.n }}</em>{% endif %}{{ row.label }}<s>{{ row.meta }}</s></b>{% endfor %}</div>
+    {% else %}
+      <div class="plate__strip"><span></span><span></span><span></span></div>
+    {% endif %}
+  </div></div>
+</div>

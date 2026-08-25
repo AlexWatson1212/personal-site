@@ -8,7 +8,7 @@
   name only — never the studio name — so the suffix is never doubled.
 {%- endcomment -%}
 {%- if page.url == '/' -%}
-  {%- assign page_title = site.brand | append: ' · Original websites for therapists' -%}
+  {%- assign page_title = site.brand | append: ' · Websites for therapists' -%}
 {%- elsif page.title -%}
   {%- assign page_title = page.title | append: ' · ' | append: site.brand -%}
 {%- else -%}
@@ -28,136 +28,43 @@
 <meta name="robots" content="noindex, nofollow">
 {% endif %}
 
-<link
-  rel="preload"
-  as="font"
-  type="font/woff2"
-  href="{{ '/assets/fonts/newsreader-latin-wght-normal.woff2' | relative_url }}"
-  crossorigin
->
+{%- comment -%}
+  Both faces are self-hosted and used above the fold on every route, so both
+  are preloaded. Two files, 106 KB, no third-party request — font-src is 'self'.
+{%- endcomment -%}
+<link rel="preload" as="font" type="font/woff2" href="{{ '/assets/fonts/newsreader-latin-wght-normal.woff2' | relative_url }}" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="{{ '/assets/fonts/inter-latin-wght-normal.woff2' | relative_url }}" crossorigin>
 
-
-{% assign css_bundle = 'site.min.css' %}
-
-{% if page.layout == 'guide' %}
-  {% assign css_bundle = 'guide.min.css' %}
-{% elsif page.layout == 'post' %}
-  {% assign css_bundle = 'post.min.css' %}
-{% elsif page.url == '/' %}
-  {% assign css_bundle = 'home.min.css' %}
-{% elsif page.url == '/service/' %}
-  {% assign css_bundle = 'service.min.css' %}
-{% elsif page.url == '/practice-clarity/' %}
-  {% assign css_bundle = 'practice-clarity.min.css' %}
-{% elsif page.url == '/work/' %}
-  {% assign css_bundle = 'work.min.css' %}
-{% elsif page.url == '/about/' %}
-  {% assign css_bundle = 'about.min.css' %}
-{% elsif page.url == '/blog/' %}
-  {% assign css_bundle = 'blog.min.css' %}
-{% elsif page.url == '/contact/' %}
-  {% assign css_bundle = 'contact.min.css' %}
-{% elsif page.url == '/services/practice-website/' or page.url == '/services/practice-website/questionnaire/' or page.url == '/purchase-complete/' %}
-  {% assign css_bundle = 'purchase.min.css' %}
-{% elsif page.url == '/404.html' %}
-  {% assign css_bundle = '404.min.css' %}
-{% elsif page.url == '/privacy/' or page.url == '/terms/' or page.url == '/accessibility/' or page.url == '/service-terms/practice-website/' or page.url == '/cancellation-and-refunds/' %}
-  {% assign css_bundle = 'legal.min.css' %}
-{% endif %}
-
-<link
-  rel="stylesheet"
-  href="{{ '/assets/css/' | append: css_bundle | relative_url }}?v={{ site.time | date: '%s' }}"
->
-
-{% if page.page_css %}
-<link
-  rel="stylesheet"
-  href="{{ page.page_css | relative_url }}?v={{ site.time | date: '%s' }}"
->
-{% endif %}
-
-{% if page.url == '/links/' %}
-<link
-  rel="stylesheet"
-  href="{{ '/assets/css/links.css' | relative_url }}?v={{ site.time | date: '%s' }}"
->
-{% endif %}
+{%- comment -%}
+  One stylesheet for the whole site. It is written rather than accumulated,
+  so there is nothing to purge and nothing page-specific to split out: the
+  first page pays ~11 KB over the wire and every page after it pays nothing.
+{%- endcomment -%}
+<link rel="stylesheet" href="{{ '/assets/css/studio.min.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 
 <!-- Favicons -->
-<link
-  rel="icon"
-  type="image/png"
-  sizes="32x32"
-  href="{{ '/assets/images/brand/favicon-32x32.png' | relative_url }}"
->
-
-<link
-  rel="icon"
-  type="image/png"
-  sizes="16x16"
-  href="{{ '/assets/images/brand/favicon-16x16.png' | relative_url }}"
->
-
-<link
-  rel="shortcut icon"
-  type="image/png"
-  href="{{ '/assets/images/brand/favicon.png' | relative_url }}"
->
-
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/brand/favicon-32x32.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/brand/favicon-16x16.png' | relative_url }}">
+<link rel="shortcut icon" type="image/png" href="{{ '/assets/images/brand/favicon.png' | relative_url }}">
 <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
 
-<meta name="theme-color" content="#8e9f84">
+<meta name="theme-color" content="#263835">
 <meta name="color-scheme" content="light">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-
-<meta
-  property="og:title"
-  content="{{ page_title | escape }}"
->
-
-<meta
-  property="og:description"
-  content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% else %}{{ site.description | escape }}{% endif %}"
->
-
+<meta property="og:title" content="{{ page_title | escape }}">
+<meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% else %}{{ site.description | escape }}{% endif %}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta property="og:site_name" content="{{ site.brand }}">
-
-<meta
-  property="og:image"
-  content="{{ page.image | default: '/assets/images/service/alexander-watson-counselling-case-study.webp' | absolute_url }}"
->
-
-<meta
-  property="og:image:alt"
-  content="Alexander Watson — Web Design for Therapists"
->
-
+<meta property="og:image" content="{{ page.image | default: '/assets/images/service/alexander-watson-counselling-case-study.webp' | absolute_url }}">
+<meta property="og:image:alt" content="Alexander Watson Studio — websites for therapists">
 <meta property="og:image:width" content="1376">
 <meta property="og:image:height" content="864">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-
-<meta
-  name="twitter:title"
-  content="{{ page_title | escape }}"
->
-
-<meta
-  name="twitter:description"
-  content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% else %}{{ site.description | escape }}{% endif %}"
->
-
-<meta
-  name="twitter:image"
-  content="{{ page.image | default: '/assets/images/service/alexander-watson-counselling-case-study.webp' | absolute_url }}"
->
-
-<meta
-  name="twitter:image:alt"
-  content="Alexander Watson — Web Design for Therapists"
->
+<meta name="twitter:title" content="{{ page_title | escape }}">
+<meta name="twitter:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% else %}{{ site.description | escape }}{% endif %}">
+<meta name="twitter:image" content="{{ page.image | default: '/assets/images/service/alexander-watson-counselling-case-study.webp' | absolute_url }}">
+<meta name="twitter:image:alt" content="Alexander Watson Studio — websites for therapists">

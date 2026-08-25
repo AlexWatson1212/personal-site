@@ -83,13 +83,28 @@ const main = async () => {
 
       /* Focus visibility: tab through the first 15 stops and compare styles. */
       if (vp.width === 390 && ["/", "/contact/", "/work/", "/services/practice-website/"].includes(route)) {
+        /* One real Tab press first. Chromium only matches :focus-visible on a
+           subsequent script focus() once the last interaction was a keyboard
+           one — without this the check reports the absence of a `:focus`
+           outline, which is a rule the site is right not to have. */
+        await page.keyboard.press("Tab");
         const focus = await page.evaluate(async () => {
           const res = [];
           const f = [...document.querySelectorAll('a[href],button:not([disabled]),input:not([type=hidden]):not([disabled]),select,textarea,summary,[tabindex]:not([tabindex="-1"])')]
             .filter((e) => e.getClientRects().length);
           for (const el of f.slice(0, 15)) {
             const before = getComputedStyle(el).cssText;
-            el.focus();
+            /* :focus-visible is the correct selector for a focus ring — it is
+               what keeps the ring off mouse clicks. Chromium does not match it
+               for a bare script focus(), so the option is passed explicitly;
+               without it this check measures the absence of a rule the site is
+               right not to have. */
+            try { el.focus({ focusVisible: true }); } catch { el.focus(); }
+            /* An element inside the closed mobile navigation panel is laid out
+               but visibility:hidden, so it has client rects while being outside
+               the tab order. If focus did not land on it, it is not a focus
+               target and there is nothing to check. */
+            if (document.activeElement !== el) { el.blur(); continue; }
             const after = getComputedStyle(el).cssText;
             const cs = getComputedStyle(el);
             const ring = cs.outlineStyle !== "none" && parseFloat(cs.outlineWidth) > 0;

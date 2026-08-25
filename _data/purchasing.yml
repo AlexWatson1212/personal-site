@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# Choose Your Practice Website — purchasing configuration (committed, safe defaults)
+# Therapist Website — purchasing configuration (committed, safe defaults)
 #
 # This file contains NO secrets and NO Payment Link. It holds the prices the
 # site displays and the URLs the purchase journey links to.
@@ -12,21 +12,26 @@
 # page falls back to the "Ask a question first" route. That is the safe state.
 # ─────────────────────────────────────────────────────────────────────────────
 
-# Choose Your Practice Website
+# The Therapist Website. The only route buyable online.
 price_display: "£995"
 price_numeric: "995.00"
 currency: "GBP"
 
-# Practice Clarity + Bespoke Website is proposal-led. It has no online
-# checkout, by design: the price is confirmed in writing before anything is
-# payable, so it is displayed as an indicative figure rather than a fixed one.
-bespoke_price_display: "Around £2,000"
+# Practice Clarity is an add-on, not a separate product and not a larger
+# website. It is agreed in writing before the intake and invoiced separately,
+# so it has no online checkout of its own.
+clarity_addon_display: "£500"
+clarity_combined_display: "£1,495"
 
-# Optional Website Care. Content and configuration points only — no
-# subscription is built or activated in this release.
+# Website Care. The first twelve months are included in the £995 and are not
+# separately payable. After that it is optional and monthly.
+#
+# No subscription product, Payment Link or recurring checkout has been built
+# or activated. Adding one needs verified Stripe webhooks, a record of who is
+# subscribed, dunning and cancellation handling, and its own terms.
 website_care:
+  included_months: 12
   monthly: "£29"
-  annual: "£290"
   subscriptions_enabled: false
 
 # Routes the purchase journey depends on.

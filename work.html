@@ -1,86 +1,164 @@
 ---
 layout: default
 title: The website collection
-description: Browse original therapist website designs by practice type, audience and visual feeling, then choose one to make your own.
+description: Eight original website directions for therapists and counselling services. Browse by practice type, audience and atmosphere, then choose the one to make your own.
 permalink: /work/
-page_css: /assets/css/catalogue-refresh.css
 page_js: /assets/js/website-library.js
 ---
 
-<div class="catalogue-refresh">
-  <section class="page-hero library-hero section-paper">
-    <div class="shell page-hero-grid">
-      <div><p class="eyebrow">The website collection · Seven directions to choose from</p><h1>Find the one that feels like your practice.</h1></div>
-      <div><p class="hero-lead">These are complete, original website directions &mdash; not generic themes. Each one resolves structure, voice and atmosphere. You choose the closest starting point; I make the detailed design decisions from there.</p><p class="page-hero-note">New directions are added as the collection grows. The eighth below is the Studio’s own practice website, shown as an example rather than offered.</p></div>
-    </div>
-  </section>
+{% assign harbour = site.data.collection | where: "key", "harbour" | first %}
 
-  <section class="library-section section-mist">
-    <div class="shell" data-website-library>
-      <div class="library-tools">
-        <div class="filter-chips" role="group" aria-label="Filter website designs">
-          <button type="button" class="active" aria-pressed="true" data-filter="all">All</button>
-          <button type="button" aria-pressed="false" data-filter="solo">Solo therapist</button>
-          <button type="button" aria-pressed="false" data-filter="centre">Centres &amp; services</button>
-          <button type="button" aria-pressed="false" data-filter="families">Families</button>
-          <button type="button" aria-pressed="false" data-filter="warm">Warm</button>
-          <button type="button" aria-pressed="false" data-filter="editorial">Editorial</button>
-          <button type="button" aria-pressed="false" data-filter="accessible">Accessible</button>
+<section class="band band--sm on-paper">
+  <div class="wrap">
+    <div class="split split--wide-left">
+      <div>
+        <p class="label">The collection</p>
+        <h1 class="measure-2xs">Find the one that already feels like your practice.</h1>
+      </div>
+      <div class="stack stack--loose" style="align-self:end">
+        <p class="lead measure-xl">
+          Eight complete, original directions. Seven are available to choose from;
+          the eighth is my own practice, shown so the standard can be judged on a
+          live website rather than a demonstration.
+        </p>
+        <p class="small quiet measure-2xl">
+          You choose the closest starting point. I make the detailed design
+          decisions from there &mdash; and the direction is rebuilt around your
+          practice rather than recoloured.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--sm on-sage">
+  <div class="wrap--wide" data-website-library>
+    <div class="library-tools">
+      <div class="chips" role="group" aria-label="Filter directions">
+        <button type="button" aria-pressed="true" data-filter="all">All</button>
+        <button type="button" aria-pressed="false" data-filter="solo">Solo therapist</button>
+        <button type="button" aria-pressed="false" data-filter="centre">Centres &amp; services</button>
+        <button type="button" aria-pressed="false" data-filter="families">Families</button>
+        <button type="button" aria-pressed="false" data-filter="warm">Warm</button>
+        <button type="button" aria-pressed="false" data-filter="editorial">Editorial</button>
+        <button type="button" aria-pressed="false" data-filter="accessible">Accessible</button>
+      </div>
+      <label class="search-field">
+        <span>Search the collection</span>
+        <input type="search" data-website-search placeholder="Try warm, families or editorial">
+      </label>
+    </div>
+
+    <p class="results-line" aria-live="polite">
+      <span data-results-count>08 directions</span>
+      <span data-results-message>Showing the complete collection</span>
+    </p>
+
+    <h2 class="sr-only">The website collection</h2>
+
+    <div class="collection" data-project-grid>
+      {% for d in site.data.collection %}
+        {% assign target = '/contact/?design=' | append: d.name | url_encode %}
+        <article
+          class="direction{% if d.feature %} direction--feature{% endif %}"
+          id="{{ d.key }}"
+          data-project
+          data-search="{{ d.search }}"
+        >
+          <div class="direction__inner">
+            <a class="direction__link"
+               href="{% if d.href %}{{ d.href }}{% else %}{{ target | relative_url }}{% endif %}"
+               {% if d.href %}target="_blank" rel="noopener noreferrer"{% endif %}
+               aria-label="{% if d.href %}Visit {{ d.name | strip_html }}{% else %}Ask about the {{ d.name | strip_html }} direction{% endif %}">
+              <div class="plate-frame">{% include plate.html d=d %}</div>
+            </a>
+
+            <div class="direction__meta">
+              <p class="direction__ref"><span>{{ d.ref }} &nbsp;·&nbsp; {{ d.practice }}</span><span>{{ d.atmosphere }}</span></p>
+              <h3 class="direction__name">{{ d.name }}</h3>
+              <p class="direction__note">{{ d.note }}</p>
+              <p class="plate-swatches" aria-hidden="true">
+                <i style="background:{{ d.paper }}"></i>
+                <i style="background:{{ d.soft }}"></i>
+                <i style="background:{{ d.accent }}"></i>
+                <i style="background:{{ d.ink }}"></i>
+              </p>
+              <div class="direction__foot">
+                <ul class="tags">{% for tag in d.tags %}<li>{{ tag }}</li>{% endfor %}</ul>
+                {% if d.available == false %}
+                  <a class="direction__go" href="{{ d.href }}" target="_blank" rel="noopener noreferrer">Visit the live site <span aria-hidden="true">&#8599;</span></a>
+                {% else %}
+                  <a class="direction__go" href="{{ target | relative_url }}">Ask about this direction <span aria-hidden="true">&#8599;</span></a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <div class="no-results" data-no-results hidden>
+      <h2>No exact match.</h2>
+      <p>Try a broader word, or clear the filters and browse by feel.</p>
+      <button type="button" class="btn" data-reset-library>Show all directions</button>
+    </div>
+  </div>
+</section>
+
+<section class="band on-paper">
+  <div class="wrap--wide">
+    <div class="split split--wide-right align-center">
+      <div class="stack stack--loose">
+        <p class="label">On a phone</p>
+        <h2 class="measure-xs">Most of the people reading are on a phone, and some of them are not calm.</h2>
+        <p class="quiet">
+          The phone view is not the desktop one stacked up: the hierarchy is
+          re-decided, the type re-set, and the thing a distressed reader needs first
+          moved to where they will find it. Every direction is tested to
+          WCAG&nbsp;2.2&nbsp;AA.
+        </p>
+      </div>
+      <div class="align-center" style="display:grid;grid-template-columns:1.3fr 0.7fr;gap:clamp(1rem,3vw,2rem)">
+        <div class="plate-frame">{% include plate.html d=harbour %}</div>
+        <div>{% include plate.html d=harbour phone="true" %}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--sm on-sage">
+  <div class="wrap">
+    <div class="split split--wide-left">
+      <div>
+        <p class="label">If more than one feels right</p>
+        <h2 class="measure-2xs">You do not have to choose alone.</h2>
+      </div>
+      <div class="stack stack--loose">
+        <p class="quiet">
+          Send me the two or three you keep returning to and tell me what you like
+          about each. I will say which is the strongest starting point &mdash; and a
+          direction can borrow a feature from another where that improves the result.
+        </p>
+        <p><a class="tlink" href="{{ '/contact/' | relative_url }}">Tell me which ones <span aria-hidden="true">&rarr;</span></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band on-ink">
+  <div class="wrap">
+    <div class="split split--wide-left">
+      <div>
+        <p class="label">Found a direction?</p>
+        <h2 class="measure-xs">Name the one you keep coming back to.</h2>
+      </div>
+      <div class="stack stack--loose">
+        <p>Tell me the direction and what is already written.</p>
+        <div class="actions">
+          <a class="btn" href="{{ '/contact/' | relative_url }}">Start a website<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="tlink" href="{{ '/service/' | relative_url }}">What it costs <span aria-hidden="true">&rarr;</span></a>
         </div>
-        <label class="search-field"><span>Search the collection</span><input type="search" data-website-search placeholder="Try warm, family or editorial"></label>
       </div>
-      <div class="results-line" aria-live="polite"><span data-results-count>08 designs</span><span data-results-message>Showing the complete collection</span></div>
-
-      <h2 class="sr-only">The website collection</h2>
-
-      <div class="project-grid library-grid" data-project-grid>
-        <article class="project-card" data-project data-search="rowan hill solo therapist adults warm grounded nature minimal">
-          <a href="{{ '/contact/?design=Rowan%20Hill%20Therapy' | relative_url }}" class="project-visual" aria-label="Ask about the Rowan Hill Therapy design">
-            <div class="mini-site" style="--mini-paper:#f3eee5;--mini-soft:#75806d;--mini-ink:#1f3027;--mini-accent:#c88e72" aria-hidden="true"><div class="mini-browser"><span></span><span></span><span></span><b>Rowan Hill Therapy</b></div><div class="mini-page"><div class="mini-nav"><strong>Rowan Hill Therapy</strong><i></i><i></i><i></i></div><div class="mini-hero"><div><small>Room to arrive</small><p class="mini-title">Therapy with space to hear yourself think.</p><p></p><p></p><span class="mini-btn">Begin here</span></div><div class="mini-art"><span></span></div></div><div class="mini-strip"><span></span><span></span><span></span></div></div></div>
-          </a>
-          <div class="project-meta"><div><p class="eyebrow">Solo therapist · Warm &amp; grounded</p><h3>Rowan Hill Therapy</h3><p>A quiet, nature-led design with generous space, soft contrast and an unhurried path to enquiry.</p></div><a class="circle-link" href="{{ '/contact/?design=Rowan%20Hill%20Therapy' | relative_url }}" aria-label="Ask about Rowan Hill Therapy">↗</a></div><ul class="tag-list"><li>Solo therapist</li><li>Warm</li><li>Nature-led</li></ul>
-        </article>
-
-        <article class="project-card" data-project data-search="stillpoint solo therapist adults measured editorial structured minimal">
-          <a href="{{ '/contact/?design=Stillpoint' | relative_url }}" class="project-visual" aria-label="Ask about the Stillpoint design"><div class="mini-site" style="--mini-paper:#f1efe9;--mini-soft:#66727b;--mini-ink:#252a2d;--mini-accent:#bd5c4f" aria-hidden="true"><div class="mini-browser"><span></span><span></span><span></span><b>Stillpoint</b></div><div class="mini-page"><div class="mini-nav"><strong>Stillpoint</strong><i></i><i></i><i></i></div><div class="mini-hero"><div><small>A measured practice</small><p class="mini-title">A quiet place to look at what is difficult.</p><p></p><p></p><span class="mini-btn">Begin here</span></div><div class="mini-art"><span></span></div></div><div class="mini-strip"><span></span><span></span><span></span></div></div></div></a>
-          <div class="project-meta"><div><p class="eyebrow">Solo therapist · Measured &amp; editorial</p><h3>Stillpoint</h3><p>An architectural, highly structured design for a practitioner who wants precision without feeling clinical.</p></div><a class="circle-link" href="{{ '/contact/?design=Stillpoint' | relative_url }}" aria-label="Ask about Stillpoint">↗</a></div><ul class="tag-list"><li>Solo therapist</li><li>Editorial</li><li>Structured</li></ul>
-        </article>
-
-        <article class="project-card" data-project data-search="harbour counselling centre parents children families protective warm supportive centre">
-          <a href="{{ '/contact/?design=Harbour' | relative_url }}" class="project-visual" aria-label="Ask about the Harbour design"><div class="mini-site" style="--mini-paper:#f7f0e6;--mini-soft:#6f99a0;--mini-ink:#243f42;--mini-accent:#e5a376" aria-hidden="true"><div class="mini-browser"><span></span><span></span><span></span><b>Harbour</b></div><div class="mini-page"><div class="mini-nav"><strong>Harbour</strong><i></i><i></i><i></i></div><div class="mini-hero"><div><small>Held through change</small><p class="mini-title">Support for families when life feels unsteady.</p><p></p><p></p><span class="mini-btn">Begin here</span></div><div class="mini-art"><span></span></div></div><div class="mini-strip"><span></span><span></span><span></span></div></div></div></a>
-          <div class="project-meta"><div><p class="eyebrow">Counselling centre · Protective &amp; warm</p><h3>Harbour</h3><p>A reassuring family-centred website with soft curves, clear pathways and safety built into the language.</p></div><a class="circle-link" href="{{ '/contact/?design=Harbour' | relative_url }}" aria-label="Ask about Harbour">↗</a></div><ul class="tag-list"><li>Centre</li><li>Families</li><li>Warm</li></ul>
-        </article>
-
-        <article class="project-card" data-project data-search="common ground family service separating families calm balanced editorial families">
-          <a href="{{ '/contact/?design=Common%20Ground' | relative_url }}" class="project-visual" aria-label="Ask about the Common Ground design"><div class="mini-site" style="--mini-paper:#f1eee8;--mini-soft:#a6a98e;--mini-ink:#263738;--mini-accent:#b87663" aria-hidden="true"><div class="mini-browser"><span></span><span></span><span></span><b>Common Ground</b></div><div class="mini-page"><div class="mini-nav"><strong>Common Ground</strong><i></i><i></i><i></i></div><div class="mini-hero"><div><small>A steadier next step</small><p class="mini-title">Helping families find a way forward, together.</p><p></p><p></p><span class="mini-btn">Begin here</span></div><div class="mini-art"><span></span></div></div><div class="mini-strip"><span></span><span></span><span></span></div></div></div></a>
-          <div class="project-meta"><div><p class="eyebrow">Family service · Calm &amp; balanced</p><h3>Common Ground</h3><p>A composed, neutral design that holds complexity without taking sides or losing warmth.</p></div><a class="circle-link" href="{{ '/contact/?design=Common%20Ground' | relative_url }}" aria-label="Ask about Common Ground">↗</a></div><ul class="tag-list"><li>Families</li><li>Service</li><li>Editorial</li></ul>
-        </article>
-
-        <article class="project-card" data-project data-search="different minds therapy centre neurodivergent neurodiversity accessible expressive clear affirming centre">
-          <a href="{{ '/contact/?design=Different%20Minds' | relative_url }}" class="project-visual" aria-label="Ask about the Different Minds design"><div class="mini-site" style="--mini-paper:#f6f0df;--mini-soft:#8171a4;--mini-ink:#243750;--mini-accent:#e5845d" aria-hidden="true"><div class="mini-browser"><span></span><span></span><span></span><b>Different Minds</b></div><div class="mini-page"><div class="mini-nav"><strong>Different Minds</strong><i></i><i></i><i></i></div><div class="mini-hero"><div><small>Different routes welcome</small><p class="mini-title">Therapy that makes room for how your mind works.</p><p></p><p></p><span class="mini-btn">Begin here</span></div><div class="mini-art"><span></span></div></div><div class="mini-strip"><span></span><span></span><span></span></div></div></div></a>
-          <div class="project-meta"><div><p class="eyebrow">Therapy centre · Clear &amp; neuroaffirming</p><h3>Different Minds</h3><p>A more expressive, accessible website built around choice, direct language and different routes through the content.</p></div><a class="circle-link" href="{{ '/contact/?design=Different%20Minds' | relative_url }}" aria-label="Ask about Different Minds">↗</a></div><ul class="tag-list"><li>Centre</li><li>Neurodiversity</li><li>Accessible</li></ul>
-        </article>
-
-        <article class="project-card" data-project data-search="north vale psychology clinic adults organisations assured clinical professional editorial structured centre">
-          <a href="{{ '/contact/?design=North%20and%20Vale' | relative_url }}" class="project-visual" aria-label="Ask about the North and Vale design"><div class="mini-site" style="--mini-paper:#f5f2ec;--mini-soft:#9ba8ad;--mini-ink:#21333d;--mini-accent:#c5a167" aria-hidden="true"><div class="mini-browser"><span></span><span></span><span></span><b>North &amp; Vale</b></div><div class="mini-page"><div class="mini-nav"><strong>North &amp; Vale</strong><i></i><i></i><i></i></div><div class="mini-hero"><div><small>Psychology, plainly</small><p class="mini-title">Thoughtful psychological care, clearly explained.</p><p></p><p></p><span class="mini-btn">Begin here</span></div><div class="mini-art"><span></span></div></div><div class="mini-strip"><span></span><span></span><span></span></div></div></div></a>
-          <div class="project-meta"><div><p class="eyebrow">Psychology practice · Assured &amp; clinical</p><h3>North &amp; Vale</h3><p>A publication-inspired design for a multi-practitioner service that needs authority, order and readable detail.</p></div><a class="circle-link" href="{{ '/contact/?design=North%20and%20Vale' | relative_url }}" aria-label="Ask about North and Vale">↗</a></div><ul class="tag-list"><li>Clinic</li><li>Professional</li><li>Editorial</li></ul>
-        </article>
-
-        <article class="project-card" data-project data-search="face to face community counselling local charity accessible warm welcoming practical centre">
-          <a href="{{ '/contact/?design=Face%20to%20Face' | relative_url }}" class="project-visual" aria-label="Ask about the Face to Face design"><div class="mini-site" style="--mini-paper:#f6f1e7;--mini-soft:#7b9e72;--mini-ink:#26422d;--mini-accent:#d7a846" aria-hidden="true"><div class="mini-browser"><span></span><span></span><span></span><b>Face to Face</b></div><div class="mini-page"><div class="mini-nav"><strong>Face to Face</strong><i></i><i></i><i></i></div><div class="mini-hero"><div><small>A place in the community</small><p class="mini-title">Counselling that is local, human and within reach.</p><p></p><p></p><span class="mini-btn">Begin here</span></div><div class="mini-art"><span></span></div></div><div class="mini-strip"><span></span><span></span><span></span></div></div></div></a>
-          <div class="project-meta"><div><p class="eyebrow">Community counselling · Welcoming &amp; practical</p><h3>Face to Face</h3><p>A community-rooted design that makes services, costs and first steps easy to find without flattening the organisation&apos;s character.</p></div><a class="circle-link" href="{{ '/contact/?design=Face%20to%20Face' | relative_url }}" aria-label="Ask about Face to Face">↗</a></div><ul class="tag-list"><li>Community</li><li>Charity</li><li>Accessible</li></ul>
-        </article>
-
-        <article class="project-card" data-project data-search="alexander watson counselling solo therapist adults direct human editorial personal">
-          <a href="https://alexanderwatsoncounselling.co.uk/" target="_blank" rel="noopener noreferrer" class="project-visual" aria-label="Visit Alexander Watson Counselling"><div class="mini-site" style="--mini-paper:#eee9df;--mini-soft:#6d7772;--mini-ink:#1d2925;--mini-accent:#b58965" aria-hidden="true"><div class="mini-browser"><span></span><span></span><span></span><b>Alexander Watson Counselling</b></div><div class="mini-page"><div class="mini-nav"><strong>Alexander Watson Counselling</strong><i></i><i></i><i></i></div><div class="mini-hero"><div><small>Knowing is not the same as changing</small><p class="mini-title">You have probably thought about it enough.</p><p></p><p></p><span class="mini-btn">Begin here</span></div><div class="mini-art"><span></span></div></div><div class="mini-strip"><span></span><span></span><span></span></div></div></div></a>
-          <div class="project-meta"><div><p class="eyebrow">The Studio’s own practice · Not available</p><h3>Alexander Watson Counselling</h3><p>My own counselling website, included so you can see the standard applied to a live practice rather than a demonstration. It is not one of the directions you can choose.</p></div><a class="circle-link" href="https://alexanderwatsoncounselling.co.uk/" target="_blank" rel="noopener noreferrer" aria-label="Visit Alexander Watson Counselling">↗</a></div><ul class="tag-list"><li>Solo therapist</li><li>Editorial</li><li>Direct</li></ul>
-        </article>
-      </div>
-
-      <div class="no-results" data-no-results hidden><h2>No exact match.</h2><p>Try a broader word—or clear the filters and browse by feel.</p><button type="button" class="button button-dark" data-reset-library>Show all designs</button></div>
     </div>
-  </section>
-
-  <section class="choice-guide section-paper"><div class="shell choice-guide-grid"><div><p class="eyebrow">If more than one feels right</p><h2>You do not need to choose alone.</h2></div><div><p>Send me the two or three you are drawn to and tell me what you like about each. I can recommend the strongest starting point for your content, audience and practical needs.</p><p>A design can also borrow a carefully chosen feature from another where that improves the result without turning the process into a bespoke rebuild.</p></div></div></section>
-  <section class="closing-callout"><div class="shell callout-grid"><div><p class="eyebrow eyebrow-light">Found a direction?</p><h2>Tell me which website you keep coming back to.</h2></div><div><p>Name the design and share what is already ready. I will tell you the most suitable level of support and what the next step would cost.</p><a href="{{ '/contact/' | relative_url }}" class="button button-light">Browse the website collection</a></div></div></section>
-</div>
+  </div>
+</section>

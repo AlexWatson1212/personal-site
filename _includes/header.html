@@ -1,73 +1,34 @@
-<header class="site-header" role="banner">
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <a class="nav__brand" href="{{ '/' | relative_url }}" aria-label="Alexander Watson home">
-      <img
-        class="nav__logo"
-        src="{{ '/assets/images/brand/Alexander-Watson-Alternate-logo.svg' | relative_url }}"
-        alt=""
-        width="180"
-        height="45"
-        decoding="async"
-      >
+<header class="site-header" data-site-header>
+  <nav class="nav" aria-label="Main">
+    <a class="nav__brand" href="{{ '/' | relative_url }}" aria-label="Alexander Watson Studio — home">
+      <img src="{{ '/assets/images/brand/Alexander-Watson-Alternate-logo.svg' | relative_url }}" alt="" width="180" height="45" decoding="async">
     </a>
 
-    <button
-      class="nav__toggle"
-      type="button"
-      aria-label="Open menu"
-      aria-expanded="false"
-      aria-controls="primary-nav-panel"
-    >
-      <span class="nav__hamburger" aria-hidden="true"></span>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span class="nav__bars" aria-hidden="true"></span>
+      <span class="nav__toggle-text">Menu</span>
     </button>
 
-    <div class="nav__overlay" aria-hidden="true"></div>
-
-    <div id="primary-nav-panel" class="nav__panel">
-      <ul id="primary-nav" class="nav__links">
-        <li>
-          <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>Home</a>
-        </li>
-
-        <li>
-          <a href="{{ '/service/' | relative_url }}" {% if page.url == '/service/' %}aria-current="page"{% endif %}>Prices</a>
-        </li>
-
-        <li>
-          <a href="{{ '/work/' | relative_url }}" {% if page.url == '/work/' %}aria-current="page"{% endif %}>Collection</a>
-        </li>
-
-        <li class="nav__library">
-          <details {% if page.url == '/practice-clarity' or page.url == '/practice-clarity/' or page.url == '/blog/' or page.layout == 'guide' or page.layout == 'post' %}data-current="true"{% endif %}>
+    <div class="nav__panel" id="primary-nav" data-nav-panel>
+      <ul class="nav__links">
+        <li><a href="{{ '/work/' | relative_url }}" {% if page.url == '/work/' %}aria-current="page"{% endif %}>The collection</a></li>
+        <li><a href="{{ '/service/' | relative_url }}" {% if page.url == '/service/' or page.url == '/services/practice-website/' %}aria-current="page"{% endif %}>What it costs</a></li>
+        <li class="nav__disclosure-item">
+          <details class="nav__disclosure" data-nav-disclosure>
             <summary>
               Library
-              <span class="nav__library-chevron" aria-hidden="true"></span>
+              <span class="nav__chev" aria-hidden="true"></span>
             </summary>
-
-            <ul class="nav__subnav">
-              <li>
-                <a href="{{ '/practice-clarity/' | relative_url }}" {% if page.url == '/practice-clarity' or page.url == '/practice-clarity/' or page.layout == 'guide' %}aria-current="page"{% endif %}>
-                  Practice Clarity Library
-                </a>
-              </li>
-
-              <li>
-                <a href="{{ '/blog/' | relative_url }}" {% if page.url == '/blog/' or page.layout == 'post' %}aria-current="page"{% endif %}>
-                  Journal
-                </a>
-              </li>
+            <ul class="nav__submenu">
+              <li><a href="{{ '/practice-clarity/' | relative_url }}" {% if page.url == '/practice-clarity/' or page.layout == 'guide' %}aria-current="page"{% endif %}>Practice Clarity Library</a></li>
+              <li><a href="{{ '/blog/' | relative_url }}" {% if page.url == '/blog/' or page.layout == 'post' %}aria-current="page"{% endif %}>Journal</a></li>
             </ul>
           </details>
         </li>
-
-        <li>
-          <a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}aria-current="page"{% endif %}>About</a>
-        </li>
+        <li><a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}aria-current="page"{% endif %}>About</a></li>
       </ul>
 
-      <a class="nav__cta" href="{{ '/contact/' | relative_url }}" {% if page.url == '/contact/' %}aria-current="page"{% endif %}>
-        Tell me about your practice
-      </a>
+      <a class="nav__cta" href="{{ '/contact/' | relative_url }}" {% if page.url == '/contact/' %}aria-current="page"{% endif %}>Start a website</a>
     </div>
   </nav>
 </header>

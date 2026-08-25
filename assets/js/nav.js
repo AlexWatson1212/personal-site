@@ -1,84 +1,93 @@
+/* Navigation.
+ *
+ * Two jobs: the mobile panel, and the header's scrolled state. The scrolled
+ * state could be done with a scroll() timeline and no JavaScript at all, but
+ * that is unsupported in Firefox, and a navigation bar is not the place to
+ * ship a state a third of visitors never see. Everything here is a class
+ * toggle; all appearance lives in the stylesheet.
+ */
 (function () {
-  const body = document.body;
-  const toggle = document.querySelector('.nav__toggle');
-  const overlay = document.querySelector('.nav__overlay');
-  const panel = document.querySelector('.nav__panel');
-  const links = document.querySelectorAll('.nav__links a, .nav__cta');
-  const mobileMenu = window.matchMedia('(max-width: 860px)');
+  "use strict";
+
+  var header = document.querySelector("[data-site-header]");
+  var toggle = document.querySelector(".nav__toggle");
+  var panel = document.querySelector("[data-nav-panel]");
+  var disclosures = Array.prototype.slice.call(document.querySelectorAll("[data-nav-disclosure]"));
+  var mobile = window.matchMedia("(max-width: 61.99rem)");
+
+  /* ---- Header state ---- */
+
+  if (header) {
+    var scrolled = false;
+    var onScroll = function () {
+      var next = window.scrollY > 12;
+      if (next !== scrolled) {
+        scrolled = next;
+        header.classList.toggle("is-scrolled", next);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ---- Mobile panel ---- */
 
   if (!toggle || !panel) return;
 
-  function getFocusableElements() {
-    return Array.from(
-      panel.querySelectorAll(
-        'a[href], button:not([disabled]), summary, input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
-      )
-    ).filter(function (element) {
-      return element.getClientRects().length > 0;
-    });
+  function setOpen(open) {
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.classList.toggle("is-open", open);
+    panel.setAttribute("data-open", String(open));
+    document.body.classList.toggle("is-locked", open && mobile.matches);
+    var text = toggle.querySelector(".nav__toggle-text");
+    if (text) text.textContent = open ? "Close" : "Menu";
   }
 
-  function setMenu(open, restoreFocus) {
-    const shouldOpen = Boolean(open && mobileMenu.matches);
-    body.classList.toggle('menu-open', shouldOpen);
-    toggle.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
-    toggle.setAttribute('aria-label', shouldOpen ? 'Close menu' : 'Open menu');
+  setOpen(false);
 
-    if (shouldOpen) {
-      const focusable = getFocusableElements();
-      if (focusable.length) focusable[0].focus();
-    } else if (restoreFocus) {
+  toggle.addEventListener("click", function () {
+    setOpen(toggle.getAttribute("aria-expanded") !== "true");
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "Escape") return;
+    if (toggle.getAttribute("aria-expanded") === "true") {
+      setOpen(false);
       toggle.focus();
     }
-  }
-
-  toggle.addEventListener('click', function () {
-    setMenu(!body.classList.contains('menu-open'), true);
+    disclosures.forEach(function (item) { item.open = false; });
   });
 
-  if (overlay) {
-    overlay.addEventListener('click', function () {
-      setMenu(false, true);
+  panel.addEventListener("click", function (event) {
+    if (event.target.closest("a") && mobile.matches) setOpen(false);
+  });
+
+  mobile.addEventListener("change", function () {
+    setOpen(false);
+  });
+
+  /* ---- Library disclosure: hover to preview on pointer devices, click
+     everywhere. Closes when focus or the pointer leaves. ---- */
+
+  disclosures.forEach(function (item) {
+    var fine = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+    item.addEventListener("mouseenter", function () {
+      if (fine.matches && !mobile.matches) item.open = true;
     });
-  }
 
-  links.forEach(function (link) {
-    link.addEventListener('click', function () {
-      setMenu(false, false);
+    item.addEventListener("mouseleave", function () {
+      if (fine.matches && !mobile.matches) item.open = false;
+    });
+
+    item.addEventListener("focusout", function (event) {
+      if (!item.contains(event.relatedTarget)) item.open = false;
     });
   });
 
-  document.addEventListener('keydown', function (event) {
-    if (!body.classList.contains('menu-open')) return;
-
-    if (event.key === 'Escape') {
-      event.preventDefault();
-      setMenu(false, true);
-      return;
-    }
-
-    if (event.key !== 'Tab') return;
-
-    const focusable = getFocusableElements();
-    if (!focusable.length) {
-      event.preventDefault();
-      toggle.focus();
-      return;
-    }
-
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-
-    if (event.shiftKey && document.activeElement === first) {
-      event.preventDefault();
-      last.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
-      event.preventDefault();
-      first.focus();
-    }
-  });
-
-  mobileMenu.addEventListener('change', function (event) {
-    if (!event.matches) setMenu(false, false);
+  document.addEventListener("click", function (event) {
+    disclosures.forEach(function (item) {
+      if (item.open && !item.contains(event.target)) item.open = false;
+    });
   });
 })();

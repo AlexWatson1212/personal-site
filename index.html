@@ -1,180 +1,258 @@
 ---
 layout: default
 title: Websites for therapists
-description: Choose a complete website direction and have it tailored to your practice for £995, or develop your positioning first with Practice Clarity and a bespoke website from around £2,000.
+description: Original website design for UK therapists and counsellors. Choose a complete design direction and have it tailored to your practice for £995, including the first year of Website Care.
 permalink: /
-page_css: /assets/css/catalogue-refresh.css
 ---
 
-<div class="catalogue-refresh">
+{% assign rowan = site.data.collection | where: "key", "rowan-hill" | first %}
+{% assign stillpoint = site.data.collection | where: "key", "stillpoint" | first %}
+{% assign harbour = site.data.collection | where: "key", "harbour" | first %}
 
-  <section class="home-hero section-paper">
-    <div class="shell home-hero-grid">
-      <div class="home-hero-copy">
-        <p class="eyebrow">For UK therapists and counsellors</p>
-        <h1 class="t-display">A website your practice is recognised by.</h1>
-        <p class="hero-lead">Choose a complete website direction you already like. I tailor it around your practice — your words, your colours, your identity — and hand you the finished thing.</p>
-        <div class="button-row">
-          <a href="{{ '/work/' | relative_url }}" class="button button-dark">See the collection</a>
-          <a href="{{ '/service/' | relative_url }}" class="text-link">The two ways to work <span aria-hidden="true">&rarr;</span></a>
-        </div>
-        <p class="hero-note">Two routes &middot; £995 or around £2,000 &middot; Prices in full</p>
+<section class="hero on-paper">
+  <div class="wrap--wide hero__grid">
+    <div class="hero__copy">
+      <p class="label enter" style="--i:0">For therapists and counsellors in UK private practice</p>
+      <h1 class="t-display enter" style="--i:1">A website your practice is recognised&nbsp;by.</h1>
+      <p class="lead enter" style="--i:2">
+        Choose a complete design direction from the collection. I tailor it around
+        your practice &mdash; your words, your structure, your colours &mdash; and
+        hand you the finished website.
+      </p>
+      <div class="actions hero__actions enter" style="--i:3">
+        <a class="btn" href="{{ '/work/' | relative_url }}">See the collection<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+        <a class="tlink" href="{{ '/service/' | relative_url }}">What it costs <span aria-hidden="true">&rarr;</span></a>
       </div>
-      <div class="hero-stack" role="img" aria-label="Two website designs from the collection, Harbour and Stillpoint, shown as stacked browser windows.">
-        <div class="hero-stack-back">
-          <div class="mini-site" style="--mini-paper:#f7f0e6;--mini-soft:#6f99a0;--mini-ink:#243f42;--mini-accent:#e5a376" aria-hidden="true">
-            <div class="mini-browser"><span></span><span></span><span></span><b>Harbour</b></div>
-            <div class="mini-page"><div class="mini-nav"><strong>Harbour</strong><i></i><i></i><i></i></div><div class="mini-hero"><div><small>Held through change</small><p class="mini-title">Support for families when life feels unsteady.</p><p></p><p></p><span class="mini-btn">Begin here</span></div><div class="mini-art"><span></span></div></div><div class="mini-strip"><span></span><span></span><span></span></div></div>
-          </div>
-        </div>
-        <div class="hero-stack-front">
-          <div class="mini-site mini-site-large" style="--mini-paper:#f1efe9;--mini-soft:#66727b;--mini-ink:#252a2d;--mini-accent:#bd5c4f" aria-hidden="true">
-            <div class="mini-browser"><span></span><span></span><span></span><b>Stillpoint</b></div>
-            <div class="mini-page"><div class="mini-nav"><strong>Stillpoint</strong><i></i><i></i><i></i></div><div class="mini-hero"><div><small>A measured practice</small><p class="mini-title">A quiet place to look at what is difficult.</p><p></p><p></p><span class="mini-btn">Begin here</span></div><div class="mini-art"><span></span></div></div><div class="mini-strip"><span></span><span></span><span></span></div></div>
-          </div>
-        </div>
+      <div class="hero__price enter" style="--i:4">
+        <p><b>£995</b> <span>including the first year of Website Care.</span></p>
+        <p class="hero__price-note">Practice Clarity, if the practice needs working out first &mdash; £1,495.</p>
       </div>
     </div>
-  </section>
 
-  <section class="routes-section section-mist" id="routes">
-    <div class="shell">
-      <div class="section-head">
-        <p class="eyebrow">Two ways to work together</p>
-        <h2>Both end with a finished website. The difference is where we begin.</h2>
-        <p class="section-lead">Clarity first, website second. If you already have that clarity, I confirm it and build from it. If it is still forming, we do that part together first.</p>
+    <div class="fan" role="img" aria-label="Three website designs from the collection — Rowan Hill Therapy, Stillpoint and Harbour — laid out as overlapping pages.">
+      <div class="fan__item">{% include plate.html d=stillpoint %}</div>
+      <div class="fan__item">{% include plate.html d=harbour %}</div>
+      <div class="fan__item">{% include plate.html d=rowan %}</div>
+    </div>
+  </div>
+</section>
+
+<section class="band on-sage">
+  <div class="wrap--wide">
+    <div class="split split--wide-left">
+      <div>
+        <p class="label">The collection</p>
+        <h2 class="rise">Eight directions. Start from the one that already looks like your practice.</h2>
       </div>
+      <div class="stack rise">
+        <p class="lead">
+          Each one is a complete, original website &mdash; structure, voice and
+          atmosphere resolved. Not a theme, and not a colour change.
+        </p>
+        <p><a class="tlink" href="{{ '/work/' | relative_url }}">Browse all eight <span aria-hidden="true">&rarr;</span></a></p>
+      </div>
+    </div>
 
-      <div class="routes-grid">
-        <article class="route-card" id="route-website">
-          <div class="route-card-head">
-            <p class="route-index">Route one</p>
-            <h3>Choose Your Practice Website</h3>
-            <p class="route-price">£995</p>
-            <p class="route-line">You know your practice. I express it properly.</p>
-          </div>
-          <ul class="route-list">
-            <li>You choose a complete design direction from the collection</li>
-            <li>A focused written intake &mdash; no long discovery process</li>
-            <li>I tailor the direction to your practice and your words</li>
-            <li>A coherent visual identity: typography, colour and a refined wordmark</li>
-            <li>Two consolidated revision rounds, then launch and handover</li>
-          </ul>
-          <p class="route-fit"><strong>Right for you if</strong> you can already describe who you work with and what you offer, and you want it made well.</p>
-          <div class="route-actions">
-            <a href="{{ '/services/practice-website/' | relative_url }}" class="button button-dark">What £995 includes</a>
-            <a href="{{ '/work/' | relative_url }}" class="text-link">See the collection <span aria-hidden="true">&rarr;</span></a>
-          </div>
+    <div class="collection collection--three rise-group mt-8">
+      {% for d in site.data.collection limit: 6 %}
+        <article class="direction" style="--i:{{ forloop.index0 }}">
+          <a class="direction__link" href="{{ '/work/#' | append: d.key | relative_url }}">
+            <div class="plate-frame">{% include plate.html d=d %}</div>
+            <div class="direction__meta">
+              <p class="direction__ref"><span>{{ d.ref }}</span><span>{{ d.atmosphere }}</span></p>
+              <h3 class="direction__name">{{ d.name }}</h3>
+            </div>
+          </a>
         </article>
-
-        <article class="route-card" id="route-clarity">
-          <div class="route-card-head">
-            <p class="route-index">Route two</p>
-            <h3>Practice Clarity + Bespoke Website</h3>
-            <p class="route-price">Around £2,000</p>
-            <p class="route-line">We work out the thinking, then build around it.</p>
-          </div>
-          <ul class="route-list">
-            <li>Deeper assessment and considered conversations</li>
-            <li>A concise written Practice Clarity Blueprint</li>
-            <li>Messaging and website strategy &mdash; audience, language, structure</li>
-            <li>An original visual direction, not adapted from the collection</li>
-            <li>A genuinely bespoke website, with collaboration at defined stages</li>
-          </ul>
-          <p class="route-fit"><strong>Right for you if</strong> your practice is changing, newly formed, or hard to put into words &mdash; or you simply want to think it through with someone.</p>
-          <div class="route-actions">
-            <a href="{{ '/service/' | relative_url }}#practice-clarity" class="button button-dark">What this involves</a>
-            <a href="{{ '/contact/?service=practice-clarity' | relative_url }}" class="text-link">Start a conversation <span aria-hidden="true">&rarr;</span></a>
-          </div>
-        </article>
-      </div>
-
-      <p class="routes-note">Not sure which fits? Tell me where you are and I will say plainly which route I would recommend &mdash; including if that is the smaller one. <a href="{{ '/contact/' | relative_url }}">Ask a question first</a>.</p>
+      {% endfor %}
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="collection-preview section-paper">
-    <div class="shell section-head-row">
-      <div>
-        <p class="eyebrow">The collection</p>
-        <h2>Different practices need different rooms.</h2>
-      </div>
-      <div>
-        <p>Each direction is a complete, original website &mdash; structure, voice and atmosphere resolved. You are choosing a starting point, not a theme.</p>
-        <a href="{{ '/work/' | relative_url }}" class="text-link">Browse every design <span aria-hidden="true">&rarr;</span></a>
+<section class="band on-paper">
+  <div class="wrap">
+    <div class="spread">
+      <div class="spread__aside"><p class="label">Not a template</p></div>
+      <div class="spread__body">
+        <h2 class="rise measure-sm">The direction is where it starts. It is not what you get.</h2>
+        <p class="lead rise mt-5 measure-2xl">
+          The collection removes the blank page. It does not remove the design work.
+          Every direction is rebuilt around the practice it is for.
+        </p>
       </div>
     </div>
-    <div class="shell difference-grid">
-      <article><span>01</span><h3>Warm &amp; grounded</h3><p>Quiet designs with natural palettes, generous space and an unhurried route to enquiry.</p></article>
-      <article><span>02</span><h3>Measured &amp; editorial</h3><p>Structured directions that feel assured and precise without becoming cold or corporate.</p></article>
-      <article><span>03</span><h3>Clear &amp; accessible</h3><p>Expressive systems built around direct language, choice and different routes through content.</p></article>
-    </div>
-  </section>
 
-  <section class="process-section section-mist">
-    <div class="shell">
-      <div class="section-head">
-        <p class="eyebrow">How the £995 route runs</p>
-        <h2>Six steps, and you make two of them.</h2>
-      </div>
-      <ol class="process-rail">
-        <li><span class="process-num" aria-hidden="true">1</span><div><h3>You choose a direction</h3><p>Browse the collection and pick the one closest to the practice you want people to recognise.</p></div></li>
-        <li><span class="process-num" aria-hidden="true">2</span><div><h3>You complete the intake</h3><p>A focused written form about your practice, your content and your preferences. About an hour.</p></div></li>
-        <li><span class="process-num" aria-hidden="true">3</span><div><h3>I tailor the direction</h3><p>Your words, your structure, your practice. The design decisions are mine to make.</p></div></li>
-        <li><span class="process-num" aria-hidden="true">4</span><div><h3>I build the identity</h3><p>Typography, colour palette and a refined typographic wordmark, made to hold together.</p></div></li>
-        <li><span class="process-num" aria-hidden="true">5</span><div><h3>Two revision rounds</h3><p>You review the whole site and send one consolidated list. Twice.</p></div></li>
-        <li><span class="process-num" aria-hidden="true">6</span><div><h3>Launch and handover</h3><p>Checked, made live, and handed over with everything you need to keep it.</p></div></li>
-      </ol>
-      <p class="process-note">You choose the overall direction. I make the detailed design decisions &mdash; you should not have to assemble a website out of fonts, colours and layout options.</p>
-    </div>
-  </section>
-
-  <section class="value-section section-paper">
-    <div class="shell value-grid">
+    <div class="diff rise mt-8">
       <div>
-        <p class="eyebrow">What you are actually buying</p>
-        <h2>Something you own, instead of something you rent.</h2>
-        <p>A therapist with listings on two directories pays somewhere between £300 and £550 every year, indefinitely, for space in someone else&rsquo;s website. £995 is roughly two years of that, once &mdash; and at the end of it the website is yours.</p>
-        <p>The directories still have their place. But they are rented shelf space, and a practice eventually needs a room of its own.</p>
-      </div>
-      <ul class="value-list">
-        <li><h3>Yours to keep</h3><p>You own the finished website outright. Your domain and hosting stay in your own accounts, not mine.</p></li>
-        <li><h3>Built properly</h3><p>Responsive, fast, and tested to WCAG&nbsp;2.2&nbsp;AA &mdash; because a good proportion of the people arriving are reading on a phone, or neurodivergent, or distressed.</p></li>
-        <li><h3>Written for the rules you work under</h3><p>Professional-body designations set exactly as your body permits, and no claim on the page you cannot stand behind.</p></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="studio-note section-mist">
-    <div class="shell studio-note-grid">
-      <div>
-        <p class="eyebrow">Who makes it</p>
-        <h2>I design websites, and I am training as a counsellor.</h2>
-        <p>Alexander Watson Studio is one person in Greater Manchester, working with therapists across the UK. The training is not a design credential &mdash; it is why I question generic therapeutic language, notice what a page asks of someone before they are ready, and treat an enquiry form as a real moment rather than a conversion.</p>
-        <a href="{{ '/about/' | relative_url }}" class="text-link">More about the studio <span aria-hidden="true">&rarr;</span></a>
-      </div>
-      <dl class="studio-facts">
-        <div><dt>Prices</dt><dd>Published in full, before you speak to me.</dd></div>
-        <div><dt>Process</dt><dd>Written first. Calls only where they genuinely help.</dd></div>
-        <div><dt>Scope</dt><dd>Agreed in writing. If something falls outside it, I say so before doing it.</dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <section class="closing-callout">
-    <div class="shell callout-grid">
-      <div>
-        <p class="eyebrow eyebrow-light">When you are ready</p>
-        <h2>Start with the design that feels closest.</h2>
+        <p class="diff__label"><span class="label m-0">Direction 01, as drawn</span><span class="tiny quiet">Rowan Hill</span></p>
+        {% include plate.html d=rowan %}
       </div>
       <div>
-        <p>You do not need a brief, a moodboard or a finished plan. Notice which direction feels like your practice, and tell me what you would want to change.</p>
-        <div class="button-row">
-          <a href="{{ '/work/' | relative_url }}" class="button button-light">See the collection</a>
-          <a href="{{ '/contact/' | relative_url }}" class="text-link text-link-light">Ask a question first <span aria-hidden="true">&rarr;</span></a>
+        <p class="diff__label"><span class="label m-0">The same direction, tailored</span><span class="tiny quiet">An example practice</span></p>
+        <div class="plate plate--warm" style="--p-paper:#f4f1ea;--p-ink:#2b3140;--p-soft:#7d8598;--p-accent:#b5836a" aria-hidden="true">
+          <div class="plate__sheet"><div class="plate__page">
+            <div class="plate__nav">
+              <span class="plate__word" style="font-family:var(--sans);font-size:2.4cqi;font-weight:600;letter-spacing:0.22em;text-transform:uppercase">Ashfield Counselling</span>
+              <span class="plate__menu"><i></i><i></i><i></i></span>
+            </div>
+            <div class="plate__hero">
+              <div>
+                <span class="plate__eyebrow">Trauma and long-term work</span>
+                <p class="plate__title">Some things take longer than six sessions.</p>
+                <span class="plate__body"><i></i><i></i></span>
+                <span class="plate__cta">See fees and availability</span>
+              </div>
+              <div class="plate__art"><span></span><span></span><span></span></div>
+            </div>
+            <div class="plate__index">
+              <b>Weekly therapy<s>£60</s></b>
+              <b>Longer-term work<s>By arrangement</s></b>
+            </div>
+          </div></div>
         </div>
       </div>
     </div>
-  </section>
 
-</div>
+    <ol class="diff__notes">
+      <li><b>Palette</b><span>The direction's warm greens give way to a cooler, steadier set chosen for a practice that works with trauma over long periods.</span></li>
+      <li><b>Typography</b><span>A serif wordmark becomes a spaced sans one, and the headline drops a size so a longer, plainer sentence can carry it.</span></li>
+      <li><b>Structure</b><span>The three-panel strip is replaced by fees, because this practice's visitors need the cost before anything else.</span></li>
+      <li><b>Words</b><span>Written with the practitioner, from the intake. &ldquo;Begin here&rdquo; becomes the thing the visitor is actually looking for.</span></li>
+    </ol>
+
+    <p class="tiny quiet mt-5 measure-2xl">
+      An illustration, drawn for this page. Ashfield Counselling is not a real practice,
+      and the directions in the collection are Studio work rather than client projects.
+    </p>
+  </div>
+</section>
+
+<section class="band on-paper-deep">
+  <div class="wrap--wide">
+    <div class="anatomy">
+      <div class="anatomy__head">
+        <div>
+          <p class="label">A therapist website</p>
+          <p class="anatomy__price">£995<small>Fixed. Paid once, in full, before the project begins.</small></p>
+        </div>
+        <p class="quiet small measure-lg">
+          Seven stages, and you are asked to make two decisions. The rest is my work.
+        </p>
+      </div>
+
+      <div class="anatomy__track mt-6">
+        <span class="anatomy__rule" aria-hidden="true"></span>
+        <ol class="anatomy__steps">
+          <li class="anatomy__step"><span class="anatomy__n">01</span><h3>You choose a direction</h3><p>The one closest to the practice you want people to recognise.</p></li>
+          <li class="anatomy__step"><span class="anatomy__n">02</span><h3>You complete the intake</h3><p>A focused written form. About an hour, no discovery call.</p></li>
+          <li class="anatomy__step"><span class="anatomy__n">03</span><h3>I tailor the direction</h3><p>Palette, typography, structure and hierarchy, around your practice.</p></li>
+          <li class="anatomy__step"><span class="anatomy__n">04</span><h3>I design and build</h3><p>Up to five core pages, responsive, accessible and fast.</p></li>
+          <li class="anatomy__step"><span class="anatomy__n">05</span><h3>Two revision rounds</h3><p>You review the whole site and send one consolidated list. Twice.</p></li>
+          <li class="anatomy__step"><span class="anatomy__n">06</span><h3>Launch and handover</h3><p>Checked, made live, and handed over with what you need to keep it.</p></li>
+          <li class="anatomy__step anatomy__step--end"><span class="anatomy__n">07</span><h3>A year of Website Care</h3><p>Hosting, certificates, updates and fault-fixing. Included.</p></li>
+        </ol>
+      </div>
+
+      <p class="anatomy__note">
+        Two to four weeks from a confirmed start.
+        <a class="inline-link" href="{{ '/services/practice-website/' | relative_url }}">Everything included, everything excluded</a>,
+        set out in full before you buy.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="band on-sage">
+  <div class="wrap">
+    <div class="spread mb-8">
+      <div class="spread__aside"><p class="label">Two ways to begin</p></div>
+      <div class="spread__body">
+        <h2 class="measure-md">The difference is not the website. It is how much of the thinking is already done.</h2>
+      </div>
+    </div>
+
+    <div class="ways rise-group">
+      <div style="--i:0">
+        <p class="way__said">I know who I work with and what I offer.</p>
+        <p class="way__meta"><span class="way__name">Therapist Website</span><span class="way__price">£995</span></p>
+        <ul class="way__list">
+          <li>A direction from the collection, tailored to your practice</li>
+          <li>A written intake, then the design decisions are mine</li>
+          <li>Two consolidated revision rounds, launch and handover</li>
+          <li>The first year of Website Care included</li>
+        </ul>
+        <div class="actions way__actions">
+          <a class="tlink" href="{{ '/services/practice-website/' | relative_url }}">What is included <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+
+      <div style="--i:1">
+        <p class="way__said">I could not put my practice into words if you asked me today.</p>
+        <p class="way__meta"><span class="way__name">Practice Clarity + Website</span><span class="way__price">£1,495</span></p>
+        <ul class="way__list">
+          <li>Everything above, and the thinking done first</li>
+          <li>Who the practice is for, and what it is actually offering</li>
+          <li>A short written Practice Direction you keep, website or not</li>
+          <li>The website then expresses a decision rather than a guess</li>
+        </ul>
+        <div class="actions way__actions">
+          <a class="tlink" href="{{ '/service/#practice-clarity' | relative_url }}">What Practice Clarity resolves <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+
+    <p class="small quiet mt-7 measure-2xl">
+      Something outside this &mdash; a larger organisation, unusual functionality, a great deal of content?
+      <a class="inline-link" href="{{ '/contact/' | relative_url }}">Tell me what you are trying to build</a>
+      and I will scope and quote it separately.
+    </p>
+  </div>
+</section>
+
+<section class="band on-paper">
+  <div class="wrap">
+    <div class="split split--wide-right">
+      <figure class="portrait rise">
+        <img src="{{ '/assets/images/brand/about-hero-portrait.webp' | relative_url }}"
+             alt="Alexander Watson, seated in a consulting room" width="1535" height="1024" loading="lazy" decoding="async">
+      </figure>
+      <div class="stack stack--loose">
+        <p class="label">Who makes it</p>
+        <h2 class="measure-sm">I design websites, and I am training as a counsellor.</h2>
+        <p class="quiet">
+          The training is not a design credential. It is why I question generic
+          therapeutic language, notice what a page asks of somebody before they
+          are ready, and treat an enquiry form as a real moment rather than a
+          conversion.
+        </p>
+        <dl class="facts">
+          <div><dt>Prices</dt><dd>Published in full, before you speak to me.</dd></div>
+          <div><dt>Process</dt><dd>Written first. Calls only where they genuinely help.</dd></div>
+          <div><dt>Scope</dt><dd>Agreed in writing. If something falls outside it, I say so before doing it.</dd></div>
+        </dl>
+        <p><a class="tlink" href="{{ '/about/' | relative_url }}">More about the studio <span aria-hidden="true">&rarr;</span></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band on-ink">
+  <div class="wrap">
+    <div class="split split--wide-left">
+      <div>
+        <p class="label">When you are ready</p>
+        <h2 class="measure-xs">Start with the design that feels closest.</h2>
+      </div>
+      <div class="stack stack--loose">
+        <p>
+          You do not need a brief, a moodboard or a finished plan. Tell me which
+          direction you keep returning to and what is already written.
+        </p>
+        <div class="actions">
+          <a class="btn" href="{{ '/work/' | relative_url }}">See the collection<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="tlink" href="{{ '/contact/' | relative_url }}">Ask a question first <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

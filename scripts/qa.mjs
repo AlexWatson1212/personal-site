@@ -107,19 +107,36 @@ const EXCLUDED_DIRS = new Set([
 const EXCLUDED_PREFIXES = [
   "_legacy/",
   "_preview/",
+  "_responsive-pass/",
   "_shots/",
   "_site/",
+  "_strategy/",
+  "_to_delete/",
   "_transfer/",
   "node_modules/",
   "vendor/",
+  ".git/",
   "scripts/preview/",
   "scripts/qa-browser/",
+  "scripts/responsive-qa/",
 ];
+
+/* Internal notes. They are excluded from the build by _config.yml, they
+   record decisions the site has since moved past, and they are allowed to
+   name retired prices in the course of explaining why those prices went. */
+const INTERNAL_NOTES = new Set([
+  "README.md", "INSTALLATION.md", "IMPLEMENTATION.md", "VISUAL-SYSTEM.md",
+  "STRIPE_SETUP.md", "LEGAL_REVIEW.md", "OPEN_DECISIONS.md", "REBUILD-REPORT.md",
+  "REDESIGN-REPORT.md", "PHOTOGRAPHY-SHOT-LIST.md",
+  "APPLY-two-routes.txt", "APPLY-refinement.txt",
+]);
 
 function isExcludedPath(rel) {
   const posix = rel.split(path.sep).join("/");
   if (EXCLUDED_PREFIXES.some((p) => posix.startsWith(p))) return true;
   if (/^assets\/css\/.*\.min\.css$/.test(posix)) return true;
+  /* Generated at build time from environment variables, never committed. */
+  if (posix === "_data/purchasing_resolved.yml") return true;
   return false;
 }
 
@@ -216,12 +233,21 @@ const KEY_PREFIXES = [
 const PUBLISHABLE_PREFIXES = [["pk", "live"].join("_") + "_", ["pk", "test"].join("_") + "_"];
 const STRIPE_SDK_HOST = "js." + "stripe.com";
 
-const APPROVED_PRICES = new Set(["£995", "£2,000", "£29", "£290"]);
-/* Third-party figures the site quotes — annual directory subscription costs —
-   rather than studio prices. Held separately so the studio's own price list
-   stays exact and a stray offer price cannot hide among them. */
-const CITED_AMOUNTS = new Set(["£300", "£550"]);
-const RETIRED_PRICES = ["495", "795", "1,495", "1,995", "2,195"].map((n) => "£" + n);
+/* The whole commercial architecture, as four figures:
+     £995    the Therapist Website, paid once
+     £500    the Practice Clarity add-on
+     £1,495  the two together
+     £29     Website Care per month, after the included first year
+   Any other amount in published source is a mistake until this list says
+   otherwise. */
+const APPROVED_PRICES = new Set(["£995", "£500", "£1,495", "£29"]);
+/* Figures that are not studio prices. £60 is a session fee drawn inside the
+   tailoring illustration on the home page, where the point being made is that
+   this practice's visitors need the cost before anything else. Held separately
+   so the studio's own price list stays exact and a stray offer price cannot
+   hide among them. */
+const CITED_AMOUNTS = new Set(["£60"]);
+const RETIRED_PRICES = ["495", "795", "1,995", "2,195", "2,000", "290"].map((n) => "£" + n);
 
 const purchasingYml = read("_data/purchasing.yml");
 const legalYml = read("_data/legal.yml");
@@ -311,6 +337,8 @@ check("Prices", "Retired amounts appear nowhere in the repository", () => {
   const offenders = [];
   for (const rel of trackedFiles) {
     if (!/\.(html|md|markdown|yml|yaml|json|js|mjs|css|txt|toml)$/.test(rel)) continue;
+    /* This file names the retired figures in order to forbid them. */
+    if (rel === "scripts/qa.mjs" || INTERNAL_NOTES.has(rel)) continue;
     const body = fs.readFileSync(path.join(ROOT, rel), "utf8");
     for (const price of RETIRED_PRICES) {
       let index = body.indexOf(price);
@@ -327,10 +355,13 @@ check("Prices", "Retired amounts appear nowhere in the repository", () => {
 
 check("Prices", "The displayed prices come from _data/purchasing.yml", () => {
   assert(/^price_display:\s*"£995"\s*$/m.test(purchasingYml), "price_display is not £995");
-  assert(/^bespoke_price_display:\s*"Around £2,000"\s*$/m.test(purchasingYml), 'bespoke_price_display is not "Around £2,000"');
+  assert(/^clarity_addon_display:\s*"£500"\s*$/m.test(purchasingYml), 'clarity_addon_display is not "£500"');
+  assert(/^clarity_combined_display:\s*"£1,495"\s*$/m.test(purchasingYml), 'clarity_combined_display is not "£1,495"');
+  assert(!/bespoke_price_display/.test(purchasingYml), "bespoke_price_display is still declared — the bespoke route was retired");
   assert(!/guided_price_display/.test(purchasingYml), "guided_price_display is still declared — the Guided tier was retired");
+  assert(/included_months:\s*12/.test(purchasingYml), "Website Care is not declared as twelve included months");
   assert(/monthly:\s*"£29"/.test(purchasingYml), "Website Care monthly price is not £29");
-  assert(/annual:\s*"£290"/.test(purchasingYml), "Website Care annual price is not £290");
+  assert(!/annual:/.test(purchasingYml), "Website Care still declares an annual price — Care is monthly after the included year");
 });
 
 /* ------------------------------------------------------------------ *
@@ -357,7 +388,7 @@ check("Checkout scope", "Only the buy component can emit a checkout link", () =>
   assert(/active_payment_link/.test(buyInclude), `${BUY_INCLUDE} no longer reads the resolved Payment Link — the check would pass vacuously`);
 });
 
-check("Checkout scope", "The buy component is included only on the Straightforward Website route", () => {
+check("Checkout scope", "The buy component is included only on the Therapist Website page", () => {
   const including = [];
   for (const [rel, body] of publishedBodies) {
     if (rel === BUY_INCLUDE) continue; // its own usage comment is not a placement
@@ -373,7 +404,7 @@ check("Checkout scope", "The buy component is included only on the Straightforwa
   return `${count} placements on ${PURCHASE_PAGE}`;
 });
 
-check("Checkout scope", "The buy component carries the stated Straightforward CTAs", () => {
+check("Checkout scope", "The buy component carries the stated calls to action", () => {
   assert(
     /Pay \{\{ price \}\} and begin my website/.test(buyInclude),
     `${BUY_INCLUDE} no longer renders "Pay {{ price }} and begin my website"`
@@ -384,96 +415,147 @@ check("Checkout scope", "The buy component carries the stated Straightforward CT
 });
 
 /** The route blocks, on the services page and the home page. */
-function serviceBlocks() {
-  const blocks = [];
-  for (const match of servicePage.matchAll(/<article id="([^"]+)"[\s\S]*?<\/article>/g)) {
-    blocks.push({ file: "service.html", id: match[1], body: match[0] });
-  }
-  for (const match of homePage.matchAll(/<article class="route-card" id="([^"]+)"[\s\S]*?<\/article>/g)) {
-    blocks.push({ file: "index.html", id: match[1], body: match[0] });
-  }
-  return blocks;
+/* The commercial pages, as (path, body) pairs. The commercial architecture is
+   now one product with one add-on rather than two competing routes, so these
+   checks read whole pages instead of counting route cards. */
+function commercialPages() {
+  return [
+    { file: "service.html", body: servicePage },
+    { file: "index.html", body: homePage },
+    { file: PURCHASE_PAGE, body: purchasePage },
+  ];
 }
 
 check("Checkout scope", "Practice Clarity carries no purchase action", () => {
-  const blocks = serviceBlocks();
-  assert(blocks.length >= 4, `only ${blocks.length} route blocks found across service.html and index.html`);
-  const clarity = /clarity/i;
+  /* Practice Clarity is an add-on agreed in writing and invoiced separately.
+     Nothing that describes it may offer an online payment. */
   let inspected = 0;
-  for (const block of blocks) {
-    if (!clarity.test(block.id)) continue;
+  for (const { file, body } of commercialPages()) {
+    const index = body.indexOf("Practice Clarity");
+    if (index === -1) continue;
     inspected += 1;
-    assert(
-      !/practice-website-buy\.html/.test(block.body),
-      `${block.file} · ${block.id} includes the buy component`
-    );
-    assert(!/Pay\s+(£995|\{\{)/.test(block.body), `${block.file} · ${block.id} shows a pay action`);
-    assert(
-      !/\/services\/practice-website\//.test(block.body),
-      `${block.file} · ${block.id} links into the checkout page`
-    );
+    const block = body.slice(Math.max(0, index - 200), index + 1600);
+    assert(!/practice-website-buy\.html/.test(block), `${file} · a Practice Clarity block includes the buy component`);
+    assert(!/Pay\s+(£995|\{\{)/.test(block), `${file} · a Practice Clarity block shows a pay action`);
+    assert(!/buy\.stripe\.com/.test(block), `${file} · a Practice Clarity block links to Stripe`);
   }
   assert(inspected >= 2, `only ${inspected} Practice Clarity blocks inspected`);
-  return `${inspected} Practice Clarity blocks`;
+  return `${inspected} pages inspected`;
 });
 
 /* ------------------------------------------------------------------ *
- * 4. Service models
+ * 4. The commercial architecture
  * ------------------------------------------------------------------ */
 
-check("Service routes", "Practice Clarity stays proposal-led at around £2,000", () => {
-  const block = servicePage.split('<article id="practice-clarity"')[1] || "";
-  assert(block.length > 200, "the Practice Clarity section could not be read from service.html");
-  assert(/Around £2,000/.test(block), "the Practice Clarity section does not show Around £2,000");
-  assert(/>Start a conversation</.test(block), 'the Practice Clarity CTA is not "Start a conversation"');
-  assert(/\/contact\/\?service=practice-clarity/.test(block), "the Practice Clarity CTA does not lead to an enquiry");
-  assert(/proposal/i.test(block), "the Practice Clarity section does not mention a proposal");
-  assert(!/buy\.stripe\.com|practice-website-buy/.test(block), "the Practice Clarity section offers an online payment");
+check("Commercial architecture", "One product, one add-on, one care plan", () => {
+  /* service.html is the page that has to make the commercial decision easy.
+     Every figure a buyer needs must be on it, and none of the retired offer
+     structure may survive anywhere. */
+  assert(/£995/.test(servicePage), "service.html does not show £995");
+  assert(/£500/.test(servicePage), "service.html does not show the £500 Practice Clarity add-on");
+  assert(/£1,495/.test(servicePage), "service.html does not show the £1,495 combined price");
+  assert(/£29/.test(servicePage), "service.html does not show the £29 Website Care price");
+  assert(/[Cc]ustom project/.test(servicePage), "service.html does not offer a custom project route");
+  return "£995 · +£500 · £1,495 · £29 · custom quoted";
 });
 
-check("Service routes", "Choose Your Practice Website is the only route with an online checkout", () => {
-  const block = servicePage.split('<article id="practice-website"')[1] || "";
-  assert(block.length > 200, "the Choose Your Practice Website section could not be read from service.html");
-  assert(/£995/.test(block), "the Choose Your Practice Website section does not show £995");
-  assert(/Bought online/i.test(block), "the section does not say it is bought online");
-  assert(/\/services\/practice-website\//.test(block), "the section does not link to the purchase page");
+check("Commercial architecture", "The retired offer structure is gone", () => {
+  const retired = [
+    "Choose Your Practice Website",
+    "Bespoke Website",
+    "Practice Clarity Blueprint",
+    "Route one",
+    "Route two",
+    "two routes",
+    "Around £2,000",
+  ];
+  const offenders = [];
+  for (const rel of trackedFiles) {
+    if (!/\.(html|md|markdown|ya?ml|js|mjs|json|txt|toml)$/.test(rel)) continue;
+    if (rel === "scripts/qa.mjs") continue;
+    if (rel.startsWith("_legacy/") || rel.startsWith("_strategy/") || rel.startsWith("_responsive-pass/")) continue;
+    if (/^(REBUILD-REPORT|OPEN_DECISIONS|LEGAL_REVIEW|STRIPE_SETUP|IMPLEMENTATION|VISUAL-SYSTEM|README|INSTALLATION|PHOTOGRAPHY-SHOT-LIST|REDESIGN-REPORT)\.md$/.test(rel)) continue;
+    const body = read(rel);
+    for (const phrase of retired) {
+      if (body.includes(phrase)) offenders.push(`${rel}: ${phrase}`);
+    }
+  }
+  assert(offenders.length === 0, `retired offer language survives — ${offenders.slice(0, 8).join("; ")}`);
+  return `${retired.length} retired phrases absent from ${trackedFiles.length} files`;
 });
 
-check("Service routes", "Only two routes are offered anywhere", () => {
-  const ids = serviceBlocks().map((b) => b.id);
-  const unexpected = ids.filter((id) => !/^(practice-website|practice-clarity|route-website|route-clarity)$/.test(id));
-  assert(unexpected.length === 0, `unexpected route blocks: ${unexpected.join(", ")}`);
-  assert(ids.length === 4, `expected two routes on each of service.html and index.html, found ${ids.length} blocks`);
-  return ids.join(", ");
+check("Commercial architecture", "The Therapist Website is the only route with an online checkout", () => {
+  assert(/£995/.test(purchasePage), "the purchase page does not show £995");
+  assert(/practice-website-buy\.html/.test(purchasePage), "the purchase page does not include the buy component");
+  assert(/Therapist Website/.test(purchasePage), "the purchase page does not name the Therapist Website");
+  assert(/\/services\/practice-website\//.test(servicePage), "service.html does not link to the purchase page");
 });
 
 /* ------------------------------------------------------------------ *
  * 5. Website Care
  * ------------------------------------------------------------------ */
 
-check("Website Care", "Presented as optional, at £29 per month or £290 per year", () => {
+check("Website Care", "Described as included for twelve months, then £29 a month", () => {
   let described = 0;
   for (const rel of [PURCHASE_PAGE, "service.html"]) {
     const body = read(rel);
-    const index = body.indexOf("Website Care");
-    assert(index !== -1, `${rel} does not mention Website Care`);
-    const block = body.slice(Math.max(0, index - 900), index + 900);
-    assert(/optional/i.test(block), `${rel} does not describe Website Care as optional`);
-    assert(/£29 per month/.test(block) && /£290 per year/.test(block), `${rel} does not state £29 per month / £290 per year`);
+    assert(body.includes("Website Care"), `${rel} does not mention Website Care`);
+    assert(
+      /(first (twelve months|year)|twelve months of Website Care)/i.test(body),
+      `${rel} does not say the first year of Website Care is included`
+    );
+    assert(/£29/.test(body), `${rel} does not state the £29 monthly price`);
+    assert(/no\s+minimum\s+term/i.test(body), `${rel} does not say there is no minimum term`);
     described += 1;
   }
   return `${described} pages`;
 });
 
+check("Website Care", "Claims only what the infrastructure supports", () => {
+  /* Care is a paid promise now that it is inside the £995, so it must not
+     claim continuous monitoring or a backup guarantee: neither is provided.
+     Version history and TLS are, and are named instead. */
+  const forbidden = [
+    /\buptime (guarantee|monitoring)\b/i,
+    /24\/7/,
+    /round-the-clock monitoring(?!\s*<\/li>)/i,
+  ];
+  const offenders = [];
+  for (const rel of [PURCHASE_PAGE, "service.html", "_pages/service-terms-practice-website.html"]) {
+    const body = read(rel);
+    for (const pattern of forbidden) {
+      /* The phrases are permitted where they appear in a "does not cover"
+         list, which is exactly where they should appear. */
+      const hit = body.match(pattern);
+      if (!hit) continue;
+      const at = body.indexOf(hit[0]);
+      const around = body.slice(Math.max(0, at - 400), at + 200);
+      if (/does not|not cover|Not included|is not:/i.test(around)) continue;
+      offenders.push(`${rel}: ${hit[0]}`);
+    }
+  }
+  assert(offenders.length === 0, `Website Care claims something unsupported — ${offenders.join("; ")}`);
+  return "no monitoring or backup guarantee claimed";
+});
+
 check("Website Care", "No subscription is built or activated", () => {
   assert(/subscriptions_enabled:\s*false/.test(purchasingYml), "_data/purchasing.yml does not set subscriptions_enabled: false");
   const offenders = [];
+  /* Care sits inside the £995 for its first twelve months, so the checkout
+     action and the words "Website Care" now legitimately appear together —
+     but only where the surrounding sentence says it is included. A checkout
+     action beside Care described any other way would be selling a
+     subscription this repository has not built. */
   for (const [rel, body] of publishedBodies) {
-    const index = body.indexOf("Website Care");
-    if (index === -1) continue;
-    const block = body.slice(Math.max(0, index - 1200), index + 1200);
-    if (/https:\/\/buy\.stripe\.com|practice-website-buy|data-purchase-action/.test(block)) {
-      offenders.push(`${rel}:${lineAt(body, index)} places a checkout action beside Website Care`);
+    let index = body.indexOf("Website Care");
+    while (index !== -1) {
+      const block = body.slice(Math.max(0, index - 1200), index + 1200);
+      const hasAction = /https:\/\/buy\.stripe\.com|practice-website-buy|data-purchase-action/.test(block);
+      const saysIncluded = /includ(ed|es|ing)/i.test(block);
+      if (hasAction && !saysIncluded) {
+        offenders.push(`${rel}:${lineAt(body, index)} places a checkout action beside Website Care without saying it is included`);
+      }
+      index = body.indexOf("Website Care", index + 1);
     }
   }
   for (const [rel, body] of publishedBodies) {
@@ -1331,11 +1413,13 @@ check("Built site", "The sitemap lists the public routes and none of the private
   for (const route of PRIVATE_ROUTES) assert(!sitemap.includes(route), `${route} appears in sitemap.xml`);
 });
 
-check("Built site", "The purchase page loads its stylesheet", () => {
+check("Built site", "Every page loads the one stylesheet, and only that one", () => {
   if (!hasSite) skip("no _site directory — run `npm run build` first");
   const body = readSite("services/practice-website/index.html");
-  assert(/purchase\.min\.css/.test(body), "the built purchase page loads no base stylesheet");
-  assert(/catalogue-refresh\.css/.test(body), "the built purchase page does not load catalogue-refresh.css");
+  assert(/studio\.min\.css/.test(body), "the built purchase page loads no stylesheet");
+  const sheets = [...body.matchAll(/<link[^>]+rel="stylesheet"[^>]*>/g)];
+  assert(sheets.length === 1, `the built purchase page loads ${sheets.length} stylesheets, expected 1`);
+  assert(/studio\.min\.css/.test(body), "the built purchase page does not load studio.min.css");
 });
 
 check("Built site", "No Liquid survived into the built pages", () => {

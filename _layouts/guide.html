@@ -2,170 +2,67 @@
 layout: default
 ---
 
-<article class="acw-guide">
+<article class="band band--sm on-paper">
+  <div class="wrap">
+    {% unless page.self_contained_guide %}
+      <a class="back-link" href="{{ '/practice-clarity/' | relative_url }}"><span aria-hidden="true">&larr;</span> Practice Clarity Library</a>
 
-  {% unless page.self_contained_guide %}
-  <header class="acw-guide-hero acw-surface-paper">
-    <div class="acw-container">
-      <a class="acw-post-back-link" href="{{ '/practice-clarity/' | relative_url }}">
-        <span aria-hidden="true">←</span>
-        Practice Clarity Library
-      </a>
-
-      <div class="acw-guide-hero-banner">
-        {% if page.hero_image %}
-          <img
-            class="acw-guide-hero-image"
-            src="{{ page.hero_image | relative_url }}"
-            alt="{{ page.hero_image_alt | default: page.hero_alt | default: page.title }}"
-            loading="eager"
-            decoding="async"
-          >
+      <header class="article-hero" style="padding-block-start:0">
+        <p class="label">{{ page.kicker | default: page.category | default: "Practice Clarity" }}</p>
+        <h1 class="t-h1">{{ page.title }}</h1>
+        {% if page.subtitle or page.description %}
+          <p class="lead mt-5 measure-xl">{{ page.subtitle | default: page.description }}</p>
         {% endif %}
+        {% assign guide_read_time = page.reading_time | default: page.read_time %}
+        {% if guide_read_time %}
+          <p class="article-meta"><span>{{ guide_read_time }}</span></p>
+        {% endif %}
+      </header>
 
-        <div class="acw-guide-hero-shade" aria-hidden="true"></div>
-
-        <div class="acw-guide-hero-content">
-          <p class="acw-section-label">
-            {{ page.kicker | default: page.category | default: "Practice Clarity Guide" }}
-          </p>
-
-          <h1 class="acw-guide-title">{{ page.title }}</h1>
-
-          {% assign guide_read_time = page.reading_time | default: page.read_time %}
-          {% if guide_read_time %}
-            <div class="acw-guide-meta" role="group" aria-label="Guide details">
-              <span>{{ guide_read_time }}</span>
-            </div>
-          {% endif %}
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <nav class="acw-guide-jump-nav" aria-label="On this page" hidden>
-    <div class="acw-container acw-guide-jump-nav-inner">
-      <span>On this page</span>
-      <div class="acw-guide-jump-links"></div>
-    </div>
-  </nav>
-
-  {% if page.subtitle or page.description %}
-    <section class="acw-guide-summary-section acw-surface-recessed">
-      <div class="acw-container acw-guide-summary-inner">
-        <p class="acw-section-label">In brief</p>
-        <p class="acw-guide-summary">
-          {{ page.subtitle | default: page.description }}
-        </p>
-      </div>
-    </section>
-  {% endif %}
-
-  {% if page.intro %}
-    <section class="acw-post-intro-section acw-surface-paper">
-      <div class="acw-container acw-post-intro-inner">
-        <p class="acw-post-intro">{{ page.intro }}</p>
-      </div>
-    </section>
-  {% endif %}
-  {% endunless %}
-
-  <section id="guide" class="acw-guide-body-section acw-surface-paper">
-    <div class="acw-container acw-guide-body-inner">
-      <div class="acw-guide-reading-label" aria-hidden="true">
-        <span></span>
-        <p>Guide</p>
-      </div>
-
-      <div class="acw-guide-content-wrap">
-        <div class="acw-guide-content">
-          {{ content }}
-        </div>
-
-        <div class="acw-guide-end-mark" aria-hidden="true">
-          <span></span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="acw-guide-related-section acw-surface-recessed">
-    <div class="acw-container">
-      <div class="acw-guide-library-invitation">
-        <div>
-          <p class="acw-section-label">Keep reading</p>
-          <h2>Explore the complete Practice Clarity Library.</h2>
-          <p>Nine connected principles and practical guides for building a clearer, more recognisable private practice.</p>
-        </div>
-
-        <a class="acw-guide-library-button" href="{{ '/practice-clarity/' | relative_url }}">
-          View all guides
-          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="acw-guide-footer-cta acw-surface-ink">
-    <div class="acw-container">
-      <div class="acw-guide-cta-card">
-        <div class="acw-guide-cta-copy">
-          <p class="acw-section-label">From principle to practice</p>
-          <h2>Turn this thinking into one clear professional foundation.</h2>
-          <p>Practice Clarity + Website applies the framework to your positioning, language, professional identity and website.</p>
-          <div class="acw-cta-row">
-            <a class="acw-btn acw-btn-primary" href="{{ '/service/' | relative_url }}">See the services</a>
-            <a class="acw-library-text-link" href="{{ '/work/' | relative_url }}">
-              See how this is applied in a full project
-              <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-
-        <figure class="acw-guide-cta-media">
-          <img
-            src="{{ '/assets/images/brand/brand-blueprint-desk.webp' | relative_url }}"
-            alt="A printed Practice Clarity blueprint and working notes on the studio desk"
-            loading="lazy"
-            decoding="async"
-    width="1536"
-    height="1024"
-  >
+      {% if page.hero_image %}
+        <figure class="article-figure">
+          <img src="{{ page.hero_image | relative_url }}"
+               alt="{{ page.hero_image_alt | default: page.hero_alt | default: page.title }}"
+               loading="eager" decoding="async">
         </figure>
-      </div>
-    </div>
-  </section>
+      {% endif %}
+    {% endunless %}
 
+    <div class="prose acw-guide-content">
+      {{ content }}
+    </div>
+  </div>
 </article>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var content = document.querySelector(".acw-guide-content");
-    var navigation = document.querySelector(".acw-guide-jump-nav");
-    var links = document.querySelector(".acw-guide-jump-links");
+<section class="band band--sm on-sage">
+  <div class="wrap">
+    <div class="split split--wide-left">
+      <div>
+        <p class="label">Keep reading</p>
+        <h2 class="measure-xs">Nine principles, one connected pathway.</h2>
+      </div>
+      <div class="stack stack--loose">
+        <p class="quiet">Each principle is short and stands on its own. Start at the beginning, or go straight to the decision in front of you.</p>
+        <p><a class="tlink" href="{{ '/practice-clarity/' | relative_url }}">The Practice Clarity Library <span aria-hidden="true">&rarr;</span></a></p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    if (!content || !navigation || !links) return;
-
-    var headings = content.querySelectorAll("h2");
-    if (!headings.length) return;
-
-    headings.forEach(function (heading, index) {
-      if (!heading.id) {
-        var slug = heading.textContent
-          .toLowerCase()
-          .trim()
-          .replace(/[^a-z0-9]+/g, "-")
-          .replace(/(^-|-$)/g, "");
-
-        heading.id = slug || "section-" + (index + 1);
-      }
-
-      var link = document.createElement("a");
-      link.href = "#" + heading.id;
-      link.textContent = heading.textContent;
-      links.appendChild(link);
-    });
-
-    navigation.hidden = false;
-  });
-</script>
+<section class="band band--sm on-ink">
+  <div class="wrap">
+    <div class="split split--wide-left">
+      <div>
+        <p class="label">From principle to practice</p>
+        <h2 class="measure-sm">This thinking, applied to your own practice.</h2>
+      </div>
+      <div class="stack stack--loose">
+        <p>Practice Clarity is the add-on that does this work with you and writes it down. £500 alongside a website, or £1,495 for both.</p>
+        <div class="actions">
+          <a class="btn" href="{{ '/service/#practice-clarity' | relative_url }}">What it costs<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="tlink" href="{{ '/work/' | relative_url }}">See the collection <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

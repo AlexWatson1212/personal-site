@@ -1,6 +1,6 @@
 {%- comment -%}
-  Choose Your Practice Website purchase action — the single source of truth for the
-  £995 buy action. No other file may render a checkout link.
+  Therapist Website purchase action — the single source of truth for the £995
+  buy action. No other file may render a checkout link.
 
   Configuration comes from two data files:
 
@@ -31,44 +31,53 @@
   {%- assign purchase_enabled = true -%}
 {%- endif -%}
 
-<div class="buy-block" data-purchase-block data-purchase-state="{% if purchase_enabled %}open{% else %}closed{% endif %}">
+<div class="buy" data-purchase-block data-purchase-state="{% if purchase_enabled %}open{% else %}closed{% endif %}">
+  <p class="buy__price">
+    <b>{{ price }}</b>
+    <span class="quiet small">Paid once, in full, before the project begins. Includes the first year of Website Care.</span>
+  </p>
+
   {%- if purchase_enabled -%}
-  <p class="buy-terms" id="buy-terms-{{ buy_id }}">
+  <p class="buy__terms" id="buy-terms-{{ buy_id }}">
     Payment is taken in full by Stripe. Before paying, please read the
-    <a href="{{ cfg.urls.service_terms | relative_url }}">Choose Your Practice Website Service Terms</a>,
-    the <a href="{{ cfg.urls.cancellation | relative_url }}">cancellation and refund information</a>
-    and the <a href="{{ cfg.urls.privacy | relative_url }}">privacy notice</a>.
+    <a class="inline-link" href="{{ cfg.urls.service_terms | relative_url }}">Therapist Website Service Terms</a>,
+    the <a class="inline-link" href="{{ cfg.urls.cancellation | relative_url }}">cancellation and refund information</a>
+    and the <a class="inline-link" href="{{ cfg.urls.privacy | relative_url }}">privacy notice</a>.
   </p>
 
-  <a
-    class="button button-dark buy-action"
-    href="{{ link }}"
-    rel="nofollow noopener"
-    aria-describedby="buy-terms-{{ buy_id }}"
-    data-purchase-action
-  >Pay {{ price }} and begin my website</a>
+  <div class="buy__actions">
+    <a
+      class="btn buy-action"
+      href="{{ link }}"
+      rel="nofollow noopener"
+      aria-describedby="buy-terms-{{ buy_id }}"
+      data-purchase-action
+    >Pay {{ price }} and begin my website<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
 
-  <a class="button button-light buy-secondary" href="{{ cfg.urls.enquiry | relative_url }}">Ask a question first</a>
+    <a class="tlink buy-secondary" href="{{ cfg.urls.enquiry | relative_url }}">Ask a question first</a>
+  </div>
 
-  <p class="buy-small">This opens Stripe's secure payment page. Card details are entered on Stripe, never on this website.</p>
+  <p class="buy__terms">This opens Stripe's secure payment page. Card details are entered on Stripe, never on this website.</p>
   {%- else -%}
-  <p class="buy-terms buy-unavailable" id="buy-terms-{{ buy_id }}">
+  <p class="buy__terms buy-unavailable" id="buy-terms-{{ buy_id }}">
     <strong>Online purchasing is opening shortly.</strong>
-    The Choose Your Practice Website is available now by asking a question first: I
-    confirm the scope in writing and send you a payment link directly. The
-    <a href="{{ cfg.urls.service_terms | relative_url }}">Choose Your Practice Website Service Terms</a>,
-    <a href="{{ cfg.urls.cancellation | relative_url }}">cancellation and refund information</a>
-    and <a href="{{ cfg.urls.privacy | relative_url }}">privacy notice</a> apply either way.
+    The Therapist Website is available now by asking a question first: I confirm
+    the scope in writing and send you a payment link directly. The
+    <a class="inline-link" href="{{ cfg.urls.service_terms | relative_url }}">Therapist Website Service Terms</a>,
+    <a class="inline-link" href="{{ cfg.urls.cancellation | relative_url }}">cancellation and refund information</a>
+    and <a class="inline-link" href="{{ cfg.urls.privacy | relative_url }}">privacy notice</a> apply either way.
   </p>
 
-  <button
-    class="button button-dark buy-action is-unavailable"
-    type="button"
-    disabled
-    aria-describedby="buy-terms-{{ buy_id }}"
-    data-purchase-action-disabled
-  >Pay {{ price }} and begin my website — not open yet</button>
+  <div class="buy__actions">
+    <button
+      class="btn buy-action is-unavailable"
+      type="button"
+      disabled
+      aria-describedby="buy-terms-{{ buy_id }}"
+      data-purchase-action-disabled
+    >Pay {{ price }} and begin my website &mdash; not open yet</button>
 
-  <a class="button button-dark buy-secondary" href="{{ cfg.urls.enquiry | relative_url }}">Ask a question first</a>
+    <a class="btn btn--quiet buy-secondary" href="{{ cfg.urls.enquiry | relative_url }}">Ask a question first</a>
+  </div>
   {%- endif -%}
 </div>

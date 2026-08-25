@@ -1,90 +1,73 @@
+/* Build the single stylesheet.
+ *
+ * The site previously shipped thirteen PurgeCSS bundles cut from a 14,899-line
+ * source that had accumulated forty-three dated override passes. Purging was
+ * necessary because most of what a page downloaded was rules for other pages.
+ *
+ * assets/css/studio.css is written rather than accumulated: roughly 76 KB of
+ * source, ~13 KB over the wire, covering every route. One file is cached once
+ * and reused on every subsequent page, which is faster in practice than
+ * thirteen page-specific bundles that each miss the cache on first visit.
+ *
+ * So there is nothing to purge. This step minifies, and fails loudly if the
+ * self-hosted faces or the token block ever go missing.
+ */
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { PurgeCSS } from "purgecss";
 import { transform } from "lightningcss";
 
-const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const inputFiles = [
-  path.join(projectRoot, "assets/css/main.css"),
-  path.join(projectRoot, "assets/css/visual-system.css")
-];
-const combinedCss = (await Promise.all(
-  inputFiles.map(file => fs.readFile(file, "utf8"))
-)).join("\n");
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const source = path.join(root, "assets/css/studio.css");
+const output = path.join(root, "assets/css/studio.min.css");
 
-const sharedContent = [
-  path.join(projectRoot, "_includes/**/*.html"),
-  path.join(projectRoot, "_layouts/default.html"),
-  path.join(projectRoot, "assets/js/nav.js")
-];
-const allContent = [
-  path.join(projectRoot, "*.html"),
-  path.join(projectRoot, "services/**/*.html"),
-  path.join(projectRoot, "links/**/*.html"),
-  path.join(projectRoot, "_includes/**/*.html"),
-  path.join(projectRoot, "_layouts/**/*.html"),
-  path.join(projectRoot, "_pages/**/*.{html,md,markdown}"),
-  path.join(projectRoot, "_posts/**/*.{html,md,markdown}"),
-  path.join(projectRoot, "_guides/**/*.{html,md,markdown}"),
-  path.join(projectRoot, "assets/js/*.js")
-];
-const bundles = [
-  ["home", [path.join(projectRoot, "index.html")]],
-  ["service", [path.join(projectRoot, "service.html"), path.join(projectRoot, "assets/js/service-documents.js")]],
-  ["practice-clarity", [path.join(projectRoot, "practice-clarity.html")]],
-  ["work", [path.join(projectRoot, "work.html")]],
-  ["about", [path.join(projectRoot, "about.html")]],
-  ["blog", [path.join(projectRoot, "blog.html"), path.join(projectRoot, "_posts/**/*.{html,md,markdown}")]],
-  ["contact", [path.join(projectRoot, "contact.html"), path.join(projectRoot, "assets/js/contact-enquiry.js")]],
-  ["guide", [path.join(projectRoot, "_guides/**/*.{html,md,markdown}"), path.join(projectRoot, "_layouts/guide.html")]],
-  ["post", [path.join(projectRoot, "_posts/**/*.{html,md,markdown}"), path.join(projectRoot, "_layouts/post.html")]],
-  ["legal", [path.join(projectRoot, "_pages/**/*.{html,md,markdown}"), path.join(projectRoot, "_layouts/page.html")]],
-  ["404", [path.join(projectRoot, "404.html")]],
-  ["purchase", [
-    path.join(projectRoot, "services/**/*.html"),
-    path.join(projectRoot, "purchase-complete.html"),
-    path.join(projectRoot, "assets/js/practice-website-questionnaire.js")
-  ]],
-  ["site", allContent]
+const css = await fs.readFile(source, "utf8");
+
+const required = [
+  ['@font-face for Newsreader', /font-family:\s*"Newsreader"/],
+  ['@font-face for Inter', /font-family:\s*"Inter"/],
+  ['the token block', /--paper:\s*#f7f4ef/i],
+  ['the reduced-motion guard', /prefers-reduced-motion:\s*no-preference/]
 ];
 
-for (const [name, pageContent] of bundles) {
-  const [{ css: purgedCss }] = await new PurgeCSS().purge({
-    content: [...sharedContent, ...pageContent],
-    css: [{ raw: combinedCss, extension: "css" }],
-    safelist: {
-      /* Fenced code blocks are written as ``` in the guide and post markdown,
-         so the words "pre" and "code" never appear in the scanned source and
-         PurgeCSS removed every rule targeting them. They are elements the
-         renderer produces, not classes an author writes. */
-      standard: ["active", "is-active", "is-open", "menu-open", "open", "pre", "code", "kbd", "samp"],
-      greedy: [/^has-/, /^is-/, /^menu-/, /^nav__/]
-    },
-    /* PurgeCSS decides an @font-face is "unused" by looking for the family
-       name in a `font-family` declaration. Every family here is referenced
-       through a custom property (`--font-heading`, `--font-body`), which it
-       cannot follow, so `fontFace: true` silently stripped all three faces
-       from all thirteen bundles: the site preloaded Instrument Serif and then
-       rendered in Georgia. The faces are three declarations — keep them. */
-    fontFace: false,
-    keyframes: true,
-    variables: false
-  });
-
-  const { code } = transform({
-    code: Buffer.from(purgedCss),
-    filename: `${name}.css`,
-    minify: true,
-    sourceMap: false,
-    targets: {
-      chrome: 109 << 16,
-      firefox: 115 << 16,
-      safari: 16 << 16
-    }
-  });
-
-  const outputFile = path.join(projectRoot, `assets/css/${name}.min.css`);
-  await fs.writeFile(outputFile, code);
-  process.stdout.write(`Built ${path.relative(projectRoot, outputFile)} (${code.length} bytes)\n`);
+for (const [name, pattern] of required) {
+  if (!pattern.test(css)) {
+    console.error(`build-css: ${name} is missing from studio.css. Refusing to build.`);
+    process.exit(1);
+  }
 }
+
+/* No !important should ever re-enter this stylesheet. The old cascade needed
+   1,100 of them; this one needs none, and that is worth protecting. */
+const declarations = css.replace(/\/\*[\s\S]*?\*\//g, "");
+const important = (declarations.match(/!important/g) || []).length;
+if (important > 0) {
+  console.error(`build-css: found ${important} !important declarations in studio.css. Refusing to build.`);
+  process.exit(1);
+}
+
+const { code, warnings } = transform({
+  code: Buffer.from(css),
+  filename: "studio.css",
+  minify: true,
+  sourceMap: false,
+  targets: {
+    chrome: 111 << 16,
+    firefox: 121 << 16,
+    safari: (17 << 16) | (4 << 8)
+  },
+  /* Container queries, colour-mix, nesting-free syntax and scroll-driven
+     animations are all left as authored: lightningcss must not attempt to
+     lower animation-timeline, which has no polyfillable equivalent. */
+  drafts: { customMedia: false }
+});
+
+for (const warning of warnings) console.warn("build-css:", warning.message);
+
+await fs.writeFile(output, code);
+
+const before = Buffer.byteLength(css);
+const after = code.length;
+console.log(
+  `build-css: studio.css ${(before / 1024).toFixed(1)} KB -> studio.min.css ${(after / 1024).toFixed(1)} KB`
+);

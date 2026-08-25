@@ -1,28 +1,43 @@
-# Alexander Watson Studio
+# alexanderwatson.co.uk
 
 Jekyll 4.3 site, built and deployed by Netlify.
 
-```sh
-npm install
-npm run build     # purchasing config → CSS bundles → jekyll build
-npm test          # QA suite
+**The offer, as the site states it**
+
+| | |
+|---|---|
+| Therapist Website | **£995** — fixed, paid once, first twelve months of Website Care included |
+| Practice Clarity | **+£500** — an add-on, **£1,495** together. Not bought online. |
+| Website Care | Included for twelve months, then **£29** a month, no minimum term |
+| Custom project | Scoped and quoted individually |
+
+`_data/purchasing.yml` is the single source for those figures. `scripts/qa.mjs`
+fails the build if any other amount appears in published source, or if any
+retired offer name (`Choose Your Practice Website`, `Bespoke Website`,
+`Route one/two`, `Around £2,000`) comes back.
+
+**Layout of the repository**
+
+- `assets/css/studio.css` — the whole stylesheet. See `VISUAL-SYSTEM.md`.
+- `_data/collection.yml` — the eight design directions, drawn by `_includes/plate.html`.
+- `_includes/practice-website-buy.html` — the only file permitted to emit a checkout link.
+- `_pages/` — legal and statement pages. Draft until `_data/legal.yml` says otherwise.
+- `scripts/` — build, purchasing resolver, and four QA harnesses.
+
+**Commands**
+
+```
+npm run build      # purchasing config → css → jekyll build
+npm test           # scripts/qa.mjs — 64 checks, no dependencies
+npm run preview    # Node stand-in for the Jekyll build → _preview/
+npm run qa:browser # overflow, keyboard, landmarks, contrast, 200% zoom
+npm run qa:a11y    # axe-core, 31 routes × 4 viewports
+npm run qa:typography  # measure, rendered line length, target sizes
 ```
 
-- `IMPLEMENTATION.md` — how the site is put together: routes, the two design
-  systems, the purchasing configuration, and the things that will bite you.
-- `STRIPE_SETUP.md` — the manual Stripe Dashboard steps, in order, before online
-  purchasing can be switched on.
-- `LEGAL_REVIEW.md` — everything a UK commercial solicitor needs to look at
-  before the first online sale.
-- `OPEN_DECISIONS.md` — decisions deliberately left to Alexander, with what has
-  to change once each is made.
-- `VISUAL-SYSTEM.md` — page-level visual rules.
-- `INSTALLATION.md` — packaging and merge order for a source drop.
-
-Online purchasing is **off** by default and cannot be switched on from this
-repository alone. No Stripe key of any kind belongs in it.
-
----
+rubygems.org is unreachable from some build containers, which is why
+`scripts/preview/render.mjs` exists: it re-implements enough of Jekyll to
+render every route for the browser harnesses.
 
 ## Content consolidation
 

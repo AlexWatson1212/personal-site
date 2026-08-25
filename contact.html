@@ -1,32 +1,111 @@
 ---
 layout: default
-title: Start your website
-description: Tell Alexander Watson Studio which website design you like, what is ready and how much help you need.
+title: Start a website
+description: Tell me which design you like and what is already written. No brief needed, no call required, and a reply within two working days.
 permalink: /contact/
-page_css: /assets/css/catalogue-refresh.css
 page_js: /assets/js/contact-enquiry.js
 ---
 
-<div class="catalogue-refresh">
-  <section class="contact-page section-paper"><div class="shell contact-grid">
-    <div class="contact-copy"><p class="eyebrow">Begin</p><h1>Start with the website you like.</h1><p class="hero-lead">You do not need a polished brief. Tell me which design has caught your attention, what you already have and where you feel stuck. I will reply with the clearest suitable route.</p>
-      <div class="contact-facts"><article><span>01</span><h2>Written-first</h2><p>You can complete the whole first stage without a call. Clear questions and decisions stay in one place.</p></article><article><span>02</span><h2>No pressure</h2><p>An enquiry is a way to establish fit and scope. It does not commit you to a project. If you already know the £995 Choose Your Practice Website is right, you can <a href="{{ '/services/practice-website/' | relative_url }}">buy it directly</a>.</p></article><article><span>03</span><h2>An honest recommendation</h2><p>If the £995 route is enough, I will say so rather than sell you the larger one. If I am not the right person at all, I will say that too.</p></article></div>
-      <div class="direct-email"><p class="eyebrow">Prefer a normal email?</p><a href="mailto:hello@alexanderwatson.co.uk">hello@alexanderwatson.co.uk</a><span>I usually reply within two working days.</span></div>
+<section class="band band--sm on-paper">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="stack stack--loose">
+        <p class="label">Start here</p>
+        <h1 class="measure-3xs">Tell me which design you like.</h1>
+        <p class="lead">
+          That is genuinely the whole brief. Name the direction you keep returning
+          to, say what is already written, and I will reply with the clearest
+          suitable route &mdash; including if that is the smaller one.
+        </p>
+
+        <div class="divider-top">
+          <p class="label">Prefer an ordinary email?</p>
+          <a class="contact-email" href="mailto:hello@alexanderwatson.co.uk">hello@alexanderwatson.co.uk</a>
+          <p class="small quiet mt-3">A reply within two working days. Enquiry details are used to answer you and nothing else &mdash; no list, no follow-up sequence.</p>
+        </div>
+
+        <div class="divider-top">
+          <p class="small quiet">
+            Already certain the £995 website is right?
+            <a class="inline-link" href="{{ '/services/practice-website/' | relative_url }}">Read the full scope and buy it directly</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="form-panel">
+        <form class="form" data-studio-enquiry>
+          <div>
+            <p class="label" style="margin-block-end:var(--s-2)">A useful first message</p>
+            <h2 class="measure-md" style="font-size:var(--t-h3)">What you like, and what is already ready.</h2>
+            <p class="small quiet mt-3">This opens an email in your own email app. Nothing typed here is stored by the website.</p>
+          </div>
+
+          <div class="field-row">
+            <p class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></p>
+            <p class="field"><label for="f-email">Email address</label><input id="f-email" name="email" type="email" autocomplete="email" required></p>
+          </div>
+
+          <p class="field">
+            <label for="f-design">Which direction are you drawn to?</label>
+            <select id="f-design" name="design">
+              <option value="">I am not sure yet</option>
+              {% for d in site.data.collection %}{% unless d.available == false %}<option>{{ d.name | strip_html }}</option>{% endunless %}{% endfor %}
+            </select>
+          </p>
+
+          <p class="field">
+            <label for="f-service">Which are you thinking about?</label>
+            <select id="f-service" name="service">
+              <option value="">Please help me choose</option>
+              <option value="practice-website">Therapist Website — £995</option>
+              <option value="practice-clarity">Practice Clarity + Website — £1,495</option>
+              <option value="custom">Something outside the normal scope</option>
+              <option value="not-sure">I am not sure which fits</option>
+            </select>
+          </p>
+
+          <p class="field">
+            <label for="f-readiness">What is already ready?</label>
+            <select id="f-readiness" name="readiness" required>
+              <option value="" disabled selected>Select the closest answer</option>
+              <option>My words, images and direction are ready</option>
+              <option>I have rough words and a clear idea of my practice</option>
+              <option>I know my practice but need help expressing it</option>
+              <option>I am still working out the practice itself</option>
+            </select>
+          </p>
+
+          <p class="field">
+            <label for="f-site">Current website, if you have one</label>
+            <input id="f-site" name="currentWebsite" type="url" inputmode="url" placeholder="https://">
+          </p>
+
+          <p class="field">
+            <label for="f-message">What would you like me to know?</label>
+            <textarea id="f-message" name="message" rows="6" required></textarea>
+            <span class="field__hint">For example: what you like about the direction, who you work with, what you would want changed, and any timing you have in mind.</span>
+          </p>
+
+          <button type="submit" class="btn">Prepare my enquiry email<span class="btn__arrow" aria-hidden="true">&rarr;</span></button>
+          <p class="small quiet" data-form-status role="status" hidden>Your email app should open now. If it does not, email hello@alexanderwatson.co.uk directly.</p>
+        </form>
+      </div>
     </div>
+  </div>
+</section>
 
-    <form class="contact-form" data-studio-enquiry>
-      <div class="form-heading"><p class="eyebrow">A useful first message</p><h2>Tell me what you like and what is already ready.</h2><p>This prepares an email in your own email app. Nothing entered here is stored by the website.</p></div>
-      <div class="field-row"><label><span>Your name</span><input name="name" autocomplete="name" required></label><label><span>Email address</span><input name="email" type="email" autocomplete="email" required></label></div>
-      <label><span>Which website design are you drawn to?</span><select name="design"><option value="">I am not sure yet</option><option>Rowan Hill Therapy</option><option>Stillpoint</option><option>Harbour</option><option>Common Ground</option><option>Different Minds</option><option>North and Vale</option><option>Face to Face</option></select></label>
-      <label><span>Which route are you thinking about?</span><select name="service"><option value="">Please help me choose</option><option value="practice-website">Choose Your Practice Website — £995</option><option value="practice-clarity">Practice Clarity + Bespoke Website — around £2,000</option><option value="not-sure">I am not sure which fits</option></select></label>
-      <label><span>What is already ready?</span><select name="readiness" required><option value="" disabled selected>Select the closest answer</option><option>My words, images and direction are ready</option><option>I have rough words and a clear idea of my practice</option><option>I know my practice but need help expressing it</option><option>I am still working out the practice itself</option></select></label>
-      <label><span>Current website, if you have one</span><input name="currentWebsite" type="url" inputmode="url" placeholder="https://"></label>
-      <label><span>What would you like me to know?</span><textarea name="message" rows="7" placeholder="For example: what you like about the design, who you work with, what you want to change, and any timing you have in mind." required></textarea></label>
-      <button type="submit" class="button button-dark">Prepare my enquiry email</button>
-      <p class="form-status" data-form-status role="status" hidden>Your email app should open now. If it does not, email hello@alexanderwatson.co.uk directly.</p>
-    </form>
-  </div></section>
-
-  <section class="before-contact section-mist"><div class="shell"><div><p class="eyebrow">Before you enquire</p><h2>The most useful things to know.</h2></div><div class="before-grid"><article><h3>Projects are contained</h3><p>The agreed pages, responsibilities, approval points, timing and payment schedule are confirmed in writing before work begins.</p></article><article><h3>Revisions are consolidated</h3><p>Each of the two rounds is one complete list of feedback, not an ongoing stream of separate messages.</p></article><article><h3>How payment works</h3><p>The £995 Choose Your Practice Website is paid in full online, before the intake. Practice Clarity follows an accepted written proposal, booked with a 50% deposit and the balance before launch.</p></article><article><h3>Your information stays yours</h3><p>Enquiry details are used only to reply and assess fit. They are not added to a marketing list.</p></article></div><a href="{{ '/service/' | relative_url }}" class="text-link">Read the full service boundaries <span aria-hidden="true">→</span></a></div></section>
-</div>
-
+<section class="band band--sm on-sage">
+  <div class="wrap">
+    <div class="split split--wide-left">
+      <div>
+        <p class="label">Before you write</p>
+        <h2 class="measure-2xs">Three things worth knowing.</h2>
+      </div>
+      <dl class="facts">
+        <div><dt>An enquiry commits you to nothing</dt><dd>It establishes fit and scope. If I am not the right person, I will say so.</dd></div>
+        <div><dt>Everything is written first</dt><dd>The whole first stage can happen without a call. Decisions stay in one place, in writing.</dd></div>
+        <div><dt>The scope is agreed before work begins</dt><dd>Pages, responsibilities, approval points, timing and payment, confirmed in writing. <a class="inline-link" href="{{ '/services/practice-website/' | relative_url }}">Read it in full</a>.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>

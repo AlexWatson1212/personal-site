@@ -58,7 +58,7 @@
     Cache-Control = "no-store"
 
 [[headers]]
-  for = "/services/straightforward-website/questionnaire/*"
+  for = "/services/practice-website/questionnaire/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
     Cache-Control = "no-store"
