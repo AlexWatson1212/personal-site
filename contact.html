@@ -14,8 +14,9 @@ page_js: /assets/js/contact-enquiry.js
         <h1 class="measure-3xs">Tell me which design you like.</h1>
         <p class="lead">
           That is genuinely the whole brief. Name the one you keep returning to,
-          say roughly where you are up to, and I will write back with what I would
-          suggest &mdash; including if that is the cheaper option, or somebody else.
+          tell me roughly where your practice is up to, and I will write back with
+          what I would suggest. You do not need to know what pages, features or
+          technical setup you need &mdash; and if I am not the right person, I will say so.
         </p>
 
         <div class="divider-top">
@@ -23,71 +24,70 @@ page_js: /assets/js/contact-enquiry.js
           <a class="contact-email" href="mailto:hello@alexanderwatson.co.uk">hello@alexanderwatson.co.uk</a>
           <p class="small quiet mt-3">A reply within two working days. Enquiry details are used to answer you and nothing else &mdash; no list, no follow-up sequence.</p>
         </div>
-
       </div>
 
       <div class="contact-col">
-      <div class="form-panel">
-        <form class="form" data-studio-enquiry>
-          <div>
-            <p class="label" style="margin-block-end:var(--s-2)">A useful first message</p>
-            <h2 class="measure-md" style="font-size:var(--t-h3)">What you like, and what is already ready.</h2>
-            <p class="small quiet mt-3">This opens an email in your own email app. Nothing typed here is stored by the website.</p>
+        <div class="form-panel">
+          <form class="form" data-studio-enquiry>
+            <div>
+              <p class="label" style="margin-block-end:var(--s-2)">A useful first message</p>
+              <h2 class="measure-md" style="font-size:var(--t-h3)">What you like, and where you are up to.</h2>
+              <p class="small quiet mt-3">This opens an email in your own email app. Nothing typed here is stored by the website.</p>
+            </div>
+
+            <div class="field-row">
+              <p class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></p>
+              <p class="field"><label for="f-email">Email address</label><input id="f-email" name="email" type="email" autocomplete="email" required></p>
+            </div>
+
+            <p class="field">
+              <label for="f-design">Which direction are you drawn to?</label>
+              <select id="f-design" name="design">
+                <option value="">I am not sure yet</option>
+                {% for d in site.data.collection %}{% unless d.available == false %}<option>{{ d.name | strip_html }}</option>{% endunless %}{% endfor %}
+              </select>
+            </p>
+
+            <input type="hidden" name="service" value="">
+
+            <p class="field">
+              <label for="f-site">Current website, if you have one</label>
+              <input id="f-site" name="currentWebsite" type="url" inputmode="url" placeholder="https://">
+            </p>
+
+            <p class="field">
+              <label for="f-message">Your practice, and where you are up to</label>
+              <textarea id="f-message" name="message" rows="6" required></textarea>
+              <span class="field__hint">A couple of lines is plenty. Who you work with, what you like about the direction, and whether your words are mostly ready, rough notes, or somewhere in between.</span>
+            </p>
+
+            <button type="submit" class="btn">Prepare my enquiry email<span class="btn__arrow" aria-hidden="true">&rarr;</span></button>
+          </form>
+
+          {%- comment -%}
+            The fallback. Opening a mail app is the browser's decision, not ours,
+            and for somebody using webmail with no handler registered it can do
+            nothing at all — silently, so neither party ever finds out. The
+            prepared message is therefore also written here, on the page, where it
+            can be copied and pasted into whatever they actually use.
+
+            It is built in the browser from what is already on screen and is never
+            sent anywhere. Nothing typed here is stored by the website remains true.
+          {%- endcomment -%}
+          <div class="fallback" data-form-fallback hidden>
+            <p class="small quiet" data-form-status role="status">
+              Your email app should have opened. If it did not &mdash; and with
+              webmail it often does not &mdash; here is the same message to copy.
+            </p>
+            <label class="sr-only" for="f-prepared">Your prepared enquiry</label>
+            <textarea id="f-prepared" class="fallback__text" data-form-prepared rows="9" readonly></textarea>
+            <div class="fallback__actions">
+              <button type="button" class="btn btn--quiet" data-form-copy>Copy the message</button>
+              <a class="tlink" href="mailto:hello@alexanderwatson.co.uk">hello@alexanderwatson.co.uk <span aria-hidden="true">&rarr;</span></a>
+            </div>
+            <p class="tiny quiet" data-form-copied role="status" hidden>Copied. Paste it into a new email to hello@alexanderwatson.co.uk.</p>
           </div>
-
-          <div class="field-row">
-            <p class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></p>
-            <p class="field"><label for="f-email">Email address</label><input id="f-email" name="email" type="email" autocomplete="email" required></p>
-          </div>
-
-          <p class="field">
-            <label for="f-design">Which direction are you drawn to?</label>
-            <select id="f-design" name="design">
-              <option value="">I am not sure yet</option>
-              {% for d in site.data.collection %}{% unless d.available == false %}<option>{{ d.name | strip_html }}</option>{% endunless %}{% endfor %}
-            </select>
-          </p>
-
-          <input type="hidden" name="service" value="">
-
-          <p class="field">
-            <label for="f-site">Current website, if you have one</label>
-            <input id="f-site" name="currentWebsite" type="url" inputmode="url" placeholder="https://">
-          </p>
-
-          <p class="field">
-            <label for="f-message">Your practice, and where you are up to</label>
-            <textarea id="f-message" name="message" rows="6" required></textarea>
-            <span class="field__hint">A couple of lines is plenty. Who you work with, what you like about the direction, and whether your words are more or less ready or still to be worked out.</span>
-          </p>
-
-          <button type="submit" class="btn">Prepare my enquiry email<span class="btn__arrow" aria-hidden="true">&rarr;</span></button>
-        </form>
-
-        {%- comment -%}
-          The fallback. Opening a mail app is the browser's decision, not ours,
-          and for somebody using webmail with no handler registered it can do
-          nothing at all — silently, so neither party ever finds out. The
-          prepared message is therefore also written here, on the page, where it
-          can be copied and pasted into whatever they actually use.
-
-          It is built in the browser from what is already on screen and is never
-          sent anywhere. Nothing typed here is stored by the website remains true.
-        {%- endcomment -%}
-        <div class="fallback" data-form-fallback hidden>
-          <p class="small quiet" data-form-status role="status">
-            Your email app should have opened. If it did not &mdash; and with
-            webmail it often does not &mdash; here is the same message to copy.
-          </p>
-          <label class="sr-only" for="f-prepared">Your prepared enquiry</label>
-          <textarea id="f-prepared" class="fallback__text" data-form-prepared rows="9" readonly></textarea>
-          <div class="fallback__actions">
-            <button type="button" class="btn btn--quiet" data-form-copy>Copy the message</button>
-            <a class="tlink" href="mailto:hello@alexanderwatson.co.uk">hello@alexanderwatson.co.uk <span aria-hidden="true">&rarr;</span></a>
-          </div>
-          <p class="tiny quiet" data-form-copied role="status" hidden>Copied. Paste it into a new email to hello@alexanderwatson.co.uk.</p>
         </div>
-      </div>
 
         <p class="small quiet form-panel__after">
           Already certain the £995 website is right?

@@ -18,8 +18,8 @@ page_js: /assets/js/website-library.js
       <div class="stack stack--loose" style="align-self:end">
         <p class="lead measure-xl">
           Eight complete, original directions. Seven are available to choose from;
-          the eighth is my own practice, shown so the standard can be judged on a
-          live website rather than a demonstration.
+          the eighth is my own practice, included so you can see the same design
+          standard working as a real website.
         </p>
         <p class="small quiet measure-2xl">
           You choose the closest starting point. I make the detailed design
@@ -69,7 +69,7 @@ page_js: /assets/js/website-library.js
             <a class="direction__link"
                href="{% if d.href %}{{ d.href }}{% else %}{{ target | relative_url }}{% endif %}"
                {% if d.href %}target="_blank" rel="noopener noreferrer"{% endif %}
-               aria-label="{% if d.href %}Visit {{ d.name | strip_html }}{% else %}Ask about the {{ d.name | strip_html }} direction{% endif %}">
+               aria-label="{% if d.href %}Visit {{ d.name | strip_html }}{% else %}Start with the {{ d.name | strip_html }} direction{% endif %}">
               <div class="plate-frame">{% include plate.html d=d %}</div>
             </a>
 
@@ -88,7 +88,7 @@ page_js: /assets/js/website-library.js
                 {% if d.available == false %}
                   <a class="direction__go" href="{{ d.href }}" target="_blank" rel="noopener noreferrer">Visit the live site <span aria-hidden="true">&#8599;</span></a>
                 {% else %}
-                  <a class="direction__go" href="{{ target | relative_url }}">Ask about this direction <span aria-hidden="true">&#8599;</span></a>
+                  <a class="direction__go" href="{{ target | relative_url }}">Start with this direction <span aria-hidden="true">&#8599;</span></a>
                 {% endif %}
               </div>
             </div>
