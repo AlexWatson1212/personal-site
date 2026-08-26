@@ -23,7 +23,7 @@ hero_image: /assets/images/brand/practice-clarity-workspace.webp
 hero_alt: "Written observations and positioning notes used to find recognisable language for a therapy practice."
 image: /assets/images/brand/practice-clarity-workspace.webp
 
-read_time: 22 min read
+read_time: 11 min read
 updated: 2026-07-08
 
 canonical_url: https://alexanderwatson.co.uk/practice-clarity/recognition-principle/

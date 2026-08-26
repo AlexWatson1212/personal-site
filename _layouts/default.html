@@ -19,5 +19,6 @@
   {% if page.page_js %}
     <script src="{{ page.page_js | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
   {% endif %}
+  {% include analytics.html %}
 </body>
 </html>

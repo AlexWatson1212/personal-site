@@ -1,0 +1,83 @@
+{%- comment -%}
+  Structured data.
+
+  Three types, each describing something that actually exists on the page. No
+  rating, review, award, credential, address or telephone number appears here,
+  because none of those facts is available and inventing one would be worse than
+  omitting it.
+
+  Deliberately absent: FAQPage. The cost page does carry a real FAQ, but the
+  rich result it once produced is now restricted to government and health
+  sites, so the markup would buy nothing while duplicating hand-written copy in
+  a second place that could silently drift out of step with the first.
+{%- endcomment -%}
+
+{%- if page.url == '/' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": {{ site.brand | jsonify }},
+  "description": {{ site.description | jsonify }},
+  "url": {{ '/' | absolute_url | jsonify }},
+  "email": "hello@alexanderwatson.co.uk",
+  "logo": {{ '/assets/images/brand/alexander-watson-primary-logo.svg' | absolute_url | jsonify }},
+  "image": {{ '/assets/images/service/alexander-watson-counselling-case-study.webp' | absolute_url | jsonify }},
+  "areaServed": { "@type": "Country", "name": "United Kingdom" },
+  "serviceType": "Website design for therapists and counsellors",
+  "founder": { "@type": "Person", "name": "Alexander Watson" },
+  "sameAs": [
+    "https://instagram.com/instawats",
+    "https://www.linkedin.com/in/alexander-watson-60892b75/",
+    "https://www.youtube.com/@AlexanderWatsonofficial"
+  ],
+  "makesOffer": {
+    "@type": "Offer",
+    "name": "Therapist Website",
+    "price": {{ site.data.purchasing.price_numeric | default: "995.00" | jsonify }},
+    "priceCurrency": "GBP",
+    "url": {{ '/service/' | absolute_url | jsonify }}
+  }
+}
+</script>
+{%- endif -%}
+
+{%- if page.url == '/about/' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Alexander Watson",
+  "jobTitle": "Website designer",
+  "url": {{ '/about/' | absolute_url | jsonify }},
+  "image": {{ '/assets/images/brand/about-hero-portrait.webp' | absolute_url | jsonify }},
+  "email": "hello@alexanderwatson.co.uk",
+  "worksFor": { "@type": "Organization", "name": {{ site.brand | jsonify }}, "url": {{ '/' | absolute_url | jsonify }} },
+  "sameAs": [
+    "https://instagram.com/instawats",
+    "https://www.linkedin.com/in/alexander-watson-60892b75/",
+    "https://www.youtube.com/@AlexanderWatsonofficial"
+  ]
+}
+</script>
+{%- endif -%}
+
+{%- if page.layout == 'guide' or page.layout == 'post' -%}
+{%- assign article_date = page.updated | default: page.date -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ page.title | strip_html | jsonify }},
+  {% if page.description %}"description": {{ page.description | strip_html | strip_newlines | jsonify }},{% endif %}
+  "url": {{ page.url | absolute_url | jsonify }},
+  "mainEntityOfPage": {{ page.url | absolute_url | jsonify }},
+  {% if article_date %}"datePublished": {{ article_date | date: "%Y-%m-%d" | jsonify }},
+  "dateModified": {{ article_date | date: "%Y-%m-%d" | jsonify }},{% endif %}
+  {% if page.hero_image %}"image": {{ page.hero_image | absolute_url | jsonify }},{% endif %}
+  "isAccessibleForFree": true,
+  "author": { "@type": "Person", "name": "Alexander Watson", "url": {{ '/about/' | absolute_url | jsonify }} },
+  "publisher": { "@type": "Organization", "name": {{ site.brand | jsonify }}, "url": {{ '/' | absolute_url | jsonify }} }
+}
+</script>
+{%- endif -%}

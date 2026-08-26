@@ -1,0 +1,18 @@
+{%- comment -%}
+  Renders a legal fact from _data/legal.yml, or the original bracketed
+  placeholder while that fact is still empty.
+
+  The placeholder is not decoration: it is the signal that the page is not
+  finished, and it must survive until the fact exists. Nothing here supplies a
+  default value, because a default would be an invented legal fact.
+
+  Usage:
+    {% include legal-fact.html value=site.data.legal.identity.legal_name
+                               todo="registered trading name and legal status" %}
+{%- endcomment -%}
+{%- assign fact = include.value | strip -%}
+{%- if fact != "" -%}
+{{ fact }}
+{%- else -%}
+<span class="legal-todo">[{{ include.todo }}]</span>
+{%- endif -%}

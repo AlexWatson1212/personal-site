@@ -2484,6 +2484,51 @@ legend {
   .contact-grid { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
 }
 
+/* The enquiry fallback. Revealed after submit, because a browser never reports
+   whether it managed to open a mail app. */
+/* A class-level `display` beats the user-agent's `[hidden] { display: none }`,
+   so the attribute has to be restated at the same specificity or the block is
+   visible before it has anything to show. */
+.fallback[hidden] { display: none; }
+
+.fallback {
+  display: grid;
+  gap: var(--s-4);
+  min-width: 0;
+  margin-block-start: var(--s-5);
+  padding-block-start: var(--s-5);
+  border-block-start: var(--hairline) solid var(--line);
+}
+
+/* A grid child's floor is min-content, which a textarea and a button row both
+   exceed at 200% zoom on a phone. Without this the block pushes out of the
+   panel instead of wrapping inside it. */
+.fallback > * { min-width: 0; }
+
+.fallback__text {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  font-family: var(--sans);
+  font-size: var(--t-small);
+  line-height: 1.55;
+  resize: vertical;
+}
+
+.fallback__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-4);
+  min-width: 0;
+}
+
+.fallback__actions > * { min-width: 0; max-width: 100%; }
+
+/* The studio address is one unbreakable token and the row is 195px wide at
+   200% zoom on a phone. Same treatment as .contact-email. */
+.fallback__actions .tlink { overflow-wrap: anywhere; }
+
 /* The buy-directly note used to sit at the foot of the left column, which left
    the two columns ending about 180px apart. It now sits under the form, outside
    the panel, so both columns finish together. */

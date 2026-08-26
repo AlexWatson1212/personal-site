@@ -27,7 +27,43 @@
       data.get("message") || ""
     ].filter(function (line, i) { return line !== "" || i > 4; }).join("\n");
     const subject = "Studio enquiry — " + (data.get("name") || "new website");
-    form.querySelector("[data-form-status]").hidden = false;
-    window.location.href = "mailto:hello@alexanderwatson.co.uk?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+
+    /* The fallback is revealed on every submit, not only on failure: a browser
+       does not tell us whether the mail app opened, so the honest thing is to
+       put the message where it can be reached either way. It stays in the page
+       and is never transmitted. */
+    const fallback = document.querySelector("[data-form-fallback]");
+    const prepared = document.querySelector("[data-form-prepared]");
+    if (prepared) prepared.value = "To: hello@alexanderwatson.co.uk\nSubject: " + subject + "\n\n" + body;
+    if (fallback) fallback.hidden = false;
+
+    window.location.href =
+      "mailto:hello@alexanderwatson.co.uk?subject=" +
+      encodeURIComponent(subject) +
+      "&body=" +
+      encodeURIComponent(body);
   });
+
+  /* Copy to clipboard, with the selection fallback for browsers that refuse
+     the async API outside a secure context. */
+  const copyButton = document.querySelector("[data-form-copy]");
+  const copied = document.querySelector("[data-form-copied]");
+  if (copyButton) {
+    copyButton.addEventListener("click", function () {
+      const prepared = document.querySelector("[data-form-prepared]");
+      if (!prepared) return;
+      const done = function () {
+        if (copied) copied.hidden = false;
+        copyButton.textContent = "Copied";
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(prepared.value).then(done, function () {
+          prepared.select();
+        });
+      } else {
+        prepared.select();
+        done();
+      }
+    });
+  }
 })();

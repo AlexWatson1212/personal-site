@@ -23,7 +23,7 @@ hero_image: /assets/images/brand/about-communication-and-care.webp
 hero_alt: "Alexander reviewing written material about communication, care and professional identity."
 image: /assets/images/brand/about-communication-and-care.webp
 
-read_time: 20 min read
+read_time: 12 min read
 updated: 2026-08-05
 
 canonical_url: https://alexanderwatson.co.uk/practice-clarity/about-principle/

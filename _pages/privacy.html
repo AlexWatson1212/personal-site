@@ -26,13 +26,11 @@ permalink: /privacy/
     <h2>Who is responsible for your information</h2>
     <p>
       The data controller is
-      <span class="legal-todo">[registered trading name and legal status — sole
-      trader or limited company, with company number if applicable]</span>,
+      {% include legal-fact.html value=site.data.legal.identity.legal_name todo="registered trading name and legal status — sole trader or limited company, with company number if applicable" %},
       trading as Alexander Watson Studio, of
-      <span class="legal-todo">[business address]</span>.
+      {% include legal-fact.html value=site.data.legal.identity.address todo="business address" %}.
       Contact: <strong>{{ cfg.support_email }}</strong>.
-      <span class="legal-todo">[Confirm whether ICO registration is required and,
-      if so, add the registration number.]</span>
+      {% include legal-fact.html value=site.data.legal.data_protection.ico_registration todo="Confirm whether ICO registration is required and, if so, add the registration number." %}
       <span class="legal-flag">⚖</span>
     </p>
     <p>
@@ -144,14 +142,11 @@ permalink: /privacy/
       <li><strong>Stripe</strong> — payment processing (independent controller for payment data).</li>
       <li><strong>Netlify</strong> — hosting of this website. Its servers produce ordinary technical logs, including IP addresses, for security and reliability.</li>
       <li><strong>Email and file storage</strong> —
-        <span class="legal-todo">[name the email provider and any file-sharing or
-        cloud storage service actually used, e.g. Google Workspace, Microsoft 365,
-        Dropbox]</span>.
+        {% include legal-fact.html value=site.data.legal.data_protection.email_provider todo="name the email provider and any file-sharing or cloud storage service actually used, e.g. Google Workspace, Microsoft 365, Dropbox" %}.
         <span class="legal-flag">⚖</span>
       </li>
       <li><strong>Accounting</strong> —
-        <span class="legal-todo">[name the bookkeeping or accounting software or
-        accountant, if any]</span>.
+        {% include legal-fact.html value=site.data.legal.data_protection.accounting_provider todo="name the bookkeeping or accounting software or accountant, if any" %}.
       </li>
     </ul>
     <p>
@@ -167,19 +162,18 @@ permalink: /privacy/
       relies on the safeguards those suppliers put in place, such as UK
       International Data Transfer Agreements or the UK extension to the
       EU–US Data Privacy Framework.
-      <span class="legal-todo">[Confirm the actual transfer mechanism for each
-      supplier named above.]</span>
+      {% include legal-fact.html value=site.data.legal.data_protection.transfer_mechanism todo="Confirm the actual transfer mechanism for each supplier named above." %}
       <span class="legal-flag">⚖</span>
     </p>
 
     <h2>How long information is kept</h2>
     <ul>
       <li><strong>Enquiries that do not become projects</strong> — kept while a reply is useful, then deleted.
-        <span class="legal-todo">[Confirm the period actually operated, e.g. 12 months.]</span></li>
+        {% include legal-fact.html value=site.data.legal.data_protection.enquiry_retention todo="Confirm the period actually operated, e.g. 12 months." %}</li>
       <li><strong>Project files and correspondence</strong> — kept for the life of the project and for a reasonable period afterwards so the website can be supported.
-        <span class="legal-todo">[Confirm the period, e.g. 6 years from the end of the project, to match the limitation period.]</span></li>
+        {% include legal-fact.html value=site.data.legal.data_protection.project_retention todo="Confirm the period, e.g. 6 years from the end of the project, to match the limitation period." %}</li>
       <li><strong>Payment and accounting records</strong> — kept for as long as tax law requires.
-        <span class="legal-todo">[Confirm the statutory record-keeping period that applies to the business's legal form.]</span></li>
+        {% include legal-fact.html value=site.data.legal.data_protection.statutory_retention todo="Confirm the statutory record-keeping period that applies to the business's legal form." %}</li>
     </ul>
     <p><span class="legal-flag">⚖</span></p>
 
@@ -190,8 +184,7 @@ permalink: /privacy/
       up to date. Access to project files is limited to me and to any specialist
       brought in for a specific piece of work, who is told what they may and may
       not see.
-      <span class="legal-todo">[Confirm the security measures actually in place
-      before publication; do not describe controls that are not operated.]</span>
+      {% include legal-fact.html value=site.data.legal.data_protection.security_measures todo="Confirm the security measures actually in place before publication; do not describe controls that are not operated." %}
       <span class="legal-flag">⚖</span>
     </p>
 

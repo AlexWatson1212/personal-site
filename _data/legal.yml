@@ -12,3 +12,43 @@ approved: false
 version: "0.1"
 effective_date: ""
 reviewer: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Business identity and data-protection facts.
+#
+# NOTHING HERE IS INVENTED. Every value is empty until Alexander supplies it.
+# While a value is empty the page renders the original bracketed placeholder in
+# its place, so an unfilled fact stays visibly unfilled — the pages never
+# silently look complete. Filling a value here updates every page that uses it
+# at once, which is why these were moved out of the page bodies: the identity
+# facts appeared three or four times each and could drift apart.
+#
+# See LEGAL-INFORMATION-REQUIRED.md for what each one means and where it shows.
+# ─────────────────────────────────────────────────────────────────────────────
+identity:
+  # e.g. "Alexander Watson, a sole trader" or "Watson Studio Ltd (company no. 12345678)"
+  legal_name: ""
+  # Address for service of notices. Required on a UK commercial website.
+  address: ""
+
+data_protection:
+  # ICO registration number, or the single word "none" if registration is not
+  # required. Leave empty until confirmed either way.
+  ico_registration: ""
+  # Email and file-storage provider actually used, e.g. "Google Workspace"
+  email_provider: ""
+  # Bookkeeping software or accountant actually used, if any
+  accounting_provider: ""
+  # How personal data reaches each processor above, once they are named
+  transfer_mechanism: ""
+  # Retention periods, as actually operated
+  enquiry_retention: ""
+  project_retention: ""
+  statutory_retention: ""
+  # Security measures actually in place. Do not describe controls not operated.
+  security_measures: ""
+
+tax:
+  # "not registered", or "registered — prices shown include VAT", or
+  # "registered — prices shown exclude VAT"
+  vat_position: ""

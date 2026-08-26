@@ -10,7 +10,7 @@ category: Guidance
 guidance_order: 5
 slug: before-you-redesign
 permalink: /guidance/before-you-redesign/
-read_time: 6 min read
+read_time: 4 min read
 updated: 2026-08-25
 ---
 

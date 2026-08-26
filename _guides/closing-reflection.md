@@ -19,7 +19,7 @@ hero_image: /assets/images/brand/brand-blueprint-desk.webp
 hero_alt: "The completed Practice Clarity blueprint resting beside the working notes behind it."
 image: /assets/images/brand/brand-blueprint-desk.webp
 
-read_time: 10 min read
+read_time: 6 min read
 updated: 2026-07-08
 
 canonical_url: https://alexanderwatson.co.uk/practice-clarity/closing-reflection/

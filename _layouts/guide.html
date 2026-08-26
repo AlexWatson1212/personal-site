@@ -53,10 +53,21 @@ layout: default
   </div>
 </section>
 
+{%- comment -%}
+  The closing plate depends on what was just read.
+
+  The nine principles are the framework Practice Clarity applies, so naming it
+  there is the honest next step. The short notes and the practical guides are
+  not: they are free, practical writing, and closing them with a £500 offer
+  would be selling the thing the rest of the site is careful to diagnose rather
+  than sell. Those pages close on the work and the price instead — which is also
+  the only commercial link most of this section has.
+{%- endcomment -%}
 <section class="band closing on-paper">
   <div class="wrap">
     <div class="closing__plate on-ink">
       <div class="split split--wide-left">
+        {%- if page.category == 'Practice Clarity' -%}
         <div>
           <p class="label">From principle to practice</p>
           <h2 class="measure-sm">This thinking, applied to your own practice.</h2>
@@ -68,6 +79,19 @@ layout: default
             <a class="tlink" href="{{ '/work/' | relative_url }}">See the collection <span aria-hidden="true">&rarr;</span></a>
           </div>
         </div>
+        {%- else -%}
+        <div>
+          <p class="label">If you would rather not do it yourself</p>
+          <h2 class="measure-sm">Eight directions, and a price you can read.</h2>
+        </div>
+        <div class="stack stack--loose">
+          <p>Choose the one that already looks like your practice and I tailor it around you. £995, including the first year of care.</p>
+          <div class="actions">
+            <a class="btn" href="{{ '/work/' | relative_url }}">See the collection<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="tlink" href="{{ '/service/' | relative_url }}">What it costs <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        {%- endif -%}
       </div>
     </div>
   </div>

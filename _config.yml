@@ -63,6 +63,16 @@ defaults:
       category: "Practice Clarity"
       image: "/assets/images/service/alexander-watson-counselling-case-study.webp"
 
+# ─────────────────────────────────────────────────────────────────────────────
+# Analytics. OFF until both provider and domain are set — see
+# _includes/analytics.html and IMPLEMENTATION.md. While these are empty the site
+# loads no third-party script and makes no external request of any kind.
+# ─────────────────────────────────────────────────────────────────────────────
+analytics:
+  provider: ""   # "plausible" is the only implemented provider
+  domain: ""     # the site domain as registered with the provider
+  host: ""       # the provider's script host, e.g. plausible.io
+
 exclude:
   - README.md
   - VISUAL-SYSTEM.md
@@ -74,6 +84,8 @@ exclude:
   - REDESIGN-REPORT.md
   - REFINEMENT-CHANGELOG.md
   - OFFER-RESOLUTION-CHANGELOG.md
+  - LEGAL-INFORMATION-REQUIRED.md
+  - PRE-LAUNCH-CHANGELOG.md
   - scripts
   - PHOTOGRAPHY-SHOT-LIST.md
   - INSTALLATION.md

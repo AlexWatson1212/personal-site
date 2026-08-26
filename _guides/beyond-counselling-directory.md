@@ -18,6 +18,7 @@ hero_image_alt: "An independent therapist website and its supporting strategy be
 reading_time: "8 minute read"
 updated: 2026-07-03
 canonical_url: https://alexanderwatson.co.uk/practice-clarity/beyond-counselling-directory/
+read_time: 2 min read
 ---
 
 For many therapists, Counselling Directory is where private practice begins.

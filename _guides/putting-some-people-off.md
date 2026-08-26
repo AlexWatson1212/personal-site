@@ -10,7 +10,7 @@ category: Guidance
 guidance_order: 4
 slug: putting-some-people-off
 permalink: /guidance/putting-some-people-off/
-read_time: 5 min read
+read_time: 2 min read
 updated: 2026-08-25
 ---
 

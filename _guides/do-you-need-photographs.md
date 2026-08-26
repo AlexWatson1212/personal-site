@@ -10,7 +10,7 @@ category: Guidance
 guidance_order: 3
 slug: do-you-need-photographs
 permalink: /guidance/do-you-need-photographs/
-read_time: 5 min read
+read_time: 3 min read
 updated: 2026-08-25
 ---
 

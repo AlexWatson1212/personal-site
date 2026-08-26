@@ -1,1 +1,27 @@
-<!-- analytics stub; add real script later -->
+{%- comment -%}
+  Analytics.
+
+  Nothing is emitted unless _config.yml supplies BOTH a provider and a domain.
+  Unconfigured, this include renders zero bytes and the site makes no
+  third-party request at all — which is its state today.
+
+  Plausible is the only implemented provider: cookieless, no persistent
+  identifier, no cross-site profiling, no advertising network, and roughly 1 KB.
+  It is chosen because it can answer the business questions without collecting
+  anything a therapist would mind being collected.
+
+  What is measured: page views, and a short allowlist of named events declared
+  with data-analytics="…" attributes. What is never measured: anything a person
+  types. See assets/js/analytics-events.js, which reads element attributes only
+  and never reads a form value.
+
+  Turning this on also needs two lines uncommented in netlify.toml, because the
+  Content Security Policy does not permit a third-party script by default.
+{%- endcomment -%}
+{%- assign provider = site.analytics.provider | default: "" | strip -%}
+{%- assign domain = site.analytics.domain | default: "" | strip -%}
+{%- assign host = site.analytics.host | default: "" | strip -%}
+{%- if provider == "plausible" and domain != "" and host != "" -%}
+<script defer data-domain="{{ domain }}" src="https://{{ host }}/js/script.tagged-events.js"></script>
+<script defer src="{{ '/assets/js/analytics-events.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+{%- endif -%}

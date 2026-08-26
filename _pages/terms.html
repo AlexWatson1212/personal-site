@@ -24,10 +24,9 @@ permalink: /terms/
     <h2>1. Who this website belongs to</h2>
     <p>
       This website is operated by
-      <span class="legal-todo">[registered trading name and legal status — sole
-      trader or limited company, with company number if applicable]</span>,
+      {% include legal-fact.html value=site.data.legal.identity.legal_name todo="registered trading name and legal status — sole trader or limited company, with company number if applicable" %},
       trading as Alexander Watson Studio, of
-      <span class="legal-todo">[business address for service of notices]</span>
+      {% include legal-fact.html value=site.data.legal.identity.address todo="business address for service of notices" %}
       (“the Studio”, “I”, “me”). You can contact me at
       <strong>hello@alexanderwatson.co.uk</strong>.
       <span class="legal-flag">⚖</span>

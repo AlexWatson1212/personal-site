@@ -22,7 +22,7 @@ hero_image: /assets/images/brand/website-strategy-mockup.webp
 hero_alt: "A therapist homepage wireframe and supporting notes being reviewed on screen."
 image: /assets/images/brand/website-strategy-mockup.webp
 
-read_time: 18 min read
+read_time: 13 min read
 updated: 2026-07-08
 
 canonical_url: https://alexanderwatson.co.uk/practice-clarity/threshold-principle/

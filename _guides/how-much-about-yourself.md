@@ -10,7 +10,7 @@ category: Guidance
 guidance_order: 2
 slug: how-much-about-yourself
 permalink: /guidance/how-much-about-yourself/
-read_time: 5 min read
+read_time: 3 min read
 updated: 2026-08-25
 ---
 

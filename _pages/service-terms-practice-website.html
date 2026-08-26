@@ -25,10 +25,9 @@ permalink: /service-terms/practice-website/
     <h2>1. Who these terms are between</h2>
     <p>
       These terms are between you and
-      <span class="legal-todo">[registered trading name and legal status — sole
-      trader or limited company, with company number if applicable]</span>,
+      {% include legal-fact.html value=site.data.legal.identity.legal_name todo="registered trading name and legal status — sole trader or limited company, with company number if applicable" %},
       trading as Alexander Watson Studio, of
-      <span class="legal-todo">[business address for service of notices]</span>
+      {% include legal-fact.html value=site.data.legal.identity.address todo="business address for service of notices" %}
       (“the Studio”, “I”, “me”).
       <span class="legal-flag">⚖</span>
     </p>
@@ -82,9 +81,7 @@ permalink: /service-terms/practice-website/
       store your card details.
     </p>
     <p>
-      <span class="legal-todo">[VAT position to be confirmed: state whether the
-      Studio is VAT registered and, if so, whether the price shown includes
-      VAT.]</span>
+      {% include legal-fact.html value=site.data.legal.tax.vat_position todo="VAT position to be confirmed: state whether the Studio is VAT registered and, if so, whether the price shown includes VAT." %}
       <span class="legal-flag">⚖</span>
     </p>
     <p>

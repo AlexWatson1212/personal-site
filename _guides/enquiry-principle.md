@@ -23,7 +23,7 @@ hero_image: /assets/images/brand/process-planning-board.webp
 hero_alt: "A client journey and enquiry process mapped through printed pages and annotated notes."
 image: /assets/images/brand/process-planning-board.webp
 
-read_time: 18 min read
+read_time: 12 min read
 updated: 2026-08-05
 
 canonical_url: https://alexanderwatson.co.uk/practice-clarity/enquiry-principle/

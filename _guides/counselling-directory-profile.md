@@ -25,7 +25,7 @@ hero_image: /assets/images/brand/therapist-identity-notes.webp
 hero_alt: "Annotated practice notes being translated into clearer profile language."
 image: /assets/images/brand/therapist-identity-notes.webp
 
-read_time: 18 min read
+read_time: 19 min read
 updated: 2026-07-16
 
 canonical_url: https://alexanderwatson.co.uk/practice-clarity/counselling-directory-profile/

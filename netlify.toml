@@ -78,6 +78,14 @@
 # entries for Stripe unless the implementation changes to an embedded checkout,
 # which would be a different review.
 # ─────────────────────────────────────────────────────────────────────────────
+# Analytics is OFF by default and this policy is written for that state: no
+# third-party host is allowed. If _config.yml is given an analytics provider,
+# swap the two directives below for the commented pair — the script host must be
+# permitted in BOTH script-src and connect-src or the beacon is blocked. Change
+# nothing here while analytics stays off.
+#
+#   script-src 'self' 'unsafe-inline' https://PROVIDER_HOST;
+#   connect-src 'self' https://PROVIDER_HOST;
 [[headers]]
   for = "/*"
   [headers.values]

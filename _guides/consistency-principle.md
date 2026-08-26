@@ -23,7 +23,7 @@ hero_image: /assets/images/brand/brand-guidelines-desk.webp
 hero_alt: "Brand guidelines showing a consistent logo, colour and typography system."
 image: /assets/images/brand/brand-guidelines-desk.webp
 
-read_time: 18 min read
+read_time: 11 min read
 updated: 2026-07-08
 
 canonical_url: https://alexanderwatson.co.uk/practice-clarity/consistency-principle/

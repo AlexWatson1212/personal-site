@@ -17,7 +17,7 @@
         <li><a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}aria-current="page"{% endif %}>About</a></li>
       </ul>
 
-      <a class="nav__cta" href="{{ '/contact/' | relative_url }}" {% if page.url == '/contact/' %}aria-current="page"{% endif %}>Start a website</a>
+      <a class="nav__cta" href="{{ '/contact/' | relative_url }}" data-analytics="start-a-website" {% if page.url == '/contact/' %}aria-current="page"{% endif %}>Start a website</a>
     </div>
   </nav>
 </header>

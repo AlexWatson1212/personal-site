@@ -128,7 +128,8 @@ const INTERNAL_NOTES = new Set([
   "README.md", "INSTALLATION.md", "IMPLEMENTATION.md", "VISUAL-SYSTEM.md",
   "STRIPE_SETUP.md", "LEGAL_REVIEW.md", "OPEN_DECISIONS.md", "REBUILD-REPORT.md",
   "REDESIGN-REPORT.md", "PHOTOGRAPHY-SHOT-LIST.md", "REFINEMENT-CHANGELOG.md",
-  "OFFER-RESOLUTION-CHANGELOG.md",
+  "OFFER-RESOLUTION-CHANGELOG.md", "LEGAL-INFORMATION-REQUIRED.md",
+  "PRE-LAUNCH-CHANGELOG.md",
   "APPLY-two-routes.txt", "APPLY-refinement.txt",
 ]);
 
@@ -530,6 +531,60 @@ check("Commercial architecture", "One website price, and one place it is decided
 
   assert(offenders.length === 0, offenders.join("\n"));
   return "£995 is the only headline price; Practice Clarity follows Website Care";
+});
+
+check("Analytics", "Loads nothing until it is configured, and never reads what is typed", () => {
+  /* The site's promise on the contact page is that nothing typed there is
+     stored by the website. An analytics call is storing. These assertions are
+     what keeps that promise true as the analytics layer grows. */
+  const include = read("_includes/analytics.html");
+  const events = read("assets/js/analytics-events.js");
+  const config = read("_config.yml");
+
+  /* 1. Off unless explicitly configured, and no default may fill the gap. */
+  assert(
+    /analytics:\s*\n\s*provider:\s*""/.test(config),
+    "_config.yml no longer declares an empty analytics provider — a provider must be opted into, never defaulted"
+  );
+  assert(
+    /provider == "plausible" and domain != "" and host != ""/.test(include),
+    "_includes/analytics.html no longer requires provider, domain and host together before emitting anything"
+  );
+  if (hasSite) {
+    for (const file of walk(SITE, (f) => /\.html$/.test(f))) {
+      const body = fs.readFileSync(file, "utf8");
+      assert(
+        !/plausible|analytics-events\.js/.test(body),
+        `${path.relative(SITE, file)} emits an analytics script while analytics is unconfigured`
+      );
+    }
+  }
+
+  /* 2. Only allowlisted event names can ever be sent. */
+  const allow = events.match(/var ALLOWED = \[([^\]]*)\]/);
+  assert(allow, "assets/js/analytics-events.js no longer declares an ALLOWED event list");
+  const names = [...allow[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]);
+  assert(names.length > 0 && names.length <= 8, `the analytics allowlist holds ${names.length} names; keep it short and deliberate`);
+  assert(
+    /ALLOWED\.indexOf\(name\) === -1\) return;/.test(events),
+    "the allowlist is declared but no longer enforced before sending"
+  );
+
+  /* 3. Nothing typed may reach it. A named event takes no payload, so any
+        second argument to plausible() is the thing to forbid outright. */
+  /* Strip comments first: this guard tests code, not the prose that explains
+     the guard. The build-css !important check learned the same lesson. */
+  const eventsCode = events.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
+  const forbidden = [
+    [/\.value\b/, "reads a field value"],
+    [/FormData/, "reads form data"],
+    [/\.elements\b/, "reads form elements"],
+    [/plausible\((?![^)]*\)\s*;?\s*$)[^)]*,/, "passes a payload to plausible()"],
+  ];
+  for (const [pattern, what] of forbidden) {
+    assert(!pattern.test(eventsCode), `assets/js/analytics-events.js ${what} — analytics must never see what somebody typed`);
+  }
+  return `off by default · ${names.length} allowlisted events · no field access`;
 });
 
 check("Information architecture", "One resource section, one front door", () => {
@@ -1009,9 +1064,10 @@ check("Purchase complete", "Explains that the project begins only after the inta
 });
 
 check("Purchase complete", "Carries no analytics call and reads no payment parameters", () => {
-  const analytics = read("_includes/analytics.html").trim();
-  const configured = analytics.length > 0 && !/^<!--[\s\S]*-->$/.test(analytics);
-  assert(!configured, "an analytics system is now configured; this check needs revisiting");
+  /* Analytics now exists as an architecture, off by default. The rule this
+     check protects is unchanged and is now stricter: the purchase surfaces
+     must fire nothing, whatever the configuration says, and no analytics call
+     anywhere may carry a second argument — a name is the whole payload. */
   const surfaces = [
     [COMPLETE_PAGE, completePage],
     [PURCHASE_PAGE, purchasePage],
@@ -1584,8 +1640,48 @@ check("Content", "Square-bracket placeholders appear only in the legal pages", (
     }
   }
   assert(offenders.length === 0, `placeholders outside the legal pages:\n${offenders.join("\n")}`);
-  assert(legalPlaceholders > 0, "no placeholders found in the legal pages — the draft state looks wrong");
-  return `note: ${legalPlaceholders} deliberate placeholders remain in the legal pages`;
+
+  /* The identity facts now come from _data/legal.yml through
+     _includes/legal-fact.html, so the placeholder text lives in the include
+     arguments rather than in the page bodies. What matters has not changed and
+     is now checked where it actually shows: while a fact is empty, the reader
+     must still see that it is empty. A page that renders as though it were
+     finished while the value behind it is blank is the failure mode. */
+  /* Read the values without a YAML parser: each is a single quoted scalar on
+     its own line, and an empty string is exactly what we are looking for. */
+  const legalFact = (key) => {
+    const m = legalYml.match(new RegExp(`^\\s{2}${key}:\\s*"([^"]*)"\\s*$`, "m"));
+    return m ? m[1] : "";
+  };
+  const facts = [
+    ["identity.legal_name", legalFact("legal_name")],
+    ["identity.address", legalFact("address")],
+    ["tax.vat_position", legalFact("vat_position")],
+  ];
+  const unfilled = facts.filter(([, value]) => !String(value || "").trim()).map(([key]) => key);
+
+  let rendered = 0;
+  if (hasSite) {
+    for (const file of walk(SITE, (f) => /\.html$/.test(f))) {
+      const rel = path.relative(SITE, file).split(path.sep).join("/");
+      if (!/^(terms|privacy|cancellation-and-refunds|service-terms)\b/.test(rel)) continue;
+      rendered += (fs.readFileSync(file, "utf8").match(/class="legal-todo"/g) || []).length;
+    }
+    if (unfilled.length > 0) {
+      assert(
+        rendered > 0,
+        `_data/legal.yml still has ${unfilled.join(", ")} empty, but no placeholder renders on the built legal pages — an unfinished page must look unfinished`
+      );
+    }
+  }
+
+  assert(
+    legalPlaceholders + rendered > 0,
+    "no placeholders found in the legal pages — the draft state looks wrong"
+  );
+  return unfilled.length
+    ? `note: ${rendered || legalPlaceholders} placeholders still render · ${unfilled.length} identity facts unfilled`
+    : `note: identity facts complete · ${rendered || legalPlaceholders} placeholders remain`;
 });
 
 /* ------------------------------------------------------------------ *

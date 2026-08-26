@@ -22,7 +22,7 @@ hero_image: /assets/images/brand/website-strategy-mockup.webp
 hero_alt: "A homepage strategy and wireframe displayed beside written planning notes."
 image: /assets/images/brand/website-strategy-mockup.webp
 
-read_time: 20 min read
+read_time: 11 min read
 updated: 2026-07-08
 
 canonical_url: https://alexanderwatson.co.uk/practice-clarity/homepage-principle/

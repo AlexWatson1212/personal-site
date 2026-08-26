@@ -23,7 +23,7 @@ hero_image: /assets/images/brand/practice-to-website-journey.webp
 hero_alt: "Website screens, working notes and Practice Clarity materials showing the journey towards enquiry."
 image: /assets/images/brand/practice-to-website-journey.webp
 
-read_time: 22 min read
+read_time: 12 min read
 updated: 2026-07-08
 
 canonical_url: https://alexanderwatson.co.uk/practice-clarity/waiting-room-principle/

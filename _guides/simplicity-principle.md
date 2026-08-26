@@ -23,7 +23,7 @@ hero_image: /assets/images/brand/inside-practice-clarity-blueprint.webp
 hero_alt: "A restrained Practice Clarity document layout with a clear hierarchy and generous space."
 image: /assets/images/brand/inside-practice-clarity-blueprint.webp
 
-read_time: 18 min read
+read_time: 10 min read
 updated: 2026-08-05
 
 canonical_url: https://alexanderwatson.co.uk/practice-clarity/simplicity-principle/

@@ -10,7 +10,7 @@ category: Guidance
 guidance_order: 1
 slug: homepage-contents
 permalink: /guidance/homepage-contents/
-read_time: 6 min read
+read_time: 4 min read
 updated: 2026-08-25
 ---
 
