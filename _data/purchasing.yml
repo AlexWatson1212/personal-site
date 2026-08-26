@@ -17,11 +17,13 @@ price_display: "£995"
 price_numeric: "995.00"
 currency: "GBP"
 
-# Practice Clarity is an add-on, not a separate product and not a larger
-# website. It is agreed in writing before the intake and invoiced separately,
-# so it has no online checkout of its own.
-clarity_addon_display: "£500"
-clarity_combined_display: "£1,495"
+# Practice Clarity is a separate, earlier piece of work: it produces the
+# answers a website is then built from, and its written Practice Direction is
+# the client's to keep whether or not a website follows. It is not a tier, an
+# upgrade or a bundle, it is never combined into a headline figure with the
+# website, and it has no online checkout of its own. It is agreed in writing
+# and invoiced separately, and only where the intake shows it is needed.
+clarity_display: "£500"
 
 # Website Care. The first twelve months are included in the £995 and are not
 # separately payable. After that it is optional and monthly.

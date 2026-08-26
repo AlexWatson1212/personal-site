@@ -797,15 +797,46 @@ p { text-wrap: pretty; }
   .nav__cta { justify-content: center; width: 100%; padding-block: 0.95rem; }
 }
 
+/* The closing call to action ------------------------------------------------
+   It used to be a full-bleed ink band, which put it directly against the ink
+   footer: the two merged into a single 850–950px slab of one colour, with 245px
+   of empty dark inside it where the band's bottom padding met the footer's top
+   padding. Nothing marked where the page ended and the site began.
+
+   It is now a plate — the same object the collection is built from — sitting on
+   the page's own ground. The paper around it is what separates the two, so the
+   separation is structural rather than a rule drawn between two dark blocks. */
+
+.closing { padding-block: var(--s-7) clamp(3.25rem, 6vw, 5.5rem); }
+
+.closing__plate {
+  padding: clamp(2.25rem, 5.5vw, 4rem) clamp(1.5rem, 4vw, 3.5rem);
+  border-radius: var(--r-lg);
+}
+
+/* The plate carries its own quiet lift so it reads as an object on the ground
+   rather than a rectangle of colour. Kept well under the collection plates',
+   which are the things meant to be looked at. */
+@media (min-width: 46rem) {
+  .closing__plate { box-shadow: 0 22px 48px -34px rgba(28, 42, 39, 0.55); }
+}
+
 /* ==========================================================================
    08  FOOTER
    ========================================================================== */
 
 .site-footer {
-  padding-block: var(--band) var(--s-6);
+  /* The top padding used to be a full band, which stacked with the closing
+     band's bottom padding into a quarter-screen of nothing. The footer now
+     begins where it begins: the wordmark is its first object. */
+  padding-block: var(--s-8) var(--s-6);
   background: var(--ink);
   color: var(--on-ink);
   --line: var(--line-on-ink);
+}
+
+@media (min-width: 54rem) {
+  .site-footer { padding-block-start: clamp(3.5rem, 5vw, 5rem); }
 }
 
 .site-footer :is(h2, h3) { color: var(--on-ink); }
@@ -1493,20 +1524,10 @@ p { text-wrap: pretty; }
   }
 }
 
-.way__said {
-  max-width: 22ch;
-  font-family: var(--serif);
-  font-size: clamp(1.4rem, 1.1rem + 1.1vw, 1.95rem);
-  line-height: 1.22;
-  letter-spacing: -0.018em;
-  text-wrap: balance;
-}
-
-.way__said::before { content: "\201C"; }
-.way__said::after { content: "\201D"; }
-
-/* The same voice as .way__said, but a statement rather than something
-   somebody said, so it takes no quotation marks. */
+/* An editorial statement. The site used to have two treatments for this — one
+   with quotation marks, for something a client said, and one without. The
+   quoted variant was only ever used to quote the studio to itself, so there is
+   one treatment now and it takes no quotation marks. */
 .statement {
   max-width: 22ch;
   font-family: var(--serif);
@@ -1514,6 +1535,15 @@ p { text-wrap: pretty; }
   line-height: 1.18;
   letter-spacing: -0.02em;
   text-wrap: balance;
+}
+
+/* A statement that sits beside a heading rather than carrying a section on its
+   own, so it must stay clearly below the heading in the hierarchy. */
+.statement--sm {
+  max-width: 26ch;
+  font-size: clamp(1.25rem, 1rem + 0.85vw, 1.62rem);
+  line-height: 1.24;
+  letter-spacing: -0.014em;
 }
 
 .way__meta {
@@ -1547,6 +1577,26 @@ p { text-wrap: pretty; }
 .way__list li + li { border-block-start: var(--hairline) solid var(--line-soft); }
 
 .way__actions { margin-block-start: var(--s-5); }
+
+/* Home: the offer. One price on the left, one sentence of reassurance on the
+   right. Deliberately not two equal columns: a symmetrical pair reads as a
+   choice between two products however the words are written, which is the tier
+   this replaced. */
+.offer { display: grid; gap: var(--s-7); }
+
+@media (min-width: 54rem) {
+  .offer {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: start;
+  }
+}
+
+@media (min-width: 74rem) {
+  .offer { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); }
+}
+
+.offer__aside { padding-block-start: var(--s-2); }
 
 /* Home: studio facts ------------------------------------------------------- */
 
@@ -2106,6 +2156,24 @@ p { text-wrap: pretty; }
   .price-hero__grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
 }
 
+/* The service hero carries one number and nothing else. The supporting facts
+   are terms of that one price, not a list of other prices. */
+.headline-price { display: grid; gap: var(--s-3); }
+
+.headline-price__terms {
+  margin-block-start: var(--s-3);
+  border-block-start: var(--hairline) solid var(--line);
+}
+
+.headline-price__terms li {
+  padding-block: var(--s-3);
+  border-block-end: var(--hairline) solid var(--line-soft);
+  color: var(--text-quiet);
+  font-size: var(--t-small);
+}
+
+.headline-price__terms li:last-child { border-block-end: 0; }
+
 .figure-large {
   font-family: var(--serif);
   font-size: clamp(4rem, 2rem + 9vw, 8.5rem);
@@ -2415,6 +2483,17 @@ legend {
 @media (min-width: 62rem) {
   .contact-grid { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
 }
+
+/* The buy-directly note used to sit at the foot of the left column, which left
+   the two columns ending about 180px apart. It now sits under the form, outside
+   the panel, so both columns finish together. */
+.contact-col { display: grid; gap: var(--s-5); align-content: start; }
+.contact-col > * { min-width: 0; }
+.form-panel__after { padding-inline: clamp(0rem, 1.5vw, 0.75rem); }
+
+/* The form finishes well before the ground changes, so the pale band below
+   reads as a second movement rather than something the panel is resting on. */
+.contact-open { padding-block: var(--band-sm) clamp(4rem, 8.5vw, 7.5rem); }
 
 .contact-email {
   display: inline-block;

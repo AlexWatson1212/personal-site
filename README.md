@@ -7,10 +7,18 @@ Jekyll 4.3, built and deployed by Netlify.
 
 | | |
 |---|---|
-| Therapist Website | **£995** — fixed, paid once, first twelve months of Website Care included |
-| Practice Clarity | **+£500** — an add-on, **£1,495** together. Not bought online. |
+| Therapist Website | **£995** — fixed, paid once, half to begin and half at launch, first twelve months of Website Care included |
+| Practice Clarity | **£500** — a separate, earlier piece of work. Not a tier, not a bundle, not bought online. |
 | Website Care | Included for twelve months, then **£29** a month, no minimum term |
 | Custom project | Scoped and quoted individually |
+
+The website and Practice Clarity are **never added into one figure**. The
+website service turns the client's answers into a website; Practice Clarity
+produces the answers, and its written Practice Direction is theirs whether or
+not a website follows. `scripts/qa.mjs` fails the build if a combined price
+reappears, if the service hero shows more than one price, if Practice Clarity is
+introduced before Website Care on `/service/`, or if any published page uses
+tier language (`upgrade`, `bundle`, `package`, `two ways to begin`).
 
 `_data/purchasing.yml` is the single source for those figures. `scripts/qa.mjs`
 fails if any other amount appears in published source, or if a retired offer
@@ -52,7 +60,7 @@ their own URLs and are linked from `/guidance/`.
 
 ```
 npm run build          # purchasing config → css → jekyll build
-npm test               # scripts/qa.mjs — 65 checks, no dependencies
+npm test               # scripts/qa.mjs — 66 checks, no dependencies
 npm run preview        # Node stand-in for the Jekyll build → _preview/
 npm run qa:browser     # overflow, keyboard, landmarks, contrast, 200% zoom
 npm run qa:a11y        # axe-core, 31 routes × 4 viewports

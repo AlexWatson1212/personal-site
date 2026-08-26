@@ -20,13 +20,12 @@
       "Name: " + (data.get("name") || ""),
       "Email: " + (data.get("email") || ""),
       "Design: " + (data.get("design") || "Not sure yet"),
-      "Where they are up to: " + (data.get("readiness") || ""),
       "Current website: " + (data.get("currentWebsite") || "None"),
       context ? "Came from: " + context : "",
       "",
-      "Message:",
+      "Practice, and where they are up to:",
       data.get("message") || ""
-    ].filter(function (line, i) { return line !== "" || i > 5; }).join("\n");
+    ].filter(function (line, i) { return line !== "" || i > 4; }).join("\n");
     const subject = "Studio enquiry — " + (data.get("name") || "new website");
     form.querySelector("[data-form-status]").hidden = false;
     window.location.href = "mailto:hello@alexanderwatson.co.uk?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);

@@ -6,7 +6,7 @@ permalink: /contact/
 page_js: /assets/js/contact-enquiry.js
 ---
 
-<section class="band band--sm on-paper">
+<section class="band contact-open on-paper">
   <div class="wrap">
     <div class="contact-grid">
       <div class="stack stack--loose">
@@ -24,14 +24,9 @@ page_js: /assets/js/contact-enquiry.js
           <p class="small quiet mt-3">A reply within two working days. Enquiry details are used to answer you and nothing else &mdash; no list, no follow-up sequence.</p>
         </div>
 
-        <div class="divider-top">
-          <p class="small quiet">
-            Already certain the £995 website is right?
-            <a class="inline-link" href="{{ '/services/practice-website/' | relative_url }}">Read the full scope and buy it directly</a>.
-          </p>
-        </div>
       </div>
 
+      <div class="contact-col">
       <div class="form-panel">
         <form class="form" data-studio-enquiry>
           <div>
@@ -56,30 +51,25 @@ page_js: /assets/js/contact-enquiry.js
           <input type="hidden" name="service" value="">
 
           <p class="field">
-            <label for="f-readiness">Where are you up to?</label>
-            <select id="f-readiness" name="readiness" required>
-              <option value="" disabled selected>Whichever is closest</option>
-              <option>My words and images are more or less ready</option>
-              <option>I have rough notes and a clear idea of my practice</option>
-              <option>I know my practice but find it hard to put into words</option>
-              <option>I am still working out what the practice is</option>
-            </select>
-          </p>
-
-          <p class="field">
             <label for="f-site">Current website, if you have one</label>
             <input id="f-site" name="currentWebsite" type="url" inputmode="url" placeholder="https://">
           </p>
 
           <p class="field">
-            <label for="f-message">Anything you would like me to know</label>
+            <label for="f-message">Your practice, and where you are up to</label>
             <textarea id="f-message" name="message" rows="6" required></textarea>
-            <span class="field__hint">A couple of lines is plenty. Who you work with, what you like about the direction, anything you already know you want changed.</span>
+            <span class="field__hint">A couple of lines is plenty. Who you work with, what you like about the direction, and whether your words are more or less ready or still to be worked out.</span>
           </p>
 
           <button type="submit" class="btn">Prepare my enquiry email<span class="btn__arrow" aria-hidden="true">&rarr;</span></button>
           <p class="small quiet" data-form-status role="status" hidden>Your email app should open now. If it does not, email hello@alexanderwatson.co.uk directly.</p>
         </form>
+      </div>
+
+        <p class="small quiet form-panel__after">
+          Already certain the £995 website is right?
+          <a class="inline-link" href="{{ '/services/practice-website/' | relative_url }}">Read the full scope and buy it directly</a>.
+        </p>
       </div>
     </div>
   </div>

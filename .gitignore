@@ -24,3 +24,4 @@ scripts/responsive-qa/primary-targets.json
 # Kept on disk locally for reference; never part of the site or the repo.
 _responsive-pass/
 _to_delete/
+staging/

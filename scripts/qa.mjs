@@ -127,7 +127,8 @@ const EXCLUDED_PREFIXES = [
 const INTERNAL_NOTES = new Set([
   "README.md", "INSTALLATION.md", "IMPLEMENTATION.md", "VISUAL-SYSTEM.md",
   "STRIPE_SETUP.md", "LEGAL_REVIEW.md", "OPEN_DECISIONS.md", "REBUILD-REPORT.md",
-  "REDESIGN-REPORT.md", "PHOTOGRAPHY-SHOT-LIST.md",
+  "REDESIGN-REPORT.md", "PHOTOGRAPHY-SHOT-LIST.md", "REFINEMENT-CHANGELOG.md",
+  "OFFER-RESOLUTION-CHANGELOG.md",
   "APPLY-two-routes.txt", "APPLY-refinement.txt",
 ]);
 
@@ -140,14 +141,28 @@ function isExcludedPath(rel) {
   return false;
 }
 
-/** Every file git knows about, minus the excluded trees. */
+/**
+ * Every file git knows about, minus the excluded trees.
+ *
+ * Untracked-but-not-ignored files count too. A page written but not yet
+ * `git add`ed is still a page, and a route table that cannot see it reports
+ * every link into that page as broken — which is a fact about the index, not
+ * about the site.
+ */
 const trackedFiles = (() => {
-  let listing = [];
-  try {
-    listing = execFileSync("git", ["ls-files", "-z"], { cwd: ROOT, encoding: "utf8" })
-      .split("\0")
-      .filter(Boolean);
-  } catch {
+  const gitList = (args) => {
+    try {
+      return execFileSync("git", args, { cwd: ROOT, encoding: "utf8" }).split("\0").filter(Boolean);
+    } catch {
+      return null;
+    }
+  };
+  const tracked = gitList(["ls-files", "-z"]);
+  let listing;
+  if (tracked) {
+    const untracked = gitList(["ls-files", "-z", "--others", "--exclude-standard"]) || [];
+    listing = [...new Set([...tracked, ...untracked])];
+  } else {
     listing = walk(ROOT, () => true).map((f) => path.relative(ROOT, f).split(path.sep).join("/"));
   }
   return listing.filter((rel) => !isExcludedPath(rel) && fs.existsSync(path.join(ROOT, rel)));
@@ -233,21 +248,23 @@ const KEY_PREFIXES = [
 const PUBLISHABLE_PREFIXES = [["pk", "live"].join("_") + "_", ["pk", "test"].join("_") + "_"];
 const STRIPE_SDK_HOST = "js." + "stripe.com";
 
-/* The whole commercial architecture, as four figures:
-     £995    the Therapist Website, paid once
-     £500    the Practice Clarity add-on
-     £1,495  the two together
+/* The whole commercial architecture, as three figures:
+     £995    the Therapist Website, paid once — the only headline price
+     £500    Practice Clarity, a separate earlier piece of work
      £29     Website Care per month, after the included first year
-   Any other amount in published source is a mistake until this list says
+   £1,495 was retired in August 2026 along with the tier it implied: the
+   website and Practice Clarity are never added together into one figure,
+   because doing so presents them as two versions of the same purchase. Any
+   other amount in published source is a mistake until this list says
    otherwise. */
-const APPROVED_PRICES = new Set(["£995", "£500", "£1,495", "£29"]);
+const APPROVED_PRICES = new Set(["£995", "£500", "£29"]);
 /* Figures that are not studio prices. £60 is a session fee drawn inside the
    tailoring illustration on the home page, where the point being made is that
    this practice's visitors need the cost before anything else. Held separately
    so the studio's own price list stays exact and a stray offer price cannot
    hide among them. */
 const CITED_AMOUNTS = new Set(["£60"]);
-const RETIRED_PRICES = ["495", "795", "1,995", "2,195", "2,000", "290"].map((n) => "£" + n);
+const RETIRED_PRICES = ["495", "795", "1,495", "1,995", "2,195", "2,000", "290"].map((n) => "£" + n);
 
 const purchasingYml = read("_data/purchasing.yml");
 const legalYml = read("_data/legal.yml");
@@ -355,8 +372,11 @@ check("Prices", "Retired amounts appear nowhere in the repository", () => {
 
 check("Prices", "The displayed prices come from _data/purchasing.yml", () => {
   assert(/^price_display:\s*"£995"\s*$/m.test(purchasingYml), "price_display is not £995");
-  assert(/^clarity_addon_display:\s*"£500"\s*$/m.test(purchasingYml), 'clarity_addon_display is not "£500"');
-  assert(/^clarity_combined_display:\s*"£1,495"\s*$/m.test(purchasingYml), 'clarity_combined_display is not "£1,495"');
+  assert(/^clarity_display:\s*"£500"\s*$/m.test(purchasingYml), 'clarity_display is not "£500"');
+  assert(
+    !/clarity_combined_display/.test(purchasingYml),
+    "clarity_combined_display is still declared — the combined figure was retired with the tier it implied"
+  );
   assert(!/bespoke_price_display/.test(purchasingYml), "bespoke_price_display is still declared — the bespoke route was retired");
   assert(!/guided_price_display/.test(purchasingYml), "guided_price_display is still declared — the Guided tier was retired");
   assert(/included_months:\s*12/.test(purchasingYml), "Website Care is not declared as twelve included months");
@@ -447,16 +467,69 @@ check("Checkout scope", "Practice Clarity carries no purchase action", () => {
  * 4. The commercial architecture
  * ------------------------------------------------------------------ */
 
-check("Commercial architecture", "One product, one add-on, one care plan", () => {
+check("Commercial architecture", "One product, one preliminary, one care plan", () => {
   /* service.html is the page that has to make the commercial decision easy.
      Every figure a buyer needs must be on it, and none of the retired offer
      structure may survive anywhere. */
   assert(/£995/.test(servicePage), "service.html does not show £995");
-  assert(/£500/.test(servicePage), "service.html does not show the £500 Practice Clarity add-on");
-  assert(/£1,495/.test(servicePage), "service.html does not show the £1,495 combined price");
+  assert(/£500/.test(servicePage), "service.html does not show the £500 Practice Clarity price");
   assert(/£29/.test(servicePage), "service.html does not show the £29 Website Care price");
   assert(/[Cc]ustom project/.test(servicePage), "service.html does not offer a custom project route");
-  return "£995 · +£500 · £1,495 · £29 · custom quoted";
+  return "£995 · £500 separately · £29 · custom quoted";
+});
+
+check("Commercial architecture", "One website price, and one place it is decided", () => {
+  /* August 2026. The website and Practice Clarity were being presented as two
+     priced routes side by side — a tier in everything but name. The website is
+     now the only product with a headline price; Practice Clarity is a separate
+     earlier piece of work, offered where the intake shows it is needed. These
+     assertions are what stops the tier growing back. */
+  const offenders = [];
+
+  /* No page may add the two into one figure again. */
+  for (const [rel, body] of publishedBodies) {
+    if (/£\s?1,?495/.test(body)) offenders.push(`${rel} — shows a combined website + Practice Clarity figure`);
+  }
+
+  /* The service hero is the first screen of the buying decision. Exactly one
+     price belongs in it. */
+  const heroStart = servicePage.indexOf("<section");
+  const heroEnd = servicePage.indexOf("</section>");
+  assert(heroStart > -1 && heroEnd > heroStart, "service.html has no opening section to inspect");
+  /* From the first tag, not from byte zero: the front matter description names
+     the price in prose and is checked separately. */
+  const hero = servicePage.slice(heroStart, heroEnd);
+  const heroPrices = new Set((hero.match(/£[\d,]+/g) || []));
+  if (heroPrices.size > 1) {
+    offenders.push(`service.html — the hero shows ${heroPrices.size} prices (${[...heroPrices].join(", ")}); it must show £995 alone`);
+  }
+  if (!heroPrices.has("£995")) offenders.push("service.html — the hero does not show £995");
+
+  /* Practice Clarity must sit after Website Care on the service page, so a
+     reader meets it once the website decision is already made. */
+  const clarityAt = servicePage.indexOf("Practice Clarity");
+  const careAt = servicePage.search(/Website Care|first year is included/);
+  assert(clarityAt > -1 && careAt > -1, "service.html no longer describes both Website Care and Practice Clarity");
+  if (clarityAt < careAt) {
+    offenders.push("service.html — Practice Clarity is introduced before Website Care; it belongs after it");
+  }
+
+  /* Language that rebuilds the tier. */
+  const banned = [
+    [/\bupgrades?\b/i, "calls something an upgrade"],
+    [/two (ways to begin|routes|options|tiers)/i, "presents two priced routes"],
+    [/\bbundle[ds]?\b/i, "describes a bundle"],
+    [/\bpackages?\b/i, "describes a package"],
+  ];
+  for (const [rel, body] of publishedBodies) {
+    if (rel.startsWith("_guides/") || rel.startsWith("_posts/")) continue;
+    for (const [pattern, what] of banned) {
+      if (pattern.test(body)) offenders.push(`${rel} — ${what}`);
+    }
+  }
+
+  assert(offenders.length === 0, offenders.join("\n"));
+  return "£995 is the only headline price; Practice Clarity follows Website Care";
 });
 
 check("Information architecture", "One resource section, one front door", () => {
