@@ -12,3 +12,7 @@ group :jekyll_plugins do
   gem "jekyll-redirect-from"
   gem "jekyll-paginate-v2"
 end
+
+gem "tzinfo", "~> 2.0"
+
+gem "tzinfo-data", "~> 1.2026"

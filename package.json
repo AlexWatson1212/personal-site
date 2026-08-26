@@ -17,7 +17,12 @@
     "qa:all": "npm run qa:preview && npm run qa:browser && npm run qa:typography && npm run qa:a11y"
   },
   "devDependencies": {
+    "axe-core": "^4.13.0",
+    "js-yaml": "^5.4.0",
     "lightningcss": "1.33.0",
+    "liquidjs": "^10.29.0",
+    "marked": "^18.0.11",
+    "playwright": "^1.62.1",
     "purgecss": "8.0.0"
   },
   "engines": {
