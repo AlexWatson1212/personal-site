@@ -1,0 +1,26 @@
+# Provenance vocabulary for the website collection.
+#
+# The label a visitor reads is defined here and nowhere else, so the collection
+# page, the concept sites and any future surface all say the same words. Adding
+# a fifth value is a commercial and legal decision, not a copy edit: see
+# /terms/ clause 5, which states that the collection designs are Studio work
+# rather than commissioned client projects.
+#
+# `client` is reserved. It must not be applied to anything until a real client
+# website exists and the client has agreed to be named.
+
+studio-fictional:
+  label: "Studio Practice — fictional brief"
+  detail: "Designed by the studio to a brief it wrote itself. The practice is fictional."
+
+studio-redesign:
+  label: "Studio Practice — unofficial redesign concept"
+  detail: "An independent redesign of a real organisation, made without their involvement and not commissioned by them."
+
+live-own:
+  label: "Live Practice — the studio's own"
+  detail: "A working website for a real practice: Alexander's own."
+
+client:
+  label: "Client Work"
+  detail: "Commissioned by a client and published with their agreement."

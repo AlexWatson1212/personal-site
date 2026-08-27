@@ -1,5 +1,12 @@
 # Offer resolution + final composition — changelog
 
+> **SUPERSEDED — historical record, August 2026.** This document describes the
+> state of the project at the time it was written and is kept as a record. It is
+> **not** a statement of the current offer and must not be used as a source when
+> implementing. Prices, offer names and routes described here may since have been
+> retired. The canonical position is in `README.md` and `IMPLEMENTATION.md`; the
+> open questions are in `OPEN_DECISIONS.md`.
+
 Implementation of the approved decision document. One product, one occasional
 preliminary, one aftercare arrangement. The site is shorter than it was.
 

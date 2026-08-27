@@ -1,4 +1,22 @@
-# Stripe setup — Choose Your Practice Website (£995)
+# Stripe setup — Therapist Website (£995, in two instalments)
+
+**The commercial position this file must match:** £995 total. **£500 to begin.
+£495 when the client approves the finished website, before it goes live.** The
+balance is triggered by the client's explicit written approval, never by the
+studio declaring the work finished.
+
+That means **two** money movements, and only the first is a Payment Link:
+
+| | Amount | Mechanism | Trigger |
+|---|---|---|---|
+| First instalment | £500 | Payment Link, sent directly by Alexander after the scope is confirmed in writing | The client says yes |
+| Balance | £495 | Stripe invoice, raised by hand | The client's written approval of the finished website |
+
+**At launch the Payment Link is not published on the website.** The route is
+deliberately human: choose a direction → contact Alexander → scope confirmed in
+writing → £500 payment link → questionnaire. `purchases_enabled` stays `false`
+and the site shows no checkout control. This file remains the runbook for the
+day that changes.
 
 Manual steps for Alexander, in order, after the website has been reviewed.
 
@@ -63,14 +81,17 @@ These appear on receipts and on the checkout page.
 
 ### 4. Edit the existing sandbox Payment Link
 
-Sandbox → **Payment Links** → the existing *Choose Your Practice Website*
-link. Confirm it still matches:
+Sandbox → **Payment Links** → the *Therapist Website — first instalment* link.
+Any link still configured for the retired £995-in-one-payment product, or under a
+retired offer name, must be archived rather than edited, so it cannot be sent by
+accident. Confirm the new link matches:
 
 | Setting | Value |
 | --- | --- |
-| Product | Choose Your Practice Website |
-| Price | £995 GBP |
-| Price type | One-off, paid in full |
+| Product | Therapist Website — first instalment |
+| Price | £500 GBP |
+| Price type | One-off |
+| Description | Must state that this is the first of two instalments and that the £495 balance falls due on approval, before launch |
 | Product category | Website Design |
 | Managed Payments | Disabled |
 | Automatic tax | Disabled |
@@ -119,9 +140,20 @@ In the sandbox payment, check that all of these came through:
 
 ### 9. Verify the transaction in Stripe
 
-Confirm the payment appears in the sandbox dashboard at £995.00 GBP, that the
+Confirm the payment appears in the sandbox dashboard at £500.00 GBP, that the
 receipt email arrived, that the receipt carries the terms and privacy links from
 step 3, and that the redirect landed on `/purchase-complete/`.
+
+### 9a. Set up the balance invoice, before the first project reaches approval
+
+The £495 balance is a Stripe invoice raised by hand. Prepare the template now
+rather than at the moment it is needed:
+
+- One line item, £495 GBP, described as the balance of the Therapist Website.
+- Payment terms stated on the invoice.
+- Raised **only** after the client's written approval of the finished website,
+  and before launch. The approval email is the record that it was due.
+- No subscription, no saved card, no automatic collection.
 
 ### 10. Confirm no automatic tax collection
 

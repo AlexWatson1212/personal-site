@@ -75,6 +75,7 @@ page_js: /assets/js/website-library.js
 
             <div class="direction__meta">
               <p class="direction__ref"><span>{{ d.ref }} &nbsp;·&nbsp; {{ d.practice }}</span><span>{{ d.atmosphere }}</span></p>
+              <p class="direction__provenance">{% include provenance.html key=d.provenance %}</p>
               <h3 class="direction__name">{{ d.name }}</h3>
               <p class="direction__note">{{ d.note }}</p>
               <p class="plate-swatches" aria-hidden="true">

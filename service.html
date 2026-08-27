@@ -1,7 +1,7 @@
 ---
 layout: default
 title: What it costs
-description: One price for a therapist website — £995, with the first year of Website Care included and the whole scope published beside it. Half to begin, half at launch.
+description: One price for a therapist website — £995, with the first year of Website Care included and the whole scope published beside it. £500 to begin, £495 when you approve the finished website.
 permalink: /service/
 ---
 
@@ -22,7 +22,7 @@ permalink: /service/
         <p class="label">Therapist Website</p>
         <p class="figure-large">£995</p>
         <ul class="headline-price__terms">
-          <li>Half to begin, half at launch.</li>
+          <li>{{ site.data.purchasing.payment_sentence }}</li>
           <li>A complete website, up to five core pages.</li>
           <li>The first year of Website Care included.</li>
         </ul>
@@ -50,6 +50,7 @@ permalink: /service/
         <ul>
           <li>One design direction from the collection, rebuilt around your practice</li>
           <li>Up to five core pages, written properly and set properly</li>
+          <li>A written Direction Note before anything is built, so you see where it is going</li>
           <li>Typography, colour and a refined wordmark that hold together</li>
           <li>Fast, responsive and accessible on a phone as well as a laptop</li>
           <li>An enquiry route that suits a therapy practice</li>
@@ -104,7 +105,8 @@ permalink: /service/
               <li>Accessibility, performance and security good practice</li>
               <li>Essential on-page SEO: titles, descriptions, headings, alt text, sitemap</li>
               <li>An enquiry route appropriate to a therapy practice</li>
-              <li>Two consolidated revision rounds</li>
+              <li>A written Direction Note, approved before the build begins, with one consolidated revision</li>
+              <li>Two consolidated revision rounds on the website itself</li>
               <li>Pre-launch checks, launch and handover</li>
               <li>Thirty days of minor corrections after launch</li>
               <li>The first twelve months of Website Care</li>
@@ -156,24 +158,39 @@ permalink: /service/
     <div class="spread">
       <div class="spread__aside"><p class="label">How it runs</p></div>
       <div class="spread__body">
-        <h2 class="measure-sm">Two to four weeks, and you are asked to make two decisions.</h2>
+        <h2 class="measure-sm">Two to four weeks, and three decisions that are yours.</h2>
+        <p class="lead mt-5 measure-xl">
+          Everything between them is my work rather than another thing for you to manage.
+        </p>
       </div>
     </div>
 
-    <div class="anatomy mt-8" style="--anatomy-steps:6">
+    <div class="anatomy anatomy--three mt-8" style="--anatomy-steps:3">
       <div class="anatomy__track">
         <span class="anatomy__rule" aria-hidden="true"></span>
         <ol class="anatomy__steps">
-          <li class="anatomy__step"><span class="anatomy__n">Before we start</span><h3>You choose a direction</h3><p>And buy, or ask a question first. Nothing begins until the intake is in.</p></li>
-          <li class="anatomy__step"><span class="anatomy__n">Week one</span><h3>The written intake</h3><p>One focused form, about an hour. I read it and tell you what is missing.</p></li>
-          <li class="anatomy__step"><span class="anatomy__n">Weeks one to two</span><h3>Tailoring and build</h3><p>Palette, typography, structure, hierarchy and your words, made into a site.</p></li>
-          <li class="anatomy__step"><span class="anatomy__n">Week two</span><h3>Round one</h3><p>You review the whole website and send one complete, prioritised list.</p></li>
-          <li class="anatomy__step"><span class="anatomy__n">Week three</span><h3>Round two</h3><p>The same again. Copy changes and design changes share these two rounds.</p></li>
-          <li class="anatomy__step anatomy__step--end"><span class="anatomy__n">Weeks three to four</span><h3>Launch and handover</h3><p>Checked, made live, handed over, and cared for from that day.</p></li>
+          <li class="anatomy__step">
+            <span class="anatomy__n">01 &middot; Before you pay</span>
+            <h3>Choose the direction</h3>
+            <p>The one that already looks closest to your practice. Free to change until your intake is complete.</p>
+          </li>
+          <li class="anatomy__step">
+            <span class="anatomy__n">02 &middot; Week one</span>
+            <h3>Approve how it is being tailored</h3>
+            <p>A short written note: what I have understood, the palette and typefaces, the page structure, and the decisions I have made for your practice. Nothing is built until you agree with it, and one consolidated revision of the note is included.</p>
+          </li>
+          <li class="anatomy__step anatomy__step--end">
+            <span class="anatomy__n">03 &middot; Weeks three to four</span>
+            <h3>Approve the finished website</h3>
+            <p>After two consolidated rounds of changes. Nothing goes live without it, and the {{ site.data.purchasing.balance_display }} balance is not due until you have given it.</p>
+          </li>
         </ol>
       </div>
       <p class="anatomy__note">
-        Estimates given in good faith, and dependent on replies arriving.
+        Between them I read your intake and tell you what is missing, then tailor, build
+        and check the website. Two to four weeks from a confirmed start &mdash; estimates
+        given in good faith, and dependent on replies arriving. The whole sequence, step
+        by step, is on the <a class="inline-link" href="{{ '/services/practice-website/' | relative_url }}">full scope page</a>.
       </p>
     </div>
   </div>
@@ -234,6 +251,24 @@ permalink: /service/
       Content amendments are quoted separately when you need one. Care is a narrow,
       honest promise rather than an open-ended support contract.
     </p>
+
+    <div class="stack stack--loose mt-8">
+      <p class="label">What owning it actually costs</p>
+      <p class="measure-lg">
+        In the first year, nothing beyond the {{ site.data.purchasing.price_display }} except
+        your domain renewal, which you pay to your own registrar and which is a small annual
+        amount. After the first year it is {{ site.data.purchasing.website_care.monthly }} a
+        month if you want Care to continue, or nothing at all to me if you move the website
+        somewhere else &mdash; it is yours either way.
+      </p>
+      <p class="quiet small measure-lg">
+        Beyond that there is only what you ask for: content changes after the first thirty
+        days, quoted when you need them. If your website ever needs a paid font licence, a
+        stock image licence or an email mailbox, those are bought in your name and I will
+        say so before anything is chosen. There are no other charges, and nothing renews
+        without you being asked first.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -259,7 +294,7 @@ permalink: /service/
         <p class="quiet">
           You are not asked to work out which of those you are. If you can already say who
           you work with and what you offer, the £995 website is a complete piece of work
-          and I would rather you kept the £500.
+          and I would rather you kept the {{ site.data.purchasing.clarity_display }} this costs.
         </p>
 
         <p class="way__meta mt-5">
@@ -376,6 +411,23 @@ permalink: /service/
         <div class="faq__body">
           <p>No. The intake is in plain language, the design decisions are mine, and if you
           would rather not touch it at all, that is what Care is for.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I edit the website myself?</summary>
+        <div class="faq__body">
+          <p>No, and it is worth being plain about it. There is no login, no page builder
+          and no admin area. That is the reason the website is fast, stays accessible, and
+          has nothing to keep updated or broken into &mdash; but it does mean the changes
+          go through me.</p>
+          <p>In practice: for the first thirty days after launch, corrections are free.
+          After that, changing your fee, your availability, a paragraph of your biography
+          or your contact details is an email to me, quoted before I do it and usually
+          small. A new page or a new section is a new piece of work, quoted the same way.</p>
+          <p>If holding the keys yourself matters to you, say so when you write. Some
+          practices genuinely want that, and I will tell you honestly that I am not the
+          right person for it rather than sell you something you will find frustrating.</p>
         </div>
       </details>
 

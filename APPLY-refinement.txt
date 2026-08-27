@@ -1,3 +1,7 @@
+SUPERSEDED - historical record, August 2026.
+These instructions relate to a past deployment and are kept as a record only.
+Do not follow them when implementing. See README.md and IMPLEMENTATION.md.
+
 Applying the refinement pass
 ============================
 

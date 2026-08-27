@@ -24,9 +24,13 @@ select all read from that one file. **Adding a direction is adding an entry.**
 
 The commercial architecture, and the rules that keep it:
 
-- **Therapist Website — £995.** The only headline price. Half before the project
-  begins, half before launch; the online checkout, where it is open, takes it in
-  one payment instead, and clause 3 of the service terms covers both.
+- **Therapist Website — £995.** The only headline price, and one commercial
+  position with no alternative formulation anywhere: **£500 to begin. £495 when
+  you approve the finished website, before it goes live.** The balance is
+  triggered by the client's explicit written approval, never by the studio
+  declaring the work finished. A single payment is not offered publicly; it can
+  be agreed case by case in writing, and clause 3 of the service terms is the
+  wording that governs either.
 - **Practice Clarity — £500.** A separate, earlier piece of work that produces
   the answers a website is built from. Its written Practice Direction is the
   client's whether or not a website follows. Never a tier, a bundle or a
@@ -34,18 +38,29 @@ The commercial architecture, and the rules that keep it:
 - **Website Care.** Included for the first twelve months, then £29 a month if
   wanted. Stated as conduct — "not a bonus; it is the end of the job" — and not
   as a row in a price table, so it is never asked to justify the £995.
+- **Direction Note.** Sent within five working days of a complete intake, and
+  approved before the build starts. It is a named deliverable inside the £995,
+  not a courtesy: see `DIRECTION-NOTE-TEMPLATE.md`. One consolidated revision of
+  the Note is included, and it is separate from the two website revision rounds.
 - **Custom projects.** Quoted, mentioned quietly.
 
 `£1,495` was retired in August 2026 with the tier it implied, and is now in
 `RETIRED_PRICES`. The check *One website price, and one place it is decided*
 fails the build if a combined figure reappears anywhere, if the `/service/` hero
-shows more than one price, if Practice Clarity is introduced before Website Care
-on that page, or if any published page says `upgrade`, `bundle`, `package` or
-`two ways to begin`.
+shows a figure outside the approved set, if Practice Clarity is introduced before
+Website Care on that page, or if any published page says `upgrade`, `bundle`,
+`package` or `two ways to begin`.
 
-The one thing to watch when editing `/service/`: the hero price count is taken
-from the first `<section>`, so a second figure added there fails the build even
-if it is only illustrative.
+The one thing to watch when editing `/service/`: the hero may show **£995, £500
+and £495 and nothing else**. Those three are the total and its two instalments.
+A fourth figure there fails the build even if it is only illustrative.
+
+**`£495` was itself a retired offer price** — the old Straightforward Website —
+and it re-entered service in August 2026 as the balance instalment. It has been
+removed from `RETIRED_PRICES` for that reason, which means the suite no longer
+guards against the old offer returning under that number. If a page ever says
+`£495` without the words that make it an instalment, that is the case to look at
+by hand.
 
 ## The closing plate
 

@@ -56,7 +56,22 @@ a decision already taken. Three questions are unanswered:
 3. If the client later commissions a second practice website, does the licence
    extend to it or is a new licence required?
 
-**Decision needed.** Answer all three, then have the clause reviewed.
+**August 2026 — the commercial position is now recorded; the wording is not
+reviewed.** Alexander's intended commercial outcomes are:
+
+1. The licence is **perpetual**. It does not end when Website Care ends.
+2. The client **may appoint another developer** to maintain or modify that
+   website.
+3. The licence covers **that one website for that practice**. A second website
+   needs a new licence.
+4. **Resale or redistribution of the underlying design system is not
+   permitted.**
+
+These are intended outcomes, not reviewed contract wording. Clause 13 and the
+service page must not be redrafted to assert them until a UK commercial
+solicitor has settled the language. See `LEGAL-REVIEW-PACK.md`, item 3.
+
+**Decision needed.** The drafting, from a solicitor.
 
 **Then.** Update clause 13 of `_pages/service-terms-practice-website.html`
 and the "Ownership and licensing" section of
@@ -65,31 +80,35 @@ agree.
 
 ---
 
-## 3. Whether the Practice Clarity price stays indicative
+## 3. RESOLVED — the offer structure and the payment model
 
-**State.** The site shows **£995** as a fixed price for Choose Your Practice
-Website, and **around £2,000** for Practice Clarity + Bespoke Website. The
-Guided Website tier has been retired: there are two routes, not three.
+**August 2026.** Superseded. There are not two routes and there is no "around
+£2,000". The settled position is one product with one add-on:
 
-**Why it is open.** Practice Clarity is proposal-led, so "around £2,000" is
-honest about a scope that genuinely varies — but a visitor comparing two
-numbers reads a fixed figure more confidently than an approximate one. If most
-proposals land at the same number in practice, fixing it would strengthen the
-page.
+- **Therapist Website £995** — fixed, including the first twelve months of
+  Website Care. **£500 to begin. £495 when you approve the finished website,
+  before it goes live.** The balance is triggered by the client's explicit
+  written approval, not by the studio declaring the work finished. A single
+  payment is not offered publicly.
+- **Practice Clarity £500** — a separate, earlier piece of work, agreed in
+  writing and invoiced separately, offered only where the intake shows it is
+  needed.
+- **Website Care** — included for twelve months, then £29 a month, no minimum
+  term. There is no annual price.
 
-**Decision needed.** Keep "around", or fix the figure once enough proposals
-have been written to know what it actually is.
+Retired and not to be reintroduced: the two-route structure, *Choose Your
+Practice Website*, *Practice Clarity + Bespoke Website*, *Guided Website*,
+*Straightforward Website*, *Template Website*, *Semi-Custom*, and the figures
+£495 **as an offer price**, £795, £1,495, £1,995, £2,195, £2,000 and £290.
 
-**Then.** If "from" is chosen, change it in `index.html`, `service.html`,
-`_pages/terms.html` and `_data/purchasing.yml` together, and update the QA
-price-consistency check, which currently asserts the flat figures.
-
----
+Note the one collision: **£495 is now in service as the balance instalment**, so
+it is no longer in `RETIRED_PRICES` and is no longer guarded automatically.
 
 ## 4. Website Care as a subscription
 
-**State.** Website Care is presented everywhere as optional, at £29 per month or
-£290 per year, with no minimum term. `_data/purchasing.yml` carries
+**State.** Website Care is included for the first twelve months, then optional
+at £29 per month with no minimum term. The annual price was retired in August
+2026: there is no £290. `_data/purchasing.yml` carries
 `subscriptions_enabled: false`. **No subscription product, Payment Link or
 recurring checkout has been built or activated**, as instructed.
 
@@ -103,38 +122,12 @@ be added to this release. See `STRIPE_SETUP.md`, "Before automatic fulfilment".
 
 ---
 
-## 5. Retiring the blanket `!important` heading rule
+## 5. RESOLVED — the blanket `!important` heading rule
 
-**State.** `assets/css/main.css` (section 43) contains:
-
-```css
-h1, h2, h3, h4, h5, h6, blockquote {
-  color: var(--logo-ink) !important;
-  font-family: var(--font-heading) !important;
-  font-weight: 400 !important;
-  letter-spacing: 0 !important;
-}
-```
-
-This silently overrode every contextual heading colour on the site. It is why
-the dark card on the About page rendered near-black text on dark green
-(1.41:1 against a 3:1 requirement) — a defect confirmed in the browser, not
-inferred.
-
-**What was done.** The dark-section heading colours in
-`assets/css/catalogue-refresh.css` now carry `!important` themselves, purely to
-counter that one rule. It is commented as such. Contrast is now clean across
-every route.
-
-**Decision needed.** Whether to retire the blanket rule properly.
-
-**Then.** Removing the four `!important` flags would let
-`catalogue-refresh.css` apply its own intended heading face (`--serif`:
-Iowan Old Style / Palatino / Georgia) instead of Instrument Serif. That is a
-visible change to the whole site's headings, so it is a design decision, not a
-tidy-up. Do it deliberately or not at all.
-
----
+**August 2026.** Obsolete. `assets/css/main.css` no longer exists: the site was
+recomposed onto a single hand-written stylesheet, `assets/css/studio.css`, and
+`npm run build:css` now fails if an `!important` declaration appears at all. The
+decision this section described cannot recur.
 
 ## 6. Live demo links for the website collection
 
@@ -142,9 +135,20 @@ tidy-up. Do it deliberately or not at all.
 Counselling* links to a live website. The other seven link to the enquiry form.
 `IMPLEMENTATION.md` recorded this as intentional pending subdomains.
 
-**Decision needed.** Whether to publish live demo subdomains for the other
-seven, and under what wording — they are Studio designs, not commissioned
-client work, and `/terms/` clause 5 now says so plainly.
+**August 2026 — resolved in principle, pending build quality.** The directions
+will be published as live concept sites, ranked by actual build quality rather
+than by intent, and only where a concept meets the threshold: three exceptional
+live concepts beat four where the fourth weakens the collection.
+
+Disclosure is now a single field, `provenance`, in `_data/collection.yml`, with
+four permitted values — *Studio Practice — fictional brief*, *Studio Practice —
+unofficial redesign concept*, *Live Practice — the studio's own*, and *Client
+Work*, which stays unused until it is factually true. No page may invent its own
+disclosure wording.
+
+**Decision needed.** Nothing further in principle. Per concept: whether the build
+meets the threshold, which is a judgement made against the assessment in
+`CONCEPT-PUBLICATION-ASSESSMENT.md`.
 
 ---
 

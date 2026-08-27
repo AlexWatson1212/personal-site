@@ -1,0 +1,16 @@
+{%- comment -%}
+  The provenance label for one collection entry.
+
+  Renders from _data/provenance.yml so the wording exists once. A page that
+  wants to say where a design came from includes this; it does not write its
+  own sentence. Deliberately a quiet label rather than a warning banner —
+  it is a fact about the work, stated plainly, not a caveat about it.
+
+  Parameters
+    key    an entry's `provenance` value
+    detail "true" to render the explanatory sentence as well
+{%- endcomment -%}
+{%- assign p = site.data.provenance[include.key] -%}
+{%- if p -%}
+<span class="provenance" data-provenance="{{ include.key }}">{{ p.label }}{% if include.detail %} <span class="provenance__detail">{{ p.detail }}</span>{% endif %}</span>
+{%- endif -%}

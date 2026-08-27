@@ -63,16 +63,23 @@ permalink: /service-terms/practice-website/
 
     <h2>3. Price and payment</h2>
     <p>
-      The price is {{ site.data.purchasing.price_display | default: "£995" }}, fixed.
-      It is normally paid in two equal instalments: half before the project begins
-      and half before the website is made live. The first instalment is due on
-      acceptance of the written scope; the second is invoiced when the website is
-      ready for launch, and launch and handover follow payment of it.
+      The price is {{ site.data.purchasing.price_display | default: "£995" }}, fixed,
+      and is paid in two instalments:
+      {{ site.data.purchasing.deposit_display | default: "£500" }} to begin and
+      {{ site.data.purchasing.balance_display | default: "£495" }} on approval.
     </p>
     <p>
-      Where the website is bought through the online checkout on this website, the
-      full price is taken by Stripe in a single payment at that point instead, and
-      no later balance is due.
+      The first instalment is due on your acceptance of the written scope, and
+      before the project begins. The second is invoiced <b>after you have approved
+      the finished website in writing</b>, and launch and handover follow payment
+      of it. The balance is triggered by your approval and not by the Studio
+      stating that the work is complete.
+      <span class="legal-flag">⚖</span>
+    </p>
+    <p>
+      There is no online checkout. The scope and the price are confirmed in
+      writing before any payment link is sent. A single payment may be agreed in
+      writing in place of the two instalments where both parties prefer it.
     </p>
     <p>
       Payment is taken by Stripe Payments UK, Ltd. and its group companies

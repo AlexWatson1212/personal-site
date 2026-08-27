@@ -12,10 +12,26 @@
 # page falls back to the "Ask a question first" route. That is the safe state.
 # ─────────────────────────────────────────────────────────────────────────────
 
-# The Therapist Website. The only route buyable online.
+# The Therapist Website. One price, taken in two instalments.
+#
+# THE CANONICAL PAYMENT SENTENCE lives here and nowhere else. Every page that
+# states the payment terms renders `payment_sentence`; no page writes its own
+# formulation. Three formulations were in circulation before August 2026 and
+# they contradicted each other, which is the whole reason this field exists.
+#
+# The balance is triggered by the client's explicit written approval of the
+# finished website, never by the studio declaring the work finished. A single
+# payment is not offered publicly; it may be agreed case by case in writing.
 price_display: "£995"
 price_numeric: "995.00"
 currency: "GBP"
+
+deposit_display: "£500"
+deposit_numeric: "500.00"
+balance_display: "£495"
+balance_numeric: "495.00"
+payment_sentence: "£500 to begin. £495 when you approve the finished website, before it goes live."
+payment_sentence_third_person: "£500 to begin. £495 when the client approves the finished website, before it goes live."
 
 # Practice Clarity is a separate, earlier piece of work: it produces the
 # answers a website is then built from, and its written Practice Direction is

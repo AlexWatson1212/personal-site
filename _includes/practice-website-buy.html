@@ -1,18 +1,26 @@
 {%- comment -%}
-  Therapist Website purchase action — the single source of truth for the £995
-  buy action. No other file may render a checkout link.
+  Therapist Website — how a project begins. The single source of truth for the
+  purchase action. No other file may render a checkout link.
+
+  August 2026. The route is deliberately human and is not a fallback: the client
+  names a design, the scope and price are confirmed in writing, and a payment
+  link for the first instalment is sent directly. That is what this component
+  says by default, stated positively — the site does not apologise for having no
+  self-service checkout, because self-service checkout is not the offer.
 
   Configuration comes from two data files:
 
-    site.data.purchasing            committed prices and route URLs
+    site.data.purchasing            committed prices, the canonical payment
+                                    sentence, and route URLs
     site.data.purchasing_resolved   generated at build time by
                                     scripts/purchasing-config.mjs
 
-  This include re-validates the resolved link rather than trusting it. It
-  renders a real checkout link ONLY when the build resolved purchasing to on
-  AND the URL still begins https://buy.stripe.com/. In every other case —
-  including a missing generated file — it renders the "opening shortly" state
-  and keeps the "Ask a question first" route working.
+  If a Payment Link is ever resolved at build time AND still begins
+  https://buy.stripe.com/, the first instalment is offered directly and the
+  written route becomes the secondary action. In every other case — including a
+  missing generated file — only the written route is shown. There is no disabled
+  control and no "opening shortly" state: an action a visitor cannot take is not
+  an action.
 
   A Payment Link URL is public by design. A Stripe secret or restricted key
   (sk_…, rk_…, whsec_…) must never appear in this repository.
@@ -24,6 +32,7 @@
 {%- assign cfg = site.data.purchasing -%}
 {%- assign resolved = site.data.purchasing_resolved -%}
 {%- assign price = cfg.price_display | default: '£995' -%}
+{%- assign deposit = cfg.deposit_display | default: '£500' -%}
 {%- assign link = resolved.active_payment_link | default: '' | strip -%}
 {%- assign link_prefix = link | slice: 0, 23 -%}
 {%- assign purchase_enabled = false -%}
@@ -31,15 +40,15 @@
   {%- assign purchase_enabled = true -%}
 {%- endif -%}
 
-<div class="buy" data-purchase-block data-purchase-state="{% if purchase_enabled %}open{% else %}closed{% endif %}">
+<div class="buy" data-purchase-block data-purchase-state="{% if purchase_enabled %}link{% else %}written{% endif %}">
   <p class="buy__price">
     <b>{{ price }}</b>
-    <span class="quiet small">Paid here in one payment. Half now and half before launch instead, if you would rather &mdash; ask first. Includes the first year of Website Care.</span>
+    <span class="quiet small">{{ cfg.payment_sentence }} Includes the first year of Website Care.</span>
   </p>
 
   {%- if purchase_enabled -%}
   <p class="buy__terms" id="buy-terms-{{ buy_id }}">
-    Payment is taken in full by Stripe. Before paying, please read the
+    The first instalment is taken by Stripe. Before paying, please read the
     <a class="inline-link" href="{{ cfg.urls.service_terms | relative_url }}">Therapist Website Service Terms</a>,
     the <a class="inline-link" href="{{ cfg.urls.cancellation | relative_url }}">cancellation and refund information</a>
     and the <a class="inline-link" href="{{ cfg.urls.privacy | relative_url }}">privacy notice</a>.
@@ -52,32 +61,30 @@
       rel="nofollow noopener"
       aria-describedby="buy-terms-{{ buy_id }}"
       data-purchase-action
-    >Pay {{ price }} and begin my website<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+    >Pay {{ deposit }} and begin my website<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
 
-    <a class="tlink buy-secondary" href="{{ cfg.urls.enquiry | relative_url }}">Ask a question first</a>
+    <a class="tlink buy-secondary" href="{{ cfg.urls.enquiry | relative_url }}">Tell me which design you like</a>
   </div>
 
   <p class="buy__terms">This opens Stripe's secure payment page. Card details are entered on Stripe, never on this website.</p>
   {%- else -%}
-  <p class="buy__terms buy-unavailable" id="buy-terms-{{ buy_id }}">
-    <strong>Online purchasing is opening shortly.</strong>
-    The Therapist Website is available now by asking a question first: I confirm
-    the scope in writing and send you a payment link directly. The
+  <p class="buy__terms buy-route" id="buy-terms-{{ buy_id }}">
+    <strong>How a project begins.</strong>
+    Tell me which design you like and roughly where your practice is up to. I read it,
+    say plainly whether I am the right person, and confirm the scope and the price in
+    writing. If you want to go ahead, I send you a payment link for the first
+    {{ deposit }} and the questionnaire follows. The
     <a class="inline-link" href="{{ cfg.urls.service_terms | relative_url }}">Therapist Website Service Terms</a>,
     <a class="inline-link" href="{{ cfg.urls.cancellation | relative_url }}">cancellation and refund information</a>
-    and <a class="inline-link" href="{{ cfg.urls.privacy | relative_url }}">privacy notice</a> apply either way.
+    and <a class="inline-link" href="{{ cfg.urls.privacy | relative_url }}">privacy notice</a> apply, and are worth
+    reading before you decide.
   </p>
 
   <div class="buy__actions">
-    <button
-      class="btn buy-action is-unavailable"
-      type="button"
-      disabled
-      aria-describedby="buy-terms-{{ buy_id }}"
-      data-purchase-action-disabled
-    >Pay {{ price }} and begin my website &mdash; not open yet</button>
-
-    <a class="btn btn--quiet buy-secondary" href="{{ cfg.urls.enquiry | relative_url }}">Ask a question first</a>
+    <a class="btn buy-action" href="{{ cfg.urls.enquiry | relative_url }}" aria-describedby="buy-terms-{{ buy_id }}" data-purchase-action>Tell me which design you like<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+    <a class="tlink buy-secondary" href="mailto:{{ cfg.support_email }}">or email {{ cfg.support_email }}</a>
   </div>
+
+  <p class="buy__terms">A reply within two working days. Nothing is agreed, and nothing is payable, until the scope and price are confirmed in writing.</p>
   {%- endif -%}
 </div>

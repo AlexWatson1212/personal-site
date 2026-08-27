@@ -1675,6 +1675,20 @@ p { text-wrap: pretty; }
   text-transform: uppercase;
 }
 
+/* Provenance. A quiet fact about the work, set as a small label directly under
+   the reference line — deliberately not a warning banner. The rule above it is
+   the only separation it needs. */
+.direction__provenance { margin-block-start: var(--s-2); }
+
+.provenance {
+  display: inline-block;
+  color: var(--text-quiet);
+  font-size: var(--t-tiny);
+  line-height: 1.4;
+}
+
+.provenance__detail { display: block; color: var(--text-faint); }
+
 .direction__name {
   font-family: var(--serif);
   font-size: var(--t-h3);
@@ -1855,6 +1869,12 @@ p { text-wrap: pretty; }
 
 @media (min-width: 48rem) { .anatomy__steps { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @media (min-width: 72rem) { .anatomy__steps { grid-template-columns: repeat(var(--anatomy-steps), minmax(0, 1fr)); gap: var(--s-4); } }
+
+/* Three-up variant. The default two-column start would leave a three-step rail
+   as 2 + 1 with a hole in it, and the 48rem four-column rule would leave an
+   empty fourth column. Used by the three decisions on /service/. */
+.anatomy--three .anatomy__steps { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 48rem) { .anatomy--three .anatomy__steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
 .anatomy__step { position: relative; padding-block-start: var(--s-5); }
 
@@ -3337,19 +3357,13 @@ legend {
   .enter { animation: none; opacity: 1; transform: none; }
 }
 
-.btn.is-unavailable {
-  --btn-bg: transparent;
-  --btn-fg: var(--text-quiet);
-  border-style: dashed;
-  border-color: var(--line-strong);
-  cursor: not-allowed;
-}
-
-.on-ink .btn.is-unavailable { --btn-fg: var(--on-ink-quiet); border-color: var(--line-on-ink); }
-.buy-unavailable strong { display: block; margin-block-end: var(--s-2); font-weight: 600; }
-.on-paper .buy-unavailable strong,
-.on-paper-deep .buy-unavailable strong { color: var(--text); }
-.on-ink .buy-unavailable strong { color: var(--on-ink); }
+/* The disabled "not open yet" purchase control was removed in August 2026 with
+   the styles that dressed it (.btn.is-unavailable). The route is written rather
+   than self-service, and a route a visitor can take needs no disabled state. */
+.buy-route strong { display: block; margin-block-end: var(--s-2); font-weight: 600; }
+.on-paper .buy-route strong,
+.on-paper-deep .buy-route strong { color: var(--text); }
+.on-ink .buy-route strong { color: var(--on-ink); }
 
 /* Legal and statement pages keep their existing structure; only the hero
    wrapper needs a rule of its own. */

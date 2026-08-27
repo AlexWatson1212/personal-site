@@ -131,6 +131,14 @@ const INTERNAL_NOTES = new Set([
   "OFFER-RESOLUTION-CHANGELOG.md", "LEGAL-INFORMATION-REQUIRED.md",
   "PRE-LAUNCH-CHANGELOG.md",
   "APPLY-two-routes.txt", "APPLY-refinement.txt",
+  /* August 2026. Strategy and review notes. They name retired figures in order
+     to record that those figures are retired, which is the opposite of drift —
+     and they are excluded from the build in _config.yml, so nothing here is
+     published. The check "Every root note is excluded from the published site"
+     is what keeps that true. */
+  "TRUST-ARCHITECTURE-REVIEW.md", "MINIMAL-LAUNCH-V2.md",
+  "LEGAL-REVIEW-PACK.md", "DIRECTION-NOTE-TEMPLATE.md",
+  "CONCEPT-PUBLICATION-ASSESSMENT.md", "POST-LAUNCH.md",
 ]);
 
 function isExcludedPath(rel) {
@@ -249,28 +257,41 @@ const KEY_PREFIXES = [
 const PUBLISHABLE_PREFIXES = [["pk", "live"].join("_") + "_", ["pk", "test"].join("_") + "_"];
 const STRIPE_SDK_HOST = "js." + "stripe.com";
 
-/* The whole commercial architecture, as three figures:
-     £995    the Therapist Website, paid once — the only headline price
-     £500    Practice Clarity, a separate earlier piece of work
+/* The whole commercial architecture, as four figures:
+     £995    the Therapist Website — the only headline price
+     £500    two things, and the distinction is load-bearing: the first
+             instalment of the £995, and separately the price of Practice
+             Clarity. Never let the two appear in one block unlabelled.
+     £495    the balance instalment, due on the client's written approval of
+             the finished website and before launch
      £29     Website Care per month, after the included first year
    £1,495 was retired in August 2026 along with the tier it implied: the
    website and Practice Clarity are never added together into one figure,
    because doing so presents them as two versions of the same purchase. Any
    other amount in published source is a mistake until this list says
    otherwise. */
-const APPROVED_PRICES = new Set(["£995", "£500", "£29"]);
+const APPROVED_PRICES = new Set(["£995", "£500", "£495", "£29"]);
 /* Figures that are not studio prices. £60 is a session fee drawn inside the
    tailoring illustration on the home page, where the point being made is that
    this practice's visitors need the cost before anything else. Held separately
    so the studio's own price list stays exact and a stray offer price cannot
    hide among them. */
 const CITED_AMOUNTS = new Set(["£60"]);
-const RETIRED_PRICES = ["495", "795", "1,495", "1,995", "2,195", "2,000", "290"].map((n) => "£" + n);
+/* £495 is NOT in this list any more. It was the retired Straightforward
+   Website price and re-entered service in August 2026 as the balance
+   instalment, so the suite can no longer guard the old offer by that number.
+   If a page says £495 without the words that make it an instalment, that is a
+   case to look at by hand. */
+const RETIRED_PRICES = ["795", "1,495", "1,995", "2,195", "2,000", "290"].map((n) => "£" + n);
 
 const purchasingYml = read("_data/purchasing.yml");
 const legalYml = read("_data/legal.yml");
 const intakeYml = read("_data/intake.yml");
 const buyInclude = read(BUY_INCLUDE);
+/* The include with its leading documentation comment stripped. Checks that ask
+   what the component RENDERS must read this; checks that ask how it is wired
+   may read the whole file. */
+const buyMarkup = buyInclude.replace(/\{%-?\s*comment\s*-?%\}[\s\S]*?\{%-?\s*endcomment\s*-?%\}/g, "");
 const purchasePage = read(PURCHASE_PAGE);
 const questionnaire = read(QUESTIONNAIRE);
 const completePage = read(COMPLETE_PAGE);
@@ -426,13 +447,33 @@ check("Checkout scope", "The buy component is included only on the Therapist Web
 });
 
 check("Checkout scope", "The buy component carries the stated calls to action", () => {
+  /* August 2026. The purchase route is written rather than self-service, and
+     the payment is taken in two instalments. Two things follow.
+
+     One: when a Payment Link is configured the action buys the FIRST
+     INSTALMENT, so the label must name the deposit and not the total. A button
+     reading "Pay £995" beside a £500 Payment Link would be a false statement
+     about what the click does.
+
+     Two: there is no disabled state any more. An action a visitor cannot take
+     is not an action, so the written route is a real link in both states. */
   assert(
-    /Pay \{\{ price \}\} and begin my website/.test(buyInclude),
-    `${BUY_INCLUDE} no longer renders "Pay {{ price }} and begin my website"`
+    /Pay \{\{ deposit \}\} and begin my website/.test(buyInclude),
+    `${BUY_INCLUDE} no longer renders "Pay {{ deposit }} and begin my website" — the paid action must name the instalment, not the total`
   );
+  assert(/deposit_display/.test(buyInclude), `${BUY_INCLUDE} does not take the instalment from _data/purchasing.yml`);
   assert(/price_display/.test(buyInclude), `${BUY_INCLUDE} does not take its price from _data/purchasing.yml`);
-  const secondaries = (buyInclude.match(/>Ask a question first</g) || []).length;
-  assert(secondaries >= 2, `${BUY_INCLUDE} must offer "Ask a question first" in both the open and closed states (found ${secondaries})`);
+  assert(/payment_sentence/.test(buyInclude), `${BUY_INCLUDE} does not render the canonical payment sentence`);
+
+  const written = (buyInclude.match(/>Tell me which design you like</g) || []).length;
+  assert(written >= 2, `${BUY_INCLUDE} must offer the written route in both states (found ${written})`);
+  /* Judge the markup, not the documentation comment above it — that comment
+     explains why there is no disabled control, and naming the thing it forbids
+     is not the same as rendering it. */
+  assert(
+    !/\bdisabled\b|is-unavailable|not open yet|opening shortly/i.test(buyMarkup),
+    `${BUY_INCLUDE} renders a disabled or "not open yet" control; the written route is the route, not a fallback`
+  );
 });
 
 /** The route blocks, on the services page and the home page. */
@@ -492,8 +533,10 @@ check("Commercial architecture", "One website price, and one place it is decided
     if (/£\s?1,?495/.test(body)) offenders.push(`${rel} — shows a combined website + Practice Clarity figure`);
   }
 
-  /* The service hero is the first screen of the buying decision. Exactly one
-     price belongs in it. */
+  /* The service hero is the first screen of the buying decision. The total and
+     its two instalments belong in it; a fourth figure does not. Before August
+     2026 this asserted exactly one price, when the payment terms were a phrase
+     rather than two numbers. */
   const heroStart = servicePage.indexOf("<section");
   const heroEnd = servicePage.indexOf("</section>");
   assert(heroStart > -1 && heroEnd > heroStart, "service.html has no opening section to inspect");
@@ -501,8 +544,11 @@ check("Commercial architecture", "One website price, and one place it is decided
      the price in prose and is checked separately. */
   const hero = servicePage.slice(heroStart, heroEnd);
   const heroPrices = new Set((hero.match(/£[\d,]+/g) || []));
-  if (heroPrices.size > 1) {
-    offenders.push(`service.html — the hero shows ${heroPrices.size} prices (${[...heroPrices].join(", ")}); it must show £995 alone`);
+  const heroAllowed = new Set(["£995", "£500", "£495"]);
+  for (const shown of heroPrices) {
+    if (!heroAllowed.has(shown)) {
+      offenders.push(`service.html — the hero shows ${shown}; only £995 and its two instalments belong there`);
+    }
   }
   if (!heroPrices.has("£995")) offenders.push("service.html — the hero does not show £995");
 
@@ -531,6 +577,54 @@ check("Commercial architecture", "One website price, and one place it is decided
 
   assert(offenders.length === 0, offenders.join("\n"));
   return "£995 is the only headline price; Practice Clarity follows Website Care";
+});
+
+check("Provenance", "Every direction declares a permitted provenance, and Client Work stays reserved", () => {
+  /* August 2026. Where a design came from is a factual claim about commissioned
+     work, not a wording preference: presenting Studio designs as client projects
+     would be a misleading commercial practice, and /terms/ clause 5 says as much.
+     So the vocabulary is closed, every entry must carry one, and `client` is
+     reserved until a real client website exists. */
+  const collection = read("_data/collection.yml");
+  const vocab = read("_data/provenance.yml");
+  const permitted = new Set(["studio-fictional", "studio-redesign", "live-own", "client"]);
+
+  for (const value of permitted) {
+    assert(new RegExp(`^${value}:`, "m").test(vocab), `_data/provenance.yml has no label for "${value}"`);
+  }
+
+  const keys = (collection.match(/^  key: .+$/gm) || []).length;
+  const declared = collection.match(/^  provenance: (.+)$/gm) || [];
+  assert(keys > 0, "_data/collection.yml lists no directions");
+  assert(
+    declared.length === keys,
+    `${keys} directions but ${declared.length} provenance values — every entry must declare one`
+  );
+
+  const offenders = [];
+  let clientClaims = 0;
+  for (const line of declared) {
+    const value = line.replace(/^  provenance:\s*/, "").trim();
+    if (!permitted.has(value)) offenders.push(`"${value}" is not a permitted provenance value`);
+    if (value === "client") clientClaims += 1;
+  }
+  assert(offenders.length === 0, offenders.join("\n"));
+  assert(
+    clientClaims === 0,
+    `${clientClaims} direction(s) claim Client Work. That value is reserved until a real, agreed client website exists — see _data/provenance.yml`
+  );
+
+  /* One include renders the label, so no page can word it differently. */
+  const inventing = [];
+  for (const [rel, body] of publishedBodies) {
+    if (rel === "_includes/provenance.html") continue;
+    if (/Studio Practice —|Live Practice —|Client Work/.test(body)) {
+      inventing.push(`${rel} writes a provenance label directly instead of including provenance.html`);
+    }
+  }
+  assert(inventing.length === 0, inventing.join("\n"));
+
+  return `${keys} directions · ${permitted.size} permitted values · Client Work unused`;
 });
 
 check("Analytics", "Loads nothing until it is configured, and never reads what is typed", () => {
@@ -777,13 +871,21 @@ check("Configuration", "The buy component gates on both the switch and the URL p
   );
 });
 
-check("Configuration", "The unavailable state still offers a working route", () => {
-  const closed = buyInclude.split("{%- else -%}")[1] || "";
-  assert(closed.length > 100, "the include has no closed-state branch");
-  assert(/Online purchasing is opening shortly/.test(closed), 'the closed state does not say "opening shortly"');
-  assert(/<button[\s\S]*?disabled/.test(closed), "the closed state is not a genuinely disabled button");
-  assert(/cfg\.urls\.enquiry/.test(closed), "the closed state has no working enquiry route");
-  assert(/>Ask a question first</.test(closed), 'the closed state has no "Ask a question first" link');
+check("Configuration", "The default state is a real route, not an apology", () => {
+  /* Renamed in August 2026. There is no "unavailable" state: when no Payment
+     Link is configured the component states the written route, which is the
+     launch route rather than a fallback. What this now guards is that the
+     default branch describes that route positively and links somewhere a
+     visitor can actually go. */
+  const written = buyInclude.split("{%- else -%}")[1] || "";
+  assert(written.length > 100, "the include has no default branch");
+  assert(/How a project begins/.test(written), "the default state does not describe how a project begins");
+  assert(/cfg\.urls\.enquiry/.test(written), "the default state has no working enquiry route");
+  assert(/>Tell me which design you like</.test(written), "the default state does not offer the written route");
+  assert(
+    !/(not open yet|opening shortly|coming soon|temporarily|for now|in the meantime)/i.test(written),
+    "the default state apologises for the absence of a checkout"
+  );
 });
 
 /* ------------------------------------------------------------------ *
@@ -1326,14 +1428,18 @@ check("Accessibility", "No page body declares its own main landmark", () => {
   return `${pages.length} page bodies`;
 });
 
-check("Accessibility", "Purchase actions are native controls with an explained disabled state", () => {
-  assert(/<a\b[^>]*class="[^"]*buy-action/.test(buyInclude), "the live buy action is not an anchor");
-  assert(/<button\b[\s\S]*?type="button"[\s\S]*?disabled/.test(buyInclude), "the unavailable state is not a disabled button");
-  assert(!/onclick=/i.test(buyInclude), "the buy action relies on an inline click handler");
-  assert(!/role="button"/.test(buyInclude), "the buy action fakes a button with a role attribute");
-  assert(/aria-describedby="buy-terms-/.test(buyInclude), "the buy action has no accessible description");
-  assert(/not open yet<\/button>/.test(buyInclude), "the disabled button label does not say it is not open yet");
-  assert(/Online purchasing is opening shortly/.test(buyInclude), "the disabled state is not explained in text");
+check("Accessibility", "Both purchase actions are real links, and both are described", () => {
+  /* August 2026. The disabled button is gone, so what is checked is that every
+     state offers a genuine anchor a keyboard user can reach and follow, that
+     nothing fakes a control, and that the action carries its description. */
+  const actions = (buyMarkup.match(/<a\b[^>]*class="[^"]*buy-action/g) || []).length;
+  assert(actions >= 2, `expected a real buy-action anchor in both states, found ${actions}`);
+  assert(!/<button\b/.test(buyMarkup), "the buy component renders a button; both states should be links");
+  assert(!/onclick=/i.test(buyMarkup), "the buy action relies on an inline click handler");
+  assert(!/role="button"/.test(buyMarkup), "the buy action fakes a button with a role attribute");
+  assert(!/\bdisabled\b/.test(buyMarkup), "the buy component still renders a disabled control");
+  const described = (buyMarkup.match(/aria-describedby="buy-terms-/g) || []).length;
+  assert(described >= 2, `both buy actions must carry an accessible description (found ${described})`);
 });
 
 check("Accessibility", "Every image carries an alt attribute", () => {

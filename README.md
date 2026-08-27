@@ -7,7 +7,7 @@ Jekyll 4.3, built and deployed by Netlify.
 
 | | |
 |---|---|
-| Therapist Website | **£995** — fixed, paid once, half to begin and half at launch, first twelve months of Website Care included |
+| Therapist Website | **£995** — fixed. £500 to begin, £495 when the client approves the finished website, before it goes live. First twelve months of Website Care included |
 | Practice Clarity | **£500** — a separate, earlier piece of work. Not a tier, not a bundle, not bought online. |
 | Website Care | Included for twelve months, then **£29** a month, no minimum term |
 | Custom project | Scoped and quoted individually |
@@ -16,9 +16,15 @@ The website and Practice Clarity are **never added into one figure**. The
 website service turns the client's answers into a website; Practice Clarity
 produces the answers, and its written Practice Direction is theirs whether or
 not a website follows. `scripts/qa.mjs` fails the build if a combined price
-reappears, if the service hero shows more than one price, if Practice Clarity is
-introduced before Website Care on `/service/`, or if any published page uses
-tier language (`upgrade`, `bundle`, `package`, `two ways to begin`).
+reappears, if the service hero shows any figure other than £995 and the two
+instalments, if Practice Clarity is introduced before Website Care on
+`/service/`, or if any published page uses tier language (`upgrade`, `bundle`,
+`package`, `two ways to begin`).
+
+**£500 means two things and the distinction is load-bearing.** £500 to begin is
+the first instalment of the £995 website. £500 on its own is Practice Clarity, a
+separate piece of work. Never let the two appear in the same block without their
+labels.
 
 `_data/purchasing.yml` is the single source for those figures. `scripts/qa.mjs`
 fails if any other amount appears in published source, or if a retired offer

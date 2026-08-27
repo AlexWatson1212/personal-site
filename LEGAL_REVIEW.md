@@ -31,11 +31,16 @@ shown to customers after approval.
 `npm test` fails if any page claims the terms are legally approved, so that
 claim cannot be reintroduced by accident.
 
+**August 2026.** The questions a solicitor needs to answer — including the ones
+raised by the £500/£495 instalment model and the intended licence outcomes — are
+collected in `LEGAL-REVIEW-PACK.md`, which is the document to send. This file
+remains the record of what each page contains and why.
+
 ## Pages carrying draft contractual content
 
 | Page | Route |
 | --- | --- |
-| Choose Your Practice Website Service Terms | `/service-terms/practice-website/` |
+| Therapist Website Service Terms | `/service-terms/practice-website/` |
 | Cancellation and Refund Information | `/cancellation-and-refunds/` |
 | Terms and Conditions (general) | `/terms/` |
 | Privacy Policy | `/privacy/` |
@@ -108,16 +113,20 @@ wrapped in `[square brackets]` and rendered in italics.
 - **Clause 21** — applying the version of the terms current at the time of
   payment. Consider archiving each published version with its effective date so
   the applicable version can be produced later if it is ever disputed.
-- **`/terms/` clause 2** — the statement that only the Choose Your Practice Website
-  checkout is an offer capable of acceptance, and that prices shown elsewhere
-  are indicative rather than quotations. This is what keeps the "around
-  £2,000" figure from being treated as an offer.
+- **`/terms/` clause 2** — the statement about which published price, if any, is
+  an offer capable of acceptance, and that figures shown elsewhere are indicative
+  rather than quotations. **This needs rereading now that the route is human:**
+  at launch there is no checkout, £995 is published in full, and the scope is
+  confirmed in writing before any payment link is sent. Which document forms the
+  contract, and at what moment, is a question for review rather than an
+  assumption — see `LEGAL-REVIEW-PACK.md`.
 - **`/terms/` clause 5** — the statement that the website collection designs are
   Studio work rather than commissioned client projects, and that the practices
   shown are illustrative. This matters: presenting Studio designs as client work
   would be a misleading commercial practice.
-- **Website Care** — described everywhere as optional at £29 per month or £290
-  per year, with no minimum term, but it has no terms of its own. If it is ever
+- **Website Care** — included for the first twelve months, then optional at £29
+  per month with no minimum term. The annual price was retired in August 2026;
+  there is no £290. Care has no terms of its own. If it is ever
   sold, it needs them, and a recurring subscription needs more than terms (see
   `OPEN_DECISIONS.md`, item 4).
 
