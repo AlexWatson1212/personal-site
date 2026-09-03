@@ -1,0 +1,816 @@
+<title>Stillpoint Practice Clarity Blueprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,400;0,600;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap">
+
+<style>
+  :root {
+    --ground: #F1F2F0;
+    --surface: #FAFAF8;
+    --surface-2: #E8EAE6;
+    --ink: #1C2422;
+    --ink-soft: #3D4845;
+    --muted: #626C69;
+    --rule: #D6DAD5;
+    --rule-soft: #E2E5E0;
+    --accent: #2C5A63;
+    --accent-soft: #E1EAEB;
+    /* The concept's own accent, used only where the concept speaks for itself. */
+    --concept: #8A4A2E;
+    --concept-soft: #EFE6E0;
+
+    --serif: "Literata", "Iowan Old Style", Palatino, Georgia, serif;
+    --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --concept-face: "Source Serif 4", Georgia, "Times New Roman", serif;
+
+    --measure: 66ch;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #141817;
+      --surface: #1C2220;
+      --surface-2: #232A28;
+      --ink: #E7EAE6;
+      --ink-soft: #C6CCC8;
+      --muted: #939C98;
+      --rule: #2C3432;
+      --rule-soft: #242B29;
+      --accent: #86B7BC;
+      --accent-soft: #1E2E30;
+      --concept: #C98A64;
+      --concept-soft: #2A211C;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #141817;
+    --surface: #1C2220;
+    --surface-2: #232A28;
+    --ink: #E7EAE6;
+    --ink-soft: #C6CCC8;
+    --muted: #939C98;
+    --rule: #2C3432;
+    --rule-soft: #242B29;
+    --accent: #86B7BC;
+    --accent-soft: #1E2E30;
+    --concept: #C98A64;
+    --concept-soft: #2A211C;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+    font-optical-sizing: auto;
+  }
+
+  .shell {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 28px 120px;
+  }
+
+  /* ---------- Masthead ---------- */
+
+  .masthead { padding: 64px 0 36px; border-bottom: 1px solid var(--rule); }
+
+  .kicker {
+    font-family: var(--sans);
+    font-size: 11px; font-weight: 600;
+    letter-spacing: .16em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 22px;
+  }
+
+  h1 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(2.1rem, 5.2vw, 3.3rem);
+    line-height: 1.08; letter-spacing: -0.018em;
+    margin: 0 0 20px; max-width: 18ch; text-wrap: balance;
+  }
+
+  .standfirst {
+    font-size: clamp(1.05rem, 2.1vw, 1.22rem);
+    line-height: 1.55; color: var(--ink-soft);
+    max-width: 60ch; margin: 0 0 30px;
+  }
+
+  .meta-row {
+    display: flex; flex-wrap: wrap; gap: 8px 28px;
+    font-family: var(--sans); font-size: 12.5px; color: var(--muted);
+  }
+  .meta-row b { font-weight: 600; color: var(--ink-soft); }
+
+  .fiction {
+    margin: 28px 0 0;
+    padding: 2px 0 2px 18px;
+    border-left: 2px solid var(--concept);
+    font-family: var(--sans); font-size: 13px; line-height: 1.5;
+    color: var(--ink-soft); max-width: 78ch;
+  }
+
+  /* ---------- Glance strip ---------- */
+
+  .glance {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
+    gap: 1px; background: var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .g-cell { background: var(--ground); padding: 28px 24px 32px 0; }
+  .g-cell:not(:first-child) { padding-left: 24px; }
+  .g-cell .label {
+    font-family: var(--sans); font-size: 10.5px; font-weight: 600;
+    letter-spacing: .15em; text-transform: uppercase;
+    color: var(--accent); display: block; margin-bottom: 12px;
+  }
+  .g-cell .call { font-size: 1.14rem; line-height: 1.32; letter-spacing: -0.01em; margin: 0 0 8px; }
+  .g-cell .why { font-family: var(--sans); font-size: 12.5px; line-height: 1.5; color: var(--muted); margin: 0; }
+
+  /* ---------- Body layout ---------- */
+
+  .body-grid { display: grid; grid-template-columns: 1fr; gap: 0; }
+  @media (min-width: 1000px) {
+    .body-grid { grid-template-columns: 200px minmax(0, 1fr); gap: 64px; align-items: start; }
+    .toc { position: sticky; top: 32px; padding-top: 64px; }
+    main { padding-top: 64px; }
+  }
+
+  .toc { font-family: var(--sans); font-size: 13px; padding-top: 40px; }
+  .toc-head {
+    font-size: 10.5px; font-weight: 600; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--muted); margin: 0 0 16px;
+  }
+  .toc ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+  .toc a { display: flex; gap: 10px; text-decoration: none; color: var(--muted); padding: 5px 0; line-height: 1.35; }
+  .toc a:hover { color: var(--ink); }
+  .toc a .n { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--accent); flex: 0 0 auto; opacity: .85; }
+
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  main { padding-top: 40px; }
+  section { margin-bottom: 72px; scroll-margin-top: 24px; }
+
+  .sec-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 24px; padding-bottom: 13px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .sec-head .n { font-family: var(--mono); font-size: 13px; color: var(--accent); flex: 0 0 auto; }
+  h2 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(1.45rem, 3.2vw, 1.95rem);
+    line-height: 1.15; letter-spacing: -0.015em; margin: 0; text-wrap: balance;
+  }
+  h3 {
+    font-family: var(--serif); font-weight: 600; font-size: 1.12rem;
+    line-height: 1.3; letter-spacing: -0.005em; margin: 36px 0 12px;
+    max-width: var(--measure);
+  }
+  h4 {
+    font-family: var(--sans); font-weight: 600; font-size: 11.5px;
+    letter-spacing: .13em; text-transform: uppercase; color: var(--muted);
+    margin: 30px 0 10px;
+  }
+
+  p, ul, ol { max-width: var(--measure); }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 16px; padding-left: 1.15em; }
+  li { margin-bottom: 8px; }
+  li::marker { color: var(--muted); }
+  strong { font-weight: 600; }
+  a { color: var(--accent); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+
+  .lede { font-size: 1.08rem; line-height: 1.55; color: var(--ink-soft); max-width: 62ch; margin: 0 0 26px; }
+
+  /* ---------- Evidence device ---------- */
+
+  .ev {
+    margin: 26px 0 28px;
+    padding: 4px 0 4px 22px;
+    border-left: 2px solid var(--concept);
+    max-width: 60ch;
+  }
+  .ev p {
+    font-family: var(--concept-face);
+    font-size: 1.06rem; line-height: 1.5;
+    color: var(--ink); margin: 0 0 10px;
+  }
+  .ev p:last-of-type { margin-bottom: 8px; }
+  .ev cite {
+    display: block; font-style: normal;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: .04em; color: var(--concept);
+  }
+  .ev-inline {
+    font-family: var(--concept-face);
+    color: var(--ink);
+  }
+
+  .note {
+    font-family: var(--sans); font-size: 13px; line-height: 1.55;
+    color: var(--muted); max-width: 64ch; margin: 0 0 16px;
+  }
+  .infer {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-soft);
+    padding: 2px 6px; border-radius: 2px; white-space: nowrap;
+    vertical-align: 2px;
+  }
+
+  /* ---------- Ledgers and tables ---------- */
+
+  .ledger { border-top: 1px solid var(--ink); margin: 0 0 20px; max-width: 78ch; }
+  .ledger .row {
+    display: grid; grid-template-columns: 1fr; gap: 2px 28px;
+    padding: 15px 0; border-bottom: 1px solid var(--rule);
+  }
+  @media (min-width: 720px) { .ledger .row { grid-template-columns: 190px minmax(0, 1fr); } }
+  .ledger dt {
+    font-family: var(--sans); font-size: 11px; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+    padding-top: 4px;
+  }
+  .ledger dd { margin: 0; max-width: var(--measure); }
+  .ledger dd .sub { display: block; font-family: var(--sans); font-size: 13px; color: var(--muted); margin-top: 5px; line-height: 1.5; }
+
+  .chain { border-top: 1px solid var(--ink); margin: 24px 0 8px; }
+  .chain .link {
+    display: grid; grid-template-columns: 1fr; gap: 10px 26px;
+    padding: 18px 0; border-bottom: 1px solid var(--rule);
+  }
+  @media (min-width: 860px) { .chain .link { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .chain .cell .k {
+    font-family: var(--sans); font-size: 10.5px; font-weight: 600;
+    letter-spacing: .13em; text-transform: uppercase; color: var(--muted);
+    display: block; margin-bottom: 6px;
+  }
+  .chain .cell p { font-size: 15.5px; line-height: 1.5; margin: 0; max-width: none; }
+  .chain .cell:first-child p { font-weight: 600; }
+
+  .xtab-wrap { overflow-x: auto; margin: 0 0 20px; }
+  table.xtab { border-collapse: collapse; width: 100%; min-width: 640px; }
+  table.xtab th {
+    font-family: var(--sans); font-size: 10.5px; font-weight: 600;
+    letter-spacing: .13em; text-transform: uppercase; color: var(--muted);
+    text-align: left; padding: 0 24px 10px 0; border-bottom: 1px solid var(--ink);
+    vertical-align: bottom;
+  }
+  table.xtab th:last-child, table.xtab td:last-child { padding-right: 0; }
+  table.xtab td {
+    padding: 16px 24px 16px 0; border-bottom: 1px solid var(--rule);
+    vertical-align: top; font-size: 15.5px; line-height: 1.5; width: 50%;
+  }
+  table.xtab td:first-child { color: var(--ink); font-weight: 600; }
+  table.xtab td:last-child { color: var(--ink-soft); }
+  table.xtab td .q {
+    display: block; margin-top: 7px; font-family: var(--concept-face);
+    font-size: 14.5px; color: var(--concept);
+  }
+
+  .snap { border-top: 1px solid var(--ink); max-width: 82ch; }
+  .snap .row { padding: 16px 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 1fr; gap: 4px 28px; }
+  @media (min-width: 720px) { .snap .row { grid-template-columns: 210px minmax(0, 1fr); } }
+  .snap dt {
+    font-family: var(--sans); font-size: 11px; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--accent); padding-top: 5px;
+  }
+  .snap dd { margin: 0; font-size: 16.5px; line-height: 1.5; max-width: var(--measure); }
+
+  .cols { display: grid; grid-template-columns: 1fr; gap: 4px 40px; max-width: 82ch; }
+  @media (min-width: 800px) { .cols { grid-template-columns: 1fr 1fr; } }
+  .cols ul { margin-top: 0; }
+
+  .colophon {
+    margin-top: 8px; padding-top: 26px; border-top: 1px solid var(--rule);
+    font-family: var(--sans); font-size: 12.5px; line-height: 1.6; color: var(--muted); max-width: 72ch;
+  }
+
+  hr.soft { border: 0; border-top: 1px solid var(--rule-soft); margin: 34px 0; max-width: var(--measure); }
+</style>
+
+<div class="shell">
+
+  <header class="masthead">
+    <p class="kicker">Alexander Watson Studio &nbsp;·&nbsp; Portfolio case study</p>
+    <h1>Stillpoint Practice Clarity Blueprint</h1>
+    <p class="standfirst">
+      The practice reasoning behind Stillpoint Therapy, reconstructed from the finished
+      concept: who Michael Deane appears to be, who he naturally speaks to, what he
+      believes makes therapy useful, and why the website behaves and looks as it does.
+    </p>
+    <div class="meta-row">
+      <span><b>Concept</b> Stillpoint Therapy — Lewes, East Sussex, and online</span>
+      <span><b>Method</b> Reverse-engineered from the built site</span>
+      <span><b>Reading time</b> ~8 minutes</span>
+    </div>
+    <p class="fiction">
+      Stillpoint Therapy and Michael Deane are fictional, created for this portfolio.
+      No discovery process took place. Everything below is derived from what the finished
+      concept actually says and does; anything not stated in the concept is marked
+      <span class="infer">Inference</span> and is offered as strategic reading, not fact.
+      Quotations set in the concept's own typeface are taken verbatim from its pages.
+    </p>
+  </header>
+
+  <div class="glance">
+    <div class="g-cell">
+      <span class="label">Central proposition</span>
+      <p class="call">A place, not a process.</p>
+      <p class="why">Stillpoint sells an hour and a room, not a method or an outcome.</p>
+    </div>
+    <div class="g-cell">
+      <span class="label">Practitioner</span>
+      <p class="call">Experienced, and deflationary about it.</p>
+      <p class="why">Eighteen years; eleven in hospice and bereavement work. Treats attention as the skill.</p>
+    </div>
+    <div class="g-cell">
+      <span class="label">Client</span>
+      <p class="call">Functioning, and carrying something alone.</p>
+      <p class="why">Not in crisis. Managing. Out of anywhere ordinary to say it.</p>
+    </div>
+    <div class="g-cell">
+      <span class="label">Next step</span>
+      <p class="call">A conversation, not a commitment.</p>
+      <p class="why">Twenty free minutes whose stated purpose is deciding whether to meet at all.</p>
+    </div>
+  </div>
+
+  <div class="body-grid">
+
+    <nav class="toc" aria-label="Contents">
+      <p class="toc-head">Contents</p>
+      <ol>
+        <li><a href="#s1"><span class="n">01</span><span>Practice at a glance</span></a></li>
+        <li><a href="#s2"><span class="n">02</span><span>Professional identity</span></a></li>
+        <li><a href="#s3"><span class="n">03</span><span>Philosophy of change</span></a></li>
+        <li><a href="#s4"><span class="n">04</span><span>The people he helps</span></a></li>
+        <li><a href="#s5"><span class="n">05</span><span>Messaging &amp; voice</span></a></li>
+        <li><a href="#s6"><span class="n">06</span><span>Client experience</span></a></li>
+        <li><a href="#s7"><span class="n">07</span><span>Strategic translation</span></a></li>
+        <li><a href="#s8"><span class="n">08</span><span>Clarity snapshot</span></a></li>
+      </ol>
+    </nav>
+
+    <main>
+
+      <!-- 01 -->
+      <section id="s1">
+        <div class="sec-head"><span class="n">01</span><h2>Practice at a glance</h2></div>
+
+        <p class="lede">
+          Three lines on the homepage carry the whole positioning, and they have to be
+          read together rather than separately.
+        </p>
+
+        <div class="ev">
+          <p>Somewhere to stop for a while.</p>
+          <p>Most people who come here are not in crisis. They are managing. They are going to work, answering messages, doing the things that need doing.</p>
+          <p>They have simply reached a point where something needs saying out loud, and there is nowhere ordinary to say it.</p>
+          <cite>Home</cite>
+        </div>
+
+        <p>
+          The first line offers a <strong>place</strong> and a <strong>duration</strong>, and nothing else — no
+          outcome, no method, no promise about who you will be afterwards. The second
+          removes the entry requirement most people assume therapy has: you do not have to
+          be falling apart to qualify. The third supplies the actual reason for the
+          practice's existence. It is not that these people cannot speak. It is that the
+          settings available to them have run out of room.
+        </p>
+
+        <p>
+          Michael's own account of what he learned in the hospice says the same thing from
+          the practitioner's side — <span class="ev-inline">"people mainly need somewhere to
+          put things down"</span> — and the bereavement page names the mechanism directly:
+          a difficulty becomes unbearable when it becomes unspeakable, and
+          <span class="ev-inline">"sealing it off costs energy you cannot spare."</span>
+        </p>
+
+        <h3>The organising idea</h3>
+        <p>
+          The proposed wording — <em>an ordinary, undramatised place to stop and speak about
+          experiences that have become difficult to carry alone</em> — is close, but it
+          flattens a distinction the concept is careful about. Stillpoint does not
+          undramatise the experience. It is unusually blunt about how bad things are:
+          <span class="ev-inline">"People are kind for about a month. Then everyone goes back
+          to their lives, and you are still in it."</span> What it undramatises is
+          <em>therapy</em> — <span class="ev-inline">"two people in chairs having a serious
+          conversation, which is a fairly ordinary thing that has been made to sound
+          strange."</span>
+        </p>
+
+        <p>That asymmetry is the strategy. The proposition, restated:</p>
+
+        <div class="ev">
+          <p><strong>A regular, unremarkable hour in which something that has become unsayable everywhere else can be put down and said properly.</strong></p>
+          <cite>Proposed core proposition</cite>
+        </div>
+
+        <p>
+          The emotional function follows from it. Stillpoint does not lower the seriousness
+          of what people bring; it lowers their sense of how much entitlement they need in
+          order to bring it. The therapy page states this outright:
+          <span class="ev-inline">"You are allowed to come here without a diagnosis, without
+          a crisis, and without a clear reason."</span> <span class="infer">Inference</span>
+          For an audience whose main obstacle is the private thought <em>this probably isn't
+          bad enough</em>, that permission is the single most useful thing the site can do.
+        </p>
+
+        <p class="note">
+          Bereavement and life changes are the two doors, not the definition. Described as
+          "counselling for bereavement and life changes in Lewes", the practice loses the
+          part that makes it distinctive: it is organised around the absence of anywhere to
+          speak, not around a list of presenting problems.
+        </p>
+      </section>
+
+      <!-- 02 -->
+      <section id="s2">
+        <div class="sec-head"><span class="n">02</span><h2>Professional identity</h2></div>
+
+        <div class="ev">
+          <p>I am quiet in the room. I ask questions when they are useful and stay out of the way when they are not. I do not talk in the language of therapy, and I will not ask you to.</p>
+          <cite>Home</cite>
+        </div>
+
+        <p>
+          <strong>Identity statement.</strong> An experienced counsellor who treats sustained
+          attention as the whole of the skill, and who has removed from the work — and from
+          the way he describes it — everything that would require a client to perform.
+        </p>
+
+        <h4>Distinctive qualities</h4>
+
+        <p>
+          <strong>Deflationary about his own craft.</strong> He describes the hospice as teaching him
+          that the work takes <span class="ev-inline">"far less cleverness and far more
+          patience than I had assumed"</span>; calls the evidence for the therapeutic
+          relationship <span class="ev-inline">"the least glamorous finding in the whole
+          field"</span>; and titles a section <em>There is less mystery to it than people
+          imagine</em>. Expertise is real and eighteen years deep, but it is never staged.
+        </p>
+
+        <p>
+          <strong>Quiet as method, not temperament.</strong> The restraint is described as
+          deliberate and reasoned: <span class="ev-inline">"I ask a lot fewer questions than
+          people expect. When I do ask something, it is usually because I have not
+          understood, not because I am steering you somewhere."</span> Silence is claimed as
+          competence — <span class="ev-inline">"If you go quiet, I will not fill it for you
+          unless you want me to."</span> This is not passivity; it is a decision about who
+          is allowed to set the pace.
+        </p>
+
+        <p>
+          <strong>Direct, and correctable.</strong> The unusual half of the directness is the
+          second half: <span class="ev-inline">"If I think you are avoiding something, I
+          will say so, and you are free to tell me I am wrong. If I have got something badly
+          wrong, I would rather know."</span> He builds the client's right to overrule him
+          into the description of the work, and repeats it as a practical instruction on the
+          therapy page: if it isn't working, <span class="ev-inline">"say so."</span>
+        </p>
+
+        <p>
+          <strong>Unfrightened by the material.</strong> Eleven years in hospice and bereavement
+          services, and copy that goes where sympathy cards do not: relief and anger after a
+          death, a grief with no social permission attached, <span class="ev-inline">"grieving
+          someone you did not entirely like."</span> The therapeutic claim rests on it —
+          change happens when something is said <span class="ev-inline">"to someone who is
+          not frightened of it."</span>
+        </p>
+
+        <p>
+          <strong>Unhurried, as a stated resource.</strong> Time is what he says he has and other
+          settings do not: talking about the person who died <span class="ev-inline">"for as
+          long as it takes, which is usually longer than anyone has given you"</span>; with
+          people mid-transition, <span class="ev-inline">"first, we would slow it down."</span>
+        </p>
+
+        <p>
+          <strong>Bounded in public.</strong> The site publishes its own limits without
+          apology: no couples, families or children; no assessment or diagnosis; no reports
+          for courts, employers or insurers; not an emergency service; second floor, no
+          lift. <span class="infer">Inference</span> Publishing the boundaries is a trust
+          device rather than a disclaimer — a practitioner who names what he will not do is
+          more believable about what he will.
+        </p>
+
+        <p class="note">
+          Tested and set aside: <em>warm</em> and <em>empathetic</em> are true of any
+          competent therapist and are not claimed anywhere on the site. <em>Passive</em> is
+          wrong — he interrupts avoidance. <em>Austere</em> is wrong too; the writing is
+          dry rather than cold, and repeatedly funny in a way that only works if he likes
+          people.
+        </p>
+      </section>
+
+      <!-- 03 -->
+      <section id="s3">
+        <div class="sec-head"><span class="n">03</span><h2>Philosophy of change</h2></div>
+
+        <p class="lede">
+          The concept states a mechanism rather than a promise, and states it in three
+          places that agree with each other.
+        </p>
+
+        <div class="ev">
+          <p>That is not a technique; it is what happens when something gets said out loud, repeatedly, to someone who is not frightened of it.</p>
+          <cite>Therapy</cite>
+        </div>
+        <div class="ev">
+          <p>What tends to change is not the size of the loss but how much of your life it takes to carry.</p>
+          <cite>Loss &amp; Bereavement</cite>
+        </div>
+
+        <h3>Defining belief</h3>
+        <p style="font-size:1.16rem;line-height:1.45;max-width:56ch;">
+          Difficulty becomes unbearable largely because it becomes unsayable. Said out loud,
+          repeatedly, to someone unfrightened by it, it does not get smaller — it simply
+          takes less of a life to carry.
+        </p>
+
+        <p>
+          Two corollaries run through the site. First, that much of this is not illness:
+          <span class="ev-inline">"Grief is not an illness. Neither is realising at fifty-two
+          that you no longer recognise the life you built. These are problems of meaning,
+          and they respond to being thought about rather than treated."</span> Second, that
+          the relationship, not the model, is the active ingredient — which is why the
+          integrative training is explained in one paragraph and then set aside.
+        </p>
+
+        <div class="chain">
+          <div class="link">
+            <div class="cell"><span class="k">What Michael believes</span><p>Sealing something off is what costs; speech is the work.</p></div>
+            <div class="cell"><span class="k">What Michael does</span><p>No exercises, no worksheets, nothing to do between sessions, no rating your mood out of ten. The hour is for talking.</p></div>
+            <div class="cell"><span class="k">What the client experiences</span><p>Nothing to prepare, revise or perform. The only task is the one they came to do.</p></div>
+          </div>
+          <div class="link">
+            <div class="cell"><span class="k">What Michael believes</span><p>The relationship does most of the work, so it has to be examinable.</p></div>
+            <div class="cell"><span class="k">What Michael does</span><p>Invites contradiction, reviews the work out loud every couple of months, and treats "this isn't working" as useful information.</p></div>
+            <div class="cell"><span class="k">What the client experiences</span><p>Doubt can be spoken to his face without ending anything or becoming a failure.</p></div>
+          </div>
+          <div class="link">
+            <div class="cell"><span class="k">What Michael believes</span><p>Most of this is meaning, not pathology.</p></div>
+            <div class="cell"><span class="k">What Michael does</span><p>Declines diagnosis, assessment, reports and health insurance — insurers "require a diagnosis, session limits and reports, none of which fit the way I work."</p></div>
+            <div class="cell"><span class="k">What the client experiences</span><p>Arrives as a person with a situation rather than a patient with a condition.</p></div>
+          </div>
+          <div class="link">
+            <div class="cell"><span class="k">What Michael believes</span><p>Carrying capacity changes; the loss does not.</p></div>
+            <div class="cell"><span class="k">What Michael does</span><p>Promises no recovery, closure or stages — and explicitly refuses stage theory, because being told grief has stages "tends to make people feel they are doing it incorrectly."</p></div>
+            <div class="cell"><span class="k">What the client experiences</span><p>No schedule to fall behind, and no way to be grieving wrongly.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 -->
+      <section id="s4">
+        <div class="sec-head"><span class="n">04</span><h2>The people he naturally helps</h2></div>
+
+        <p class="lede">
+          The homepage describes them by what they are still doing, not by what is wrong
+          with them — a portrait of competence with something underneath it.
+        </p>
+
+        <div class="ledger">
+          <div class="row"><dt>Visible from outside</dt><dd>Full functioning. Work, messages, the school run, the estate paperwork. Nobody is worried about them.<span class="sub">Adults, individually; a lot of people in their forties, fifties and sixties. More than half of them men.</span></dd></div>
+          <div class="row"><dt>Happening inside</dt><dd>Something has ended, accumulated, arrived late, or never got said. In the concept's own registers: grief that <span class="ev-inline">"arrived late"</span>; a marriage <span class="ev-inline">"that has become silent"</span>; the sense that you are <span class="ev-inline">"living a life that belongs to somebody else."</span></dd></div>
+          <div class="row"><dt>Why ordinary support runs out</dt><dd>Four distinct reasons appear in the copy: kindness has a half-life (<span class="ev-inline">"kind for about a month"</span>); the material is repetitive and they will not raise it a fifth time; it is socially inadmissible (relief at a death, an ex-partner's death, drinking, saying so <span class="ev-inline">"would sound ungrateful"</span>); or the people they would tell are the subject.</dd></div>
+          <div class="row"><dt>Why therapy feels unavailable</dt><dd>An expectation of emotional performance — <span class="ev-inline">"a reasonable suspicion that therapy might involve being asked to perform an emotion on demand"</span> — plus jargon, the television version, being analysed, and not knowing what you are supposed to say. Deliberation is long: <span class="ev-inline">"somewhere between six months and nine years."</span></dd></div>
+          <div class="row"><dt>What they actually want</dt><dd>Modest and specific. To say a thing properly, once, to someone who will not flinch. To understand what happened. To stop being the only one holding it. Not transformation — the site never offers any.</dd></div>
+        </div>
+
+        <h3>The three doors, and why the third one is unusual</h3>
+        <p>
+          The homepage offers exactly three routes: <em>After a death</em>, <em>When things
+          change</em>, <em>If therapy is unfamiliar</em>. The first two are circumstances. The
+          third is not a problem at all — it is an objection, given equal weight, a full page
+          and a permanent slot in the navigation.
+          <span class="infer">Inference</span> For an audience that has deliberated for years,
+          unfamiliarity <em>is</em> the presenting problem, and burying it in an FAQ would
+          treat the largest barrier as a footnote.
+        </p>
+
+        <p>
+          The <em>For Men</em> page then handles the demographic reality without the usual
+          rhetoric. It opens by refusing the premise —
+          <span class="ev-inline">"This page is not about men being bad at feelings"</span>,
+          and <span class="ev-inline">"men talk perfectly well once it is clear what the thing
+          is for"</span> — and reframes the difficulty as practice and setting rather than
+          capacity. It then answers logistics: silence, having nothing to say, whether he
+          will tell your GP, whether one session is allowed.
+          <span class="infer">Inference</span> Michael is credible to this reader precisely
+          because he has already said the awkward parts out loud, so they are not required to
+          ask.
+        </p>
+      </section>
+
+      <!-- 05 -->
+      <section id="s5">
+        <div class="sec-head"><span class="n">05</span><h2>Messaging and voice</h2></div>
+
+        <h4>Primary message</h4>
+        <p style="font-size:1.16rem;line-height:1.45;max-width:52ch;">
+          You do not have to become a different kind of person, or explain yourself first,
+          to use this.
+        </p>
+
+        <h4>Supporting themes</h4>
+        <ol>
+          <li><strong>Nothing is required in advance.</strong> No diagnosis, no crisis, no clear reason, no vocabulary. <span class="ev-inline">"Two lines is enough."</span></li>
+          <li><strong>The practical facts are all here, in full.</strong> Fee, address, days, cancellation terms, what is written down, who could ever see it — published rather than available on request.</li>
+          <li><strong>Difficulty is described accurately, not softened.</strong> The site names relief, anger, guilt, drinking, an unmourned father, a death nobody counted.</li>
+        </ol>
+
+        <h4>Tone of voice</h4>
+        <p>
+          Plain · specific · deflationary · unhurried · dry · unpersuading. It has one
+          quality most therapy writing lacks entirely: exact, unshowy humour —
+          <span class="ev-inline">"the thing you built your identity on can be taken away by
+          email"</span>; <span class="ev-inline">"your body has started making decisions
+          without consulting you."</span> The jokes are never at the reader's expense, and
+          they are the clearest evidence that the restraint is not coldness.
+        </p>
+
+        <h3>Why the copy stops early</h3>
+        <p>
+          Its most characteristic move is to make an observation and then decline to
+          interpret it. <span class="ev-inline">"People are kind for about a month. Then
+          everyone goes back to their lives, and you are still in it."</span> No consolation
+          follows. <span class="ev-inline">"Nothing much happens here, which is the
+          point."</span> No elaboration follows.
+        </p>
+        <p>
+          This does two things at once. It leaves the reader to supply their own case, so the
+          writing fits a bereaved husband and a redundant fifty-five-year-old without
+          addressing either by name. And it demonstrates the room: a thing can be said here
+          without anyone rushing in to soften or solve it. <span class="infer">Inference</span>
+          The space after the sentence is doing the same work Michael says he does in
+          person — it is the page not filling the silence.
+        </p>
+
+        <div class="cols">
+          <div>
+            <h4>Language to embrace</h4>
+            <ul>
+              <li>Ordinary nouns, ordinary verbs, no register above the reader's</li>
+              <li>Real numbers: 55 minutes, £70, £45, 20 minutes, 48 hours, two working days</li>
+              <li>Observations the reader recognises before they agree with</li>
+              <li>Admissions of limit — what he will not do, and what he cannot</li>
+              <li>The reader's own words for things, including their scepticism</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Language to avoid</h4>
+            <ul>
+              <li>The concept's own blacklist: <span class="ev-inline">"No inner child, no journey, no holding space."</span></li>
+              <li>Safe space, healing, transformation, empowerment, authentic self</li>
+              <li>Stages, closure, or any implied timetable for grief</li>
+              <li>Reassurance offered before it has been earned</li>
+              <li>Anything that reads as an argument for having therapy</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 -->
+      <section id="s6">
+        <div class="sec-head"><span class="n">06</span><h2>Intended client experience</h2></div>
+
+        <div class="ledger">
+          <div class="row"><dt>Feel</dt><dd>Unhurried. Unobserved. Not required to perform, or to have an emotion ready. Taken seriously without being made into a patient. Allowed to stop reading, stop scrolling, or stop after one session. Allowed to say it badly.<span class="sub">Not "calm" — calm is the by-product. The operative feeling is <em>nothing is being asked of me yet</em>.</span></dd></div>
+          <div class="row"><dt>Understand</dt><dd>What Michael is like to sit with; what an hour actually contains; what it costs and where it happens; and whether this kind of work applies to them at all.<span class="sub">The site answers "what will this be like?" before "what is therapy?" — the order the anxious reader asks in.</span></dd></div>
+          <div class="row"><dt>Trust</dt><dd>Built by disclosure rather than assertion. Eighteen years and eleven in hospice work are stated once, flatly, in a ledger. Registration, supervision, insurance and the BACP framework are given as checkable facts, not badges. Prices are published in a table. The exceptions to confidentiality are listed in full, including the ones that are not flattering.<span class="sub">The strongest device is on the Fees page: NHS talking therapies, Cruse and hospice services are recommended by name, in the one place where a sale is at stake. Nothing else on the site proves as much.</span></dd></div>
+          <div class="row"><dt>Do next</dt><dd><em>Arrange a first conversation</em> — never "start therapy". An email or voicemail, replied to within two working days, then twenty free minutes whose stated purpose is <span class="ev-inline">"to work out whether to meet."</span><span class="sub">For someone who has thought about this for six months to nine years, the obstacle is not information but irreversibility. So the next step is made reversible, and the site blesses the exit: <span class="ev-inline">"Plenty of people stop there, which is a perfectly good outcome."</span></span></dd></div>
+        </div>
+      </section>
+
+      <!-- 07 -->
+      <section id="s7">
+        <div class="sec-head"><span class="n">07</span><h2>Strategic translation into the website</h2></div>
+
+        <p class="lede">
+          Each decision below is present in the built concept. The test applied to every row
+          is the same: why does this make sense for Michael, and for the person he naturally
+          works with?
+        </p>
+
+        <div class="xtab-wrap">
+          <table class="xtab">
+            <thead>
+              <tr><th scope="col">Strategic insight</th><th scope="col">Website consequence</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Michael's method is subtraction: he removes what would make a client perform.</td>
+                <td>The interface subtracts too. One typeface across the whole site, no icons, no cards, no testimonials, no badges, no pop-ups. Restraint is not a taste preference here — it is the same decision as not filling the silence.</td>
+              </tr>
+              <tr>
+                <td>The reader is deliberating, not shopping, and has usually been deliberating for years.</td>
+                <td>Long uninterrupted intervals between sections, and whole bands carrying a single sentence. The page declines the commercial instinct to fill every viewport with persuasion, and lets the reader stop mid-page without being chased.<span class="q">"Nothing much happens here, which is the point."</span></td>
+              </tr>
+              <tr>
+                <td>He is credentialled but refuses to stage expertise.</td>
+                <td>Type is set small and serif — body at 17px, and a display size that tops out barely above it. The largest words on the site are only slightly larger than the smallest. Nothing is shouted, so nothing has to be believed on the strength of its size.</td>
+              </tr>
+              <tr>
+                <td>He will not tell anyone how their grief or their divorce is supposed to feel.</td>
+                <td>Colour is almost entirely absent: ink, fog, paper, stone. The single accent — a low rust — appears only on links and hover states. Colour is reserved for <em>things you can do</em>, never for mood. The site issues no emotional instruction.</td>
+              </tr>
+              <tr>
+                <td>These clients are wary of being depicted, and of aspirational imagery.</td>
+                <td>Landscape and surface only: an estuary at flat light, reeds dissolving into mist, still water, a rendered wall in raking light. No people, no consulting-room staging, no soft-focus hands. The images give atmosphere without telling anyone what they should be feeling in it.</td>
+              </tr>
+              <tr>
+                <td>The practice is about a moment before change, not a resolution.</td>
+                <td>The homepage caption does the positioning without explaining itself.<span class="q">"The Ouse below Lewes, in the hour before the weather changes."</span>Place, waiting and imminent change in eleven words — factual enough to read as a caption, exact enough to be the thesis.</td>
+              </tr>
+              <tr>
+                <td>The first question is the visitor's, not the therapist's.</td>
+                <td>There is no portrait of Michael anywhere on the site. He is present as a first-person voice and as one wall of the building he works in. The opening screens stay with the reader's own situation instead of asking them to assess a stranger's face.</td>
+              </tr>
+              <tr>
+                <td>Atmosphere alone would leave the reader with nobody to meet.</td>
+                <td>The only charcoal field on the homepage is Michael's introduction. It is the strongest tonal shift on the page and it lands on the one human moment — a deliberate weight after a spacious opening. Elsewhere the dark field is reserved for the hardest direct address: the questions people ask on the bereavement and For Men pages, the urgent-help notice on Contact. Three pages carry no dark section at all, so it never becomes a rhythm.</td>
+              </tr>
+              <tr>
+                <td>The room is real and modest; the practice is not a lifestyle.</td>
+                <td>The consulting room is represented by a texture — plaster in raking light — captioned with a fact about the building's age. It establishes somewhere real without staging an aspirational interior, which would be a claim about status rather than about work.</td>
+              </tr>
+              <tr>
+                <td>A first decision is only useful if it is small.</td>
+                <td>Three pathways, not twenty service cards. Two circumstances and one objection are enough to route almost every visitor, and a short list can be read whole. Fragmenting into specialisms would imply that arriving with the wrong label disqualifies you — the opposite of the site's actual message.</td>
+              </tr>
+              <tr>
+                <td>Emotional restraint has to be paid for with practical certainty.</td>
+                <td>The sparse site becomes unusually concrete about logistics: 55 minutes, weekly, same time; Fisher Street, Tuesday to Thursday; online Monday and Friday; £70, with reduced places at £45 and no means test; 48 hours' notice; second floor, no lift. The atmosphere is allowed to be quiet because none of the facts are.</td>
+              </tr>
+              <tr>
+                <td>Being made to ask the price is a small humiliation.</td>
+                <td>Fees are a plain table on a page in the main navigation, opening with the reason for its own existence. Reduced-fee places are described in a way that costs the applicant nothing: <span class="q">"There is no form and no means test. You tell me it would help, I take you at your word, and we do not discuss it again."</span></td>
+              </tr>
+              <tr>
+                <td>Contact is the point of maximum reluctance.</td>
+                <td>The Contact page is built entirely around one line — <em>Two lines is enough</em> — with a short form, an optional phone field, a plain consent checkbox, and a stated reply time. What happens next is described before the form is submitted, so nobody sends a message into silence.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="note">
+          Two further implementation details support the reading rather than decorate it: the
+          layout is built on a fixed frame with a marginal label rail and a roughly 33rem
+          reading measure, so no line stretches on a wide screen; and asymmetric sections are
+          offset at 38.2% — a golden section — which is why the negative space reads as
+          composed rather than left over.
+        </p>
+      </section>
+
+      <!-- 08 -->
+      <section id="s8">
+        <div class="sec-head"><span class="n">08</span><h2>Practice clarity snapshot</h2></div>
+
+        <dl class="snap">
+          <div class="row"><dt>Professional identity</dt><dd>An experienced counsellor — eighteen years, eleven of them in hospice and bereavement work — who treats sustained attention as the whole of the skill. Quiet by method rather than temperament, direct enough to be told he is wrong, and unwilling to use the language of therapy at a client.</dd></div>
+          <div class="row"><dt>Ideal client</dt><dd>An adult who is still functioning perfectly well and is carrying something that has run out of anywhere to be said — a death, an ending, a change they did not choose — and who is wary of therapy's manner rather than its usefulness.</dd></div>
+          <div class="row"><dt>Defining belief</dt><dd>Difficulty becomes unbearable largely because it becomes unsayable; said out loud, repeatedly, to someone unfrightened by it, it takes less of a life to carry.</dd></div>
+          <div class="row"><dt>Core message</dt><dd>Somewhere to stop for a while — no crisis, no vocabulary and no explanation required in advance.</dd></div>
+          <div class="row"><dt>Voice</dt><dd>Plain · specific · deflationary · unhurried · dry · unpersuading</dd></div>
+          <div class="row"><dt>Desired feeling</dt><dd>Unhurried · unobserved · taken seriously · allowed to stop</dd></div>
+          <div class="row"><dt>Visual direction</dt><dd>An editorial object rather than a website: one serif across everything, small and evenly scaled; ink, fog, paper and stone with a single low rust reserved for things you can click; a fixed frame with marginal labels and a narrow reading measure; landscape and surface photography with no people in it, varied in shape so no two pages share a skeleton; charcoal fields spent only on the most direct address; motion slow enough to be noticed only in its absence.</dd></div>
+          <div class="row"><dt>Website priority</dt><dd>Let someone decide whether they could sit opposite this particular person — and then make the first step small enough to take today.</dd></div>
+          <div class="row"><dt>Principle that should survive every redesign</dt><dd>The site must never ask the visitor to be more certain, more articulate or more distressed than they actually are.</dd></div>
+        </dl>
+
+        <hr class="soft">
+
+        <p class="note">
+          The chain the concept has to hold: a quiet, deflationary practitioner → clients who
+          are competent, private and out of places to speak → who need permission and
+          practical certainty rather than persuasion → a belief that speech, not technique,
+          is what changes the weight of things → writing that observes and then stops → a
+          site that offers a small reversible step and publishes everything else → a
+          restrained editorial surface that issues no emotional instruction.
+          Read backwards, every visible decision has somewhere to land.
+        </p>
+
+        <p class="colophon">
+          <strong>Sources.</strong> All quotations are taken verbatim from the finished Stillpoint
+          concept — Home, About, Therapy, Loss &amp; Bereavement, Life Changes, For Men, How It
+          Works, Fees, Contact and Privacy — and from its implemented design tokens. No
+          qualifications, biography, specialisms, outcomes or personal history have been
+          added beyond what the concept states. Stillpoint Therapy and Michael Deane are
+          fictional; the practice does not exist and no client work is represented here.
+          Prepared for Alexander Watson Studio as portfolio case-study material.
+        </p>
+      </section>
+
+    </main>
+  </div>
+</div>
