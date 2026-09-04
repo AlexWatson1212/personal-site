@@ -1,0 +1,985 @@
+<title>Harbour Practice Clarity Blueprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500&family=Karla:ital,wght@0,400;0,600;1,400&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap">
+<style>
+  :root {
+    --paper: #eef1f4;
+    --surface: #ffffff;
+    --sunk: #e3e8ec;
+    --ink: #0e1519;
+    --muted: #56646e;
+    --faint: #7d8b95;
+    --rule: #ccd6dd;
+    --rule-soft: #dde4e9;
+    --accent: #1b4a7a;
+    --accent-soft: #dfe9f2;
+    --evidence: #8a5a12;
+    --evidence-soft: #f2e9d9;
+    --sans: "Karla", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --serif: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
+    --mono: "Azeret Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --page: 1120px;
+    --col: 700px;
+    --rail: 128px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0d1317;
+      --surface: #151d23;
+      --sunk: #1b242b;
+      --ink: #e3eaef;
+      --muted: #97a6b0;
+      --faint: #7b8994;
+      --rule: #26333c;
+      --rule-soft: #1f2a32;
+      --accent: #7fb6e6;
+      --accent-soft: #16242f;
+      --evidence: #d9a85c;
+      --evidence-soft: #241d10;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0d1317;
+    --surface: #151d23;
+    --sunk: #1b242b;
+    --ink: #e3eaef;
+    --muted: #97a6b0;
+    --faint: #7b8994;
+    --rule: #26333c;
+    --rule-soft: #1f2a32;
+    --accent: #7fb6e6;
+    --accent-soft: #16242f;
+    --evidence: #d9a85c;
+    --evidence-soft: #241d10;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16.5px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: var(--page); margin-inline: auto; padding: 0 26px 90px; }
+
+  /* masthead */
+  .masthead { padding: 66px 0 30px; border-bottom: 2px solid var(--ink); }
+  .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 18px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(2.5rem, 1.5rem + 3.4vw, 4.1rem);
+    line-height: 1.03;
+    letter-spacing: -0.024em;
+    margin: 0;
+    text-wrap: balance;
+    max-width: 17ch;
+  }
+  .standfirst {
+    font-size: clamp(1.06rem, 1rem + 0.35vw, 1.24rem);
+    line-height: 1.55;
+    color: var(--muted);
+    max-width: 58ch;
+    margin: 20px 0 0;
+  }
+  .note-fiction {
+    margin: 24px 0 0;
+    border-left: 3px solid var(--evidence);
+    padding: 2px 0 2px 16px;
+    font-size: 14.5px;
+    color: var(--muted);
+    max-width: 62ch;
+  }
+
+  /* the chain */
+  .chain-wrap { margin: 40px 0 56px; }
+  .chain-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin: 0 0 14px;
+  }
+  .chain {
+    display: flex;
+    gap: 6px;
+    align-items: stretch;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+  .chain li {
+    list-style: none;
+    flex: 1 1 0;
+    min-width: 116px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 34px 34px 4px 4px;
+    padding: 18px 12px 14px;
+    text-align: center;
+    position: relative;
+  }
+  .chain li + li::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 50%;
+    width: 8px;
+    height: 1px;
+    background: var(--rule);
+  }
+  .chain b {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .chain span {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    display: block;
+  }
+  .chain ol { display: contents; }
+  @media (max-width: 700px) {
+    .chain { flex-direction: column; }
+    .chain li { min-width: 0; border-radius: 4px; text-align: left; padding: 12px 14px; display: flex; gap: 12px; align-items: baseline; }
+    .chain li + li::before { left: 20px; top: -7px; width: 1px; height: 8px; }
+    .chain b { margin: 0; }
+  }
+
+  /* sections */
+  section { display: grid; grid-template-columns: var(--rail) minmax(0, 1fr); gap: 0 40px; margin-bottom: 66px; }
+  @media (max-width: 860px) { section { grid-template-columns: 1fr; } }
+  .rail { position: sticky; top: 22px; align-self: start; padding-top: 5px; }
+  @media (max-width: 860px) { .rail { position: static; padding-bottom: 12px; } }
+  .rail b { display: block; font-family: var(--mono); font-size: 11.5px; color: var(--accent); font-weight: 500; }
+  .rail span {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+  .body { min-width: 0; max-width: var(--col); }
+  .body.wide { max-width: none; }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(1.55rem, 1.2rem + 1.1vw, 2.05rem);
+    letter-spacing: -0.018em;
+    line-height: 1.12;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+  h3 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.002em;
+    margin: 30px 0 7px;
+  }
+  h4 {
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin: 26px 0 8px;
+  }
+  p { margin: 0 0 14px; }
+  p:last-child { margin-bottom: 0; }
+  a { color: var(--accent); }
+  em { font-style: italic; }
+
+  /* evidence */
+  .ev {
+    border-left: 3px solid var(--evidence);
+    background: var(--evidence-soft);
+    padding: 12px 16px;
+    margin: 18px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .ev p { margin: 0 0 8px; font-family: var(--serif); font-size: 1.02rem; line-height: 1.45; }
+  .ev p:last-child { margin-bottom: 0; }
+  .ev cite {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--evidence);
+    font-style: normal;
+    margin-top: 10px;
+  }
+  .ev--inline { background: none; padding: 2px 0 2px 16px; }
+
+  .belief {
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    padding: 20px 0;
+    margin: 26px 0;
+  }
+  .belief p {
+    font-family: var(--serif);
+    font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem);
+    line-height: 1.32;
+    letter-spacing: -0.012em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .belief b {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  /* tables */
+  .scroller { overflow-x: auto; margin: 18px 0; }
+  table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 15px; }
+  th, td { text-align: left; padding: 12px 20px 12px 0; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+  td:last-child, th:last-child { padding-right: 0; }
+  thead th {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--faint);
+    font-weight: 400;
+    border-bottom: 1px solid var(--rule);
+  }
+  tbody th { font-weight: 600; font-size: 15px; }
+  tbody td { color: var(--muted); }
+  tbody th em { color: var(--ink); font-style: normal; }
+
+  /* audience cards */
+  .aud { display: grid; gap: 18px; margin: 20px 0; }
+  @media (min-width: 780px) { .aud { grid-template-columns: 1fr 1fr; } }
+  .aud > div { border-top: 2px solid var(--ink); padding-top: 12px; }
+  .aud h3 { margin: 0 0 8px; font-family: var(--serif); font-weight: 600; font-size: 1.14rem; letter-spacing: -0.01em; }
+  .aud dl { margin: 0; display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 5px 14px; font-size: 14.5px; }
+  .aud dt { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--faint); padding-top: 4px; }
+  .aud dd { margin: 0; color: var(--muted); }
+
+  ul.plain { margin: 0 0 14px; padding-left: 1.15em; }
+  ul.plain li { margin-bottom: 6px; }
+  ul.plain li::marker { color: var(--faint); }
+
+  /* snapshot */
+  .snap { border-top: 2px solid var(--ink); }
+  .snap > div {
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 4px 28px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  @media (max-width: 620px) { .snap > div { grid-template-columns: 1fr; gap: 6px; } }
+  .snap dt {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--faint);
+    padding-top: 5px;
+  }
+  .snap dd { margin: 0; font-size: 15.5px; }
+  .snap dd.big { font-family: var(--serif); font-size: 1.16rem; line-height: 1.38; letter-spacing: -0.008em; }
+
+  .end {
+    border-top: 2px solid var(--ink);
+    margin-top: 20px;
+    padding-top: 20px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    color: var(--faint);
+    line-height: 1.7;
+  }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <p class="kicker">Practice Clarity · reverse-engineered from a finished concept</p>
+    <h1>Harbour, and why it is built the way it is.</h1>
+    <p class="standfirst">
+      A therapy centre for children, young people, parents and families, whose entire strategy is visible in
+      what it is willing to publish. This Blueprint works backwards from the website to the thinking that
+      would have to sit underneath it.
+    </p>
+    <p class="note-fiction">
+      Harbour is a fictional practice invented by Alexander Watson Studio. No discovery process took place.
+      Every claim below is inferred from the finished concept — its copy, structure, pathways, pricing,
+      accessibility provision, illustration, typography and interaction — and quoted where it is quotable.
+    </p>
+  </header>
+
+  <div class="chain-wrap">
+    <p class="chain-label">The chain this document has to prove</p>
+    <ul class="chain">
+      <li><b>01</b><span>Organisational identity</span></li>
+      <li><b>02</b><span>Families &amp; young people</span></li>
+      <li><b>03</b><span>Philosophy of care</span></li>
+      <li><b>04</b><span>Service experience</span></li>
+      <li><b>05</b><span>Communication</span></li>
+      <li><b>06</b><span>Website</span></li>
+      <li><b>07</b><span>Visual system</span></li>
+    </ul>
+  </div>
+
+  <!-- 1 -->
+  <section>
+    <div class="rail"><b>01</b><span>At a glance</span></div>
+    <div class="body">
+      <h2>What Harbour is, and what it appears to have worked out</h2>
+      <p>
+        Five people in one converted chapel in Stroud: a child psychotherapist who is also clinical lead, a
+        counsellor who works only with teenagers, a systemic family psychotherapist, a practitioner who sees
+        parents on their own — and Mel, who answers the phone. Three rooms, four audiences, and a fee list that
+        starts at nothing.
+      </p>
+      <p>
+        What distinguishes it is not the model but the <em>disclosure</em>. Harbour publishes what practices
+        normally keep back: the price on each stage of the process, the smell of the hallway, who picks up the
+        phone and whether they are clinical, exactly what a parent will and will not be told, the fact that
+        there is no lift, and the fact that roughly one call in six ends with a referral somewhere else.
+      </p>
+
+      <h4>What families are carrying when they arrive</h4>
+      <p>
+        Not a question about therapy. A parent arrives unsure the problem is serious enough to justify the
+        call, tired, quietly implicated, braced to be assessed. A teenager arrives assuming anything said gets
+        relayed home. Both fears are practical rather than clinical, and the site says so outright.
+      </p>
+      <div class="ev">
+        <p>“Most of the fear in a first appointment is about the building, not the therapy. Where do I park.
+        Which door. Who will be looking at me. Where do I wait. Is there a toilet.”</p>
+        <cite>Homepage · Our space</cite>
+      </div>
+
+      <h4>“Room to arrive.” and the sentence beneath it</h4>
+      <p>
+        The headline is doing two jobs at once. <em>Room</em> is a physical room — one the site will later show
+        you, describe the light in, and invite you to come and look at without an appointment. <em>Room</em> is
+        also latitude: time, and permission not to be ready. The line beneath converts that feeling into a
+        mechanism.
+      </p>
+      <div class="ev">
+        <p>“Nothing here is rushed, and almost nothing here is a surprise — we tell you what happens before it
+        happens.”</p>
+        <cite>Homepage · hero</cite>
+      </div>
+      <p>
+        Note <em>almost</em>. A practice claiming nothing would ever surprise you would be making a promise it
+        could not keep — and refusing to do that is itself the strategy.
+      </p>
+
+      <h4>Refining the defining principle</h4>
+      <p>
+        “Reducing uncertainty before asking people to engage with therapy” is close, but it understates two
+        things the site keeps insisting on. First, Harbour does not only remove unknowns, it <em>hands over
+        control</em>: you may look at the room first, decline to answer, stop at any point, ask for a different
+        therapist, or have someone else make the first contact for you. Second, this is not framed as a
+        courtesy. It is framed as clinically load-bearing.
+      </p>
+      <div class="ev">
+        <p>“Endings are held firmly here — it is one of the things that makes the hour safe.”</p>
+        <p>“Vagueness makes children more anxious, not less.”</p>
+        <cite>What to expect · Children</cite>
+      </div>
+      <div class="belief">
+        <b>The principle, sharpened</b>
+        <p>
+          Harbour removes the unknowns that stop people asking, and hands back the choices that let them stay —
+          and treats both as the first clinical act rather than as marketing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section>
+    <div class="rail"><b>02</b><span>Identity</span></div>
+    <div class="body">
+      <h2>Organisational identity</h2>
+      <div class="belief">
+        <b>Identity statement</b>
+        <p>
+          A five-person therapy centre in one building, which tells children, teenagers, parents and families
+          exactly what will happen before it happens — and is small enough for that to be true.
+        </p>
+      </div>
+
+      <h4>Six defining qualities, tested against the site</h4>
+      <div class="scroller">
+        <table>
+          <thead><tr><th>Quality</th><th>Where the site earns it</th></tr></thead>
+          <tbody>
+            <tr><th>Small, on purpose</th><td>“Small enough that we all know every family on the books, and that you will not be handed between people.” Scale is stated as a clinical feature, not apologised for.</td></tr>
+            <tr><th>Specific rather than reassuring</th><td>“a waiting area with a kettle that works”. “Thirteen stairs with a handrail on one side only.” It calms by being precise, not by being warm.</td></tr>
+            <tr><th>Unhurried</th><td>“Some people come for six weeks. Some come for a year. Nobody is put on a programme.” Family work is fortnightly because “families need the gap”. The process is called <em>How it usually goes</em>, not <em>Our pathway</em>.</td></tr>
+            <tr><th>Experienced, and unstartled</th><td>“someone who has met this before and is not alarmed by it.” The emotional offer is composure, not sympathy.</td></tr>
+            <tr><th>Willing to be limited</th><td>A published list titled <em>What we will not do</em>: no diagnoses, no medication, no court reports, no crisis cover, no taking sides. “Sometimes we say we are not [the right place].”</td></tr>
+            <tr><th>Honest about its own faults</th><td>The access section is headed “Honestly, including what does not work”, and the first item beneath it is “There is no lift.”</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Two sentences that carry the identity</h4>
+      <div class="ev">
+        <p>“A building, three rooms, and people who have been doing this a long time.”</p>
+        <cite>Homepage · about</cite>
+      </div>
+      <p>
+        This refuses abstraction on purpose. It offers a place, a count and a duration — no mission, no values,
+        no adjectives about care. It positions Harbour as a known quantity rather than a promise, which is the
+        only kind of claim a reader in doubt can actually check.
+      </p>
+      <div class="ev">
+        <p>“We are not an emergency service, and we are not the NHS. What we are is a steady hour, in the same
+        room, at the same time each week, with someone who has met this before and is not alarmed by it.”</p>
+        <cite>Homepage · about</cite>
+      </div>
+      <p>
+        Two negations, then a definition composed entirely of constants: same hour, same room, same time, same
+        person. Harbour’s offer is <em>repetition</em>. And the last clause answers a fear parents rarely say out
+        loud — that describing the problem to a professional will make it real, or worse.
+      </p>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section>
+    <div class="rail"><b>03</b><span>Philosophy</span></div>
+    <div class="body">
+      <h2>Philosophy of care</h2>
+      <p>
+        Across four audience pages, one argument keeps reappearing in different words: the structure around the
+        therapy is not administration wrapped around the useful part. It <em>is</em> the useful part.
+      </p>
+      <div class="ev">
+        <p>“The play is not a warm-up for the therapy — it is the therapy.”</p>
+        <p>“The privacy is not there to exclude you — it is the mechanism by which the work does anything at
+        all.”</p>
+        <p>“Endings are held firmly here — it is one of the things that makes the hour safe.”</p>
+        <cite>Children · Parents &amp; carers · What to expect</cite>
+      </div>
+      <div class="belief">
+        <b>Defining belief</b>
+        <p>
+          What helps is not a technique applied to a child, but the conditions around them — a predictable hour,
+          held firmly at both ends, private enough that honesty is affordable and open enough that it can be
+          stopped.
+        </p>
+      </div>
+
+      <h4>Belief → what Harbour does → what families experience</h4>
+      <div class="scroller">
+        <table>
+          <thead><tr><th>Belief</th><th>What Harbour does</th><th>What families experience</th></tr></thead>
+          <tbody>
+            <tr>
+              <th><em>Difficulty is not automatically pathology</em></th>
+              <td>Refuses to diagnose at all. Describes situations rather than conditions. “None of these has to reach crisis point first.”</td>
+              <td>Permission to come early, without a label and without having to prove severity.</td>
+            </tr>
+            <tr>
+              <th><em>Privacy is the mechanism</em></th>
+              <td>Publishes exactly what a parent will and will not be told, and explains the reasoning: a child who suspects the session is reported home “will edit everything they say”.</td>
+              <td>A teenager who can speak freely; a parent who knows the rule in advance rather than resenting it later.</td>
+            </tr>
+            <tr>
+              <th><em>Endings can undo the work</em></th>
+              <td>Counts down three or four sessions. Younger children make something to take home. “The door stays open.”</td>
+              <td>A child who has had important things stop without warning sees one ending done properly.</td>
+            </tr>
+            <tr>
+              <th><em>The work must stay examinable</em></th>
+              <td>“After six sessions we stop and ask whether this is helping. If it is not, we say so and think again with you.” Then roughly every eight.</td>
+              <td>No sunk-cost drift. Stopping is a named, expected option rather than a failure.</td>
+            </tr>
+            <tr>
+              <th><em>Different people in one family need different things</em></th>
+              <td>Four pathways, three rooms, parent-only work offered as a first-line route rather than a consolation, and an explicit “sometimes both”.</td>
+              <td>Nobody is fitted to the wrong service in order to keep the model tidy.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        One consequence is worth naming. Harbour keeps locating change outside its own building — parent work
+        for under-sevens “because the change happens in the sixteen hours a day they are with you rather than
+        the one hour a week they are with us”, family sessions fortnightly because “change happens at home, in
+        ordinary evenings”. An organisation that believes this has no incentive to maximise sessions, which is
+        precisely why it can afford to publish its prices.
+      </p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section>
+    <div class="rail"><b>04</b><span>The people</span></div>
+    <div class="body wide">
+      <h2>The people Harbour helps</h2>
+      <p style="max-width:var(--col)">
+        Four readerships with genuinely different fears. Collapsing them into one “ideal client” would break the
+        site, because the thing a fourteen-year-old needs to be told is the thing their parent is most anxious
+        about.
+      </p>
+
+      <div class="aud">
+        <div>
+          <h3>Children · roughly 4–11</h3>
+          <dl>
+            <dt>Happening</dt><dd>Mornings a battle, sleep gone, tummy aches with no medical cause, rage then remorse, or “they have become very, very good”.</dd>
+            <dt>Fear</dt><dd>Being taken somewhere to be discussed, and being made to say why.</dd>
+            <dt>Needs</dt><dd>What the room looks like, whether the grown-up stays, whether they have to talk.</dd>
+            <dt>Trust</dt><dd>Being written to directly. The children’s page contains a passage addressed to the child, not the parent.</dd>
+            <dt>Control</dt><dd>“You do not have to talk.” “If you want to stop and go home, you can say so.”</dd>
+          </dl>
+        </div>
+        <div>
+          <h3>Young people · 12–18</h3>
+          <dl>
+            <dt>Happening</dt><dd>School tolerance, friendships gone strange, someone at home not okay, feeling nothing, self-harm.</dd>
+            <dt>Fear</dt><dd>That it gets reported home. Being assessed. Being talked to in the careful voice.</dd>
+            <dt>Needs</dt><dd>Exactly where the confidentiality line sits — not a reassurance, a map.</dd>
+            <dt>Trust</dt><dd>“Written for you, not about you.” “There is nothing on this page designed to talk you into anything.”</dd>
+            <dt>Control</dt><dd>Emailing without a parent. Stopping. “You would know before it happened, and you would have a say in how.”</dd>
+          </dl>
+        </div>
+        <div>
+          <h3>Parents &amp; carers</h3>
+          <dl>
+            <dt>Happening</dt><dd>A change that has persisted past six weeks; strategies that used to work have stopped; the house organised around one child.</dd>
+            <dt>Fear</dt><dd>Being judged as the cause. Wasting a professional’s time. Being shut out. The cost.</dd>
+            <dt>Needs</dt><dd>Fees, timescales, referral requirements, and what they will actually be told.</dd>
+            <dt>Trust</dt><dd>The confidentiality line held <em>and</em> explained. “You will not get… a verdict on your parenting.”</dd>
+            <dt>Control</dt><dd>A parent consultation as a route in its own right. Waiting in the building, in town, or in the car.</dd>
+          </dl>
+        </div>
+        <div>
+          <h3>Families</h3>
+          <dl>
+            <dt>Happening</dt><dd>The same argument on a loop for two years; a separation; a step-family that has not settled; a bereavement everyone is handling privately.</dd>
+            <dt>Fear</dt><dd>Being put on trial. One person being blamed. Children interrogated in front of adults.</dd>
+            <dt>Needs</dt><dd>What a session physically looks like, who speaks first, and whether they need family work at all.</dd>
+            <dt>Trust</dt><dd>“Nobody is put on trial. If a session tips towards prosecution, we stop it.”</dd>
+            <dt>Control</dt><dd>“Often the honest answer is ‘start with one and see’.”</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="body" style="max-width:var(--col)">
+        <h3>What all four share</h3>
+        <p>
+          None of them is certain they qualify. Every pathway therefore contains a permission clause — “you are
+          allowed to read it as though you found it yourself”, “you do not have to be certain before you pick up
+          the phone”, “none of these are locked doors”.
+        </p>
+
+        <h3>Why nine situations beat a list of conditions</h3>
+        <p>
+          The homepage does not ask visitors to identify a disorder. It offers nine sentences people actually
+          say: school mornings as a daily battle; a death, a diagnosis, a separation; a teenager fine at school
+          and not fine at home; finding something that frightened you; anger arriving faster; bedtimes stopping;
+          a sibling relationship turned corrosive; a very long waiting list; nothing dramatic happening and
+          something still wrong.
+        </p>
+        <ul class="plain">
+          <li><strong>Diagnostic categories are a gate you can fail.</strong> A parent who cannot decide between anxiety and behavioural difficulty concludes the service is not for them, and leaves.</li>
+          <li><strong>Categories require a claim about your child.</strong> “Mornings have become a battle” commits a parent to nothing. “My child has an anxiety disorder” commits them to a great deal.</li>
+          <li><strong>Recognition is not classification.</strong> Nine scenes give nine chances to think <em>that is us</em>. One taxonomy gives one chance to be sorted.</li>
+          <li><strong>The site says this itself:</strong> “Nobody rings up saying ‘my child is presenting with generalised anxiety’. They say one of these.”</li>
+        </ul>
+
+        <h3>The barrier underneath “I think I might be overreacting”</h3>
+        <p>
+          It is not stigma, and it is not scepticism about therapy. It is <em>entitlement</em> — the learned
+          belief that help is rationed and has to be earned by being bad enough. The list itself names where that
+          belief comes from: “You have been on a waiting list for a very long time.” Triage teaches people that
+          they must qualify.
+        </p>
+        <div class="ev">
+          <p>“None of these has to reach crisis point first. Earlier is easier, and ‘I think I might be
+          overreacting’ is one of the most common opening lines we hear.”</p>
+          <cite>Homepage</cite>
+        </div>
+        <p>
+          Quoting the reader’s own self-doubting sentence back, and calling it ordinary, converts the doubt from
+          a disqualification into evidence that they are in the usual place. It is the single most efficient
+          strategic move on the homepage.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section>
+    <div class="rail"><b>05</b><span>Voice</span></div>
+    <div class="body">
+      <h2>Communication and voice</h2>
+      <div class="belief">
+        <b>Primary message</b>
+        <p>We will tell you what happens before it happens.</p>
+      </div>
+      <h4>Supporting messages</h4>
+      <ul class="plain">
+        <li>You can look at all of it first — the room, the price, the rule about what your parents get told — before you commit to anything.</li>
+        <li>Nobody here needs you to be certain, articulate, or in crisis.</li>
+        <li>If we are not the right place, we will say so.</li>
+      </ul>
+
+      <h4>Tone</h4>
+      <p>
+        Plain, specific, composed. Warm by accuracy rather than by adjective. Occasionally, drily funny — “a
+        Rubik’s cube nobody has solved”, “books, none of which are about feelings”. Never cheerful, and never
+        brave on the reader’s behalf.
+      </p>
+
+      <div class="scroller">
+        <table>
+          <thead><tr><th>Embrace</th><th>Avoid</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Concrete nouns — sand tray, kettle, ear defenders, thirteen stairs, white noise machine</td>
+              <td>“Journey”, “holistic”, “bespoke”, “person-centred pathway”, “we are passionate about”</td>
+            </tr>
+            <tr>
+              <td>Numbers — 50 minutes, £65, six sessions, one call in six, 810mm doorways</td>
+              <td>“Safe space” as a claim rather than a described condition</td>
+            </tr>
+            <tr>
+              <td>Naming the awkward thing first — “Money, and the questions people feel awkward asking”</td>
+              <td>Modality names in navigation — systemic, psychodynamic, integrative</td>
+            </tr>
+            <tr>
+              <td>Admissions — “There is no lift”, “one part of it is not”</td>
+              <td>Outcome promises, testimonials, exclamation marks</td>
+            </tr>
+            <tr>
+              <td>One-word sentences where the load is heaviest — “Ask.”</td>
+              <td>Language that asks the reader to be courageous before they have been told anything</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Why four small details do most of the trust-building</h4>
+      <div class="scroller">
+        <table>
+          <thead><tr><th>Detail</th><th>What it actually does</th></tr></thead>
+          <tbody>
+            <tr><th><em>“a kettle that works”</em></th><td>The qualifier is the whole sentence. Anyone can claim a kettle; only someone who has watched parents wait knows the failure mode. Specificity cannot be faked in the way an adjective can.</td></tr>
+            <tr><th><em>“Mel picks it up. She is not a therapist and will not ask you clinical questions.”</em></th><td>Removes the fear of an unexpected clinical interview at the moment of maximum exposure, and turns an institution into a named person before any commitment is made.</td></tr>
+            <tr><th><em>“Sometimes we say we are not [the right place].”</em></th><td>A service that can decline is exercising judgement rather than filling a diary. It is what makes the free call credible as an assessment rather than a sales conversation.</td></tr>
+            <tr><th><em>“There is no means test and no form. Ask.”</em></th><td>Low-cost places are normally gated by a proof-of-need process that is itself the deterrent. Removing the gate — and saying so — converts a policy into an invitation.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Where the voice sits</h4>
+      <p>
+        Not the NHS (procedural; it teaches people to wait). Not a private hospital (premium; it makes cost a
+        status question). Not a children’s charity (campaigning; it needs someone to be a victim). Not a
+        wellness brand (aspirational; it implies the reader is failing at something). Not a clinical report,
+        and emphatically not children’s entertainment.
+      </p>
+      <p>
+        It sits closest to <strong>a competent professional writing you a careful letter</strong> — a good GP
+        explaining a procedure to someone frightened: unhurried, exact, faintly wry, assuming intelligence. It
+        works for a fourteen-year-old and a forty-year-old at once because plainness is not simplification.
+      </p>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section>
+    <div class="rail"><b>06</b><span>Experience</span></div>
+    <div class="body wide">
+      <h2>The Harbour experience</h2>
+      <div class="scroller">
+        <table>
+          <thead>
+            <tr><th>Stage</th><th>The uncertainty</th><th>What Harbour tells them</th><th>What they should feel afterwards</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Looking for help</th><td>Is this even a problem? Am I overreacting?</td><td>Nine ordinary situations; “None of these has to reach crisis point first.”</td><td>Recognised, and not presumptuous for being here.</td></tr>
+            <tr><th>Choosing a pathway</th><td>Which of these am I? What if I pick wrong?</td><td>Four doors, plus “You can change your mind, and none of these are locked doors.”</td><td>Oriented, without having committed.</td></tr>
+            <tr><th>Making contact</th><td>Who reads this? What will they ask me?</td><td>Mel takes basic details, is not a therapist, and will not make you explain twice. Reply within one working day.</td><td>Safe to send three words rather than a history.</td></tr>
+            <tr><th>The free call</th><td>Is this a sales call? Am I being assessed?</td><td>Twenty minutes with a therapist. “You will not be asked to give a full history, and you will not be assessed. If you cry, nothing is written down about it.” One of four outcomes, including a referral elsewhere.</td><td>That a decision is being made <em>with</em> them, and can go either way.</td></tr>
+            <tr><th>First visit</th><td>Which door? Where do I wait? What if my child will not get out of the car?</td><td>Seven steps, minute by minute, from parking to leaving — including “no bell, no intercom, no announcing yourself” and “first names only, out loud”.</td><td>Able to picture it, and to describe it to a child.</td></tr>
+            <tr><th>Sessions</th><td>What actually happens in there? Do I have to talk?</td><td>Three separate descriptions by age. A published list of what is allowed, beginning “Not talking.”</td><td>That the hour has a shape, and they are not required to perform in it.</td></tr>
+            <tr><th>Reviews</th><td>How would I know if this is working? Am I allowed to say it is not?</td><td>Out loud at six sessions, then every eight. “Therapy that is not helping should stop, or change.” A rough patch around sessions four to seven is predicted in advance.</td><td>That doubt is expected, scheduled, and not a betrayal.</td></tr>
+            <tr><th>Ending</th><td>Will this just stop?</td><td>Three or four sessions of notice, marked each week. Something made to take home. “Coming back later is common and is not a relapse.”</td><td>That the ending was designed rather than administered.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="body" style="max-width:var(--col)">
+        <h3>Why this is not FAQ content</h3>
+        <p>
+          An FAQ answers questions a visitor has already formed. Harbour answers the ones people have not dared
+          to ask, or have not consciously formed: where do I wait, is there a toilet, what do I do for fifty
+          minutes, what if my child refuses to get out of the car, what happens if I cry.
+        </p>
+        <p>
+          These are not information gaps but <strong>rehearsal materials</strong>. Someone who can picture
+          arriving has partly arrived, and the real first visit costs them less. The site says as much —
+          “knowing the sequence is worth more than any reassurance we could offer” — and hands parents the same
+          material as a script, with words that work and words that backfire.
+        </p>
+        <p>
+          So predictability is not a website feature that stops at the door; it is one instrument used on both
+          sides of it. The waiting room has no leaflets, no posters and no radio; the website has a calm mode
+          that removes colour, decoration and movement. The building offers “ear defenders, in two sizes, that
+          anyone may borrow without asking”; the header offers “Reading”.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section>
+    <div class="rail"><b>07</b><span>Website</span></div>
+    <div class="body wide">
+      <h2>Strategic translation into the website</h2>
+      <div class="scroller">
+        <table>
+          <thead><tr><th>Strategic insight</th><th>Website consequence</th></tr></thead>
+          <tbody>
+            <tr><th><em>A parent, a fourteen-year-old and a family of five are not one reader</em></th><td>Four audience pathways in a secondary strip labelled <em>Pages written for</em>, and again as doors beneath the hero — routing happens before any service description is attempted.</td></tr>
+            <tr><th><em>A teenager sent a link must be able to read it as their own</em></th><td>The young people’s page opens by naming that exact situation, is written entirely in the second person, and carries its own enquiry route that “goes to Sam, not to your parents”.</td></tr>
+            <tr><th><em>Uncertainty is the barrier, so removing it is the product</em></th><td>A six-stage process occupies major homepage space, with the price on each stage and the first stage free.</td></tr>
+            <tr><th><em>People do not know whether they are entitled to come</em></th><td>Nine recognisable situations instead of a service list, with the permission clause directly beneath them.</td></tr>
+            <tr><th><em>The building is the fear, not the therapy</em></th><td>An entire page on parking, the door, the wait, the toilets, light, sound, smell and temperature — plus a standing invitation to look round with “no appointment, no questions asked”.</td></tr>
+            <tr><th><em>Money is the question people are most embarrassed to ask</em></th><td>Fees on the homepage, prices attached to stages, and a page titled “Money, and the questions people feel awkward asking”.</td></tr>
+            <tr><th><em>Being handed between practitioners breaks trust</em></th><td>“Four therapists and Mel, who answers the phone” — the whole organisation named in one line.</td></tr>
+            <tr><th><em>Some readers are overloaded before they arrive</em></th><td>A Reading control in the header of every page: text size, spacing, calm mode, remembered on the device.</td></tr>
+            <tr><th><em>Asking should cost nothing and commit to nothing</em></th><td>“Start a conversation”, never “Book now”.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="body" style="max-width:var(--col)">
+        <h3>Why illustration, and not photography</h3>
+        <p>
+          <strong>Ethics:</strong> a practice that publishes a safeguarding page cannot photograph its clients,
+          so any photograph is a model — staged fiction on a site whose premise is not staging things.
+          <strong>Representation:</strong> a photographed child is always a particular age, gender and
+          ethnicity, and Harbour serves four to eighteen plus adults; whoever is in the picture, most readers
+          are not. <strong>Register:</strong> stock images of distressed children perform the distress the site
+          is de-escalating, and smiling families make an outcome promise Harbour refuses to make.
+          <strong>Function:</strong> illustration does the one thing photography cannot — show a room
+          accurately with nobody in it.
+        </p>
+        <p>
+          That last point is the tell. These are diagrams, not mood images, and the accessibility page confirms
+          it: calm mode strips decoration, but “the room drawings stay, because they carry information.” A drawn
+          line also reads as made rather than bought, which quietly supports the five-people claim.
+        </p>
+
+        <h3>Why the colour system works the way it does</h3>
+        <p>
+          Cream is the ground for everything, so no audience owns the site — each owns a tint of it. Dark green
+          is reserved for the organisation’s own structure: wordmark, closing invitation, footer. The four
+          audience colours sit between, at low saturation, as a page-head tint and a dot beside a label.
+        </p>
+        <p>
+          Their job is <strong>positional, not symbolic</strong>. They say which of four parallel pages you are
+          on, and let you recognise on a second visit that you are back where you were. “Pink is for families”
+          misreads the system: the assignment is arbitrary and could be permuted without loss. What matters is
+          that there are four, that they are equal in weight, and that none is coded as the childish one —
+          hence the low saturation, and hence colour never being the only signal. Primary colours would have
+          told three of the four audiences the site was not addressed to them.
+        </p>
+
+        <h3>Why a serif and a sans, and which does what</h3>
+        <p>
+          The split carries the two claims Harbour makes at once. The serif takes headings and supplies the
+          old-chapel register — institutional memory without institutional coldness. The sans takes everything
+          operational: prices, room specifications, access notes, step sequences. The practical information,
+          which a frightened reader most needs and least wants to decipher, is set in the face that survives
+          small sizes and dense tables. <em>We have been doing this a long time</em> in one voice; <em>here is
+          exactly what happens</em> in the other.
+        </p>
+
+        <h3>Why everything is an arch</h3>
+        <p>
+          The arch is the site’s one repeated form — the mark, the audience doors, the illustrated openings, the
+          step numbers, the dots. It works on three levels at once. It is the building, an old chapel with
+          arched openings. It is an opening you <em>pass through</em>, which is the proposition itself:
+          threshold, entrance, arrival. And it is a shelter with an open bottom — it contains without
+          enclosing, which is exactly the boundary Harbour keeps describing (“The door is not locked. It is
+          never locked.”). Cards are rounded but not pill-shaped, so they read as rooms rather than toys.
+        </p>
+
+        <h3>“Room to arrive.”</h3>
+        <p>
+          A short serif line, a great deal of space beneath it, and the building seen from a distance with one
+          lit doorway. The composition gives the phrase what the phrase describes. The chips underneath — no
+          referral needed, first call free, two to four weeks — answer the three questions that would otherwise
+          stop the reader scrolling, before any argument about therapy is attempted.
+        </p>
+
+        <h3>Why the Reading control is a strategy, not a compliance footnote</h3>
+        <p>
+          Harbour’s readership is predictably overloaded, and the site says so: “Much of this site is aimed at
+          children, at teenagers, at people reading on a phone at midnight, and at parents who are too tired to
+          concentrate. That set of readers sets the standard for everything here.” The page is titled <em>If it
+          cannot be read, it has failed.</em>
+        </p>
+        <p>
+          Three things make it a value rather than a provision. It sits in the header of <em>every</em> page,
+          not on an accessibility page — an ordinary affordance, in the spirit of “ear defenders, in two sizes,
+          that anyone may borrow without asking”. It is framed as making the site easier to read, not as a mode
+          for a category of person. And it persists on the device, so the second visit — when a hesitant reader
+          returns — is already adjusted. Calm mode is the digital form of the waiting room’s own rule: no
+          leaflets about mental health conditions, no posters telling you to be kind to yourself, no radio.
+        </p>
+
+        <h3>Why the process gets homepage space, with prices attached</h3>
+        <p>
+          Sequence and cost are the two unknowns that stop people, and separately each is incomplete. A price
+          list without stages does not say what you are buying; stages without prices leave a parent doing
+          arithmetic while trying to feel something. Together they answer the real question at a glance —
+          <em>what would it cost me simply to find out?</em> — and the answer is nothing, because stage one is
+          free. It also frames the call honestly: step two of six, not a lead-capture device.
+        </p>
+
+        <h3>Why the building page exists</h3>
+        <p>
+          Because it addresses the anxiety that actually prevents attendance, and because it has a second user.
+          A parent can read the room description aloud — which is why the detail runs to the smell of the
+          hallway, whether the tree is audible, and how warm the Nook is in winter. Those are the questions
+          children ask. It is not only reassurance for the person paying; it is a tool they use on the person
+          who has to walk through the door.
+        </p>
+
+        <h3>Why the team line names the receptionist</h3>
+        <p>
+          It does three things a clinical grid cannot. It names who you will actually speak to first, since
+          almost every enquirer meets Mel before a therapist. It pre-empts the fear of an unplanned clinical
+          conversation. And it makes the scale claim checkable — an organisation whose entire staff fits in one
+          sentence is small enough for “you will not be handed between people” to be believable. A credentials
+          grid presents interchangeable professionals; this presents a staffed building.
+        </p>
+
+        <h3>Why money is published</h3>
+        <p>
+          Hiding fees behind an enquiry turns a factual question into a social one: you must ask a person, and
+          asking about money while asking for help doubles the exposure. Publishing them deletes a conversation
+          the parent was dreading. Publishing the reduced rate <em>and</em> the absence of a means test deletes
+          the second, worse one — proving need. Cancellation terms come with their reason (“the hour is held
+          for you and cannot be filled at short notice”), the same move Harbour makes with confidentiality: a
+          rule with its rationale attached stops being a trap.
+        </p>
+
+        <h3>Why “Start a conversation”</h3>
+        <p>
+          “Book now” implies a decision already taken and a commitment about to be made. “Start a conversation”
+          implies the first step is talk, and that it may end there. It describes the actual product — a free
+          twenty-minute call that sometimes concludes with a referral elsewhere — and the contact page states
+          its thesis outright: <em>Asking is not the same as agreeing to anything.</em>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section>
+    <div class="rail"><b>08</b><span>Snapshot</span></div>
+    <div class="body">
+      <h2>Practice Clarity snapshot</h2>
+      <dl class="snap">
+        <div>
+          <dt>Organisational identity</dt>
+          <dd class="big">A five-person therapy centre in one building in Stroud, working with children,
+          teenagers, parents and families. Small enough that nobody is handed between practitioners, and
+          candid enough to say when it is not the right place.</dd>
+        </div>
+        <div>
+          <dt>Who Harbour helps</dt>
+          <dd>Children of about four to eleven, young people to eighteen, parents and carers on their own, and
+          whole families — most of whom arrive unsure whether the difficulty is serious enough to justify the
+          call.</dd>
+        </div>
+        <div>
+          <dt>Defining belief</dt>
+          <dd class="big">The reliable structure around therapy — the same hour, held firmly at both ends,
+          private enough for honesty — is not administration. It is the active ingredient.</dd>
+        </div>
+        <div>
+          <dt>Core message</dt>
+          <dd class="big">We will tell you what happens before it happens.</dd>
+        </div>
+        <div>
+          <dt>Voice</dt>
+          <dd>Plain · specific · composed · unhurried · quietly funny · never cheerful</dd>
+        </div>
+        <div>
+          <dt>Desired experience</dt>
+          <dd>Oriented, unhurried, in control</dd>
+        </div>
+        <div>
+          <dt>Visual direction</dt>
+          <dd>A warm off-white ground with dark green reserved for the organisation’s own voice, and four
+          low-saturation audience tints that mark position rather than meaning. A serif for institutional
+          memory, a sans for everything practical. One repeated architectural form — the arch — carried through
+          the mark, the doors and the illustrations, because it is simultaneously the building, a threshold and
+          a shelter that does not enclose. Simple line illustration throughout: rooms drawn accurately with
+          nobody in them.</dd>
+        </div>
+        <div>
+          <dt>Website priority</dt>
+          <dd>Let a nervous parent or a suspicious teenager rehearse the entire first visit — room, sequence,
+          price and confidentiality rule — before making any contact at all.</dd>
+        </div>
+        <div>
+          <dt>Service priority</dt>
+          <dd>Say in advance what will happen, then do exactly that — including the reviews, the referrals
+          elsewhere, and the ending.</dd>
+        </div>
+        <div>
+          <dt>Principle that should survive every redesign</dt>
+          <dd class="big">Never make somebody ask for information they are frightened to ask for.</dd>
+        </div>
+      </dl>
+
+      <p class="end">
+        Harbour is a fictional child, young person and family therapy centre, invented by Alexander Watson
+        Studio to demonstrate brand identity and website design.<br>
+        Practice Clarity Blueprint · inferred from the finished concept · no discovery process took place
+      </p>
+    </div>
+  </section>
+
+</div>
