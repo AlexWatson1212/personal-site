@@ -27,7 +27,10 @@ reviewer: ""
 # ─────────────────────────────────────────────────────────────────────────────
 identity:
   # e.g. "Alexander Watson, a sole trader" or "Watson Studio Ltd (company no. 12345678)"
-  legal_name: ""
+  # Supplied 5 September 2026. Reads as "…between you and <this>, trading as
+  # Alexander Watson Studio, of <address>", so it carries the name and the legal
+  # status and nothing else — the trading name follows it in the sentence.
+  legal_name: "Alexander Watson, a sole trader"
   # Address for service of notices. Required on a UK commercial website.
   address: ""
 
@@ -51,4 +54,6 @@ data_protection:
 tax:
   # "not registered", or "registered — prices shown include VAT", or
   # "registered — prices shown exclude VAT"
-  vat_position: ""
+  # Supplied 5 September 2026. This renders as its own paragraph in clause 3, so
+  # it is written as a complete sentence rather than a fragment.
+  vat_position: "The Studio is not registered for VAT. The prices shown are the amounts charged, and no VAT is added to them."

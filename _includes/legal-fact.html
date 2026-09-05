@@ -11,8 +11,4 @@
                                todo="registered trading name and legal status" %}
 {%- endcomment -%}
 {%- assign fact = include.value | strip -%}
-{%- if fact != "" -%}
-{{ fact }}
-{%- else -%}
-<span class="legal-todo">[{{ include.todo }}]</span>
-{%- endif -%}
+{%- if fact != "" -%}{{ fact }}{%- else -%}<span class="legal-todo">[{{ include.todo }}]</span>{%- endif -%}
