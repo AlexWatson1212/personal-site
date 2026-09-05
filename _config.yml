@@ -1,6 +1,6 @@
 title: "Alexander Watson"
 brand: "Alexander Watson Studio"
-description: "Original website design for UK therapists and counsellors. Choose a complete design direction from the collection and have it tailored to your practice for £995, including the first year of Website Care."
+description: "Websites for therapists in UK private practice. A website that sounds like you and tells people what they need to know — choose a design direction, and I build it around your practice for £995, including the first year of Website Care."
 
 url: "https://alexanderwatson.co.uk"
 baseurl: ""
@@ -110,6 +110,14 @@ exclude:
   - APPLY-refinement.txt
   - package.json
   - package-lock.json
+
+  # Internal strategy, client blueprints and market evidence. Never published.
+  - _strategy
+
+  # Working directories: superseded files, QA output and staging copies.
+  - _to_delete
+  - _responsive-pass
+  - staging
 
   # Legacy pages retained for reference only.
   - legacy
