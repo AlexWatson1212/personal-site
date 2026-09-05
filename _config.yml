@@ -111,6 +111,9 @@ exclude:
   - package.json
   - package-lock.json
 
+  # Internal documentation. Never published.
+  - docs
+
   # Internal strategy, client blueprints and market evidence. Never published.
   - _strategy
 
