@@ -105,6 +105,13 @@ const EXCLUDED_DIRS = new Set([
 ]);
 
 const EXCLUDED_PREFIXES = [
+  /* Internal documentation and operational templates. Excluded from the build
+     by _config.yml, so they are not published files and must not be scanned as
+     though they were. The Direction Note template is deliberately full of
+     [bracketed] fields; that is what a template is. Leakage is still caught:
+     "Every root note is excluded from the published site" and the built-site
+     checks below fail if anything here reaches _site. */
+  "docs/",
   "_legacy/",
   "_preview/",
   "_responsive-pass/",

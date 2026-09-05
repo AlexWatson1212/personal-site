@@ -309,6 +309,64 @@ the legal form affects §8.
 
 ---
 
+## 12. What changed on 5 September 2026, and why
+
+The public pages were corrected before this pack was sent, so that what a solicitor
+reads matches what a visitor reads. Nothing below is a legal judgement; each item
+removed a statement the site was making about itself that was not true.
+
+**Contract formation (service terms clause 4).** The clause said acceptance was
+"recorded at the Stripe checkout" and that Stripe "requires you to confirm that you
+accept these terms before your payment can be completed". No self-service checkout has
+ever existed, and clause 3 said so in the same document. Clause 4 now describes the route
+that operates: scope and price confirmed by email, that email referring to these terms,
+and a contract formed on written acceptance and payment of the first instalment.
+**This is the item most in need of review** — whether formation sits at written
+acceptance, at payment, or at both, is a question for you rather than for us, and the
+wording has been kept deliberately plain so it can be replaced.
+
+**General terms.** "They are shown and accepted at checkout" and "Nothing on any page of
+this website is an offer capable of acceptance, except the Therapist Website checkout"
+both described the same non-existent mechanism. The second sentence had the effect, read
+literally, that nothing on the site could be accepted at all. Both now describe the
+written route.
+
+**Privacy notice section 2.** Was headed "Stripe checkout" and listed the fields
+collected "at present" at a checkout that does not exist. Stripe remains the processor —
+a payment link is sent after the scope is agreed — so the section is now headed "Payment"
+and describes what Stripe collects to take a payment and issue a receipt.
+
+**Cancellation and refunds.** The page answered the same scenario twice and differently:
+"you may cancel within that period and receive a full refund" in the consumer section,
+and "a full refund will be made, less any payment processing fee that Stripe does not
+return to me" in the stage-by-stage section. There is now one answer, and it is the one
+that cannot disadvantage a buyer: a full refund with nothing deducted. **Please confirm
+whether any deduction is lawful on a consumer cancellation, and whether a different
+position is available on a business purchase.** The same sentence on the Therapist
+Website page was corrected to match.
+
+**Website Care renewal.** The sales page said "I will write to you before the year is up
+and ask"; clause 12 said Care "continues only if you ask for it". Those are different
+obligations. Both now say that the Studio writes to ask and that Care continues only on
+the client's yes.
+
+**Handover.** Clause 12 promised to "hand over what is needed to host it elsewhere"
+without saying what that was. It now lists what is provided. The internal source is
+`docs/handover-runbook.md`; the two must not drift apart.
+
+**Three bracketed notes were removed from public pages.** They were instructions to you,
+not information for a reader, and a client reading the terms should not be reading them.
+Nothing was lost — each is already a question in this pack: the liability cap (§8), the
+model cancellation form (§9), and an alternative dispute resolution route (§11). Clause
+16 now states plainly that no cap is claimed, which is the conservative position pending
+your drafting.
+
+**Still unfilled, and deliberately so.** Eleven factual placeholders remain visible on
+the public pages, driven from `_data/legal.yml`. They are listed in
+`LEGAL-INFORMATION-REQUIRED.md`. They are Alexander's to supply and were not guessed.
+
+---
+
 ## What the studio is asking for
 
 1. Answers to the questions in §2 to §10.

@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Direction Note — template</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<style>
+  /* ───────────────────────────────────────────────────────────────────────
+     Direction Note — the Studio's one-page approval document.
+
+     Built to DIRECTION-NOTE-TEMPLATE.md and to the canonical document canvas
+     in docs/Practice Clarity — presentation standard.md: 1440 x 810 CSS px,
+     landscape 16:9. Printing to PDF through Chromium records that as
+     ~1080 x 607.9 pt, which is the same page in the other unit and is correct.
+
+     THREE RULES, from the spec, which the layout enforces:
+       1. No picture of the website. There is no space for one, deliberately.
+       2. Her language, not the Studio's. Section 1 is quotation, not rewrite.
+       3. Not Practice Clarity. No personas, values, competitors or moodboard.
+
+     TO USE: duplicate this file, replace every [square bracket], delete the
+     yellow guidance panel (it does not print anyway), then Print to PDF at
+     A4/Letter LANDSCAPE with margins set to None and background graphics ON.
+     If it is taking three hours, the fields are too long — cut, do not expand.
+     ─────────────────────────────────────────────────────────────────────── */
+
+  :root {
+    --paper:  #f7f4ef;   /* Studio paper  */
+    --ink:    #1d2622;   /* Studio ink    */
+    --quiet:  #4e5852;
+    --faint:  #5b645e;
+    --rule:   #d8d2c7;
+    --sage:   #e4e9e2;
+    --clay:   #8a4a2e;   /* the one accent; used for marks, never for mood */
+    --serif:  "Newsreader", ui-serif, Georgia, serif;
+    --sans:   "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #6c716c; }
+
+  .page {
+    position: relative;
+    width: 1440px; height: 810px;
+    margin: 24px auto;
+    padding: 34px 56px 28px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 14px; line-height: 1.45;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    row-gap: 14px;
+    overflow: hidden;
+  }
+
+  /* 0 · Header — fixed. Announces a decision, not a report. */
+  .head { display: flex; align-items: baseline; justify-content: space-between;
+          gap: 32px; padding-bottom: 12px; border-bottom: 1px solid var(--ink); }
+  .head__title { font-family: var(--serif); font-size: 26px; letter-spacing: -0.015em; margin: 2px 0 0; }
+  .head__title b { font-weight: 500; }
+  .head__meta { display: flex; gap: 30px; font-size: 12px; letter-spacing: 0.09em;
+                text-transform: uppercase; color: var(--faint); font-weight: 600; }
+  .head__meta i { display: block; font-style: normal; color: var(--ink);
+                  letter-spacing: 0.02em; text-transform: none; font-weight: 400;
+                  font-size: 14px; margin-top: 4px; }
+  .stamp { font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+           text-transform: uppercase; color: var(--clay); }
+
+  .body { display: grid; grid-template-columns: 1.28fr 1fr; column-gap: 56px; }
+  .col  { display: flex; flex-direction: column; gap: 12px; min-height: 0; }
+
+  .sec__label { font-size: 11px; font-weight: 600; letter-spacing: 0.15em;
+                text-transform: uppercase; color: var(--faint); margin-bottom: 5px; }
+  .sec__label span { color: var(--clay); margin-right: 8px; }
+  .sec p { margin: 0; max-width: 62ch; }
+
+  /* 1 · What I have understood. The most important 70 words in the project. */
+  .understood p { font-family: var(--serif); font-size: 17px; line-height: 1.4; }
+
+  /* 4 · How it is being tailored. One decision, one clause of reasoning. */
+  .tailoring { list-style: none; margin: 0; padding: 0; }
+  .tailoring li { display: grid; grid-template-columns: 120px 1fr; gap: 16px;
+                  padding: 5px 0; border-top: 1px solid var(--rule); }
+  .tailoring li b { font-weight: 600; }
+  .tailoring li span { color: var(--quiet); }
+
+  /* 5 · Palette and typefaces — decisions rendered, not layouts proposed. */
+  .swatches { display: flex; gap: 8px; margin-bottom: 9px; }
+  .swatches i { display: block; width: 40px; height: 40px; border-radius: 3px;
+                border: 1px solid rgba(29,38,34,.16); }
+  .faces { display: grid; gap: 4px; }
+  .faces .serif { font-family: var(--serif); font-size: 23px; }
+  .faces .sans  { font-size: 14px; color: var(--quiet); }
+
+  /* 6 · Site structure — a quiet second confirmation of the agreed scope. */
+  .pages { list-style: none; margin: 0; padding: 0; }
+  .pages li { display: grid; grid-template-columns: 140px 1fr; gap: 14px;
+              padding: 4px 0; border-top: 1px solid var(--rule); }
+  .pages li b { font-weight: 600; }
+  .pages li span { color: var(--quiet); }
+
+  /* 7 · What I am deliberately not doing. The first section cut in a busy
+     week, and the one that prevents the Round Two argument. Do not cut it. */
+  .not { background: var(--sage); padding: 12px 15px; border-radius: 4px; }
+  .not ul { margin: 0; padding-left: 17px; }
+  .not li { color: var(--quiet); padding: 2px 0; }
+
+  /* 8 · Your decision — fixed. One action, both consequences, the dates. */
+  .decision { display: grid; grid-template-columns: 1fr auto; align-items: center;
+              gap: 36px; padding: 15px 22px; background: var(--ink);
+              color: var(--paper); border-radius: 4px; }
+  .decision h2 { margin: 0 0 5px; font-family: var(--serif); font-weight: 400;
+                 font-size: 20px; }
+  .decision p { margin: 0; color: #cdd6cf; max-width: 92ch; }
+  .decision .by { text-align: right; font-size: 12px; letter-spacing: 0.09em;
+                  text-transform: uppercase; color: #9fada4; font-weight: 600; }
+  .decision .by b { display: block; font-size: 17px; letter-spacing: 0.02em;
+                    text-transform: none; color: var(--paper); margin-top: 5px;
+                    font-family: var(--serif); font-weight: 400; }
+
+  .fill { color: var(--clay); }
+
+  /* Guidance for whoever is filling this in. Never printed. */
+  .guide { max-width: 1440px; margin: 0 auto 24px; padding: 20px 28px;
+           background: #fdf6d8; border: 1px solid #e3d59a; border-radius: 4px;
+           font-family: var(--sans); font-size: 14px; line-height: 1.6; color: #4a422a; }
+  .guide h1 { margin: 0 0 8px; font-size: 17px; font-family: var(--serif); font-weight: 500; }
+  .guide ul { margin: 8px 0 0; padding-left: 20px; }
+  .guide code { background: #f2e8c2; padding: 1px 5px; border-radius: 3px; }
+
+  @media print {
+    html, body { background: #fff; }
+    .guide { display: none !important; }
+    .page { margin: 0; box-shadow: none; }
+    @page { size: 1440px 810px; margin: 0; }
+  }
+  @media screen { .page { box-shadow: 0 18px 50px rgba(0,0,0,.28); } }
+</style>
+</head>
+<body>
+
+<div class="guide">
+  <h1>Direction Note — how to fill this in</h1>
+  <p>Duplicate the file, replace every <code>[bracket]</code>, delete nothing else. Then
+     <b>Print → Save as PDF</b>, landscape, margins <b>None</b>, background graphics <b>on</b>.
+     This panel does not print.</p>
+  <ul>
+    <li><b>Word limits are the design.</b> §1 70 words · §2 40 · §3 45 · §4 four to six lines · §6 five pages · §7 two to three lines. Over the limit means the thinking is not finished.</li>
+    <li><b>Her words, not yours.</b> Every noun for what she does comes from her intake. If she wrote “long-term work”, it does not become “depth-oriented practice”.</li>
+    <li><b>No mockup, ever.</b> A picture here turns her approval into an early Round One and the document stops working.</li>
+    <li><b>Only what moved.</b> A tailoring line reading “typography unchanged” is filler — delete the row.</li>
+    <li><b>If §3 does not fit, say so here</b> and propose the alternative. That is cheaper than building to the wrong one.</li>
+    <li><b>If a field pulls toward personas, values, competitors or a moodboard</b>, stop: the practice may genuinely need Practice Clarity, which is a conversation, not a section.</li>
+    <li>Send as a PDF attached to an email whose body carries the approval question in plain text, so it can be answered from a phone.</li>
+  </ul>
+</div>
+
+<div class="page">
+
+  <!-- 0 · Header -->
+  <header class="head">
+    <div>
+      <p class="stamp">Direction Note · for approval</p>
+      <h1 class="head__title"><b>[Practice name]</b></h1>
+    </div>
+    <div class="head__meta">
+      <div>Starting point<i class="fill">[Case name]</i></div>
+      <div>Prepared<i class="fill">[Date]</i></div>
+      <div>Reply by<i class="fill">[Date + 5 working days]</i></div>
+    </div>
+  </header>
+
+  <div class="body">
+
+    <div class="col">
+      <!-- 1 · What I have understood — 70 words max -->
+      <section class="sec understood">
+        <p class="sec__label"><span>01</span>What I have understood</p>
+        <p class="fill">[Her practice written back to her, in her own words: who she works
+        with, what she offers, how she wants it to feel. Reflected, not reframed. She should
+        read this and think “yes, that is it” — not “that is interesting”. 70 words maximum.]</p>
+      </section>
+
+      <!-- 2 · Who the website is speaking to — 40 words max -->
+      <section class="sec">
+        <p class="sec__label"><span>02</span>Who the website is speaking to</p>
+        <p class="fill">[One sentence naming the person arriving — somebody in a specific
+        state at a specific moment, not a persona. Then one line on what they need to find
+        first. 40 words maximum.]</p>
+      </section>
+
+      <!-- 3 · The starting point, and why it fits — 45 words max -->
+      <section class="sec">
+        <p class="sec__label"><span>03</span>The starting point, and why it fits</p>
+        <p class="fill">[Name the case she keeps returning to and give two sentences on why
+        it suits this practice. If it does not suit it, say so here and propose the
+        alternative — before anything is built to the wrong one. 45 words maximum.]</p>
+      </section>
+
+      <!-- 4 · How it is being tailored — 4 to 6 lines -->
+      <section class="sec">
+        <p class="sec__label"><span>04</span>How it is being tailored</p>
+        <ul class="tailoring">
+          <li><b>Palette</b><span class="fill">[The decision, then one clause of reasoning drawn from her practice.]</span></li>
+          <li><b>Typography</b><span class="fill">[Decision, and why this practice needs it.]</span></li>
+          <li><b>Page rhythm</b><span class="fill">[Decision, and why.]</span></li>
+          <li><b>Imagery</b><span class="fill">[Decision, and why.]</span></li>
+          <li><b>The enquiry moment</b><span class="fill">[Decision, and why.]</span></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="col">
+      <!-- 5 · Palette and typefaces — visual -->
+      <section class="sec">
+        <p class="sec__label"><span>05</span>Palette and typefaces</p>
+        <p class="swatches" aria-hidden="true">
+          <i style="background:#EAE4D8"></i><i style="background:#D7CFC0"></i>
+          <i style="background:#8A4A2E"></i><i style="background:#2A2F2B"></i>
+        </p>
+        <div class="faces">
+          <span class="serif fill">[Display face] — headings</span>
+          <span class="sans fill">[Text face] — everything else</span>
+        </div>
+      </section>
+
+      <!-- 6 · Site structure — five pages maximum -->
+      <section class="sec">
+        <p class="sec__label"><span>06</span>Site structure</p>
+        <ul class="pages">
+          <li><b class="fill">[Page one]</b><span class="fill">[What this page is for, in one clause.]</span></li>
+          <li><b class="fill">[Page two]</b><span class="fill">[One clause.]</span></li>
+          <li><b class="fill">[Page three]</b><span class="fill">[One clause.]</span></li>
+          <li><b class="fill">[Page four]</b><span class="fill">[One clause.]</span></li>
+          <li><b class="fill">[Page five]</b><span class="fill">[One clause.]</span></li>
+        </ul>
+      </section>
+
+      <!-- 7 · What I am deliberately not doing — 2 to 3 lines -->
+      <section class="sec not">
+        <p class="sec__label"><span>07</span>What I am deliberately not doing</p>
+        <ul>
+          <li class="fill">[The thing you are leaving out, and the reason it would not help this practice.]</li>
+          <li class="fill">[A second.]</li>
+          <li class="fill">[A third, if there is one worth stating.]</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <!-- 8 · Your decision — fixed -->
+  <section class="decision">
+    <div>
+      <h2>This is the point at which the direction can change.</h2>
+      <p>Reply <b>approved</b> and the build starts on <span class="fill">[start date]</span>,
+      with the finished website expected <span class="fill">[indicative window]</span>. Or send
+      one message of changes — one consolidated revision of this note is included, and nothing
+      is built until your reply arrives.</p>
+    </div>
+    <p class="by">Reply by<b class="fill">[Date]</b></p>
+  </section>
+
+</div>
+</body>
+</html>

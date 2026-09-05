@@ -54,7 +54,10 @@ image: /assets/images/work/sofia-marin-website.webp
 
     <div class="collection">
       {% for d in site.data.collection %}
-        {% assign start = '/contact/?design=' | append: d.name | url_encode %}
+        {%- comment -%} Encode the value only. Encoding the whole string turned
+        the path separators into %2F and destroyed the query. {%- endcomment -%}
+        {% assign design_q = d.name | url_encode %}
+        {% assign start = '/contact/?design=' | append: design_q %}
         <article class="direction{% if d.feature %} direction--feature{% endif %}" id="{{ d.key }}">
           <div class="direction__inner">
             <a class="direction__link" href="{{ d.case | relative_url }}"

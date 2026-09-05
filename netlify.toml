@@ -1,5 +1,11 @@
+# The QA harness gates production. `test:site` is build + scripts/qa.mjs, which
+# exits non-zero on any failure, so a commit that breaks a price, reintroduces a
+# retired offer name, claims the legal wording is approved, or leaves an internal
+# note in the published output fails the deploy instead of reaching the public
+# site. Every commit on main deploys, including automated ones — this is the only
+# thing standing between a half-finished edit and a live page.
 [build]
-  command = "npm run build"
+  command = "npm run test:site"
   publish = "_site"
 
 [build.environment]
