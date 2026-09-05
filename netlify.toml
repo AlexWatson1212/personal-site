@@ -36,6 +36,15 @@
     Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
     X-Content-Type-Options = "nosniff"
 
+# Published case-study documents. Same cache policy as /assets/documents/:
+# long enough to be cheap, short enough that a corrected edition reaches
+# people without a filename change.
+[[headers]]
+  for = "/assets/practice-clarity/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+    X-Content-Type-Options = "nosniff"
+
 [[headers]]
   for = "/*"
   [headers.values]
