@@ -1,0 +1,177 @@
+# The collection: six finished portfolio cases.
+#
+# Until September 2026 this file held the exploratory design directions —
+# drawings of websites rather than websites. They did their job while the
+# portfolio was being built and are retired to
+# _strategy/retired-direction-collection-2026-09.yml, which is never published.
+#
+# What replaces them is evidence rather than illustration: six fictional
+# practices, each with a finished concept website that is live, and the
+# strategic document that produced it published beside it. The point of six is
+# range — a prospective client is meant to notice which one they keep
+# returning to, and that noticing is a real signal because the six sites have
+# almost nothing in common.
+#
+# PROVENANCE. Every entry must carry a `provenance` value, and only the four
+# in _data/provenance.yml are permitted. No page writes its own disclosure
+# wording — the label is rendered from there and must match the notice on the
+# concept site itself. `client` is reserved and stays unused until it is
+# factually true. scripts/qa.mjs enforces the vocabulary and the reservation.
+#
+# Fields
+#   ref          the number shown on the card
+#   key          the anchor on /work/, and the id an inbound link may target
+#   case         the case study route
+#   href         the live concept website
+#   pdf          the published strategic document
+#   shot / alt   the approved screenshot and its description
+#   distinction  the one strategic problem this case answers
+#   note         what the practice is, and what the site does about it
+#   swatches     paper, secondary, accent, ink — in that order
+#   feature      full width on /work/. Set on the first and the last entry only:
+#                with six cards in a two-column grid, a full-width card anywhere
+#                else strands the card beside it in an empty cell.
+
+- ref: "01"
+  key: sofia-marin
+  provenance: studio-fictional
+  name: Sofia Marin
+  case: /work/sofia-marin/
+  href: https://sofia-marin-concept.alexanderwatson.co.uk/
+  pdf: /assets/practice-clarity/practice-clarity-sofia-marin.pdf
+  practice: Solo therapist
+  atmosphere: Editorial and precise
+  distinction: Therapy for people who are tired of being read accurately.
+  note: >-
+    A fictional integrative therapist in Brighton, for adults whose lives are
+    working and no longer feel like theirs. The site describes nobody and hands
+    them the method instead: one sentence that never changes, and the meanings
+    underneath it that do.
+  tags: [One therapist, Photographic, Aubergine]
+  shot: /assets/images/work/sofia-marin-website.webp
+  alt: >-
+    The Sofia Marin homepage: a serif headline reading Therapy for adults, for
+    the point at which a life stops fitting, a portrait beside it, and a row
+    giving the fee, session length, working days and location.
+  swatches: ["#F4EFE6", "#E9E0D2", "#6A2F4A", "#22132A"]
+  feature: true
+
+- ref: "02"
+  key: maya-bennett
+  provenance: studio-fictional
+  name: Maya Bennett
+  case: /work/maya-bennett/
+  href: https://maya-bennett-concept.alexanderwatson.co.uk/
+  pdf: /assets/practice-clarity/practice-clarity-maya-bennett.pdf
+  practice: Solo counsellor
+  atmosphere: Warm and conversational
+  distinction: Counselling for the part before anybody has decided it counts.
+  note: >-
+    A fictional integrative relational counsellor in Bristol. The site removes
+    the preconditions people invent before counselling feels legitimate, then
+    argues that the unprepared account is the more useful material to start
+    from.
+  tags: [One therapist, Domestic photography, Plum and apricot]
+  shot: /assets/images/work/maya-bennett-website.webp
+  alt: >-
+    The Maya Bennett homepage: a large serif headline reading Most people start
+    in the middle of a sentence, a photograph of afternoon light on a curtain
+    beside it, and a row giving the fee, session length and location.
+  swatches: ["#F7F2E6", "#DED6EC", "#EF7F4B", "#4A2340"]
+
+- ref: "03"
+  key: daniel-mercer
+  provenance: studio-fictional
+  name: Daniel Mercer
+  case: /work/daniel-mercer/
+  href: https://daniel-mercer-concept.alexanderwatson.co.uk/
+  pdf: /assets/practice-clarity/practice-clarity-daniel-mercer.pdf
+  practice: Solo counsellor
+  atmosphere: Stark and typographic
+  distinction: No requirement to be good at talking before you start.
+  note: >-
+    A fictional integrative counsellor in Sheffield, for adults whose way of
+    coping has quietly stopped working. Most therapist websites promise an
+    outcome; this one removes an entry requirement, and answers every fear with
+    a fact rather than a reassurance.
+  tags: [One therapist, Typographic, Electric blue]
+  shot: /assets/images/work/daniel-mercer-website.webp
+  alt: >-
+    The Daniel Mercer homepage: a very large black grotesque headline on an
+    off-white page reading You don't have to be good at talking to start
+    therapy, a short introduction and one blue button beneath it, and a row
+    giving the fee, location, hours and first step.
+  swatches: ["#EFEEE9", "#E6E4DD", "#1B34DC", "#15171A"]
+
+- ref: "04"
+  key: helen-calder
+  provenance: studio-fictional
+  name: Helen Calder
+  case: /work/helen-calder/
+  href: https://helen-calder.alexanderwatson.co.uk/
+  pdf: /assets/practice-clarity/practice-clarity-helen-calder.pdf
+  practice: Solo counsellor
+  atmosphere: Warm and considered
+  distinction: An active therapist without authority over the conclusion.
+  note: >-
+    A fictional integrative counsellor in Didsbury, for adults who have already
+    spent years thinking about something alone. The site says what she will
+    actually do in the hour — ask, notice, name the awkward thing — and is
+    equally clear that the conclusions stay theirs.
+  tags: [One therapist, Arched forms, Claret and stone]
+  shot: /assets/images/work/helen-calder-website.webp
+  alt: >-
+    The Helen Calder homepage: a warm paper background, the serif headline Room
+    to think, and someone to think it through with, a paragraph saying what she
+    does and what she will not pretend to know, and an arch-shaped photograph
+    of afternoon light falling across a doorway.
+  swatches: ["#F4F0E8", "#DED5C4", "#543747", "#252623"]
+
+- ref: "05"
+  key: harbour
+  provenance: studio-fictional
+  name: Harbour
+  case: /work/harbour/
+  href: https://harbour-concept.netlify.app/
+  pdf: /assets/practice-clarity/practice-clarity-harbour.pdf
+  practice: Therapy centre
+  atmosphere: Protective and routed
+  distinction: An organisation whose whole proposition is the removal of ambush.
+  note: >-
+    A fictional therapy centre in Stroud — five people, one building and four
+    readerships who need contradictory things. Nothing arrives without notice
+    and almost nothing proceeds without your say-so, which is why the site
+    routes before it describes anything at all.
+  tags: [A centre, Families, Amber and green]
+  shot: /assets/images/work/harbour-website.webp
+  alt: >-
+    The Harbour homepage: a warm off-white page headed Room to arrive, a
+    paragraph saying that almost nothing here is a surprise, a strip of four
+    audience routes for children, young people, parents and families, and a
+    line illustration of an arched doorway with a lantern above it.
+  swatches: ["#FBF7F1", "#F6EFE6", "#F2B441", "#1D2A26"]
+
+- ref: "06"
+  key: stillpoint
+  provenance: studio-fictional
+  name: Stillpoint
+  case: /work/stillpoint/
+  href: https://stillpoint.alexanderwatson.co.uk/
+  pdf: /assets/practice-clarity/practice-clarity-stillpoint.pdf
+  practice: Solo counsellor
+  atmosphere: Quiet and exact
+  distinction: Nothing required in advance, and everything disclosed in advance.
+  note: >-
+    A fictional counsellor in Lewes, for people who are managing perfectly well
+    and have run out of anywhere to say the thing. The quietest site in the
+    collection, and the most concrete about fees, days and access — which turns
+    out to be the same decision twice.
+  tags: [One therapist, No people, Rust on stone]
+  shot: /assets/images/work/stillpoint-website.webp
+  alt: >-
+    The Stillpoint homepage: a pale grey-green page, the large serif headline
+    Somewhere to stop for a while, a two-sentence lede, two short paragraphs
+    saying that most people here are not in crisis, and a single underlined
+    action reading Arrange a first conversation.
+  swatches: ["#E6E7E3", "#F5F4EF", "#8A4A2E", "#20262A"]
+  feature: true

@@ -41,10 +41,10 @@ page_js: /assets/js/contact-enquiry.js
             </div>
 
             <p class="field">
-              <label for="f-design">Which direction are you drawn to?</label>
+              <label for="f-design">Which of the six do you keep returning to?</label>
               <select id="f-design" name="design">
                 <option value="">I am not sure yet</option>
-                {% for d in site.data.collection %}{% unless d.available == false %}<option>{{ d.name | strip_html }}</option>{% endunless %}{% endfor %}
+                {% for d in site.data.collection %}<option>{{ d.name | strip_html }}</option>{% endfor %}
               </select>
             </p>
 
@@ -58,7 +58,7 @@ page_js: /assets/js/contact-enquiry.js
             <p class="field">
               <label for="f-message">Your practice, and where you are up to</label>
               <textarea id="f-message" name="message" rows="6" required></textarea>
-              <span class="field__hint">A couple of lines is plenty. Who you work with, what you like about the direction, and whether your words are mostly ready, rough notes, or somewhere in between.</span>
+              <span class="field__hint">A couple of lines is plenty. Who you work with, what you like about the one you chose, and whether your words are mostly ready, rough notes, or somewhere in between.</span>
             </p>
 
             <button type="submit" class="btn">Prepare my enquiry email<span class="btn__arrow" aria-hidden="true">&rarr;</span></button>

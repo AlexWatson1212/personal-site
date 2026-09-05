@@ -1,30 +1,47 @@
 ---
 layout: default
 title: The website collection
-description: Seven original website directions for therapists and counselling services, plus the studio's own live practice. Browse by practice type, audience and atmosphere, then choose the one to make your own.
+description: Six finished websites for six fictional therapy practices, each published with the strategic work that produced it. Six different problems, six answers that look nothing like each other.
 permalink: /work/
-page_js: /assets/js/website-library.js
+image: /assets/images/work/sofia-marin-website.webp
 ---
 
-{% assign harbour = site.data.collection | where: "key", "harbour" | first %}
+{%- comment -%}
+  The collection, consolidated in September 2026.
+
+  It used to be eight exploratory design directions, drawn as CSS miniatures
+  because there was nothing finished to photograph. It is now the six cases
+  that were taken all the way: a built website, live, and the strategic
+  document that produced it, published beside it. The retired directions are
+  kept in _strategy/retired-direction-collection-2026-09.yml, which is never
+  published.
+
+  Every entry is drawn from _data/collection.yml, and every disclosure label
+  is rendered from _data/provenance.yml. Neither this page nor a case page
+  writes its own provenance wording.
+
+  This index deliberately stops short of the case studies. Each card carries
+  the practice, the one strategic problem it answers, and enough of the
+  reasoning to make somebody want to open it — and then stops.
+{%- endcomment -%}
 
 <section class="band band--sm on-paper">
   <div class="wrap">
     <div class="split split--wide-left">
       <div>
         <p class="label">The collection</p>
-        <h1 class="measure-2xs">Find the one that already feels like your practice.</h1>
+        <h1 class="measure-2xs">Six practices. Six answers that look nothing like each other.</h1>
       </div>
       <div class="stack stack--loose" style="align-self:end">
         <p class="lead measure-xl">
-          Seven complete, original directions to choose from. The eighth entry is my
-          own practice, included so you can see the same standard working as a real,
-          live website rather than a demonstration.
+          Six fictional therapy practices, each given a complete website and, published
+          beside it, the strategic work that produced it. Every conclusion sits next to
+          the design decision it caused, so you can check the second against the first.
         </p>
         <p class="small quiet measure-2xl">
-          You choose the closest starting point. I make the detailed design
-          decisions from there &mdash; and the direction is rebuilt around your
-          practice rather than recoloured.
+          They are not templates and not a house style with six colourways. Notice which
+          one you keep returning to &mdash; that is a real signal, because these six have
+          almost nothing in common.
         </p>
       </div>
     </div>
@@ -32,260 +49,70 @@ page_js: /assets/js/website-library.js
 </section>
 
 <section class="band band--sm on-sage">
-  <div class="wrap--wide" data-website-library>
-    <div class="library-tools">
-      <div class="chips" role="group" aria-label="Filter directions">
-        <button type="button" aria-pressed="true" data-filter="all">All</button>
-        <button type="button" aria-pressed="false" data-filter="solo">One therapist</button>
-        <button type="button" aria-pressed="false" data-filter="centre">A centre or service</button>
-        <button type="button" aria-pressed="false" data-filter="families">Families</button>
-        <button type="button" aria-pressed="false" data-filter="quiet">Quiet</button>
-        <button type="button" aria-pressed="false" data-filter="ordered">Ordered</button>
-        <button type="button" aria-pressed="false" data-filter="plain">Plain-speaking</button>
-      </div>
-      <label class="search-field">
-        <span>Search the collection</span>
-        <input type="search" data-website-search placeholder="Try quiet, families or clinical">
-      </label>
-    </div>
+  <div class="wrap--wide">
+    <h2 class="sr-only">The six cases</h2>
 
-    <p class="results-line" aria-live="polite">
-      <span data-results-count>08 entries</span>
-      <span data-results-message>Showing the complete collection</span>
-    </p>
-
-    <h2 class="sr-only">The website collection</h2>
-
-    <div class="collection" data-project-grid>
+    <div class="collection">
       {% for d in site.data.collection %}
-        {% assign target = '/contact/?design=' | append: d.name | url_encode %}
-        <article
-          class="direction{% if d.feature %} direction--feature{% endif %}"
-          id="{{ d.key }}"
-          data-project
-          data-search="{{ d.search }}"
-        >
+        {% assign start = '/contact/?design=' | append: d.name | url_encode %}
+        <article class="direction{% if d.feature %} direction--feature{% endif %}" id="{{ d.key }}">
           <div class="direction__inner">
-            <a class="direction__link"
-               href="{% if d.href %}{{ d.href }}{% else %}{{ target | relative_url }}{% endif %}"
-               {% if d.href %}target="_blank" rel="noopener noreferrer"{% endif %}
-               aria-label="{% if d.href %}Visit {{ d.name | strip_html }}{% else %}Start with the {{ d.name | strip_html }} direction{% endif %}">
-              <div class="plate-frame">{% include plate.html d=d %}</div>
+            <a class="direction__link" href="{{ d.case | relative_url }}"
+               aria-label="{{ d.name }} — the thinking, then the website">
+              <div class="plate-frame">
+                <img src="{{ d.shot | relative_url }}" alt="{{ d.alt | strip_newlines }}"
+                     width="1440" height="900"
+                     loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" decoding="async">
+              </div>
             </a>
 
             <div class="direction__meta">
               <p class="direction__ref"><span>{{ d.ref }} &nbsp;·&nbsp; {{ d.practice }}</span><span>{{ d.atmosphere }}</span></p>
               <p class="direction__provenance">{% include provenance.html key=d.provenance %}</p>
               <h3 class="direction__name">{{ d.name }}</h3>
+              <p class="direction__lede">{{ d.distinction }}</p>
               <p class="direction__note">{{ d.note }}</p>
               <p class="plate-swatches" aria-hidden="true">
-                <i style="background:{{ d.paper }}"></i>
-                <i style="background:{{ d.soft }}"></i>
-                <i style="background:{{ d.accent }}"></i>
-                <i style="background:{{ d.ink }}"></i>
+                {% for c in d.swatches %}<i style="background:{{ c }}"></i>{% endfor %}
               </p>
+              <ul class="tags">{% for tag in d.tags %}<li>{{ tag }}</li>{% endfor %}</ul>
               <div class="direction__foot">
-                <ul class="tags">{% for tag in d.tags %}<li>{{ tag }}</li>{% endfor %}</ul>
-                {% if d.available == false %}
-                  <a class="direction__go" href="{{ d.href }}" target="_blank" rel="noopener noreferrer">Visit the live site <span aria-hidden="true">&#8599;</span></a>
-                {% else %}
-                  <a class="direction__go" href="{{ target | relative_url }}">Start with this direction <span aria-hidden="true">&#8599;</span></a>
-                {% endif %}
+                <a class="direction__go" href="{{ d.case | relative_url }}">See the case <span aria-hidden="true">&rarr;</span></a>
+                <a class="tlink" href="{{ start | relative_url }}">Start with this design <span aria-hidden="true">&rarr;</span></a>
               </div>
             </div>
           </div>
         </article>
       {% endfor %}
     </div>
-
-    <div class="no-results" data-no-results hidden>
-      <h2>No exact match.</h2>
-      <p>Try a broader word, or clear the filters and browse by feel.</p>
-      <button type="button" class="btn" data-reset-library>Show all directions</button>
-    </div>
   </div>
 </section>
 
 <section class="band on-paper">
-  <div class="wrap--wide">
-    <div class="split split--wide-right align-center">
+  <div class="wrap">
+    <div class="split split--wide-left">
+      <div>
+        <p class="label">What every case has behind it</p>
+        <h2 class="measure-2xs">A live website, and the reasoning that produced it.</h2>
+      </div>
       <div class="stack stack--loose">
-        <p class="label">On a phone</p>
-        <h2 class="measure-xs">Most of the people reading are on a phone, and some of them are not calm.</h2>
-        <p class="quiet">
-          The phone view is not the desktop one stacked up: the hierarchy is
-          re-decided, the type re-set, and the thing a distressed reader needs first
-          moved to where they will find it. Every direction is tested to
-          WCAG&nbsp;2.2&nbsp;AA.
-        </p>
-      </div>
-      <div class="align-center" style="display:grid;grid-template-columns:1.3fr 0.7fr;gap:clamp(1rem,3vw,2rem)">
-        <div class="plate-frame">{% include plate.html d=harbour %}</div>
-        <div>{% include plate.html d=harbour phone="true" %}</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="band on-sage">
-  <div class="wrap--wide">
-    <div class="spread mb-8">
-      <div class="spread__aside"><p class="label">Taken all the way</p></div>
-      <div class="spread__body">
-        <h2 class="measure-sm">Six of them have the reasoning published beside the design.</h2>
-        <p class="quiet mt-4 measure-2xl">
-          Six finished concept websites for six fictional practices, each published
-          live with the strategic work that produced it. They are deliberately
-          nothing like each other. What they share is that every decision on the
-          page is set against the conclusion it came from, so you can check whether
-          the second actually explains the first.
-        </p>
-      </div>
-    </div>
-
-    <div class="split split--wide-right align-center">
-      <figure class="m-0">
-        <a href="{{ '/work/sofia-marin/' | relative_url }}" aria-label="Sofia Marin — the thinking, then the website">
-          <div class="plate-frame">
-            <img src="{{ '/assets/images/work/sofia-marin-website.webp' | relative_url }}"
-                 alt="The Sofia Marin homepage: a serif headline reading Therapy for adults, for the point at which a life stops fitting, a portrait beside it, and a row giving the fee, session length, working days and location."
-                 width="1440" height="900" loading="lazy" decoding="async">
-          </div>
-        </a>
-      </figure>
-      <div class="stack stack--loose">
-        <p class="label">Sofia Marin</p>
-        <h2 class="measure-2xs">Therapy for people who are tired of being read accurately.</h2>
         <p class="quiet measure-2xl">
-          A fictional integrative therapist in Brighton, for adults whose lives are
-          working and no longer feel like theirs. The site describes nobody and
-          hands them the method instead: one sentence that never changes, and the
-          meanings underneath it that do.
+          Each of the six is deployed and can be visited, page by page, on a phone if you
+          want to see it there. Each has a strategic document published in full and free
+          to read, in which every design decision is set against the conclusion it came
+          from. Where a document and a build disagreed, the build changed and the document
+          says so.
         </p>
-        <p><a class="tlink" href="{{ '/work/sofia-marin/' | relative_url }}">See the Sofia Marin case <span aria-hidden="true">&rarr;</span></a></p>
-      </div>
-    </div>
-
-    <div class="split split--wide-right align-center mt-8">
-      <figure class="m-0">
-        <a href="{{ '/work/maya-bennett/' | relative_url }}" aria-label="Maya Bennett — the thinking, then the website">
-          <div class="plate-frame">
-            <img src="{{ '/assets/images/work/maya-bennett-website.webp' | relative_url }}"
-                 alt="The Maya Bennett homepage: a large serif headline reading Most people start in the middle of a sentence, a photograph of afternoon light on a curtain beside it, and a row giving the fee, session length and location."
-                 width="1440" height="900" loading="lazy" decoding="async">
-          </div>
-        </a>
-      </figure>
-      <div class="stack stack--loose">
-        <p class="label">Maya Bennett</p>
-        <h2 class="measure-2xs">Counselling for the part before anybody has decided it counts.</h2>
         <p class="quiet measure-2xl">
-          A fictional integrative relational counsellor in Bristol. The site removes
-          the preconditions people invent before counselling feels legitimate, then
-          argues that the unprepared account is the more useful material to start
-          from.
+          Most of the people arriving on a therapist&rsquo;s website are on a phone, and
+          some of them are not calm. The phone view of each of these is not the desktop
+          one stacked up: the hierarchy is re-decided, the type re-set, and the thing a
+          distressed reader needs first is moved to where they will find it. All six are
+          built to WCAG&nbsp;2.2&nbsp;AA.
         </p>
-        <p><a class="tlink" href="{{ '/work/maya-bennett/' | relative_url }}">See the Maya Bennett case <span aria-hidden="true">&rarr;</span></a></p>
+        <p><a class="tlink" href="{{ '/practice-clarity/' | relative_url }}">The thinking the six documents apply <span aria-hidden="true">&rarr;</span></a></p>
       </div>
     </div>
-
-    <div class="split split--wide-right align-center mt-8">
-      <figure class="m-0">
-        <a href="{{ '/work/daniel-mercer/' | relative_url }}" aria-label="Daniel Mercer — the thinking, then the website">
-          <div class="plate-frame">
-            <img src="{{ '/assets/images/work/daniel-mercer-website.webp' | relative_url }}"
-                 alt="The Daniel Mercer homepage: a very large black grotesque headline on an off-white page reading You don't have to be good at talking to start therapy, a short introduction and one blue button beneath it, and a row giving the fee, location, hours and first step."
-                 width="1440" height="900" loading="lazy" decoding="async">
-          </div>
-        </a>
-      </figure>
-      <div class="stack stack--loose">
-        <p class="label">Daniel Mercer</p>
-        <h2 class="measure-2xs">Counselling for the person who assumes he would be bad at therapy.</h2>
-        <p class="quiet measure-2xl">
-          A fictional integrative counsellor in Sheffield, for adults whose way of
-          coping has quietly stopped working. Most therapist websites promise an
-          outcome; this one removes an entry requirement, and answers every fear
-          with a fact rather than a reassurance.
-        </p>
-        <p><a class="tlink" href="{{ '/work/daniel-mercer/' | relative_url }}">See the Daniel Mercer case <span aria-hidden="true">&rarr;</span></a></p>
-      </div>
-    </div>
-
-    <div class="split split--wide-right align-center mt-8">
-      <figure class="m-0">
-        <a href="{{ '/work/helen-calder/' | relative_url }}" aria-label="Helen Calder — the thinking, then the website">
-          <div class="plate-frame">
-            <img src="{{ '/assets/images/work/helen-calder-website.webp' | relative_url }}"
-                 alt="The Helen Calder homepage: a warm paper background, the serif headline Room to think, and someone to think it through with, a paragraph saying what she does and what she will not pretend to know, and an arch-shaped photograph of afternoon light falling across a doorway."
-                 width="1440" height="900" loading="lazy" decoding="async">
-          </div>
-        </a>
-      </figure>
-      <div class="stack stack--loose">
-        <p class="label">Helen Calder</p>
-        <h2 class="measure-2xs">An active therapist who does not take authority over the conclusion.</h2>
-        <p class="quiet measure-2xl">
-          A fictional integrative counsellor in Didsbury, for adults who have
-          already spent years thinking about something alone. The site says what
-          she will actually do in the hour &mdash; ask, notice, name the awkward
-          thing &mdash; and is equally clear that the conclusions stay theirs.
-        </p>
-        <p><a class="tlink" href="{{ '/work/helen-calder/' | relative_url }}">See the Helen Calder case <span aria-hidden="true">&rarr;</span></a></p>
-      </div>
-    </div>
-
-    <div class="split split--wide-right align-center mt-8">
-      <figure class="m-0">
-        <a href="{{ '/work/harbour/' | relative_url }}" aria-label="Harbour — the thinking, then the website">
-          <div class="plate-frame">
-            <img src="{{ '/assets/images/work/harbour-website.webp' | relative_url }}"
-                 alt="The Harbour homepage: a warm off-white page headed Room to arrive, a paragraph saying that almost nothing here is a surprise, a strip of four audience routes for children, young people, parents and families, and a line illustration of an arched doorway with a lantern above it."
-                 width="1440" height="900" loading="lazy" decoding="async">
-          </div>
-        </a>
-      </figure>
-      <div class="stack stack--loose">
-        <p class="label">Harbour</p>
-        <h2 class="measure-2xs">An organisation whose whole proposition is the removal of ambush.</h2>
-        <p class="quiet measure-2xl">
-          A fictional therapy centre in Stroud &mdash; five people, one building and
-          four readerships who need contradictory things. Nothing arrives without
-          notice and almost nothing proceeds without your say-so, which is why the
-          site routes before it describes anything at all.
-        </p>
-        <p><a class="tlink" href="{{ '/work/harbour/' | relative_url }}">See the Harbour case <span aria-hidden="true">&rarr;</span></a></p>
-      </div>
-    </div>
-
-    <div class="split split--wide-right align-center mt-8">
-      <figure class="m-0">
-        <a href="{{ '/work/stillpoint/' | relative_url }}" aria-label="Stillpoint — the thinking, then the website">
-          <div class="plate-frame">
-            <img src="{{ '/assets/images/work/stillpoint-website.webp' | relative_url }}"
-                 alt="The Stillpoint homepage: a pale grey-green page, the large serif headline Somewhere to stop for a while, a two-sentence lede, two short paragraphs saying that most people here are not in crisis, and a single underlined action reading Arrange a first conversation."
-                 width="1440" height="900" loading="lazy" decoding="async">
-          </div>
-        </a>
-      </figure>
-      <div class="stack stack--loose">
-        <p class="label">Stillpoint</p>
-        <h2 class="measure-2xs">Nothing required in advance, and everything disclosed in advance.</h2>
-        <p class="quiet measure-2xl">
-          A fictional counsellor in Lewes, for people who are managing perfectly well
-          and have run out of anywhere to say the thing. The quietest site in the
-          collection, and the most concrete about fees, days and access &mdash; which
-          turns out to be the same decision twice.
-        </p>
-        <p><a class="tlink" href="{{ '/work/stillpoint/' | relative_url }}">See the Stillpoint case <span aria-hidden="true">&rarr;</span></a></p>
-      </div>
-    </div>
-
-    <p class="small quiet divider-top mt-8">
-      Case studies rather than directions in the collection. They are not among the
-      ones you can choose &mdash; they are here so you can see what the deciding
-      looks like.
-    </p>
   </div>
 </section>
 
@@ -299,13 +126,14 @@ page_js: /assets/js/website-library.js
       <div class="stack stack--loose">
         <p class="quiet">
           Send me the two or three you keep returning to and tell me what you like
-          about each. I will say which is the strongest starting point &mdash; and a
-          direction can borrow a feature from another where that improves the result.
+          about each. I will say which is the strongest starting point for your
+          practice &mdash; and one can borrow a feature from another where that
+          improves the result.
         </p>
         <p><a class="tlink" href="{{ '/contact/' | relative_url }}">Tell me which ones <span aria-hidden="true">&rarr;</span></a></p>
         <p class="small quiet divider-top">
           If it helps to know what a therapist&rsquo;s homepage actually has to do before
-          you judge a direction on it:
+          you judge one of these on it:
           <a class="inline-link" href="{{ '/guidance/homepage-contents/' | relative_url }}">the five things people look for</a>.
         </p>
       </div>
@@ -318,11 +146,11 @@ page_js: /assets/js/website-library.js
     <div class="closing__plate on-ink">
       <div class="split split--wide-left">
         <div>
-          <p class="label">Found a direction?</p>
+          <p class="label">Found one?</p>
           <h2 class="measure-xs">Name the one you keep coming back to.</h2>
         </div>
         <div class="stack stack--loose">
-          <p>Tell me the direction and what is already written.</p>
+          <p>Tell me which of the six it is, and what is already written.</p>
           <div class="actions">
             <a class="btn" href="{{ '/contact/' | relative_url }}" data-analytics="start-a-website">Start a website<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
             <a class="tlink" href="{{ '/service/' | relative_url }}">What it costs <span aria-hidden="true">&rarr;</span></a>

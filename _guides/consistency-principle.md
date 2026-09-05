@@ -787,7 +787,7 @@ Whenever a visitor moves from one stage of your practice to the next, ask yourse
 <figure class="acw-guide-figure">
   <img
     src="{{ '/assets/images/brand/brand-blueprint-desk.webp' | relative_url }}"
-    alt="The printed Practice Clarity blueprint beside the working materials that informed it."
+    alt="The printed Practice Clarity document beside the working materials that informed it."
     loading="lazy"
     width="1536"
     height="1024"

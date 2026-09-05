@@ -55,7 +55,10 @@ their own URLs and are linked from `/guidance/`.
 
 - `assets/css/studio.css` — the whole stylesheet. See `VISUAL-SYSTEM.md`.
 - `assets/css/studio.min.css` — built by `npm run build:css`; the only one loaded.
-- `_data/collection.yml` — the eight design directions, drawn by `_includes/plate.html`.
+- `_data/collection.yml` — the six finished portfolio cases: screenshot, provenance, the
+  strategic distinction and the links to the live concept and its document. The eight
+  exploratory directions it used to hold were retired in September 2026 to
+  `_strategy/retired-direction-collection-2026-09.yml`.
 - `_guides/` — the guidance notes, the practical guides and the nine principles.
 - `_includes/practice-website-buy.html` — the only file permitted to emit a checkout link.
 - `_pages/` — legal and statement pages. Draft until `_data/legal.yml` says otherwise.

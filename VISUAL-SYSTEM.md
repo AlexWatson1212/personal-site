@@ -105,13 +105,11 @@ reveal animations only ever *remove* themselves.
 
 `.plate` (§09) is the collection specimen: a miniature of a design direction's
 home page, drawn in CSS. Every internal dimension is in container query units,
-so one plate is correct at 180px and at 900px from the same rules. The
-container is identical for every direction; the palette, typographic behaviour
-and **layout personality** inside it are what carry the range — eight variants,
-`warm`, `editorial`, `care`, `balance`, `choice`, `clinical`, `community`,
-`direct`, plus a `--phone` view. All of it is data-driven from
-`_data/collection.yml` through `_includes/plate.html`; adding a direction is
-adding an entry.
+the drawn-plate system was retired in September 2026 with the directions it
+drew. The collection is now six built websites shown as approved screenshots, and
+`.plate-frame` is what survives of the system: the frame the work sits in, with
+the caption and swatch rules that go with it. The retired drawing code is kept in
+`_strategy/` for reference and is not part of the stylesheet.
 
 Information design (§12) is a small, deliberate vocabulary: a rule, a tick, a
 numeral, a label. `.anatomy` (a hairline with seven marks), `.ledger` (three

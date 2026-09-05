@@ -3,11 +3,22 @@ layout: default
 title: Websites for therapists
 description: Websites for therapists in UK private practice. A website that sounds like you and tells people what they need to know — £995, including the first year of Website Care.
 permalink: /
+image: /assets/images/work/sofia-marin-website.webp
 ---
 
-{% assign rowan = site.data.collection | where: "key", "rowan-hill" | first %}
+{%- comment -%}
+  The hero shows finished work rather than a drawing of it. Three of the six
+  cases — Sofia, Maya and Daniel — because between them they settle the
+  question the page is really being asked in its first three seconds: whether
+  this studio has one therapist-website look. It does not.
+
+  The cycle is CSS only. The first design is complete in the markup, so it is
+  right before any script runs and there is nothing to shift. Under reduced
+  motion the animation is not slowed, it is absent: Sofia stands still.
+{%- endcomment -%}
+
+{% assign daniel = site.data.collection | where: "key", "daniel-mercer" | first %}
 {% assign stillpoint = site.data.collection | where: "key", "stillpoint" | first %}
-{% assign harbour = site.data.collection | where: "key", "harbour" | first %}
 
 <section class="hero on-paper">
   <div class="wrap--wide hero__grid">
@@ -16,8 +27,8 @@ permalink: /
       <h1 class="t-display enter" style="--i:1">A website your practice is recognised&nbsp;by.</h1>
       <p class="lead enter" style="--i:2">
         A website that sounds like you, and tells people what they need to know.
-        You choose a direction that already feels close to your practice. I work out
-        what it needs to say, then build the finished website around you.
+        You name the design you keep returning to. I work out what your practice
+        needs to say, then build the finished website around it.
       </p>
       <div class="actions hero__actions enter" style="--i:3">
         <a class="btn" href="{{ '/work/' | relative_url }}">See the collection<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
@@ -29,10 +40,26 @@ permalink: /
       </div>
     </div>
 
-    <div class="fan" role="img" aria-label="Three website designs from the collection — Rowan Hill Therapy, Stillpoint and Harbour — laid out as overlapping pages.">
-      <div class="fan__item">{% include plate.html d=stillpoint %}</div>
-      <div class="fan__item">{% include plate.html d=harbour %}</div>
-      <div class="fan__item">{% include plate.html d=rowan %}</div>
+    <div class="showcase">
+      <div class="showcase__stack" role="img"
+           aria-label="Three finished websites from the collection — Sofia Marin, Maya Bennett and Daniel Mercer — shown one after another in the same frame. No two look alike.">
+        <span class="showcase__sheet showcase__sheet--a" aria-hidden="true"></span>
+        <span class="showcase__sheet showcase__sheet--b" aria-hidden="true"></span>
+        <div class="showcase__frame" aria-hidden="true">
+          {% assign featured = "sofia-marin,maya-bennett,daniel-mercer" | split: "," %}
+          {% for key in featured %}{% assign d = site.data.collection | where: "key", key | first %}
+            <img class="showcase__shot"
+                 src="{{ d.shot | replace: '.webp', '-960.webp' | relative_url }}"
+                 srcset="{{ d.shot | replace: '.webp', '-960.webp' | relative_url }} 960w, {{ d.shot | relative_url }} 1440w"
+                 sizes="(min-width: 62rem) 56vw, 92vw"
+                 alt="" width="1440" height="900"
+                 {% if forloop.first %}fetchpriority="high"{% endif %} decoding="async">
+          {% endfor %}
+        </div>
+      </div>
+      <p class="showcase__names" aria-hidden="true">
+        <span>Sofia Marin</span><span>Maya Bennett</span><span>Daniel Mercer</span>
+      </p>
     </div>
   </div>
 </section>
@@ -68,25 +95,30 @@ permalink: /
     <div class="split split--wide-left">
       <div>
         <p class="label">The collection</p>
-        <h2 class="rise">Seven directions. Start from the one that already looks like your practice.</h2>
+        <h2 class="rise">Six finished practices. Notice which one you keep returning to.</h2>
       </div>
       <div class="stack rise">
         <p class="lead">
-          Each one is a complete, original website &mdash; structure, voice and
-          atmosphere resolved. Not a theme, and not a colour change.
+          Six fictional practices, each given a complete website and the strategic
+          work that produced it. Not themes, not colour changes &mdash; six answers
+          to six different problems.
         </p>
         <p><a class="tlink" href="{{ '/work/' | relative_url }}">Browse the collection <span aria-hidden="true">&rarr;</span></a></p>
       </div>
     </div>
 
     <div class="collection collection--three rise-group mt-8">
-      {% for d in site.data.collection limit: 6 %}
+      {% for d in site.data.collection %}
         <article class="direction" style="--i:{{ forloop.index0 }}">
-          <a class="direction__link" href="{{ '/work/#' | append: d.key | relative_url }}">
-            <div class="plate-frame">{% include plate.html d=d %}</div>
+          <a class="direction__link" href="{{ d.case | relative_url }}">
+            <div class="plate-frame">
+              <img src="{{ d.shot | relative_url }}" alt="{{ d.alt | strip_newlines }}"
+                   width="1440" height="900" loading="lazy" decoding="async">
+            </div>
             <div class="direction__meta">
               <p class="direction__ref"><span>{{ d.ref }}</span><span>{{ d.atmosphere }}</span></p>
               <h3 class="direction__name">{{ d.name }}</h3>
+              <p class="direction__note">{{ d.distinction }}</p>
             </div>
           </a>
         </article>
@@ -100,7 +132,7 @@ permalink: /
     <div class="spread">
       <div class="spread__aside"><p class="label">How it works</p></div>
       <div class="spread__body">
-        <h2 class="rise measure-sm">The direction is where it starts. It is not what you get.</h2>
+        <h2 class="rise measure-sm">The one you choose is where it starts. It is not what you get.</h2>
         <p class="lead rise mt-5 measure-xl">
           The collection removes the blank page. It does not remove the work of
           understanding your practice and deciding what it should say &mdash; which is
@@ -115,8 +147,8 @@ permalink: /
         <ol class="anatomy__steps">
           <li class="anatomy__step">
             <span class="anatomy__n">Your decision</span>
-            <h3>Choose a direction</h3>
-            <p>The one that already looks closest to the practice you want people to recognise.</p>
+            <h3>Name the one you keep returning to</h3>
+            <p>The design that already looks closest to the practice you want people to recognise.</p>
           </li>
           <li class="anatomy__step">
             <span class="anatomy__n">You</span>
@@ -137,47 +169,49 @@ permalink: /
       </div>
     </div>
 
-    <div class="diff rise mt-8">
+    <div class="split split--wide-left mt-8">
       <div>
-        <p class="diff__label"><span class="label m-0">Direction 01, as drawn</span><span class="tiny quiet">Rowan Hill</span></p>
-        {% include plate.html d=rowan %}
+        <p class="label">Why six, and not one house style</p>
+        <h2 class="measure-2xs">Two of the six, side by side.</h2>
+      </div>
+      <div class="stack stack--loose">
+        <p class="quiet measure-2xl">
+          Daniel Mercer and Stillpoint are both one counsellor, working with adults,
+          at a similar fee, in the same year. Nothing on the two pages agrees about
+          anything &mdash; because the practices behind them do not, and the design
+          is downstream of that.
+        </p>
+      </div>
+    </div>
+
+    <div class="diff rise mt-6">
+      <div>
+        <p class="diff__label"><span class="label m-0">Case 03</span><span class="tiny quiet">Daniel Mercer</span></p>
+        <a class="plate-frame" href="{{ '/work/daniel-mercer/' | relative_url }}">
+          <img src="{{ daniel.shot | relative_url }}" alt="{{ daniel.alt | strip_newlines }}"
+               width="1440" height="900" loading="lazy" decoding="async">
+        </a>
       </div>
       <div>
-        <p class="diff__label"><span class="label m-0">The same direction, tailored</span><span class="tiny quiet">An example practice</span></p>
-        <div class="plate plate--warm" style="--p-paper:#f4f1ea;--p-ink:#2b3140;--p-soft:#7d8598;--p-accent:#b5836a" aria-hidden="true">
-          <div class="plate__sheet"><div class="plate__page">
-            <div class="plate__nav">
-              <span class="plate__word" style="font-family:var(--sans);font-size:2.4cqi;font-weight:600;letter-spacing:0.22em;text-transform:uppercase">Ashfield Counselling</span>
-              <span class="plate__menu"><i></i><i></i><i></i></span>
-            </div>
-            <div class="plate__hero">
-              <div>
-                <span class="plate__eyebrow">Trauma and long-term work</span>
-                <p class="plate__title">Some things take longer than six sessions.</p>
-                <span class="plate__body"><i></i><i></i></span>
-                <span class="plate__cta">See fees and availability</span>
-              </div>
-              <div class="plate__art"><span></span><span></span><span></span></div>
-            </div>
-            <div class="plate__index">
-              <b>Weekly therapy<s>£60</s></b>
-              <b>Longer-term work<s>By arrangement</s></b>
-            </div>
-          </div></div>
-        </div>
+        <p class="diff__label"><span class="label m-0">Case 06</span><span class="tiny quiet">Stillpoint</span></p>
+        <a class="plate-frame" href="{{ '/work/stillpoint/' | relative_url }}">
+          <img src="{{ stillpoint.shot | relative_url }}" alt="{{ stillpoint.alt | strip_newlines }}"
+               width="1440" height="900" loading="lazy" decoding="async">
+        </a>
       </div>
     </div>
 
     <ol class="diff__notes">
-      <li><b>Palette</b><span>The direction's warm greens give way to a cooler, steadier set chosen for a practice that works with trauma over long periods.</span></li>
-      <li><b>Typography</b><span>A serif wordmark becomes a spaced sans one, and the headline drops a size so a longer, plainer sentence can carry it.</span></li>
-      <li><b>Structure</b><span>The three-panel strip is replaced by fees, because this practice's visitors need the cost before anything else.</span></li>
-      <li><b>Words</b><span>Written with the practitioner, from the intake. &ldquo;Begin here&rdquo; becomes the thing the visitor is actually looking for.</span></li>
+      <li><b>Palette</b><span>Daniel is black on off-white with one electric blue that appears only on things you can press. Stillpoint is stone, fog and paper with a single rust accent reserved for links. Both use colour as instruction rather than mood, and arrive at opposite places.</span></li>
+      <li><b>Typography</b><span>Daniel sets a very large grotesque headline that behaves like a statement in a room. Stillpoint runs one serif at one weight and lets scale alone carry emphasis, because its practitioner refuses to stage his own authority.</span></li>
+      <li><b>Structure</b><span>Daniel answers a fear with a fact in every section and puts the first step within reach of each. Stillpoint gives whole bands to a single sentence, and keeps the four practical facts in the footer of every page instead.</span></li>
+      <li><b>Words</b><span>Daniel removes an entry requirement: you do not have to be good at talking. Stillpoint removes a different one: you do not have to become a person with a diagnosis and a vocabulary. Neither promises an outcome.</span></li>
     </ol>
 
     <p class="tiny quiet mt-5 measure-2xl">
-      An illustration, drawn for this page. Ashfield Counselling is not a real practice,
-      and the directions in the collection are Studio work rather than client projects.
+      Both are fictional practices designed and built by Alexander Watson Studio as
+      portfolio work. Neither is a commissioned client project, and no counselling
+      service is offered by either.
     </p>
   </div>
 </section>
@@ -196,7 +230,7 @@ permalink: /
         <p class="way__meta"><span class="way__name">Therapist Website</span><span class="way__price">£995</span></p>
         <p class="small quiet mt-3">{{ site.data.purchasing.payment_sentence }}</p>
         <ul class="way__list mt-5">
-          <li>A direction from the collection, tailored to your practice</li>
+          <li>A design from the collection, tailored to your practice</li>
           <li>A written intake, then the design decisions are mine</li>
           <li>Two consolidated revision rounds, launch and handover</li>
           <li>The first year of Website Care included</li>
@@ -264,12 +298,12 @@ permalink: /
       <div class="split split--wide-left">
         <div>
           <p class="label">When you are ready</p>
-          <h2 class="measure-xs">Start with the design that feels closest.</h2>
+          <h2 class="measure-xs">Start with the one that feels closest.</h2>
         </div>
         <div class="stack stack--loose">
           <p>
             You do not need a brief, a moodboard or a finished plan. Tell me which
-            direction you keep returning to and what is already written.
+            of the six you keep returning to and what is already written.
           </p>
           <div class="actions">
             <a class="btn" href="{{ '/work/' | relative_url }}">See the collection<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>

@@ -939,396 +939,16 @@ p { text-wrap: pretty; }
 }
 
 /* ==========================================================================
-   09  DESIGN PLATES
-   The collection, drawn rather than photographed.
+   09  THE WORK, FRAMED
+   The collection is photographed rather than drawn.
 
-   Each direction is rendered as a miniature of its own home page: its
-   palette, its typographic behaviour and — this is the part that carries the
-   range — its own layout personality. The container is identical every time;
-   what differs is the design inside it. That is what lets eight directions
-   read as eight directions rather than eight recolours.
-
-   Every dimension is in container query units, so one plate is correct at
-   180px in a footer and at 900px across a hero without a second stylesheet.
+   Until September 2026 this section held a system that drew each design
+   direction as a CSS miniature — its palette, its typography and its own
+   layout personality, in container-query units. That existed because there
+   was nothing finished to photograph yet. There now is: six built websites,
+   each with an approved screenshot. The drawings are retired with the
+   directions they drew, and what remains is the frame the work sits in.
    ========================================================================== */
-
-.plate {
-  container-type: inline-size;
-  position: relative;
-  display: block;
-  width: 100%;
-  --p-paper: #f3eee5;
-  --p-ink: #1f3027;
-  --p-soft: #75806d;
-  --p-accent: #c88e72;
-  --p-rule: color-mix(in srgb, var(--p-ink) 16%, transparent);
-}
-
-/* The sheet owns the proportion; the page inside it is absolutely placed so
-   content can never stretch the box. One ratio for every plate on a page,
-   whatever a given direction puts inside it. */
-.plate__sheet {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  overflow: clip;
-  background: var(--p-paper);
-  color: var(--p-ink);
-  border: var(--hairline) solid color-mix(in srgb, var(--p-ink) 14%, transparent);
-  border-radius: var(--r-sm);
-  box-shadow: 0 1px 1px rgba(28, 42, 39, 0.04);
-}
-
-.plate__page {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
-}
-
-.plate--tall .plate__sheet { aspect-ratio: 3 / 4; }
-.plate--wide .plate__sheet { aspect-ratio: 16 / 10; }
-
-/* Masthead ---------------------------------------------------------------- */
-
-.plate__nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 3cqi;
-  padding: 3.4cqi 4.4cqi;
-  border-block-end: 1px solid var(--p-rule);
-}
-
-.plate__word {
-  font-family: var(--serif);
-  font-size: 3.5cqi;
-  line-height: 1;
-  letter-spacing: -0.01em;
-}
-
-.plate__menu { display: flex; gap: 2.4cqi; }
-
-.plate__menu i {
-  display: block;
-  width: 5.4cqi;
-  height: 0.85cqi;
-  background: color-mix(in srgb, var(--p-ink) 22%, transparent);
-  border-radius: 1px;
-}
-
-/* Hero -------------------------------------------------------------------- */
-
-.plate__hero {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 4cqi;
-  align-items: center;
-  min-height: 0;
-  overflow: clip;
-  padding: 5cqi 4.4cqi;
-}
-
-.plate__eyebrow {
-  display: block;
-  margin-block-end: 2.4cqi;
-  color: color-mix(in srgb, var(--p-ink) 80%, transparent);
-  font-size: 1.85cqi;
-  font-weight: 600;
-  letter-spacing: 0.17em;
-  text-transform: uppercase;
-}
-
-.plate__title {
-  font-family: var(--serif);
-  font-size: 5.6cqi;
-  line-height: 1.08;
-  letter-spacing: -0.022em;
-  text-wrap: balance;
-}
-
-.plate__body {
-  display: grid;
-  gap: 1.5cqi;
-  margin-block-start: 3.2cqi;
-}
-
-.plate__body i {
-  display: block;
-  height: 0.9cqi;
-  background: color-mix(in srgb, var(--p-ink) 13%, transparent);
-  border-radius: 1px;
-}
-
-.plate__body i:last-child { width: 62%; }
-
-.plate__cta {
-  display: inline-block;
-  margin-block-start: 3.4cqi;
-  padding: 1.9cqi 3.6cqi;
-  background: var(--p-ink);
-  color: var(--p-paper);
-  font-size: 1.95cqi;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  border-radius: 999px;
-}
-
-/* Artwork. Overlapping fields of the direction's own palette — the shape
-   language changes per direction, which is most of what the eye reads. */
-
-.plate__art {
-  position: relative;
-  aspect-ratio: 1;
-  border-radius: 999px 999px 2px 2px;
-  overflow: clip;
-  background: color-mix(in srgb, var(--p-soft) 34%, var(--p-paper));
-}
-
-.plate__art span {
-  position: absolute;
-  display: block;
-  border-radius: 999px;
-}
-
-.plate__art span:nth-child(1) {
-  inset: 22% -12% -30% 18%;
-  background: var(--p-ink);
-  opacity: 0.9;
-}
-
-.plate__art span:nth-child(2) {
-  inset: -8% 26% 46% -14%;
-  background: var(--p-accent);
-  opacity: 0.85;
-}
-
-.plate__art span:nth-child(3) {
-  inset: 44% 44% 14% 12%;
-  background: color-mix(in srgb, var(--p-soft) 92%, #000);
-  opacity: 0.55;
-}
-
-/* Page-foot rows: a services index, or a set of audience routes ---------- */
-
-.plate__index { padding: 0 4.4cqi 4cqi; }
-
-.plate__index b {
-  display: flex;
-  justify-content: space-between;
-  gap: 2cqi;
-  padding-block: 1.8cqi;
-  border-block-start: 1px solid var(--p-rule);
-  font-family: var(--sans);
-  font-size: 2.1cqi;
-  font-weight: 500;
-}
-
-.plate__index b s { text-decoration: none; font-variant-numeric: tabular-nums; color: color-mix(in srgb, var(--p-ink) 80%, transparent); }
-.plate__index b em { font-style: normal; }
-
-.plate__routes {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.2cqi;
-  padding: 0 4.4cqi 4cqi;
-}
-
-.plate__routes b {
-  display: block;
-  padding: 2.2cqi 2cqi 3cqi;
-  background: color-mix(in srgb, var(--p-soft) 20%, var(--p-paper));
-  border-radius: 2.4cqi;
-  font-family: var(--serif);
-  font-size: 2.3cqi;
-  font-weight: 400;
-  line-height: 1.15;
-}
-
-/* Footer strip ------------------------------------------------------------ */
-
-.plate__strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.plate__strip span { display: block; height: 6.5cqi; }
-.plate__strip span:nth-child(1) { background: color-mix(in srgb, var(--p-accent) 42%, var(--p-paper)); }
-.plate__strip span:nth-child(2) { background: color-mix(in srgb, var(--p-soft) 40%, var(--p-paper)); }
-.plate__strip span:nth-child(3) { background: color-mix(in srgb, var(--p-ink) 88%, transparent); }
-
-/* --------------------------------------------------------------------------
-   Direction personalities
-   -------------------------------------------------------------------------- */
-
-/* Warm and grounded — space is the material. */
-.plate--warm .plate__hero { padding: 6cqi 5.6cqi; gap: 5cqi; }
-.plate--warm .plate__title { font-size: 5cqi; }
-.plate--warm .plate__art { border-radius: 999px 999px 1px 1px; background: color-mix(in srgb, var(--p-soft) 26%, var(--p-paper)); }
-.plate--warm .plate__art span { opacity: 1; }
-.plate--warm .plate__art span:nth-child(1) { inset: 56% 0 0 0; border-radius: 0; background: color-mix(in srgb, var(--p-ink) 92%, transparent); }
-.plate--warm .plate__art span:nth-child(2) { inset: 12% 14% 44% 14%; background: var(--p-accent); }
-.plate--warm .plate__art span:nth-child(3) { inset: 44% 46% 22% 12%; background: color-mix(in srgb, var(--p-soft) 88%, #000); opacity: 0.5; }
-.plate--warm .plate__nav { border-block-end-color: transparent; }
-
-/* Measured and editorial — rules, indices, tight measure. */
-.plate--editorial .plate__nav { padding-block: 2.8cqi; }
-.plate--editorial .plate__word { font-family: var(--sans); font-size: 2.3cqi; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; }
-.plate--editorial .plate__hero { grid-template-columns: 1fr 0.85fr; align-items: start; padding-block-start: 6cqi; }
-.plate--editorial .plate__title { font-size: 5.9cqi; letter-spacing: -0.03em; }
-.plate--editorial .plate__eyebrow { padding-block-end: 2.2cqi; border-block-end: 1px solid var(--p-rule); }
-.plate--editorial .plate__art { aspect-ratio: 3 / 4; border-radius: 2px; }
-.plate--editorial .plate__art { background: color-mix(in srgb, var(--p-soft) 18%, var(--p-paper)); }
-.plate--editorial .plate__art span { border-radius: 0; opacity: 1; }
-.plate--editorial .plate__art span:nth-child(1) { inset: 40% 0 0 24%; background: var(--p-ink); }
-.plate--editorial .plate__art span:nth-child(2) { inset: 0 34% 52% 0; background: var(--p-accent); }
-.plate--editorial .plate__art span:nth-child(3) { inset: 56% 58% 12% 6%; background: color-mix(in srgb, var(--p-soft) 82%, var(--p-paper)); }
-.plate--editorial .plate__cta { border-radius: 2px; }
-.plate--editorial .plate__strip span { height: 4.2cqi; }
-
-/* Protective and warm — soft forms, routes offered early. */
-.plate--care .plate__sheet { border-radius: var(--r-lg); }
-.plate--care .plate__hero { grid-template-columns: 1fr 0.8fr; padding: 4.4cqi 4.4cqi 3.2cqi; }
-.plate--care .plate__title { font-size: 4.5cqi; }
-.plate--care .plate__art { border-radius: 999px; }
-.plate--care .plate__art span:nth-child(1) { inset: 30% -6% -20% 24%; }
-.plate--care .plate__routes {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.2cqi;
-  padding: 0 4.4cqi 4cqi;
-}
-.plate--care .plate__routes b {
-  display: block;
-  padding: 2.2cqi 2cqi 3cqi;
-  background: color-mix(in srgb, var(--p-soft) 20%, var(--p-paper));
-  border-radius: 2.6cqi;
-  font-family: var(--serif);
-  font-size: 2.4cqi;
-  font-weight: 400;
-  line-height: 1.15;
-}
-.plate--care .plate__strip { display: none; }
-
-/* Calm and balanced — symmetry, nothing raised above anything else. */
-.plate--balance .plate__hero { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 2.6cqi; padding: 5cqi 10cqi 17cqi; align-content: start; overflow: visible; }
-.plate--balance .plate__title { font-size: 4.7cqi; max-width: 20ch; }
-.plate--balance .plate__body { justify-items: center; width: 64%; margin-block-start: 2.4cqi; }
-.plate--balance .plate__body i:last-child { width: 46%; margin-inline: auto; }
-.plate--balance .plate__cta { margin-block-start: 2.8cqi; }
-.plate--balance .plate__art {
-  position: absolute;
-  inset: auto 0 6.5cqi 0;
-  width: 100%;
-  height: 15cqi;
-  aspect-ratio: auto;
-  background: none;
-  border-radius: 0;
-  overflow: visible;
-}
-.plate--balance .plate__art span { bottom: 0; height: 100%; border-radius: 999px 999px 0 0; mix-blend-mode: multiply; }
-.plate--balance .plate__art span:nth-child(1) { inset: 0 auto 0 26%; width: 24%; background: color-mix(in srgb, var(--p-accent) 60%, var(--p-paper)); opacity: 1; }
-.plate--balance .plate__art span:nth-child(2) { inset: 14% auto 0 44%; width: 20%; background: color-mix(in srgb, var(--p-soft) 78%, var(--p-paper)); opacity: 1; }
-.plate--balance .plate__art span:nth-child(3) { inset: 6% auto 0 58%; width: 17%; background: var(--p-ink); opacity: 0.88; }
-.plate--balance .plate__strip { display: none; }
-.plate--balance .plate__art { inset: auto 0 0 0; height: 19cqi; }
-.plate--balance .plate__hero { padding-block-end: 20cqi; }
-
-/* Clear and neuroaffirming — direct language, visible choice, more colour. */
-.plate--choice .plate__nav { background: var(--p-ink); color: var(--p-paper); border-block-end: 0; }
-.plate--choice .plate__menu i { background: color-mix(in srgb, var(--p-paper) 48%, transparent); }
-.plate--choice .plate__hero { grid-template-columns: 1fr 0.62fr; gap: 4cqi; padding: 4.4cqi 4.4cqi 3cqi; align-items: start; }
-.plate--choice .plate__title { font-family: var(--sans); font-size: 4.5cqi; font-weight: 600; line-height: 1.08; letter-spacing: -0.03em; }
-.plate--choice .plate__art { aspect-ratio: 1; border-radius: 3cqi; background: none; }
-.plate--choice .plate__art span { border-radius: 2.4cqi; }
-.plate--choice .plate__art span:nth-child(1) { inset: 30% -10% -20% 26%; }
-.plate--choice .plate__routes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.2cqi; padding: 0 4.4cqi 4cqi; }
-.plate--choice .plate__routes b {
-  display: block;
-  padding: 2.2cqi 2.2cqi 3.4cqi;
-  font-family: var(--sans);
-  font-size: 2.2cqi;
-  font-weight: 600;
-  line-height: 1.2;
-  border-radius: 2.2cqi;
-}
-.plate--choice .plate__routes b:nth-child(1) { background: color-mix(in srgb, var(--p-accent) 40%, var(--p-paper)); }
-.plate--choice .plate__routes b:nth-child(2) { background: color-mix(in srgb, var(--p-soft) 40%, var(--p-paper)); }
-.plate--choice .plate__routes b:nth-child(3) { background: color-mix(in srgb, var(--p-ink) 16%, var(--p-paper)); }
-.plate--choice .plate__cta { border-radius: 999px; }
-.plate--choice .plate__strip { display: none; }
-
-/* Assured and clinical — an index, reference numbers, dense metadata. */
-.plate--clinical .plate__word { font-size: 3cqi; letter-spacing: 0.02em; }
-.plate--clinical .plate__hero { grid-template-columns: 1fr 0.66fr; align-items: start; padding-block: 4.2cqi 2.8cqi; }
-.plate--clinical .plate__title { font-size: 4.3cqi; }
-.plate--clinical .plate__art { aspect-ratio: 1; border-radius: 1px; background: color-mix(in srgb, var(--p-soft) 22%, var(--p-paper)); }
-.plate--clinical .plate__art span { border-radius: 0; opacity: 1; }
-.plate--clinical .plate__art span:nth-child(1) { inset: 0 52% 58% 0; background: color-mix(in srgb, var(--p-accent) 78%, var(--p-paper)); }
-.plate--clinical .plate__art span:nth-child(2) { inset: 46% 0 0 40%; background: var(--p-ink); }
-.plate--clinical .plate__art span:nth-child(3) { inset: 24% 30% 30% 26%; background: color-mix(in srgb, var(--p-soft) 70%, var(--p-paper)); }
-.plate--clinical .plate__index { padding: 0 4.4cqi 3.4cqi; }
-.plate--clinical .plate__index b {
-  display: grid;
-  grid-template-columns: 4cqi 1fr auto;
-  gap: 2.4cqi;
-  align-items: baseline;
-  padding-block: 1.65cqi;
-  border-block-start: 1px solid var(--p-rule);
-  font-family: var(--sans);
-  font-size: 2.05cqi;
-  font-weight: 500;
-}
-.plate--clinical .plate__index b em {
-  font-style: normal;
-  font-variant-numeric: tabular-nums;
-  color: color-mix(in srgb, var(--p-ink) 80%, transparent);
-}
-.plate--clinical .plate__index b s { text-decoration: none; color: color-mix(in srgb, var(--p-ink) 80%, transparent); }
-.plate--clinical .plate__cta { border-radius: 2px; }
-.plate--clinical .plate__strip { display: none; }
-
-/* Welcoming and practical — services and costs said out loud. */
-.plate--community .plate__word { font-family: var(--sans); font-weight: 700; font-size: 2.6cqi; letter-spacing: -0.01em; }
-.plate--community .plate__hero { grid-template-columns: 1fr 0.78fr; padding: 4.4cqi 4.4cqi 3cqi; }
-.plate--community .plate__title { font-size: 4.4cqi; }
-.plate--community .plate__art { border-radius: 999px; }
-.plate--community .plate__art span:nth-child(1) { inset: 30% -4% -18% 30%; }
-.plate--community .plate__art span:nth-child(2) { inset: -6% 34% 42% -8%; }
-.plate--community .plate__art span:nth-child(3) { inset: 34% 24% 6% 24%; opacity: 0.6; }
-.plate--community .plate__index { padding: 0 4.4cqi 3.4cqi; }
-.plate--community .plate__index b {
-  display: flex;
-  justify-content: space-between;
-  gap: 2cqi;
-  padding-block: 1.6cqi;
-  border-block-start: 1px solid var(--p-rule);
-  font-family: var(--sans);
-  font-size: 2.1cqi;
-  font-weight: 500;
-}
-.plate--community .plate__index b s { text-decoration: none; font-variant-numeric: tabular-nums; color: color-mix(in srgb, var(--p-ink) 80%, transparent); }
-.plate--community .plate__strip span { height: 4cqi; }
-
-/* Direct — one sentence, and room around it. */
-.plate--direct .plate__hero { grid-template-columns: 1fr; padding: 5.5cqi 6cqi 4cqi; align-content: center; overflow: visible; }
-.plate--direct .plate__title { font-size: 6cqi; max-width: 15ch; }
-.plate--direct .plate__art {
-  position: absolute;
-  inset: auto 5cqi 1cqi auto;
-  width: 24cqi;
-  height: 26cqi;
-  aspect-ratio: auto;
-  background: none;
-  border-radius: 999px 999px 1px 1px;
-  overflow: clip;
-}
-.plate--direct .plate__art span { inset: 0; border-radius: inherit; }
-.plate--direct .plate__art span:nth-child(1) { background: color-mix(in srgb, var(--p-soft) 55%, var(--p-paper)); opacity: 1; }
-.plate--direct .plate__art span:nth-child(2) { inset: 42% 0 0 0; border-radius: 0; background: var(--p-ink); opacity: 0.92; }
-.plate--direct .plate__art span:nth-child(3) { inset: 22% 34% 46% 18%; border-radius: 999px; background: var(--p-accent); opacity: 0.9; }
-.plate--direct .plate__strip { display: none; }
-.plate--direct .plate__art { inset: auto 6cqi 0 auto; height: 30cqi; border-radius: 999px 999px 0 0; }
-
 /* --------------------------------------------------------------------------
    Plate framing and interaction
    -------------------------------------------------------------------------- */
@@ -1340,16 +960,22 @@ p { text-wrap: pretty; }
   border-radius: var(--r-sm);
 }
 
-.plate-frame .plate {
+.plate-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: var(--hairline) solid color-mix(in srgb, var(--ink) 12%, transparent);
+  border-radius: var(--r-sm);
   transition: transform var(--dur-image) var(--ease-out);
-  will-change: transform;
 }
 
 /* The frame holds still; the work moves inside it. No lift, no shadow. */
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  a:hover > .plate-frame .plate,
-  a:focus-visible > .plate-frame .plate,
-  .plate-frame:hover .plate { transform: scale(1.022); }
+  a:hover > .plate-frame img,
+  a:focus-visible > .plate-frame img,
+  a.plate-frame:hover img,
+  a.plate-frame:focus-visible img,
+  .plate-frame:hover img { transform: scale(1.022); }
 }
 
 .plate-caption {
@@ -1371,24 +997,6 @@ p { text-wrap: pretty; }
   border: var(--hairline) solid rgba(28, 42, 39, 0.14);
 }
 
-/* A phone view of the same direction, for the pairings where seeing both
-   answers a real question about the design. */
-.plate--phone .plate__sheet { aspect-ratio: 10 / 19; }
-.plate--phone .plate__nav { padding: 5cqi 6cqi; }
-.plate--phone .plate__word { font-size: 6cqi; }
-.plate--phone .plate__menu i { width: 9cqi; height: 1.5cqi; }
-.plate--phone .plate__menu i:nth-child(1),
-.plate--phone .plate__menu i:nth-child(2) { display: none; }
-.plate--phone .plate__hero { grid-template-columns: 1fr; align-content: start; gap: 5cqi; padding: 8cqi 6cqi; }
-.plate--phone .plate__eyebrow { font-size: 3.1cqi; margin-block-end: 3.6cqi; }
-.plate--phone .plate__title { font-size: 8.4cqi; }
-.plate--phone .plate__body { gap: 2.4cqi; margin-block-start: 5cqi; }
-.plate--phone .plate__body i { height: 1.6cqi; }
-.plate--phone .plate__cta { margin-block-start: 5cqi; padding: 3.4cqi 6cqi; font-size: 3.4cqi; }
-.plate--phone .plate__art { aspect-ratio: 4 / 3; }
-.plate--phone .plate__routes,
-.plate--phone .plate__index { display: none; }
-.plate--phone .plate__strip span { height: 11cqi; }
 
 /* ==========================================================================
    10  HOME
@@ -1441,69 +1049,118 @@ p { text-wrap: pretty; }
 
 .hero__price-note { color: var(--text-faint); font-size: var(--t-tiny); }
 
-/* The fan. Three directions, laid down like plates on a table. */
+/* The showcase. One frame, three finished websites, shown in turn.
 
-.fan {
-  position: relative;
-  aspect-ratio: 5 / 4.1;
-}
+   The point is not motion. It is that a visitor arriving with the question
+   "does this studio have one therapist-website look?" has an answer before
+   they have finished reading the headline. Sofia, Maya and Daniel are the
+   three that settle it fastest: editorial and photographic, warm and
+   domestic, then stark and typographic.
 
-/* Where the hero is two columns, the fan runs out into the gutter so the
-   right-hand plate finishes flush with the page edge — a bleed, but one that
-   stops at the viewport rather than past it. */
+   No JavaScript, no library and no layout shift. The first design is opaque
+   in the base rules, so it is complete and correct before anything runs and
+   whatever happens to the animation afterwards. Two paper sheets sit behind
+   the frame, offset and still, keeping the depth the old fan of plates had.
+   ---------------------------------------------------------------------- */
+
+.showcase { position: relative; }
+
 @media (min-width: 62rem) {
-  .fan { margin-inline-end: calc(var(--gutter) * -1); }
+  .showcase { margin-inline-end: calc(var(--gutter) * -1); }
 }
 
-.fan__item {
+.showcase__stack {
+  position: relative;
+  display: block;
+  padding-block-start: 3.2%;
+  padding-inline-end: 3.6%;
+}
+
+.showcase__sheet {
   position: absolute;
-  filter: drop-shadow(0 24px 44px rgba(28, 42, 39, 0.14));
+  display: block;
+  inset-block: 0 6%;
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--paper) 74%, var(--ink) 4%);
+  border: var(--hairline) solid color-mix(in srgb, var(--ink) 9%, transparent);
 }
 
-.fan__item:nth-child(1) { z-index: 1; width: 64%; left: 0;    top: 10%; rotate: -3.2deg; }
-.fan__item:nth-child(2) { z-index: 2; width: 60%; right: 2%; top: 0;   rotate: 2.6deg; }
-.fan__item:nth-child(3) { z-index: 3; width: 76%; left: 12%;  bottom: 0; rotate: -0.6deg; }
+.showcase__sheet--a { inset-inline: 7% 0; top: 0; rotate: 1.5deg; }
+.showcase__sheet--b { inset-inline: 3.5% 1.8%; top: 1.6%; rotate: 0.6deg; }
 
+.showcase__frame {
+  position: relative;
+  aspect-ratio: 1440 / 900;
+  border-radius: var(--r-sm);
+  overflow: clip;
+  filter: drop-shadow(0 24px 44px rgba(28, 42, 39, 0.16));
+}
+
+.showcase__shot {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: var(--r-sm);
+  border: var(--hairline) solid color-mix(in srgb, var(--ink) 12%, transparent);
+  opacity: 0;
+}
+
+/* Base state: the first design, standing still. Everything below is an
+   enhancement on top of a page that is already right. */
+.showcase__shot:first-child { opacity: 1; }
+
+.showcase__names {
+  position: relative;
+  height: 1.5em;
+  margin-block-start: var(--s-4);
+  padding-inline-start: 3.5%;
+  color: var(--text-faint);
+  font-size: var(--t-label);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.showcase__names span {
+  position: absolute;
+  inset-inline-start: 3.5%;
+  inset-block-start: 0;
+  opacity: 0;
+  white-space: nowrap;
+}
+
+.showcase__names span:first-child { opacity: 1; }
+
+/* The cycle. Eighteen seconds, three designs, 5.1s of stillness each and a
+   900ms crossfade between them. The first frame carries a negative delay so
+   it begins fully arrived rather than fading up on load. */
 @media (prefers-reduced-motion: no-preference) {
-  .fan__item { animation: enter-plate 820ms var(--ease-out) backwards; }
-  .fan__item:nth-child(1) { --rot: -3.2deg; animation-delay: 90ms; }
-  .fan__item:nth-child(2) { --rot: 2.6deg;  animation-delay: 0ms; }
-  .fan__item:nth-child(3) { --rot: -0.6deg; animation-delay: 170ms; }
+  .showcase__shot,
+  .showcase__names span {
+    animation: showcase-cycle 18s var(--ease-inout) infinite;
+  }
 
-  /* A few pixels of parallax as the hero leaves — enough to register depth,
-     not enough to notice as an effect. */
-  @supports (animation-timeline: view()) {
-    .fan__item {
-      animation:
-        enter-plate 820ms var(--ease-out) backwards,
-        drift linear both;
-      animation-timeline: auto, view();
-      animation-range: normal, cover 0% cover 100%;
-    }
-    .fan__item:nth-child(1) { --drift: 34px; }
-    .fan__item:nth-child(2) { --drift: 14px; }
-    .fan__item:nth-child(3) { --drift: -22px; }
+  .showcase__shot:nth-child(1),
+  .showcase__names span:nth-child(1) { animation-delay: -0.9s; }
+  .showcase__shot:nth-child(2),
+  .showcase__names span:nth-child(2) { animation-delay: 5.1s; }
+  .showcase__shot:nth-child(3),
+  .showcase__names span:nth-child(3) { animation-delay: 11.1s; }
 
-    @keyframes drift {
-      from { translate: 0 calc(var(--drift, 0px) * -0.5); }
-      to   { translate: 0 calc(var(--drift, 0px) * 0.5); }
-    }
+  @keyframes showcase-cycle {
+    0%     { opacity: 0; }
+    5%     { opacity: 1; }
+    33.33% { opacity: 1; }
+    38.33% { opacity: 0; }
+    100%   { opacity: 0; }
   }
 }
 
 @media (max-width: 61.99rem) {
-  /* Single column: the fan is inside the measure, so the rotated bounding
-     boxes have to be inside it too. */
-  .fan__item:nth-child(1) { width: 58%; left: 2%; top: 4%; rotate: -2.6deg; }
-  .fan__item:nth-child(2) { width: 52%; right: 2%; top: 0; rotate: 2.2deg; }
-  .fan__item:nth-child(3) { width: 68%; left: 16%; bottom: 0; rotate: -0.6deg; }
-}
-
-@media (max-width: 45rem) {
-  .fan { aspect-ratio: 4 / 3.4; }
-  .fan__item:nth-child(1) { width: 56%; left: 2%; top: 0; rotate: -2deg; }
-  .fan__item:nth-child(2) { display: none; }
-  .fan__item:nth-child(3) { width: 76%; left: 20%; bottom: 0; rotate: 0deg; }
+  .showcase { max-width: 38rem; }
 }
 
 /* Home: the two ways to begin ---------------------------------------------- */
@@ -1649,6 +1306,7 @@ p { text-wrap: pretty; }
   }
   .direction--feature .direction__meta { padding-block-start: 0; border-block-start: 0; }
   .direction--feature .direction__name { font-size: var(--t-h2); }
+  .direction--feature .direction__lede { font-size: var(--t-h3); }
 }
 
 .direction { display: block; }
@@ -1696,15 +1354,27 @@ p { text-wrap: pretty; }
   letter-spacing: -0.016em;
 }
 
+/* The one strategic problem the case answers, set between the name and the
+   description. Serif, so it reads as part of the title rather than as the
+   first line of the paragraph under it. */
+.direction__lede {
+  max-width: 40ch;
+  font-family: var(--serif);
+  font-size: var(--t-h4);
+  line-height: 1.35;
+  color: var(--text);
+}
+
 .direction__note { max-width: 46ch; color: var(--text-quiet); font-size: var(--t-small); }
 
 .direction__foot {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--s-3) var(--s-4);
-  margin-block-start: var(--s-1);
+  gap: var(--s-3) var(--s-5);
+  margin-block-start: var(--s-2);
+  padding-block-start: var(--s-4);
+  border-block-start: var(--hairline) solid var(--line-soft);
 }
 
 .tags { display: flex; flex-wrap: wrap; gap: var(--s-2); }
@@ -3341,7 +3011,7 @@ legend {
 /* Print ------------------------------------------------------------------- */
 
 @media print {
-  .site-header, .site-footer, .skip-link, .fan, .plate { display: none; }
+  .site-header, .site-footer, .skip-link, .showcase { display: none; }
   body { background: #fff; color: #000; }
   .band { padding-block: 1rem; }
 }
@@ -3353,7 +3023,6 @@ legend {
   .rise,
   .rise-group > *,
   .step-in > *,
-  .fan__item,
   .enter { animation: none; opacity: 1; transform: none; }
 }
 

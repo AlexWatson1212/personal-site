@@ -13,12 +13,17 @@ goes missing.
 
 ## The collection is data
 
-`_data/collection.yml` holds one entry per design direction — reference number,
-practice type, atmosphere, note, tags, search string, four palette colours, the
-headline shown in the drawing, and which layout personality to use.
-`_includes/plate.html` draws it; `assets/css/studio.css` §09 styles the eight
-personalities. The home page, the collection page and the contact form's design
-select all read from that one file. **Adding a direction is adding an entry.**
+`_data/collection.yml` holds one entry per finished case — reference number,
+practice type, atmosphere, provenance, the one strategic distinction, the note,
+tags, the four palette colours, the approved screenshot and its alt text, and the
+routes to the case study, the live concept website and its published document.
+The home page, the collection page and the contact form's design select all read
+from that one file. **Adding a case is adding an entry.**
+
+Until September 2026 the same file held eight exploratory design directions,
+drawn as CSS miniatures by `_includes/plate.html` because there was nothing
+finished to photograph. Both are retired to `_strategy/`, along with the filter
+script the collection page used while it had eight entries to filter.
 
 ## One product, one preliminary, one aftercare
 
