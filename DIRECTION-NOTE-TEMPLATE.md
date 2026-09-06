@@ -40,11 +40,14 @@ Every noun for what she does comes from her intake. If she wrote "long-term
 work", it does not become "depth-oriented practice". The test of §1 is that she
 reads it and thinks *yes, that is it* — not *that is interesting*.
 
-**3. It is not Practice Clarity.**
-No personas, brand values, competitor analysis, positioning exercises,
-moodboards, marketing strategy or additional discovery exercises. If a field is
-pulling toward any of those, the practice may genuinely need Practice Clarity —
-which is a conversation to have, not a section to add.
+**3. It is the record of the Practice Clarity work, not a second version of it.**
+Since September 2026 that work is inside every £995 project, and this Note is
+what the client receives from it. So the rule is about the length of the
+document, not about a different product: no personas, brand values, competitor
+analysis, positioning exercises, moodboards or marketing strategy. If a field is
+pulling toward any of those, either it does not belong in this project, or the
+practice needs more work than a website project can carry — which is a
+conversation to have before the build, not a section to add here.
 
 ---
 

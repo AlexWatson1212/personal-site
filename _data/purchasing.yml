@@ -33,13 +33,22 @@ balance_numeric: "495.00"
 payment_sentence: "£500 to begin. £495 when you approve the finished website, before it goes live."
 payment_sentence_third_person: "£500 to begin. £495 when the client approves the finished website, before it goes live."
 
-# Practice Clarity is a separate, earlier piece of work: it produces the
-# answers a website is then built from, and its written Practice Direction is
-# the client's to keep whether or not a website follows. It is not a tier, an
-# upgrade or a bundle, it is never combined into a headline figure with the
-# website, and it has no online checkout of its own. It is agreed in writing
-# and invoiced separately, and only where the intake shows it is needed.
-clarity_display: "£500"
+# PRACTICE CLARITY HAS NO PRICE, AND MUST NOT ACQUIRE ONE.
+#
+# Until September 2026 it was an optional +£500 taken before the build. That
+# made the client responsible for judging how much strategic work their own
+# website needed, which is the one judgement they are least able to make and the
+# one they are paying for. The work is now inside the £995: every website
+# includes as much understanding as it needs, and how much that is is the
+# studio's call, not a purchase decision.
+#
+# `clarity_display` was deleted rather than set to nothing, so that a template
+# referring to it fails loudly instead of rendering an empty price. Do not add
+# it back, and do not add tiers — Practice Clarity Lite, Full, Discovery or
+# Strategy — under any name. There is one website offer.
+#
+# The name still means two true things: the method, and the six published
+# portfolio documents that show it in unusually full form.
 
 # Website Care. The first twelve months are included in the £995 and are not
 # separately payable. After that it is optional and monthly.

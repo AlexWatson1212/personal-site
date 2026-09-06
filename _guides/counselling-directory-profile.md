@@ -74,7 +74,7 @@ related:
       </p>
 
       <p class="acw-guide-meta">
-        Practical · 18 min read
+        Practical · 19 min read
       </p>
     </div>
   </div>
@@ -1308,11 +1308,11 @@ It needs to help the right person recognise themselves, understand what working 
 
   <div class="acw-cta-row">
     <a href="{{ '/practice-clarity/' | relative_url }}" class="acw-btn acw-btn-primary">
-      Explore Practice Clarity
+      Read the nine principles
     </a>
 
-    <a href="{{ '/practice-clarity/' | relative_url }}" class="acw-link-tertiary">
-      Return to the Practice Clarity Library
+    <a href="{{ '/guidance/' | relative_url }}" class="acw-link-tertiary">
+      Back to Useful guidance
     </a>
   </div>
 

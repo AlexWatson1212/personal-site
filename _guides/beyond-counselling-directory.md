@@ -15,10 +15,10 @@ slug: beyond-counselling-directory
 permalink: /practice-clarity/beyond-counselling-directory/
 hero_image: /assets/images/brand/website-strategy-mockup.webp
 hero_image_alt: "An independent therapist website and its supporting strategy being reviewed together."
-reading_time: "8 minute read"
+reading_time: "3 minute read"
 updated: 2026-07-03
 canonical_url: https://alexanderwatson.co.uk/practice-clarity/beyond-counselling-directory/
-read_time: 2 min read
+read_time: 3 min read
 ---
 
 For many therapists, Counselling Directory is where private practice begins.

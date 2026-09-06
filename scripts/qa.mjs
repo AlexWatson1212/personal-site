@@ -265,18 +265,15 @@ const PUBLISHABLE_PREFIXES = [["pk", "live"].join("_") + "_", ["pk", "test"].joi
 const STRIPE_SDK_HOST = "js." + "stripe.com";
 
 /* The whole commercial architecture, as four figures:
-     £995    the Therapist Website — the only headline price
-     £500    two things, and the distinction is load-bearing: the first
-             instalment of the £995, and separately the price of Practice
-             Clarity. Never let the two appear in one block unlabelled.
+     £995    the Therapist Website — the only price the studio charges
+     £500    the first instalment of the £995. Since September 2026 it means
+             only that: Practice Clarity was folded into the website and its
+             separate £500 was retired with it.
      £495    the balance instalment, due on the client's written approval of
              the finished website and before launch
-     £29     Website Care per month, after the included first year
-   £1,495 was retired in August 2026 along with the tier it implied: the
-   website and Practice Clarity are never added together into one figure,
-   because doing so presents them as two versions of the same purchase. Any
-   other amount in published source is a mistake until this list says
-   otherwise. */
+     £29     Website Care per month, after the included first year, optional
+   £1,495 was retired in August 2026 along with the tier it implied. Any other
+   amount in published source is a mistake until this list says otherwise. */
 const APPROVED_PRICES = new Set(["£995", "£500", "£495", "£29"]);
 /* Figures that are not studio prices. £60 is a session fee drawn inside the
    tailoring illustration on the home page, where the point being made is that
@@ -401,7 +398,13 @@ check("Prices", "Retired amounts appear nowhere in the repository", () => {
 
 check("Prices", "The displayed prices come from _data/purchasing.yml", () => {
   assert(/^price_display:\s*"£995"\s*$/m.test(purchasingYml), "price_display is not £995");
-  assert(/^clarity_display:\s*"£500"\s*$/m.test(purchasingYml), 'clarity_display is not "£500"');
+  /* September 2026. Practice Clarity is inside the £995 and has no price of its
+     own. The field was deleted rather than emptied so that a template asking
+     for it fails loudly; re-declaring it is how the add-on grows back. */
+  assert(
+    !/^\s*clarity_display:/m.test(purchasingYml),
+    "clarity_display is declared again — Practice Clarity is included in the £995 and must not carry a price"
+  );
   assert(
     !/clarity_combined_display/.test(purchasingYml),
     "clarity_combined_display is still declared — the combined figure was retired with the tier it implied"
@@ -516,24 +519,38 @@ check("Checkout scope", "Practice Clarity carries no purchase action", () => {
  * 4. The commercial architecture
  * ------------------------------------------------------------------ */
 
-check("Commercial architecture", "One product, one preliminary, one care plan", () => {
+check("Commercial architecture", "One product, one care plan, and nothing sold beside them", () => {
   /* service.html is the page that has to make the commercial decision easy.
      Every figure a buyer needs must be on it, and none of the retired offer
      structure may survive anywhere. */
   assert(/£995/.test(servicePage), "service.html does not show £995");
-  assert(/£500/.test(servicePage), "service.html does not show the £500 Practice Clarity price");
+  assert(/£500/.test(servicePage), "service.html does not show the £500 first instalment");
+  assert(/£495/.test(servicePage), "service.html does not show the £495 balance");
   assert(/£29/.test(servicePage), "service.html does not show the £29 Website Care price");
   assert(/[Cc]ustom project/.test(servicePage), "service.html does not offer a custom project route");
-  return "£995 · £500 separately · £29 · custom quoted";
+  return "£995 · £500 + £495 instalments · £29 care · custom quoted";
 });
 
-check("Commercial architecture", "One website price, and one place it is decided", () => {
-  /* August 2026. The website and Practice Clarity were being presented as two
-     priced routes side by side — a tier in everything but name. The website is
-     now the only product with a headline price; Practice Clarity is a separate
-     earlier piece of work, offered where the intake shows it is needed. These
-     assertions are what stops the tier growing back. */
+check("Commercial architecture", "One website price, and Practice Clarity is not sold", () => {
+  /* August 2026 retired the £1,495 tier. September 2026 went further: Practice
+     Clarity is no longer an optional purchase at all, because asking a client to
+     decide how much strategic work their own website needs asks them to make the
+     one judgement they are paying for. The work is inside the £995. These
+     assertions are what stops the add-on growing back. */
   const offenders = [];
+
+  /* Nothing may price Practice Clarity, or present it as an optional purchase. */
+  for (const [rel, body] of publishedBodies) {
+    if (rel.startsWith("_guides/") || rel.startsWith("_posts/")) continue;
+    if (/\+\s*£\s?500/.test(body)) offenders.push(`${rel} — prices Practice Clarity as an add-on`);
+    if (/clarity_display/.test(body)) offenders.push(`${rel} — renders the retired clarity price field`);
+    const m = body.match(/[^.]{0,90}Practice Clarity[^.]{0,90}/g) || [];
+    for (const sentence of m) {
+      if (/\boptional\b|\badd-?on\b|\bupsell\b|invoiced separately/i.test(sentence)) {
+        offenders.push(`${rel} — still presents Practice Clarity as optional or separately sold: "${sentence.trim().slice(0, 90)}"`);
+      }
+    }
+  }
 
   /* No page may add the two into one figure again. */
   for (const [rel, body] of publishedBodies) {
@@ -559,14 +576,12 @@ check("Commercial architecture", "One website price, and one place it is decided
   }
   if (!heroPrices.has("£995")) offenders.push("service.html — the hero does not show £995");
 
-  /* Practice Clarity must sit after Website Care on the service page, so a
-     reader meets it once the website decision is already made. */
-  const clarityAt = servicePage.indexOf("Practice Clarity");
-  const careAt = servicePage.search(/Website Care|first year is included/);
-  assert(clarityAt > -1 && careAt > -1, "service.html no longer describes both Website Care and Practice Clarity");
-  if (clarityAt < careAt) {
-    offenders.push("service.html — Practice Clarity is introduced before Website Care; it belongs after it");
-  }
+  /* The service page must still explain both, even though neither is priced
+     separately any more. The ordering rule that used to sit here belonged to the
+     add-on: it kept a second price away from the buying decision, and there is
+     no second price now. */
+  assert(/Practice Clarity/.test(servicePage), "service.html no longer explains Practice Clarity");
+  assert(/Website Care/.test(servicePage), "service.html no longer explains Website Care");
 
   /* Language that rebuilds the tier. */
   const banned = [
@@ -583,7 +598,7 @@ check("Commercial architecture", "One website price, and one place it is decided
   }
 
   assert(offenders.length === 0, offenders.join("\n"));
-  return "£995 is the only headline price; Practice Clarity follows Website Care";
+  return "£995 is the only price; Practice Clarity is included and unpriced";
 });
 
 check("Provenance", "Every direction declares a permitted provenance, and Client Work stays reserved", () => {

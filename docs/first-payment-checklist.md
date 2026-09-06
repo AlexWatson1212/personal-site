@@ -74,9 +74,11 @@ raised by hand.
 
 1. **Approve the intake questionnaire.** `_data/intake.yml` → `questionnaire_approved: false`
    still puts a *"Draft questionnaire"* notice on the first page a client sees after
-   paying. The questions have been checked against the current offer and match it; what
-   remains is Alexander reading the twenty-two questions once and deciding they are his.
-   Then set the flag to `true`.
+   paying. The questions have been re-checked against the September 2026 offer and match
+   it — question 4 now asks which work in the collection the client keeps returning to,
+   rather than which design they have chosen, and nothing in the form implies Practice
+   Clarity is a separate purchase. What remains is Alexander reading the twenty-two
+   questions once and deciding they are his. Then set the flag to `true`.
 
 2. **Supply the legal identity facts.** See `LEGAL-INFORMATION-REQUIRED.md`. These do not
    block showing the site, but the terms name no legal entity until they are filled.

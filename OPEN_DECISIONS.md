@@ -82,8 +82,17 @@ agree.
 
 ## 3. RESOLVED — the offer structure and the payment model
 
+**September 2026.** The paragraph below is superseded in one respect: **Practice
+Clarity is no longer a £500 add-on.** The work of understanding a practice is
+inside the £995, because asking a client to judge how much strategic work their
+own website needs asks them to make the one judgement they are paying for. There
+is one product and no add-on. `clarity_display` was deleted from
+`_data/purchasing.yml` and `scripts/qa.mjs` now fails if it returns or if any
+published page prices Practice Clarity. Delivery also moved from two-to-four to
+three-to-five weeks from the confirmed start. Everything else below still holds.
+
 **August 2026.** Superseded. There are not two routes and there is no "around
-£2,000". The settled position is one product with one add-on:
+£2,000". The settled position was one product with one add-on:
 
 - **Therapist Website £995** — fixed, including the first twelve months of
   Website Care. **£500 to begin. £495 when you approve the finished website,

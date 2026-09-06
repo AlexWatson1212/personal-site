@@ -112,7 +112,10 @@ image: /assets/images/work/sofia-marin-website.webp
         <article class="direction" style="--i:{{ forloop.index0 }}">
           <a class="direction__link" href="{{ d.case | relative_url }}">
             <div class="plate-frame">
-              <img src="{{ d.shot | relative_url }}" alt="{{ d.alt | strip_newlines }}"
+              <img src="{{ d.shot | replace: '.webp', '-960.webp' | relative_url }}"
+                   srcset="{{ d.shot | replace: '.webp', '-960.webp' | relative_url }} 960w, {{ d.shot | relative_url }} 1440w"
+                   sizes="(min-width: 62rem) 30vw, (min-width: 45rem) 45vw, 90vw"
+                   alt="{{ d.alt | strip_newlines }}"
                    width="1440" height="900" loading="lazy" decoding="async">
             </div>
             <div class="direction__meta">
@@ -249,11 +252,10 @@ image: /assets/images/work/sofia-marin-website.webp
         </p>
         <p class="quiet mt-4">
           If those decisions are not settled yet &mdash; who it is for, what you are
-          offering, what needs saying &mdash;
-          <a class="inline-link" href="{{ '/service/#practice-clarity' | relative_url }}">Practice Clarity</a>
-          settles them first. An optional <b>+£500</b> alongside the website, and most of
-          the time it is not needed. If your intake shows it is, I will say so before
-          anything starts rather than building on top of it.
+          offering, what needs saying &mdash; working them out is part of the price.
+          <a class="inline-link" href="{{ '/service/#practice-clarity' | relative_url }}">That work has a name</a>,
+          but it is not a separate purchase and you are not asked to judge how much of it
+          you need.
         </p>
         <p class="small quiet mt-4">
           Something outside this &mdash; a larger organisation, unusual functionality, a great deal of content?
