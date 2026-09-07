@@ -1759,7 +1759,11 @@ check("Content", "Square-bracket placeholders appear only in the legal pages", (
     const isLegal = LEGAL_SURFACE.has(rel);
     const withoutFrontMatter = body.replace(/^---\r?\n[\s\S]*?\r?\n---/, "");
     for (const match of withoutFrontMatter.matchAll(pattern)) {
-      if (/\]\(/.test(withoutFrontMatter.slice(match.index + match[0].length, match.index + match[0].length + 2))) continue;
+      /* match[0] already ends with the closing bracket, so the Markdown-link
+         escape has to look at what follows it. Testing the slice for "](" 
+         could never match, and every link with a capitalised label was
+         reported as an unfilled placeholder. */
+      if (withoutFrontMatter[match.index + match[0].length] === "(") continue;
       if (isLegal) {
         legalPlaceholders += 1;
         continue;

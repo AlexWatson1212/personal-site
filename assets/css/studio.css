@@ -621,6 +621,17 @@ p { text-wrap: pretty; }
   background-size: 100% 1px;
 }
 
+/* Every other component that sits on a dark band has an .on-ink variant; the
+   inline link never got one, so it kept the light-ground colour and rendered
+   at 1.26:1 against the ink. On /services/practice-website/ that left the
+   service-terms, cancellation and privacy links present but unreadable at the
+   point where a reader decides. */
+.on-ink .prose a,
+.on-ink .inline-link {
+  color: var(--on-ink);
+  background-image: linear-gradient(var(--line-on-ink), var(--line-on-ink));
+}
+
 /* ==========================================================================
    07  HEADER
    ========================================================================== */
