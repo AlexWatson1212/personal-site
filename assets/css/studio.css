@@ -2968,6 +2968,15 @@ legend {
 .acw-btn:hover { background: var(--ink-deep); }
 .on-ink .acw-btn { background: var(--on-ink); color: var(--ink); }
 
+/* Every one of these buttons sits inside .prose, and `.prose a` is one class
+   more specific than `.acw-btn`, so it repainted the label with the body text
+   colour while the button kept its ink ground: the "Continue reading" control
+   at the foot of all nine principles was dark on dark at 1.26:1. The button
+   has to win inside prose, on both grounds. */
+.prose a.acw-btn { color: var(--on-ink); }
+.on-ink .prose a.acw-btn,
+.prose .on-ink a.acw-btn { color: var(--ink); }
+
 .acw-link-tertiary,
 .acw-library-text-link {
   display: inline-flex;
