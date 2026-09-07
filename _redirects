@@ -12,8 +12,17 @@
 /library                                                    /practice-clarity/ 301
 /library/                                                   /practice-clarity/ 301
 /practice-clarity.html                                      /practice-clarity/ 301
-/library/practical-guides/counselling-directory-profile/    /practice-clarity/counselling-directory-profile/ 301
-/beyond-counselling-directory/                              /practice-clarity/beyond-counselling-directory/ 301
+/library/practical-guides/counselling-directory-profile/    /guidance/counselling-directory-profile/ 301
+/practice-clarity/counselling-directory-profile/            /guidance/counselling-directory-profile/ 301
+
+# Retired in the September 2026 guidance review. Two short reflections and a
+# multi-platform marketing piece were removed rather than rewritten: they said
+# nothing the notes do not say better, and nothing another studio could not
+# have written. The directory note that replaces the long guide is above.
+/beyond-counselling-directory/                              /guidance/ 301
+/practice-clarity/beyond-counselling-directory/             /guidance/ 301
+/calm-therapist-website/                                    /guidance/ 301
+/clarity-builds-trust/                                      /guidance/ 301
 
 # Earlier service names.
 /professional-identity/                                     /service/ 301

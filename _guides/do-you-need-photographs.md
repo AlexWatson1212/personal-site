@@ -14,9 +14,10 @@ read_time: 3 min read
 updated: 2026-08-25
 ---
 
-Short answer: you need one photograph of yourself. Whether you need
-anything else depends on what your practice is, and for most solo
-practitioners the answer is no.
+Short answer: if you are a solo practitioner, you need one photograph of
+yourself, and almost certainly nothing else. If you are a practice rather than
+a person the answer is less obvious, and there is a case further down for
+having none at all.
 
 ## The one that matters
 
@@ -74,6 +75,23 @@ If a page needs something in that space, better options are: nothing at
 all, a photograph of the actual room, or a considered piece of colour and
 shape that belongs to the design rather than pretending to be a
 photograph of a feeling.
+
+## When the answer is no photographs at all
+
+There is one situation where the rule genuinely reverses. A practice that
+works with children, young people or families cannot photograph its clients,
+and photographing a model instead means staging the thing the practice exists
+to be careful about. A photograph of a child is also always a photograph of a
+particular age, and most of the people reading are not that age.
+
+One of the concepts in the collection, [the Harbour therapy
+centre](/work/harbour/), is drawn throughout for exactly that reason — rooms shown accurately with nobody in
+them, and people drawn without faces. It is not a stylistic preference. It is
+what was left once photography had been ruled out honestly.
+
+If that is your situation, the answer is not stock photography with a
+disclaimer. It is deciding what the images are for and finding a form that can
+do it.
 
 ## A note on the room
 

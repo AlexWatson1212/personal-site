@@ -7,7 +7,6 @@ image: /assets/images/library/library-hero.webp
 ---
 
 {% assign notes = site.guides | where: "category", "Guidance" | sort: "guidance_order" %}
-{% assign practical = site.guides | where: "category", "Practical Guides" %}
 {% assign principles = site.guides | where: "category", "Practice Clarity" | where: "featured", true | sort: "featured_order" %}
 
 <section class="band band--sm on-paper">
@@ -35,7 +34,7 @@ image: /assets/images/library/library-hero.webp
     <div class="split split--wide-left mb-7">
       <div>
         <p class="label">Start here</p>
-        <h2 class="measure-sm">Five notes, a few minutes each.</h2>
+        <h2 class="measure-sm">Six notes, a few minutes each.</h2>
       </div>
       <p class="quiet align-end">
         Written for the therapist who would rather not have to think about
@@ -51,40 +50,6 @@ image: /assets/images/library/library-hero.webp
           <span class="principle__meta">{{ note.read_time }}</span>
           <span class="direction__go">Read <span aria-hidden="true">&rarr;</span></span>
         </a>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="band on-paper">
-  <div class="wrap">
-    <div class="split split--wide-left mb-7">
-      <div>
-        <p class="label">Two longer guides</p>
-        <h2 class="measure-xs">For a specific job, once a directory is doing the work.</h2>
-      </div>
-      <p class="quiet align-end">
-        Both are about the places prospective clients actually find and judge
-        a practice, which for most therapists is a directory before it is a
-        website.
-      </p>
-    </div>
-
-    <div class="article-grid">
-      {% for guide in practical %}
-        <article class="article-card">
-          <a class="article-card__link" href="{{ guide.url | relative_url }}">
-            {% if guide.hero_image %}
-              <div class="article-card__media">
-                <img src="{{ guide.hero_image | relative_url }}" alt="" loading="lazy" decoding="async" width="1586" height="992">
-              </div>
-            {% endif %}
-            <p class="article-card__meta"><span>Guide</span>{% if guide.read_time %}<span>{{ guide.read_time }}</span>{% endif %}</p>
-            <h3>{{ guide.title }}</h3>
-            <p>{{ guide.description | default: guide.excerpt | strip_html | strip_newlines | strip }}</p>
-            <span class="tlink">Read the guide <span aria-hidden="true">&rarr;</span></span>
-          </a>
-        </article>
       {% endfor %}
     </div>
   </div>
@@ -106,14 +71,6 @@ image: /assets/images/library/library-hero.webp
           is the part you are stuck on.
         </p>
         <p><a class="tlink" href="{{ '/practice-clarity/' | relative_url }}">Read the nine principles <span aria-hidden="true">&rarr;</span></a></p>
-
-        {% assign posts = site.posts %}
-        {% if posts.size > 0 %}
-          <p class="small quiet divider-top">
-            Shorter reflections:
-            {% for post in posts %}<a class="inline-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}
-          </p>
-        {% endif %}
       </div>
     </div>
   </div>
