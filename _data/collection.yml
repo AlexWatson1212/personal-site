@@ -75,8 +75,10 @@
   shot: /assets/images/work/maya-bennett-website.webp
   alt: >-
     The Maya Bennett homepage: a large serif headline reading Most people start
-    in the middle of a sentence, a photograph of afternoon light on a curtain
-    beside it, and a row giving the fee, session length and location.
+    in the middle of a sentence, a short introduction and one dark button
+    beneath it, and a row giving who she works with, the fee and the location.
+    To the right, a quoted worry — I'm not sure this counts — with the answer
+    set directly under it.
   swatches: ["#F7F2E6", "#DED6EC", "#EF7F4B", "#4A2340"]
 
 - ref: "03"
@@ -111,28 +113,31 @@
   href: https://helen-calder.alexanderwatson.co.uk/
   pdf: /assets/practice-clarity/practice-clarity-helen-calder.pdf
   practice: Solo counsellor
-  atmosphere: Warm and considered
+  atmosphere: Plain and attentive
   distinction: An active therapist without authority over the conclusion.
   note: >-
     A fictional integrative counsellor in Didsbury, for adults who have already
     spent years thinking about something alone. The site says what she will
-    actually do in the hour — ask, notice, name the awkward thing — and is
-    equally clear that the conclusions stay theirs.
-  tags: [One therapist, Arched forms, Claret and stone]
+    actually do in the hour — ask, notice, name the awkward thing — and gives
+    her a second voice on the page, narrower and later and in one colour, so a
+    reader can see exactly what she adds and where it stops.
+  tags: [One therapist, Two voices, Deep blue]
   shot: /assets/images/work/helen-calder-website.webp
   alt: >-
-    The Helen Calder homepage: a warm paper background, the serif headline Room
-    to think, and someone to think it through with, a paragraph saying what she
-    does and what she will not pretend to know, and an arch-shaped photograph
-    of afternoon light falling across a doorway.
-  swatches: ["#F4F0E8", "#DED5C4", "#543747", "#252623"]
+    The Helen Calder homepage: a pale grey page, the serif headline Room to
+    think, and someone to think it through with, and a short introduction
+    beneath it. Set narrower and lower to the right, in blue, is what she will
+    do — ask questions, say what she notices including when it is awkward, and
+    not pretend to know what you should do. A row underneath gives the fee, the
+    free first conversation, who she works with and her availability.
+  swatches: ["#F3F2EF", "#E9E7E1", "#28356B", "#1B1D1F"]
 
 - ref: "05"
   key: harbour
   provenance: studio-fictional
   name: Harbour
   case: /work/harbour/
-  href: https://harbour-concept.netlify.app/
+  href: https://harbour-concept.alexanderwatson.co.uk/
   pdf: /assets/practice-clarity/practice-clarity-harbour.pdf
   practice: Therapy centre
   atmosphere: Protective and routed
