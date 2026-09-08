@@ -29,3 +29,9 @@
 /services/straightforward-website/                          /services/practice-website/ 301
 /services/straightforward-website/questionnaire/            /services/practice-website/questionnaire/ 301
 /service-terms/straightforward-website/                     /service-terms/practice-website/ 301
+
+# Retired September 2026. The purchase-complete page existed only as the page a
+# Stripe checkout returned the buyer to. The studio takes payment by invoice and
+# bank transfer, so there is no return page and no journey that ends here.
+/purchase-complete/                                         /services/practice-website/ 301
+/purchase-complete                                          /services/practice-website/ 301

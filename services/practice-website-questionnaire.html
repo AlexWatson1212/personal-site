@@ -15,11 +15,12 @@ sitemap: false
   <section class="band band--sm on-paper">
     <div class="wrap split split--wide-left">
       <div>
-        <p class="label">Therapist Website · Step one</p>
+        <p class="label">Therapist Website</p>
         <h1>Website Content Questionnaire</h1>
       </div>
       <div>
-        <p class="lead">This collects everything I need to build your website: {{ site.data.intake.required_questions }} questions I need an answer to, and {{ site.data.intake.optional_questions }} that are useful when they apply. Your project officially begins once this is complete, your materials have arrived and I have confirmed the start date in writing.</p>
+        <p class="lead">Your £500 first payment has been received. The remaining £495 is invoiced once you&rsquo;ve approved the finished website, before launch.</p>
+        <p>This collects everything I need to build your website: {{ site.data.intake.required_questions }} questions I need an answer to, and {{ site.data.intake.optional_questions }} that are useful when they apply. Your project officially begins once this is complete, your materials have arrived and I have confirmed the start date in writing.</p>
         <p class="small quiet">Nothing you type here is sent to or stored by this website. When you have finished, the page assembles your answers in your browser so you can copy them, save them, or open them in your own email app.</p>
       </div>
     </div>
@@ -70,7 +71,6 @@ sitemap: false
             <label><span>2. Email address <b class="req">(required)</b></span><input name="email" type="email" autocomplete="email" required></label>
           </div>
           <label><span>3. Practice or business name, exactly as it should appear <b class="req">(required)</b></span><input name="practiceName" required></label>
-          <label><span>Email address used for payment, if different <span class="opt">(optional)</span></span><input name="checkoutEmail" type="email" autocomplete="email"></label>
         </fieldset>
 
         <fieldset>
@@ -92,8 +92,8 @@ sitemap: false
 
         <fieldset>
           <legend>Your pages and your words</legend>
-          <p class="field__hint" id="pages-help">Up to five core pages are included. List the pages you want, in the order they should appear in the menu.</p>
-          <label><span>5. Your five pages <b class="req">(required)</b></span><textarea name="pages" rows="4" aria-describedby="pages-help" placeholder="For example: Home, About, How I Work, Fees, Contact" required></textarea></label>
+          <p class="field__hint" id="pages-help">Up to five core pages are included. You do not need to work out what those pages are or how the menu should be ordered &mdash; that is my job, and I will propose a structure from what you tell me here and from the Practice Clarity work.</p>
+          <label><span>5. What do you need someone to be able to find, understand or do on your website? <b class="req">(required)</b></span><textarea name="visitorNeeds" rows="5" aria-describedby="pages-help" placeholder="For example: understand whether I work with what they are struggling with, see what a session costs and when I am available, get a sense of me before making contact, and know exactly how to get in touch." required></textarea></label>
           <label><span>6. Where is your page copy? It does not need to be finished <b class="req">(required)</b></span>
             <select name="copyStatus" required>
               <option value="" disabled selected>Select the closest answer</option>
@@ -136,27 +136,27 @@ sitemap: false
 
         <fieldset>
           <legend>Domain and existing website</legend>
-          <label><span>13. Your domain name <b class="req">(required)</b></span><input name="domain" placeholder="yourpractice.co.uk" required></label>
-          <label><span>Who is it registered with, and do you have access? <span class="opt">(optional)</span></span><input name="registrar" placeholder="For example: 123 Reg — yes, I have the login"></label>
-          <label><span>Existing website or directory profile address <span class="opt">(optional)</span></span><input name="currentWebsite" type="url" inputmode="url" placeholder="https://"></label>
-          <label><span>Hosting after launch <span class="opt">(optional)</span></span>
-            <select name="hosting">
+          <p class="field__hint" id="domain-help">Your domain is registered in your own name and stays under your control throughout &mdash; I never hold it. If you do not have one yet, that is a normal answer and I will help you register it in your name.</p>
+          <label><span>13. Do you already have a domain name? <b class="req">(required)</b></span>
+            <select name="domainStatus" aria-describedby="domain-help" required>
               <option value="" disabled selected>Select the closest answer</option>
-              <option>I would like Website Care to continue after the first year</option>
-              <option>I will arrange my own hosting</option>
-              <option>I do not know yet — please advise</option>
+              <option>Yes &mdash; I have one and I can sign in to the account</option>
+              <option>Yes &mdash; I have one but I am not sure I can access the account</option>
+              <option>No &mdash; I do not have a domain yet, please help me register one</option>
             </select>
           </label>
+          <label><span>14. Your domain name and who it is registered with, or &ldquo;none yet&rdquo; <b class="req">(required)</b></span><input name="domain" placeholder="yourpractice.co.uk — registered with 123 Reg" required></label>
+          <label><span>Existing website or directory profile address <span class="opt">(optional)</span></span><input name="currentWebsite" type="url" inputmode="url" placeholder="https://"></label>
         </fieldset>
 
         <fieldset>
           <legend>Working together</legend>
-          <label><span>14. Accessibility or communication requirements <b class="req">(required)</b></span><textarea name="access" rows="3" placeholder="How you would like me to communicate with you, and anything that would make this easier. Write “none” if there is nothing." required></textarea></label>
+          <label><span>15. Accessibility or communication requirements <b class="req">(required)</b></span><textarea name="access" rows="3" placeholder="How you would like me to communicate with you, and anything that would make this easier. Write “none” if there is nothing." required></textarea></label>
           <label><span>Anything else you would like me to know <span class="opt">(optional)</span></span><textarea name="notes" rows="5" placeholder="Anything about your practice, your timing, or things you would rather avoid."></textarea></label>
         </fieldset>
 
         <fieldset>
-          <legend>15. Final acknowledgements <b class="req">(required)</b></legend>
+          <legend>16. Final acknowledgements <b class="req">(required)</b></legend>
           <p class="field__hint" id="ack-help">All four are needed before the project can begin.</p>
           <label class="check"><input type="checkbox" name="ackAccurate" value="yes" aria-describedby="ack-help" required> <span>The professional facts above — qualifications, memberships, registrations and fees — are accurate and current.</span></label>
           <label class="check"><input type="checkbox" name="ackRights" value="yes" required> <span>I own, or am licensed to use, the words, photographs and logo I am supplying.</span></label>
@@ -209,7 +209,7 @@ sitemap: false
             <h2>Read the scope again if anything is unclear.</h2>
           </div>
           <div>
-            <p>Everything included, excluded and expected is set out in full on the service page, and the terms this purchase is made under are published there too.</p>
+            <p>Everything included, excluded and expected is set out in full on the service page, and the terms your project is made under are published there too.</p>
             <a href="{{ cfg.urls.service | relative_url }}" class="btn btn--quiet">Read the full scope again</a>
           </div>
         </div>

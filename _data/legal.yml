@@ -42,6 +42,10 @@ data_protection:
   email_provider: ""
   # Bookkeeping software or accountant actually used, if any
   accounting_provider: ""
+  # The bank that receives client payments. Named in the privacy notice as an
+  # independent controller, not a processor: a bank holds payment information
+  # under its own regulatory duties, not on the Studio's instructions.
+  bank: ""
   # How personal data reaches each processor above, once they are named
   transfer_mechanism: ""
   # Retention periods, as actually operated

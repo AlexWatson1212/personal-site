@@ -51,11 +51,16 @@ payment_sentence_third_person: "£500 to begin. £495 when the client approves t
 # portfolio documents that show it in unusually full form.
 
 # Website Care. The first twelve months are included in the £995 and are not
-# separately payable. After that it is optional and monthly.
+# separately payable. After that it is optional and monthly, invoiced like
+# everything else.
 #
-# No subscription product, Payment Link or recurring checkout has been built
-# or activated. Adding one needs verified Stripe webhooks, a record of who is
-# subscribed, dunning and cancellation handling, and its own terms.
+# No recurring billing has been built and none is planned. Care is invoiced.
+#
+# What Care includes, and what it does not, is stated on the service page and in
+# clause 12 of the service terms; the two must agree. Minor factual updates —
+# fees, availability, contact details, address, qualifications — are included
+# and are best sent together. Materially new content, pages, functionality,
+# design or structure is additional work, quoted in writing first.
 website_care:
   included_months: 12
   monthly: "£29"
@@ -69,7 +74,6 @@ urls:
   cancellation: "/cancellation-and-refunds/"
   privacy: "/privacy/"
   terms: "/terms/"
-  purchase_complete: "/purchase-complete/"
   enquiry: "/contact/?service=practice-website"
 
 # Studio contact route used on the purchase-complete page.

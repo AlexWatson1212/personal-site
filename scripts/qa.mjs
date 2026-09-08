@@ -223,7 +223,6 @@ const ROUTES = [
   ["service.html", "/service/"],
   ["services/practice-website.html", "/services/practice-website/"],
   ["services/practice-website-questionnaire.html", "/services/practice-website/questionnaire/"],
-  ["purchase-complete.html", "/purchase-complete/"],
   ["work.html", "/work/"],
   ["about.html", "/about/"],
   ["contact.html", "/contact/"],
@@ -239,12 +238,11 @@ const ROUTES = [
 ];
 
 /** Routes that must never be indexed or listed. */
-const PRIVATE_ROUTES = ["/purchase-complete/", "/services/practice-website/questionnaire/"];
+const PRIVATE_ROUTES = ["/services/practice-website/questionnaire/"];
 
 const BUY_INCLUDE = "_includes/practice-website-buy.html";
 const PURCHASE_PAGE = "services/practice-website.html";
 const QUESTIONNAIRE = "services/practice-website-questionnaire.html";
-const COMPLETE_PAGE = "purchase-complete.html";
 const SUPPORT_EMAIL = "hello@alexanderwatson.co.uk";
 
 /**
@@ -298,7 +296,6 @@ const buyInclude = read(BUY_INCLUDE);
 const buyMarkup = buyInclude.replace(/\{%-?\s*comment\s*-?%\}[\s\S]*?\{%-?\s*endcomment\s*-?%\}/g, "");
 const purchasePage = read(PURCHASE_PAGE);
 const questionnaire = read(QUESTIONNAIRE);
-const completePage = read(COMPLETE_PAGE);
 const servicePage = read("service.html");
 const homePage = read("index.html");
 const layout = read("_layouts/default.html");
@@ -437,7 +434,12 @@ check("Checkout scope", "Only the buy component can emit a checkout link", () =>
     }
   }
   assert(offenders.length === 0, offenders.join("\n"));
-  assert(/active_payment_link/.test(buyInclude), `${BUY_INCLUDE} no longer reads the resolved Payment Link — the check would pass vacuously`);
+  /* Until September 2026 this ended by asserting the include still read the
+     resolved Payment Link, so that the sweep above could not pass vacuously.
+     The include no longer reads one, because there is no checkout: the
+     vacuity guard is now that the buy component exists and renders the
+     written route. */
+  assert(/How a project begins/.test(buyMarkup), `${BUY_INCLUDE} no longer renders the written route`);
 });
 
 check("Checkout scope", "The buy component is included only on the Therapist Website page", () => {
@@ -460,23 +462,16 @@ check("Checkout scope", "The buy component carries the stated calls to action", 
   /* August 2026. The purchase route is written rather than self-service, and
      the payment is taken in two instalments. Two things follow.
 
-     One: when a Payment Link is configured the action buys the FIRST
-     INSTALMENT, so the label must name the deposit and not the total. A button
-     reading "Pay £995" beside a £500 Payment Link would be a false statement
-     about what the click does.
-
-     Two: there is no disabled state any more. An action a visitor cannot take
-     is not an action, so the written route is a real link in both states. */
-  assert(
-    /Pay \{\{ deposit \}\} and begin my website/.test(buyInclude),
-    `${BUY_INCLUDE} no longer renders "Pay {{ deposit }} and begin my website" — the paid action must name the instalment, not the total`
-  );
+     September 2026: there is one state and one action. The component offers the
+     written route as a real link, takes its figures from _data/purchasing.yml,
+     and renders the canonical payment sentence. There is no paid action to
+     mislabel and no disabled control to apologise with. */
   assert(/deposit_display/.test(buyInclude), `${BUY_INCLUDE} does not take the instalment from _data/purchasing.yml`);
   assert(/price_display/.test(buyInclude), `${BUY_INCLUDE} does not take its price from _data/purchasing.yml`);
   assert(/payment_sentence/.test(buyInclude), `${BUY_INCLUDE} does not render the canonical payment sentence`);
 
   const written = (buyInclude.match(/>Tell me which design you like</g) || []).length;
-  assert(written >= 2, `${BUY_INCLUDE} must offer the written route in both states (found ${written})`);
+  assert(written >= 1, `${BUY_INCLUDE} must offer the written route (found ${written})`);
   /* Judge the markup, not the documentation comment above it — that comment
      explains why there is no disabled control, and naming the thing it forbids
      is not the same as rendering it. */
@@ -756,7 +751,7 @@ check("Commercial architecture", "The retired offer structure is gone", () => {
   return `${retired.length} retired phrases absent from ${trackedFiles.length} files`;
 });
 
-check("Commercial architecture", "The Therapist Website is the only route with an online checkout", () => {
+check("Commercial architecture", "The Therapist Website is the only route that takes money", () => {
   assert(/£995/.test(purchasePage), "the purchase page does not show £995");
   assert(/practice-website-buy\.html/.test(purchasePage), "the purchase page does not include the buy component");
   assert(/Therapist Website/.test(purchasePage), "the purchase page does not name the Therapist Website");
@@ -879,34 +874,35 @@ check("Configuration", "Any checkout URL in the documentation is a placeholder",
   return `${seen} documented URLs, all placeholders`;
 });
 
-check("Configuration", "The buy component gates on both the switch and the URL prefix", () => {
-  assert(/resolved\.purchases_enabled/.test(buyInclude), "the include no longer gates on resolved.purchases_enabled");
-  assert(/slice: 0, 23/.test(buyInclude), "the include no longer takes the 23-character URL prefix");
+check("Configuration", "The buy component carries no checkout branch at all", () => {
+  /* September 2026. The studio takes payment by invoice and bank transfer. The
+     Stripe Payment Link branch was removed rather than switched off, so what is
+     guarded here is its absence: a future edit that reintroduces a checkout
+     link has to change this test deliberately, and changing it means revisiting
+     the service terms, the privacy notice and the cancellation page, all three
+     of which now describe a bank transfer. */
+  assert(!/buy\.stripe\.com/.test(buyMarkup), "the buy component emits a Stripe checkout link again");
+  assert(!/purchases_enabled/.test(buyMarkup), "the buy component gates on a purchasing switch again");
+  assert(!/purchase_enabled/.test(buyMarkup), "the buy component has a conditional purchase state again");
   assert(
-    buyInclude.includes("link_prefix == 'https://buy.stripe.com/'"),
-    "the include no longer compares the prefix against the Stripe checkout host"
+    /data-purchase-state="written"/.test(buyMarkup),
+    "the buy component no longer declares the written route as its only state"
   );
-  assert(/assign purchase_enabled = false/.test(buyInclude), "the include no longer defaults to disabled");
-  assert(
-    buyInclude.indexOf("assign purchase_enabled = false") < buyInclude.indexOf("resolved.purchases_enabled"),
-    "the include does not default to disabled before testing the switch"
-  );
+  assert(!/\{%-?\s*if\b/.test(buyMarkup), "the buy component has grown a conditional branch");
 });
 
-check("Configuration", "The default state is a real route, not an apology", () => {
-  /* Renamed in August 2026. There is no "unavailable" state: when no Payment
-     Link is configured the component states the written route, which is the
-     launch route rather than a fallback. What this now guards is that the
-     default branch describes that route positively and links somewhere a
-     visitor can actually go. */
-  const written = buyInclude.split("{%- else -%}")[1] || "";
-  assert(written.length > 100, "the include has no default branch");
-  assert(/How a project begins/.test(written), "the default state does not describe how a project begins");
-  assert(/cfg\.urls\.enquiry/.test(written), "the default state has no working enquiry route");
-  assert(/>Tell me which design you like</.test(written), "the default state does not offer the written route");
+check("Configuration", "The written route is stated positively, not as an apology", () => {
+  /* Renamed twice. In August 2026 there ceased to be an "unavailable" state; in
+     September 2026 there ceased to be a second branch at all. What is guarded
+     now is that the one state the component has describes how a project begins,
+     links somewhere a visitor can actually go, and does not apologise for the
+     absence of a checkout that is never coming. */
+  assert(/How a project begins/.test(buyMarkup), "the component does not describe how a project begins");
+  assert(/cfg\.urls\.enquiry/.test(buyMarkup), "the component has no working enquiry route");
+  assert(/>Tell me which design you like</.test(buyMarkup), "the component does not offer the written route");
   assert(
-    !/(not open yet|opening shortly|coming soon|temporarily|for now|in the meantime)/i.test(written),
-    "the default state apologises for the absence of a checkout"
+    !/(not open yet|opening shortly|coming soon|temporarily|for now|in the meantime)/i.test(buyMarkup),
+    "the component apologises for the absence of a checkout"
   );
 });
 
@@ -1067,7 +1063,6 @@ check("Legal", "Service terms, cancellation, privacy and terms are real routes",
 check("Legal", "The purchase journey links to the terms it is made under", () => {
   const surfaces = [
     [PURCHASE_PAGE, purchasePage],
-    [COMPLETE_PAGE, completePage],
     [BUY_INCLUDE, buyInclude],
     [QUESTIONNAIRE, questionnaire],
   ];
@@ -1090,7 +1085,7 @@ check("Legal", "The purchase journey links to the terms it is made under", () =>
   return `${surfaces.length} purchase surfaces plus the site footer`;
 });
 
-check("Legal", "The terms are readable before checkout", () => {
+check("Legal", "The terms are readable before anything is agreed", () => {
   const terms = read("_pages/service-terms-practice-website.html");
   assert(!/^noindex:\s*true/m.test(frontMatter(terms)), "the service terms are hidden from indexing");
   assert(!/<form/i.test(terms), "the service terms sit behind a form");
@@ -1098,15 +1093,8 @@ check("Legal", "The terms are readable before checkout", () => {
 });
 
 /* ------------------------------------------------------------------ *
- * 11. The purchase-complete route is private
+ * 11. The private routes stay private
  * ------------------------------------------------------------------ */
-
-check("Private routes", "/purchase-complete/ is noindex and out of the sitemap", () => {
-  const fm = frontMatter(completePage);
-  assert(/^noindex:\s*true\s*$/m.test(fm), "purchase-complete.html has no noindex: true");
-  assert(/^sitemap:\s*false\s*$/m.test(fm), "purchase-complete.html has no sitemap: false");
-  assert(/page\.noindex/.test(read("_includes/head.html")), "head.html emits no robots meta tag for noindex pages");
-});
 
 check("Private routes", "robots.txt disallows the private routes", () => {
   assert(exists("robots.txt"), "there is no robots.txt at the site root");
@@ -1132,111 +1120,40 @@ check("Private routes", "The built private routes carry the robots tag and stay 
   return `${PRIVATE_ROUTES.length} private routes`;
 });
 
-/* ------------------------------------------------------------------ *
- * 12. The purchase-complete page tells the truth
- * ------------------------------------------------------------------ */
-
-/** Page text with Liquid comments removed — build notes are not page copy. */
-const completeCopy = completePage.replace(/\{%-?\s*comment\s*-?%\}[\s\S]*?\{%-?\s*endcomment\s*-?%\}/g, "");
-
-check("Purchase complete", "Never claims a verified payment", () => {
-  const claims = [
-    /payment (?:has been|was) taken/gi,
-    /payment (?:has|had) gone through/gi,
-    /payment (?:was|has been|is) (?:successful|confirmed|received|verified)/gi,
-    /your payment is complete/gi,
-  ];
-  const offenders = [];
-  for (const pattern of claims) {
-    for (const match of completeCopy.matchAll(pattern)) {
-      const before = completeCopy.slice(Math.max(0, match.index - 60), match.index);
-      const after = completeCopy.slice(match.index + match[0].length, match.index + match[0].length + 30);
-      const qualified =
-        /\b(no|not|if|unless|whether|never|cannot|neither)\b/i.test(before) || /^\s*only\b/i.test(after);
-      if (!qualified) offenders.push(`purchase-complete.html:${lineAt(completePage, completePage.indexOf(match[0]))} — "${match[0]}"`);
-    }
-  }
-  assert(offenders.length === 0, `states a payment as fact:\n${offenders.join("\n")}`);
-  const heading = (completeCopy.match(/<h1>([\s\S]*?)<\/h1>/) || [])[1] || "";
-  assert(heading.length > 0, "the page has no <h1>");
-  assert(
-    !/(successful|confirmed|received|receipt)/i.test(heading),
-    `the heading claims more than the page can know: "${heading.trim()}"`
-  );
-});
-
-check("Purchase complete", "Does not describe itself as a receipt", () => {
-  assert(/not a receipt/i.test(completePage), "the page does not say it is not a receipt");
-  assert(/not proof of payment/i.test(completePage), "the page does not say it is not proof of payment");
-  const selfReceipt = completePage.match(/\b(this (?:page|is) (?:your |a )?receipt|here is your receipt|your receipt below)\b/i);
-  assert(!selfReceipt, `the page calls itself a receipt: "${selfReceipt && selfReceipt[0]}"`);
-  assert(
-    !/receipt/i.test(frontMatterValue(completePage, "title") || ""),
-    "the page title describes the page as a receipt"
-  );
-});
-
-check("Purchase complete", "Explains that the project begins only after the intake is checked", () => {
-  assert(
-    /officially begins once your completed[\s\S]{0,200}questionnaire/i.test(completePage),
-    "the page does not say the project begins once the questionnaire is complete"
-  );
-  assert(/materials have been received and checked/i.test(completePage), "the page does not say the materials are checked first");
-  assert(/no project has been created automatically/i.test(completePage), "the page does not deny automatic project creation");
-  assert(completePage.includes("/services/practice-website/questionnaire/"), "the page does not link to the questionnaire");
-  assert(completePage.includes(SUPPORT_EMAIL), "the page gives no contact route if nothing arrives");
-});
-
-check("Purchase complete", "Carries no analytics call and reads no payment parameters", () => {
-  /* Analytics now exists as an architecture, off by default. The rule this
-     check protects is unchanged and is now stricter: the purchase surfaces
-     must fire nothing, whatever the configuration says, and no analytics call
-     anywhere may carry a second argument — a name is the whole payload. */
-  const surfaces = [
-    [COMPLETE_PAGE, completePage],
-    [PURCHASE_PAGE, purchasePage],
-    [QUESTIONNAIRE, questionnaire],
-    [BUY_INCLUDE, buyInclude],
-    ["assets/js/practice-website-questionnaire.js", read("assets/js/practice-website-questionnaire.js")],
-  ];
-  for (const [rel, body] of surfaces) {
-    assert(
-      !/gtag\(|dataLayer|plausible\(|fathom|umami|posthog|analytics\.track/i.test(body),
-      `${rel} fires an analytics event but no analytics system is configured`
-    );
-  }
-  for (const [pattern, label] of [
-    [/\b\d{4}[ -]?\d{4}[ -]?\d{4}[ -]?\d{4}\b/, "what looks like a card number"],
-    [/ending in \d{4}|ends in \d{4}/i, "card digits"],
-    [/\bcvc\b|\bcvv\b/i, "a security code"],
-    [/pi_[A-Za-z0-9]{12}|cs_(live|test)_[A-Za-z0-9]/, "a Stripe object id"],
-    [/session_id|payment_intent|checkout\.session/i, "a Stripe redirect parameter"],
-    [/URLSearchParams|location\.search/, "a query-parameter read"],
-  ]) {
-    assert(!pattern.test(completePage), `purchase-complete.html contains ${label}`);
-  }
-  return `${surfaces.length} purchase surfaces`;
-});
 
 /* ------------------------------------------------------------------ *
  * 13. Questionnaire
  * ------------------------------------------------------------------ */
 
-check("Questionnaire", "Exactly 15 required and 7 optional questions", () => {
+check("Questionnaire", "The page and _data/intake.yml agree on the question count", () => {
+  /* Until September 2026 this asserted the literal 15/7 shape, which came from
+     a brief describing an approved intake that was never found in the project.
+     The questionnaire is no longer designed around that number: what matters is
+     that the page and the data file agree, that every question is numbered, and
+     that the sequence has no gaps. The counts move when the questionnaire
+     legitimately changes; they are not a target it has to hit. */
   const required = (questionnaire.match(/class="req"/g) || []).length;
   const optional = (questionnaire.match(/class="opt"/g) || []).length;
   const expectedRequired = Number((intakeYml.match(/^required_questions:\s*(\d+)/m) || [])[1]);
   const expectedOptional = Number((intakeYml.match(/^optional_questions:\s*(\d+)/m) || [])[1]);
-  assert(expectedRequired === 15, `_data/intake.yml says required_questions: ${expectedRequired}, expected 15`);
-  assert(expectedOptional === 7, `_data/intake.yml says optional_questions: ${expectedOptional}, expected 7`);
-  assert(required === 15, `${QUESTIONNAIRE} marks ${required} questions required, expected 15`);
-  assert(optional === 7, `${QUESTIONNAIRE} marks ${optional} questions optional, expected 7`);
+  assert(required > 0, `${QUESTIONNAIRE} marks no questions required`);
+  assert(
+    required === expectedRequired,
+    `${QUESTIONNAIRE} marks ${required} questions required, _data/intake.yml says ${expectedRequired}`
+  );
+  assert(
+    optional === expectedOptional,
+    `${QUESTIONNAIRE} marks ${optional} questions optional, _data/intake.yml says ${expectedOptional}`
+  );
   const numbers = [...questionnaire.matchAll(/<(?:span|legend)>(\d{1,2})\. /g)].map((m) => Number(m[1]));
-  for (let n = 1; n <= 15; n += 1) {
+  for (let n = 1; n <= required; n += 1) {
     assert(numbers.includes(n), `question ${n} is missing from the numbered sequence`);
   }
-  assert(numbers.length === 15, `found ${numbers.length} numbered questions, expected 15`);
-  return "15 required, 7 optional, numbered 1–15";
+  assert(
+    numbers.length === required,
+    `found ${numbers.length} numbered questions but ${required} marked required`
+  );
+  return `${required} required, ${optional} optional, numbered 1–${required}`;
 });
 
 check("Questionnaire", "Every field is labelled and every fieldset has a legend", () => {
@@ -1450,18 +1367,18 @@ check("Accessibility", "No page body declares its own main landmark", () => {
   return `${pages.length} page bodies`;
 });
 
-check("Accessibility", "Both purchase actions are real links, and both are described", () => {
+check("Accessibility", "The purchase action is a real link, and it is described", () => {
   /* August 2026. The disabled button is gone, so what is checked is that every
      state offers a genuine anchor a keyboard user can reach and follow, that
      nothing fakes a control, and that the action carries its description. */
   const actions = (buyMarkup.match(/<a\b[^>]*class="[^"]*buy-action/g) || []).length;
-  assert(actions >= 2, `expected a real buy-action anchor in both states, found ${actions}`);
+  assert(actions >= 1, `expected a real buy-action anchor, found ${actions}`);
   assert(!/<button\b/.test(buyMarkup), "the buy component renders a button; both states should be links");
   assert(!/onclick=/i.test(buyMarkup), "the buy action relies on an inline click handler");
   assert(!/role="button"/.test(buyMarkup), "the buy action fakes a button with a role attribute");
   assert(!/\bdisabled\b/.test(buyMarkup), "the buy component still renders a disabled control");
   const described = (buyMarkup.match(/aria-describedby="buy-terms-/g) || []).length;
-  assert(described >= 2, `both buy actions must carry an accessible description (found ${described})`);
+  assert(described >= 1, `the buy action must carry an accessible description (found ${described})`);
 });
 
 check("Accessibility", "Every image carries an alt attribute", () => {

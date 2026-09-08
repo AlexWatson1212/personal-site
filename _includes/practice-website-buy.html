@@ -1,79 +1,44 @@
 {%- comment -%}
   Therapist Website — how a project begins. The single source of truth for the
-  purchase action. No other file may render a checkout link.
+  purchase action. No other file may render one.
 
-  August 2026. The route is deliberately human and is not a fallback: the client
-  names a design, the scope and price are confirmed in writing, and a payment
-  link for the first instalment is sent directly. That is what this component
-  says by default, stated positively — the site does not apologise for having no
-  self-service checkout, because self-service checkout is not the offer.
+  September 2026. The route is written and human, and it is not a fallback: the
+  client names a design, the scope and price are confirmed in writing, the first
+  instalment is invoiced, and it is paid by bank transfer. There is no online
+  checkout and none is planned, so this component has no second branch and no
+  disabled state — an action a visitor cannot take is not an action.
 
-  Configuration comes from two data files:
+  The Stripe Payment Link branch was removed in September 2026 when the studio
+  settled on invoice and bank transfer as the payment mechanism. Do not
+  reintroduce a checkout link here without also revisiting the service terms,
+  the privacy notice and the cancellation page, all three of which now describe
+  a bank transfer.
 
-    site.data.purchasing            committed prices, the canonical payment
-                                    sentence, and route URLs
-    site.data.purchasing_resolved   generated at build time by
-                                    scripts/purchasing-config.mjs
+  Bank details belong on the invoice and must never appear on this website.
 
-  If a Payment Link is ever resolved at build time AND still begins
-  https://buy.stripe.com/, the first instalment is offered directly and the
-  written route becomes the secondary action. In every other case — including a
-  missing generated file — only the written route is shown. There is no disabled
-  control and no "opening shortly" state: an action a visitor cannot take is not
-  an action.
-
-  A Payment Link URL is public by design. A Stripe secret or restricted key
-  (sk_…, rk_…, whsec_…) must never appear in this repository.
+  Configuration comes from site.data.purchasing: the committed prices, the
+  canonical payment sentence, and the route URLs.
 
   Usage:  {% include practice-website-buy.html id="hero" %}
 {%- endcomment -%}
 
 {%- assign buy_id = include.id | default: 'buy' -%}
 {%- assign cfg = site.data.purchasing -%}
-{%- assign resolved = site.data.purchasing_resolved -%}
 {%- assign price = cfg.price_display | default: '£995' -%}
 {%- assign deposit = cfg.deposit_display | default: '£500' -%}
-{%- assign link = resolved.active_payment_link | default: '' | strip -%}
-{%- assign link_prefix = link | slice: 0, 23 -%}
-{%- assign purchase_enabled = false -%}
-{%- if resolved.purchases_enabled and link_prefix == 'https://buy.stripe.com/' -%}
-  {%- assign purchase_enabled = true -%}
-{%- endif -%}
 
-<div class="buy" data-purchase-block data-purchase-state="{% if purchase_enabled %}link{% else %}written{% endif %}">
+<div class="buy" data-purchase-block data-purchase-state="written">
   <p class="buy__price">
     <b>{{ price }}</b>
     <span class="quiet small">{{ cfg.payment_sentence }} Includes the first year of Website Care.</span>
   </p>
 
-  {%- if purchase_enabled -%}
-  <p class="buy__terms" id="buy-terms-{{ buy_id }}">
-    The first instalment is taken by Stripe. Before paying, please read the
-    <a class="inline-link" href="{{ cfg.urls.service_terms | relative_url }}">Therapist Website Service Terms</a>,
-    the <a class="inline-link" href="{{ cfg.urls.cancellation | relative_url }}">cancellation and refund information</a>
-    and the <a class="inline-link" href="{{ cfg.urls.privacy | relative_url }}">privacy notice</a>.
-  </p>
-
-  <div class="buy__actions">
-    <a
-      class="btn buy-action"
-      href="{{ link }}"
-      rel="nofollow noopener"
-      aria-describedby="buy-terms-{{ buy_id }}"
-      data-purchase-action
-    >Pay {{ deposit }} and begin my website<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
-
-    <a class="tlink buy-secondary" href="{{ cfg.urls.enquiry | relative_url }}">Tell me which design you like</a>
-  </div>
-
-  <p class="buy__terms">This opens Stripe's secure payment page. Card details are entered on Stripe, never on this website.</p>
-  {%- else -%}
   <p class="buy__terms buy-route" id="buy-terms-{{ buy_id }}">
     <strong>How a project begins.</strong>
     Tell me which design you like and roughly where your practice is up to. I read it,
     say plainly whether I am the right person, and confirm the scope and the price in
-    writing. If you want to go ahead, I send you a payment link for the first
-    {{ deposit }} and the questionnaire follows. The
+    writing. If you want to go ahead, I invoice the first {{ deposit }}, you pay it by
+    bank transfer, and the questionnaire follows. The
     <a class="inline-link" href="{{ cfg.urls.service_terms | relative_url }}">Therapist Website Service Terms</a>,
     <a class="inline-link" href="{{ cfg.urls.cancellation | relative_url }}">cancellation and refund information</a>
     and <a class="inline-link" href="{{ cfg.urls.privacy | relative_url }}">privacy notice</a> apply, and are worth
@@ -86,5 +51,4 @@
   </div>
 
   <p class="buy__terms">A reply within two working days. Nothing is agreed, and nothing is payable, until the scope and price are confirmed in writing.</p>
-  {%- endif -%}
 </div>

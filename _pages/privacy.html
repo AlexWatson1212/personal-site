@@ -70,37 +70,32 @@ permalink: /privacy/
 
     <h3>2. Payment</h3>
     <p>
-      There is no checkout on this website. When you have agreed the scope and
-      the price for a
+      There is no checkout on this website, and no card payment of any kind.
+      When you have agreed the scope and the price for a
       <a href="{{ cfg.urls.service | relative_url }}">Therapist Website</a>
-      in writing, I send you a payment link, and the payment is taken by Stripe
-      Payments UK, Ltd. and its group companies (“Stripe”).
+      in writing, I send you an invoice and you pay it by bank transfer.
     </p>
     <ul>
       <li>
-        Card details are entered on Stripe's own secure payment page. They are
-        never entered on, sent to, or stored by this website, and I never see
-        them.
+        To raise the invoice I ask you for the name it should be made out to, a
+        billing address, and an email address to send it to. That is all the
+        billing information I hold.
       </li>
       <li>
-        Stripe collects what it needs to take the payment and to issue your
-        receipt, which for a payment of this kind is your name, your email
-        address and your billing address.
+        No card details are involved at any point. None are entered on this
+        website, none are sent to me, and I never see or store any.
       </li>
       <li>
-        Stripe passes me the information I need to record the transaction:
-        typically your name, email address, billing address, the amount paid and
-        the date. Everything else I hold about your project came from you
+        The transfer itself passes between your bank and the Studio's bank.
+        Your bank and mine each hold the information a payment carries — your
+        name, the amount, the date and the reference — as independent
+        controllers under their own regulatory obligations and their own privacy
+        notices, not on my instructions.
+      </li>
+      <li>
+        I keep the invoice, and the record of what was paid and when, as a
+        business record. Everything else I hold about your project came from you
         directly, by email or in the questionnaire.
-      </li>
-      <li>
-        Stripe acts as an independent controller of the payment information you
-        give it, under its own privacy policy at
-        <a href="https://stripe.com/gb/privacy" rel="noopener">stripe.com/gb/privacy</a>.
-      </li>
-      <li>
-        The page you are returned to after paying receives no payment
-        information at all, and records nothing.
       </li>
     </ul>
     <p><strong>Lawful basis:</strong> performance of our contract; and my legal
@@ -141,7 +136,11 @@ permalink: /privacy/
       where they are named as such.
     </p>
     <ul>
-      <li><strong>Stripe</strong> — payment processing (independent controller for payment data).</li>
+      <li><strong>The Studio's bank</strong> —
+        {% include legal-fact.html value=site.data.legal.data_protection.bank todo="name the bank that receives client payments" %}
+        (independent controller for payment information, under its own privacy notice).
+        <span class="legal-flag">⚖</span>
+      </li>
       <li><strong>Netlify</strong> — hosting of this website. Its servers produce ordinary technical logs, including IP addresses, for security and reliability.</li>
       <li><strong>Email and file storage</strong> —
         {% include legal-fact.html value=site.data.legal.data_protection.email_provider todo="name the email provider and any file-sharing or cloud storage service actually used, e.g. Google Workspace, Microsoft 365, Dropbox" %}.
@@ -159,8 +158,8 @@ permalink: /privacy/
     <h2>Where your information is held</h2>
     <p>
       Information is held in the United Kingdom and the European Economic Area
-      where possible. Some suppliers, including Stripe, are international and may
-      transfer information outside the UK. Where that happens, the transfer
+      where possible. Some suppliers are international and may transfer
+      information outside the UK. Where that happens, the transfer
       relies on the safeguards those suppliers put in place, such as UK
       International Data Transfer Agreements or the UK extension to the
       EU–US Data Privacy Framework.
@@ -193,19 +192,14 @@ permalink: /privacy/
     <h2>Cookies and analytics</h2>
     <p>
       This website sets no cookies of its own and uses no analytics, advertising
-      or tracking. No analytics event is recorded anywhere in the purchase
-      journey, including on the page you are returned to after paying. If that
-      ever changes, this notice will be updated before any such system is
-      introduced, and consent will be sought where it is required.
-    </p>
-    <p>
-      Stripe's payment page is a separate website and sets its own cookies, which
-      are necessary for it to take a payment securely.
+      or tracking, on any page. If that ever changes, this notice will be updated
+      before any such system is introduced, and consent will be sought where it
+      is required.
     </p>
 
     <h2>External websites</h2>
     <p>
-      Some pages link to other websites — Stripe, Counselling Directory, YouTube,
+      Some pages link to other websites — Counselling Directory, YouTube,
       LinkedIn, Instagram. Those websites have their own privacy policies, which
       are outside my control.
     </p>

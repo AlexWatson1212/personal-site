@@ -21,15 +21,14 @@
     ["About you and your practice", [
       ["name", "Name"],
       ["email", "Email address"],
-      ["practiceName", "Practice name"],
-      ["checkoutEmail", "Email used at checkout"]
+      ["practiceName", "Practice name"]
     ]],
     ["Chosen design", [
       ["design", "Design"],
       ["colours", "Colour direction"]
     ]],
-    ["Pages and copy", [
-      ["pages", "Pages"],
+    ["What the website has to do", [
+      ["visitorNeeds", "What a visitor needs to find, understand or do"],
       ["copyStatus", "Copy status"],
       ["materialsLink", "Materials link"]
     ]],
@@ -43,11 +42,10 @@
       ["photos", "Photographs"],
       ["logo", "Logo"]
     ]],
-    ["Domain and hosting", [
-      ["domain", "Domain name"],
-      ["registrar", "Registrar and access"],
-      ["currentWebsite", "Existing website"],
-      ["hosting", "Hosting after launch"]
+    ["Domain", [
+      ["domainStatus", "Domain ownership and access"],
+      ["domain", "Domain name and registrar"],
+      ["currentWebsite", "Existing website"]
     ]],
     ["Working together", [
       ["access", "Accessibility or communication requirements"],

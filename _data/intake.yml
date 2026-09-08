@@ -1,17 +1,32 @@
 # ─────────────────────────────────────────────────────────────────────────────
 # Website Content Questionnaire status.
 #
-# The Studio's approved intake (15 required questions and 7 optional ones) was
-# not present in the supplied project, so the questions on
-# /services/practice-website/questionnaire/ are a DRAFT reconstruction
-# built to that shape. See OPEN_DECISIONS.md.
+# The 15/7 shape came from a brief describing an approved intake that was never
+# found in the project. In September 2026 the studio stopped designing the
+# questionnaire around that reconstructed count and made six structural changes
+# instead:
+#
+#   1. Q5 asks what a visitor needs to find, understand or do. The client is
+#      never asked to design the page structure or the menu order — that is the
+#      work they are paying for.
+#   2. The Stripe-era "email address used for payment" field was deleted.
+#      Billing details are collected in the acceptance exchange, before the
+#      first invoice.
+#   3. The hosting-after-launch question was removed. The first year of Website
+#      Care is included, and clause 12 already commits the studio to asking
+#      before the twelve months are up.
+#   4. Domain ownership and access is required, with an explicit route for a
+#      client who does not have a domain yet.
+#   5. The counts below follow the questionnaire. The questionnaire does not
+#      follow the counts.
+#   6. The payment position is stated once, near the top.
 #
 # questionnaire_approved: false → the page shows a draft notice.
 # questionnaire_approved: true  → the notice disappears everywhere at once.
-#                                 Set it only once the wording has been checked
-#                                 against the approved questionnaire.
+#                                 Alexander sets this himself, after reading the
+#                                 implemented questionnaire as a client would.
 # ─────────────────────────────────────────────────────────────────────────────
 questionnaire_approved: false
-questionnaire_version: "0.1 draft"
-required_questions: 15
-optional_questions: 7
+questionnaire_version: "0.2 draft"
+required_questions: 16
+optional_questions: 4
