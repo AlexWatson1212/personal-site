@@ -44,6 +44,48 @@ Public copy that described the old documents — "written after the website",
 those are the phrases to re-check, along with the page counts and file sizes
 quoted on every case page.
 
+## Pending correction — blocked on missing sources
+
+Two sentences in all six Blueprints contradict the commercial offer and must be
+corrected the next time these documents are built. They have **not** been
+applied, because five of the six have no reachable HTML source (see below).
+Applying them to one document and not the others would break the consistency
+that is the whole point of the set, so all six wait together.
+
+**1. The revision promise**, on the approval page (section 14), left column:
+
+> from: `Two consolidated rounds of revision are included at this stage.`
+> to:   `One consolidated round of revision is included at this stage.`
+
+The offer is one consolidated revision of the Direction Note, and two
+consolidated rounds on the website itself. The two-round sentence is byte
+identical in all six, which is what identifies it as template boilerplate rather
+than a decision: `/service/`, `services/practice-website.html`,
+`DIRECTION-NOTE-TEMPLATE.md` and `docs/pre-launch.md` all say one, and
+`OPEN_DECISIONS.md` records no intent to change it.
+
+**2. The portfolio note**, foot of the same page:
+
+> from: `This note appears only in portfolio editions.`
+> to:   `This Blueprint is published at portfolio length. A commissioned practice
+>        receives a concise Direction Note recording the agreed direction.`
+
+The current wording presupposes client editions of this document. There are
+none: a commissioned practice receives the one-page Direction Note.
+
+**Why this is blocked.** Only `stillpoint-practice-clarity-blueprint.html` is
+present. The five PDFs exported on 9 September have no HTML source in
+`personal-site`, `Concepts` or `Alexander Watson Studio` — the
+`practice-clarity-source/blueprint.html` files under `Concepts/*-studio-case/`
+are the 8 September sources and produce the previous, reverse-engineered
+documents. Editing the PDFs directly is not viable: the text is glyph-encoded
+through subsetted fonts with absolute positioning, so a length change breaks the
+line, and the portfolio note needs to reflow onto a third line.
+
+This is a demonstration artefact rather than a promise to a live buyer — the
+approval page belongs to a fictional practice — so the published set can wait
+for the sources without misleading anyone who is actually buying.
+
 ## Known disagreement between a document and its build
 
 The Helen Calder Blueprint recommends three photographs, one of them a portrait
