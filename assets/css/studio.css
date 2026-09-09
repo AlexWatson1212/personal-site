@@ -524,8 +524,19 @@ p { text-wrap: pretty; }
   display: inline-flex;
   max-width: 100%;
   align-items: center;
-  gap: 0.6em;
-  padding: 0.92rem 1.6rem;
+  /* The inline padding and the label-to-arrow gap are capped against the
+     viewport as well as the type. Both were purely relative, so at a 200% text
+     size they doubled while the viewport did not: at 320px the padding alone
+     grew to 102px and pushed the label and its arrow out past the page, which
+     is what put a horizontal scrollbar on the whole document.
+
+     8vw is 25.6px at 320px, which is exactly what 1.6rem resolves to at a 16px
+     root, and 3vw is likewise 0.6em of the small size there — so at a normal
+     text size the caps never bind at any width from 320px up and every button
+     on the site measures what it measured before. They bind only when the text
+     is enlarged, which is the only case that was broken. */
+  gap: min(0.6em, 3vw);
+  padding: 0.92rem min(1.6rem, 8vw);
   min-height: 48px;
   background: var(--btn-bg);
   color: var(--btn-fg);
@@ -820,10 +831,33 @@ p { text-wrap: pretty; }
 
 .closing { padding-block: var(--s-7) clamp(3.25rem, 6vw, 5.5rem); }
 
+/* The inline padding was already fluid, but its floor was not: clamp's lower
+   bound is 1.5rem, so at a 200% text size it doubled to 48px a side and left a
+   320px screen 138px to put a plate's worth of content in. Capping the whole
+   expression at 7.5vw — 24px at 320px, which is what 1.5rem resolves to at a
+   16px root — holds the floor still while the text grows. Above 320px, and at
+   every normal text size, the viewport term is the larger of the two and the
+   cap does not bind, so the plate measures what it measured before. */
 .closing__plate {
-  padding: clamp(2.25rem, 5.5vw, 4rem) clamp(1.5rem, 4vw, 3.5rem);
+  padding: clamp(2.25rem, 5.5vw, 4rem) min(clamp(1.5rem, 4vw, 3.5rem), 7.5vw);
   border-radius: var(--r-lg);
 }
+
+/* At 320px with a 200% text size this plate is 234px wide and its button's
+   longest word is 151px; add the arrow (32px), the gap (10px) and the pill's
+   own padding (51px) and the content needs 244px. There is no arrangement that
+   fits it: even at zero padding on both the plate and the pill the word and the
+   arrow are wider than the screen. So the choice is a word that breaks or an
+   arrow that sits outside its pill, and a broken word is the lesser fault.
+
+   Scoped to this plate rather than set on .btn, because .btn is also used in
+   the contact form panel, which is narrower still — there the same declaration
+   fragments a four-word label across a 330px-tall pill. This is a rule about a
+   context, not about a page: it applies wherever a closing plate appears.
+
+   It only ever fires when a word cannot fit its line, so every button on every
+   other width and text size is untouched. */
+.closing__plate .btn { overflow-wrap: anywhere; }
 
 /* The plate carries its own quiet lift so it reads as an object on the ground
    rather than a rectangle of colour. Kept well under the collection plates',
@@ -1250,7 +1284,13 @@ p { text-wrap: pretty; }
    right. Deliberately not two equal columns: a symmetrical pair reads as a
    choice between two products however the words are written, which is the tier
    this replaced. */
-.offer { display: grid; gap: var(--s-7); }
+/* minmax(0, 1fr) rather than the implicit `auto` track. An auto track floors at
+   the item's min-content width, and at 320px with a 200% text size the longest
+   unbreakable run — the name in .way__meta, the label in .way__actions — is
+   wider than the column, so the grid grew past the viewport and took the whole
+   page's horizontal scroll with it. Allowing the track below min-content lets
+   the text wrap instead. Same value as the two-column rule below. */
+.offer { display: grid; gap: var(--s-7); grid-template-columns: minmax(0, 1fr); }
 
 @media (min-width: 54rem) {
   .offer {
@@ -1726,13 +1766,27 @@ p { text-wrap: pretty; }
 
 .diff__notes { margin-block-start: var(--s-6); counter-reset: note; }
 
+/* The gutter that holds the numeral is capped against the viewport as well as
+   the type: 12vw is 38.4px at 320px, exactly what 2.4rem resolves to at a 16px
+   root, so the cap never binds at a normal text size at any supported width.
+   At 200% it held 77px of a 320px screen and left the annotation 157px to live
+   in. break-word is the companion: even at 196px a few of these words — the
+   long adverbs in the case-page annotations — are wider than the column, and
+   without it they painted straight out of the page. It changes nothing where
+   there is room, because it only breaks a word that would otherwise overflow
+   its line — and it needs the explicit minmax(0, 1fr) track to act at all,
+   because the implicit `auto` track floors at the annotation's longest word
+   and break-word does not lower a min-content floor. Same remedy, and the same
+   reason, as the one on .offer. */
 .diff__notes li {
   position: relative;
   display: grid;
   gap: var(--s-1) var(--s-4);
-  padding: var(--s-4) 0 var(--s-4) 2.4rem;
+  grid-template-columns: minmax(0, 1fr);
+  padding: var(--s-4) 0 var(--s-4) min(2.4rem, 12vw);
   border-block-start: var(--hairline) solid var(--line-soft);
   font-size: var(--t-small);
+  overflow-wrap: break-word;
 }
 
 @media (min-width: 40rem) {
@@ -1807,6 +1861,278 @@ p { text-wrap: pretty; }
   font-size: var(--t-tiny);
   font-weight: 600;
   line-height: 1;
+}
+
+/* --- The trace: one thing understood, and what it went on to decide ------ */
+
+/* September 2026. The site asserted the causal claim on every page — that the
+   website is the result of understanding the practice — and never once showed
+   it happening. This is that claim drawn: a single sentence from a practice,
+   and the copy decision, structural decision and form decision it produced.
+   Everything in it is quoted from a published Practice Clarity document and
+   can be checked against the live concept site.
+
+   Deliberately not the anatomy rail. The anatomy shows a sequence in time and
+   is allowed to wrap to 2 x 2, because "week one" beside "week three" still
+   reads. This is causation, and 2 x 2 would let a reader take the third step
+   as a consequence of the second. So it is one column until it can be four,
+   and the connecting rule is drawn along whichever axis the chain is running.
+   -------------------------------------------------------------------------- */
+
+.trace { --trace-steps: 4; position: relative; }
+
+.trace__steps {
+  display: grid;
+  gap: 0;
+  counter-reset: trace;
+}
+
+.trace__step {
+  position: relative;
+  padding: var(--s-5) 0 var(--s-5) var(--s-6);
+  border-block-start: var(--hairline) solid var(--line);
+}
+
+.trace__step:last-child { border-block-end: var(--hairline) solid var(--line); }
+
+/* Vertical thread, drawn as you read it. Same grammar as .pathway. */
+.trace__step::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0.55rem;
+  width: 1px;
+  background: var(--line-strong);
+  transform-origin: top center;
+}
+
+.trace__step::after {
+  content: "";
+  position: absolute;
+  inset-block-start: calc(var(--s-5) + 0.42em);
+  inset-inline-start: calc(0.55rem - 3px);
+  width: 7px; height: 7px;
+  background: var(--paper);
+  border: 1px solid var(--text);
+  border-radius: 999px;
+}
+
+.on-paper-deep .trace__step::after { background: var(--paper-deep); }
+.on-sage .trace__step::after { background: var(--sage); }
+
+.trace__step--end::after { background: var(--clay); border-color: var(--clay); }
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .trace__step::before {
+      animation: grow-y linear both;
+      animation-timeline: view();
+      animation-range: entry 30% cover 50%;
+    }
+  }
+}
+
+.trace__n {
+  display: block;
+  margin-block-end: var(--s-3);
+  color: var(--text-faint);
+  font-size: var(--t-label);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.trace__step p { max-width: 46ch; color: var(--text-quiet); font-size: var(--t-small); line-height: 1.55; }
+
+/* The one place the reader meets the practice's own words. */
+/* Bigger than a heading of its rank, because it is the one moment the reader
+   meets the practice's own words rather than the studio's account of them. */
+.trace__step .trace__said {
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 1.08rem + 0.95vw, 1.8rem);
+  line-height: 1.28;
+  letter-spacing: -0.016em;
+  color: var(--text);
+  max-width: 22ch;
+  text-wrap: pretty;
+}
+
+.trace__where {
+  display: block;
+  margin-block-start: var(--s-3);
+  color: var(--text-faint);
+  font-size: var(--t-tiny);
+}
+
+.trace__out {
+  margin-block-start: var(--s-5);
+  max-width: 58ch;
+  color: var(--text-quiet);
+  font-size: var(--t-small);
+}
+
+/* The horizontal thread, used only where the chain runs across. Its own
+   element rather than a border, so it can be drawn on a view() timeline like
+   every other rule on the site. */
+.trace__rule { display: none; }
+
+@media (min-width: 72rem) {
+  .trace__steps {
+    grid-template-columns: repeat(var(--trace-steps), minmax(0, 1fr));
+    gap: var(--s-5);
+    padding-block-start: var(--s-5);
+  }
+
+  /* Horizontal now, so the vertical thread and the row rules come off and the
+     one rule above the row does the joining instead. */
+  .trace__step {
+    padding: 0;
+    border-block-start: 0;
+  }
+  .trace__step:last-child { border-block-end: 0; }
+  .trace__step::before { content: none; }
+  .trace__step::after {
+    inset-block-start: calc(var(--s-5) * -1 - 4px);
+    inset-inline-start: 0;
+  }
+  .trace__step p, .trace__step .trace__said { max-width: none; }
+
+  .trace__rule {
+    display: block;
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    height: 1px;
+    background: var(--line-strong);
+    transform-origin: left center;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .trace__rule {
+        animation: grow-x linear both;
+        animation-timeline: view();
+        animation-range: entry 25% cover 48%;
+      }
+    }
+  }
+}
+
+/* --- The origin: a page of the document, and the website it produced ----- */
+
+/* The six Practice Clarity documents were published on the site as artefacts —
+   here they are, read them. This shows one of them as a cause instead: the
+   page, the decision printed on it, and the part of the finished site that
+   decision produced. Stacked, it keeps the reading order document, decision,
+   website, because the order is the argument. */
+
+.origin {
+  display: grid;
+  gap: var(--s-5);
+  align-items: start;
+}
+
+.origin__part { position: relative; }
+
+.origin__n {
+  display: block;
+  margin-block-end: var(--s-3);
+  padding-block-end: var(--s-3);
+  border-block-end: var(--hairline) solid var(--line-strong);
+  color: var(--text-faint);
+  font-size: var(--t-label);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.origin__decision {
+  font-family: var(--serif);
+  font-size: var(--t-h3);
+  line-height: 1.32;
+  letter-spacing: -0.012em;
+  text-wrap: pretty;
+}
+
+.origin__because {
+  margin-block-start: var(--s-4);
+  color: var(--text-quiet);
+  font-size: var(--t-small);
+  line-height: 1.55;
+}
+
+.origin__caption {
+  margin-block-start: var(--s-3);
+  color: var(--text-faint);
+  font-size: var(--t-tiny);
+}
+
+@media (min-width: 62rem) {
+  .origin {
+    grid-template-columns: minmax(0, 1fr) minmax(14rem, 0.78fr) minmax(0, 1fr);
+    gap: clamp(1.75rem, 3.4vw, 3.25rem);
+  }
+  .origin__part--decision { padding-inline: clamp(0.5rem, 1.4vw, 1.25rem); }
+}
+
+/* --- Why this decision: a small choice with its reason exposed ----------- */
+
+.why { counter-reset: why; }
+
+/* Stacked, a row is one long column of label, question, answer and source, and
+   the eye needs the gap between rows to be unmistakably larger than the gaps
+   inside one. Hence the wider block padding below the two-column width — and
+   the type is not touched to pay for it.
+
+   scroll-margin-top matches the document's own scroll-padding-top, so a row
+   reached by an anchor, by keyboard focus or by find-in-page parks clear of
+   the sticky header rather than under it. */
+.why__row {
+  display: grid;
+  gap: var(--s-3) clamp(2rem, 4vw, 3.5rem);
+  padding-block: var(--s-6);
+  border-block-start: var(--hairline) solid var(--line);
+  scroll-margin-top: 6rem;
+}
+
+.why__row:last-child { border-block-end: var(--hairline) solid var(--line); }
+
+@media (min-width: 54rem) {
+  .why__row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    align-items: start;
+    padding-block: var(--s-5);
+  }
+}
+
+.why__kind {
+  display: block;
+  margin-block-end: var(--s-2);
+  color: var(--clay);
+  font-size: var(--t-label);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.why__q {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: var(--t-h3);
+  line-height: 1.28;
+  letter-spacing: -0.014em;
+  max-width: 30ch;
+  text-wrap: pretty;
+}
+
+.why__a { color: var(--text-quiet); font-size: var(--t-small); line-height: 1.55; max-width: 54ch; }
+
+.why__src {
+  display: block;
+  margin-block-start: var(--s-3);
+  color: var(--text-faint);
+  font-size: var(--t-tiny);
 }
 
 /* --- Care ---------------------------------------------------------------- */

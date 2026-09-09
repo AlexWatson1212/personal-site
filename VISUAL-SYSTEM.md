@@ -117,6 +117,21 @@ hairline-ruled columns), `.pathway` (a drawn vertical line with stages),
 `.diff` (a direction beside its tailored version, with numbered annotations),
 `.care`. No boxes, no arrows, no circled step numbers.
 
+Three of them, added September 2026, exist to show causation rather than
+sequence — the site asserted on every page that the website is the result of
+understanding the practice, and never once demonstrated it.
+
+| Component | Where | What it does |
+|---|---|---|
+| `.trace` | `/` | One thing understood about a practice, and the copy decision and the behaviour it produced. Four steps on a drawn rule. One column with a vertical thread until it can be four with a horizontal one — never 2 × 2, because in a causal chain a wrapped third step reads as a consequence of the second. |
+| `.origin` | `/work/` | A page of a published Practice Clarity document, the row printed on it, and the finished website that row produced. Three columns aligned on one rule; stacked, it holds the order document, decision, website, because the order is the argument. |
+| `.why` | `/work/` | Five small website decisions with the reasoning exposed, each labelled with the part of a site it lands on. The labels are the second argument: one practice question decides colour, another decides the first screen, another the photography. |
+
+All three are static. Nothing in them depends on hover, on JavaScript or on
+motion, and the drawn rules are the existing `grow-x` / `grow-y` view()
+timelines, so reduced motion removes them through the token flip like
+everything else.
+
 Actions (§06) are two treatments only: `.btn` (a solid ink pill, one per
 section) and `.tlink` (an underlined text link). `.btn--quiet` is the outlined
 variant used where two actions sit together on ink.

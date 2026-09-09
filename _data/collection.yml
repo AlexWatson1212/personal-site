@@ -7,7 +7,11 @@
 #
 # What replaces them is evidence rather than illustration: six fictional
 # practices, each with a finished concept website that is live, and the
-# strategic document that produced it published beside it. The point of six is
+# Practice Clarity Blueprint that settles its direction published beside it.
+# The six Blueprints were rewritten on 9 September 2026 as client-facing
+# documents — written before design, labelled Established / Interpretation /
+# Recommendation, and ending in an approval page. `pdf` points at the current
+# one; the sources are in _strategy/, which is never published. The point of six is
 # range — a prospective client is meant to notice which one they keep
 # returning to, and that noticing is a real signal because the six sites have
 # almost nothing in common.

@@ -122,6 +122,10 @@ exclude:
   - _responsive-pass
   - staging
 
+  # Screenshots saved out of a working session. Not part of the site, and
+  # without this line Jekyll copies the whole folder into _site and serves it.
+  - Claude outputs
+
   # Legacy pages retained for reference only.
   - legacy
   - _legacy
