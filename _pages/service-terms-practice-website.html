@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Therapist Website service terms
-description: The service terms for purchasing the £995 Therapist Website from Alexander Watson Studio. Readable in full before you agree to anything, and before any payment.
+description: The service terms for purchasing the Therapist Website from Alexander Watson Studio. Readable in full before you agree to anything, and before any payment.
 permalink: /service-terms/practice-website/
 ---
 
@@ -64,17 +64,43 @@ permalink: /service-terms/practice-website/
 
     <h2>3. Price and payment</h2>
     <p>
-      The price is {{ site.data.purchasing.price_display | default: "£995" }}, fixed,
+      The price is {{ site.data.purchasing.price_display | default: "£495" }}, fixed,
       and is paid in two instalments:
-      {{ site.data.purchasing.deposit_display | default: "£500" }} to begin and
-      {{ site.data.purchasing.balance_display | default: "£495" }} on approval.
+      {{ site.data.purchasing.deposit_display | default: "£100" }} to begin and
+      {{ site.data.purchasing.balance_display | default: "£395" }} on approval.
     </p>
+    {%- if site.data.purchasing.founding.active %}
+    <p>
+      {{ site.data.purchasing.price_display }} is the founding-practice price, offered
+      to the first three practices the Studio works with. It is the full service at a
+      reduced price and not a reduced service: the scope in clause 2 and on the
+      Therapist Website page applies without alteration. After those three projects
+      the price becomes
+      {{ site.data.purchasing.founding.standard_price_display }}. The price stated in
+      your written scope confirmation is the price of your project and does not change
+      afterwards.
+    </p>
+    <p>
+      The weighting of the two instalments is part of that arrangement: most of the
+      fee falls due at approval rather than at the start, because a founding
+      practice is committing before the Studio has completed projects with real
+      clients to show. It is a payment schedule and nothing more &mdash; it does
+      not make the balance conditional on anything beyond what clause 11 states,
+      and it does not create a right of refund. Refunds are dealt with in clause
+      14 and on the
+      <a href="{{ '/cancellation-and-refunds/' | relative_url }}">cancellation and
+      refund information</a> page.
+      <span class="legal-flag">⚖</span>
+    </p>
+    {% endif -%}
     <p>
       The first instalment is due on your acceptance of the written scope, and
       before the project begins. The second is invoiced <b>after you have approved
       the finished website in writing</b>, and launch and handover follow payment
       of it. The balance is triggered by your approval and not by the Studio
-      stating that the work is complete.
+      stating that the work is complete. Clause 11 sets out what approval means,
+      when I ask for it, and what happens if it is neither given nor withheld with
+      reasons.
       <span class="legal-flag">⚖</span>
     </p>
     <p>
@@ -177,6 +203,12 @@ permalink: /service-terms/practice-website/
       either of the two website rounds: the point of the Note is that the
       direction is settled before there is a built website to change.
     </p>
+    <p>
+      <strong>A correction is not a revision round.</strong> Putting right an
+      implementation that does not match a direction you have already approved is
+      a correction, not a revision round, and does not use one of the two
+      included rounds.
+    </p>
     <p>A revision round does not include:</p>
     <ul>
       <li>a new brief, a different design or a different structural direction;</li>
@@ -224,11 +256,24 @@ permalink: /service-terms/practice-website/
       Additional work is invoiced separately.
     </p>
 
-    <h2>11. Approval, launch and corrections</h2>
+    <h2 id="approval">11. Approval, launch and corrections</h2>
     <p>
       Before launch I will ask you to approve the website in writing. Approval
       confirms that you have checked the content, including factual and
       professional details.
+    </p>
+    <p>
+      <strong>Approval is a step in the process, not an open-ended condition.</strong>
+      I ask for it once the two included revision rounds have been completed. If
+      you are not ready to give it, tell me in writing within ten working days
+      what remains outstanding <em>within the agreed scope</em>. Anything you
+      identify within scope is put right, at no charge and without using a
+      revision round, and I will ask for approval again. If nothing within scope
+      is identified in that time, the website is treated as approved for the
+      purposes of clause 3 and the balance becomes payable. Anything outside the
+      agreed scope is quoted under clause 10 and does not hold up approval or the
+      balance.
+      <span class="legal-flag">⚖</span>
     </p>
     <p>
       For thirty days after launch I will correct, without charge, minor faults

@@ -262,28 +262,44 @@ const KEY_PREFIXES = [
 const PUBLISHABLE_PREFIXES = [["pk", "live"].join("_") + "_", ["pk", "test"].join("_") + "_"];
 const STRIPE_SDK_HOST = "js." + "stripe.com";
 
-/* The whole commercial architecture, as four figures:
-     £995    the Therapist Website — the only price the studio charges
-     £500    the first instalment of the £995. Since September 2026 it means
-             only that: Practice Clarity was folded into the website and its
-             separate £500 was retired with it.
-     £495    the balance instalment, due on the client's written approval of
-             the finished website and before launch
+/* The whole commercial architecture, as five figures. September 2026: the
+   studio opened its first three places to real practices at a founding price,
+   so the figure a visitor is quoted today is £495 and the standard price is
+   published beside it as what the work returns to.
+     £495    the Therapist Website as sold today — the founding price, for the
+             first three practices. The same service and the same scope as the
+             standard price; only the figure differs.
+     £100    the first instalment of the £495. Not half: the founding split is
+             deliberately weighted to the end, because £495 is already a real
+             risk for a therapist buying from a studio with no client case
+             studies yet. The deposit establishes commitment; it is not income.
+     £395    the balance instalment, due when the website has been through the
+             agreed process including both revision rounds and is approved for
+             launch — an objective milestone defined in clause 11, never a
+             satisfaction condition
+     £995    the standard price, after the three founding practices. Published
+             so a reader can see what they are being offered against, never
+             struck through and never used to dress £495 as a saving.
      £29     Website Care per month, after the included first year, optional
+   £500 LEFT THE PUBLISHED SITE with the standard instalment split. Publishing
+   that split alongside a £495 total would put two different meanings on one
+   number, which is exactly the sort of detail that costs a reader their
+   confidence. The standard split returns to the site when £995 does.
    £1,495 was retired in August 2026 along with the tier it implied. Any other
    amount in published source is a mistake until this list says otherwise. */
-const APPROVED_PRICES = new Set(["£995", "£500", "£495", "£29"]);
+const APPROVED_PRICES = new Set(["£495", "£100", "£395", "£995", "£29"]);
 /* Figures that are not studio prices. £60 is a session fee drawn inside the
    tailoring illustration on the home page, where the point being made is that
    this practice's visitors need the cost before anything else. Held separately
    so the studio's own price list stays exact and a stray offer price cannot
    hide among them. */
 const CITED_AMOUNTS = new Set(["£60"]);
-/* £495 is NOT in this list any more. It was the retired Straightforward
-   Website price and re-entered service in August 2026 as the balance
-   instalment, so the suite can no longer guard the old offer by that number.
-   If a page says £495 without the words that make it an instalment, that is a
-   case to look at by hand. */
+/* £495 is NOT in this list. It was the retired Straightforward Website price,
+   re-entered service in August 2026 as the balance instalment, and since
+   September 2026 is the founding price of the whole service — so the suite
+   cannot guard the old offer by that number. What it guards instead is that
+   £495 always arrives with the words that say which of those it is: see
+   "The founding price is stated as a founding price wherever it appears". */
 const RETIRED_PRICES = ["795", "1,495", "1,995", "2,195", "2,000", "290"].map((n) => "£" + n);
 
 const purchasingYml = read("_data/purchasing.yml");
@@ -394,7 +410,31 @@ check("Prices", "Retired amounts appear nowhere in the repository", () => {
 });
 
 check("Prices", "The displayed prices come from _data/purchasing.yml", () => {
-  assert(/^price_display:\s*"£995"\s*$/m.test(purchasingYml), "price_display is not £995");
+  /* September 2026. price_display means "what a client pays if they say yes
+     today", so while the founding offer is open it is £495 and the standard
+     price lives in founding.standard_price_display. Closing the offer means
+     setting founding.active: false and moving £995 back into price_display —
+     the check below enforces exactly those two states and nothing between. */
+  const foundingActive = /^\s*active:\s*true\s*$/m.test(
+    (purchasingYml.match(/^founding:\n(?:[ \t].*\n|\n)*/m) || [""])[0]
+  );
+  if (foundingActive) {
+    assert(/^price_display:\s*"£495"\s*$/m.test(purchasingYml), "the founding offer is open but price_display is not £495");
+    assert(/^deposit_display:\s*"£100"\s*$/m.test(purchasingYml), "the founding offer is open but deposit_display is not £100");
+    assert(/^balance_display:\s*"£395"\s*$/m.test(purchasingYml), "the founding offer is open but balance_display is not £395");
+    /* 100 + 395 = 495. The split is unusual enough that a future edit could
+       plausibly leave one of the three figures behind. */
+    assert(
+      /^deposit_numeric:\s*"100\.00"\s*$/m.test(purchasingYml) &&
+        /^balance_numeric:\s*"395\.00"\s*$/m.test(purchasingYml) &&
+        /^price_numeric:\s*"495\.00"\s*$/m.test(purchasingYml),
+      "the founding instalments do not add up to the founding price"
+    );
+    assert(/standard_price_display:\s*"£995"/.test(purchasingYml), "founding.standard_price_display is not £995");
+    assert(/^\s*places:\s*3\s*$/m.test(purchasingYml), "founding.places is not 3");
+  } else {
+    assert(/^price_display:\s*"£995"\s*$/m.test(purchasingYml), "the founding offer is closed but price_display is not £995");
+  }
   /* September 2026. Practice Clarity is inside the £995 and has no price of its
      own. The field was deleted rather than emptied so that a template asking
      for it fails loudly; re-declaring it is how the add-on grows back. */
@@ -518,12 +558,17 @@ check("Commercial architecture", "One product, one care plan, and nothing sold b
   /* service.html is the page that has to make the commercial decision easy.
      Every figure a buyer needs must be on it, and none of the retired offer
      structure may survive anywhere. */
-  assert(/£995/.test(servicePage), "service.html does not show £995");
-  assert(/£500/.test(servicePage), "service.html does not show the £500 first instalment");
-  assert(/£495/.test(servicePage), "service.html does not show the £495 balance");
+  /* Every figure is rendered from _data/purchasing.yml, so what this asserts is
+     that the fields are on the page rather than that the numerals are. */
+  assert(/purchasing\.price_display/.test(servicePage), "service.html does not render the price");
+  assert(/purchasing\.payment_sentence/.test(servicePage), "service.html does not render the payment sentence");
   assert(/£29/.test(servicePage), "service.html does not show the £29 Website Care price");
   assert(/[Cc]ustom project/.test(servicePage), "service.html does not offer a custom project route");
-  return "£995 · £500 + £495 instalments · £29 care · custom quoted";
+  assert(
+    /founding\.standard_price_display/.test(servicePage),
+    "service.html does not publish the standard price the founding price is measured against"
+  );
+  return "price + instalments rendered from data · £29 care · standard price published · custom quoted";
 });
 
 check("Commercial architecture", "One website price, and Practice Clarity is not sold", () => {
@@ -563,13 +608,15 @@ check("Commercial architecture", "One website price, and Practice Clarity is not
      the price in prose and is checked separately. */
   const hero = servicePage.slice(heroStart, heroEnd);
   const heroPrices = new Set((hero.match(/£[\d,]+/g) || []));
-  const heroAllowed = new Set(["£995", "£500", "£495"]);
+  const heroAllowed = new Set(["£495", "£100", "£395", "£995"]);
   for (const shown of heroPrices) {
     if (!heroAllowed.has(shown)) {
-      offenders.push(`service.html — the hero shows ${shown}; only £995 and its two instalments belong there`);
+      offenders.push(`service.html — the hero shows ${shown}; only the price, its two instalments and the standard price belong there`);
     }
   }
-  if (!heroPrices.has("£995")) offenders.push("service.html — the hero does not show £995");
+  /* The figures themselves come from the data file, so the hero passes by
+     rendering price_display rather than by containing a numeral. */
+  if (!/purchasing\.price_display/.test(hero)) offenders.push("service.html — the hero does not render the price");
 
   /* The service page must still explain both, even though neither is priced
      separately any more. The ordering rule that used to sit here belonged to the
@@ -727,10 +774,16 @@ check("Information architecture", "One resource section, one front door", () => 
 });
 
 check("Commercial architecture", "The retired offer structure is gone", () => {
+  /* "Practice Clarity Blueprint" was on this list while it named a purchasable
+     tier. Since the September 2026 portfolio consolidation it is the published
+     name of the six portfolio documents — /work/, the six case pages and
+     _data/collection.yml all use it in that sense — so guarding the string
+     itself failed the suite on correct copy. What replaced it is narrower and
+     stronger: the checks below already forbid pricing Practice Clarity,
+     presenting it as optional, and putting a purchase action beside it. */
   const retired = [
     "Choose Your Practice Website",
     "Bespoke Website",
-    "Practice Clarity Blueprint",
     "Route one",
     "Route two",
     "two routes",
@@ -751,8 +804,114 @@ check("Commercial architecture", "The retired offer structure is gone", () => {
   return `${retired.length} retired phrases absent from ${trackedFiles.length} files`;
 });
 
+check("Founding offer", "The founding price is never shown without the standard price beside it", () => {
+  /* £495 has meant three different things in this project's history. While it is
+     the founding price, any page that shows it must also show what the service
+     returns to — otherwise a reader is quoted a number with nothing to measure
+     it against, and the studio is one edit away from looking as though it
+     quietly raised its prices. */
+  if (!/^\s*active:\s*true\s*$/m.test((purchasingYml.match(/^founding:\n(?:[ \t].*\n|\n)*/m) || [""])[0])) {
+    return "the founding offer is closed — check does not apply";
+  }
+  const offenders = [];
+  let inspected = 0;
+  for (const [rel, body] of publishedBodies) {
+    if (rel.startsWith("_guides/") || rel.startsWith("_posts/")) continue;
+    const showsFounding = /£495|purchasing\.price_display/.test(body);
+    if (!showsFounding) continue;
+    inspected += 1;
+    const showsStandard = /£995|founding\.standard_price_display/.test(body);
+    if (!showsStandard) offenders.push(`${rel} — shows the price without the standard price it returns to`);
+  }
+  assert(inspected >= 4, `only ${inspected} pages show the price — the scan is not seeing the site`);
+  assert(offenders.length === 0, offenders.join("\n"));
+  return `${inspected} pages show both figures`;
+});
+
+check("Founding offer", "Nothing manufactures urgency or scarcity", () => {
+  /* The truthful constraint is that there are three places. Everything past
+     that — a countdown, a deadline, a remaining-places number that would have
+     to be maintained by hand to stay honest, or a struck-through £995 — is a
+     sales device, and the studio's whole proposition is that it does not use
+     them. */
+  const banned = [
+    [/\bhurry\b|\bdon'?t miss\b|\bmiss out\b/i, "uses urgency language"],
+    [/\blimited time\b|\bfor a limited\b|\bends (soon|on)\b|\bdeadline\b/i, "implies a deadline"],
+    [/\bclaim (your|a) (spot|place)\b|\bbuy now\b|\bact (now|fast)\b/i, "uses an e-commerce call to action"],
+    [/\b(only )?(one|two|1|2) (place|spot)s? (left|remaining)\b/i, "carries a remaining-places counter"],
+    [/<s>|<del>|text-decoration:\s*line-through/i, "strikes through a price"],
+    [/\bwas £|\bnormally £|\bsave £|\bRRP\b|\bdiscount(ed)?\b/i, "presents the price as a discount"],
+  ];
+  /* Saying "there is no deadline and nothing counts down" is the site keeping
+     its promise, not breaking it, so a hit preceded by a negation is not a
+     finding. The window is deliberately short: it catches "no deadline" and
+     "never discounted" without excusing a sentence that merely contains "not"
+     somewhere earlier. */
+  const negated = (body, at) => /\b(no|not|never|without|nothing|neither)\b[^.]{0,40}$/i.test(body.slice(Math.max(0, at - 60), at));
+  const offenders = [];
+  for (const [rel, body] of publishedBodies) {
+    if (rel.startsWith("_guides/") || rel.startsWith("_posts/")) continue;
+    for (const [pattern, what] of banned) {
+      const global = new RegExp(pattern.source, pattern.flags.includes("g") ? pattern.flags : pattern.flags + "g");
+      for (const hit of body.matchAll(global)) {
+        if (negated(body, hit.index)) continue;
+        offenders.push(`${rel}:${lineAt(body, hit.index)} — ${what} ("${hit[0]}")`);
+      }
+    }
+  }
+  assert(offenders.length === 0, offenders.join("\n"));
+  return `${banned.length} patterns absent`;
+});
+
+check("Founding offer", "The balance milestone is objective, not a satisfaction condition", () => {
+  /* The founding split is weighted to the end — £100 to begin, £395 on approval
+     — and the obvious way to sell that is "pay nothing until you're happy".
+     That formulation makes the balance conditional on a subjective state and
+     would let a finished project go unpaid because somebody declined to use a
+     particular word. The milestone is the completion of the agreed process and
+     approval for launch, which clause 11 defines and bounds. These patterns are
+     what stops the softer version growing back into the copy. */
+  const banned = [
+    [/pay\s+nothing\s+until/i, 'promises "pay nothing until…"'],
+    [/only pay if you (like|are happy|'re happy)/i, "makes payment conditional on liking the work"],
+    [/\b(risk[- ]free|no[- ]risk)\b/i, "calls the arrangement risk-free"],
+    [/satisfaction (guarantee|guaranteed)|guaranteed satisfaction/i, "offers a satisfaction guarantee"],
+    [/money[- ]back/i, "offers money back"],
+    [/\bfull refund if\b|\brefund if you(?:'re| are)? not\b/i, "offers a conditional refund"],
+    [/\buntil you(?:'re| are)? (happy|satisfied)\b/i, "ties payment or work to being happy"],
+  ];
+  const offenders = [];
+  for (const [rel, body] of publishedBodies) {
+    if (rel.startsWith("_guides/") || rel.startsWith("_posts/")) continue;
+    for (const [pattern, what] of banned) {
+      const hit = body.match(pattern);
+      if (hit) offenders.push(`${rel}:${lineAt(body, body.indexOf(hit[0]))} — ${what} ("${hit[0]}")`);
+    }
+  }
+  /* And the definition the copy leans on has to actually exist. */
+  const terms = read("_pages/service-terms-practice-website.html");
+  assert(/id="approval"/.test(terms), "clause 11 has no approval anchor for the service page to link to");
+  assert(
+    /ten working days/i.test(terms) && /within the agreed scope/i.test(terms),
+    "clause 11 no longer bounds approval — a completed project could sit unapproved and unpaid indefinitely"
+  );
+  assert(offenders.length === 0, offenders.join("\n"));
+  return `${banned.length} patterns absent; clause 11 bounds approval`;
+});
+
+check("Founding offer", "The three stages are described as one piece of work", () => {
+  /* Practice Clarity, the identity and the website are stages of one job. A
+     page that lists them as three deliverables invites the client to ask which
+     they can drop, which is the one judgement they are least able to make. */
+  assert(/what-you-are-buying/.test(servicePage), "service.html no longer carries the three-stage explanation");
+  for (const term of ["Practice Clarity", "Identity", "implementation"]) {
+    assert(servicePage.includes(term), `service.html does not name "${term}" in the three-stage explanation`);
+  }
+  return "three stages, one piece of work";
+});
+
 check("Commercial architecture", "The Therapist Website is the only route that takes money", () => {
-  assert(/£995/.test(purchasePage), "the purchase page does not show £995");
+  assert(/purchasing\.price_display/.test(purchasePage), "the purchase page does not render the price");
   assert(/practice-website-buy\.html/.test(purchasePage), "the purchase page does not include the buy component");
   assert(/Therapist Website/.test(purchasePage), "the purchase page does not name the Therapist Website");
   assert(/\/services\/practice-website\//.test(servicePage), "service.html does not link to the purchase page");

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Websites for therapists
-description: Websites for therapists in UK private practice. A website that sounds like you and tells people what they need to know — £995, including the first year of Website Care.
+description: Websites for therapists in UK private practice. A website that sounds like you and tells people what they need to know. £495 for the first three practices, £995 after that, including the first year of Website Care.
 permalink: /
 image: /assets/images/work/sofia-marin-website.webp
 ---
@@ -35,8 +35,20 @@ image: /assets/images/work/sofia-marin-website.webp
         <a class="tlink" href="{{ '/service/' | relative_url }}">What it costs <span aria-hidden="true">&rarr;</span></a>
       </div>
       <div class="hero__price enter" style="--i:4">
-        <p><b>£995</b> <span>including the first year of Website Care.</span></p>
-        <p class="hero__price-note">{{ site.data.purchasing.payment_sentence }}</p>
+        <p>
+          <b>{{ site.data.purchasing.price_display }}</b>
+          {%- if site.data.purchasing.founding.active %}
+          <span>for the first three practices, then {{ site.data.purchasing.founding.standard_price_display }}. The first year of Website Care included either way.</span>
+          {%- else %}
+          <span>including the first year of Website Care.</span>
+          {%- endif %}
+        </p>
+        <p class="hero__price-note">
+          {{ site.data.purchasing.payment_sentence }}
+          {%- if site.data.purchasing.founding.active %}
+          <a class="inline-link" href="{{ '/service/#founding' | relative_url }}">Why the first three are less</a>.
+          {%- endif %}
+        </p>
       </div>
     </div>
 
@@ -315,8 +327,21 @@ image: /assets/images/work/sofia-marin-website.webp
 
     <div class="offer">
       <div class="offer__price">
-        <p class="way__meta"><span class="way__name">Therapist Website</span><span class="way__price">£995</span></p>
+        <p class="way__meta"><span class="way__name">Therapist Website</span><span class="way__price">{{ site.data.purchasing.price_display }}</span></p>
         <p class="small quiet mt-3">{{ site.data.purchasing.payment_sentence }}</p>
+        {%- if site.data.purchasing.founding.active %}
+        <p class="notice mt-4">
+          <strong>The first three practices.</strong>
+          The process, the method and the six finished cases are built; what they
+          have not had yet is a real practice going through them from beginning to
+          end. So the first three are {{ site.data.purchasing.price_display }} rather
+          than {{ site.data.purchasing.founding.standard_price_display }} — the same
+          work and the same scope, at a lower price, because I want to run the
+          complete process with real therapists and learn from it.
+          {{ site.data.purchasing.founding.payment_note }}
+          <a class="inline-link" href="{{ '/service/#founding' | relative_url }}">The longer answer</a>.
+        </p>
+        {% endif -%}
         <ul class="way__list mt-5">
           <li>Working out what your practice needs to say, then a design from the collection tailored to it</li>
           <li>A written intake, then the design decisions are mine</li>

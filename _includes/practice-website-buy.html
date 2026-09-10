@@ -24,14 +24,22 @@
 
 {%- assign buy_id = include.id | default: 'buy' -%}
 {%- assign cfg = site.data.purchasing -%}
-{%- assign price = cfg.price_display | default: '£995' -%}
-{%- assign deposit = cfg.deposit_display | default: '£500' -%}
+{%- assign price = cfg.price_display | default: '£495' -%}
+{%- assign deposit = cfg.deposit_display | default: '£100' -%}
 
 <div class="buy" data-purchase-block data-purchase-state="written">
   <p class="buy__price">
     <b>{{ price }}</b>
     <span class="quiet small">{{ cfg.payment_sentence }} Includes the first year of Website Care.</span>
   </p>
+
+  {%- if cfg.founding.active %}
+  <p class="buy__terms">
+    <strong>{{ price }} for the first three practices.</strong>
+    {{ cfg.founding.standard_price_display }} after that, for the same work.
+    <a class="inline-link" href="{{ '/service/#founding' | relative_url }}">Why the price is what it is</a>.
+  </p>
+  {% endif -%}
 
   <p class="buy__terms buy-route" id="buy-terms-{{ buy_id }}">
     <strong>How a project begins.</strong>

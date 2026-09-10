@@ -10,7 +10,15 @@ nine sensible answers to that question had quietly become thirty-nine
 conditions of being allowed to trade. They are not. This is the other list.
 
 **The question:** what genuinely needs to be true before the Studio can accept
-the first £500 from a real therapist?
+the first instalment from a real therapist?
+
+**September 2026 note.** The figures below were written when the price was £995
+in two instalments of £500 and £495. Since 10 September the first three practices
+are £495, taken as **£100 to begin and £395 on approval for launch** — see
+`docs/founding-practices.md`. Nothing in this list changes: a smaller deposit is
+not a smaller obligation, and every item here is about being allowed to accept
+money at all rather than about how much. If anything, the first sum arriving is
+now £100 rather than £500, which makes item 3 easier and none of the others.
 
 **The admission test, applied to every line below:** would taking the £500
 without it be legally, financially, operationally or ethically irresponsible?
@@ -117,19 +125,21 @@ This is a registration, not a GDPR programme.
 happens if it goes wrong. The agreement itself is written and fair; what is
 unsettled is what it says about its own status.*
 
-- [ ] Decide what a client sees at the top of the terms, and how the acceptance
-      email cites a version — clause 4 makes these one decision. The present
-      notice reads as an internal instruction and, to a client, as "not in
-      force". Either keep it and accept how it reads, or replace it with a
-      plain statement of version and date that makes no claim of legal review.
-      `legal.approved` stays `false` either way: that flag means a solicitor
-      reviewed the wording, and none has.
-- [ ] State once that a correction is not a revision round. Suggested wording
-      for clause 7 or 11: *"Putting right an implementation that does not match
-      a direction you have already approved is a correction, not a revision
-      round, and does not use one of the two included rounds."* It protects the
-      client, and it prevents the argument you would otherwise have in week
-      four.
+- [x] **Done, 10 September 2026 — the first half.** What a client sees at the
+      top of the terms is now a plain status note: version and date, that the
+      terms take effect on written acceptance rather than on being read, and
+      that they were written by the Studio and not reviewed by a solicitor.
+      `_includes/legal-draft-notice.html` and `_includes/legal-version.html`
+      carry it, and `legal.approved` stays `false` as intended.
+- [ ] **The second half is operational and still open:** the acceptance email
+      must cite the terms version, because the notice now tells the client that
+      the version cited in their acceptance is the one that governs their
+      project. Add the version line to the acceptance email template
+      (Documents → Operations) before it is sent to anybody.
+- [x] **Done, 10 September 2026.** A correction is not a revision round, stated
+      once in clause 7 of the service terms in the wording suggested here, and
+      once in the Revisions section of `/services/practice-website/` in the
+      site's own voice. Read both and confirm they say what you meant.
 - [ ] Decide professional indemnity insurance — buy it, or record why not.
       Clause 16 states plainly that no cap on liability is claimed, which is
       the honest position and also an uninsured one. Either answer is

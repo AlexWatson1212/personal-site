@@ -1,7 +1,7 @@
 ---
 layout: default
 title: What it costs
-description: One price for a therapist website — £995, with the first year of Website Care included and the whole scope published beside it. £500 to begin, £495 when you approve the finished website.
+description: One price for a therapist website, with the first year of Website Care included and the whole scope published beside it. £495 for the first three practices, £995 after that. £100 to begin, £395 when your website is approved and ready to launch.
 permalink: /service/
 ---
 
@@ -16,12 +16,22 @@ permalink: /service/
           you can decide in your own time. You do not have to book a call to
           find out what it costs.
         </p>
+        {%- if site.data.purchasing.founding.active %}
+        <p class="quiet measure-xl">
+          There is one service and one scope. What has changed is the price of the
+          next three projects, and the reason is
+          <a class="inline-link" href="#founding">set out plainly further down</a>.
+        </p>
+        {% endif -%}
       </div>
 
       <div class="headline-price">
         <p class="label">Therapist Website</p>
-        <p class="figure-large">£995</p>
+        <p class="figure-large">{{ site.data.purchasing.price_display }}</p>
         <ul class="headline-price__terms">
+          {%- if site.data.purchasing.founding.active %}
+          <li>For the first three practices. {{ site.data.purchasing.founding.standard_price_display }} after that, for the same work.</li>
+          {% endif -%}
           <li>{{ site.data.purchasing.payment_sentence }}</li>
           <li>A complete website, up to five core pages.</li>
           <li>The first year of Website Care included.</li>
@@ -30,6 +40,161 @@ permalink: /service/
     </div>
   </div>
 </section>
+
+{%- comment -%}
+  September 2026. Practice Clarity, the identity and the website read on the old
+  page as three things that happened to be sold together, which invites the
+  question "so how much of this can I skip?" — a question the client is not
+  equipped to answer and should never be asked. They are one piece of work in
+  three stages, and this band says so before the scope ledger, so the ledger
+  reads as the detail of something already understood rather than a list of
+  deliverables.
+{%- endcomment -%}
+<section class="band on-paper-deep" id="what-you-are-buying">
+  <div class="wrap">
+    <div class="split split--wide-left mb-8">
+      <div>
+        <p class="label">What you are actually buying</p>
+        <h2 class="measure-2xs">One piece of work in three stages, not three things bought together.</h2>
+      </div>
+      <div class="stack stack--loose">
+        <p class="lead measure-xl">
+          You are not paying for pages to be built. You are paying for the work of
+          taking a practice that is difficult to describe &mdash; which most good
+          practices are &mdash; and making it coherent, recognisable and easy for
+          the right person to trust.
+        </p>
+        <p class="quiet measure-2xl">
+          Each stage decides the next, which is why they are not sold separately
+          and why you are never asked to choose how much of one you need.
+        </p>
+      </div>
+    </div>
+
+    <div class="trace">
+      <span class="trace__rule" aria-hidden="true"></span>
+      <ol class="trace__steps">
+        <li class="trace__step">
+          <span class="trace__n">Practice Clarity &middot; the thinking</span>
+          <p>
+            Who the practice is for and who it is not for, what is actually being
+            offered, what should be led with, what should be left out, and what a
+            particular reader needs before they will make contact. Written down and
+            approved before anything is designed.
+          </p>
+        </li>
+        <li class="trace__step">
+          <span class="trace__n">Identity &middot; the visual expression</span>
+          <p>
+            Typography, colour, hierarchy and a simple wordmark where one helps
+            &mdash; chosen because of what the first stage settled, not because they
+            look well together. This is the identity the website needs rather than a
+            brand programme, and the design decisions in it are mine to make.
+          </p>
+        </li>
+        <li class="trace__step trace__step--end">
+          <span class="trace__n">The website &middot; the implementation</span>
+          <p>
+            Structure and information architecture, your words set properly, a
+            responsive and accessible build, essential on-page SEO, an enquiry route
+            that suits a therapy practice, two consolidated rounds of changes,
+            launch, handover and the first year of care.
+          </p>
+        </li>
+      </ol>
+
+      <p class="trace__out">
+        A template solves the third stage and only the third stage. It gives your
+        words somewhere to go, and for some practices that is genuinely the right
+        purchase. What it cannot do is work out what the practice should say, what
+        to emphasise, what to remove and what not to claim &mdash; and those
+        decisions are what the design is downstream of. That is the difference the
+        price is for, rather than the fact that somebody knows how to build web
+        pages.
+      </p>
+    </div>
+  </div>
+</section>
+
+{%- if site.data.purchasing.founding.active -%}
+{%- comment -%}
+  The founding practices. Wrapped in the flag so that closing the offer is a
+  single edit in _data/purchasing.yml plus the removal of this block and its
+  counterpart on index.html. No countdown, no deadline, no remaining-places
+  counter, and the standard price is never struck through: it is the price the
+  work is set at, stated so the reader can see what they are being offered
+  against.
+{%- endcomment -%}
+<section class="band on-sage" id="founding">
+  <div class="wrap">
+    <div class="split split--wide-left mb-7">
+      <div>
+        <p class="label">The first three practices</p>
+        <h2 class="measure-2xs">{{ site.data.purchasing.price_display }} now, {{ site.data.purchasing.founding.standard_price_display }} after that &mdash; and here is exactly why.</h2>
+      </div>
+      <div class="stack stack--loose">
+        <p class="lead measure-xl">
+          I have spent the past several months building this properly: the Practice
+          Clarity method, the six finished cases with their documents published in
+          full, the process, the scope and the terms. What it has not had yet is a
+          real practice going through the whole of it from enquiry to launch.
+        </p>
+        <p class="quiet measure-2xl">
+          So the first three practices are {{ site.data.purchasing.price_display }}
+          rather than {{ site.data.purchasing.founding.standard_price_display }}.
+          Not a smaller version of the service and not a trial: the same scope, the
+          same thinking, the same two rounds, the same year of Website Care. The
+          difference in price is the difference in what I get back &mdash; three
+          complete projects with real therapists, an honest account of what was
+          unclear or awkward, and, where the work is good and you are willing, a case
+          study and something you would be happy to be quoted saying.
+        </p>
+        <p class="quiet measure-2xl">
+          The payment is weighted to match that.
+          {{ site.data.purchasing.payment_sentence }} The deposit is not meant to be
+          income; it is the smallest sum that establishes commitment on both sides so
+          the work can begin. The balance falls due when the website has been through
+          the whole process, including both revision rounds, and you have approved it
+          for launch &mdash; which is a step in the process with a defined meaning,
+          set out in <a class="inline-link" href="{{ '/service-terms/practice-website/#approval' | relative_url }}">clause 11 of the service terms</a>,
+          rather than an open-ended condition.
+        </p>
+        <p class="quiet measure-2xl">
+          After the third, it is {{ site.data.purchasing.founding.standard_price_display }},
+          which is what the work is set at, and the payment returns to its normal
+          shape. There is no deadline and nothing counts down. When the three places
+          are taken, the price on this page changes. That is the whole mechanism.
+        </p>
+      </div>
+    </div>
+
+    <dl class="stat-rows">
+      <div>
+        <dt>What you pay</dt>
+        <dd>{{ site.data.purchasing.price_display }}. {{ site.data.purchasing.payment_sentence }}</dd>
+      </div>
+      <div>
+        <dt>What you receive</dt>
+        <dd>Everything on this page: Practice Clarity, the Direction Note, the identity, the full design and build, two consolidated revision rounds, launch, handover, thirty days of corrections and the first twelve months of Website Care. Nothing is removed, and nothing extra is added to make the price look better.</dd>
+      </div>
+      <div>
+        <dt>What I ask back</dt>
+        <dd>Your honest reaction to the process while it is happening, and permission &mdash; if you are pleased with the result &mdash; to show the website and quote you. If you would rather not be shown, say so and the price is the same.</dd>
+      </div>
+      <div>
+        <dt>After the third</dt>
+        <dd>The price becomes {{ site.data.purchasing.founding.standard_price_display }}. Anyone already booked at the founding price stays at it, in writing.</dd>
+      </div>
+    </dl>
+
+    <p class="anatomy__note">
+      If the fact that you would be among the first three matters to you either way
+      &mdash; in favour or against &mdash; say so when you write, and I will tell you
+      honestly what I have and have not done before.
+    </p>
+  </div>
+</section>
+{%- endif -%}
 
 <section class="band on-paper-deep">
   <div class="wrap">
@@ -76,7 +241,7 @@ permalink: /service/
           <li>Every design decision, so you are not choosing fonts</li>
           <li>Tell you what is missing from your intake rather than guessing</li>
           <li>Two consolidated rounds of changes, then launch and handover</li>
-          <li>Say plainly if the £995 website is enough, or if something needs settling first</li>
+          <li>Say plainly if this website is enough, or if something needs settling first</li>
           <li>Keep it running for the first year</li>
         </ul>
       </div>

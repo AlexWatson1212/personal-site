@@ -12,8 +12,67 @@
 # page falls back to the "Ask a question first" route. That is the safe state.
 # ─────────────────────────────────────────────────────────────────────────────
 
-# The Therapist Website. One price, taken in two instalments.
+# ─────────────────────────────────────────────────────────────────────────────
+# SEPTEMBER 2026 — THE FOUNDING PRACTICES
 #
+# The fields below describe ONE product at the price it is being sold at TODAY.
+# Today that is the founding price, because the first three real practices are
+# £495 rather than £995.
+#
+# This is not a tier, a stripped-down version, a trial or a discount. It is the
+# whole service — Practice Clarity, identity, structure, design, build, two
+# rounds, launch, handover and the first twelve months of Website Care — at a
+# deliberately reduced price for the first three live client implementations of
+# a process that has been built but not yet run with a real therapist. What the
+# studio receives in exchange is the experience of running it, the feedback, and
+# case studies and testimonials where the client is willing.
+#
+# Because there is one product, `price_display` and its instalments mean "what a
+# client pays if they say yes today". Every template renders those fields and
+# no template writes its own figure, so closing the offer is one edit here.
+#
+# WHEN THE THIRD FOUNDING PRACTICE HAS PAID ITS FIRST INSTALMENT:
+#   1. set founding.active: false
+#   2. set price_display "£995", price_numeric "995.00"
+#   3. set deposit_display / balance_display back to the standard halves, with
+#      their numerics, and rewrite payment_sentence and
+#      payment_sentence_third_person to match. The exact figures are recorded in
+#      OPEN_DECISIONS.md item 3 and docs/founding-practices.md §2; they are not
+#      written here because every amount in this file is scanned as a live price.
+#      The founding deposit belongs to the founding arrangement and does not
+#      survive it: a later client is not carrying the uncertainty it answers.
+#   4. remove the founding sections from index.html and service.html, which are
+#      wrapped in {% if site.data.purchasing.founding.active %} for that purpose
+#   5. run `npm test` — the suite asserts the two states are internally
+#      consistent and will name anything left behind
+#
+# NO COUNTDOWN, NO DEADLINE, NO REMAINING-PLACES COUNTER. The truthful
+# constraint is that there are three places. A number that ticks down is a sales
+# device and would have to be maintained by hand to stay honest, so the site
+# does not carry one. When the places are gone the price on the page changes.
+# ─────────────────────────────────────────────────────────────────────────────
+
+founding:
+  active: true
+  places: 3
+  # The standard price the service returns to. Published so a reader can see
+  # what they are being offered against, never struck through and never used to
+  # make £495 look like a saving.
+  standard_price_display: "£995"
+  standard_price_numeric: "995.00"
+  # The canonical one-sentence account of why the price is what it is. Pages may
+  # expand on it; none may contradict it.
+  sentence: >-
+    The first three practices are £495 rather than the standard £995, because
+    they are the first three times the whole process runs with a real therapist
+    and what I learn from them is worth the difference.
+  # Why the founding instalments are weighted the way they are. Stated once here,
+  # so that no page invents its own account of it.
+  payment_note: >-
+    Most of it falls due at the end rather than the start. The founding three are
+    taking on more uncertainty than a later client will, so the fee is weighted
+    towards the point where there is a finished website to look at.
+
 # THE CANONICAL PAYMENT SENTENCE lives here and nowhere else. Every page that
 # states the payment terms renders `payment_sentence`; no page writes its own
 # formulation. Three formulations were in circulation before August 2026 and
@@ -22,23 +81,52 @@
 # The balance is triggered by the client's explicit written approval of the
 # finished website, never by the studio declaring the work finished. A single
 # payment is not offered publicly; it may be agreed case by case in writing.
-price_display: "£995"
-price_numeric: "995.00"
+#
+# THE FOUNDING SPLIT IS NOT HALF AND HALF, AND THAT IS DELIBERATE.
+#
+# 10 September 2026, corrected the same day it was set. The founding instalments
+# were half and half, the same shape the standard price uses. They are now £100
+# to begin and £395 on approval.
+#
+# The reason: £495 is already a meaningful amount for a therapist to risk with a
+# studio that has no real-client case studies or testimonials yet. The founding
+# three are carrying more uncertainty than any later client will, so most of the
+# fee should not sit with the studio before there is a finished website to look
+# at. The deposit is not meant to be income. It is the smallest sum that
+# establishes genuine commitment on both sides so that the work can begin.
+#
+# WHAT THIS IS NOT, AND MUST NEVER BE DESCRIBED AS. Not "pay nothing until
+# you're happy", not "no risk", not "risk-free", not a satisfaction guarantee,
+# not money-back, not "only pay if you like it". Every one of those makes the
+# balance conditional on a subjective state, which would let a completed project
+# go unpaid because somebody declined to use a particular word. The milestone is
+# objective and is stated the same way everywhere: the balance is due when the
+# website has been through the agreed process, including the two revision
+# rounds, and is approved for launch. Clause 11 of the service terms defines what
+# approval means and what happens when it is neither given nor withheld with
+# reasons, and scripts/qa.mjs fails the build on the formulations above.
+#
+# The standard split is NOT published while the founding price is live: it would
+# put a second £495 on the page meaning something entirely different, and one
+# number meaning two things is the kind of detail that costs a reader their
+# confidence.
+price_display: "£495"
+price_numeric: "495.00"
 currency: "GBP"
 
-deposit_display: "£500"
-deposit_numeric: "500.00"
-balance_display: "£495"
-balance_numeric: "495.00"
-payment_sentence: "£500 to begin. £495 when you approve the finished website, before it goes live."
-payment_sentence_third_person: "£500 to begin. £495 when the client approves the finished website, before it goes live."
+deposit_display: "£100"
+deposit_numeric: "100.00"
+balance_display: "£395"
+balance_numeric: "395.00"
+payment_sentence: "£100 to begin. £395 when your website is approved and ready to launch."
+payment_sentence_third_person: "£100 to begin. £395 when the client approves the website for launch."
 
 # PRACTICE CLARITY HAS NO PRICE, AND MUST NOT ACQUIRE ONE.
 #
-# Until September 2026 it was an optional +£500 taken before the build. That
+# Until September 2026 it was an optional extra taken before the build. That
 # made the client responsible for judging how much strategic work their own
 # website needed, which is the one judgement they are least able to make and the
-# one they are paying for. The work is now inside the £995: every website
+# one they are paying for. The work is now inside the price: every website
 # includes as much understanding as it needs, and how much that is is the
 # studio's call, not a purchase decision.
 #
@@ -49,8 +137,12 @@ payment_sentence_third_person: "£500 to begin. £495 when the client approves t
 #
 # The name still means two true things: the method, and the six published
 # portfolio documents that show it in unusually full form.
+#
+# The three stages a client is buying — Practice Clarity, then the identity that
+# expresses it, then the website that implements it — are one piece of work sold
+# once. Nothing may present them as three deliverables with three prices.
 
-# Website Care. The first twelve months are included in the £995 and are not
+# Website Care. The first twelve months are included in the price and are not
 # separately payable. After that it is optional and monthly, invoiced like
 # everything else.
 #

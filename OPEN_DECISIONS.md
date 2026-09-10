@@ -82,6 +82,58 @@ agree.
 
 ## 3. RESOLVED — the offer structure and the payment model
 
+**September 2026 (10th) — the founding practices. READ THIS BEFORE CHANGING ANY
+PRICE.** The first three real practices pay **£495**; the price is **£995** after
+them. This is not a tier, a trial, a stripped-down version or a discount: the
+scope is identical at both figures, and £995 is never struck through or presented
+as a saving. The reason is that these are the first three times the complete
+process runs with a real therapist, and the experience, feedback, case studies and
+testimonials are worth the difference.
+
+Three consequences that must not be undone by accident:
+
+1. **`price_display` means "what a client pays if they say yes today."** While
+   the offer is open that is £495, and the standard price lives in
+   `founding.standard_price_display`. Every template renders these fields; no page
+   writes a figure. Closing the offer is the five-step edit in
+   `docs/founding-practices.md` §2.
+2. **The £495 collision is resolved by removing the standard instalment split
+   from the published site.** £495 was the balance instalment of £995. Publishing
+   "£500 to begin, £495 on approval" beside a £495 total would put two meanings on
+   one number. The founding instalments are **£100 and £395**, and £500 no longer
+   appears on any published page. The standard split returns to the site when
+   £995 does.
+3. **The founding split is weighted to the end, on purpose.** £100 to begin and
+   £395 on approval for launch, rather than half and half: £495 is already a real
+   risk for a therapist buying from a studio with no client case studies yet, so
+   most of the fee falls due where there is a finished website to look at. The
+   deposit establishes commitment; it is not income. This weighting belongs to
+   the founding arrangement and ends with it. **It is not a guarantee and must
+   never be described as one** — no "pay nothing until you're happy", "no risk",
+   "risk-free", money-back or satisfaction guarantee. The balance milestone is
+   objective and bounded by clause 11: approval is asked for once both revision
+   rounds are done, the client has ten working days to identify anything
+   outstanding within the agreed scope, in-scope items are fixed at no charge and
+   without using a round, and if nothing in scope is raised the website is treated
+   as approved and the balance falls due. `scripts/qa.mjs` fails the build on the
+   guarantee formulations and on clause 11 losing its bounds.
+4. **No counter, no deadline, no countdown.** The truthful constraint is that
+   there are three places. `scripts/qa.mjs` fails the build on urgency language,
+   remaining-places counters, struck-through prices and discount framing.
+
+The August 2026 note below therefore stands except in one respect: **£495 is no
+longer a retired figure.** It is the current price of the whole service, and it is
+guarded not by forbidding the number but by requiring the standard price to appear
+wherever it does.
+
+**Also settled the same day:** Practice Clarity, the identity and the website are
+published as **one piece of work in three stages** rather than three deliverables
+— `/service/#what-you-are-buying`. This is the same rule as the September 6th
+decision below, applied to the description rather than the price: a client who can
+see three products will ask which they can drop, which is the one judgement they
+are paying not to have to make.
+
+
 **September 2026.** The paragraph below is superseded in one respect: **Practice
 Clarity is no longer a £500 add-on.** The work of understanding a practice is
 inside the £995, because asking a client to judge how much strategic work their
@@ -108,10 +160,14 @@ three-to-five weeks from the confirmed start. Everything else below still holds.
 Retired and not to be reintroduced: the two-route structure, *Choose Your
 Practice Website*, *Practice Clarity + Bespoke Website*, *Guided Website*,
 *Straightforward Website*, *Template Website*, *Semi-Custom*, and the figures
-£495 **as an offer price**, £795, £1,495, £1,995, £2,195, £2,000 and £290.
+£795, £1,495, £1,995, £2,195, £2,000 and £290. (£495 was on this list as a
+retired offer price until 10 September 2026, when it became the founding price of
+the whole service — see the note at the top of this item.)
 
-Note the one collision: **£495 is now in service as the balance instalment**, so
-it is no longer in `RETIRED_PRICES` and is no longer guarded automatically.
+Note the one collision: £495 was in service as the balance instalment, which is
+why it is not in `RETIRED_PRICES`. Since 10 September 2026 it is the founding
+price instead, and the standard instalment split has left the published site so
+that the number means one thing at a time.
 
 ## 4. Website Care as a subscription
 

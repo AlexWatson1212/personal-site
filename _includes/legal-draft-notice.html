@@ -1,24 +1,45 @@
 {%- comment -%}
-  Internal development label for unapproved legal wording.
+  The status note at the top of a legal page.
 
-  Rendered only while site.data.legal.approved is false. Once the wording has
-  been reviewed and _data/legal.yml sets approved: true, this notice disappears
-  from every legal page at once and is never shown to customers again.
+  September 2026. This used to be an internal development label: it announced
+  "Draft — requires review by a UK commercial solicitor before live use", said
+  the document was "not yet in force", and explained the ⚖ flags and the
+  [square bracket] placeholders. All of that is true and none of it was written
+  for the person it is shown to. A therapist being asked to accept these terms
+  and transfer the first instalment reads "draft" and "not in force" and
+  reasonably concludes there is no agreement — which is the opposite of what the
+  page is for, and the single most confidence-damaging thing on the purchase
+  route. docs/pre-launch.md §5 records the decision to replace it.
+
+  What has NOT changed: site.data.legal.approved still means "a solicitor has
+  reviewed this wording", it is still false, and the notice below still says so
+  plainly. The claim being dropped is that the document is not in force, not the
+  admission that it is unreviewed. Nothing here may describe the wording as
+  legally approved, legally checked or professionally drafted while that flag is
+  false — that would be a false statement about a real professional service.
+
+  The ⚖ flags and the [square bracket] placeholders are unchanged and still
+  render. They no longer need explaining to a client: a bracket that says
+  [business address] explains itself, and the flags are for the solicitor.
 
   Usage: {% include legal-draft-notice.html scope="These service terms" %}
 {%- endcomment -%}
 {%- unless site.data.legal.approved -%}
 {%- assign scope = include.scope | default: 'This document' -%}
 <div class="legal-draft-notice" role="note">
-  <p><strong>Draft — requires review by a UK commercial solicitor before live use.</strong></p>
+  <p><strong>Version {{ site.data.legal.version }}, prepared {{ site.time | date: "%-d %B %Y" }}.</strong></p>
   <p>
-    {{ scope }} {{ include.detail | default: 'describes how the service is intended to operate.' }}
-    It has <strong>not</strong> been reviewed or approved by a solicitor and
-    must not be described as legally approved, legally checked or
-    professionally drafted. Passages marked <span class="legal-flag">⚖</span>
-    need that review most, and items in
-    <span class="legal-todo">[square brackets]</span> are placeholders that must
-    be completed before publication.
+    {{ scope }} {{ include.detail | default: 'describes how the service operates.' }}
+    Nothing here binds you by your reading it: the terms for a project take
+    effect when you accept its written scope and price, and the version cited in
+    that acceptance is the one that governs your project.
+  </p>
+  <p>
+    They were written in plain English by the Studio and have <strong>not</strong>
+    been reviewed by a solicitor, so nothing here is described as legally
+    approved, legally checked or professionally drafted. Please read them before
+    you accept anything, and ask about any part of them &mdash; including any part
+    you would want changed.
   </p>
 </div>
 {%- endunless -%}

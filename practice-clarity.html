@@ -249,7 +249,10 @@ image: /assets/images/library/library-hero.webp
             If reading these is enough, that is a good outcome and it costs nothing.
             If you would rather have it worked out with you and written down for your
             practice, that is part of what a website costs here &mdash; included in the
-            {{ site.data.purchasing.price_display }} rather than sold beside it.
+            {{ site.data.purchasing.price_display }} rather than sold beside it.{% if site.data.purchasing.founding.active %}
+            That is the price for the first three practices;
+            {{ site.data.purchasing.founding.standard_price_display }} after them, with
+            the same work inside it.{% endif %}
           </p>
           <div class="actions">
             <a class="btn" href="{{ '/service/#practice-clarity' | relative_url }}">What it costs<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>

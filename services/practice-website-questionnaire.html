@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Website Content Questionnaire
-description: The Website Content Questionnaire for the £995 Therapist Website. Complete it after paying so your project can begin.
+description: The Website Content Questionnaire for the Therapist Website. Complete it after paying the first instalment so your project can begin.
 permalink: /services/practice-website/questionnaire/
 page_js: /assets/js/practice-website-questionnaire.js
 noindex: true
@@ -19,7 +19,7 @@ sitemap: false
         <h1>Website Content Questionnaire</h1>
       </div>
       <div>
-        <p class="lead">Your £500 first payment has been received. The remaining £495 is invoiced once you&rsquo;ve approved the finished website, before launch.</p>
+        <p class="lead">Your {{ cfg.deposit_display }} first instalment has been received. The remaining {{ cfg.balance_display }} is invoiced once you&rsquo;ve approved the finished website, before launch.</p>
         <p>This collects everything I need to build your website: {{ site.data.intake.required_questions }} questions I need an answer to, and {{ site.data.intake.optional_questions }} that are useful when they apply. Your project officially begins once this is complete, your materials have arrived and I have confirmed the start date in writing.</p>
         <p class="small quiet">Nothing you type here is sent to or stored by this website. When you have finished, the page assembles your answers in your browser so you can copy them, save them, or open them in your own email app.</p>
       </div>
@@ -29,15 +29,22 @@ sitemap: false
   {%- unless site.data.intake.questionnaire_approved %}
   <section class="band band--sm on-paper">
     <div class="wrap--mid">
+      {%- comment -%}
+        This notice is addressed to Alexander, not to a client — it is the last
+        thing standing between an unread questionnaire and a paying therapist.
+        It used to name an internal file and recount the project's own history,
+        which a client would see if the flag were ever left unset by accident.
+        The instruction is now the whole notice. Read the questions once, decide
+        they are yours, and set questionnaire_approved: true in _data/intake.yml.
+      {%- endcomment -%}
       <div class="legal-draft-notice" role="note">
-        <p><strong>Draft questionnaire — requires the Studio's approval before it is sent to a paying client.</strong></p>
+        <p><strong>Draft questionnaire — not to be sent to a paying client until it has been read and approved.</strong></p>
         <p>
-          These questions were written to the agreed shape
-          ({{ site.data.intake.required_questions }} required,
-          {{ site.data.intake.optional_questions }} optional) but they are not
-          the Studio's approved wording, which was not present in the project
-          this was built from. They must be checked against the approved intake
-          before use. See <code>OPEN_DECISIONS.md</code>.
+          {{ site.data.intake.required_questions }} required questions and
+          {{ site.data.intake.optional_questions }} optional ones, written to the
+          agreed shape but not yet signed off. Read them once as a client would,
+          then set the approval flag &mdash; this notice disappears from every
+          page at the same moment.
         </p>
       </div>
     </div>

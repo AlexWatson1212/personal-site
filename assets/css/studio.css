@@ -843,22 +843,6 @@ p { text-wrap: pretty; }
   border-radius: var(--r-lg);
 }
 
-/* At 320px with a 200% text size this plate is 234px wide and its button's
-   longest word is 151px; add the arrow (32px), the gap (10px) and the pill's
-   own padding (51px) and the content needs 244px. There is no arrangement that
-   fits it: even at zero padding on both the plate and the pill the word and the
-   arrow are wider than the screen. So the choice is a word that breaks or an
-   arrow that sits outside its pill, and a broken word is the lesser fault.
-
-   Scoped to this plate rather than set on .btn, because .btn is also used in
-   the contact form panel, which is narrower still — there the same declaration
-   fragments a four-word label across a 330px-tall pill. This is a rule about a
-   context, not about a page: it applies wherever a closing plate appears.
-
-   It only ever fires when a word cannot fit its line, so every button on every
-   other width and text size is untouched. */
-.closing__plate .btn { overflow-wrap: anywhere; }
-
 /* The plate carries its own quiet lift so it reads as an object on the ground
    rather than a rectangle of colour. Kept well under the collection plates',
    which are the things meant to be looked at. */
@@ -2867,10 +2851,24 @@ legend {
    18  PURCHASE JOURNEY
    ========================================================================== */
 
+/* The implicit `auto` track floored at the widest item's min-content, and the
+   widest item is the email address in .buy__actions — one unbreakable token,
+   469px at a 200% text size. So the track computed to 469px inside a 193px
+   content box and the whole page scrolled sideways. minmax(0, 1fr) lets the
+   track follow the container instead, the same fix as .offer and
+   .diff__notes li.
+
+   The inline padding is capped for the same reason as .closing__plate: its
+   clamp floor is 1.5rem, which doubles with the text while the screen does
+   not. 7.5vw is 24px at 320px, exactly what 1.5rem resolves to at a 16px root,
+   so at a normal text size the cap never binds at any supported width and the
+   panel measures what it measured before. */
 .buy {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--s-4);
-  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  padding-block: clamp(1.5rem, 3.5vw, 2.25rem);
+  padding-inline: min(clamp(1.5rem, 3.5vw, 2.25rem), 7.5vw);
   background: var(--paper);
   border: var(--hairline) solid var(--line-strong);
   border-radius: var(--r);
@@ -2898,6 +2896,10 @@ legend {
 
 .buy__actions { display: flex; flex-wrap: wrap; gap: var(--s-3) var(--s-5); align-items: center; }
 
+/* The studio address is one token with no wrap opportunity in it. Same
+   treatment .fallback__actions .tlink already gets for the same address. */
+.buy__actions .tlink { min-width: 0; overflow-wrap: anywhere; }
+
 .scope-nav {
   display: flex;
   flex-wrap: wrap;
@@ -2914,13 +2916,20 @@ legend {
 
 .step-list { counter-reset: step; }
 
+/* Same three corrections as .diff__notes li, for the same reasons: an explicit
+   track so the annotation can wrap rather than set the row's width, a numeral
+   gutter capped against the viewport (15vw is 3rem at 320px, so it never binds
+   at a normal text size), and break-word for the few words that are still
+   wider than the column once the text is enlarged. */
 .step-list li {
   position: relative;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--s-1) var(--s-5);
-  padding: var(--s-4) 0 var(--s-4) 3rem;
+  padding: var(--s-4) 0 var(--s-4) min(3rem, 15vw);
   border-block-start: var(--hairline) solid var(--line-soft);
   font-size: var(--t-small);
+  overflow-wrap: break-word;
 }
 
 @media (min-width: 48rem) { .step-list li { grid-template-columns: 14rem minmax(0, 1fr); align-items: baseline; } }

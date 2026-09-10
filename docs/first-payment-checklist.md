@@ -1,6 +1,20 @@
-# Taking the first £500 — what is actually left
+# Taking the first instalment — what is actually left
 
 Alexander Watson Studio · internal · written 5 September 2026
+
+> **Superseded in two respects, 10 September 2026. Read `docs/pre-launch.md` and
+> `docs/founding-practices.md` first.**
+>
+> 1. **The figures below are the old ones.** The first three practices pay £495,
+>    taken as **£100 to begin and £395 on approval for launch**. Wherever this
+>    file says £500 read £100, and wherever it says the £495 balance read £395.
+> 2. **The mechanism is no longer Stripe.** The Studio settled on invoice and
+>    bank transfer in September 2026, `PUBLIC_PURCHASES_ENABLED` stays unset, and
+>    no Payment Link is needed to take a founding client. The Stripe steps below
+>    are kept only as a record of what was set up, not as work to do.
+>
+> What is still current in this file: the two owner decisions at the end — approve
+> the questionnaire, and supply the legal identity facts.
 
 `STRIPE_SETUP.md` is the full nineteen-step runbook. This file is the short answer to
 one question: **what still has to be true before a real therapist can pay the first

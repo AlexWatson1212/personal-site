@@ -19,6 +19,16 @@ page_js: /assets/js/contact-enquiry.js
           technical setup you need &mdash; and if I am not the right person, I will say so.
         </p>
 
+        {%- if site.data.purchasing.founding.active %}
+        <p class="notice">
+          <strong>The first three practices are {{ site.data.purchasing.price_display }}.</strong>
+          The standard price after them is {{ site.data.purchasing.founding.standard_price_display }},
+          for exactly the same work &mdash; the first three are less because they are the
+          first three times the whole process runs with a real therapist.
+          <a class="inline-link" href="{{ '/service/#founding' | relative_url }}">The longer answer</a>.
+        </p>
+        {% endif -%}
+
         <div class="divider-top">
           <p class="label">Prefer an ordinary email?</p>
           <a class="contact-email" href="mailto:hello@alexanderwatson.co.uk">hello@alexanderwatson.co.uk</a>
@@ -104,12 +114,15 @@ page_js: /assets/js/contact-enquiry.js
     <div class="split split--wide-left">
       <div>
         <p class="label">Before you write</p>
-        <h2 class="measure-2xs">Three things worth knowing.</h2>
+        <h2 class="measure-2xs">A few things worth knowing.</h2>
       </div>
       <dl class="facts">
         <div><dt>You will hear back within two working days</dt><dd>From me, not from an automatic reply. Monday to Friday, excluding English bank holidays.</dd></div>
         <div><dt>If I am not the right person, I will say so</dt><dd>Plainly, and with a reason. An enquiry commits you to nothing, and there is no follow-up if you decide against it.</dd></div>
         <div><dt>Nothing is agreed until it is agreed in writing</dt><dd>The scope and the price are confirmed in writing before anything is payable. <a class="inline-link" href="{{ '/services/practice-website/' | relative_url }}">Read the whole scope</a>.</dd></div>
+        {%- if site.data.purchasing.founding.active %}
+        <div><dt>If you want one of the three founding places</dt><dd>Say so when you write and I will tell you in my reply whether they are still open, before you have decided anything.</dd></div>
+        {% endif -%}
       </dl>
     </div>
   </div>

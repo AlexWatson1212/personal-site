@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Terms and conditions
-description: The terms for using the Alexander Watson Studio website, and how each service is contracted — the £995 Therapist Website by its own service terms, Practice Clarity work by written proposal.
+description: The terms for using the Alexander Watson Studio website, and how each service is contracted — the Therapist Website by its own service terms, Practice Clarity work by written proposal.
 permalink: /terms/
 ---
 
@@ -39,7 +39,7 @@ permalink: /terms/
     </p>
     <ul>
       <li>
-        <strong>Therapist Website ({{ site.data.purchasing.price_display }}).</strong>
+        <strong>Therapist Website ({{ site.data.purchasing.price_display }}{% if site.data.purchasing.founding.active %} for the first three practices, {{ site.data.purchasing.founding.standard_price_display }} after them{% endif %}).</strong>
         Bought directly, at a fixed price, under the
         <a href="{{ site.data.purchasing.urls.service_terms | relative_url }}">Therapist Website Service Terms</a>.
         Those terms are the agreement for that purchase, and they are agreed in
