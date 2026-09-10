@@ -74,8 +74,14 @@ other things wait on it.
 *A therapist reading the site has to be reading the offer you would actually
 honour.*
 
-- [ ] Confirm the live site is the invoice-and-bank-transfer version — already
-      checked 9 September and correct. A tick, not a job.
+- [x] Confirm the live site is the invoice-and-bank-transfer version — checked
+      9 September and correct.
+- [ ] **10 September: the live site is now BEHIND the repository.** Everything
+      from the founding-offer passes — the £495/£100/£395 proposition, the
+      three-stage explanation, the bounded approval clause, the hero typography
+      fix — exists only here until it is deployed. alexanderwatson.co.uk still
+      advertises £995 with a £500 first instalment. Nothing else on this list
+      matters until `npm run test:site` passes locally and the change is pushed.
 
 ### 2. Business/address requirement resolved
 *The agreement names no address, the invoice cannot be issued without one, and
@@ -150,13 +156,28 @@ unsettled is what it says about its own status.*
 *It is the first thing a client sees after paying, and it currently carries a
 draft notice.*
 
-- [ ] Read the twenty questions once and decide they are yours.
-- [ ] Decide question 6. Its three answers are *attached*, *in a folder* or
-      *still in draft*. There is no answer for a therapist who has written
-      nothing at all — a common state, and the one most likely to make somebody
-      abandon the form. Add an option, or decide deliberately that copy is
-      always the client's to supply.
-- [ ] Set `questionnaire_approved: true` in `_data/intake.yml`.
+**10 September: two substantive corrections were made. The reading is still
+yours.**
+
+- [x] **The copy-status answer is added.** Question 7 (was 6) now offers a fourth
+      answer — *"I have not written anything yet — I would like to talk about
+      this first"* — because the three it had gave a therapist who has written
+      nothing no honest option, and the published scope excludes copywriting from
+      a blank page. The option surfaces the mismatch at intake instead of in week
+      two. It promises nothing the scope does not already say.
+- [x] **A missing question is added.** The questionnaire never asked *who do you
+      work with, and what do you offer*, which the home page promises twice that
+      the intake asks, and which is the first thing Practice Clarity needs —
+      "People" and "Practice" in the pathway on `/service/` both start there. It
+      is now question 4, phrased so that no marketing vocabulary is required. The
+      count moved 16 → 17 required in `_data/intake.yml`.
+- [ ] **Read the seventeen questions once and decide they are yours.** This is
+      the part that cannot be delegated: the document goes to a paying client
+      under your name, and two of its questions were written for you rather than
+      by you. Read question 4 and the new answer on question 7 first.
+- [ ] Set `questionnaire_approved: true` in `_data/intake.yml`. The suite no
+      longer requires the flag to be `false`, so nothing else has to change with
+      it, and the draft notice disappears from the page at the same moment.
 
 ### 7. Privacy notice truthful
 *The notice is already published and makes statements of fact about a real

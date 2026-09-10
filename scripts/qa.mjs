@@ -817,11 +817,29 @@ check("Founding offer", "The founding price is never shown without the standard 
   let inspected = 0;
   for (const [rel, body] of publishedBodies) {
     if (rel.startsWith("_guides/") || rel.startsWith("_posts/")) continue;
+    /* A partial is not a page. The buy component renders the price and nothing
+       else; what a reader sees is the page it is rendered into, and that page is
+       inspected on its own account below. Judging the fragment would either
+       force a second price into a component whose whole guarantee is that it has
+       one state, or duplicate the founding note twice on the only page it
+       appears on. */
+    if (rel.startsWith("_includes/")) continue;
     const showsFounding = /£495|purchasing\.price_display/.test(body);
     if (!showsFounding) continue;
     inspected += 1;
     const showsStandard = /£995|founding\.standard_price_display/.test(body);
     if (!showsStandard) offenders.push(`${rel} — shows the price without the standard price it returns to`);
+  }
+  /* The exemption above is only safe while every page that hosts the buy
+     component carries both figures itself. */
+  for (const [rel, body] of publishedBodies) {
+    /* The component names itself in its own usage comment. */
+    if (rel.startsWith("_includes/")) continue;
+    if (!/practice-website-buy\.html/.test(body)) continue;
+    assert(
+      /£995|founding\.standard_price_display/.test(body),
+      `${rel} hosts the buy component but does not itself publish the standard price`
+    );
   }
   assert(inspected >= 4, `only ${inspected} pages show the price — the scan is not seeing the site`);
   assert(offenders.length === 0, offenders.join("\n"));
@@ -1368,13 +1386,26 @@ check("Questionnaire", "Nothing is submitted to a server", () => {
   assert(/Nothing you type here is sent to or stored by this website/i.test(questionnaire), "the page does not say nothing is stored");
 });
 
-check("Questionnaire", "Shows a draft notice while the intake is unapproved", () => {
-  assert(/^questionnaire_approved:\s*false\s*$/m.test(intakeYml), "_data/intake.yml no longer marks the questionnaire as a draft");
+check("Questionnaire", "The draft notice is guarded by the approval flag, in either state", () => {
+  /* This used to assert `questionnaire_approved: false` outright, which meant
+     that approving the questionnaire — the thing the flag exists to allow —
+     failed the suite. What matters is not which state the flag is in but that
+     the notice is wired to it: unapproved shows the notice, approved removes it
+     everywhere at once, and the guard survives either way so it can be flipped
+     back. The flag itself is Alexander's to set, after reading the questions as
+     a client would. */
   assert(
     /\{%-?\s*unless site\.data\.intake\.questionnaire_approved/.test(questionnaire),
     "the draft notice is not guarded by site.data.intake.questionnaire_approved"
   );
+  assert(/\{%-?\s*endunless\s*-?%\}/.test(questionnaire), "the draft notice guard is never closed");
   assert(/Draft questionnaire/i.test(questionnaire), "the draft notice text is missing");
+  const approved = /^questionnaire_approved:\s*true\s*$/m.test(intakeYml);
+  const draft = /^questionnaire_approved:\s*false\s*$/m.test(intakeYml);
+  assert(approved || draft, "_data/intake.yml does not declare questionnaire_approved as true or false");
+  return approved
+    ? "approved — the notice does not render"
+    : "NOT YET APPROVED — a paying client would see the draft notice on the first page after paying";
 });
 
 /* ------------------------------------------------------------------ *
@@ -1827,6 +1858,54 @@ check("Content", "No placeholder or retired offer name in published source", () 
   return `${inspected} published files`;
 });
 
+/* The unfilled legal facts, read once and shared by the check below and the
+   trailer at the end of the run. Each is a single quoted scalar in
+   _data/legal.yml; empty means "Alexander has not supplied it yet". */
+const LEGAL_FACT_KEYS = [
+  ["identity.address", "address", "Terms, Service Terms, Privacy"],
+  ["data_protection.ico_registration", "ico_registration", "Privacy"],
+  ["data_protection.email_provider", "email_provider", "Privacy"],
+  ["data_protection.accounting_provider", "accounting_provider", "Privacy"],
+  ["data_protection.bank", "bank", "Privacy"],
+  ["data_protection.transfer_mechanism", "transfer_mechanism", "Privacy"],
+  ["data_protection.enquiry_retention", "enquiry_retention", "Privacy"],
+  ["data_protection.project_retention", "project_retention", "Privacy"],
+  ["data_protection.statutory_retention", "statutory_retention", "Privacy"],
+  ["data_protection.security_measures", "security_measures", "Privacy"],
+];
+
+const unfilledLegalFacts = LEGAL_FACT_KEYS.filter(([, key]) => {
+  const m = legalYml.match(new RegExp(`^\\s{2}${key}:\\s*"([^"]*)"\\s*$`, "m"));
+  return !m || !m[1].trim();
+});
+
+check("Legal", "The unfilled identity and data-protection facts are declared, not hidden", () => {
+  /* September 2026. While these are empty, _includes/legal-fact.html renders the
+     bracketed placeholder in its place, which is the right design: an unfinished
+     page must look unfinished. What was missing is that a green test run said
+     nothing about it, so the state could ship unnoticed — and the placeholder
+     text on the privacy notice is written as an instruction to the author, which
+     a therapist reading it before paying should not be seeing.
+
+     This does not fail by default, because these facts have been empty on the
+     live site for some time and blocking every deploy on them would also block
+     shipping unrelated corrections. It fails the moment
+     STUDIO_REQUIRE_LEGAL_FACTS=true is set, which is what to set once they are
+     filled so the state cannot regress. Either way the trailer at the end of the
+     run names every one of them.
+
+     Nothing here may supply a default. LEGAL-INFORMATION-REQUIRED.md records
+     that not one of these is recoverable from the repository. */
+  const required = process.env.STUDIO_REQUIRE_LEGAL_FACTS === "true";
+  if (unfilledLegalFacts.length === 0) return "every identity and data-protection fact is supplied";
+  const list = unfilledLegalFacts.map(([label, , where]) => `${label} (${where})`).join("\n      ");
+  assert(
+    !required,
+    `STUDIO_REQUIRE_LEGAL_FACTS=true, but _data/legal.yml still has ${unfilledLegalFacts.length} empty:\n      ${list}`
+  );
+  return `NOT YET SUPPLIED — ${unfilledLegalFacts.length} facts render as public placeholders:\n      ${list}`;
+});
+
 check("Content", "Square-bracket placeholders appear only in the legal pages", () => {
   const pattern = /\[[A-Z][^\]\n]{3,120}\]/g;
   const offenders = [];
@@ -1960,5 +2039,15 @@ const passed = results.filter((r) => r.status === "pass").length;
 process.stdout.write(`\n${passed} passed, ${failures} failed, ${skipped} skipped\n`);
 if (!hasSite) {
   process.stdout.write("Note: _site was not found. Run `npm run build` for the full route and link checks.\n");
+}
+/* A green run must not read as "ready to publish" while the legal pages are
+   still showing brackets to a paying client. */
+if (unfilledLegalFacts.length > 0) {
+  process.stdout.write(
+    `\nNOT READY TO PUBLISH AS FINISHED — ${unfilledLegalFacts.length} legal facts are still empty in _data/legal.yml.\n` +
+      unfilledLegalFacts.map(([label, , where]) => `  · ${label} — renders as a bracketed placeholder on: ${where}`).join("\n") +
+      "\nUntil they are supplied, /privacy/ and /terms/ publicly display placeholder text written as notes to the author.\n" +
+      "What each one means: LEGAL-INFORMATION-REQUIRED.md. Set STUDIO_REQUIRE_LEGAL_FACTS=true once filled to lock it in.\n"
+  );
 }
 process.exit(failures > 0 ? 1 : 0);

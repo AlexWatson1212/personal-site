@@ -35,7 +35,22 @@
     const fallback = document.querySelector("[data-form-fallback]");
     const prepared = document.querySelector("[data-form-prepared]");
     if (prepared) prepared.value = "To: hello@alexanderwatson.co.uk\nSubject: " + subject + "\n\n" + body;
-    if (fallback) fallback.hidden = false;
+    if (fallback) {
+      fallback.hidden = false;
+      /* Revealing it is not enough on a phone, where it can appear below the
+         fold: somebody whose mail app does not open sees nothing happen, decides
+         the button is broken, and leaves at the exact moment they had decided to
+         make contact. Bring it into view and put focus on it, so the next step is
+         both visible and announced. */
+      const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      try {
+        fallback.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
+      } catch (error) {
+        fallback.scrollIntoView();
+      }
+      fallback.setAttribute("tabindex", "-1");
+      fallback.focus({ preventScroll: true });
+    }
 
     window.location.href =
       "mailto:hello@alexanderwatson.co.uk?subject=" +

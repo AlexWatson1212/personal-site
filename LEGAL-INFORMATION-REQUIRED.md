@@ -74,16 +74,21 @@ conservative position until one is drafted.
 
 ## What is urgent, and what is not
 
-Online purchasing is **off in production** — the buy button renders "not open
-yet". No distance contract is being formed on the site and no money moves
-through it, which lowers the urgency of the payment-related items.
+**Corrected 10 September 2026.** This paragraph used to say that online
+purchasing was off, that the buy button rendered "not open yet", and that the
+payment-related items were therefore less urgent. Two of those three are no
+longer true. There is no checkout and none is planned, but the buy component now
+renders a written route with no disabled state, and money moves by invoice and
+bank transfer the moment a founding practice says yes. A contract is formed in
+the written exchange, not on the site — which is exactly why the identity facts
+below are needed *before* the first client, not before a checkout opens.
 
 - **Urgent, because the site is live and commercial:** #1 and #2. A UK business
   website that advertises services has to disclose who is behind it and where.
   #4, #5, #7–#11 matter too, because the privacy notice is published and makes
   statements about processing that must be accurate.
-- **Before the checkout opens, not before launch:** #3 (VAT), and all three
-  category-C items, which are gated on taking payment online.
+- **Before the checkout opens, not before launch:** the three category-C items,
+  which are gated on taking payment online. #3 (VAT) is already supplied.
 
 ## Do not do
 

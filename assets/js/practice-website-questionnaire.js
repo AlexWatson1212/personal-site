@@ -21,7 +21,8 @@
     ["About you and your practice", [
       ["name", "Name"],
       ["email", "Email address"],
-      ["practiceName", "Practice name"]
+      ["practiceName", "Practice name"],
+      ["practiceAndPeople", "Who they work with, and what they offer"]
     ]],
     ["Chosen design", [
       ["design", "Design"],

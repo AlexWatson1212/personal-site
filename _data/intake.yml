@@ -28,5 +28,5 @@
 # ─────────────────────────────────────────────────────────────────────────────
 questionnaire_approved: false
 questionnaire_version: "0.2 draft"
-required_questions: 16
+required_questions: 17
 optional_questions: 4

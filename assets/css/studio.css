@@ -1051,6 +1051,29 @@ p { text-wrap: pretty; }
 
 .hero__copy { max-width: 34rem; }
 .hero__copy .t-display { margin-block: var(--s-4) var(--s-5); }
+
+/* The display line has to answer to its column, not to the window.
+
+   --t-display scales on 5.2vw, which is right while the hero is one column and
+   the copy is the full 34rem. At 62rem the hero becomes two columns and the
+   copy column drops to about 382px — but the viewport, and therefore the type,
+   keeps growing. Between 992px and 1366px the headline was wider than the
+   column it sits in, and because "recognised by." is bound by a non-breaking
+   space the browser had nowhere legal to break it: at 1024px it split the word
+   as "recognised b / y.", and at 1280px it stranded the full stop on a line of
+   its own. Both were measured, on the most common laptop widths there are.
+
+   The cap is expressed against the column itself. Below 62rem nothing changes,
+   because the rule is inside the two-column query. At 1440px and wider the
+   column is back to its full 34rem and 16.5cqi exceeds the 5.5rem ceiling, so
+   min() returns the clamp and the wide composition is exactly what it was.
+   Where cqi is not supported the whole declaration is invalid and the element
+   falls back to --t-display, which is today's behaviour. */
+.hero__copy { container-type: inline-size; }
+
+@media (min-width: 62rem) {
+  .hero__copy .t-display { font-size: min(var(--t-display), 16.5cqi); }
+}
 .hero__copy .lead { max-width: 33ch; }
 .hero__actions { margin-block-start: var(--s-6); }
 

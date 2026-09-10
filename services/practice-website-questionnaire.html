@@ -78,11 +78,26 @@ sitemap: false
             <label><span>2. Email address <b class="req">(required)</b></span><input name="email" type="email" autocomplete="email" required></label>
           </div>
           <label><span>3. Practice or business name, exactly as it should appear <b class="req">(required)</b></span><input name="practiceName" required></label>
+          {%- comment -%}
+            Added 10 September 2026. The site promises in three places that the
+            intake asks who you work with and what you offer — the home page
+            says so twice — and the questionnaire did not ask. It is also the
+            single most useful thing Practice Clarity needs: "People" and
+            "Practice" in the pathway on /service/ both start here, and without
+            it the strategic work begins by guessing, or by a separate email.
+
+            Deliberately not a marketing question. No ideal-client persona, no
+            niche, no positioning statement. A therapist describing their own
+            caseload in plain words is exactly the material wanted, and the hint
+            says so, because the fastest way to lose this audience is to make
+            them feel they are being asked to do the marketing themselves.
+          {%- endcomment -%}
+          <label><span>4. Who do you work with, and what do you offer? <b class="req">(required)</b></span><textarea name="practiceAndPeople" rows="5" aria-describedby="people-help" placeholder="For example: adults, mostly 30s to 50s, often coming with anxiety or a relationship that has stopped working; individual counselling weekly, in person and online; I do not work with couples or under-18s." required></textarea><span class="field__hint" id="people-help">Your own words, and roughly is fine. Who tends to come to you and what they usually bring, what you offer, and anything you do not work with. You are not being asked to write marketing copy or to name a niche &mdash; a few plain sentences is exactly right, and working out how it should be said is my job.</span></label>
         </fieldset>
 
         <fieldset>
           <legend>Your chosen design</legend>
-          <label><span>4. Which work in the collection do you keep returning to? <b class="req">(required)</b></span>
+          <label><span>5. Which work in the collection do you keep returning to? <b class="req">(required)</b></span>
             <select name="design" required>
               <option value="" disabled selected>Select one</option>
               <option>Sofia Marin</option>
@@ -100,13 +115,14 @@ sitemap: false
         <fieldset>
           <legend>Your pages and your words</legend>
           <p class="field__hint" id="pages-help">Up to five core pages are included. You do not need to work out what those pages are or how the menu should be ordered &mdash; that is my job, and I will propose a structure from what you tell me here and from the Practice Clarity work.</p>
-          <label><span>5. What do you need someone to be able to find, understand or do on your website? <b class="req">(required)</b></span><textarea name="visitorNeeds" rows="5" aria-describedby="pages-help" placeholder="For example: understand whether I work with what they are struggling with, see what a session costs and when I am available, get a sense of me before making contact, and know exactly how to get in touch." required></textarea></label>
-          <label><span>6. Where is your page copy? It does not need to be finished <b class="req">(required)</b></span>
+          <label><span>6. What do you need someone to be able to find, understand or do on your website? <b class="req">(required)</b></span><textarea name="visitorNeeds" rows="5" aria-describedby="pages-help" placeholder="For example: understand whether I work with what they are struggling with, see what a session costs and when I am available, get a sense of me before making contact, and know exactly how to get in touch." required></textarea></label>
+          <label><span>7. Where is your page copy? It does not need to be finished <b class="req">(required)</b></span>
             <select name="copyStatus" required>
               <option value="" disabled selected>Select the closest answer</option>
               <option>Attached to the email I am about to send</option>
               <option>In a shared folder — link below</option>
               <option>Still in draft — I will send it shortly</option>
+              <option>I have not written anything yet — I would like to talk about this first</option>
             </select>
           </label>
           <label><span>Link to your copy, images and logo, if you are using a shared folder <span class="opt">(optional)</span></span><input name="materialsLink" type="url" inputmode="url" placeholder="https://"></label>
@@ -115,15 +131,15 @@ sitemap: false
         <fieldset>
           <legend>Practice details to publish</legend>
           <p class="field__hint" id="facts-help">These become public, professional statements about your practice. Please check them carefully — you are responsible for their accuracy.</p>
-          <label><span>7. Qualifications, memberships and registration numbers <b class="req">(required)</b></span><textarea name="credentials" rows="3" aria-describedby="facts-help" required></textarea></label>
-          <label><span>8. Fees and session length <b class="req">(required)</b></span><textarea name="fees" rows="3" required></textarea></label>
-          <label><span>9. How and where you work <b class="req">(required)</b></span><textarea name="modality" rows="3" placeholder="In person, online, by telephone; town or area; days and times." required></textarea></label>
-          <label><span>10. Contact details exactly as they should appear <b class="req">(required)</b></span><textarea name="publicContact" rows="3" placeholder="Email address, telephone number if any, and whether an address should be shown." required></textarea></label>
+          <label><span>8. Qualifications, memberships and registration numbers <b class="req">(required)</b></span><textarea name="credentials" rows="3" aria-describedby="facts-help" required></textarea></label>
+          <label><span>9. Fees and session length <b class="req">(required)</b></span><textarea name="fees" rows="3" required></textarea></label>
+          <label><span>10. How and where you work <b class="req">(required)</b></span><textarea name="modality" rows="3" placeholder="In person, online, by telephone; town or area; days and times." required></textarea></label>
+          <label><span>11. Contact details exactly as they should appear <b class="req">(required)</b></span><textarea name="publicContact" rows="3" placeholder="Email address, telephone number if any, and whether an address should be shown." required></textarea></label>
         </fieldset>
 
         <fieldset>
           <legend>Images and logo</legend>
-          <label><span>11. Photographs <b class="req">(required)</b></span>
+          <label><span>12. Photographs <b class="req">(required)</b></span>
             <select name="photos" required>
               <option value="" disabled selected>Select the closest answer</option>
               <option>I am sending my own photographs, which I own or am licensed to use</option>
@@ -131,7 +147,7 @@ sitemap: false
               <option>A mixture of my own and licensed imagery</option>
             </select>
           </label>
-          <label><span>12. Logo <b class="req">(required)</b></span>
+          <label><span>13. Logo <b class="req">(required)</b></span>
             <select name="logo" required>
               <option value="" disabled selected>Select the closest answer</option>
               <option>I am sending logo files (SVG, EPS or AI)</option>
@@ -144,7 +160,7 @@ sitemap: false
         <fieldset>
           <legend>Domain and existing website</legend>
           <p class="field__hint" id="domain-help">Your domain is registered in your own name and stays under your control throughout &mdash; I never hold it. If you do not have one yet, that is a normal answer and I will help you register it in your name.</p>
-          <label><span>13. Do you already have a domain name? <b class="req">(required)</b></span>
+          <label><span>14. Do you already have a domain name? <b class="req">(required)</b></span>
             <select name="domainStatus" aria-describedby="domain-help" required>
               <option value="" disabled selected>Select the closest answer</option>
               <option>Yes &mdash; I have one and I can sign in to the account</option>
@@ -152,18 +168,18 @@ sitemap: false
               <option>No &mdash; I do not have a domain yet, please help me register one</option>
             </select>
           </label>
-          <label><span>14. Your domain name and who it is registered with, or &ldquo;none yet&rdquo; <b class="req">(required)</b></span><input name="domain" placeholder="yourpractice.co.uk — registered with 123 Reg" required></label>
+          <label><span>15. Your domain name and who it is registered with, or &ldquo;none yet&rdquo; <b class="req">(required)</b></span><input name="domain" placeholder="yourpractice.co.uk — registered with 123 Reg" required></label>
           <label><span>Existing website or directory profile address <span class="opt">(optional)</span></span><input name="currentWebsite" type="url" inputmode="url" placeholder="https://"></label>
         </fieldset>
 
         <fieldset>
           <legend>Working together</legend>
-          <label><span>15. Accessibility or communication requirements <b class="req">(required)</b></span><textarea name="access" rows="3" placeholder="How you would like me to communicate with you, and anything that would make this easier. Write “none” if there is nothing." required></textarea></label>
+          <label><span>16. Accessibility or communication requirements <b class="req">(required)</b></span><textarea name="access" rows="3" placeholder="How you would like me to communicate with you, and anything that would make this easier. Write “none” if there is nothing." required></textarea></label>
           <label><span>Anything else you would like me to know <span class="opt">(optional)</span></span><textarea name="notes" rows="5" placeholder="Anything about your practice, your timing, or things you would rather avoid."></textarea></label>
         </fieldset>
 
         <fieldset>
-          <legend>16. Final acknowledgements <b class="req">(required)</b></legend>
+          <legend>17. Final acknowledgements <b class="req">(required)</b></legend>
           <p class="field__hint" id="ack-help">All four are needed before the project can begin.</p>
           <label class="check"><input type="checkbox" name="ackAccurate" value="yes" aria-describedby="ack-help" required> <span>The professional facts above — qualifications, memberships, registrations and fees — are accurate and current.</span></label>
           <label class="check"><input type="checkbox" name="ackRights" value="yes" required> <span>I own, or am licensed to use, the words, photographs and logo I am supplying.</span></label>
