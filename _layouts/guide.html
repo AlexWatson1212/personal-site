@@ -73,7 +73,7 @@ layout: default
           <h2 class="measure-sm">This thinking, applied to your own practice.</h2>
         </div>
         <div class="stack stack--loose">
-          <p>If you would rather it were worked out with you and written down, that is part of what a website costs here &mdash; not a separate purchase. £995, including the first year of care.</p>
+          <p>If you would rather it were worked out with you and written down, that is part of what a website costs here &mdash; not a separate purchase. {{ site.data.purchasing.price_display }}{% if site.data.purchasing.founding.active %} for the first three practices, then {{ site.data.purchasing.founding.standard_price_display }}{% endif %}, including the first year of care.</p>
           <div class="actions">
             <a class="btn" href="{{ '/service/' | relative_url }}">What it costs<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
             <a class="tlink" href="{{ '/work/' | relative_url }}">See the collection <span aria-hidden="true">&rarr;</span></a>
@@ -85,7 +85,7 @@ layout: default
           <h2 class="measure-sm">Six finished practices, and a price you can read.</h2>
         </div>
         <div class="stack stack--loose">
-          <p>Tell me which one you keep returning to, and I build the website around your practice. £995, including the first year of care.</p>
+          <p>Tell me which one you keep returning to, and I build the website around your practice. {{ site.data.purchasing.price_display }}{% if site.data.purchasing.founding.active %} for the first three practices, then {{ site.data.purchasing.founding.standard_price_display }}{% endif %}, including the first year of care.</p>
           <div class="actions">
             <a class="btn" href="{{ '/work/' | relative_url }}">See the collection<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
             <a class="tlink" href="{{ '/service/' | relative_url }}">What it costs <span aria-hidden="true">&rarr;</span></a>

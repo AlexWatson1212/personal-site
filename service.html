@@ -35,6 +35,10 @@ permalink: /service/
           <li>{{ site.data.purchasing.payment_sentence }}</li>
           <li>A complete website, up to five core pages.</li>
           <li>The first year of Website Care included.</li>
+          {%- assign vat_position = site.data.legal.tax.vat_position | strip -%}
+          {%- if vat_position != "" %}
+          <li>{{ vat_position }}</li>
+          {%- endif %}
         </ul>
       </div>
     </div>
