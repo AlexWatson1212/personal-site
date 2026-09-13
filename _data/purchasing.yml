@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# Therapist Website — purchasing configuration (committed, safe defaults)
+# Practice Identity & Website — purchasing configuration (committed, safe defaults)
 #
 # This file contains NO secrets and NO Payment Link. It holds the prices the
 # site displays and the URLs the purchase journey links to.
@@ -20,8 +20,9 @@
 # £495 rather than £995.
 #
 # This is not a tier, a stripped-down version, a trial or a discount. It is the
-# whole service — Practice Clarity, identity, structure, design, build, two
-# rounds, launch, handover and the first twelve months of Website Care — at a
+# whole service — Practice Clarity, the practice identity in words and in visual
+# decisions, structure, design, build, two rounds, launch, the first twelve
+# months of Website Care, and the handover of the identity itself — at a
 # deliberately reduced price for the first three live client implementations of
 # a process that has been built but not yet run with a real therapist. What the
 # studio receives in exchange is the experience of running it, the feedback, and
@@ -138,9 +139,27 @@ payment_sentence_third_person: "£100 to begin. £395 when the client approves t
 # The name still means two true things: the method, and the six published
 # portfolio documents that show it in unusually full form.
 #
-# The three stages a client is buying — Practice Clarity, then the identity that
-# expresses it, then the website that implements it — are one piece of work sold
-# once. Nothing may present them as three deliverables with three prices.
+# The four stages a client is buying — Practice Clarity, then the practice
+# identity that expresses it, then the website that implements it, then the
+# handover of that identity in a form they can use without the studio — are one
+# piece of work sold once. Nothing may present them as separately priced
+# deliverables, and nothing may describe the handover as a bonus: it is the end
+# of the job.
+#
+# SEPTEMBER 2026 — WHAT THE HANDOVER MAY AND MAY NOT PROMISE.
+#
+# Delivered: the identity guide (PDF and editable source), the wordmark in the
+# formats a printer, sign maker and developer each need, the colour and
+# typography specifications, the font files where their licences permit, three
+# templates (letterhead, email signature, business card), four supplier briefs,
+# and a written website specification.
+#
+# NOT delivered, and no page may imply otherwise: an open-ended set of designed
+# applications, templates beyond those three, photography, print production or
+# the cost of printing, illustration, social-media design, or ongoing design
+# support. Other applications are SPECIFIED in the guide for a supplier to
+# produce. The distinction between what is made and what is specified is the
+# thing that keeps this offer both valuable and bounded.
 
 # Website Care. The first twelve months are included in the price and are not
 # separately payable. After that it is optional and monthly, invoiced like

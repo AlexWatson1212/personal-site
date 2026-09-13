@@ -1,0 +1,94 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# THE IDENTITY HANDOVER, SHOWN AS EVIDENCE ON A CASE PAGE
+#
+# September 2026. The collection could show a finished website and the thinking
+# that preceded it, and nothing at all of what a client actually keeps — which
+# is the part that distinguishes the offer. This file is that evidence.
+#
+# EDITING THIS FILE IS HOW THE EVIDENCE CHANGES. The case page renders whatever
+# is here and hard-codes nothing: not the number of documents, not their names,
+# not a page count, not the structure of the handover. If the handover is later
+# reorganised — for example into practice fundamentals, a full identity guide
+# and the identity assets as three separate documents — add or rename entries
+# under `documents` and the page follows without being touched.
+#
+# RULES
+#   · Every `file` must exist in assets/ and be a document the studio is willing
+#     to publish in full. A named document with no file is worse than no entry.
+#   · `contains` describes what the handover holds, not how long it is. Page
+#     counts and file counts date immediately and impress nobody.
+#   · `not_included` is not optional. The offer is bounded, and the page that
+#     shows the value has to show the boundary in the same breath.
+#   · Images are evidence, not a gallery. Three is the ceiling.
+# ─────────────────────────────────────────────────────────────────────────────
+
+sofia-marin:
+  lede: >-
+    The website is one implementation of the decisions in this document, and the
+    most visible. It is not where they were made, and it is not the only place
+    the practice will need them.
+
+  documents:
+    - name: "Practice Identity Guide"
+      file: "/assets/practice-identity/sofia-marin-practice-identity-guide.pdf"
+      note: "PDF, about 460 KB. It opens in a new tab."
+      summary: >-
+        The practice, the words and the visual system in one document: what the
+        practice stands for, how to describe it at the lengths a profile or a
+        leaflet actually asks for, the vocabulary that fits it, the logo, colour
+        and typography decisions with the reason for each, how to use the
+        identity online and in print, and a page of facts deliberately left blank
+        because only the practitioner can supply them.
+
+  contains:
+    - "The position, and the practice described at four usable lengths"
+    - "The voice: its habits, its vocabulary, and the language it avoids"
+    - "The wordmark, in the formats a printer, a sign maker and a developer each need"
+    - "Colour specified for screen and for print, with the contrast measured"
+    - "Typography specified, with the font files themselves"
+    - "A letterhead, an email signature and a business card"
+    - "Briefs to forward to a printer, a sign maker, a designer or a developer"
+
+  not_included:
+    - "An open-ended set of designed applications"
+    - "Print production, or the cost of printing"
+    - "Photography, illustration or social-media design"
+
+  images:
+    - src: "/assets/images/work/sofia-marin-identity-words.webp"
+      width: 1400
+      height: 1000
+      alt: >-
+        Two pages from the Practice Identity Guide. The first sets out the
+        practice described at four lengths, from twelve words to three hundred.
+        The second sets out the seven habits of the practice's writing voice,
+        with its rhythm, register and punctuation beside them.
+      caption: >-
+        The words. Written once, so a directory profile or a leaflet does not
+        start from nothing — and so somebody writing in five years can still
+        sound like the same practice.
+
+    - src: "/assets/images/work/sofia-marin-identity-visual.webp"
+      width: 1400
+      height: 1000
+      alt: >-
+        Two more pages from the guide. The first shows the four logo
+        configurations with the file name under each. The second shows the five
+        colours as swatches, each with its hex value and the single job it does.
+      caption: >-
+        The visual system, with the reason for each decision and the file name
+        beside it. Five colours, each with one job; four logo configurations and
+        no fifth.
+
+    - src: "/assets/images/work/sofia-marin-identity-applications.webp"
+      width: 1400
+      height: 897
+      alt: >-
+        A letterhead, a leaflet cover, and three cards — the front and back of a
+        business card and an appointment card — laid out flat at their true
+        relative sizes.
+      caption: >-
+        What survives outside a browser. The letterhead, the signature and the
+        card are made; the leaflet and the appointment card are the kind of thing
+        the guide specifies precisely enough for a printer to produce without
+        coming back to a designer.

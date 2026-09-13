@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Sofia Marin — the thinking, then the website
-description: A finished concept website for a fictional integrative therapist, published alongside the strategic work that produced it. One of six cases in the Studio collection.
+description: A finished concept website for a fictional integrative therapist, published alongside the strategic work that produced it and the practice identity a client keeps afterwards. One of six cases in the Studio collection.
 permalink: /work/sofia-marin/
 image: /assets/images/work/sofia-marin-website.webp
 ---
@@ -37,9 +37,10 @@ image: /assets/images/work/sofia-marin-website.webp
         </p>
         <p class="quiet measure-2xl">
           A complete concept website for a fictional integrative therapist in
-          Brighton &mdash; and, published next to it, the strategic work that
-          produced it. Like every case in the collection, the reasoning is
-          published so you can go and check it against the page.
+          Brighton &mdash; published next to the strategic work that produced it,
+          and next to the practice identity the client would keep afterwards.
+          Like every case in the collection, the reasoning is published so you
+          can go and check it against the page.
         </p>
         <div class="actions">
           <a class="btn" href="https://sofia-marin-concept.alexanderwatson.co.uk/" target="_blank" rel="noopener noreferrer">View the website<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
@@ -162,6 +163,88 @@ image: /assets/images/work/sofia-marin-website.webp
     </div>
   </div>
 </section>
+
+{%- comment -%}
+  The identity handover, rendered entirely from _data/identity_evidence.yml.
+
+  Nothing here names a page count, a file count or the structure of the
+  handover, so the documents can be reorganised in that file without this page
+  being edited. If the entry is absent the whole band disappears rather than
+  rendering an empty promise.
+{%- endcomment -%}
+{%- assign ev = site.data.identity_evidence['sofia-marin'] -%}
+{%- if ev -%}
+<section class="band on-paper-deep" id="identity">
+  <div class="wrap">
+    <div class="split split--wide-left mb-8">
+      <div>
+        <p class="label">What the practice keeps</p>
+        <h2 class="measure-2xs">The website is one implementation of this.</h2>
+      </div>
+      <div class="stack stack--loose">
+        <p class="lead measure-xl">{{ ev.lede }}</p>
+        {%- for doc in ev.documents %}
+        <p class="quiet measure-2xl">{{ doc.summary }}</p>
+        {%- endfor %}
+      </div>
+    </div>
+
+    <div class="ledger">
+      <div class="ledger__col">
+        <p class="label">In the handover</p>
+        <ul>
+          {%- for item in ev.contains %}
+          <li>{{ item }}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+      <div class="ledger__col ledger__col--out">
+        <p class="label">Not in it</p>
+        <ul>
+          {%- for item in ev.not_included %}
+          <li>{{ item }}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+      <div class="ledger__col">
+        <p class="label">Read it</p>
+        <ul>
+          {%- for doc in ev.documents %}
+          <li>{{ doc.name }} &mdash; {{ doc.note }}</li>
+          {%- endfor %}
+          <li>Published in full, like the thinking that came before it.</li>
+        </ul>
+        <div class="actions mt-5">
+          {%- for doc in ev.documents %}
+          <a class="btn" href="{{ doc.file | relative_url }}" target="_blank" rel="noopener noreferrer">Read the {{ doc.name | downcase }}<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="wrap--wide">
+    {%- for img in ev.images %}
+    <figure class="article-figure m-0 mt-8">
+      <img src="{{ img.src | relative_url }}" alt="{{ img.alt | strip_newlines }}"
+           width="{{ img.width }}" height="{{ img.height }}" loading="lazy" decoding="async">
+      <figcaption class="measure-2xl">{{ img.caption }}</figcaption>
+    </figure>
+    {%- endfor %}
+  </div>
+
+  <div class="wrap">
+    <p class="small quiet divider-top mt-6 measure-2xl">
+      Sofia Marin is a fictional practice, so the identity is a demonstration
+      rather than a commission. Everything shown was produced by the studio to
+      the same standard a client receives, and
+      <a class="inline-link" href="{{ '/service/#yours-to-keep' | relative_url }}">what a client keeps</a>
+      is set out on the cost page.
+    </p>
+  </div>
+</section>
+{%- endif -%}
 
 <section class="band band--sm on-paper-deep">
   <div class="wrap">

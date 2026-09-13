@@ -266,7 +266,7 @@ const STRIPE_SDK_HOST = "js." + "stripe.com";
    studio opened its first three places to real practices at a founding price,
    so the figure a visitor is quoted today is £495 and the standard price is
    published beside it as what the work returns to.
-     £495    the Therapist Website as sold today — the founding price, for the
+     £495    the Practice Identity & Website as sold today — the founding price, for the
              first three practices. The same service and the same scope as the
              standard price; only the figure differs.
      £100    the first instalment of the £495. Not half: the founding split is
@@ -482,7 +482,7 @@ check("Checkout scope", "Only the buy component can emit a checkout link", () =>
   assert(/How a project begins/.test(buyMarkup), `${BUY_INCLUDE} no longer renders the written route`);
 });
 
-check("Checkout scope", "The buy component is included only on the Therapist Website page", () => {
+check("Checkout scope", "The buy component is included only on the purchase page", () => {
   const including = [];
   for (const [rel, body] of publishedBodies) {
     if (rel === BUY_INCLUDE) continue; // its own usage comment is not a placement
@@ -804,6 +804,79 @@ check("Commercial architecture", "The retired offer structure is gone", () => {
   return `${retired.length} retired phrases absent from ${trackedFiles.length} files`;
 });
 
+/* ------------------------------------------------------------------ *
+ * 4b. The product is an identity, not a website
+ *
+ * September 2026. The Sofia Marin implementation established what the studio
+ * actually delivers: practice clarity, a practice identity in words and in
+ * visual decisions, the website built from it, and a handover the client can
+ * use without the studio. Before that, the site sold a website with "a visual
+ * identity for the website" attached, and excluded brand guidelines and
+ * stationery by name — which is now the opposite of what is delivered.
+ *
+ * These three checks exist because that older, smaller description is the one
+ * that will creep back: it is shorter, it is what most of the copy used to say,
+ * and every sentence of it still reads plausibly.
+ * ------------------------------------------------------------------ */
+
+check("Product scope", "The offer is described as four stages, and the handover is one of them", () => {
+  assert(/id="yours-to-keep"/.test(servicePage), 'service.html no longer carries the "Yours to keep" section');
+  for (const term of ["Practice Clarity", "Practice Identity", "implementation", "Yours to keep"]) {
+    assert(servicePage.includes(term), `service.html does not name "${term}" in the four-stage explanation`);
+  }
+  const purchase = read(PURCHASE_PAGE);
+  assert(/id="keep"/.test(purchase), `${PURCHASE_PAGE} no longer carries the handover section`);
+  assert(/Practice Identity Guide/.test(purchase), `${PURCHASE_PAGE} does not name the identity guide in the published scope`);
+  return "four stages on the cost page; the handover in the published scope";
+});
+
+check("Product scope", "The website-only description of the offer has not come back", () => {
+  /* Reverting any of these is not a wording regression. It is a scope claim that
+     contradicts what the studio now hands over, and on the exclusion line it
+     would promise the absence of something the client actually receives. */
+  const retired = [
+    "brand guidelines, stationery",
+    "visual identity for the website",
+    "Therapist Website",
+  ];
+  const offenders = [];
+  for (const [rel, body] of publishedBodies) {
+    for (const phrase of retired) {
+      if (body.includes(phrase)) offenders.push(`${rel} — "${phrase}"`);
+    }
+  }
+  assert(offenders.length === 0, offenders.join("\n"));
+  return `${retired.length} retired descriptions absent from ${publishedBodies.size} published files`;
+});
+
+check("Product scope", "The handover is bounded as well as valuable", () => {
+  /* The offer has to be extremely valuable and finite at the same time. What
+     keeps it finite is a single distinction: three templates are made, and every
+     other application is specified in the guide precisely enough for a supplier
+     to produce. A page that loses that distinction has started selling an
+     open-ended amount of design. */
+  const overclaims = [
+    [/unlimited (templates|design|applications|assets)/i, "promises an unlimited amount of design"],
+    [/ongoing design support/i, "promises ongoing design support"],
+    [/everything you (could ever )?need/i, "promises everything they need"],
+    [/all your (marketing|print|brand) materials/i, "promises all their materials"],
+    [/any (print|printed) item you/i, "promises any printed item"],
+  ];
+  const offenders = [];
+  for (const [rel, body] of publishedBodies) {
+    for (const [pattern, what] of overclaims) {
+      if (pattern.test(body)) offenders.push(`${rel} — ${what}`);
+    }
+  }
+  const purchase = read(PURCHASE_PAGE);
+  assert(
+    /specified in (your|the) guide/.test(purchase),
+    `${PURCHASE_PAGE} does not distinguish what is made from what is specified`
+  );
+  assert(offenders.length === 0, offenders.join("\n"));
+  return "no open-ended promise; made-versus-specified stated in the published scope";
+});
+
 check("Founding offer", "The founding price is never shown without the standard price beside it", () => {
   /* £495 has meant three different things in this project's history. While it is
      the founding price, any page that shows it must also show what the service
@@ -917,7 +990,7 @@ check("Founding offer", "The balance milestone is objective, not a satisfaction 
   return `${banned.length} patterns absent; clause 11 bounds approval`;
 });
 
-check("Founding offer", "The three stages are described as one piece of work", () => {
+check("Founding offer", "The stages are described as one piece of work", () => {
   /* Practice Clarity, the identity and the website are stages of one job. A
      page that lists them as three deliverables invites the client to ask which
      they can drop, which is the one judgement they are least able to make. */
@@ -925,13 +998,13 @@ check("Founding offer", "The three stages are described as one piece of work", (
   for (const term of ["Practice Clarity", "Identity", "implementation"]) {
     assert(servicePage.includes(term), `service.html does not name "${term}" in the three-stage explanation`);
   }
-  return "three stages, one piece of work";
+  return "stages named, one piece of work";
 });
 
-check("Commercial architecture", "The Therapist Website is the only route that takes money", () => {
+check("Commercial architecture", "The Practice Identity & Website is the only route that takes money", () => {
   assert(/purchasing\.price_display/.test(purchasePage), "the purchase page does not render the price");
   assert(/practice-website-buy\.html/.test(purchasePage), "the purchase page does not include the buy component");
-  assert(/Therapist Website/.test(purchasePage), "the purchase page does not name the Therapist Website");
+  assert(/Practice Identity (&|&amp;) Website/.test(purchasePage), "the purchase page does not name the Practice Identity & Website");
   assert(/\/services\/practice-website\//.test(servicePage), "service.html does not link to the purchase page");
 });
 
