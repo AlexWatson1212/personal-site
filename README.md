@@ -5,31 +5,40 @@ Jekyll 4.3, built and deployed by Netlify.
 
 ## The offer, as the site states it
 
+September 2026. **One service, at the price it is being sold at today.**
+
 | | |
 |---|---|
-| Therapist Website | **£995** — fixed. £500 to begin, £495 when the client approves the finished website, before it goes live. First twelve months of Website Care included |
-| Practice Clarity | **£500** — a separate, earlier piece of work. Not a tier, not a bundle, not bought online. |
+| Practice Identity & Website | **£495** for the first three practices, then **£995**. £100 to begin, £395 when the client approves the finished website, before it goes live. First twelve months of Website Care included either way |
+| Practice Clarity | Inside the price. It has no separate figure and must not acquire one |
 | Website Care | Included for twelve months, then **£29** a month, no minimum term |
 | Custom project | Scoped and quoted individually |
 
-The website and Practice Clarity are **never added into one figure**. The
-website service turns the client's answers into a website; Practice Clarity
-produces the answers, and its written Practice Direction is theirs whether or
-not a website follows. `scripts/qa.mjs` fails the build if a combined price
-reappears, if the service hero shows any figure other than £995 and the two
-instalments, if Practice Clarity is introduced before Website Care on
-`/service/`, or if any published page uses tier language (`upgrade`, `bundle`,
-`package`, `two ways to begin`).
+The founding price is not a tier, a trial, a discount or a stripped-down
+version. It is the whole service at a deliberately reduced price for the first
+three live client implementations of a process that has been built but never yet
+run with a real therapist. What the studio receives in exchange is the
+experience of running it, the feedback, and case studies and testimonials where
+the client is willing. That explanation stays on the page: it is the honest
+answer to "why is it cheaper", and the site never presents £995 as a saving.
 
-**£500 means two things and the distinction is load-bearing.** £500 to begin is
-the first instalment of the £995 website. £500 on its own is Practice Clarity, a
-separate piece of work. Never let the two appear in the same block without their
-labels.
+There is **no countdown, no deadline and no remaining-places counter**. The
+truthful constraint is that there are three places. A number that ticks down is
+a sales device and would have to be maintained by hand to stay honest. When the
+places are gone, the price on the page changes.
 
-`_data/purchasing.yml` is the single source for those figures. `scripts/qa.mjs`
-fails if any other amount appears in published source, or if a retired offer
-name (`Choose Your Practice Website`, `Bespoke Website`, `Route one/two`,
-`Around £2,000`) comes back.
+**Closing the founding offer is one edit**, in `_data/purchasing.yml`: the exact
+sequence is written at the top of that file, and `npm test` asserts the two
+states are internally consistent and names anything left behind.
+
+`_data/purchasing.yml` is the single source for every figure. No template writes
+its own. `scripts/qa.mjs` fails the build if any other amount appears in
+published source, if a combined price reappears, if a retired offer name
+(`Choose Your Practice Website`, `Bespoke Website`, `Route one/two`,
+`Around £2,000`) comes back, if any published page uses tier language
+(`upgrade`, `bundle`, `package`, `two ways to begin`), or if the balance is ever
+described as conditional on the client being happy rather than on written
+approval.
 
 ## Information architecture
 

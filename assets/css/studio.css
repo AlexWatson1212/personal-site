@@ -3457,3 +3457,70 @@ legend {
 }
 
 .center-text { text-align: center; justify-items: center; }
+
+/* ==========================================================================
+   TOUCH TARGETS
+
+   September 2026. Instagram and referral traffic arrives on a phone, and the
+   audit found the standalone arrow links at 26–29px and the footer list at
+   39px. All of them clear the WCAG 2.5.8 minimum of 24px, but none of them
+   clears the 44px a thumb actually wants.
+
+   Two different fixes, because the two cases fail differently:
+
+   - The footer lists are stacked, so a hit area larger than the box would
+     overlap its neighbour and swallow taps meant for the next link. They get
+     real padding instead, which grows the footer by a few millimetres and
+     cannot overlap anything.
+
+   - The arrow links sit alone or in a flex row with a gap at least as wide as
+     the extension, so they get an invisible overlay. Real padding would move
+     the underline away from the text, because the underline is painted at the
+     bottom edge of the padding box.
+
+   Coarse pointers only: on a mouse these are already comfortable, and the
+   overlay would otherwise enlarge hover areas for no reason.
+   ========================================================================== */
+
+@media (pointer: coarse) {
+  .footer-group a { padding-block: 0.62rem; background-position: 0 calc(100% - 0.62rem); }
+  .footer-legal a { padding-block: 0.6rem; min-height: 44px; }
+
+  .tlink { position: relative; }
+  .tlink::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    inset-block: -0.5rem;
+  }
+
+  /* The previous/next links at the foot of a case are the smallest of all,
+     and they are two separate grid cells with a gap between them. The same
+     treatment suits the other standalone arrow links: the one that opens a
+     case from the collection, and the one that goes back to it. */
+  .pager a,
+  .direction__go,
+  .back-link { position: relative; }
+  .pager a::after,
+  .direction__go::after,
+  .back-link::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    inset-block: -0.55rem;
+  }
+
+  /* The scope page's section index is a stacked list, so it takes real
+     padding for the same reason the footer lists do. */
+  .scope-nav a {
+    display: inline-block;
+    padding-block: 0.6rem;
+  }
+
+  /* The email address on the contact page is the alternative to the form.
+     It is the second most important thing a therapist can tap on the site. */
+  .contact-email {
+    display: inline-block;
+    padding-block: 0.35rem;
+  }
+}

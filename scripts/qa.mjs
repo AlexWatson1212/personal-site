@@ -120,6 +120,19 @@ const EXCLUDED_PREFIXES = [
   "_strategy/",
   "_to_delete/",
   "_transfer/",
+  /* September 2026. These three are excluded from the build by _config.yml for
+     the same reason as the trees above: they are working directories, not
+     published source. They were missing here, so every file in them was scanned
+     as though it were a page — which reported the commercial-architecture checks
+     against an unrelated project's README that happens to be saved in "Claude
+     outputs". A directory Jekyll does not publish cannot carry a claim about the
+     offer, so it must not be judged as though it did.
+
+     If a directory is added to the `exclude` list in _config.yml and it holds
+     .html or .md files, add it here too. */
+  "Claude outputs/",
+  "staging/",
+  "legacy/",
   "node_modules/",
   "vendor/",
   ".git/",
