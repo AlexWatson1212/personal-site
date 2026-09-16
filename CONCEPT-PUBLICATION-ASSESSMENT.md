@@ -1,5 +1,9 @@
 # Concept publication assessment
 
+> **Status: ARCHIVE — historical record (marked 16 September 2026).** An August 2026 assessment of concepts that are no longer the public collection.
+> It does not govern anything current. For the current offer, process,
+> portfolio and document status, read `DECISION-REGISTER.md`.
+
 **27 August 2026.** Assessed against the actual current builds, not the
 provisional ranking. Every concept was built from source and rendered in a real
 browser at 1440×900, 834×1112 and 390×844.

@@ -159,6 +159,8 @@ const INTERNAL_NOTES = new Set([
   "TRUST-ARCHITECTURE-REVIEW.md", "MINIMAL-LAUNCH-V2.md",
   "LEGAL-REVIEW-PACK.md", "DIRECTION-NOTE-TEMPLATE.md",
   "CONCEPT-PUBLICATION-ASSESSMENT.md", "POST-LAUNCH.md",
+  /* 16 September 2026. The single current-state register. */
+  "DECISION-REGISTER.md",
 ]);
 
 function isExcludedPath(rel) {
@@ -702,6 +704,58 @@ check("Provenance", "Every direction declares a permitted provenance, and Client
   assert(inventing.length === 0, inventing.join("\n"));
 
   return `${keys} directions · ${permitted.size} permitted values · Client Work unused`;
+});
+
+check("Portfolio", "The public collection is exactly the three flagships, and nothing points at an archived case", () => {
+  /* 16 September 2026. The collection was narrowed from six fictional practices
+     to three flagships as a strategic decision (DECISION-REGISTER.md). Helen
+     Calder, Harbour and Stillpoint are preserved, unpublished, in
+     _strategy/archived-portfolio-2026-09/ and their old URLs redirect to /work/.
+     This check keeps the narrowing from eroding: no fourth entry, no page
+     reintroducing an archived case, and no copy still counting to six. Adding a
+     case back is a decision, so it starts by changing FLAGSHIPS here. */
+  const FLAGSHIPS = ["sofia-marin", "maya-bennett", "daniel-mercer"];
+  const ARCHIVED = [
+    ["helen-calder", "Helen Calder"],
+    ["harbour", "Harbour"],
+    ["stillpoint", "Stillpoint"],
+  ];
+  const collection = read("_data/collection.yml");
+  const keys = [...collection.matchAll(/^  key: (.+)$/gm)].map((m) => m[1].trim());
+  assert(
+    JSON.stringify(keys) === JSON.stringify(FLAGSHIPS),
+    `_data/collection.yml lists [${keys.join(", ")}] — the public collection is ${FLAGSHIPS.join(", ")}, in that order`
+  );
+
+  const offenders = [];
+  const redirects = read("_redirects");
+  for (const [slug] of ARCHIVED) {
+    if (exists(`work/${slug}.html`)) offenders.push(`work/${slug}.html is back in the published tree`);
+    if (exists(`assets/practice-clarity/practice-clarity-${slug}.pdf`)) {
+      offenders.push(`assets/practice-clarity/practice-clarity-${slug}.pdf is back in the published tree`);
+    }
+    if (!new RegExp(`^/work/${slug}/\\s+/work/\\s+301`, "m").test(redirects)) {
+      offenders.push(`_redirects no longer sends /work/${slug}/ to /work/`);
+    }
+  }
+
+  const stripComments = (body) =>
+    body.replace(/\{%-?\s*comment\s*-?%\}[\s\S]*?\{%-?\s*endcomment\s*-?%\}/g, "");
+  const counting = /\b(of the six|all six|other five|six (finished|fictional|cases|practices|documents|sites|answers)|the six (cases|documents|sites|practices))\b/i;
+  for (const [rel, raw] of publishedBodies) {
+    const body = stripComments(raw);
+    for (const [slug, name] of ARCHIVED) {
+      if (body.includes(`/work/${slug}`) || body.includes(`practice-clarity-${slug}`)) {
+        offenders.push(`${rel} links to the archived ${name} case`);
+      }
+      if (new RegExp(`\\b${name}\\b`).test(body)) offenders.push(`${rel} names the archived ${name} case`);
+    }
+    if (rel.startsWith("_guides/") || rel.startsWith("_posts/")) continue;
+    const match = body.match(counting);
+    if (match) offenders.push(`${rel} still counts the collection as six: "${match[0]}"`);
+  }
+  assert(offenders.length === 0, offenders.join("\n"));
+  return `${FLAGSHIPS.length} flagships · ${ARCHIVED.length} archived cases redirected and unreferenced`;
 });
 
 check("Analytics", "Loads nothing until it is configured, and never reads what is typed", () => {
@@ -1588,6 +1642,7 @@ check("Legal draft", "No published page claims the wording is legally approved",
 
 const EXPECTED_ROOT_DOCS = [
   "README.md",
+  "DECISION-REGISTER.md",
   "VISUAL-SYSTEM.md",
   "IMPLEMENTATION.md",
   "STRIPE_SETUP.md",

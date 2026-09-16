@@ -1,5 +1,11 @@
 # Legal review checklist — online purchasing
 
+> **Status: SUPERSEDED (marked 16 September 2026).** Written for the online
+> purchasing (Stripe) model, which was retired in September 2026. The document
+> Alexander approved for a solicitor is `LEGAL-REVIEW-PACK.md`; unfilled legal
+> facts are tracked in `LEGAL-INFORMATION-REQUIRED.md`. Current commercial facts:
+> `DECISION-REGISTER.md`.
+
 **Nothing in this repository has been reviewed by a solicitor.** The wording was
 drafted to describe how the service actually operates, which is a different
 thing from being legally sound. The pages say so on their face and must not be

@@ -1,26 +1,41 @@
-# The collection: six finished portfolio cases.
+# The collection: three flagship portfolio cases.
+#
+# SEPTEMBER 2026 (16th) — NARROWED FROM SIX TO THREE, DELIBERATELY.
+# Sofia Marin, Maya Bennett and Daniel Mercer are the public collection. Helen
+# Calder, Harbour and Stillpoint were removed from it as a strategic decision,
+# not hidden temporarily: three cases are easier to understand, they carry the
+# strongest work, and the fictional portfolio stops growing until real clients
+# have been through the process. Their entries, case pages, documents and
+# screenshots are preserved unpublished in
+# _strategy/archived-portfolio-2026-09/, and their old URLs redirect to /work/
+# (see _redirects). DECISION-REGISTER.md records the freeze: no new fictional
+# practice is added here before real-client evidence exists.
 #
 # Until September 2026 this file held the exploratory design directions —
-# drawings of websites rather than websites. They did their job while the
-# portfolio was being built and are retired to
-# _strategy/retired-direction-collection-2026-09.yml, which is never published.
+# drawings of websites rather than websites. They are retired to
+# _strategy/retired-direction-collection-2026-09.yml (deleted since; recoverable from git history, see commit dd9eabc), which is never published.
 #
-# What replaces them is evidence rather than illustration: six fictional
-# practices, each with a finished concept website that is live, and the
-# Practice Clarity Blueprint that settles its direction published beside it.
-# The six Blueprints were rewritten on 9 September 2026 as client-facing
-# documents — written before design, labelled Established / Interpretation /
-# Recommendation, and ending in an approval page. `pdf` points at the current
-# one; the sources are in _strategy/, which is never published. The point of six is
-# range — a prospective client is meant to notice which one they keep
-# returning to, and that noticing is a real signal because the six sites have
-# almost nothing in common.
+# Each entry is a fictional practice with a finished concept website that is
+# live, and the Practice Clarity Blueprint for it published beside it. The
+# Blueprints were rewritten on 9 September 2026 in the form a practice reviews
+# before design begins — labelled Established / Interpretation /
+# Recommendation, and ending in an approval page — after the concept sites
+# themselves had been built. Public copy must not claim they were written
+# before the design. `pdf` points at the current one; the sources are in
+# _strategy/, which is never published.
+#
+# The point of three is range, not quantity: the same method applied to three
+# practices produces three answers with almost nothing in common. A prospective
+# client may notice which one they keep returning to — that is a useful signal
+# about what they respond to, and a starting reference. It is never a template
+# they buy.
 #
 # PROVENANCE. Every entry must carry a `provenance` value, and only the four
 # in _data/provenance.yml are permitted. No page writes its own disclosure
 # wording — the label is rendered from there and must match the notice on the
 # concept site itself. `client` is reserved and stays unused until it is
-# factually true. scripts/qa.mjs enforces the vocabulary and the reservation.
+# factually true. scripts/qa.mjs enforces the vocabulary and the reservation,
+# and asserts that this file lists exactly the three flagships.
 #
 # Fields
 #   ref          the number shown on the card
@@ -32,9 +47,9 @@
 #   distinction  the one strategic problem this case answers
 #   note         what the practice is, and what the site does about it
 #   swatches     paper, secondary, accent, ink — in that order
-#   feature      full width on /work/. Set on the first and the last entry only:
-#                with six cards in a two-column grid, a full-width card anywhere
-#                else strands the card beside it in an empty cell.
+#   feature      full width on /work/. Set on the first entry only: with three
+#                cards in a two-column grid, the first spans the width and the
+#                other two sit beside each other beneath it.
 
 - ref: "01"
   key: sofia-marin
@@ -108,79 +123,3 @@
     therapy, a short introduction and one blue button beneath it, and a row
     giving the fee, location, hours and first step.
   swatches: ["#EFEEE9", "#E6E4DD", "#1B34DC", "#15171A"]
-
-- ref: "04"
-  key: helen-calder
-  provenance: studio-fictional
-  name: Helen Calder
-  case: /work/helen-calder/
-  href: https://helen-calder.alexanderwatson.co.uk/
-  pdf: /assets/practice-clarity/practice-clarity-helen-calder.pdf
-  practice: Solo counsellor
-  atmosphere: Plain and attentive
-  distinction: An active therapist without authority over the conclusion.
-  note: >-
-    A fictional integrative counsellor in Didsbury, for adults who have already
-    spent years thinking about something alone. The site says what she will
-    actually do in the hour — ask, notice, name the awkward thing — and gives
-    her a second voice on the page, narrower and later and in one colour, so a
-    reader can see exactly what she adds and where it stops.
-  tags: [One therapist, Two voices, Deep blue]
-  shot: /assets/images/work/helen-calder-website.webp
-  alt: >-
-    The Helen Calder homepage: a pale grey page, the serif headline Room to
-    think, and someone to think it through with, and a short introduction
-    beneath it. Set narrower and lower to the right, in blue, is what she will
-    do — ask questions, say what she notices including when it is awkward, and
-    not pretend to know what you should do. A row underneath gives the fee, the
-    free first conversation, who she works with and her availability.
-  swatches: ["#F3F2EF", "#E9E7E1", "#28356B", "#1B1D1F"]
-
-- ref: "05"
-  key: harbour
-  provenance: studio-fictional
-  name: Harbour
-  case: /work/harbour/
-  href: https://harbour-concept.alexanderwatson.co.uk/
-  pdf: /assets/practice-clarity/practice-clarity-harbour.pdf
-  practice: Therapy centre
-  atmosphere: Protective and routed
-  distinction: An organisation whose whole proposition is the removal of ambush.
-  note: >-
-    A fictional therapy centre in Stroud — five people, one building and four
-    readerships who need contradictory things. Nothing arrives without notice
-    and almost nothing proceeds without your say-so, which is why the site
-    routes before it describes anything at all.
-  tags: [A centre, Families, Amber and green]
-  shot: /assets/images/work/harbour-website.webp
-  alt: >-
-    The Harbour homepage: a warm off-white page headed Room to arrive, a
-    paragraph saying that almost nothing here is a surprise, a strip of four
-    audience routes for children, young people, parents and families, and a
-    line illustration of an arched doorway with a lantern above it.
-  swatches: ["#FBF7F1", "#F6EFE6", "#F2B441", "#1D2A26"]
-
-- ref: "06"
-  key: stillpoint
-  provenance: studio-fictional
-  name: Stillpoint
-  case: /work/stillpoint/
-  href: https://stillpoint.alexanderwatson.co.uk/
-  pdf: /assets/practice-clarity/practice-clarity-stillpoint.pdf
-  practice: Solo counsellor
-  atmosphere: Quiet and exact
-  distinction: Nothing required in advance, and everything disclosed in advance.
-  note: >-
-    A fictional counsellor in Lewes, for people who are managing perfectly well
-    and have run out of anywhere to say the thing. The quietest site in the
-    collection, and the most concrete about fees, days and access — which turns
-    out to be the same decision twice.
-  tags: [One therapist, No people, Rust on stone]
-  shot: /assets/images/work/stillpoint-website.webp
-  alt: >-
-    The Stillpoint homepage: a pale grey-green page, the large serif headline
-    Somewhere to stop for a while, a two-sentence lede, two short paragraphs
-    saying that most people here are not in crisis, and a single underlined
-    action reading Arrange a first conversation.
-  swatches: ["#E6E7E3", "#F5F4EF", "#8A4A2E", "#20262A"]
-  feature: true

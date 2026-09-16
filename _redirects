@@ -35,3 +35,17 @@
 # bank transfer, so there is no return page and no journey that ends here.
 /purchase-complete/                                         /services/practice-website/ 301
 /purchase-complete                                          /services/practice-website/ 301
+
+# Narrowed from six portfolio cases to three flagships, 16 September 2026.
+# Helen Calder, Harbour and Stillpoint are no longer part of the public
+# collection. Their pages and documents are preserved, unpublished, in
+# _strategy/archived-portfolio-2026-09/. Old links land on the collection.
+/work/helen-calder/                                         /work/ 301
+/work/helen-calder                                          /work/ 301
+/work/harbour/                                              /work/ 301
+/work/harbour                                               /work/ 301
+/work/stillpoint/                                           /work/ 301
+/work/stillpoint                                            /work/ 301
+/assets/practice-clarity/practice-clarity-helen-calder.pdf  /work/ 301
+/assets/practice-clarity/practice-clarity-harbour.pdf       /work/ 301
+/assets/practice-clarity/practice-clarity-stillpoint.pdf    /work/ 301

@@ -1,5 +1,24 @@
 # Legal review pack — Alexander Watson Studio
 
+> **Status: UPDATE REQUIRED before it is sent to a solicitor (marked 16 September 2026).**
+> The legal questions below are still the right ones, but several commercial facts
+> were written on 27 August / 5 September and have since changed. Read these
+> corrections first, and regenerate §1, §2 and §4 from `DECISION-REGISTER.md`
+> before the pack leaves the studio:
+>
+> - **The product is the Practice Identity & Website**, not the "Therapist Website".
+> - **Price:** £495 for the first three practices, then £995.
+> - **Payment:** founding practices pay £100 to begin and £395 when the website is
+>   approved for launch (clause 3 and clause 11). The £500/£495 split in §2 applies
+>   only after the founding places, and is not currently published.
+> - **Practice Clarity is not a separate £500 service.** It is the first stage of
+>   the one product and has no price (§1 is wrong on this).
+> - **Payment is by invoice and bank transfer.** There is no Stripe checkout.
+> - **Clause 13 now also transfers ownership of the practice identity** (wordmark,
+>   guide, specifications, templates, briefs) outright on full payment, flagged ⚖.
+> - **The cancellation ladder in §4** is written against £500; the published page is
+>   no longer tied to any amount.
+
 **For a UK commercial solicitor. Prepared 27 August 2026.**
 
 This document exists so a review can be scoped and priced quickly. The

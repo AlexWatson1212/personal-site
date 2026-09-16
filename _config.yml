@@ -75,6 +75,7 @@ analytics:
 
 exclude:
   - README.md
+  - DECISION-REGISTER.md
   - VISUAL-SYSTEM.md
   - IMPLEMENTATION.md
   - STRIPE_SETUP.md

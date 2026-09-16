@@ -1,5 +1,9 @@
 # Studio photography shot list
 
+> **Status: ARCHIVE — historical record (marked 16 September 2026).** An early shot list naming pages (Library, Journal) that have since been retired; none of its filenames is used by the site.
+> It does not govern anything current. For the current offer, process,
+> portfolio and document status, read `DECISION-REGISTER.md`.
+
 The site now uses process-led images already present in the source rather than generic therapy imagery. Replace those placeholders with real photographs using the filenames and crops below; keeping these names will avoid another code pass.
 
 ## Core photographs

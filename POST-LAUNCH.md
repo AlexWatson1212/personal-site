@@ -1,5 +1,9 @@
 # Post-launch list
 
+> **Status: ARCHIVE — historical record (marked 16 September 2026).** An August 2026 list. Item 1 (publish Stillpoint) is reversed: since 16 September 2026 Stillpoint is archived and the collection is frozen at three.
+> It does not govern anything current. For the current offer, process,
+> portfolio and document status, read `DECISION-REGISTER.md`.
+
 Things found during the Minimal Launch V2 implementation that are desirable and
 were deliberately **not** done, because they are optimisation rather than launch
 preparation. Ten items, in rough order of value. Nothing here blocks taking the

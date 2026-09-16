@@ -3,6 +3,10 @@
 Alexander Watson Studio — websites for therapists in private practice.
 Jekyll 4.3, built and deployed by Netlify.
 
+**Current decisions — niche, offer, payment, process, portfolio, freeze rule and
+which documents are current — are in [`DECISION-REGISTER.md`](DECISION-REGISTER.md).**
+Start there. This file describes how the repository implements them.
+
 ## The offer, as the site states it
 
 September 2026. **One service, at the price it is being sold at today.**
@@ -52,7 +56,7 @@ Four navigation links and one call to action:
 | About | `/about/` | `about.html` |
 | Start a website | `/contact/` | `contact.html` |
 
-There is **one** free resource surface, `/guidance/`. It holds five short
+There is **one** free resource surface, `/guidance/`. It holds six short
 notes (`_guides/`, `category: Guidance`), the two longer practical guides and a
 link out to the nine Practice Clarity principles at `/practice-clarity/`, which
 is now a reference page rather than a second front door. The Journal index has
@@ -64,10 +68,12 @@ their own URLs and are linked from `/guidance/`.
 
 - `assets/css/studio.css` — the whole stylesheet. See `VISUAL-SYSTEM.md`.
 - `assets/css/studio.min.css` — built by `npm run build:css`; the only one loaded.
-- `_data/collection.yml` — the six finished portfolio cases: screenshot, provenance, the
-  strategic distinction and the links to the live concept and its document. The eight
-  exploratory directions it used to hold were retired in September 2026 to
-  `_strategy/retired-direction-collection-2026-09.yml`.
+- `_data/collection.yml` — the three flagship portfolio cases (Sofia Marin, Maya Bennett,
+  Daniel Mercer): screenshot, provenance, the strategic distinction and the links to the
+  live concept and its document. Narrowed from six on 16 September 2026; Helen Calder,
+  Harbour and Stillpoint are preserved in `_strategy/archived-portfolio-2026-09/` and
+  their URLs redirect to `/work/`. The eight exploratory directions it held before that
+  are in `_strategy/retired-direction-collection-2026-09.yml (deleted since; recoverable from git history, see commit dd9eabc)`.
 - `_guides/` — the guidance notes, the practical guides and the nine principles.
 - `_includes/practice-website-buy.html` — the only file permitted to emit a checkout link.
 - `_pages/` — legal and statement pages. Draft until `_data/legal.yml` says otherwise.
@@ -78,7 +84,7 @@ their own URLs and are linked from `/guidance/`.
 
 ```
 npm run build          # purchasing config → css → jekyll build
-npm test               # scripts/qa.mjs — 66 checks, no dependencies
+npm test               # scripts/qa.mjs — 72 checks, no dependencies
 npm run preview        # Node stand-in for the Jekyll build → _preview/
 npm run qa:browser     # overflow, keyboard, landmarks, contrast, 200% zoom
 npm run qa:a11y        # axe-core, 31 routes × 4 viewports
@@ -91,6 +97,6 @@ render every route so the browser harnesses can run without Ruby.
 
 ## Before you change anything
 
-`IMPLEMENTATION.md` lists the six things that break if you are not careful —
-prices, the checkout scope, the Website Care claims, permalinks and the banned
-strings. `VISUAL-SYSTEM.md` holds the token set and the motion grammar.
+`IMPLEMENTATION.md` lists the things that break if you are not careful —
+prices, the checkout scope, the Website Care claims, permalinks, the banned
+strings and the three-case collection. `VISUAL-SYSTEM.md` holds the token set and the motion grammar.

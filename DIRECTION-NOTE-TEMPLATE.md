@@ -1,6 +1,7 @@
 # The Direction Note
 
-A named deliverable inside the £995 Therapist Website. Sent within five working
+A named deliverable inside the Practice Identity & Website (the current price and
+instalments are in `DECISION-REGISTER.md`). Sent within five working
 days of a complete intake, and approved in writing before the build starts.
 
 **It answers:** *Has Alexander understood me, and am I comfortable with where he
@@ -41,7 +42,7 @@ work", it does not become "depth-oriented practice". The test of §1 is that she
 reads it and thinks *yes, that is it* — not *that is interesting*.
 
 **3. It is the record of the Practice Clarity work, not a second version of it.**
-Since September 2026 that work is inside every £995 project, and this Note is
+Since September 2026 that work is inside every project, and this Note is
 what the client receives from it. So the rule is about the length of the
 document, not about a different product: no personas, brand values, competitor
 analysis, positioning exercises, moodboards or marketing strategy. If a field is
@@ -101,7 +102,7 @@ buying.
 The most valuable section, and the first that will be cut in a busy week. It
 prevents the "why is there no blog / no testimonials / no booking system"
 conversation at Round Two, and it demonstrates judgement rather than compliance —
-which is most of what £995 is buying.
+which is most of what the client is paying for.
 
 ### 8. Your decision — fixed
 

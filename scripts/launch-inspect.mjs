@@ -49,7 +49,6 @@ function serve() {
 
 const ROUTES = [
   '/', '/work/', '/work/sofia-marin/', '/work/maya-bennett/', '/work/daniel-mercer/',
-  '/work/helen-calder/', '/work/harbour/', '/work/stillpoint/',
   '/service/', '/services/practice-website/', '/guidance/', '/practice-clarity/',
   '/about/', '/contact/', '/terms/', '/privacy/', '/cancellation-and-refunds/',
   '/service-terms/practice-website/', '/accessibility/', '/404.html',

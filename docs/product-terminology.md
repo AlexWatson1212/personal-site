@@ -107,7 +107,8 @@ paragraphs are flagged ⚖ for a solicitor.
 ## 7. What has not changed
 
 The price, the instalments, the founding arrangement, the route, the nav labels,
-the six-case collection, Website Care, and the "name the one you keep returning
+the collection (narrowed from six cases to three on 16 September 2026 — see
+`DECISION-REGISTER.md`), Website Care, and the "name the one you keep returning
 to" starting point. The collection is still where a project begins visually — it
 is a fast way to read what a practitioner responds to before anything else is
 known about them, and the site already says it is a starting point rather than

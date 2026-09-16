@@ -1,5 +1,11 @@
 # Stripe setup — Therapist Website (£995, in two instalments)
 
+> **Status: SUPERSEDED (marked 16 September 2026).** Stripe and online checkout
+> were retired in September 2026: payment is by invoice and bank transfer, and
+> `PUBLIC_PURCHASES_ENABLED` stays unset. The figures below (£995, £500/£495) are
+> also out of date. Kept only as a record of what was set up. Current payment
+> terms: `DECISION-REGISTER.md`; current payment mechanics: `docs/founding-practices.md`.
+
 **The commercial position this file must match:** £995 total. **£500 to begin.
 £495 when the client approves the finished website, before it goes live.** The
 balance is triggered by the client's explicit written approval, never by the

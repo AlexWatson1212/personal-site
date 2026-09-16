@@ -18,54 +18,48 @@ practice type, atmosphere, provenance, the one strategic distinction, the note,
 tags, the four palette colours, the approved screenshot and its alt text, and the
 routes to the case study, the live concept website and its published document.
 The home page, the collection page and the contact form's design select all read
-from that one file. **Adding a case is adding an entry.**
+from that one file. **Adding a case is adding an entry — and is currently not
+permitted.** Since 16 September 2026 the file holds exactly three flagships
+(Sofia Marin, Maya Bennett, Daniel Mercer), the freeze rule is in
+`DECISION-REGISTER.md`, and the *Portfolio* check in `scripts/qa.mjs` fails on a
+fourth entry. Helen Calder, Harbour and Stillpoint are preserved in
+`_strategy/archived-portfolio-2026-09/`, and their URLs redirect to `/work/`.
 
 Until September 2026 the same file held eight exploratory design directions,
 drawn as CSS miniatures by `_includes/plate.html` because there was nothing
-finished to photograph. Both are retired to `_strategy/`, along with the filter
-script the collection page used while it had eight entries to filter.
+finished to photograph. Both were retired to `_strategy/`, along with the filter
+script the collection page used while it had eight entries to filter, and later
+deleted from there; they are recoverable from git history (commit `dd9eabc`).
 
-## One product, one preliminary, one aftercare
+## One product, and the rules that keep it
 
-The commercial architecture, and the rules that keep it:
+**The current commercial facts live in `DECISION-REGISTER.md`, and every figure
+the site renders lives in `_data/purchasing.yml`.** This section describes how
+the code keeps them true; it does not restate them. (Rewritten 16 September
+2026: the previous version described the August 2026 model — £500 to begin,
+£495 on approval, and Practice Clarity as a separate £500 job. Both are
+superseded.)
 
-- **Therapist Website — £995.** The only headline price, and one commercial
-  position with no alternative formulation anywhere: **£500 to begin. £495 when
-  you approve the finished website, before it goes live.** The balance is
-  triggered by the client's explicit written approval, never by the studio
-  declaring the work finished. A single payment is not offered publicly; it can
-  be agreed case by case in writing, and clause 3 of the service terms is the
-  wording that governs either.
-- **Practice Clarity — £500.** A separate, earlier piece of work that produces
-  the answers a website is built from. Its written Practice Direction is the
-  client's whether or not a website follows. Never a tier, a bundle or a
-  checkout option, and never added to £995 to make a second headline figure.
-- **Website Care.** Included for the first twelve months, then £29 a month if
-  wanted. Stated as conduct — "not a bonus; it is the end of the job" — and not
-  as a row in a price table, so it is never asked to justify the £995.
-- **Direction Note.** Sent within five working days of a complete intake, and
-  approved before the build starts. It is a named deliverable inside the £995,
-  not a courtesy: see `DIRECTION-NOTE-TEMPLATE.md`. One consolidated revision of
-  the Note is included, and it is separate from the two website revision rounds.
+- **Practice Identity & Website.** One product. `price_display` means "what a
+  client pays if they say yes today"; while the founding offer is open that is
+  the founding price, and the standard price is `founding.standard_price_display`.
+  The payment terms are rendered from `payment_sentence` and nowhere else. The
+  balance is triggered by the client's written approval for launch (clause 11),
+  never by the studio declaring the work finished.
+- **Practice Clarity** is the first of the four stages and has no price.
+  `clarity_display` was deleted so a template that refers to it fails loudly.
+- **Direction Note.** The client deliverable from Practice Clarity: sent within
+  five working days of a complete intake, approved before the build, with one
+  consolidated revision of its own that is separate from the two website rounds.
+  See `DIRECTION-NOTE-TEMPLATE.md`.
+- **Website Care.** Included for the first twelve months, then `website_care.monthly`
+  if wanted. Stated as conduct, not as a row in a price table.
 - **Custom projects.** Quoted, mentioned quietly.
 
-`£1,495` was retired in August 2026 with the tier it implied, and is now in
-`RETIRED_PRICES`. The check *One website price, and one place it is decided*
-fails the build if a combined figure reappears anywhere, if the `/service/` hero
-shows a figure outside the approved set, if Practice Clarity is introduced before
-Website Care on that page, or if any published page says `upgrade`, `bundle`,
-`package` or `two ways to begin`.
-
-The one thing to watch when editing `/service/`: the hero may show **£995, £500
-and £495 and nothing else**. Those three are the total and its two instalments.
-A fourth figure there fails the build even if it is only illustrative.
-
-**`£495` was itself a retired offer price** — the old Straightforward Website —
-and it re-entered service in August 2026 as the balance instalment. It has been
-removed from `RETIRED_PRICES` for that reason, which means the suite no longer
-guards against the old offer returning under that number. If a page ever says
-`£495` without the words that make it an instalment, that is the case to look at
-by hand.
+`APPROVED_PRICES` and `RETIRED_PRICES` in `scripts/qa.mjs` are the enforcement.
+Closing the founding offer is the five-step edit written at the top of
+`_data/purchasing.yml` (and in `docs/founding-practices.md` §2); `npm test`
+asserts both states are internally consistent.
 
 ## The closing plate
 
@@ -80,7 +74,7 @@ all: a page of free writing ends with a sentence, not a pitch.
 ## One resource surface
 
 `/guidance/` is the only free content front door. `guidance.html` reads the
-five `category: Guidance` notes from `_guides/` in `guidance_order`, then lists
+six `category: Guidance` notes from `_guides/` in `guidance_order`, then lists
 the two longer practical guides, then links out to `/practice-clarity/` for the
 nine principles. `practice-clarity.html` is a reference page, not a second
 index: it no longer carries its own guides or journal sections, and it opens by
@@ -110,7 +104,7 @@ they are restated on the new tokens in §20.
 
 ## What the QA harnesses will catch
 
-- `scripts/qa.mjs` — 66 checks. Prices, retired offer language, checkout scope,
+- `scripts/qa.mjs` — 72 checks. Prices, retired offer language, checkout scope,
   Website Care claims, legal routes, private routes, questionnaire structure,
   client-data hygiene, front matter, links, anchors, assets, built output.
 - `scripts/qa-browser/run.mjs` — overflow at six widths, heading wrapping,
@@ -134,12 +128,14 @@ before testing `:focus-visible` and skips elements that focus cannot land on
    `_data/purchasing.yml`, and the service hero admits exactly one figure.
 2. **`_includes/practice-website-buy.html` is the only file allowed to emit a
    checkout link**, and it may appear on `services/practice-website.html` only.
-3. **Nothing describing Practice Clarity may carry a purchase action.** It is a
-   separate piece of work, agreed in writing and invoiced separately, and it is
-   never presented as a version of the website.
+3. **Nothing describing Practice Clarity may carry a purchase action or a
+   price.** It is the first stage of the one product, not a separate piece of
+   work, and it is never presented as a version of the website.
 4. **Website Care must not claim uptime monitoring or a backup guarantee.**
    Neither is provided. Version history, TLS and fault-fixing are, and are named.
 5. Changing a permalink means editing `scripts/qa.mjs` ROUTES, `_redirects`,
    `netlify.toml`, `robots.txt` and `_data/purchasing.yml` together.
 6. Banned strings: `unlimited revisions`, `coming soon`, `Template Website`,
    `Semi-Custom`, plus the retired offer names.
+7. **The collection is three cases.** Reintroducing an archived case, or copy
+   that counts the collection as six, fails the *Portfolio* check.

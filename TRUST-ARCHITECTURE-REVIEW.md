@@ -1,5 +1,9 @@
 # Trust architecture review — the £995 Therapist Website
 
+> **Status: ARCHIVE — historical record (marked 16 September 2026).** The review's structural conclusions (Direction Note, three client decisions, written approval before the balance) were adopted; its figures (£995, £500/£495, Practice Clarity £500) and portfolio ranking are superseded.
+> It does not govern anything current. For the current offer, process,
+> portfolio and document status, read `DECISION-REGISTER.md`.
+
 **27 August 2026. Nothing in the site was modified.** This is the approval
 document for the trust/process pass. Implementation is a second pass, and only
 after the architecture below is approved or amended.

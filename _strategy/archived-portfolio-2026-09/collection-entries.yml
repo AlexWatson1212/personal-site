@@ -1,0 +1,84 @@
+# Archived 16 September 2026. NOT PUBLISHED — _strategy/ is never built.
+#
+# These were entries 04–06 of _data/collection.yml while the public collection
+# held six cases. They are kept verbatim so the cases can be restored or reused
+# without reconstruction. The `case`, `pdf` and `shot` paths below point at
+# locations that no longer exist on the public site: the files themselves are
+# in this folder (case-pages/ and assets/), and the old public URLs redirect to
+# /work/. See README.md in this folder before restoring anything.
+
+- ref: "04"
+  key: helen-calder
+  provenance: studio-fictional
+  name: Helen Calder
+  case: /work/helen-calder/
+  href: https://helen-calder.alexanderwatson.co.uk/
+  pdf: /assets/practice-clarity/practice-clarity-helen-calder.pdf
+  practice: Solo counsellor
+  atmosphere: Plain and attentive
+  distinction: An active therapist without authority over the conclusion.
+  note: >-
+    A fictional integrative counsellor in Didsbury, for adults who have already
+    spent years thinking about something alone. The site says what she will
+    actually do in the hour — ask, notice, name the awkward thing — and gives
+    her a second voice on the page, narrower and later and in one colour, so a
+    reader can see exactly what she adds and where it stops.
+  tags: [One therapist, Two voices, Deep blue]
+  shot: /assets/images/work/helen-calder-website.webp
+  alt: >-
+    The Helen Calder homepage: a pale grey page, the serif headline Room to
+    think, and someone to think it through with, and a short introduction
+    beneath it. Set narrower and lower to the right, in blue, is what she will
+    do — ask questions, say what she notices including when it is awkward, and
+    not pretend to know what you should do. A row underneath gives the fee, the
+    free first conversation, who she works with and her availability.
+  swatches: ["#F3F2EF", "#E9E7E1", "#28356B", "#1B1D1F"]
+
+- ref: "05"
+  key: harbour
+  provenance: studio-fictional
+  name: Harbour
+  case: /work/harbour/
+  href: https://harbour-concept.alexanderwatson.co.uk/
+  pdf: /assets/practice-clarity/practice-clarity-harbour.pdf
+  practice: Therapy centre
+  atmosphere: Protective and routed
+  distinction: An organisation whose whole proposition is the removal of ambush.
+  note: >-
+    A fictional therapy centre in Stroud — five people, one building and four
+    readerships who need contradictory things. Nothing arrives without notice
+    and almost nothing proceeds without your say-so, which is why the site
+    routes before it describes anything at all.
+  tags: [A centre, Families, Amber and green]
+  shot: /assets/images/work/harbour-website.webp
+  alt: >-
+    The Harbour homepage: a warm off-white page headed Room to arrive, a
+    paragraph saying that almost nothing here is a surprise, a strip of four
+    audience routes for children, young people, parents and families, and a
+    line illustration of an arched doorway with a lantern above it.
+  swatches: ["#FBF7F1", "#F6EFE6", "#F2B441", "#1D2A26"]
+
+- ref: "06"
+  key: stillpoint
+  provenance: studio-fictional
+  name: Stillpoint
+  case: /work/stillpoint/
+  href: https://stillpoint.alexanderwatson.co.uk/
+  pdf: /assets/practice-clarity/practice-clarity-stillpoint.pdf
+  practice: Solo counsellor
+  atmosphere: Quiet and exact
+  distinction: Nothing required in advance, and everything disclosed in advance.
+  note: >-
+    A fictional counsellor in Lewes, for people who are managing perfectly well
+    and have run out of anywhere to say the thing. The quietest site in the
+    collection, and the most concrete about fees, days and access — which turns
+    out to be the same decision twice.
+  tags: [One therapist, No people, Rust on stone]
+  shot: /assets/images/work/stillpoint-website.webp
+  alt: >-
+    The Stillpoint homepage: a pale grey-green page, the large serif headline
+    Somewhere to stop for a while, a two-sentence lede, two short paragraphs
+    saying that most people here are not in crisis, and a single underlined
+    action reading Arrange a first conversation.
+  swatches: ["#E6E7E3", "#F5F4EF", "#8A4A2E", "#20262A"]
+

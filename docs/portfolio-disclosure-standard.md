@@ -8,6 +8,13 @@ for two reasons given in §"Why this is not implemented yet".
 
 **Not published.** `docs` is in the `exclude` list in `_config.yml`.
 
+> **16 September 2026.** The public collection is now three cases — Sofia Marin, Maya
+> Bennett and Daniel Mercer (`DECISION-REGISTER.md`). This standard still applies to
+> those three and to any future real or fictional concept. The Helen Calder, Harbour and
+> Stillpoint rows below are kept as a record; those concepts are archived and are not
+> scheduled for a disclosure pass. Stillpoint remains the reference implementation of
+> the disclosure pattern even though it is no longer shown.
+
 ---
 
 ## The disclosure, in words

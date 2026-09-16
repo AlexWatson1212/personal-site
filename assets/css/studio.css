@@ -1351,6 +1351,17 @@ p { text-wrap: pretty; }
   .collection { grid-template-columns: 1fr; }
 }
 
+/* September 2026: the home page shows three cases, not six. Between the one-
+   and three-column layouts the grid has two columns, which would strand the
+   third card beside an empty cell; centre it at the same width instead. */
+@media (min-width: 45.0625rem) and (max-width: 61.9375rem) {
+  .collection--three > .direction:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc((100% - clamp(1.5rem, 2.6vw, 2.25rem)) / 2);
+  }
+}
+
 /* A direction that earns the full measure. Used once or twice per page so the
    grid has a rhythm rather than a repeat. */
 .collection > .direction--feature { grid-column: 1 / -1; }

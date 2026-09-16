@@ -27,6 +27,22 @@ photographs losslessly at 3.3 MB; the published file re-encodes those two images
 as JPEG and is 1.0 MB. Nothing else about it is changed, and the text layer,
 typography and layout are untouched.
 
+## 16 September 2026 — three are published, three archived
+
+Only the Sofia Marin, Maya Bennett and Daniel Mercer documents are still in
+`assets/practice-clarity/`. The Helen Calder, Harbour and Stillpoint public
+PDFs moved to `archived-portfolio-2026-09/assets/practice-clarity/`; their
+sources stay in this folder, as listed above. The "pending correction" below
+now concerns the three published documents only.
+
+**On the phrase "written before design".** These documents are written in the
+form a practice reviews before design, but the September editions were
+produced after the concept sites had been built (Maya's was reconstructed from
+the deployed site). Public copy now says exactly that — "set out as the
+document a practice reviews before any design work", "written after the
+concept site" — and must not go back to claiming the documents preceded the
+design.
+
 ## What changed on 9 September 2026
 
 These six replaced the previous set, which were *portfolio editions*

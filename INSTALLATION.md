@@ -1,5 +1,9 @@
 # Installation
 
+> **Status: ARCHIVE — historical record (marked 16 September 2026).** Instructions for applying an August 2026 source package.
+> It does not govern anything current. For the current offer, process,
+> portfolio and document status, read `DECISION-REGISTER.md`.
+
 This ZIP is a clean Jekyll source package. It deliberately omits `.git`, `_site`, caches, dependencies and the unused 172 MB `assets/images/image-library` working folder.
 
 ## Recommended replacement

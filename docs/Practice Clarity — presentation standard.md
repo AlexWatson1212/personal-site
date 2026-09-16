@@ -11,6 +11,11 @@ inventing a system: Sofia Marin (which established the standard), Maya Bennett, 
 Mercer, Helen Calder, Harbour and Stillpoint. Where the six disagree, this file records
 which reading is canonical and why.
 
+> **16 September 2026.** Only three of these documents are published now — Sofia
+> Marin, Maya Bennett and Daniel Mercer. The standard was derived from all six and
+> stays canonical; the Helen Calder, Harbour and Stillpoint documents are archived
+> in `_strategy/archived-portfolio-2026-09/`.
+
 **Not published.** `docs` is in the `exclude` list in `_config.yml`, alongside every
 other internal document in this repository.
 

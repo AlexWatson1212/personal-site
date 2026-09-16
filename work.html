@@ -1,7 +1,7 @@
 ---
 layout: default
 title: The website collection
-description: Six finished websites for six fictional therapy practices, each published with the strategic work that produced it. Six different problems, six answers that look nothing like each other.
+description: Three finished websites for three fictional therapy practices, each published with the strategic work behind it. One method, three different problems, three answers that look nothing like each other.
 permalink: /work/
 image: /assets/images/work/sofia-marin-website.webp
 ---
@@ -10,10 +10,12 @@ image: /assets/images/work/sofia-marin-website.webp
   The collection, consolidated in September 2026.
 
   It used to be eight exploratory design directions, drawn as CSS miniatures
-  because there was nothing finished to photograph. It is now the six cases
-  that were taken all the way: a built website, live, and the strategic
-  document that produced it, published beside it. The retired directions are
-  kept in _strategy/retired-direction-collection-2026-09.yml, which is never
+  because there was nothing finished to photograph, then six finished cases.
+  On 16 September 2026 it was narrowed to three flagships — Sofia Marin, Maya
+  Bennett and Daniel Mercer — deliberately: the argument is traceability, not
+  quantity. Helen Calder, Harbour and Stillpoint are preserved, unpublished, in
+  _strategy/archived-portfolio-2026-09/. The retired directions are kept in
+  _strategy/retired-direction-collection-2026-09.yml (deleted since; recoverable from git history, see commit dd9eabc), which is never
   published.
 
   Every entry is drawn from _data/collection.yml, and every disclosure label
@@ -30,17 +32,18 @@ image: /assets/images/work/sofia-marin-website.webp
     <div class="split split--wide-left">
       <div>
         <p class="label">The collection</p>
-        <h1 class="measure-2xs">Six practices. Six answers that look nothing like each other.</h1>
+        <h1 class="measure-2xs">Three practices. Three answers that look nothing like each other.</h1>
       </div>
       <div class="stack stack--loose" style="align-self:end">
         <p class="lead measure-xl">
-          Six fictional therapy practices, each given a complete website and, published
-          beside it, the strategic work that produced it. Every conclusion sits next to
-          the design decision it caused, so you can check the second against the first.
+          Three fictional therapy practices, each given a complete website and, published
+          beside it, the strategic work behind it. One method, applied three times. Every
+          conclusion sits next to the design decision it caused, so you can check the
+          second against the first.
         </p>
         <p class="small quiet measure-2xl">
-          They are not templates and not a house style with six colourways. Notice which
-          one you keep returning to &mdash; that is a real signal, because these six have
+          They are not templates and not a house style in three colourways. Notice which
+          one you keep returning to &mdash; that is a real signal, because these three have
           almost nothing in common.
         </p>
       </div>
@@ -50,7 +53,7 @@ image: /assets/images/work/sofia-marin-website.webp
 
 <section class="band band--sm on-sage">
   <div class="wrap--wide">
-    <h2 class="sr-only">The six cases</h2>
+    <h2 class="sr-only">The three cases</h2>
 
     <div class="collection">
       {% for d in site.data.collection %}
@@ -84,7 +87,7 @@ image: /assets/images/work/sofia-marin-website.webp
               <ul class="tags">{% for tag in d.tags %}<li>{{ tag }}</li>{% endfor %}</ul>
               <div class="direction__foot">
                 <a class="direction__go" href="{{ d.case | relative_url }}">See the case <span aria-hidden="true">&rarr;</span></a>
-                <a class="tlink" href="{{ start | relative_url }}">Start with this design <span aria-hidden="true">&rarr;</span></a>
+                <a class="tlink" href="{{ start | relative_url }}">Start from this one <span aria-hidden="true">&rarr;</span></a>
               </div>
             </div>
           </div>
@@ -101,11 +104,13 @@ image: /assets/images/work/sofia-marin-website.webp
   printed on it, and the site that decision produced — in that reading order at
   every width, because the order is the argument.
 
-  Stillpoint, because its row is the clearest case of a practice conviction
-  deciding an interface rather than a mood. The decision and the consequence
-  are both quoted from page fourteen of the published document, which is where
-  the "Website translation" section begins. If the document is regenerated,
-  check this number and the caption below against the new PDF.
+  Sofia Marin, because her row is the clearest case of a practice conviction
+  deciding the content of a page rather than its mood. (Until 16 September
+  2026 this block used Stillpoint, which has left the public collection.) The
+  conclusion and the requirement are both quoted from page fourteen of the
+  published document, "Website translation"; the caption under the website is
+  checkable on the concept site and on /work/sofia-marin/. If the document is
+  regenerated, check the page number and the quotations against the new PDF.
 {%- endcomment -%}
 <section class="band on-paper">
   <div class="wrap--wide">
@@ -116,21 +121,27 @@ image: /assets/images/work/sofia-marin-website.webp
       </div>
       <div class="stack stack--loose">
         <p class="quiet measure-2xl">
-          Each of the six is deployed and can be visited, page by page, on a phone if you
+          Each of the three is deployed and can be visited, page by page, on a phone if you
           want to see it there. Each has a Practice Clarity Blueprint published in full and
-          free to read, written before the design, in which every requirement is set
-          against the conclusion it came from. A commissioned practice receives a Direction
-          Note: the same decisions, recorded concisely for approval before the website is
-          built.
+          free to read, in which every requirement is set against the conclusion it came
+          from. A commissioned practice receives a Direction Note: the same decisions,
+          recorded concisely for approval before the website is built.
+        </p>
+        <p class="quiet measure-2xl">
+          For a real practice that order is fixed &mdash; the thinking is written down and
+          approved before anything is designed. These three practices are fictional, and
+          their documents were written after the concept sites, in the form a client&rsquo;s
+          is written before one. They show the method and let you check it against a
+          finished page; they are not a record of a client engagement.
         </p>
         <p class="quiet measure-2xl">
           Most of the people arriving on a therapist&rsquo;s website are on a phone, and
           some of them are not calm. The phone view of each of these is not the desktop
           one stacked up: the hierarchy is re-decided, the type re-set, and the thing a
-          distressed reader needs first is moved to where they will find it. All six are
+          distressed reader needs first is moved to where they will find it. All three are
           built to WCAG&nbsp;2.2&nbsp;AA.
         </p>
-        <p><a class="tlink" href="{{ '/practice-clarity/' | relative_url }}">The thinking the six documents apply <span aria-hidden="true">&rarr;</span></a></p>
+        <p><a class="tlink" href="{{ '/practice-clarity/' | relative_url }}">The thinking the three documents apply <span aria-hidden="true">&rarr;</span></a></p>
       </div>
     </div>
 
@@ -140,61 +151,66 @@ image: /assets/images/work/sofia-marin-website.webp
       <div class="origin__part">
         <span class="origin__n">The document</span>
         <div class="plate-frame">
-          <img src="{{ '/assets/images/work/practice-clarity-stillpoint-spread.webp' | relative_url }}"
-               alt="Two pages from the Stillpoint Practice Clarity Blueprint: the cover, and the Website translation page, which sets each strategic conclusion against the design requirement that follows from it."
+          <img src="{{ '/assets/images/work/practice-clarity-sofia-spread.webp' | relative_url }}"
+               alt="Two pages from the Sofia Marin Practice Clarity Blueprint: the cover, and the Website translation page, which sets each strategic conclusion against the design requirement that follows from it."
                width="1400" height="752" loading="lazy" decoding="async">
         </div>
-        <p class="origin__caption">Stillpoint &middot; page fourteen of seventeen, &ldquo;Website translation&rdquo;.</p>
+        <p class="origin__caption">Sofia Marin &middot; page fourteen of sixteen, &ldquo;Website translation&rdquo;.</p>
       </div>
 
       <div class="origin__part origin__part--decision">
         <span class="origin__n">One row from it</span>
         <p class="origin__decision">
-          Your method is subtraction: you take out whatever would make a client
-          perform.
+          Recognition has to happen without a category being applied, because
+          being read a certain way is part of what these clients are tired of.
         </p>
         <p class="origin__because">
-          The requirement set beside it: the interface subtracts too, and the
-          bands carry a single sentence without apologising for the space.
+          The requirement set beside it: no condition list, no &ldquo;who I work
+          with&rdquo; panel, no client types &mdash; situations written without an
+          owner instead, wide enough that no single group can claim the page.
         </p>
       </div>
 
       <div class="origin__part">
-        <span class="origin__n">The website it produced</span>
-        <a class="plate-frame" href="{{ '/work/stillpoint/' | relative_url }}">
-          <img src="{{ '/assets/images/work/stillpoint-website.webp' | relative_url }}"
-               alt="The Stillpoint homepage: a pale grey-green page carrying one serif headline, two short paragraphs and a single underlined action, with no icons, cards, badges or panels anywhere on it."
+        <span class="origin__n">The website it describes</span>
+        <a class="plate-frame" href="{{ '/work/sofia-marin/' | relative_url }}">
+          <img src="{{ '/assets/images/work/sofia-marin-website.webp' | relative_url }}"
+               alt="The Sofia Marin homepage: a serif headline reading Therapy for adults, for the point at which a life stops fitting, a portrait beside it, and a row giving the fee, session length, working days and location."
                width="1440" height="900" loading="lazy" decoding="async">
         </a>
         <p class="origin__caption">
-          No cards, icon sets, testimonials, badges, pop-ups, chat widget or
-          newsletter prompt. Long intervals between sections, and one typeface
-          doing all of the work.
+          No conditions and no client types anywhere on the site. Ten situations
+          instead, described rather than diagnosed, and the fee, session length,
+          working days and delivery set in the first screen as plain numbers.
         </p>
       </div>
     </div>
 
     <p class="anatomy__note">
-      That is one row. Each of the six documents is built of them, and each row
-      names the part of the site it produced, so the claim can be checked rather
+      That is one row. Each of the three documents is built of them, and each row
+      names the part of the site it describes, so the claim can be checked rather
       than taken.
-      <a class="inline-link" href="{{ '/work/stillpoint/' | relative_url }}">Read the Stillpoint case</a>.
+      <a class="inline-link" href="{{ '/work/sofia-marin/' | relative_url }}">Read the Sofia Marin case</a>.
     </p>
   </div>
 </section>
 
 {%- comment -%}
-  Breadth, where the block above it is depth. Five decisions drawn from five
-  different documents, chosen so that each one lands on a different part of a
-  website — the colour, the first screen, the photography, the order of the
-  page, the form. That is the argument of the section: these are not five
-  aesthetic preferences, they are five facts about five practices arriving in
+  Breadth, where the block above it is depth. Five decisions drawn from the
+  three published documents, chosen so that each one lands on a different part
+  of a website — the colour, the first screen, the order of the page, the
+  typography, the form. That is the argument of the section: these are not
+  five aesthetic preferences, they are facts about three practices arriving in
   five different places.
 
-  Every answer is quoted or paraphrased from the published document named
-  beside it. Nothing here is a claim about a real practitioner: all five are
-  fictional practices, labelled as such on the cards above and on the concept
-  sites themselves.
+  Rebuilt on 16 September 2026 when the collection was narrowed to three. The
+  Stillpoint, Helen Calder and Harbour rows were removed with their cases and
+  replaced only by decisions that are actually written in the Maya Bennett and
+  Daniel Mercer documents (sections 09, 07 and 12 as cited). Every answer is
+  quoted or paraphrased from the published document named beside it. Nothing
+  here is a claim about a real practitioner: all three are fictional
+  practices, labelled as such on the cards above and on the concept sites
+  themselves.
 {%- endcomment -%}
 <section class="band on-sage">
   <div class="wrap">
@@ -207,8 +223,8 @@ image: /assets/images/work/sofia-marin-website.webp
         <p class="quiet measure-2xl">
           None of these is a visual preference. Each is something understood
           about a practice, arriving somewhere different on a page &mdash; which
-          is why the same question, asked of six practices, does not produce six
-          versions of one website.
+          is why the same question, asked of three practices, does not produce
+          three versions of one website.
         </p>
       </div>
     </div>
@@ -216,17 +232,18 @@ image: /assets/images/work/sofia-marin-website.webp
     <div class="why">
       <div class="why__row">
         <div>
-          <span class="why__kind">Colour and type</span>
-          <h3 class="why__q">Why does Stillpoint never use colour to emphasise anything?</h3>
+          <span class="why__kind">Colour</span>
+          <h3 class="why__q">Why is there so little apricot on Maya Bennett&rsquo;s site?</h3>
         </div>
         <div>
           <p class="why__a">
-            Because its counsellor will not tell anybody how their grief or their
-            divorce is supposed to feel. Colour carries no mood: one accent, used
-            only for what can be clicked, and no photograph brought in to supply
-            an emotion the copy has declined to name.
+            Because apricot means one thing: the moment something is met. It
+            appears in two places and nowhere else &mdash; not on buttons,
+            navigation, borders or a heading that needs lifting &mdash; so the only
+            colour on the site that makes an argument can make it by itself. If a
+            page feels flat, the answer is space, not a second accent.
           </p>
-          <span class="why__src">Stillpoint &middot; Practice Clarity Blueprint, website translation</span>
+          <span class="why__src">Maya Bennett &middot; Practice Clarity Blueprint, colour</span>
         </div>
       </div>
 
@@ -243,41 +260,43 @@ image: /assets/images/work/sofia-marin-website.webp
             repeated in the first screen, the navigation and a fixed bar on
             mobile.
           </p>
-          <span class="why__src">Daniel Mercer &middot; Practice Clarity Blueprint, philosophy of practice</span>
-        </div>
-      </div>
-
-      <div class="why__row">
-        <div>
-          <span class="why__kind">What gets published</span>
-          <h3 class="why__q">Why does Helen Calder&rsquo;s site publish the width of her doorway?</h3>
-        </div>
-        <div>
-          <p class="why__a">
-            Because trust in this practice is earned by volunteering the awkward
-            fact. The cancellation terms, the reply time, the waiting list, the
-            limits of confidentiality, what she does not offer, and the 76cm
-            doorway are all written as content at full size &mdash; each stated
-            once, so repetition does not spend the effect.
-          </p>
-          <span class="why__src">Helen Calder &middot; Practice Clarity Blueprint, website translation</span>
+          <span class="why__src">Daniel Mercer &middot; Practice Clarity Blueprint, brand direction and website translation</span>
         </div>
       </div>
 
       <div class="why__row">
         <div>
           <span class="why__kind">The order of the page</span>
-          <h3 class="why__q">Why does Harbour route you somewhere before it describes anything?</h3>
+          <h3 class="why__q">Why does Maya Bennett&rsquo;s site deal with whether you are allowed to be there before it describes the counselling?</h3>
         </div>
         <div>
           <p class="why__a">
-            Because four readerships with different fears cannot be served by
-            one page. Routing happens before any service description is
-            attempted: four named routes in the first screen, in a fixed order,
-            held at equal weight so that none of them reads as the children&rsquo;s
-            part of the site.
+            Because the test of whether something is serious enough is asked
+            privately, and answered no. So a section of its own, straight after
+            the first screen, removes the threshold in plain terms &mdash;
+            including that counselling is not only for the worst fortnight of a
+            life &mdash; on the way in, rather than as a line in an FAQ or a
+            reassurance in the footer.
           </p>
-          <span class="why__src">Harbour &middot; Practice Clarity Blueprint, website translation</span>
+          <span class="why__src">Maya Bennett &middot; Practice Clarity Blueprint, website translation</span>
+        </div>
+      </div>
+
+      <div class="why__row">
+        <div>
+          <span class="why__kind">Typography</span>
+          <h3 class="why__q">Why is there no serif on Daniel Mercer&rsquo;s site?</h3>
+        </div>
+        <div>
+          <p class="why__a">
+            Because fine serifs, cream grounds, botanical motifs and soft pastels
+            are the visual language of a category many of his visitors may not
+            recognise themselves in, and meeting them there asks for an act of
+            translation before a sentence has been read. The reason is not taste:
+            one argument at the largest size, and facts set as facts in a second
+            typeface.
+          </p>
+          <span class="why__src">Daniel Mercer &middot; Practice Clarity Blueprint, brand direction</span>
         </div>
       </div>
 
@@ -315,10 +334,11 @@ image: /assets/images/work/sofia-marin-website.webp
       </div>
       <div class="stack stack--loose">
         <p class="quiet">
-          Send me the two or three you keep returning to and tell me what you like
-          about each. I will say which is the strongest starting point for your
-          practice &mdash; and one can borrow a feature from another where that
-          improves the result.
+          Tell me which ones you keep returning to and what you like about each,
+          or ask me which suits your practice. I will say which is the strongest
+          starting point &mdash; and one can borrow a feature from another where
+          that improves the result. Either way, the website is worked out from
+          your practice, not copied from the one you pick.
         </p>
         <p><a class="tlink" href="{{ '/contact/' | relative_url }}">Tell me which ones <span aria-hidden="true">&rarr;</span></a></p>
         <p class="small quiet divider-top">
@@ -340,7 +360,7 @@ image: /assets/images/work/sofia-marin-website.webp
           <h2 class="measure-xs">Name the one you keep coming back to.</h2>
         </div>
         <div class="stack stack--loose">
-          <p>Tell me which of the six it is, and what is already written.</p>
+          <p>Tell me which of the three it is, and what is already written.</p>
           <div class="actions">
             <a class="btn" href="{{ '/contact/' | relative_url }}" data-analytics="start-a-website">Start a website<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
             <a class="tlink" href="{{ '/service/' | relative_url }}">What it costs <span aria-hidden="true">&rarr;</span></a>

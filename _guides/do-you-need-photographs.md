@@ -84,11 +84,6 @@ and photographing a model instead means staging the thing the practice exists
 to be careful about. A photograph of a child is also always a photograph of a
 particular age, and most of the people reading are not that age.
 
-One of the concepts in the collection, [the Harbour therapy
-centre](/work/harbour/), is drawn throughout for exactly that reason — rooms shown accurately with nobody in
-them, and people drawn without faces. It is not a stylistic preference. It is
-what was left once photography had been ruled out honestly.
-
 If that is your situation, the answer is not stock photography with a
 disclaimer. It is deciding what the images are for and finding a form that can
 do it.

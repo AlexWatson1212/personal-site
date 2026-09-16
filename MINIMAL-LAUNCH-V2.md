@@ -1,5 +1,9 @@
 # Minimal Launch V2 — specification
 
+> **Status: ARCHIVE — historical record (marked 16 September 2026).** An August 2026 launch specification. Its £500/£495 model, separate Practice Clarity price and concept rankings are superseded.
+> It does not govern anything current. For the current offer, process,
+> portfolio and document status, read `DECISION-REGISTER.md`.
+
 **27 August 2026. No repository file modified. Awaiting approval.**
 
 Second planning pass on TRUST-ARCHITECTURE-REVIEW.md, reduced to the smallest

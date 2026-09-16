@@ -7,10 +7,10 @@ image: /assets/images/work/sofia-marin-website.webp
 ---
 
 {%- comment -%}
-  The hero shows finished work rather than a drawing of it. Three of the six
-  cases — Sofia, Maya and Daniel — because between them they settle the
-  question the page is really being asked in its first three seconds: whether
-  this studio has one therapist-website look. It does not.
+  The hero shows finished work rather than a drawing of it: the three cases in
+  the collection — Sofia, Maya and Daniel — because between them they settle
+  the question the page is really being asked in its first three seconds:
+  whether this studio has one therapist-website look. It does not.
 
   The cycle is CSS only. The first design is complete in the markup, so it is
   right before any script runs and there is nothing to shift. Under reduced
@@ -18,7 +18,7 @@ image: /assets/images/work/sofia-marin-website.webp
 {%- endcomment -%}
 
 {% assign daniel = site.data.collection | where: "key", "daniel-mercer" | first %}
-{% assign stillpoint = site.data.collection | where: "key", "stillpoint" | first %}
+{% assign maya = site.data.collection | where: "key", "maya-bennett" | first %}
 
 <section class="hero on-paper">
   <div class="wrap--wide hero__grid">
@@ -108,13 +108,13 @@ image: /assets/images/work/sofia-marin-website.webp
     <div class="split split--wide-left">
       <div>
         <p class="label">The collection</p>
-        <h2 class="rise">Six finished practices. Notice which one you keep returning to.</h2>
+        <h2 class="rise">Three finished practices. Notice which one you keep returning to.</h2>
       </div>
       <div class="stack rise">
         <p class="lead">
-          Six fictional practices, each given a complete website and the strategic
-          work that produced it. Not themes, not colour changes &mdash; six answers
-          to six different problems.
+          Three fictional practices, each given a complete website and the strategic
+          work behind it. Not themes, not colour changes &mdash; the same method,
+          three different problems, three answers.
         </p>
         <p><a class="tlink" href="{{ '/work/' | relative_url }}">Browse the collection <span aria-hidden="true">&rarr;</span></a></p>
       </div>
@@ -147,10 +147,10 @@ image: /assets/images/work/sofia-marin-website.webp
   September 2026. The page claimed the causal thing on every screen — that the
   website is the result of understanding the practice — and never showed it
   once. The collection proved range; nothing proved derivation, so a reader
-  could reasonably conclude the six are six templates and the intake is a
+  could reasonably conclude the three are three templates and the intake is a
   colour picker.
 
-  This band is that claim drawn, on one of the six. Every line is quoted from
+  This band is that claim drawn, on one of the three. Every line is quoted from
   the published Maya Bennett document or checkable on the concept site, and it
   sits here, immediately after the collection, because this is where the
   objection lands: "so I am choosing a design, and you are pouring my words
@@ -166,9 +166,9 @@ image: /assets/images/work/sofia-marin-website.webp
       </div>
       <div class="stack stack--loose">
         <p class="lead measure-xl">
-          The website is the second thing that happens. Here is the first, on one
-          of the six: a single observation about the people who write to Maya
-          Bennett, and what it went on to settle.
+          For a client, the website is the second thing that happens. Here is that
+          order traced through one of the three: a single observation about the
+          people who write to Maya Bennett, and what it went on to settle.
         </p>
       </div>
     </div>
@@ -214,16 +214,18 @@ image: /assets/images/work/sofia-marin-website.webp
       <p class="trace__out">
         One thing understood about who is reading, and it has settled the
         headline, the practical section and the enquiry form. None of that is a
-        visual preference, and none of it survives being applied to a different
-        practice &mdash; which is why the other five sites do none of it.
+        visual preference. Sofia Marin and Daniel Mercer settle the same three
+        things from different observations about different readers &mdash; which
+        is why the three sites read nothing alike.
       </p>
     </div>
 
     <p class="small quiet divider-top mt-6 measure-2xl">
       Every line above is either quoted from the
       <a class="inline-link" href="{{ '/work/maya-bennett/' | relative_url }}">published Maya Bennett document</a>
-      or checkable on the site it produced. Maya Bennett is a fictional practice
-      designed and built by the studio.
+      or checkable on the site it describes. Maya Bennett is a fictional practice
+      designed and built by the studio; its document was written after the
+      concept site, in the form a client&rsquo;s is written before one.
     </p>
   </div>
 </section>
@@ -273,20 +275,28 @@ image: /assets/images/work/sofia-marin-website.webp
 
     <div class="split split--wide-left mt-8">
       <div>
-        <p class="label">Why six, and not one house style</p>
-        <h2 class="measure-2xs">Two of the six, side by side.</h2>
+        <p class="label">Why three, and not one house style</p>
+        <h2 class="measure-2xs">Two of the three, side by side.</h2>
       </div>
       <div class="stack stack--loose">
         <p class="quiet measure-2xl">
-          Daniel Mercer and Stillpoint are both one counsellor, working with adults,
-          at a similar fee, in the same year. Nothing on the two pages agrees about
-          anything &mdash; because the practices behind them do not, and the design
-          is downstream of that.
+          Maya Bennett and Daniel Mercer are both one integrative counsellor,
+          working with adults, at the same fee for the same fifty minutes. Both
+          are about the moment before somebody makes contact. Nothing on the two
+          pages agrees about anything &mdash; because the practices behind them do
+          not, and the design is downstream of that.
         </p>
       </div>
     </div>
 
     <div class="diff rise mt-6">
+      <div>
+        <p class="diff__label"><span class="label m-0">Case 02</span><span class="tiny quiet">Maya Bennett</span></p>
+        <a class="plate-frame" href="{{ '/work/maya-bennett/' | relative_url }}">
+          <img src="{{ maya.shot | relative_url }}" alt="{{ maya.alt | strip_newlines }}"
+               width="1440" height="900" loading="lazy" decoding="async">
+        </a>
+      </div>
       <div>
         <p class="diff__label"><span class="label m-0">Case 03</span><span class="tiny quiet">Daniel Mercer</span></p>
         <a class="plate-frame" href="{{ '/work/daniel-mercer/' | relative_url }}">
@@ -294,20 +304,13 @@ image: /assets/images/work/sofia-marin-website.webp
                width="1440" height="900" loading="lazy" decoding="async">
         </a>
       </div>
-      <div>
-        <p class="diff__label"><span class="label m-0">Case 06</span><span class="tiny quiet">Stillpoint</span></p>
-        <a class="plate-frame" href="{{ '/work/stillpoint/' | relative_url }}">
-          <img src="{{ stillpoint.shot | relative_url }}" alt="{{ stillpoint.alt | strip_newlines }}"
-               width="1440" height="900" loading="lazy" decoding="async">
-        </a>
-      </div>
     </div>
 
     <ol class="diff__notes">
-      <li><b>Palette</b><span>Daniel is black on off-white with one electric blue that appears only on things you can press. Stillpoint is stone, fog and paper with a single rust accent reserved for links. Both use colour as instruction rather than mood, and arrive at opposite places.</span></li>
-      <li><b>Typography</b><span>Daniel sets a very large grotesque headline that behaves like a statement in a room. Stillpoint runs one serif at one weight and lets scale alone carry emphasis, because its practitioner refuses to stage his own authority.</span></li>
-      <li><b>Structure</b><span>Daniel answers a fear with a fact in every section and puts the first step within reach of each. Stillpoint gives whole bands to a single sentence, and keeps the four practical facts in the footer of every page instead.</span></li>
-      <li><b>Words</b><span>Daniel removes an entry requirement: you do not have to be good at talking. Stillpoint removes a different one: you do not have to become a person with a diagnosis and a vocabulary. Neither promises an outcome.</span></li>
+      <li><b>Palette</b><span>Maya is warm paper and plum, with apricot kept for one thing only: the moment something is met. Daniel is black on off-white with one electric blue that appears only on things you can press. One accent each, doing opposite jobs.</span></li>
+      <li><b>Typography</b><span>Maya uses a soft serif for what a visitor brings and a plain grotesque for what is said back, set at the same size as the sentence it answers. Daniel has no serif anywhere: a very large grotesque headline that behaves like a statement in a room, and facts set as facts.</span></li>
+      <li><b>Structure</b><span>Maya demonstrates rather than asserts: a sentence people say, and the reply to it, already on the first screen. Daniel answers a fear with a fact in every section and puts the first step within reach of each.</span></li>
+      <li><b>Words</b><span>Daniel removes an entry requirement: you do not have to be good at talking. Maya argues the requirement was pointing the wrong way: the unprepared account is the more useful place to start. Neither promises an outcome.</span></li>
     </ol>
 
     <p class="tiny quiet mt-5 measure-2xl">
@@ -337,7 +340,7 @@ image: /assets/images/work/sofia-marin-website.webp
         {%- if site.data.purchasing.founding.active %}
         <p class="notice mt-4">
           <strong>The first three practices.</strong>
-          The process, the method and the six finished cases are built; what they
+          The process, the method and the three finished cases are built; what they
           have not had yet is a real practice going through them from beginning to
           end. So the first three are {{ site.data.purchasing.price_display }} rather
           than {{ site.data.purchasing.founding.standard_price_display }} — the same
@@ -426,7 +429,8 @@ image: /assets/images/work/sofia-marin-website.webp
         <div class="stack stack--loose">
           <p>
             You do not need a brief, a moodboard or a finished plan. Tell me which
-            of the six you keep returning to and what is already written.
+            of the three you keep returning to, or ask me which suits your practice,
+            and say what is already written.
           </p>
           <div class="actions">
             <a class="btn" href="{{ '/work/' | relative_url }}">See the collection<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>

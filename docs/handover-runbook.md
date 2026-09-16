@@ -2,7 +2,7 @@
 
 Alexander Watson Studio · internal · written 5 September 2026
 
-"Handover" is promised on the Therapist Website page, in the process list, and in
+"Handover" is promised on the Practice Identity & Website page, in the process list, and in
 clause 12 of the service terms. Until now it was never defined anywhere, which meant a
 client could not tell what she would receive and the Studio had no fixed answer. This
 file is that answer. The public definition in clause 12 is derived from it and the two
@@ -36,6 +36,7 @@ One folder, sent as a single archive, with a plain README at the top.
 | `content/` | Her copy, her images at original size, and the logo files she supplied or that were made for her |
 | `README.md` | How to deploy the built files, how to point the domain, and how to rebuild from source |
 | `dependencies.md` | Every third-party service the site touches, what it costs, and whose account it is on |
+| `identity/` | **Added 16 September 2026 to match "Yours to keep" (`docs/product-terminology.md` §5, `_data/purchasing.yml`).** The Practice Identity Guide as PDF and editable source; the wordmark in the formats a printer, sign maker and developer need; the colour and typography specifications; font files where their licences permit; the three templates (letterhead, email signature, business card); the four supplier briefs; and the written website specification |
 
 Nothing in the pack requires the Studio to stay involved for it to work.
 
@@ -44,8 +45,10 @@ Nothing in the pack requires the Studio to stay involved for it to work.
 ## The seven things a client actually asks
 
 **What do I own?** Her content and practice information are hers throughout. The
-finished website made for her practice is hers on full payment. The underlying design
-system and code are licensed to her for that one website — clause 13. Say this plainly
+finished website made for her practice is hers on full payment. The practice identity —
+wordmark, guide, specifications, templates and briefs — is owned outright on full payment
+and can go to any other designer or supplier. The underlying website design system and
+code are licensed to her for that one website — clause 13. Say this plainly
 rather than saying "it's yours" and leaving the licence to be discovered later.
 
 **Who controls the domain?** She does. Register it in her name, on her account, from the
@@ -60,7 +63,7 @@ repository itself moved to her own account, that is a transfer, not a rebuild, a
 costs nothing.
 
 **Can I get into the live site?** There is no login, because there is no CMS. That is
-disclosed before purchase and is part of what keeps the price at £995. Changes are an
+disclosed before purchase and is part of what keeps the price where it is. Changes are an
 email; the files are hers to hand to anyone.
 
 **What happens if I stop Website Care?** Thirty days' notice, the pack, and the site

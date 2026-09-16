@@ -8,8 +8,14 @@ Each item says what the current state is, what needs deciding, and what has to
 change once it is decided. Nothing here blocks a review of the site; several
 items block going live.
 
-Legal wording that needs a solicitor is tracked separately in
-`LEGAL_REVIEW.md`. Stripe Dashboard steps are in `STRIPE_SETUP.md`.
+**Settled decisions live in `DECISION-REGISTER.md`** (16 September 2026). This
+file is only for questions that are still open; where an item below is marked
+RESOLVED, the register is the current statement of it.
+
+Legal wording that needs a solicitor is tracked in `LEGAL-REVIEW-PACK.md` (read
+its status note first) and unfilled facts in `LEGAL-INFORMATION-REQUIRED.md`.
+`LEGAL_REVIEW.md` and `STRIPE_SETUP.md` are superseded: there is no online
+checkout.
 
 ---
 
@@ -127,7 +133,9 @@ guarded not by forbidding the number but by requiring the standard price to appe
 wherever it does.
 
 **Also settled the same day:** Practice Clarity, the identity and the website are
-published as **one piece of work in three stages** rather than three deliverables
+published as **one piece of work in stages** — three on 10 September, four since
+13 September, when "Yours to keep" became the fourth (`docs/product-terminology.md`)
+— rather than as separate deliverables
 — `/service/#what-you-are-buying`. This is the same rule as the September 6th
 decision below, applied to the description rather than the price: a client who can
 see three products will ask which they can drop, which is the one judgement they
@@ -194,9 +202,14 @@ recomposed onto a single hand-written stylesheet, `assets/css/studio.css`, and
 `npm run build:css` now fails if an `!important` declaration appears at all. The
 decision this section described cannot recur.
 
-## 6. Live demo links for the website collection
+## 6. RESOLVED — live demo links for the website collection
 
-**State.** Of the eight designs in the collection, only *Alexander Watson
+**16 September 2026.** Superseded. The collection is three finished cases, each
+with a live concept website and its published document; the eight-direction
+state described below no longer exists, and the collection is frozen at three
+(`DECISION-REGISTER.md`). Kept as a record.
+
+**State (August 2026).** Of the eight designs in the collection, only *Alexander Watson
 Counselling* links to a live website. The other seven link to the enquiry form.
 `IMPLEMENTATION.md` recorded this as intentional pending subdomains.
 
