@@ -45,10 +45,31 @@ and the QA suite checks that an empty value still shows as empty.
 | 10 | `data_protection.statutory_retention` | The statutory record-keeping period for your legal form | Privacy |
 | 11 | `data_protection.security_measures` | The security measures actually operated — do not describe controls you do not run | Privacy |
 | 12 | `data_protection.bank` | The bank that receives client payments (named in the privacy notice as an independent controller) | Privacy |
+| 13 | `data_protection.intake_provider` | **Added 17 Sep 2026.** The intake form provider's legal entity and role — Tally, as processor — once its data processing terms are accepted. Check Tally's current GDPR page for the entity name and where data is held. | Privacy §3 and "Who else handles your information" |
+| 14 | `data_protection.intake_retention` | **Added 17 Sep 2026.** How long intake answers and uploads stay in Tally, as actually operated (the source suggests "deleted from the form service at launch") | Privacy §3 and retention list |
 
-> **17 September 2026 check:** ten facts are still empty — #2, #4–#12. The QA
-> suite reports the same ten. They are the only thing between the site and
-> taking a first £100.
+> **17 September 2026 check (after the intake system):** twelve facts are
+> empty — #2, #4–#14. The QA suite reports the same twelve.
+
+## Category D — new wording to review (17 September 2026)
+
+The Practice Fundamentals Intake System changed the commercial model. The
+following wording was written by the Studio, is flagged ⚖ on the pages, and has
+not been reviewed. Add these to `LEGAL-REVIEW-PACK.md` before it goes to a
+solicitor.
+
+| Where | What changed | Question for review |
+| --- | --- | --- |
+| Service terms cl. 2 | One-page scope, the Practice Fundamentals, identity now includes a logo or wordmark | Is the scope description precise enough to be the contract's definition? |
+| Service terms cl. 3 | Balance now invoiced after **direction approval**, before the build; build starts only after payment | Is the trigger clear and fair to a consumer? |
+| Service terms cl. 4 | The project "officially begins" when the intake is checked and work is confirmed as started | Does this interact correctly with the cooling-off period and "express request to begin"? |
+| Service terms cl. 7 | Two feedback stages; what counts as a correction | Clear enough to prevent disputes? |
+| Service terms cl. 11 | Direction approval defined; launch approval bounded (ten working days); a website with nothing in scope raised is "treated as delivered" and published once facts are confirmed | Is the deemed-delivery wording sound now that the balance is already paid at this point? What happens if the direction reply never comes (currently: dormancy, clause 8)? |
+| Service terms cl. 12 | Website Care is now **technical only**; content changes (including fees and availability) moved out of Care | This narrows an earlier published promise. Any transitional issue for anyone who read the earlier wording? Is "genuine technical faults" and "support with the website as it was built" clear? |
+| Service terms cl. 13 | The Practice Fundamentals is part of the identity owned on full payment | What may a client who withdraws before the balance do with the draft document and identity? |
+| Cancellation page | New five-stage ladder: before start (deposit refunded); before Fundamentals (proportionate); after Fundamentals, before approval (deposit normally not refunded, balance not invoiced, client keeps the document for reference); after balance, before website delivered (proportionate); after website delivered (not usually refundable) | Is this lawful and fair for consumers, given the cooling-off rules? |
+| Privacy notice §3 and processors | Tally named as intake processor; statement that "Tally states that it hosts form data in the European Union, and that some notification emails are sent through a provider in the United States" | Accurate against Tally's current terms? Transfer mechanism for the US email provider? |
+| Enquiry page | "Nothing is booked until I have accepted the project in writing and the £100 deposit has been paid" | Consistent with cl. 4? |
 
 ### On #2, the address
 

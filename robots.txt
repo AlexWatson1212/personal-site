@@ -6,9 +6,12 @@ layout: null
 User-agent: *
 Allow: /
 
-# The intake questionnaire belongs to a private journey between a client and
-# the studio. It is excluded from the sitemap and carries noindex; this is the
-# third place that is stated.
+# The client pages — the intake and the photography brief — belong to a private
+# journey between a client and the studio. They are excluded from the sitemap,
+# carry noindex, nofollow, and are sent with an X-Robots-Tag header; this is the
+# fourth place that is stated. The retired questionnaire route redirects to the
+# intake and stays disallowed so an old crawl does not resurface it.
+Disallow: /client/
 Disallow: /services/practice-website/questionnaire/
 
 Sitemap: {{ site.url }}/sitemap.xml

@@ -44,20 +44,30 @@ superseded.)
   client pays if they say yes today"; while the founding offer is open that is
   the founding price, and the standard price is `founding.standard_price_display`.
   The payment terms are rendered from `payment_sentence` and nowhere else. The
-  balance is triggered by the client's written approval for launch (clause 11),
-  never by the studio declaring the work finished.
-- **Practice Clarity** is the first of the four stages and has no price.
-  `clarity_display` was deleted so a template that refers to it fails loudly.
-- **Practice Clarity document.** The client deliverable from Practice Clarity
-  (it replaced the one-page Direction Note on 17 September 2026): agreed before
-  the build, with one consolidated revision of its own that is separate from
-  the two website rounds.
-- **Identity.** Bounded to the visual direction the website needs — see
-  `docs/product-terminology.md` §5. The *Product scope* checks guard it.
+  balance is triggered by the client's written **direction approval** (clause
+  11) — approval of the Practice Fundamentals, before the build — never by the
+  studio declaring anything finished. The build begins once it is paid.
+- **Practice Fundamentals** (17 September 2026) is the 11-page client
+  deliverable and has no price. It replaced the Practice Clarity document, which
+  had replaced the Direction Note. `clarity_display` was deleted so a template
+  that refers to it fails loudly. "Practice Clarity" now names only the
+  principles and the portfolio Blueprints.
+- **Scope.** One complete responsive page; two consolidated feedback stages;
+  corrections never use up a stage. The *Product scope* checks guard the six
+  public step names and the retired formulations.
+- **Identity.** A logo or wordmark, colours, typography and photography
+  direction, inside the Fundamentals — see `docs/product-terminology.md` §6.
+- **Enquiry fit check and intake.** `contact.html` (five questions, a
+  conditional follow-up, an error summary; still a browser-built email) and the
+  private `client/intake.html` (Tally, one address in `_data/intake.yml`,
+  `?ref=` limited to `AW-000`). The *Enquiry fit check* and *Intake* checks guard
+  both, and that the retired questionnaire stays retired.
 - **Founder video.** `_data/founder.yml`; empty until a real recording exists.
   See the *Founder video* check.
 - **Website Care.** Included for the first twelve months, then `website_care.monthly`
-  if wanted. Stated as conduct, not as a row in a price table.
+  if wanted. Technical only since 17 September 2026: content changes, additions
+  and redesigns are quoted. The *Care is technical* check keeps the service
+  page, the scope page and clause 12 in agreement.
 - **Custom projects.** Quoted, mentioned quietly.
 
 `APPROVED_PRICES` and `RETIRED_PRICES` in `scripts/qa.mjs` are the enforcement.
@@ -108,8 +118,9 @@ they are restated on the new tokens in §20.
 
 ## What the QA harnesses will catch
 
-- `scripts/qa.mjs` — 72 checks. Prices, retired offer language, checkout scope,
-  Website Care claims, legal routes, private routes, questionnaire structure,
+- `scripts/qa.mjs` — 80 checks. Prices, retired offer language, checkout scope,
+  Website Care claims, legal routes, private routes, the enquiry fit check, the
+  intake handoff and photography brief,
   client-data hygiene, front matter, links, anchors, assets, built output.
 - `scripts/qa-browser/run.mjs` — overflow at six widths, heading wrapping,
   200% zoom, real keyboard order and focus visibility, landmarks, reduced
@@ -132,13 +143,17 @@ before testing `:focus-visible` and skips elements that focus cannot land on
    `_data/purchasing.yml`, and the service hero admits exactly one figure.
 2. **`_includes/practice-website-buy.html` is the only file allowed to emit a
    checkout link**, and it may appear on `services/practice-website.html` only.
-3. **Nothing describing Practice Clarity may carry a purchase action or a
+3. **Nothing describing the Practice Fundamentals may carry a purchase action or a
    price.** It is the first stage of the one product, not a separate piece of
    work, and it is never presented as a version of the website.
 4. **Website Care must not claim uptime monitoring or a backup guarantee.**
    Neither is provided. Version history, TLS and fault-fixing are, and are named.
 5. Changing a permalink means editing `scripts/qa.mjs` ROUTES, `_redirects`,
-   `netlify.toml`, `robots.txt` and `_data/purchasing.yml` together.
+   `netlify.toml`, `robots.txt` and `_data/purchasing.yml` together. For the
+   client pages, also `PRIVATE_ROUTES` and the welcome email template.
+8. **The Tally address lives only in `_data/intake.yml`.** A `tally.so/r/…`
+   address anywhere else fails the *Intake* checks, and so does loading a Tally
+   script. The CSP allows frames from `https://tally.so` only.
 6. Banned strings: `unlimited revisions`, `coming soon`, `Template Website`,
    `Semi-Custom`, plus the retired offer names.
 7. **The collection is three cases.** Reintroducing an archived case, or copy

@@ -72,6 +72,7 @@
   /* ---- One accent. Used for marks, never for surfaces. ---- */
   --clay: #8a5238;
   --clay-quiet: #a97b62;
+  --error: #9b2c2c;           /* 6.9:1 on paper — form errors only */
 
   /* ---- Type ---- */
   --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
@@ -1615,6 +1616,12 @@ p { text-wrap: pretty; }
 .anatomy--three .anatomy__steps { grid-template-columns: minmax(0, 1fr); }
 @media (min-width: 48rem) { .anatomy--three .anatomy__steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
+/* Six-step variant: the public journey (enquire, reserve, intake, approve,
+   build, launch). Two columns on a phone, three at 48rem so it reads 3 + 3
+   rather than 4 + 2, and six in a row from 72rem. */
+.anatomy--six { --anatomy-steps: 6; }
+@media (min-width: 48rem) and (max-width: 71.99rem) { .anatomy--six .anatomy__steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
 .anatomy__step { position: relative; padding-block-start: var(--s-5); }
 
 .anatomy__step::before {
@@ -2490,6 +2497,60 @@ p { text-wrap: pretty; }
 }
 
 .req { border-color: var(--line-strong); color: var(--text-quiet); }
+
+/* The fit-check questions on /contact/ (17 September 2026). A question is a
+   sentence, so it is set in ordinary case at reading size rather than as the
+   small capitals used for "Your name". The legend is reset from the serif
+   heading style fieldsets get elsewhere. */
+.field--question > label,
+.field--question > legend {
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: var(--t-small);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.45;
+  text-transform: none;
+}
+
+.field--question > legend { padding: 0 0 var(--s-2); }
+.field--question > .field__hint { margin-block-start: calc(var(--s-1) * -1); }
+
+.choices { display: grid; gap: 0; }
+
+/* The follow-up revealed by "No, I need additional pages or functionality". */
+.field--conditional {
+  margin-block-start: var(--s-2);
+  padding-inline-start: var(--s-5);
+  border-inline-start: 2px solid var(--line-strong);
+}
+
+.field--conditional[hidden] { display: none; }
+
+.field__error {
+  display: block;
+  color: var(--error);
+  font-size: var(--t-tiny);
+  font-weight: 600;
+}
+
+.field__error[hidden] { display: none; }
+
+.field--error > input,
+.field--error > textarea { border-color: var(--error); }
+
+.form-errors {
+  scroll-margin-block-start: 6rem;  /* clear of the sticky header */
+  padding: var(--s-5);
+  border: 2px solid var(--error);
+  border-radius: var(--r-sm);
+  background: var(--paper);
+}
+
+.form-errors[hidden] { display: none; }
+.form-errors:focus { outline: 2px solid var(--ink); outline-offset: 2px; }
+.form-errors__title { font-family: var(--sans); font-size: var(--t-small); font-weight: 600; letter-spacing: 0; }
+.form-errors__list { display: grid; gap: var(--s-2); margin-block-start: var(--s-3); padding-inline-start: 1.2rem; list-style: disc; font-size: var(--t-small); }
 
 .field-row { display: grid; gap: var(--s-5); }
 @media (min-width: 40rem) { .field-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -3398,6 +3459,75 @@ legend {
 
 .acw-guide-content > :is(.acw-callout, .acw-pullquote, .acw-guide-figure, .acw-guide-diagram, .acw-reflection-grid),
 .acw-post-content > :is(.acw-callout, .acw-pullquote, .acw-guide-figure, .acw-guide-diagram) { margin-block: var(--s-3); }
+
+/* --- Client pages: /client/intake/ and /client/photography/ -------------
+   17 September 2026. Both are private and unlisted; they use the site's own
+   components and add only what an embedded form and a printable brief need.
+   -------------------------------------------------------------------------- */
+
+.intake { display: grid; gap: var(--s-5); }
+
+.intake__open {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3) var(--s-5);
+}
+
+.intake__open > p { max-width: 46ch; margin: 0; }
+
+.intake__frame[hidden] { display: none; }
+
+.intake__frame {
+  min-width: 0;
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+  background: var(--paper);
+  border: var(--hairline) solid var(--line);
+  border-radius: var(--r);
+}
+
+.intake__frame iframe {
+  display: block;
+  width: 100%;
+  min-height: 70vh;
+  border: 0;
+}
+
+.brief__head h1 { margin-block-start: var(--s-3); line-height: var(--lh-heading); }
+.brief__lead { margin-block-start: var(--s-5); max-width: 52ch; }
+.brief__print-action { margin-block-start: var(--s-5); }
+.brief__print-action [hidden] { display: none; }
+.brief__aside { color: var(--text-faint); font-family: var(--sans); font-size: var(--t-small); font-weight: 400; letter-spacing: 0; }
+.brief__prose > .brief__part + .brief__part { margin-block-start: var(--s-7); }
+.brief__part > * + * { margin-block-start: var(--s-4); }
+.brief__prose .brief__part h2 { margin-block-start: 0; font-size: var(--t-h3); }
+.brief__foot { margin-block-start: var(--s-7); }
+
+/* One A4 page. The site chrome is already removed by the print rules below;
+   this sets the brief in two columns at a print size so it fits a single
+   sheet, keeps each part whole, and prints nothing interactive. */
+@media print {
+  @page { size: A4; margin: 12mm 13mm; }
+  .brief .band { padding-block: 0; background: #fff; }
+  .brief .wrap--mid { width: 100%; max-width: none; }
+  .brief__head { margin-block-end: 5mm; padding-block-end: 3mm; border-block-end: 0.5pt solid #999; }
+  .brief__head .label { font-size: 7.5pt; }
+  .brief__head h1 { max-width: none; margin-block-start: 1mm; font-size: 20pt; line-height: 1.1; }
+  .brief__lead { max-width: none; margin-block-start: 2mm; font-size: 10pt; line-height: 1.4; }
+  .brief__print-action { display: none; }
+  .brief__prose { max-width: none; columns: 2; column-gap: 8mm; font-size: 8.8pt; line-height: 1.38; }
+  .brief__prose > * + * { margin-block-start: 0; }
+  .brief__prose > .brief__part + .brief__part { margin-block-start: 3.5mm; }
+  .brief__part { break-inside: avoid; }
+  .brief__part > * + * { margin-block-start: 1.2mm; }
+  .brief__prose .brief__part h2 { font-size: 11pt; line-height: 1.2; }
+  .brief__prose :is(ul, ol) { gap: 0.8mm; padding-inline-start: 4.5mm; }
+  .brief__aside { font-size: 8.5pt; }
+  .brief__foot { margin-block-start: 3mm; font-size: 8pt; }
+  .brief, .brief * { color: #000; }
+  html:has(.brief), html:has(.brief) body, html:has(.brief) .site-content { min-height: 0; background: #fff; }
+  .brief__lead { margin-block-start: 3mm; }
+}
 
 /* Print ------------------------------------------------------------------- */
 

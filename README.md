@@ -13,8 +13,8 @@ September 2026. **One service, at the price it is being sold at today.**
 
 | | |
 |---|---|
-| Practice Identity & Website | **£495** for the first three practices, then **£995**. £100 to begin, £395 when the client approves the finished website, before it goes live. First twelve months of Website Care included either way |
-| Practice Clarity | Inside the price. It has no separate figure and must not acquire one |
+| Practice Identity & Website | **£495** for the first three practices, then **£995**. £100 to reserve the place, £395 once the client approves the Practice Fundamentals, before the website is built. One complete responsive page. First twelve months of technical Website Care included either way |
+| Practice Fundamentals | The 11-page document and identity, inside the price. It has no separate figure and must not acquire one |
 | Website Care | Included for twelve months, then **£29** a month, no minimum term |
 | Custom project | Scoped and quoted individually |
 
@@ -42,7 +42,28 @@ published source, if a combined price reappears, if a retired offer name
 `Around £2,000`) comes back, if any published page uses tier language
 (`upgrade`, `bundle`, `package`, `two ways to begin`), or if the balance is ever
 described as conditional on the client being happy rather than on written
-approval.
+approval of the direction.
+
+## The client journey (17 September 2026)
+
+Enquire → reserve the project → complete the intake → approve the direction →
+website build → review and launch. The approved source is
+`docs/operations/practice-fundamentals-intake-system.md`; the operational files
+beside it are the Tally build specification and the client email templates.
+
+- **Enquiry:** `contact.html` + `assets/js/contact-enquiry.js`. Builds an email in
+  the browser, with a five-question fit check and a copy-and-paste fallback.
+  Nothing is posted or stored.
+- **Intake:** `client/intake.html` → `/client/intake/?ref=AW-001`. Embeds the Tally
+  form whose share link is `tally_url` in `_data/intake.yml` (empty = a calm
+  "not connected yet" notice). `assets/js/client.js` accepts only the `AW-000`
+  reference shape and passes it to Tally's hidden `ref` field.
+- **Photography brief:** `client/photography.html` → `/client/photography/`,
+  printable to one A4 page.
+- Both client pages are unlisted: `noindex: true`, `sitemap: false`,
+  `Disallow: /client/` in `robots.txt`, and `X-Robots-Tag` from `netlify.toml`.
+  The retired questionnaire route redirects to `/client/intake/`; its files are in
+  `_legacy/practice-website-questionnaire-2026-09/`.
 
 ## Information architecture
 
@@ -79,6 +100,8 @@ their own URLs and are linked from `/guidance/`.
 - `_guides/` — the guidance notes, the practical guides and the nine principles.
 - `_includes/practice-website-buy.html` — the only file permitted to emit a checkout link.
 - `_pages/` — legal and statement pages. Draft until `_data/legal.yml` says otherwise.
+- `client/` — the two private client pages (intake, photography brief).
+- `docs/operations/` — the intake system source, the Tally build specification and the client email templates. Not published.
 - `_legacy/`, `_strategy/`, `_responsive-pass/` — not published; excluded in `_config.yml`.
 - `scripts/` — build, purchasing resolver and four QA harnesses.
 
@@ -86,7 +109,7 @@ their own URLs and are linked from `/guidance/`.
 
 ```
 npm run build          # purchasing config → css → jekyll build
-npm test               # scripts/qa.mjs — 72 checks, no dependencies
+npm test               # scripts/qa.mjs — 80 checks, no dependencies
 npm run preview        # Node stand-in for the Jekyll build → _preview/
 npm run qa:browser     # overflow, keyboard, landmarks, contrast, 200% zoom
 npm run qa:a11y        # axe-core, 31 routes × 4 viewports

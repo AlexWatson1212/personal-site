@@ -1,5 +1,7 @@
 # Practice Clarity — presentation standard
 
+> **17 September 2026:** the client deliverable is now the 11-page **Practice Fundamentals** (`docs/operations/practice-fundamentals-intake-system.md`, "The Fundamentals, the direction approval and the photo brief"). This file remains the presentation standard for the published Practice Clarity Blueprints only; where it describes a client document, one consolidated revision or an approval page, the intake system source supersedes it.
+
 Alexander Watson Studio · portfolio edition · canonical as of September 2026
 
 This file is the authority for how a Practice Clarity document is *presented*. It does

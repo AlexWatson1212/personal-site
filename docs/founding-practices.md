@@ -1,6 +1,6 @@
 # The founding practices — the offer, and the path a real client takes
 
-Alexander Watson Studio · internal · written 10 September 2026
+Alexander Watson Studio · internal · written 10 September 2026 · **revised 17 September 2026 for the Practice Fundamentals Intake System** (approved source: `docs/operations/practice-fundamentals-intake-system.md`)
 
 **Not published.** `docs` is in the `exclude` list in `_config.yml`.
 
@@ -19,32 +19,34 @@ the offer and the sequence.
 ## 1. The offer, in one paragraph
 
 The first three practices pay **£495**. After those three, the price is **£995**.
-It is the same service at both prices — Practice Clarity and the client's
-Practice Clarity document, the visual direction, the design and build, two
-consolidated revision rounds, launch, handover, thirty days of corrections and
-the first twelve months of Website Care.
-Nothing is removed at £495 and nothing extra is added to it. The reason for the
-difference is that these are the first three times the complete process runs with
-a real therapist, and what the Studio gets back — the experience, the honest
-account of what was unclear, and case studies and testimonials where the client
-is willing — is worth the difference.
+It is the same service at both prices: the intake, the full **11-page Practice
+Fundamentals** (identity included), the copy, **one complete responsive page**
+with its enquiry route, **two consolidated feedback stages**, domain connection,
+launch, handover, thirty days of corrections and the first twelve months of
+**technical** Website Care. Nothing is removed at £495 and nothing extra is added
+to it. The reason for the difference is that these are the first three times the
+complete process runs with a real therapist, and what the Studio gets back — the
+experience, the honest account of what was unclear, and case studies and
+testimonials where the client is willing — is worth the difference.
 
-**The £495 is taken as £100 to begin and £395 on approval for launch** — not half
-and half. £495 is already a real risk for a therapist buying from a studio with
-no client case studies yet, so most of the fee falls due at the point where there
-is a finished website to look at. The deposit is not income; it is the smallest
-sum that establishes commitment on both sides so the work can begin. This
-weighting belongs to the founding arrangement and ends with it.
+**The £495 is taken as £100 to reserve the place and £395 once the client
+approves the Practice Fundamentals, before the build.** The build begins only
+when the balance has been paid. The two payments sit exactly where the client's
+commitment changes: before the intake, and after the direction is approved.
+
+**The £995 schedule** keeps the same shape: **£500 to begin, £495 after approving
+the Practice Fundamentals, before the build.** (Recorded here and in
+`OPEN_DECISIONS.md`; not published while the founding offer is open.)
+
+**Accepted risk.** The deposit does not cover the Fundamentals work if a client
+walks away after receiving it. The fit check is what keeps that rare.
 
 **It is not a guarantee, and must never be sold as one.** Not "pay nothing until
 you're happy", not "no risk", not "risk-free", not money-back, not "only pay if
-you like it". Each of those makes the balance conditional on a subjective state,
-and a finished project could then sit unpaid because somebody declined to use a
-particular word. The milestone is objective: the balance is due once the agreed
-process is complete, including both revision rounds, and the website is approved
-for launch. Clause 11 of the service terms defines approval, gives ten working
-days to identify anything outstanding **within the agreed scope**, and treats the
-website as approved if nothing in scope is raised in that time.
+you like it". The balance milestone is a written decision with a defined
+meaning — direction approval, clause 11 — and launch approval is bounded by the
+same clause (ten working days to name anything outstanding **within the agreed
+scope**).
 
 **It is not** a tier, a trial, a beta, a stripped-down version, or a discount off
 an inflated figure. £995 is what the work is set at and is never struck through.
@@ -61,18 +63,21 @@ writes its own price.
 
 ## 2. Closing the offer
 
-When the third founding practice has paid its first instalment:
+When the third founding practice has paid its deposit:
 
 1. `_data/purchasing.yml` → `founding.active: false`
 2. `price_display: "£995"`, `price_numeric: "995.00"`
-3. `deposit_display` / `balance_display` back to the standard halves (£500 and
-   £495), with the numerics, and rewrite `payment_sentence` and
-   `payment_sentence_third_person` to match. **The £100 deposit does not survive
-   the founding arrangement** — a later client is not carrying the uncertainty it
-   answers.
+3. `deposit_display: "£500"`, `balance_display: "£495"`, with the numerics, and
+   rewrite `payment_sentence` ("£500 to begin. £495 once you approve your
+   Practice Fundamentals, before the website is built.") and
+   `payment_sentence_third_person` to match. Add `£500` to `APPROVED_PRICES` in
+   `scripts/qa.mjs` in the same commit. **The £100 deposit does not survive the
+   founding arrangement.**
 4. Delete the founding sections from `index.html` and `service.html` — both are
    wrapped in `{% if site.data.purchasing.founding.active %}` for exactly this
-5. `npm test` — the suite asserts the two states are internally consistent and
+5. Update Templates 1, 2 and 9 in `docs/operations/client-email-templates.md`
+   and the two invoice templates
+6. `npm test` — the suite asserts the two states are internally consistent and
    names anything left behind
 
 A practice already booked at £495 stays at £495, on the £100/£395 schedule. The
@@ -86,25 +91,30 @@ places are gone, the price on the page changes.
 
 ---
 
-## 3. The path, from "yes" to the first year of care
+## 3. The path, from enquiry to the first year of care
 
-Eleven steps. The public version is on `/services/practice-website/#process`, and
-the two must not drift apart. What follows is the same sequence with the Studio's
-side of each step written down.
+The public version is the six steps on `/` and `/service/`, and the longer
+sequence on `/services/practice-website/#process`; they must not drift apart.
+The client emails for every step are in `docs/operations/client-email-templates.md`.
 
-| # | Step | Who decides | What Alexander does | Artefact |
+| # | Step | Who decides | What Alexander does | Template / artefact |
 | --- | --- | --- | --- | --- |
-| 1 | Enquiry arrives | — | Read it. Reply within two working days. | The email |
-| 2 | Fit and confirmation | Alexander | Say plainly whether this is the right service. Confirm scope, price (£495, founding), timescale and terms **in writing**, and **cite the terms version** — the status note now tells the client that the version cited in their acceptance is the one that governs their project, so the acceptance email must name it (today: version 0.1). Say explicitly that this is one of the three founding places. | Acceptance email (Documents → Operations) |
-| 3 | Client accepts | Client | Nothing until the acceptance is in writing. Acceptance is the written exchange, not a payment page — clause 4. | Client's written acceptance |
-| 4 | First instalment | — | Invoice £100. Bank transfer. Record the payment against the project. | Invoice AW-000n |
-| 5 | Intake | Client | Send the Website Content Questionnaire link. It is not a form that submits — the client assembles their answers in the browser and emails them. **This is a manual step by design.** | Completed questionnaire, by email |
-| 6 | Check the intake | Alexander | Read it properly and say what is missing. Nothing starts until it is complete. | Written list of gaps |
-| 7 | Confirm the start date | Alexander | In writing. **This is the point the project officially begins** — not the payment. Three to five weeks from here. | Start-date email |
-| 8 | Practice Clarity → agree the direction | Alexander, then client agrees | Work the intake into the Practice Clarity document (the same structure as the published Blueprints): the practice, who it is for, how it should sound, what a visitor needs to understand, what the website has to do. The client reads it; one consolidated revision is included. Nothing is designed before agreement. Factual corrections are not the revision. **Before client one:** make sure your client template's approval page says *one* consolidated revision (the published Blueprints were corrected on 17 September 2026). | Practice Clarity document (Alexander's studio template) |
-| 9 | Build, then two rounds | Client, twice | Tailor and build to the approved note. Each round is one complete prioritised list from the client, not messages arriving singly. A correction to something that does not match an approved direction is **not** a revision round. | The staged website |
-| 10 | Final approval and balance | Client | Ask for approval **once both revision rounds are done**. Written approval confirms they have checked factual and professional details. If they are not ready, they have ten working days to say in writing what is outstanding within the agreed scope; in-scope items are put right at no charge and do not use a round, then ask again. Then invoice £395. Nothing goes live before approval; launch follows payment. | Approval email, invoice |
-| 11 | Launch, handover, care | — | Launch. Send the handover pack (`docs/handover-runbook.md`). Thirty days of corrections. Twelve months of Website Care, then write and ask before the year is up. The project is then complete; anything new is quoted. | Handover pack |
+| 1 | Enquiry arrives, with the five fit-check answers | — | Read it personally. Reply within two working days. Never reject on an answer alone. | The email |
+| 2 | Accept, confirm scope and price, invoice the deposit | Alexander | Assign the project reference (`AW-001`…). Confirm scope, price (£495, founding), payment schedule and terms **in writing**, citing the terms version. Attach the £100 invoice. | Template 1 · deposit invoice |
+| 3 | Client accepts and pays £100 | Client | Nothing is booked until it arrives. | Paid invoice |
+| 4 | Welcome and intake link | — | Same day: receipt, intake link `/client/intake/?ref=AW-00X`, printable questions, photography brief, suggested finish in 10 days. Set a calendar reminder for day 7. | Template 2 |
+| 5 | Intake | Client | Day 7, if nothing has arrived: check Tally partial submissions, then send Template 3. | Template 3 |
+| 6 | Check the intake | Alexander | Within two working days. Enough to start = every required fact plus at least four of the seven core answers. Otherwise one message of up to five questions (Template 4), a thin-intake follow-up (Template 5) or a 20-minute call. Confirm in writing when work starts — **the point the project officially begins**. Download responses and files to the project folder. | Templates 4/5 |
+| 7 | Practice Fundamentals | Alexander | About seven working days: strategy and words, visual system, the opening-screen preview built in code, the 11-page document from the template, the facts table, the approval page on top. | Template 6 · draft Fundamentals |
+| 8 | Direction approval (feedback stage 1) | Client | Five working days. "A" → Template 8 with the £395 invoice. "B" → make one consolidated set of adjustments, send Template 7, wait for confirmation, then Template 8. Corrections don't use the stage. No reply → dormancy rules (clause 8); the balance is never invoiced without approval. | Templates 7/8 · balance invoice |
+| 9 | Balance paid → build | — | Build from the approved preview (about four working days). | Template 9 |
+| 10 | Website feedback (feedback stage 2) | Client | Private preview (noindex). One consolidated list; refinements, not a restart. Then send the changes back and ask for **launch approval** (ten working days, clause 11). | Template 10 · variant 10a |
+| 11 | Launch, handover, care | — | Connect the domain, launch, reissue the Practice Fundamentals with facts confirmed, send the files, delete the intake from Tally, start the thirty days and the twelve months of technical Care. | Template 11 · `docs/handover-runbook.md` |
+
+**Record on every founding project** (per the source): actual hours per step,
+where the waiting happened, how many clarification questions were needed, what
+each feedback stage asked for, and which intake questions produced material
+you used.
 
 ### The founding-specific additions to that path
 
@@ -113,7 +123,7 @@ them is a deliverable and none is a condition of the price.
 
 - **Step 2** says out loud that this is one of the first three, and offers the
   client the chance to say if that bothers them either way.
-- **Between steps 9 and 10**, ask the three feedback questions that only work
+- **Between steps 9 and 11**, ask the three feedback questions that only work
   during the project: what was confusing, what took longer than expected, what
   they expected to be asked and were not. Write the answers down the same day.
 - **After step 11**, ask for the testimonial and permission to publish the case.
@@ -129,7 +139,7 @@ someone who mistakes them for oversights.
 | Manual step | Why it stays manual |
 | --- | --- |
 | The enquiry arrives as an email the visitor's own client sends | Nothing is transmitted to or stored by the website. `OPEN_DECISIONS.md` item 9. |
-| The questionnaire is completed and emailed, not submitted | Same reason. The page assembles the answers in the browser. |
+| The intake is a Tally form, and every message around it is sent by hand | Settled 17 September 2026: no Zapier, CRM or client portal during the founding projects. Tally holds the answers as processor; Alexander downloads them and deletes them from Tally at launch. |
 | Scope and price are confirmed in a written exchange | There is no online checkout, and clause 4 makes the written exchange the point of acceptance. |
 | Both instalments are invoiced and paid by bank transfer | Settled September 2026. Bank details live on the invoice and must never appear on the website. |
 | Website Care after year one is invoiced, not subscribed | No recurring billing is built. `subscriptions_enabled: false`. |
@@ -160,10 +170,13 @@ not a reduced obligation.
    nothing on the pages claims otherwise. The remaining half of the decision is
    now an operational one and sits in step 2 of the table above: **the acceptance
    email must cite the terms version.**
-5. ~~**The questionnaire approved**~~ — **done, 17 September 2026** (`questionnaire_approved: true`, version 1.0).
-   Until then a real client's first post-payment page carries a draft notice,
-   which is the single most confidence-damaging thing left in the journey.
+5. **The Tally intake built, tested and connected** — `docs/operations/tally-intake-build-spec.md`,
+   then `_data/intake.yml` → `tally_url`. Until then `/client/intake/` shows a
+   "not connected yet" notice. (The old questionnaire was retired on 17 September 2026.)
 6. **The privacy notice's remaining brackets filled** with what is actually
-   operated today.
+   operated today, including the two Tally facts (`intake_provider`,
+   `intake_retention`).
+7. **The new payment, feedback, cancellation and Care wording reviewed** —
+   clauses 3, 7, 11 and 12 and the cancellation stages are flagged ⚖.
 
-Items 5 and 6 are the two that a founding client would actually notice.
+Items 5, 6 and 7 are the ones a founding client would actually notice.

@@ -1,36 +1,42 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# Website Content Questionnaire status.
+# The Practice Fundamentals intake — configuration.
 #
-# The 15/7 shape came from a brief describing an approved intake that was never
-# found in the project. In September 2026 the studio stopped designing the
-# questionnaire around that reconstructed count and made six structural changes
-# instead:
+# 17 September 2026. The intake is a Tally form, built by hand from
+# docs/operations/tally-intake-build-spec.md, which in turn follows the approved
+# source: docs/operations/practice-fundamentals-intake-system.md.
 #
-#   1. Q5 asks what a visitor needs to find, understand or do. The client is
-#      never asked to design the page structure or the menu order — that is the
-#      work they are paying for.
-#   2. The Stripe-era "email address used for payment" field was deleted.
-#      Billing details are collected in the acceptance exchange, before the
-#      first invoice.
-#   3. The hosting-after-launch question was removed. The first year of Website
-#      Care is included, and clause 12 already commits the studio to asking
-#      before the twelve months are up.
-#   4. Domain ownership and access is required, with an explicit route for a
-#      client who does not have a domain yet.
-#   5. The counts below follow the questionnaire. The questionnaire does not
-#      follow the counts.
-#   6. The payment position is stated once, near the top.
+# The website only hosts the private page that opens it: /client/intake/
+# (unlisted, noindex, nofollow, out of the sitemap, disallowed in robots.txt and
+# sent with an X-Robots-Tag header by netlify.toml). The earlier 16-question
+# Website Content Questionnaire, which assembled an email in the browser, was
+# retired on the same date and its route now redirects to /client/intake/.
+# Its page and script are kept, unpublished, under _legacy/.
 #
-# questionnaire_approved: false → the page shows a draft notice.
-# questionnaire_approved: true  → the notice disappears everywhere at once.
-#                                 Alexander sets this himself, after reading the
-#                                 implemented questionnaire as a client would.
+# ONE VALUE TO SET: tally_url.
+#
+#   Paste the form's public share link exactly as Tally gives it, in the form
+#     https://tally.so/r/abc123
+#   (Tally → your form → Share → "Share link" → Copy).
+#
+#   While it is empty, /client/intake/ shows a calm "not connected yet" notice
+#   with the studio email address, and no embed and no button render.
+#
+#   With a tally.so/r/ link, the page embeds the form and shows a button that
+#   opens it in a new tab. Any other https address (for example a Tally custom
+#   domain) shows the button only, because the embed address cannot be derived
+#   from it safely.
+#
+#   The project reference travels in the link Alexander sends:
+#     https://alexanderwatson.co.uk/client/intake/?ref=AW-001
+#   The page accepts only the shape AW- followed by three or four digits, and
+#   passes it to the form's hidden field "ref". Nothing else is ever put in the
+#   address — no name, no email.
 # ─────────────────────────────────────────────────────────────────────────────
-# 17 September 2026: approved on Alexander's instruction after a consistency
-# check against the simplified process (questionnaire → Practice Clarity → one
-# revision → agreement → website). Question 4 now also asks how the therapist
-# works, which the Practice Clarity document needs; nothing else was added.
-questionnaire_approved: true
-questionnaire_version: "1.0"
-required_questions: 17
-optional_questions: 4
+tally_url: ""
+
+# The form's name as the client sees it, used as the embed's accessible title.
+form_title: "Practice Fundamentals intake"
+
+# Shape accepted for ?ref=. Kept here so the page script and the build
+# specification describe the same thing. The script enforces it.
+ref_pattern: "^AW-[0-9]{3,4}$"

@@ -60,7 +60,7 @@
     Permissions-Policy = "camera=(), geolocation=(), microphone=()"
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Purchase-complete page and intake questionnaire.
+# Purchase-complete page, the retired questionnaire route and the client pages.
 #
 # Both already carry <meta name="robots" content="noindex, nofollow"> and
 # sitemap: false. These headers are the second lock: they keep the pages out of
@@ -78,6 +78,16 @@
     X-Robots-Tag = "noindex, nofollow"
     Cache-Control = "no-store"
 
+# The private client pages: the intake (which embeds the Tally form) and the
+# printable photography brief. Same two locks as above. no-referrer keeps the
+# ?ref= project reference out of any Referer header the page's links send.
+[[headers]]
+  for = "/client/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+    Referrer-Policy = "no-referrer"
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Content Security Policy.
 #
@@ -86,6 +96,12 @@
 # so an enforcing policy without 'unsafe-inline' would break those pages today.
 # Watch the violation reports, move the remaining inline scripts into files,
 # then rename the header to Content-Security-Policy.
+#
+# frame-src allows https://tally.so and nothing else, for the one embedded form
+# on /client/intake/ (17 September 2026). No Tally script is loaded: the page
+# uses a plain iframe and its own script in /assets/js/client.js, so script-src
+# and connect-src are unchanged. If a Tally custom domain is adopted and the
+# embed is served from it, add that host here too.
 #
 # Note what is NOT here: no Stripe script or frame permission. Stripe checkout
 # is reached by an ordinary link to a Stripe-hosted page — a top-level
@@ -104,5 +120,5 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy-Report-Only = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+    Content-Security-Policy-Report-Only = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; frame-src https://tally.so; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
     Cross-Origin-Opener-Policy = "same-origin"

@@ -1,6 +1,6 @@
 # Decision register — current state
 
-Alexander Watson Studio · internal · **the source of truth** · last updated 17 September 2026 (close-out) · **FROZEN**
+Alexander Watson Studio · internal · **the source of truth** · last updated 17 September 2026 (Practice Fundamentals Intake System) · **FROZEN**
 
 **Not published.** Listed under `exclude:` in `_config.yml`.
 
@@ -21,52 +21,60 @@ itself changes, and date it.
 | **Current experiment** | Get three real founding clients at £495. The only question it has to answer now: will three real therapists pay £495 for this process? |
 | **Next business target** | **Client one.** |
 | **Next optional site asset** | A **60–90 second founder video** (Alexander at his own desk, to camera). The home page is ready for it (`_data/founder.yml`) and works without it. It is **not** a prerequisite for finding client one. |
-| **Later, not now** | A 4–6 minute process video (Practice Clarity → Sofia, Maya, Daniel → how decisions become design). A future marketing asset, not a launch blocker, and no funnel is to be built around it. |
+| **Later, not now** | A 4–6 minute process video (the method → Sofia, Maya, Daniel → how decisions become design). A future marketing asset, not a launch blocker, and no funnel is to be built around it. |
 | **Not the plan** | Giving a website away free as a validation project. No giveaway, competition or free-project call to action anywhere. |
-| **Before the first £100** | Only admin: the ten empty facts in `_data/legal.yml` (address, ICO and eight privacy-notice facts — list in `LEGAL-INFORMATION-REQUIRED.md`). |
-| **Freeze rule** | **In force from 17 September 2026.** No further speculative website or service redesign, no new fictional practices, no pricing or package exercise before real-client evidence. Corrections of fact, broken links, accessibility faults and the admin facts in `LEGAL-INFORMATION-REQUIRED.md` are not redesign. |
+| **Before the first £100** | Admin, plus the intake: the twelve empty facts in `_data/legal.yml` (address, ICO and ten privacy-notice facts, including the two Tally facts — list in `LEGAL-INFORMATION-REQUIRED.md`); the Tally form built from `docs/operations/tally-intake-build-spec.md` and its address in `_data/intake.yml`; the legal review of the new payment, feedback, cancellation and Care wording. |
+| **Freeze rule** | **In force from 17 September 2026.** No further speculative website or service redesign, no new fictional practices, no pricing or package exercise before real-client evidence. Corrections of fact, broken links, accessibility faults and the admin facts in `LEGAL-INFORMATION-REQUIRED.md` are not redesign. The Practice Fundamentals Intake System (below, same date) was a decision taken on Alexander's instruction, not an exception to this rule. |
 
 ## The service
 
+**17 September 2026 — the Practice Fundamentals Intake System.** Approved source: `docs/operations/practice-fundamentals-intake-system.md`. It replaces the four-stage model, the Practice Clarity document, the Website Content Questionnaire and the "up to five pages" scope recorded here earlier the same day.
+
 | | Decision |
 |---|---|
-| **Product** | **Practice Identity & Website** — a website built from Practice Clarity. Identity exists to support the website. |
-| **Public process** | **1 Practice Clarity → 2 Agree the direction → 3 Visual direction and website → 4 Refine and launch.** Production has more steps; the public explanation does not. |
-| **Practice Clarity** | Included, no separate price, always the first stage. The intake is worked into a **Practice Clarity document** (the same kind of document as the published Blueprints, roughly 17 pages) that the therapist reads, corrects and agrees. The separate £500 Practice Clarity offer (August 2026) is retired. |
-| **Approval point** | Nothing is designed until the Practice Clarity document is agreed. |
-| **Identity** | The visual direction the website needs: typography, a colour system, a typographic wordmark or name treatment (or the client's existing logo), image direction where needed, written down in a short identity guide. **Not included:** a custom logo or symbol, logo concepts, stationery, print templates, supplier briefs, other designed applications. Anything more is quoted. |
-| **Website** | Up to five core pages. Client supplies words or notes; editing for clarity is included; copywriting from a blank page is not. |
+| **Product** | **Practice Identity & Website** — one complete, responsive web page built from the client's **Practice Fundamentals**. |
+| **Public journey** | **1 Enquire → 2 Reserve the project → 3 Complete the intake → 4 Approve the direction → 5 Website build → 6 Review and launch.** Production has more steps; the public explanation does not. |
+| **Enquiry** | The existing browser-built email enquiry (`contact.html`, `assets/js/contact-enquiry.js`) with a **five-question fit check**: what and where; whether one page is enough (with a follow-up if not); domain; photographs; date needed. No form backend, no storage, no scoring, no automatic rejection. Alexander replies personally. |
+| **Intake** | A **Tally** form (welcome screen and nine pages), sent after the deposit via the private page `/client/intake/?ref=AW-000`. Built by hand from `docs/operations/tally-intake-build-spec.md`. The form address is one value, `tally_url` in `_data/intake.yml`. Labels: *Fact needed before publishing*, *Core question*, *Optional context*, *Optional reference or upload*. The client is never told how many questions there are. Enough to start = every required fact plus at least four of the seven core answers; one clarification message (five questions at most) or a 20-minute call if not. |
+| **Practice Fundamentals** | Included, no separate price. The full **11-page** document for every client, founding or not, produced from a controlled template: position, practical facts, beliefs and boundaries, descriptions at several lengths, voice and vocabulary, logo or wordmark, colours, typography, photography direction, and a quick check for later writing; with a facts table and a working preview of the opening screen built in code. Reissued at launch with facts confirmed. |
+| **Identity** | A logo or wordmark (or the client's existing logo), a colour system, typography and photography direction, set out in the Practice Fundamentals and handed over as files. **Not included:** several competing concepts, trademark work, print design, stationery, social media templates. |
+| **Website** | **One complete responsive page:** who the therapist is, how they work, fees, practical information, an enquiry form, and a reading control for text size and spacing. The words are written from the intake. **Quoted separately:** additional pages, booking systems, blogs, advanced integrations, unusual functionality, ongoing marketing, and a change to a new direction after approval. |
+| **Photography** | A one-page brief (`/client/photography/`, printable), sent with the welcome email. The client arranges photographs alongside the intake. |
+| **"Practice Clarity"** | Now names only the method's nine published principles and the three portfolio Blueprints. It no longer names anything a client receives. |
 | **Portfolio's role** | Evidence, not choices. A client does not pick Sofia, Maya or Daniel as a starting design. |
-| **Retired 17 Sep 2026** | The one-page Direction Note (replaced by the Practice Clarity document). The "name the one you keep returning to" first step. The 13 Sep identity package (full identity guide with editable source, three stationery templates, four supplier briefs, website specification). |
+| **Retired 17 Sep 2026** | The Website Content Questionnaire (its route now redirects to `/client/intake/`; files in `_legacy/`). The Practice Clarity document as a deliverable. "Up to five core pages". One document revision plus two website rounds. The four-stage public process. The one-page Direction Note, the "name the one you keep returning to" first step and the 13 Sep identity package (retired earlier the same day). |
 
 ## Commercial terms — settled
 
 | | Decision |
 |---|---|
-| **Founding experiment** | The first **three** real practices: **£495**, the complete service. No countdown, deadline or places counter. |
-| **Payment** | **£100 to begin. £395 when your website is approved and ready to launch.** Contractually (service terms clause 3): first instalment on written acceptance of the scope, before the project begins; second invoiced after written approval of the finished website, payable within 14 days; the site goes live once it is received. Approval is bounded by clause 11. Never a guarantee or "pay only if happy". Invoice and bank transfer only. |
-| **Standard price** | **£995** is the currently intended price after the founding three. The pricing structure will be reviewed using real delivery evidence. |
-| **Practice Clarity revisions** | **One consolidated round.** Alexander writes the document from the questionnaire; the client reviews it ("does this accurately represent my practice?") and sends one consolidated set of feedback; Alexander refines it; once agreed it is the approved direction for the website. Correcting a factual error is not the revision. |
-| **Website revisions** | **Two consolidated rounds.** Copy and design share them. A correction to something that does not match what was agreed is not a round. |
-| **Launch and end** | Written approval → £395 → launch → handover → thirty days of minor corrections → **project complete**. |
-| **Handover** | The agreed Practice Clarity document, the identity guide and files, and the website and its files. |
-| **Website Care** | **First twelve months included** from launch: hosting, TLS, deployments, updates, version history, DNS help, fixing faults, and factual updates (fees, availability, contact details, address, qualifications) with no charge. Then **£29 a month** only if the client says yes; no minimum term; invoiced. Not uptime, monitoring or backups. |
-| **Additional work** | New or rewritten content, new pages, design or structural changes, a different visual direction after the build has started, a custom logo, anything outside the scope: quoted in writing first, invoiced separately. There is no retainer. |
-| **Ownership** | Identity owned outright on full payment; the website is the client's to keep, host and move; the design system and code are licensed for that one website (clause 13, ⚖, unreviewed). |
+| **Founding experiment** | The first **three** real practices: **£495**, the complete service, not a tier. No countdown, deadline or places counter. |
+| **Payment** | **£100 to reserve your place. £395 once you approve your Practice Fundamentals, before the website is built.** Contractually (service terms clause 3, ⚖ unreviewed): deposit on written acceptance of the scope; the intake follows its receipt; the balance is invoiced after written **direction approval** (clause 11), payable within 14 days; the **build begins only once the balance is paid**. Never a guarantee or "pay only if happy". Invoice and bank transfer only — no Stripe, card checkout, subscriptions, automation, CRM or client portal. |
+| **Standard price** | **£995**, intended after the founding three: **£500 to begin, £495 after approving the Practice Fundamentals, before the build** (not published while the founding offer is open; see `OPEN_DECISIONS.md` item 3). To be reviewed with real delivery evidence. |
+| **Feedback** | **Two consolidated stages.** Stage 1: the Practice Fundamentals and visual direction — confirm each fact, then reply A (go ahead) or B (one set of adjustments, then confirm the adjusted direction). Stage 2: the built website — refining, not restarting. **Corrections never use up a stage** (factual errors, anything misunderstood, anything that departs from the approved direction). |
+| **Launch and end** | Stage 2 → launch approval in writing (bounded by clause 11: ten working days to name anything outstanding within scope) → domain connected → launch → final Practice Fundamentals and files → thirty days of minor corrections → **project complete**. Nothing is published until every fact is confirmed. |
+| **If a client withdraws** | Before the project begins: deposit refunded. After the Fundamentals is delivered, before approval: deposit normally not refunded, balance not invoiced, client keeps the document for reference (⚖ unreviewed). Accepted risk: the deposit does not cover the Fundamentals work. |
+| **Handover** | The Practice Fundamentals (final issue), the logo or wordmark, colour values and typefaces as files, and the website and its files. |
+| **Website Care** | **First twelve months included** from launch. **Technical only:** hosting, TLS, deployments, dependency and security updates, version history, DNS help, genuine technical faults, and support for the original build. **Not included:** content changes (including fees and availability), additions, new pages, redesigns, new functionality — quoted separately. Then **£29 a month** only if the client says yes; no minimum term; invoiced. Not uptime, monitoring or backups. |
+| **Additional work** | Anything outside the scope: quoted in writing first, invoiced separately. There is no retainer. |
+| **Ownership** | The client owns their domain throughout. Identity owned outright on full payment; the website is the client's to keep, host and move; the design system and code are licensed for that one website (clause 13, ⚖, unreviewed). |
+| **Client data** | No client names, session notes or identifying details, anywhere. Tally is named in the privacy notice as the intake processor; intake data is deleted from Tally once copied to the project folder (period to be confirmed in `_data/legal.yml`). |
 
 ## Not current decisions — deliberately left open until real clients have been through it
 
 Do not turn any of these into policy, a package or a page.
 
 - £595.
-- One-page vs larger-site tiers.
+- Whether additional pages ever become a fixed-price option rather than a quote.
 - Future package architecture, or a menu of extras.
 - Logo add-ons.
 - The long-term support model.
 - A free website giveaway (not the plan).
 - Whether £495 feels low, right or high; whether £995 is justified.
-- Whether one Practice Clarity revision is enough in practice.
-- How long Practice Clarity and production actually take, and how much AI shortens production (record hours on every project).
+- Whether two feedback stages are enough in practice, and what each stage actually asks for.
+- Whether the full 11-page Fundamentals holds at about 8 hours once templated (fallback: compress pages 5 and 8).
+- Whether Tally's same-device saving causes lost work (switch to Jotform if it does, per the source).
+- How long the Fundamentals and production actually take, and how much AI shortens production (record hours on every project, per row of the source's journey table).
 - Whether clients ask for logos, and whether a larger identity option is ever worth offering.
 - Which parts of the internal system are genuinely useful.
 
@@ -92,13 +100,16 @@ Do not turn any of these into policy, a package or a page.
 | Questions to ask therapists | `docs/proposition-feedback.md` |
 | Open repository questions | `OPEN_DECISIONS.md` |
 | Legal facts still to supply | `LEGAL-INFORMATION-REQUIRED.md` |
-| Client questionnaire | `/services/practice-website/questionnaire/` — **approved, version 1.0** (17 Sep 2026) |
+| The intake system (approved source) | `docs/operations/practice-fundamentals-intake-system.md` |
+| Building the Tally form | `docs/operations/tally-intake-build-spec.md` |
+| Client emails and invoices | `docs/operations/client-email-templates.md` |
+| The intake page and photography brief | `/client/intake/` and `/client/photography/` (private, noindex); form address in `_data/intake.yml` |
 | Solicitor pack | `LEGAL-REVIEW-PACK.md` — **update its commercial sections first** (status note at its top) |
 | How the code enforces all this | `README.md`, `IMPLEMENTATION.md`, `scripts/qa.mjs` |
 
 ## Document status (17 September 2026)
 
-- **Current:** this file · `README.md` · `IMPLEMENTATION.md` · `VISUAL-SYSTEM.md` · `OPEN_DECISIONS.md` · `LEGAL-INFORMATION-REQUIRED.md` · `docs/product-terminology.md` · `docs/founding-practices.md` · `docs/pre-launch.md` · `docs/handover-runbook.md` · `docs/proposition-feedback.md` · `docs/portfolio-disclosure-standard.md` · `docs/reading-control-standard.md` · `docs/Practice Clarity — presentation standard.md` · `_strategy/PRACTICE-CLARITY-SOURCES.md`
+- **Current:** this file · `docs/operations/*` · `README.md` · `IMPLEMENTATION.md` · `VISUAL-SYSTEM.md` · `OPEN_DECISIONS.md` · `LEGAL-INFORMATION-REQUIRED.md` · `docs/product-terminology.md` · `docs/founding-practices.md` · `docs/pre-launch.md` · `docs/handover-runbook.md` · `docs/proposition-feedback.md` · `docs/portfolio-disclosure-standard.md` · `docs/reading-control-standard.md` · `_strategy/PRACTICE-CLARITY-SOURCES.md`
 - **Update required:** `LEGAL-REVIEW-PACK.md` (commercial facts predate the founding offer and this simplification)
-- **Superseded:** `DIRECTION-NOTE-TEMPLATE.md` · `docs/direction-note-template.html` · `STRIPE_SETUP.md` · `LEGAL_REVIEW.md` · `docs/first-payment-checklist.md`
+- **Superseded:** `_legacy/practice-website-questionnaire-2026-09/` · `docs/Practice Clarity — presentation standard.md` (as a client deliverable standard) · `DIRECTION-NOTE-TEMPLATE.md` · `docs/direction-note-template.html` · `STRIPE_SETUP.md` · `LEGAL_REVIEW.md` · `docs/first-payment-checklist.md`
 - **Archive (historical record only):** `TRUST-ARCHITECTURE-REVIEW.md` · `MINIMAL-LAUNCH-V2.md` · `CONCEPT-PUBLICATION-ASSESSMENT.md` · `POST-LAUNCH.md` · `REBUILD-REPORT.md` · `REDESIGN-REPORT.md` · `REFINEMENT-CHANGELOG.md` · `OFFER-RESOLUTION-CHANGELOG.md` · `PRE-LAUNCH-CHANGELOG.md` · `APPLY-*.txt` · `INSTALLATION.md` · `PHOTOGRAPHY-SHOT-LIST.md` · `_strategy/archived-portfolio-2026-09/` · `_legacy/`

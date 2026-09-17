@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Privacy policy
-description: How Alexander Watson Studio collects and handles your information — enquiries, payments, the Website Content Questionnaire, project records and your rights.
+description: How Alexander Watson Studio collects and handles your information — enquiries, payments, the intake form and its uploads, project records and your rights.
 permalink: /privacy/
 ---
 
@@ -44,8 +44,9 @@ permalink: /privacy/
       <strong>I do not need, want or ask for any information about the people
       you work with.</strong> Please do not send client names, session notes,
       case material, referral details, correspondence or health information —
-      not in your website copy, not in screenshots, not in testimonials, and not
-      in anything attached to an email or a shared folder.
+      not in your website copy, not in screenshots, not in testimonials, not in
+      the intake form or its uploads and voice notes, and not in anything attached
+      to an email or a shared folder.
     </p>
     <p>
       If identifiable client information reaches me by accident, I will tell you,
@@ -59,7 +60,9 @@ permalink: /privacy/
     <h3>1. Enquiries</h3>
     <p>
       If you use the enquiry form or email me, you provide your name, email
-      address and whatever you choose to tell me about your practice. The
+      address and whatever you choose to tell me about your practice, including
+      your answers to the enquiry form's short questions about your work, your
+      domain name, your photographs and your timing. The
       enquiry form on this website prepares a message in your own email
       application; it does not transmit or store anything on this website.
       I use enquiries to reply to you and to provide information you have asked
@@ -95,26 +98,42 @@ permalink: /privacy/
       <li>
         I keep the invoice, and the record of what was paid and when, as a
         business record. Everything else I hold about your project came from you
-        directly, by email or in the questionnaire.
+        directly, by email or through the intake form.
       </li>
     </ul>
     <p><strong>Lawful basis:</strong> performance of our contract; and my legal
     obligation to keep accurate financial records.</p>
 
-    <h3>3. The Website Content Questionnaire</h3>
+    <h3>3. The intake form</h3>
     <p>
-      The questionnaire runs entirely in your browser and prepares an email in
-      your own email application. Nothing you type into it is transmitted to or
-      stored by this website. Once you send that email, I hold your answers and
-      the materials you attach in my email account and project files, and use
-      them only to build and support your website.
+      Once your place is reserved, I send you a link to an intake form. The form is
+      provided by Tally, an online form service
+      {% include legal-fact.html value=site.data.legal.data_protection.intake_provider todo="Confirm the intake form provider's legal entity and the role it acts in (processor), e.g. the company that operates Tally, and that its data processing terms have been accepted." %},
+      which holds what you type and the files you upload &mdash; photographs,
+      documents and voice or video notes &mdash; on my behalf. The link carries a
+      project reference so I can match your answers to your project; it does not
+      contain your name or any other personal information.
+      <span class="legal-flag">⚖</span>
+    </p>
+    <p>
+      I use your answers and files only to create and support your Practice
+      Fundamentals and website. I copy them into my own project files, and I delete
+      them from the form service once they are no longer needed there.
+      {% include legal-fact.html value=site.data.legal.data_protection.intake_retention todo="Confirm the retention period actually operated for intake responses and uploads held by the form service, e.g. deleted from the form service at launch." %}
+      <span class="legal-flag">⚖</span>
+    </p>
+    <p>
+      The form asks about your practice and your work, not your health. Please
+      do not share information about your own health unless you want it taken into
+      account, and do not send client names, session notes or anything else about
+      the people you work with.
     </p>
     <p><strong>Lawful basis:</strong> performance of our contract.</p>
 
     <h3>4. Contract and project administration</h3>
     <p>
       During a project I hold our correspondence, your approvals, the scope and
-      terms in force, drafts and revision rounds, and the files you supplied.
+      terms in force, drafts and feedback, and the files you supplied.
       This is how the project is run and how either of us can later show what was
       agreed.
     </p>
@@ -142,6 +161,10 @@ permalink: /privacy/
         <span class="legal-flag">⚖</span>
       </li>
       <li><strong>Netlify</strong> — hosting of this website. Its servers produce ordinary technical logs, including IP addresses, for security and reliability.</li>
+      <li><strong>Tally</strong> — the intake form and its file uploads, on my instructions (processor). Tally states that it hosts form data in the European Union, and that some notification emails are sent through a provider in the United States.
+        {% include legal-fact.html value=site.data.legal.data_protection.intake_provider todo="Confirm the intake form provider's legal entity and role, and that its data processing terms have been accepted." %}
+        <span class="legal-flag">⚖</span>
+      </li>
       <li><strong>Email and file storage</strong> —
         {% include legal-fact.html value=site.data.legal.data_protection.email_provider todo="name the email provider and any file-sharing or cloud storage service actually used, e.g. Google Workspace, Microsoft 365, Dropbox" %}.
         <span class="legal-flag">⚖</span>
@@ -171,6 +194,8 @@ permalink: /privacy/
     <ul>
       <li><strong>Enquiries that do not become projects</strong> — kept while a reply is useful, then deleted.
         {% include legal-fact.html value=site.data.legal.data_protection.enquiry_retention todo="Confirm the period actually operated, e.g. 12 months." %}</li>
+      <li><strong>Intake answers and uploads held by the form service</strong> — deleted from the form service once they have been copied into the project files.
+        {% include legal-fact.html value=site.data.legal.data_protection.intake_retention todo="Confirm the retention period actually operated for intake responses and uploads held by the form service, e.g. deleted from the form service at launch." %}</li>
       <li><strong>Project files and correspondence</strong> — kept for the life of the project and for a reasonable period afterwards so the website can be supported.
         {% include legal-fact.html value=site.data.legal.data_protection.project_retention todo="Confirm the period, e.g. 6 years from the end of the project, to match the limitation period." %}</li>
       <li><strong>Payment and accounting records</strong> — kept for as long as tax law requires.

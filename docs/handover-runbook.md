@@ -36,7 +36,7 @@ One folder, sent as a single archive, with a plain README at the top.
 | `content/` | Her copy, her images at original size, and the logo files she supplied or that were made for her |
 | `README.md` | How to deploy the built files, how to point the domain, and how to rebuild from source |
 | `dependencies.md` | Every third-party service the site touches, what it costs, and whose account it is on |
-| `identity/` | **Simplified 17 September 2026** (`docs/product-terminology.md` §5). The agreed Practice Clarity document; the short identity guide (PDF); the wordmark or name treatment, colour values and typefaces as files, with font files where their licences permit |
+| `identity/` | **Revised 17 September 2026** (`docs/product-terminology.md` §6). The final Practice Fundamentals (PDF, page 2 reading "Facts confirmed on [date]", page 9 showing the built site); the logo or wordmark in its configurations, colour values and typefaces as files, with font files where their licences permit |
 
 Nothing in the pack requires the Studio to stay involved for it to work.
 
@@ -46,7 +46,8 @@ Nothing in the pack requires the Studio to stay involved for it to work.
 
 **What do I own?** Her content and practice information are hers throughout. The
 finished website made for her practice is hers on full payment. The practice identity —
-wordmark, guide, specifications, templates and briefs — is owned outright on full payment
+the logo or wordmark, the Practice Fundamentals and the colour and typography
+specifications — is owned outright on full payment
 and can go to any other designer or supplier. The underlying website design system and
 code are licensed to her for that one website — clause 13. Say this plainly
 rather than saying "it's yours" and leaving the licence to be discovered later.
@@ -66,6 +67,12 @@ costs nothing.
 disclosed before purchase and is part of what keeps the price where it is. Changes are an
 email; the files are hers to hand to anyone.
 
+**What does Website Care cover?** Technical care only, since 17 September 2026:
+hosting, TLS, deployments, updates, version history, DNS help, genuine technical faults
+and support with the website as built. Content changes (including fees and
+availability), additions and redesigns are quoted. Template 11 in
+`docs/operations/client-email-templates.md` says this at launch.
+
 **What happens if I stop Website Care?** Thirty days' notice, the pack, and the site
 comes off Studio infrastructure at the end of it. Nothing is withheld and nothing is
 deleted without the notice having been given.
@@ -84,6 +91,9 @@ instructions, not an export from a system only the Studio can run.
 ## Standing rules
 
 - **Her domain, her account, from day one.** No exceptions, however convenient.
+- **Intake data leaves Tally at launch.** Download the response and files to the project
+  folder, then delete them from Tally, and record the date (privacy notice,
+  `data_protection.intake_retention`).
 - **Handover at launch, not on request.** A client who already has the pack never has to
   ask for it, and never wonders what would happen if she did.
 - **Never a promise of an account or a portal.** The offer is files and instructions, and

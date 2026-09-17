@@ -11,7 +11,8 @@
  * Every check below asserts something about the architecture that actually
  * exists: the route table, the three service routes and their prices, the
  * single buy component, the generated purchasing configuration, the draft
- * state of the legal pages, and the questionnaire. A check that needs _site
+ * state of the legal pages, the enquiry fit check and the private intake
+ * pages. A check that needs _site
  * skips rather than fails when the site has not been built.
  */
 
@@ -237,7 +238,8 @@ const ROUTES = [
   ["index.html", "/"],
   ["service.html", "/service/"],
   ["services/practice-website.html", "/services/practice-website/"],
-  ["services/practice-website-questionnaire.html", "/services/practice-website/questionnaire/"],
+  ["client/intake.html", "/client/intake/"],
+  ["client/photography.html", "/client/photography/"],
   ["work.html", "/work/"],
   ["about.html", "/about/"],
   ["contact.html", "/contact/"],
@@ -253,11 +255,15 @@ const ROUTES = [
 ];
 
 /** Routes that must never be indexed or listed. */
-const PRIVATE_ROUTES = ["/services/practice-website/questionnaire/"];
+/* 17 September 2026: the retired questionnaire route now redirects to
+   /client/intake/, so the private pages are the two client pages. */
+const PRIVATE_ROUTES = ["/client/intake/", "/client/photography/"];
 
 const BUY_INCLUDE = "_includes/practice-website-buy.html";
 const PURCHASE_PAGE = "services/practice-website.html";
-const QUESTIONNAIRE = "services/practice-website-questionnaire.html";
+const INTAKE = "client/intake.html";
+const PHOTO_BRIEF = "client/photography.html";
+const ENQUIRY = "contact.html";
 const SUPPORT_EMAIL = "hello@alexanderwatson.co.uk";
 
 /**
@@ -288,15 +294,17 @@ const STRIPE_SDK_HOST = "js." + "stripe.com";
              deliberately weighted to the end, because £495 is already a real
              risk for a therapist buying from a studio with no client case
              studies yet. The deposit establishes commitment; it is not income.
-     £395    the balance instalment, due when the website has been through the
-             agreed process including both revision rounds and is approved for
-             launch — an objective milestone defined in clause 11, never a
-             satisfaction condition
+     £395    the balance instalment, due once the client has approved the
+             direction (the Practice Fundamentals and visual direction, at the
+             end of the first feedback stage), before the build — a written
+             decision defined in clause 11, never a satisfaction condition
      £995    the standard price, after the three founding practices. Published
              so a reader can see what they are being offered against, never
              struck through and never used to dress £495 as a saving.
      £29     Website Care per month, after the included first year, optional
-   £500 LEFT THE PUBLISHED SITE with the standard instalment split. Publishing
+   £500 LEFT THE PUBLISHED SITE with the standard instalment split (which,
+   since 17 September 2026, is the £995 split: a sum to begin and the rest once
+   the Practice Fundamentals is approved, recorded in OPEN_DECISIONS.md). Publishing
    that split alongside a £495 total would put two different meanings on one
    number, which is exactly the sort of detail that costs a reader their
    confidence. The standard split returns to the site when £995 does.
@@ -326,7 +334,9 @@ const buyInclude = read(BUY_INCLUDE);
    may read the whole file. */
 const buyMarkup = buyInclude.replace(/\{%-?\s*comment\s*-?%\}[\s\S]*?\{%-?\s*endcomment\s*-?%\}/g, "");
 const purchasePage = read(PURCHASE_PAGE);
-const questionnaire = read(QUESTIONNAIRE);
+const intakePage = read(INTAKE);
+const photoBrief = read(PHOTO_BRIEF);
+const enquiryPage = read(ENQUIRY);
 const servicePage = read("service.html");
 const homePage = read("index.html");
 const layout = read("_layouts/default.html");
@@ -525,7 +535,7 @@ check("Checkout scope", "The buy component carries the stated calls to action", 
   assert(/price_display/.test(buyInclude), `${BUY_INCLUDE} does not take its price from _data/purchasing.yml`);
   assert(/payment_sentence/.test(buyInclude), `${BUY_INCLUDE} does not render the canonical payment sentence`);
 
-  const written = (buyInclude.match(/>Tell me which design you like</g) || []).length;
+  const written = (buyInclude.match(/>Tell me about your practice</g) || []).length;
   assert(written >= 1, `${BUY_INCLUDE} must offer the written route (found ${written})`);
   /* Judge the markup, not the documentation comment above it — that comment
      explains why there is no disabled control, and naming the thing it forbids
@@ -548,20 +558,24 @@ function commercialPages() {
   ];
 }
 
-check("Checkout scope", "Practice Clarity carries no purchase action", () => {
-  /* Practice Clarity is the first stage of the one product and has no price of
-     its own. Nothing that describes it may offer a payment action. */
+check("Checkout scope", "The Practice Fundamentals carries no purchase action", () => {
+  /* The Practice Fundamentals is the first deliverable of the one product and
+     has no price of its own. Nothing that describes it may offer a payment
+     action. (Until 17 September 2026 this guarded "Practice Clarity", the
+     deliverable's earlier name.) */
   let inspected = 0;
-  for (const { file, body } of commercialPages()) {
-    const index = body.indexOf("Practice Clarity");
+  for (const { file, body: source } of commercialPages()) {
+    /* The front matter description names it in prose; judge the page body. */
+    const body = source.replace(/^---\r?\n[\s\S]*?\r?\n---/, "");
+    const index = body.indexOf("Practice Fundamentals");
     if (index === -1) continue;
     inspected += 1;
     const block = body.slice(Math.max(0, index - 200), index + 1600);
-    assert(!/practice-website-buy\.html/.test(block), `${file} · a Practice Clarity block includes the buy component`);
-    assert(!/Pay\s+(£995|\{\{)/.test(block), `${file} · a Practice Clarity block shows a pay action`);
-    assert(!/buy\.stripe\.com/.test(block), `${file} · a Practice Clarity block links to Stripe`);
+    assert(!/practice-website-buy\.html/.test(block), `${file} · a Practice Fundamentals block includes the buy component`);
+    assert(!/Pay\s+(£995|\{\{)/.test(block), `${file} · a Practice Fundamentals block shows a pay action`);
+    assert(!/buy\.stripe\.com/.test(block), `${file} · a Practice Fundamentals block links to Stripe`);
   }
-  assert(inspected >= 2, `only ${inspected} Practice Clarity blocks inspected`);
+  assert(inspected >= 2, `only ${inspected} Practice Fundamentals blocks inspected`);
   return `${inspected} pages inspected`;
 });
 
@@ -599,10 +613,10 @@ check("Commercial architecture", "One website price, and Practice Clarity is not
     if (rel.startsWith("_guides/") || rel.startsWith("_posts/")) continue;
     if (/\+\s*£\s?500/.test(body)) offenders.push(`${rel} — prices Practice Clarity as an add-on`);
     if (/clarity_display/.test(body)) offenders.push(`${rel} — renders the retired clarity price field`);
-    const m = body.match(/[^.]{0,90}Practice Clarity[^.]{0,90}/g) || [];
+    const m = body.match(/[^.]{0,90}Practice (?:Clarity|Fundamentals)[^.]{0,90}/g) || [];
     for (const sentence of m) {
       if (/\boptional\b|\badd-?on\b|\bupsell\b|invoiced separately/i.test(sentence)) {
-        offenders.push(`${rel} — still presents Practice Clarity as optional or separately sold: "${sentence.trim().slice(0, 90)}"`);
+        offenders.push(`${rel} — presents Practice Clarity or the Practice Fundamentals as optional or separately sold: "${sentence.trim().slice(0, 90)}"`);
       }
     }
   }
@@ -637,7 +651,7 @@ check("Commercial architecture", "One website price, and Practice Clarity is not
      separately any more. The ordering rule that used to sit here belonged to the
      add-on: it kept a second price away from the buying decision, and there is
      no second price now. */
-  assert(/Practice Clarity/.test(servicePage), "service.html no longer explains Practice Clarity");
+  assert(/Practice Fundamentals/.test(servicePage), "service.html no longer explains the Practice Fundamentals");
   assert(/Website Care/.test(servicePage), "service.html no longer explains Website Care");
 
   /* Language that rebuilds the tier. */
@@ -655,7 +669,7 @@ check("Commercial architecture", "One website price, and Practice Clarity is not
   }
 
   assert(offenders.length === 0, offenders.join("\n"));
-  return "£995 is the only price; Practice Clarity is included and unpriced";
+  return "one website price; the Practice Fundamentals is included and unpriced";
 });
 
 check("Provenance", "Every direction declares a permitted provenance, and Client Work stays reserved", () => {
@@ -891,33 +905,84 @@ check("Commercial architecture", "The retired offer structure is gone", () => {
 });
 
 /* ------------------------------------------------------------------ *
- * 4b. The product: Practice Clarity first, then the website
+ * 4b. The product: the Practice Fundamentals first, then one page
  *
- * 17 September 2026, simplified. The public explanation is four stages —
- * Practice Clarity, agree the direction, visual direction and website, refine
- * and launch — and the client receives their Practice Clarity document (the
- * one-page "Direction Note" is retired). Identity exists to support the
- * website: typography, colour, a typographic wordmark and a short guide. The
- * Sofia Marin case still shows a fuller identity, labelled as how far the
- * method can go rather than as the scope.
+ * 17 September 2026, the Practice Fundamentals Intake System. The public
+ * journey is six steps — enquire, reserve the project, complete the intake,
+ * approve the direction, website build, review and launch — with two
+ * consolidated feedback stages. The client receives the 11-page Practice
+ * Fundamentals and one complete responsive page. "Practice Clarity" now names
+ * only the published principles and the portfolio Blueprints. See
+ * docs/operations/practice-fundamentals-intake-system.md.
  * ------------------------------------------------------------------ */
 
-check("Product scope", "The offer is described as four stages, Practice Clarity first", () => {
+const JOURNEY_STEPS = [
+  "Enquire",
+  "Reserve the project",
+  "Complete the intake",
+  "Approve the direction",
+  "Website build",
+  "Review and launch",
+];
+
+check("Product scope", "The journey is six steps, with the Practice Fundamentals approved before the build", () => {
   assert(/id="yours-to-keep"/.test(servicePage), 'service.html no longer carries the "Yours to keep" section');
-  for (const term of ["Practice Clarity", "Agree the direction", "Visual direction and website", "Refine and launch"]) {
-    assert(servicePage.includes(term), `service.html does not name "${term}" in the four-stage explanation`);
-    assert(homePage.includes(term), `index.html does not name "${term}" in the four-stage explanation`);
+  assert(/id="practice-fundamentals"/.test(servicePage), 'service.html no longer carries the Practice Fundamentals section');
+  for (const term of ["Practice Fundamentals", ...JOURNEY_STEPS]) {
+    assert(servicePage.includes(term), `service.html does not name "${term}" in the journey`);
+    assert(homePage.includes(term), `index.html does not name "${term}" in the journey`);
   }
   const purchase = read(PURCHASE_PAGE);
   assert(/id="keep"/.test(purchase), `${PURCHASE_PAGE} no longer carries the handover section`);
-  assert(/Practice Clarity document/.test(purchase), `${PURCHASE_PAGE} does not name the Practice Clarity document in the published scope`);
+  assert(/id="feedback"/.test(purchase), `${PURCHASE_PAGE} no longer explains the two feedback stages`);
+  assert(/Practice Fundamentals, eleven pages/.test(purchase), `${PURCHASE_PAGE} does not name the eleven-page Practice Fundamentals in the published scope`);
+  assert(/One complete, responsive page/.test(purchase), `${PURCHASE_PAGE} does not state the one-page scope`);
+  assert(/Additional pages/.test(purchase), `${PURCHASE_PAGE} does not say additional pages are quoted separately`);
+  assert(/Corrections never use up a stage/.test(purchase), `${PURCHASE_PAGE} does not say corrections never use up a feedback stage`);
   const offenders = [];
   for (const [rel, body] of publishedBodies) {
     const text = body.replace(/\{%-?\s*comment\s*-?%\}[\s\S]*?\{%-?\s*endcomment\s*-?%\}/g, "");
     if (/Direction Note/.test(text)) offenders.push(`${rel} still describes the retired Direction Note`);
   }
   assert(offenders.length === 0, offenders.join("\n"));
-  return "four stages on the home and cost pages; the Practice Clarity document in the published scope";
+  return "six steps on the home and cost pages; the Fundamentals, one page and two feedback stages in the published scope";
+});
+
+check("Product scope", "The retired delivery model has not come back", () => {
+  /* The model this replaced: up to five core pages, a Practice Clarity
+     document with one revision, two website revision rounds, a browser-only
+     Website Content Questionnaire, the balance on approval of the finished
+     website, and factual updates inside Website Care. The principle articles in
+     _guides/ are the method's own writing and may still mention a "Practice
+     Clarity document" in image descriptions; they sell nothing. */
+  const retired = [
+    [/up to five (core )?pages/i, "up to five pages"],
+    [/five core pages/i, "five core pages"],
+    [/pages beyond the five/i, "pages beyond the five"],
+    [/consolidated revision/i, "a consolidated revision"],
+    [/revision rounds?\b/i, "revision rounds"],
+    [/two rounds of changes/i, "two rounds of changes"],
+    [/Website Content Questionnaire/, "the Website Content Questionnaire"],
+    [/Practice Clarity document/, "the Practice Clarity document as the deliverable"],
+    [/approved? the finished website/i, "the balance or approval tied to the finished website"],
+    [/when your website is approved/i, "the balance tied to website approval"],
+    [/factual updates are included/i, "factual updates inside Website Care"],
+    [/\bno quota\b/i, "unquoted content updates inside Website Care"],
+    [/services\/practice-website\/questionnaire/, "a link to the retired questionnaire route"],
+  ];
+  const offenders = [];
+  for (const [rel, body] of publishedBodies) {
+    if (rel.startsWith("_guides/") || rel.startsWith("_posts/")) continue;
+    const text = body.replace(/\{%-?\s*comment\s*-?%\}[\s\S]*?\{%-?\s*endcomment\s*-?%\}/g, "");
+    for (const [pattern, what] of retired) {
+      const hit = text.match(pattern);
+      if (hit) offenders.push(`${rel} — ${what} ("${hit[0]}")`);
+    }
+  }
+  assert(!/^payment_sentence:.*\blaunch\b/m.test(purchasingYml), "payment_sentence still ties the balance to launch");
+  assert(/^payment_sentence:.*Practice Fundamentals/m.test(purchasingYml), "payment_sentence does not tie the balance to approving the Practice Fundamentals");
+  assert(offenders.length === 0, offenders.join("\n"));
+  return `${retired.length} retired formulations absent from published source`;
 });
 
 check("Product scope", "The retired product name has not come back", () => {
@@ -939,11 +1004,13 @@ check("Product scope", "The retired product name has not come back", () => {
 });
 
 check("Product scope", "The identity is bounded, and no elaborate package is promised", () => {
-  /* The offer has to be finite. Since 17 September 2026 the identity is the
-     visual direction the website needs; a custom logo, stationery and print
-     templates are named as excluded, and supplier briefs are no longer made. */
+  /* The offer has to be finite. Since 17 September 2026 the identity is the one
+     set out in the Practice Fundamentals — a logo or wordmark, colours,
+     typography and photography direction. Competing concepts, print design,
+     stationery and social media templates are named as excluded, and supplier
+     briefs are not made. */
   const overclaims = [
-    [/unlimited (templates|design|applications|assets)/i, "promises an unlimited amount of design"],
+    [/unlimited (templates|design|applications|assets|changes|revisions)/i, "promises an unlimited amount of design or change"],
     [/ongoing design support/i, "promises ongoing design support"],
     [/everything you (could ever )?need/i, "promises everything they need"],
     [/all your (marketing|print|brand) materials/i, "promises all their materials"],
@@ -958,9 +1025,11 @@ check("Product scope", "The identity is bounded, and no elaborate package is pro
     }
   }
   const purchase = read(PURCHASE_PAGE);
-  assert(/custom logo/i.test(purchase), `${PURCHASE_PAGE} no longer says a custom logo is outside the scope`);
+  assert(/logo or wordmark/i.test(purchase), `${PURCHASE_PAGE} no longer says what the identity includes`);
+  assert(/competing logo concepts/i.test(purchase), `${PURCHASE_PAGE} no longer says competing logo concepts are outside the scope`);
+  assert(/social media templates/i.test(purchase), `${PURCHASE_PAGE} no longer says social media templates are outside the scope`);
   assert(offenders.length === 0, offenders.join("\n"));
-  return "no open-ended promise; custom logo and stationery excluded in the published scope";
+  return "no open-ended promise; the identity is bounded and the exclusions are published";
 });
 
 check("Founding offer", "The founding price is never shown without the standard price beside it", () => {
@@ -1041,13 +1110,14 @@ check("Founding offer", "Nothing manufactures urgency or scarcity", () => {
 });
 
 check("Founding offer", "The balance milestone is objective, not a satisfaction condition", () => {
-  /* The founding split is weighted to the end — £100 to begin, £395 on approval
-     — and the obvious way to sell that is "pay nothing until you're happy".
-     That formulation makes the balance conditional on a subjective state and
-     would let a finished project go unpaid because somebody declined to use a
-     particular word. The milestone is the completion of the agreed process and
-     approval for launch, which clause 11 defines and bounds. These patterns are
-     what stops the softer version growing back into the copy. */
+  /* The founding split is weighted — £100 to reserve the place, £395 once the
+     direction is approved — and the obvious way to sell that is "pay nothing
+     until you're happy". That formulation makes the balance conditional on a
+     subjective state. Since 17 September 2026 the milestone is the client's
+     written approval of the direction (the Practice Fundamentals and visual
+     direction), before the build; clause 3 and clause 11 define it, and clause
+     11 still bounds launch approval so a finished website cannot sit
+     indefinitely. These patterns stop the softer version growing back. */
   const banned = [
     [/pay\s+nothing\s+until/i, 'promises "pay nothing until…"'],
     [/only pay if you (like|are happy|'re happy)/i, "makes payment conditional on liking the work"],
@@ -1068,16 +1138,21 @@ check("Founding offer", "The balance milestone is objective, not a satisfaction 
   /* And the definition the copy leans on has to actually exist. */
   const terms = read("_pages/service-terms-practice-website.html");
   assert(/id="approval"/.test(terms), "clause 11 has no approval anchor for the service page to link to");
+  assert(/Direction approval/.test(terms), "clause 11 does not define direction approval, which triggers the balance");
+  assert(
+    /built only once the balance\s+has been received/.test(terms),
+    "clause 3 no longer says the build begins only once the balance has been received"
+  );
   assert(
     /ten working days/i.test(terms) && /within the agreed scope/i.test(terms),
-    "clause 11 no longer bounds approval — a completed project could sit unapproved and unpaid indefinitely"
+    "clause 11 no longer bounds launch approval — a completed website could sit unapproved indefinitely"
   );
   assert(offenders.length === 0, offenders.join("\n"));
-  return `${banned.length} patterns absent; clause 11 bounds approval`;
+  return `${banned.length} patterns absent; the balance follows direction approval; clause 11 bounds launch approval`;
 });
 
 check("Founding offer", "The stages are described as one piece of work", () => {
-  /* Practice Clarity, the identity and the website are stages of one job. A
+  /* The intake, the Practice Fundamentals and the website are one job. A
      page that lists them as three deliverables invites the client to ask which
      they can drop, which is the one judgement they are least able to make. */
   assert(/what-you-are-buying/.test(servicePage), "service.html no longer carries the four-stage explanation");
@@ -1112,7 +1187,7 @@ check("Website Care", "Described as included for twelve months, then £29 a mont
 });
 
 check("Website Care", "Claims only what the infrastructure supports", () => {
-  /* Care is a paid promise now that it is inside the £995, so it must not
+  /* Care is a paid promise now that it is inside the price, so it must not
      claim continuous monitoring or a backup guarantee: neither is provided.
      Version history and TLS are, and are named instead. */
   const forbidden = [
@@ -1136,6 +1211,22 @@ check("Website Care", "Claims only what the infrastructure supports", () => {
   }
   assert(offenders.length === 0, `Website Care claims something unsupported — ${offenders.join("; ")}`);
   return "no monitoring or backup guarantee claimed";
+});
+
+check("Website Care", "Care is technical, and content changes are outside it", () => {
+  /* 17 September 2026. Website Care covers genuine technical faults and support
+     for the original build. Additions, redesigns and content changes are
+     outside it. The three places that describe Care must say so, and none may
+     promise free content updates. */
+  const surfaces = [PURCHASE_PAGE, "service.html", "_pages/service-terms-practice-website.html"];
+  for (const rel of surfaces) {
+    const body = read(rel);
+    assert(/technical/i.test(body), `${rel} does not describe Website Care as technical`);
+    assert(/content changes/i.test(body), `${rel} does not say content changes are outside Website Care`);
+    assert(!/Keeping your fees, availability/i.test(body), `${rel} still lists fee and availability updates as part of Care`);
+    assert(!/no quota and no charge/i.test(body), `${rel} still promises free content updates`);
+  }
+  return `${surfaces.length} surfaces agree`;
 });
 
 check("Website Care", "No subscription is built or activated", () => {
@@ -1232,7 +1323,7 @@ check("Configuration", "The written route is stated positively, not as an apolog
      absence of a checkout that is never coming. */
   assert(/How a project begins/.test(buyMarkup), "the component does not describe how a project begins");
   assert(/cfg\.urls\.enquiry/.test(buyMarkup), "the component has no working enquiry route");
-  assert(/>Tell me which design you like</.test(buyMarkup), "the component does not offer the written route");
+  assert(/>Tell me about your practice</.test(buyMarkup), "the component does not offer the written route");
   assert(
     !/(not open yet|opening shortly|coming soon|temporarily|for now|in the meantime)/i.test(buyMarkup),
     "the component apologises for the absence of a checkout"
@@ -1397,7 +1488,7 @@ check("Legal", "The purchase journey links to the terms it is made under", () =>
   const surfaces = [
     [PURCHASE_PAGE, purchasePage],
     [BUY_INCLUDE, buyInclude],
-    [QUESTIONNAIRE, questionnaire],
+    [INTAKE, intakePage],
   ];
   const cfgAlias = {
     "/service-terms/practice-website/": "cfg.urls.service_terms",
@@ -1406,7 +1497,7 @@ check("Legal", "The purchase journey links to the terms it is made under", () =>
   };
   for (const [rel, body] of surfaces) {
     for (const [route] of JOURNEY_LEGAL) {
-      if (rel === QUESTIONNAIRE && route === "/cancellation-and-refunds/") continue;
+      if (rel === INTAKE && route === "/cancellation-and-refunds/") continue;
       const linked = body.includes(route) || body.includes(cfgAlias[route]);
       assert(linked, `${rel} does not link to ${route}`);
     }
@@ -1432,9 +1523,11 @@ check("Legal", "The terms are readable before anything is agreed", () => {
 check("Private routes", "robots.txt disallows the private routes", () => {
   assert(exists("robots.txt"), "there is no robots.txt at the site root");
   const robots = read("robots.txt");
+  const disallowed = [...robots.matchAll(/^Disallow:\s*(\S+)/gim)].map((m) => m[1]);
   for (const route of PRIVATE_ROUTES) {
+    /* A Disallow for a parent path (Disallow: /client/) covers its children. */
     assert(
-      new RegExp(`^Disallow:\\s*${route.replace(/\//g, "\\/")}`, "mi").test(robots),
+      disallowed.some((rule) => route.startsWith(rule)),
       `robots.txt does not disallow ${route}`
     );
   }
@@ -1455,113 +1548,198 @@ check("Private routes", "The built private routes carry the robots tag and stay 
 
 
 /* ------------------------------------------------------------------ *
- * 13. Questionnaire
+ * 12b. The private client pages stay private
  * ------------------------------------------------------------------ */
 
-check("Questionnaire", "The page and _data/intake.yml agree on the question count", () => {
-  /* Until September 2026 this asserted the literal 15/7 shape, which came from
-     a brief describing an approved intake that was never found in the project.
-     The questionnaire is no longer designed around that number: what matters is
-     that the page and the data file agree, that every question is numbered, and
-     that the sequence has no gaps. The counts move when the questionnaire
-     legitimately changes; they are not a target it has to hit. */
-  const required = (questionnaire.match(/class="req"/g) || []).length;
-  const optional = (questionnaire.match(/class="opt"/g) || []).length;
-  const expectedRequired = Number((intakeYml.match(/^required_questions:\s*(\d+)/m) || [])[1]);
-  const expectedOptional = Number((intakeYml.match(/^optional_questions:\s*(\d+)/m) || [])[1]);
-  assert(required > 0, `${QUESTIONNAIRE} marks no questions required`);
-  assert(
-    required === expectedRequired,
-    `${QUESTIONNAIRE} marks ${required} questions required, _data/intake.yml says ${expectedRequired}`
-  );
-  assert(
-    optional === expectedOptional,
-    `${QUESTIONNAIRE} marks ${optional} questions optional, _data/intake.yml says ${expectedOptional}`
-  );
-  const numbers = [...questionnaire.matchAll(/<(?:span|legend)>(\d{1,2})\. /g)].map((m) => Number(m[1]));
-  for (let n = 1; n <= required; n += 1) {
-    assert(numbers.includes(n), `question ${n} is missing from the numbered sequence`);
+check("Private routes", "The client pages declare noindex and stay out of the sitemap at source", () => {
+  for (const [rel, body] of [[INTAKE, intakePage], [PHOTO_BRIEF, photoBrief]]) {
+    assert(/^noindex:\s*true\s*$/m.test(frontMatter(body)), `${rel} does not set noindex: true`);
+    assert(/^sitemap:\s*false\s*$/m.test(frontMatter(body)), `${rel} does not set sitemap: false`);
   }
+  const head = read("_includes/head.html");
+  assert(/page\.noindex[\s\S]{0,80}noindex, nofollow/.test(head), "head.html no longer turns noindex: true into a noindex, nofollow robots tag");
+  const toml = read("netlify.toml");
   assert(
-    numbers.length === required,
-    `found ${numbers.length} numbered questions but ${required} marked required`
+    /for = "\/client\/\*"[\s\S]{0,160}X-Robots-Tag = "noindex, nofollow"/.test(toml),
+    "netlify.toml does not send X-Robots-Tag: noindex, nofollow for /client/*"
   );
-  return `${required} required, ${optional} optional, numbered 1–${required}`;
+  return `${PRIVATE_ROUTES.length} client pages, three locks each at source`;
 });
 
-check("Questionnaire", "Every field is labelled and every fieldset has a legend", () => {
-  const fields = [...questionnaire.matchAll(/<(input|select|textarea)\b([^>]*)>/g)];
-  assert(fields.length >= 20, `only ${fields.length} form controls found`);
+check("Private routes", "Nothing public links to the client pages", () => {
+  /* The intake is reached only from the link in the welcome email. The only
+     published files allowed to point at /client/ are the client pages
+     themselves (the intake links to the photography brief), the redirect
+     table, and robots.txt. */
+  const offenders = [];
+  for (const [rel, body] of publishedBodies) {
+    if (rel === INTAKE || rel === PHOTO_BRIEF) continue;
+    const text = body.replace(/\{%-?\s*comment\s*-?%\}[\s\S]*?\{%-?\s*endcomment\s*-?%\}/g, "");
+    if (/\/client\//.test(text)) offenders.push(`${rel} links to or names /client/`);
+    if (/urls\.(intake|photography)/.test(text)) offenders.push(`${rel} renders a client-page URL`);
+  }
+  for (const shared of ["_includes/header.html", "_includes/footer.html", "_layouts/default.html"]) {
+    if (/\/client\//.test(read(shared))) offenders.push(`${shared} links to /client/`);
+  }
+  assert(offenders.length === 0, offenders.join("\n"));
+});
+
+/* ------------------------------------------------------------------ *
+ * 13. The enquiry fit check and the intake
+ *
+ * 17 September 2026. The browser-only Website Content Questionnaire was
+ * retired. Its five checks are replaced by the checks below: the fit check on
+ * the enquiry form, the Tally handoff on /client/intake/, the photography
+ * brief, and the internal documents the intake is built and run from.
+ * ------------------------------------------------------------------ */
+
+check("Enquiry fit check", "The five questions are on the enquiry form, and the conditional field is wired", () => {
+  const questions = [
+    "What do you do, and where?",
+    "Would a single, carefully designed page give you what you need for now?",
+    "Do you already own a domain name?",
+    "Do you have recent photographs of yourself, or could you arrange some within approximately two weeks?",
+    "Is there a particular date you need the website by?",
+  ];
+  for (const q of questions) assert(enquiryPage.includes(q), `${ENQUIRY} does not ask "${q}"`);
+  for (const answer of [
+    "No, I need additional pages or functionality",
+    "Yes, and I can access the account",
+    "I could arrange them",
+  ]) {
+    assert(enquiryPage.includes(answer), `${ENQUIRY} is missing the answer "${answer}"`);
+  }
+  assert(/data-reveals="f-onepage-more-wrap"[^>]*>|aria-controls="f-onepage-more-wrap"/.test(enquiryPage), "the \"No\" answer does not control the follow-up field");
+  assert(/id="f-onepage-more-wrap"/.test(enquiryPage), "the follow-up field container is missing");
+  assert(/data-studio-enquiry novalidate/.test(enquiryPage), "the enquiry form does not hand validation to its script");
+  assert(/data-form-errors/.test(enquiryPage) && /role="alert"/.test(enquiryPage), "the enquiry form has no announced error summary");
+  assert(!/<form[^>]*\baction=/i.test(enquiryPage), "the enquiry form posts to a server");
+  assert(!/netlify|data-netlify/i.test(enquiryPage.replace(/\{%-?\s*comment\s*-?%\}[\s\S]*?\{%-?\s*endcomment\s*-?%\}/g, "")), "the enquiry form has been wired to a form backend");
+  return `${questions.length} questions; follow-up wired; no backend`;
+});
+
+check("Enquiry fit check", "Every answer reaches the prepared email and its copy-and-paste fallback", () => {
+  const js = read("assets/js/contact-enquiry.js");
+  for (const name of ["practice", "onePage", "onePageNeeds", "domain", "photos", "neededBy", "message", "currentWebsite"]) {
+    assert(new RegExp(`value\\("${name}"\\)`).test(js), `contact-enquiry.js does not put "${name}" in the email`);
+    assert(new RegExp(`name="${name}"`).test(enquiryPage), `${ENQUIRY} has no field named "${name}"`);
+  }
+  assert(/prepared\.value\s*=/.test(js) && /mailto:/.test(js), "the script does not fill both the email and the fallback");
+  assert(/buildBody\(\)/.test(js), "the email body is not built in one place");
+  assert(/fetch\(|XMLHttpRequest|sendBeacon/.test(js) === false, "contact-enquiry.js transmits something");
+  assert(/Nothing is booked until/.test(enquiryPage), "the confirmation does not say nothing is booked before acceptance and the deposit");
+  assert(/I read it myself/.test(enquiryPage), "the confirmation does not say the enquiry is read personally");
+});
+
+check("Enquiry fit check", "Every field is labelled and every fieldset has a legend", () => {
+  const form = (enquiryPage.match(/<form[\s\S]*?<\/form>/) || [""])[0];
+  const fields = [...form.matchAll(/<(input|select|textarea)\b([^>]*)>/g)].filter((m) => !/type="hidden"/.test(m[2]));
+  assert(fields.length >= 14, `only ${fields.length} form controls found on the enquiry form`);
   const unlabelled = [];
   for (const match of fields) {
     const attrs = match[2];
     const id = (attrs.match(/\bid="([^"]+)"/) || [])[1];
-    if (id && new RegExp(`<label[^>]*for="${id}"`).test(questionnaire)) continue;
-    // Otherwise it must sit inside a <label> element.
-    const before = questionnaire.slice(0, match.index);
-    const lastOpen = before.lastIndexOf("<label");
-    const lastClose = before.lastIndexOf("</label>");
-    if (lastOpen > lastClose) continue;
-    const name = (attrs.match(/name="([^"]+)"/) || [])[1] || match[1];
-    unlabelled.push(`${QUESTIONNAIRE}:${lineAt(questionnaire, match.index)} — ${name}`);
+    if (id && new RegExp(`<label[^>]*for="${id}"`).test(form)) continue;
+    const before = form.slice(0, match.index);
+    if (before.lastIndexOf("<label") > before.lastIndexOf("</label>")) continue;
+    unlabelled.push((attrs.match(/name="([^"]+)"/) || [])[1] || match[1]);
   }
-  assert(unlabelled.length === 0, `fields with no label:\n${unlabelled.join("\n")}`);
-
-  const fieldsets = [...questionnaire.matchAll(/<fieldset[^>]*>([\s\S]*?)<\/fieldset>/g)];
-  assert(fieldsets.length >= 5, `only ${fieldsets.length} fieldsets found`);
-  for (const set of fieldsets) {
-    assert(/<legend[^>]*>/.test(set[1]), `a fieldset at line ${lineAt(questionnaire, set.index)} has no legend`);
-  }
+  assert(unlabelled.length === 0, `fields with no label: ${unlabelled.join(", ")}`);
+  const fieldsets = [...form.matchAll(/<fieldset[^>]*>([\s\S]*?)<\/fieldset>/g)];
+  assert(fieldsets.length >= 3, `only ${fieldsets.length} fieldsets found`);
+  for (const set of fieldsets) assert(/<legend[^>]*>/.test(set[1]), "a fieldset on the enquiry form has no legend");
+  const radios = form.match(/type="radio"/g) || [];
+  assert(radios.length >= 9, `only ${radios.length} radio answers found`);
   return `${fields.length} controls, ${fieldsets.length} fieldsets`;
 });
 
-check("Questionnaire", "Errors are announced, and checkboxes are read by checked state", () => {
-  assert(/data-questionnaire-errors[^>]*role="alert"/.test(questionnaire), "the error container has no role=\"alert\"");
-  const js = read("assets/js/practice-website-questionnaire.js");
-  assert(/type === "checkbox"/.test(js), "the questionnaire script does not distinguish checkboxes");
-  assert(/checkbox"\s*\?\s*field\.checked/.test(js) || /field\.checked \? /.test(js), "checkbox answers are not read from .checked");
-  assert(/f\.type === "checkbox" \? !f\.checked/.test(js), "checkbox validation does not use .checked");
-  // Isolate the branch each checkbox test takes, and require it to use .checked.
-  const branches = [
-    ...js.matchAll(/type === "checkbox"\)\s*return\s+([^;]+);/g),
-    ...js.matchAll(/type === "checkbox"\s*\?\s*([^:]+):/g),
-  ];
-  assert(branches.length >= 2, `only ${branches.length} checkbox branches found in the questionnaire script`);
-  for (const branch of branches) {
-    const expression = branch[1].trim();
-    assert(
-      /\.checked\b/.test(expression) && !/\.value\b/.test(expression),
-      `a checkbox is read by .value rather than .checked: "${expression}" (assets/js/practice-website-questionnaire.js:${lineAt(js, branch.index)})`
-    );
+check("Intake", "The Tally address is one value, and the page is safe without it", () => {
+  assert(/^tally_url:\s*"[^"]*"\s*$/m.test(intakeYml), "_data/intake.yml does not declare tally_url as a single quoted value");
+  assert(/site\.data\.intake/.test(intakePage) && /intake\.tally_url/.test(intakePage), `${INTAKE} does not read the form address from _data/intake.yml`);
+  assert(/data-intake-state="not-connected"/.test(intakePage), `${INTAKE} has no state for an unset form address`);
+  assert(/tally_scheme == "https:\/\/"/.test(intakePage), `${INTAKE} does not require an https form address`);
+  assert(/Open the form in a new tab/.test(intakePage), `${INTAKE} has no direct link to the form`);
+  const hardcoded = [];
+  for (const rel of trackedFiles) {
+    /* _data/intake.yml is the one place the address belongs. */
+    if (!/\.(html|md|yml|yaml|js|mjs|toml)$/.test(rel) || rel === "scripts/qa.mjs" || rel === "_data/intake.yml") continue;
+    const body = fs.readFileSync(path.join(ROOT, rel), "utf8");
+    if (/tally\.so\/(r|embed|forms)\/[A-Za-z0-9]{3,}/.test(body)) hardcoded.push(rel);
   }
+  assert(hardcoded.length === 0, `a Tally form address is hard-coded outside _data/intake.yml: ${hardcoded.join(", ")}`);
+  const configured = (intakeYml.match(/^tally_url:\s*"([^"]*)"/m) || [])[1] || "";
+  return configured ? `form address set: ${configured}` : "NOT YET SET — /client/intake/ shows the \"not connected yet\" notice";
 });
 
-check("Questionnaire", "Nothing is submitted to a server", () => {
-  assert(/data-questionnaire\b/.test(questionnaire), "the questionnaire form has no data-questionnaire hook");
-  assert(!/<form[^>]*\baction=/i.test(questionnaire), "the questionnaire form posts to a server");
-  assert(/Nothing you type here is sent to or stored by this website/i.test(questionnaire), "the page does not say nothing is stored");
+check("Intake", "Only a project reference travels in the address, and no Tally script is loaded", () => {
+  const js = read("assets/js/client.js");
+  assert(/\^AW-\\d\{3,4\}\$/.test(js), "client.js does not restrict ?ref= to the AW-000 shape");
+  const params = [...js.matchAll(/\.get\("([^"]+)"\)/g)].map((m) => m[1]);
+  assert(params.length === 1 && params[0] === "ref", `client.js reads address parameters other than ref: ${params.join(", ")}`);
+  assert(!/fetch\(|XMLHttpRequest|sendBeacon|localStorage|sessionStorage|document\.cookie/.test(js), "client.js transmits or stores something");
+  assert(/event\.origin !== "https:\/\/tally\.so"/.test(js), "client.js accepts messages from origins other than Tally");
+  const offenders = trackedFiles.filter((rel) => /\.(html|js)$/.test(rel) && /tally\.so\/widgets|embed\.js/.test(fs.readFileSync(path.join(ROOT, rel), "utf8")));
+  assert(offenders.length === 0, `a Tally script is loaded by: ${offenders.join(", ")}`);
+  const toml = read("netlify.toml");
+  assert(/frame-src https:\/\/tally\.so;/.test(toml), "the content security policy does not limit frames to Tally");
+  assert(/do not include anything about your own clients/i.test(intakePage), `${INTAKE} does not tell people to leave client information out`);
+  assert(/client names, session notes/i.test(intakePage), `${INTAKE} does not name what must not be sent`);
 });
 
-check("Questionnaire", "The draft notice is guarded by the approval flag, in either state", () => {
-  /* This used to assert `questionnaire_approved: false` outright, which meant
-     that approving the questionnaire — the thing the flag exists to allow —
-     failed the suite. What matters is not which state the flag is in but that
-     the notice is wired to it: unapproved shows the notice, approved removes it
-     everywhere at once, and the guard survives either way so it can be flipped
-     back. The flag itself is Alexander's to set, after reading the questions as
-     a client would. */
+check("Intake", "The retired questionnaire is gone, and its address leads to the intake", () => {
+  assert(!exists("services/practice-website-questionnaire.html"), "the retired questionnaire page is still in the published tree");
+  assert(!exists("assets/js/practice-website-questionnaire.js"), "the retired questionnaire script is still published");
+  const redirects = read("_redirects");
   assert(
-    /\{%-?\s*unless site\.data\.intake\.questionnaire_approved/.test(questionnaire),
-    "the draft notice is not guarded by site.data.intake.questionnaire_approved"
+    /^\/services\/practice-website\/questionnaire\/\s+\/client\/intake\/\s+301/m.test(redirects),
+    "the retired questionnaire route does not redirect to /client/intake/"
   );
-  assert(/\{%-?\s*endunless\s*-?%\}/.test(questionnaire), "the draft notice guard is never closed");
-  assert(/Draft questionnaire/i.test(questionnaire), "the draft notice text is missing");
-  const approved = /^questionnaire_approved:\s*true\s*$/m.test(intakeYml);
-  const draft = /^questionnaire_approved:\s*false\s*$/m.test(intakeYml);
-  assert(approved || draft, "_data/intake.yml does not declare questionnaire_approved as true or false");
-  return approved
-    ? "approved — the notice does not render"
-    : "NOT YET APPROVED — a paying client would see the draft notice on the first page after paying";
+  const robots = read("robots.txt");
+  assert(/^Disallow:\s*\/client\//m.test(robots), "robots.txt does not disallow /client/");
+  assert(!/questionnaire_approved|required_questions/.test(intakeYml), "_data/intake.yml still carries the retired questionnaire's settings");
+});
+
+check("Intake", "The photography brief carries the approved requirements and prints", () => {
+  const required = [
+    "looking towards the camera",
+    "Both portrait and landscape",
+    "Leave space around you",
+    "The room, empty",
+    "Daylight",
+    "Staged counselling scenes",
+    "anyone pretending to be a client",
+    "AI-generated",
+    "client paperwork",
+    "With a friend and a phone",
+    "With a local photographer",
+    "licensed for website and marketing use",
+    "doesn&rsquo;t mean a formal headshot",
+  ];
+  for (const phrase of required) assert(photoBrief.includes(phrase), `${PHOTO_BRIEF} is missing "${phrase}"`);
+  const css = read("assets/css/studio.css");
+  assert(/@media print[\s\S]{0,400}\.brief/.test(css), "studio.css has no print rules for the photography brief");
+  assert(/data-print/.test(photoBrief), `${PHOTO_BRIEF} has no print action`);
+  return `${required.length} requirements present`;
+});
+
+check("Intake", "The build specification and the email templates are in the repository", () => {
+  const source = "docs/operations/practice-fundamentals-intake-system.md";
+  const spec = "docs/operations/tally-intake-build-spec.md";
+  const emails = "docs/operations/client-email-templates.md";
+  for (const rel of [source, spec, emails]) assert(exists(rel), `${rel} is missing`);
+  const specBody = read(spec);
+  for (const label of ["Fact needed before publishing", "Core question", "Optional context", "Optional reference or upload"]) {
+    assert(specBody.includes(label), `${spec} does not use the label "${label}"`);
+  }
+  for (const id of ["A1", "B6", "C1", "D4", "E8", "F3", "G5", "H10", "I10", "J10", "K4", "V3", "V4", "V5"]) {
+    assert(new RegExp(`\\|\\s*${id}\\b`).test(specBody), `${spec} does not specify ${id}`);
+  }
+  assert(/hidden field/i.test(specBody) && /\bref\b/.test(specBody), `${spec} does not specify the hidden ref field`);
+  const templates = (read(emails).match(/^## Template \d+/gm) || []).length;
+  assert(templates === 11, `${emails} has ${templates} templates; expected 11`);
+  const outOfModel = /£395 (?:when|on) (?:your )?(?:website|launch)|approved? the finished website/i;
+  assert(!outOfModel.test(read(emails)), `${emails} ties the balance to the finished website`);
+  return `source, specification and ${templates} templates present`;
 });
 
 /* ------------------------------------------------------------------ *
@@ -1569,8 +1747,11 @@ check("Questionnaire", "The draft notice is guarded by the approval flag, in eit
  * ------------------------------------------------------------------ */
 
 check("Client data", "No form asks for anything about the visitor's own clients", () => {
+  /* Since the questionnaire moved to Tally, the enquiry form is the only form
+     on the site. The intake's own questions are held to the same rule in the
+     build specification, which the Intake checks above keep present. */
   const formPages = publishedSources.filter((rel) => /<form\b/i.test(publishedBodies.get(rel)));
-  assert(formPages.length >= 2, `only ${formPages.length} pages with forms found`);
+  assert(formPages.length >= 1, `only ${formPages.length} pages with forms found`);
   const banned = /(client name|clients? names?|case notes?|session notes?|case material|diagnosis|diagnoses|referral details|health (?:data|information)|patient)/i;
   const offenders = [];
   for (const rel of formPages) {
@@ -1592,20 +1773,18 @@ check("Client data", "No form asks for anything about the visitor's own clients"
   return `${formPages.length} pages with forms`;
 });
 
-check("Client data", "The questionnaire and the privacy notice both say not to send it", () => {
+check("Client data", "The intake page and the privacy notice both say not to send it", () => {
   assert(
-    /do not include anything about your own clients/i.test(questionnaire),
-    "the questionnaire does not tell people to leave client information out"
-  );
-  assert(
-    /client names, session notes/i.test(questionnaire),
-    "the questionnaire does not name what must not be sent"
+    /do not include anything about your own clients/i.test(intakePage),
+    "the intake page does not tell people to leave client information out"
   );
   const privacy = read("_pages/privacy.html");
   assert(
     /do not send client names, session notes/i.test(privacy),
     "the privacy notice does not tell people to leave client information out"
   );
+  assert(/Tally/.test(privacy), "the privacy notice does not name the intake form provider");
+  assert(/data_protection\.intake_retention/.test(privacy), "the privacy notice does not state how long intake data is kept");
 });
 
 /* ------------------------------------------------------------------ *
@@ -2025,7 +2204,9 @@ const LEGAL_FACT_KEYS = [
   ["data_protection.accounting_provider", "accounting_provider", "Privacy"],
   ["data_protection.bank", "bank", "Privacy"],
   ["data_protection.transfer_mechanism", "transfer_mechanism", "Privacy"],
+  ["data_protection.intake_provider", "intake_provider", "Privacy"],
   ["data_protection.enquiry_retention", "enquiry_retention", "Privacy"],
+  ["data_protection.intake_retention", "intake_retention", "Privacy"],
   ["data_protection.project_retention", "project_retention", "Privacy"],
   ["data_protection.statutory_retention", "statutory_retention", "Privacy"],
   ["data_protection.security_measures", "security_measures", "Privacy"],
@@ -2119,8 +2300,19 @@ check("Content", "Square-bracket placeholders appear only in the legal pages", (
     }
   }
 
+  /* Without a build, the placeholders are the legal-fact includes that still
+     carry a todo= argument for an unfilled fact. (Until 17 September 2026 this
+     check failed whenever _site was absent, contrary to the header's promise
+     that site-dependent checks skip rather than fail.) */
+  let sourcePlaceholders = 0;
+  if (!hasSite && unfilledLegalFacts.length > 0) {
+    for (const rel of LEGAL_SURFACE) {
+      if (!publishedBodies.has(rel)) continue;
+      sourcePlaceholders += (publishedBodies.get(rel).match(/include legal-fact\.html[^%]*todo=/g) || []).length;
+    }
+  }
   assert(
-    legalPlaceholders + rendered > 0,
+    legalPlaceholders + rendered + sourcePlaceholders > 0,
     "no placeholders found in the legal pages — the draft state looks wrong"
   );
   return unfilled.length

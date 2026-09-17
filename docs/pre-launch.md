@@ -14,7 +14,8 @@ the first instalment from a real therapist?
 
 **September 2026 note.** The figures below were written when the price was £995
 in two instalments of £500 and £495. Since 10 September the first three practices
-are £495, taken as **£100 to begin and £395 on approval for launch** — see
+are £495, taken as **£100 to reserve the place and £395 once the client approves
+the Practice Fundamentals, before the build** (revised 17 September 2026) — see
 `docs/founding-practices.md`. Nothing in this list changes: a smaller deposit is
 not a smaller obligation, and every item here is about being allowed to accept
 money at all rather than about how much. If anything, the first sum arriving is
@@ -152,42 +153,35 @@ unsettled is what it says about its own status.*
       defensible; not having answered before money arrives is not.
 - [ ] Read the agreement once, start to finish, as the person sending it.
 
-### 6. Questionnaire approved
-*It is the first thing a client sees after paying, and it currently carries a
-draft notice.*
+### 6. Intake form built and connected
+*Revised 17 September 2026. The Website Content Questionnaire was approved and
+then retired the same day; the intake is now a Tally form. It is the first thing
+a client uses after paying.*
 
-**10 September: two substantive corrections were made. The reading is still
-yours.**
-
-- [x] **The copy-status answer is added.** Question 7 (was 6) now offers a fourth
-      answer — *"I have not written anything yet — I would like to talk about
-      this first"* — because the three it had gave a therapist who has written
-      nothing no honest option, and the published scope excludes copywriting from
-      a blank page. The option surfaces the mismatch at intake instead of in week
-      two. It promises nothing the scope does not already say.
-- [x] **A missing question is added.** The questionnaire never asked *who do you
-      work with, and what do you offer*, which the home page promises twice that
-      the intake asks, and which is the first thing Practice Clarity needs —
-      "People" and "Practice" in the pathway on `/service/` both start there. It
-      is now question 4, phrased so that no marketing vocabulary is required. The
-      count moved 16 → 17 required in `_data/intake.yml`.
-- [x] **Read the seventeen questions once and decide they are yours.** (Approved 17 September 2026.) This is
-      the part that cannot be delegated: the document goes to a paying client
-      under your name, and two of its questions were written for you rather than
-      by you. Read question 4 and the new answer on question 7 first.
-- [x] Set `questionnaire_approved: true` in `_data/intake.yml`. The suite no
-      longer requires the flag to be `false`, so nothing else has to change with
-      it, and the draft notice disappears from the page at the same moment.
+- [ ] Create the Tally account and build the form from
+      `docs/operations/tally-intake-build-spec.md` (about 2.5 hours).
+- [ ] Run the testing checklist in section 8 of that file, on a phone and a
+      laptop, including a photo, a voice note and closing the form halfway.
+- [ ] Publish it and paste the share link into `_data/intake.yml` → `tally_url`.
+- [ ] Check `/client/intake/?ref=AW-999` shows the form and the reference.
+- [ ] Save the printable questions and the photography brief as PDFs.
+- [ ] Save the email templates and the two invoice templates
+      (`docs/operations/client-email-templates.md`).
+- [ ] Upgrade to Tally Pro on the day the first deposit arrives (upload size,
+      respondent email, partial submissions).
 
 ### 7. Privacy notice truthful
 *The notice is already published and makes statements of fact about a real
-person's data. Ten of them are currently empty brackets. It has to describe
+person's data. Twelve of them are currently empty brackets (two added for Tally
+on 17 September 2026). It has to describe
 what the Studio actually does today, not what it intends to move to.*
 
 - [ ] Name the suppliers actually in use today and how data reaches them — as
       things stand, Namecheap Private Email forwarding into a personal Gmail
       account, whatever bank receives the £500, and any bookkeeping
       arrangement in place.
+- [ ] Confirm Tally's entity and role, accept its data processing terms, and write
+      `intake_provider` and `intake_retention`.
 - [ ] Write the three retention periods, as actually operated. Enquiries are
       already decided at 12 months; project files and the statutory period are
       not. A period you write down is one you have to keep.
@@ -199,11 +193,13 @@ what the Studio actually does today, not what it intends to move to.*
 *Everything above is a document or a decision. This is the one item that tests
 whether you know what to do on the day, in what order, with which file.*
 
-- [ ] Run one fictional client end to end: enquiry → acceptance with scope and
-      price → £500 invoice → payment recorded → questionnaire → Practice
-      Clarity document and agreement → build → two rounds → final
-      approval → £495 invoice → launch → handover → first-year Care. Produce
-      the real artefacts, from the real templates.
+- [ ] Run one fictional client end to end (revised 17 September 2026): enquiry
+      with fit check → acceptance with scope and price (Template 1) → £100
+      invoice → payment recorded → intake link (Template 2) → Tally submission →
+      intake check → Practice Fundamentals (Template 6) → direction approval →
+      £395 invoice (Template 8) → payment → build → website feedback (Template
+      10) → launch approval → launch and handover (Template 11) → first-year
+      Care. Produce the real artefacts, from the real templates.
 - [ ] Fix only the gaps where you would not have known what to do. If the
       rehearsal makes you want to rebuild something, write it down and put it
       after launch.

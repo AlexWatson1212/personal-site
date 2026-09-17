@@ -48,8 +48,15 @@ data_protection:
   bank: ""
   # How personal data reaches each processor above, once they are named
   transfer_mechanism: ""
+  # The intake form provider (Tally, since 17 September 2026): its legal entity
+  # and role, once confirmed and its data processing terms accepted. Leave empty
+  # until confirmed.
+  intake_provider: ""
   # Retention periods, as actually operated
   enquiry_retention: ""
+  # How long intake answers and uploads stay in the form service, e.g.
+  # "Deleted from the form service at launch."
+  intake_retention: ""
   project_retention: ""
   statutory_retention: ""
   # Security measures actually in place. Do not describe controls not operated.

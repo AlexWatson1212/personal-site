@@ -13,10 +13,10 @@ page_js: /assets/js/contact-enquiry.js
         <p class="label">Start here</p>
         <h1 class="measure-3xs">Tell me about your practice.</h1>
         <p class="lead">
-          That is genuinely the whole brief. A few lines about who you work with and
-          roughly where the practice is up to, and I will write back with what I
-          would suggest. You do not need to know what pages, features or
-          technical setup you need &mdash; and if I am not the right person, I will say so.
+          A few lines about what you do, and five short questions, and I will write
+          back personally with what I would suggest and the next step. You do not
+          need to know what features or technical setup you need &mdash; and if I am
+          not the right person, I will say so.
         </p>
 
         {%- if site.data.purchasing.founding.active %}
@@ -38,19 +38,88 @@ page_js: /assets/js/contact-enquiry.js
 
       <div class="contact-col">
         <div class="form-panel">
-          <form class="form" data-studio-enquiry>
+          {%- comment -%}
+            17 September 2026. The enquiry now carries a five-question fit check
+            (docs/operations/practice-fundamentals-intake-system.md, "Before
+            payment"). It is still built in the browser and opened in the
+            visitor's own email app: nothing is posted, stored or processed by the
+            website. The answers are never scored and nobody is turned away by
+            them — Alexander reads every enquiry and replies personally.
+
+            `novalidate` hands validation to contact-enquiry.js, which shows a
+            summary of what is missing at the top and a message beside each field.
+            Without scripting the form cannot prepare an email at all, so the
+            plain address above remains the route.
+          {%- endcomment -%}
+          <form class="form" data-studio-enquiry novalidate>
             <div>
               <p class="label" style="margin-block-end:var(--s-2)">A useful first message</p>
               <h2 class="measure-md" style="font-size:var(--t-h3)">Your practice, and where you are up to.</h2>
-              <p class="small quiet mt-3">This opens an email in your own email app. Nothing typed here is stored by the website.</p>
+              <p class="small quiet mt-3">A few short questions, so I can tell you honestly whether I&rsquo;m the right person. There are no wrong answers. This opens an email in your own email app; nothing typed here is stored by the website.</p>
+            </div>
+
+            <div class="form-errors" data-form-errors tabindex="-1" aria-labelledby="form-errors-title" hidden>
+              <div role="alert">
+                <h3 class="form-errors__title" id="form-errors-title">A few answers are needed before your email can be prepared.</h3>
+                <ul class="form-errors__list" data-form-error-list></ul>
+              </div>
             </div>
 
             <div class="field-row">
-              <p class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></p>
-              <p class="field"><label for="f-email">Email address</label><input id="f-email" name="email" type="email" autocomplete="email" required></p>
+              <p class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required aria-describedby="f-name-error"><span class="field__error" id="f-name-error" data-error-for="name" hidden></span></p>
+              <p class="field"><label for="f-email">Email address</label><input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="f-email-error"><span class="field__error" id="f-email-error" data-error-for="email" hidden></span></p>
             </div>
 
             <input type="hidden" name="service" value="">
+
+            <div class="field field--question">
+              <label for="f-practice">What do you do, and where?</label>
+              <span class="field__hint" id="f-practice-hint">Your profession, any professional membership or registration, and whether you work in person, online or both.</span>
+              <textarea id="f-practice" name="practice" rows="3" required aria-describedby="f-practice-hint f-practice-error"></textarea>
+              <span class="field__error" id="f-practice-error" data-error-for="practice" hidden></span>
+            </div>
+
+            <fieldset class="field field--question" aria-describedby="f-onepage-hint f-onepage-error">
+              <legend>Would a single, carefully designed page give you what you need for now?</legend>
+              <span class="field__hint" id="f-onepage-hint">It can include who you are, how you work, fees, practical information and an enquiry form.</span>
+              <span class="field__error" id="f-onepage-error" data-error-for="onePage" hidden></span>
+              <div class="choices">
+                <label class="check" for="f-onepage-yes"><input id="f-onepage-yes" type="radio" name="onePage" value="Yes" required><span>Yes</span></label>
+                <label class="check" for="f-onepage-advice"><input id="f-onepage-advice" type="radio" name="onePage" value="I think so, but I&rsquo;d like your advice"><span>I think so, but I&rsquo;d like your advice</span></label>
+                <label class="check" for="f-onepage-no"><input id="f-onepage-no" type="radio" name="onePage" value="No, I need additional pages or functionality" aria-controls="f-onepage-more-wrap" data-reveals="f-onepage-more-wrap"><span>No, I need additional pages or functionality</span></label>
+              </div>
+              <div class="field field--question field--conditional" id="f-onepage-more-wrap" data-conditional>
+                <label for="f-onepage-more">What would you need beyond one page?</label>
+                <span class="field__hint" id="f-onepage-more-hint">For example several pages, online booking or a blog. A rough idea is plenty.</span>
+                <textarea id="f-onepage-more" name="onePageNeeds" rows="3" aria-describedby="f-onepage-more-hint f-onepage-more-error"></textarea>
+                <span class="field__error" id="f-onepage-more-error" data-error-for="onePageNeeds" hidden></span>
+              </div>
+            </fieldset>
+
+            <fieldset class="field field--question" aria-describedby="f-domain-error">
+              <legend>Do you already own a domain name?</legend>
+              <span class="field__error" id="f-domain-error" data-error-for="domain" hidden></span>
+              <div class="choices">
+                <label class="check" for="f-domain-yes"><input id="f-domain-yes" type="radio" name="domain" value="Yes, and I can access the account" required><span>Yes, and I can access the account</span></label>
+                <label class="check" for="f-domain-unsure"><input id="f-domain-unsure" type="radio" name="domain" value="Yes, but I&rsquo;m unsure about access"><span>Yes, but I&rsquo;m unsure about access</span></label>
+                <label class="check" for="f-domain-no"><input id="f-domain-no" type="radio" name="domain" value="No"><span>No</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="field field--question" aria-describedby="f-photos-error">
+              <legend>Do you have recent photographs of yourself, or could you arrange some within approximately two weeks?</legend>
+              <span class="field__error" id="f-photos-error" data-error-for="photos" hidden></span>
+              <div class="choices">
+                <label class="check" for="f-photos-yes"><input id="f-photos-yes" type="radio" name="photos" value="Yes" required><span>Yes</span></label>
+                <label class="check" for="f-photos-arrange"><input id="f-photos-arrange" type="radio" name="photos" value="I could arrange them"><span>I could arrange them</span></label>
+                <label class="check" for="f-photos-unsure"><input id="f-photos-unsure" type="radio" name="photos" value="I&rsquo;m not sure"><span>I&rsquo;m not sure</span></label>
+              </div>
+            </fieldset>
+
+            <div class="field field--question">
+              <label for="f-date">Is there a particular date you need the website by? <span class="opt">Optional</span></label>
+              <input id="f-date" name="neededBy" autocomplete="off">
+            </div>
 
             <p class="field">
               <label for="f-site">Current website, if you have one</label>
@@ -58,9 +127,9 @@ page_js: /assets/js/contact-enquiry.js
             </p>
 
             <p class="field">
-              <label for="f-message">Your practice, and where you are up to</label>
-              <textarea id="f-message" name="message" rows="6" required></textarea>
-              <span class="field__hint">A couple of lines is plenty. Who you work with, anything in the work you particularly liked, and whether your words are mostly ready, rough notes, or somewhere in between.</span>
+              <label for="f-message">Anything else you&rsquo;d like me to know <span class="opt">Optional</span></label>
+              <textarea id="f-message" name="message" rows="4" aria-describedby="f-message-hint"></textarea>
+              <span class="field__hint" id="f-message-hint">Who you work with, anything in the work you particularly liked, or a question. A couple of lines is plenty.</span>
             </p>
 
             <button type="submit" class="btn">Prepare my enquiry email<span class="btn__arrow" aria-hidden="true">&rarr;</span></button>
@@ -82,8 +151,13 @@ page_js: /assets/js/contact-enquiry.js
               already there and you can send it. If it did not &mdash; and with webmail
               it often does not &mdash; copy it from here instead.
             </p>
+            <p class="small quiet">
+              Once it arrives, I read it myself and reply within two working days with
+              the next step. Nothing is booked until I have accepted the project in
+              writing and the {{ site.data.purchasing.deposit_display }} deposit has been paid.
+            </p>
             <label class="sr-only" for="f-prepared">Your prepared enquiry</label>
-            <textarea id="f-prepared" class="fallback__text" data-form-prepared rows="9" readonly></textarea>
+            <textarea id="f-prepared" class="fallback__text" data-form-prepared rows="14" readonly></textarea>
             <div class="fallback__actions">
               <button type="button" class="btn btn--quiet" data-form-copy>Copy the message</button>
               <a class="tlink" href="mailto:hello@alexanderwatson.co.uk">hello@alexanderwatson.co.uk <span aria-hidden="true">&rarr;</span></a>
@@ -112,7 +186,8 @@ page_js: /assets/js/contact-enquiry.js
       <dl class="facts">
         <div><dt>You will hear back within two working days</dt><dd>From me, not from an automatic reply. Monday to Friday, excluding English bank holidays.</dd></div>
         <div><dt>If I am not the right person, I will say so</dt><dd>Plainly, and with a reason. An enquiry commits you to nothing, and there is no follow-up if you decide against it.</dd></div>
-        <div><dt>Nothing is agreed until it is agreed in writing</dt><dd>The scope and the price are confirmed in writing before anything is payable. <a class="inline-link" href="{{ '/services/practice-website/' | relative_url }}">Read the whole scope</a>.</dd></div>
+        <div><dt>Nothing is agreed until it is agreed in writing</dt><dd>The scope and the price are confirmed in writing before anything is payable, and nothing is booked until the {{ site.data.purchasing.deposit_display }} deposit is paid. <a class="inline-link" href="{{ '/services/practice-website/' | relative_url }}">Read the whole scope</a>.</dd></div>
+        <div><dt>The questions are not a test</dt><dd>Nobody is turned away by an answer. They tell me what to ask next, and whether one page suits what you need.</dd></div>
         {%- if site.data.purchasing.founding.active %}
         <div><dt>If you want one of the three founding places</dt><dd>Say so when you write and I will tell you in my reply whether they are still open, before you have decided anything.</dd></div>
         {% endif -%}

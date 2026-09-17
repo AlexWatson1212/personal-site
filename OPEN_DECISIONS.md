@@ -19,10 +19,18 @@ checkout.
 
 ---
 
-## 1. RESOLVED — the Website Content Questionnaire
+## 1. RESOLVED, THEN RETIRED — the Website Content Questionnaire
 
-**17 September 2026.** Approved as the current questionnaire (version 1.0,
-`questionnaire_approved: true`). The history below is kept as a record.
+**17 September 2026 (later the same day): retired.** The intake is now the
+Tally form described in `docs/operations/practice-fundamentals-intake-system.md`
+and built from `docs/operations/tally-intake-build-spec.md`, opened from the
+private page `/client/intake/`. The questionnaire's route redirects there, and
+its files are in `_legacy/practice-website-questionnaire-2026-09/`.
+`questionnaire_approved` and the question counts were removed from
+`_data/intake.yml`.
+
+**Earlier on 17 September 2026:** approved as the current questionnaire (version
+1.0). The history below is kept as a record.
 
 **State.** The brief describes an approved intake of 15 required questions and
 7 optional ones. That questionnaire is not in this project — not in the pages,
@@ -90,6 +98,30 @@ agree.
 ---
 
 ## 3. RESOLVED — the offer structure and the payment model
+
+**17 September 2026 — the Practice Fundamentals Intake System. This supersedes
+the balance milestone described in the September (10th) note below.**
+
+- **Founding:** £100 to reserve the place; **£395 once the client approves the
+  Practice Fundamentals and visual direction, before the build**. The build begins
+  only once the balance is paid.
+- **Standard (£995), when the founding offer closes:** **£500 to begin; £495 after
+  approving the Practice Fundamentals, before the build.** The same shape as the
+  founding schedule. Not published while the founding offer is open, for the
+  reason in point 2 below. When it is published, add £500 to `APPROVED_PRICES` in
+  `scripts/qa.mjs`.
+- **Clause 11** now defines direction approval (which triggers the balance) and
+  still bounds launch approval (ten working days, within the agreed scope).
+- **Scope:** one complete responsive page, the 11-page Practice Fundamentals, two
+  feedback stages, technical Website Care. `DECISION-REGISTER.md` is the current
+  statement.
+- **Accepted risk:** the deposit does not cover the Fundamentals work if a client
+  withdraws after receiving it.
+- **Still open, for a solicitor:** the deposit position when a client withdraws
+  after the Fundamentals and before approval; the use of the draft identity if
+  they do; and what happens if the direction reply never comes (currently the
+  dormancy clause). See `LEGAL-INFORMATION-REQUIRED.md` and the final report of
+  17 September 2026.
 
 **September 2026 (10th) — the founding practices. READ THIS BEFORE CHANGING ANY
 PRICE.** The first three real practices pay **£495**; the price is **£995** after
@@ -254,7 +286,8 @@ international transfers, retention and security — with `[square bracket]`
 placeholders where a real answer is needed rather than a plausible one.
 
 **Decision needed.** The actual email, file storage and accounting providers;
-the retention periods actually operated; the transfer mechanism each supplier
+the intake form provider's entity and role (Tally) and how long intake data stays
+in it; the retention periods actually operated; the transfer mechanism each supplier
 relies on; and the security controls genuinely in place.
 
 **Then.** Do not describe a control that is not operated. A privacy policy that
@@ -263,11 +296,16 @@ not an aspiration.
 
 ---
 
-## 9. Where enquiry and questionnaire submissions should go
+## 9. Where enquiry submissions should go
 
-**State.** Both the enquiry form and the questionnaire assemble their content in
-the visitor's own browser and hand it back as text to copy or open in their own
-email client. Nothing is transmitted to or stored by this website. That is
+**17 September 2026.** The intake question is settled: it is a Tally form
+(processor named in the privacy notice). The enquiry stays browser-built — no
+Netlify Forms, no backend, no spam processing, no storage — by decision, and now
+carries the five-question fit check in its email.
+
+**State.** The enquiry form assembles its content in the visitor's own browser
+and hands it back as text to copy or open in their own email client. Nothing is
+transmitted to or stored by this website. That is
 honest, private and costs nothing — and it is also friction, and some people
 will abandon at that step.
 

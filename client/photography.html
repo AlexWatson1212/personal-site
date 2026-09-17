@@ -1,0 +1,99 @@
+---
+layout: default
+title: Photographs for your website
+description: A one-page photography brief for Practice Identity & Website clients — what to photograph, how it should look, what to avoid, and how to do it with a friend or a photographer.
+permalink: /client/photography/
+page_js: /assets/js/client.js
+noindex: true
+sitemap: false
+---
+
+{%- comment -%}
+  17 September 2026. The photography brief from the approved source,
+  docs/operations/practice-fundamentals-intake-system.md ("Photography brief").
+  Unlisted and noindex, like /client/intake/. Designed to print on one A4 page
+  (see "Client pages" in assets/css/studio.css), so a client can save it as a
+  PDF from the print dialog. Two short additions beyond the source are marked
+  in the implementation report: confidential paperwork and screens in the
+  "avoid" list, and a line on permission when a friend takes the photographs.
+{%- endcomment -%}
+
+{%- assign cfg = site.data.purchasing -%}
+
+<article class="brief">
+  <section class="band band--sm on-paper brief__head">
+    <div class="wrap--mid">
+      <p class="label">Practice Identity &amp; Website &middot; Photography brief</p>
+      <h1 class="measure-2xs">Photographs for your website</h1>
+      <p class="lead brief__lead">
+        Two kinds of photograph do most of the work: a natural photo of you, and, if
+        you see people in person, the room they&rsquo;d walk into. They should feel
+        like a real moment rather than a formal headshot.
+      </p>
+      <p class="brief__print-action">
+        <button type="button" class="btn btn--quiet" data-print hidden>Print or save as PDF</button>
+      </p>
+    </div>
+  </section>
+
+  <section class="band band--sm on-paper brief__body">
+    <div class="wrap--mid prose brief__prose">
+      <section class="brief__part" aria-labelledby="what-i-need">
+        <h2 id="what-i-need">What I need</h2>
+        <ol>
+          <li><strong>You, naturally.</strong> At least 8&ndash;10 usable variations, several of them looking towards the camera and some looking away. &ldquo;Natural&rdquo; means relaxed, well lit and easy to read. It doesn&rsquo;t mean a formal headshot, or a blurred or awkward snapshot.</li>
+          <li><strong>You where you work.</strong> A few frames of you in the room or place you work, doing something ordinary.</li>
+          <li><strong>The room, empty</strong> (if you see people in person). 3&ndash;4 angles, including the view from the chair a client would sit in. Tidy but lived-in.</li>
+        </ol>
+      </section>
+
+      <section class="brief__part" aria-labelledby="how-they-should-look">
+        <h2 id="how-they-should-look">How they should look</h2>
+        <ul>
+          <li>Daylight. Near a window, mid-morning or early afternoon. Turn the overhead lights off. No flash.</li>
+          <li>Sharp focus on your eyes, and a steady camera.</li>
+          <li>Both portrait and landscape versions of each set.</li>
+          <li>Leave space around you. Step back rather than cropping close, so the photo can sit beside text and be cropped for phones.</li>
+          <li>The camera at roughly eye level, or at seated height for the room.</li>
+          <li>Wear what you&rsquo;d wear to see clients. Plain fabrics or soft patterns (fine stripes shimmer on screens).</li>
+        </ul>
+      </section>
+
+      <section class="brief__part" aria-labelledby="please-avoid">
+        <h2 id="please-avoid">Please avoid</h2>
+        <ul>
+          <li>Staged counselling scenes, or anyone pretending to be a client.</li>
+          <li>Generic &ldquo;therapy&rdquo; props: a centred tissue box, a clipboard, a notepad on the knee.</li>
+          <li>Forced smiles, or corporate headshot poses (unless that genuinely is you).</li>
+          <li>Anything identifying: street views you&rsquo;d rather keep private, notices, diaries, post, other people&rsquo;s belongings, and any client paperwork, notes or screens.</li>
+          <li>Stock or AI-generated images of &ldquo;a therapist&rdquo;.</li>
+        </ul>
+      </section>
+
+      <section class="brief__part" aria-labelledby="with-a-friend">
+        <h2 id="with-a-friend">With a friend and a phone <span class="brief__aside">(about 30 minutes)</span></h2>
+        <ol>
+          <li>Use the back camera of a reasonably recent phone, not the selfie camera, and wipe the lens.</li>
+          <li>Have your friend stand 2&ndash;3 metres away and use the 2&times; lens. Wide lenses distort faces up close.</li>
+          <li>Talk while they shoot. Tell them about your week. Look away, then back. Real expressions happen between poses.</li>
+          <li>Take lots, a hundred is normal. Send me your 20&ndash;30 favourites unedited, at full size, via a shared folder or file-transfer link. Not WhatsApp, which shrinks them.</li>
+        </ol>
+        <p>Ask your friend to confirm in a message that you may use the photographs on your website and in your practice materials.</p>
+      </section>
+
+      <section class="brief__part" aria-labelledby="with-a-photographer">
+        <h2 id="with-a-photographer">With a local photographer</h2>
+        <p>
+          Ask for &ldquo;natural-light portraits at my workplace, about an hour, 15&ndash;25
+          edited images, licensed for website and marketing use&rdquo;. Send them this
+          page. Get the licence confirmed in writing, and make sure it covers the website
+          and any future printed materials.
+        </p>
+      </section>
+
+      <p class="brief__foot small quiet">
+        Questions about any of this: {{ cfg.support_email }}
+      </p>
+    </div>
+  </section>
+</article>

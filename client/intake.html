@@ -1,0 +1,212 @@
+---
+layout: default
+title: Your intake form
+description: The private intake form for a Practice Identity & Website project, sent to clients once their place is reserved. Not listed on the site.
+permalink: /client/intake/
+page_js: /assets/js/client.js
+noindex: true
+sitemap: false
+---
+
+{%- comment -%}
+  17 September 2026. The private page that opens the Practice Fundamentals
+  intake, a Tally form. Unlisted: nothing on the public site links here, and the
+  page is kept out of search four ways (noindex meta via `noindex: true`,
+  `sitemap: false`, a robots.txt Disallow for /client/, and an X-Robots-Tag
+  header from netlify.toml).
+
+  The form address is ONE value, `tally_url` in _data/intake.yml. While it is
+  empty the page shows a calm "not connected yet" notice. A tally.so/r/ link is
+  embedded (the embed address is derived from it) and also offered as a button;
+  any other https address is offered as a button only.
+
+  The project reference arrives as ?ref=AW-001. /assets/js/client.js accepts
+  only that shape and adds it to the form address so it fills the form's hidden
+  `ref` field. Nothing personal is ever put in the address.
+
+  The questions themselves are not on this page. They live in Tally, built from
+  docs/operations/tally-intake-build-spec.md.
+{%- endcomment -%}
+
+{%- assign intake = site.data.intake -%}
+{%- assign cfg = site.data.purchasing -%}
+{%- assign tally_url = intake.tally_url | default: "" | strip -%}
+{%- assign tally_scheme = tally_url | slice: 0, 8 -%}
+{%- assign tally_ready = false -%}
+{%- if tally_scheme == "https://" and tally_url contains "." -%}{%- assign tally_ready = true -%}{%- endif -%}
+{%- assign tally_embed = "" -%}
+{%- if tally_ready and tally_url contains "https://tally.so/r/" -%}
+  {%- assign tally_id = tally_url | split: "tally.so/r/" | last | split: "?" | first | split: "#" | first | split: "/" | first | strip -%}
+  {%- if tally_id != "" -%}
+    {%- capture tally_embed -%}https://tally.so/embed/{{ tally_id | uri_escape }}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1{%- endcapture -%}
+  {%- endif -%}
+{%- endif -%}
+
+<section class="band band--sm on-paper">
+  <div class="wrap">
+    <div class="split split--wide-left align-end">
+      <div class="stack stack--loose">
+        <p class="label">Practice Identity &amp; Website</p>
+        <h1 class="measure-2xs">Your intake form.</h1>
+      </div>
+      <div class="stack stack--loose">
+        <p class="lead">
+          Thank you for reserving your place. This form is where I learn about your
+          practice, and everything I make for you starts from what you tell me here.
+        </p>
+        <p class="small quiet" data-intake-ref hidden>
+          Your project reference is <b data-intake-ref-value></b>. It is added to the
+          form for you, so there is nothing to copy.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--sm on-paper-deep" aria-labelledby="before-you-start">
+  <div class="wrap">
+    <div class="split split--wide-left">
+      <div>
+        <p class="label">Before you start</p>
+        <h2 class="measure-2xs" id="before-you-start">Four things worth knowing.</h2>
+      </div>
+      <div class="stack stack--loose">
+        <dl class="facts">
+          <div>
+            <dt>Rough notes are welcome</dt>
+            <dd>Bullet points, half-formed thoughts and voice notes are all useful, and often more useful than finished sentences, because they sound like you. Nothing needs to be polished.</dd>
+          </div>
+          <div>
+            <dt>The facts need to be exact</dt>
+            <dd>Questions labelled <b>Fact needed before publishing</b> cover what your website will state as fact: fees, qualifications, memberships, access and similar. Please check each one. &ldquo;I don&rsquo;t know yet&rdquo; is a perfectly good answer, and I will never fill a gap with a guess.</dd>
+          </div>
+          <div>
+            <dt>You don&rsquo;t have to answer everything</dt>
+            <dd><b>Core question</b> marks the seven questions that help me most; please answer at least four of them, typed or as a voice note. Anything labelled <b>Optional context</b> or <b>Optional reference or upload</b> is an invitation, not a requirement.</dd>
+          </div>
+          <div>
+            <dt>Take as many sittings as you like</dt>
+            <dd>It usually takes 60 to 90 minutes in total. Your answers are saved as you go, as long as you come back on the same device and in the same browser, and not in a private window.</dd>
+          </div>
+        </dl>
+
+        <div class="notice" role="note">
+          <p>
+            <strong>Please do not include anything about your own clients.</strong>
+            No client names, session notes, initials, or details that could identify
+            a current or former client, even to themselves &mdash; not in your answers,
+            your files or your voice notes. Where a question asks about the people you
+            work with, describe patterns, never individuals.
+          </p>
+          <p>
+            Please don&rsquo;t share information about your own health either, unless
+            you want it taken into account.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--sm on-paper" aria-labelledby="the-form">
+  <div class="wrap">
+    <div class="spread mb-6">
+      <div class="spread__aside"><p class="label">The form</p></div>
+      <div class="spread__body">
+        <h2 class="measure-sm" id="the-form">Answer in whatever way is easiest.</h2>
+      </div>
+    </div>
+
+    {%- if tally_ready %}
+    <div class="intake" data-intake data-intake-embed="{{ tally_embed | escape }}">
+      <div class="intake__open">
+        <a class="btn" href="{{ tally_url | escape }}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" data-intake-link>Open the form in a new tab<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+        <p class="small quiet">
+          {%- if tally_embed != "" %}
+          The same form is below. Open it on its own if it doesn&rsquo;t appear, or if you would like more room.
+          {%- else %}
+          The form opens on its own page. Your answers are saved there as you go.
+          {%- endif %}
+        </p>
+      </div>
+      {%- if tally_embed != "" %}
+      <div class="intake__frame" data-intake-frame hidden>
+        <iframe title="{{ intake.form_title | default: 'Practice Fundamentals intake' | escape }}" data-intake-iframe
+                width="100%" height="1100" loading="lazy" referrerpolicy="no-referrer"></iframe>
+      </div>
+      {%- endif %}
+    </div>
+    {%- else %}
+    <div class="notice" data-intake-state="not-connected">
+      <p><strong>The form isn&rsquo;t connected to this page yet.</strong></p>
+      <p>
+        Nothing is lost, and there is nothing you need to do. Please email
+        <a class="inline-link" href="mailto:{{ cfg.support_email }}">{{ cfg.support_email }}</a>
+        and I will send you the form directly.
+      </p>
+    </div>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="band band--sm on-sage" aria-labelledby="photographs">
+  <div class="wrap">
+    <div class="split split--wide-left">
+      <div>
+        <p class="label">Photographs</p>
+        <h2 class="measure-2xs" id="photographs">Worth starting now.</h2>
+      </div>
+      <div class="stack stack--loose">
+        <p class="quiet">
+          The most common delay is waiting for photographs. The minimum is a natural
+          photograph of you, with several usable variations (at least one looking
+          towards the camera), and the room you work in if you see people in person.
+          If you don&rsquo;t have these yet, arranging them while you fill in the form
+          keeps everything moving.
+        </p>
+        <p><a class="tlink" href="{{ cfg.urls.photography | relative_url }}">Read the one-page photography brief <span aria-hidden="true">&rarr;</span></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--sm on-paper" aria-labelledby="what-happens-next">
+  <div class="wrap">
+    <div class="spread mb-6">
+      <div class="spread__aside"><p class="label">What happens next</p></div>
+      <div class="spread__body"><h2 class="measure-sm" id="what-happens-next">Everything after this is in writing.</h2></div>
+    </div>
+    <ol class="step-list">
+      <li><b>I read everything</b><span>Within two working days of receiving the form. If anything is unclear, you&rsquo;ll get one short message of questions.</span></li>
+      <li><b>Your Practice Fundamentals</b><span>About a week later: your words, your practical facts, your visual identity, and a working preview of your website&rsquo;s opening screen.</span></li>
+      <li><b>You approve the direction</b><span>You check the facts and either approve the direction or send one set of adjustments. This is the first of two feedback stages.</span></li>
+      <li><b>The build</b><span>Once you&rsquo;ve approved it, I send the {{ cfg.balance_display }} balance invoice, and I build the website when it&rsquo;s paid.</span></li>
+      <li><b>Review and launch</b><span>You send one set of feedback on the built website. Then I make the corrections, connect your domain and launch.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band band--sm on-paper-deep" aria-labelledby="your-information">
+  <div class="wrap">
+    <div class="split split--wide-left">
+      <div>
+        <p class="label">Your information</p>
+        <h2 class="measure-2xs" id="your-information">Where your answers go.</h2>
+      </div>
+      <div class="stack stack--loose">
+        <p class="quiet">
+          The form is provided by Tally, an online form service, which holds what you
+          enter and upload on my behalf. I copy your answers and files into your
+          project folder and use them only for your project. Who Tally is, how long
+          intake answers are kept and what you can ask me to do with them are set out
+          in the <a class="inline-link" href="{{ cfg.urls.privacy | relative_url }}">privacy notice</a>.
+        </p>
+        <p class="small quiet">
+          Your project runs under the
+          <a class="inline-link" href="{{ cfg.urls.service_terms | relative_url }}">service terms</a>.
+          Questions about any of it: <a class="inline-link" href="mailto:{{ cfg.support_email }}">{{ cfg.support_email }}</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
