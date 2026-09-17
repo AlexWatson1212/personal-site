@@ -19,7 +19,10 @@ checkout.
 
 ---
 
-## 1. The approved Website Content Questionnaire is missing — BLOCKS INTAKE
+## 1. RESOLVED — the Website Content Questionnaire
+
+**17 September 2026.** Approved as the current questionnaire (version 1.0,
+`questionnaire_approved: true`). The history below is kept as a record.
 
 **State.** The brief describes an approved intake of 15 required questions and
 7 optional ones. That questionnaire is not in this project — not in the pages,

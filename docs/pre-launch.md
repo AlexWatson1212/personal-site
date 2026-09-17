@@ -171,11 +171,11 @@ yours.**
       "People" and "Practice" in the pathway on `/service/` both start there. It
       is now question 4, phrased so that no marketing vocabulary is required. The
       count moved 16 → 17 required in `_data/intake.yml`.
-- [ ] **Read the seventeen questions once and decide they are yours.** This is
+- [x] **Read the seventeen questions once and decide they are yours.** (Approved 17 September 2026.) This is
       the part that cannot be delegated: the document goes to a paying client
       under your name, and two of its questions were written for you rather than
       by you. Read question 4 and the new answer on question 7 first.
-- [ ] Set `questionnaire_approved: true` in `_data/intake.yml`. The suite no
+- [x] Set `questionnaire_approved: true` in `_data/intake.yml`. The suite no
       longer requires the flag to be `false`, so nothing else has to change with
       it, and the draft notice disappears from the page at the same moment.
 

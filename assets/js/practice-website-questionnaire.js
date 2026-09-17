@@ -22,7 +22,7 @@
       ["name", "Name"],
       ["email", "Email address"],
       ["practiceName", "Practice name"],
-      ["practiceAndPeople", "Who they work with, and what they offer"]
+      ["practiceAndPeople", "Who they work with, how they work, and what they offer"]
     ]],
     ["Chosen design", [
       ["design", "Design"],

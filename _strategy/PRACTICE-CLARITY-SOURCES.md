@@ -31,12 +31,14 @@ typography and layout are untouched.
 
 The one-page Direction Note is retired. A client receives their own Practice
 Clarity document, in the same structure as these Blueprints, and agrees it
-before design. That makes the "pending correction" below matter for real
-clients rather than only for the portfolio: **the client template's approval
-page must say one consolidated round of revision** (clause 7 of the service
-terms), not two. The portfolio note's wording ("appears only in portfolio
-editions") is now accurate as it stands, so correction 2 below is no longer
-needed.
+before design. **Correction 1 below is DONE (17 September 2026)** in the three published
+PDFs and their three PDF sources here: the approval page now reads "One
+consolidated round of revision is included at this stage." The line was
+rewritten in the PDF content stream using glyphs already embedded in each
+file; only that line changed (checked by rendering every page before and
+after). The client template outside this repository must say the same. The
+portfolio note's wording ("appears only in portfolio editions") is accurate as
+it stands, so correction 2 is no longer needed.
 
 ## 16 September 2026 — three are published, three archived
 

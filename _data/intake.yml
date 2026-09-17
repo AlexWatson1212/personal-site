@@ -26,7 +26,11 @@
 #                                 Alexander sets this himself, after reading the
 #                                 implemented questionnaire as a client would.
 # ─────────────────────────────────────────────────────────────────────────────
-questionnaire_approved: false
-questionnaire_version: "0.2 draft"
+# 17 September 2026: approved on Alexander's instruction after a consistency
+# check against the simplified process (questionnaire → Practice Clarity → one
+# revision → agreement → website). Question 4 now also asks how the therapist
+# works, which the Practice Clarity document needs; nothing else was added.
+questionnaire_approved: true
+questionnaire_version: "1.0"
 required_questions: 17
 optional_questions: 4

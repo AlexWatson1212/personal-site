@@ -44,6 +44,11 @@ and the QA suite checks that an empty value still shows as empty.
 | 9 | `data_protection.project_retention` | How long project files and correspondence are kept | Privacy |
 | 10 | `data_protection.statutory_retention` | The statutory record-keeping period for your legal form | Privacy |
 | 11 | `data_protection.security_measures` | The security measures actually operated — do not describe controls you do not run | Privacy |
+| 12 | `data_protection.bank` | The bank that receives client payments (named in the privacy notice as an independent controller) | Privacy |
+
+> **17 September 2026 check:** ten facts are still empty — #2, #4–#12. The QA
+> suite reports the same ten. They are the only thing between the site and
+> taking a first £100.
 
 ### On #2, the address
 
