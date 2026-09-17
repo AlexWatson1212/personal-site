@@ -2,10 +2,11 @@
   const form = document.querySelector("[data-studio-enquiry]");
   if (!form) return;
 
-  /* Arriving from a direction card or from the purchase page carries context
-     in the query string. The design is a real question on the form; the
-     service is not, so it rides along hidden rather than asking somebody to
-     choose a route before they have spoken to anyone. */
+  /* Arriving from the purchase page carries context in the query string; it
+     rides along hidden rather than asking somebody to choose a route before
+     they have spoken to anyone. Since September 2026 the form no longer asks
+     which case study somebody prefers — a client is not choosing one of them —
+     so there is no design field and the design line is left out. */
   const params = new URLSearchParams(window.location.search);
   const design = params.get("design");
   const service = params.get("service");
@@ -19,7 +20,7 @@
     const body = [
       "Name: " + (data.get("name") || ""),
       "Email: " + (data.get("email") || ""),
-      "Design: " + (data.get("design") || "Not sure yet"),
+      data.get("design") ? "Design: " + data.get("design") : "",
       "Current website: " + (data.get("currentWebsite") || "None"),
       context ? "Came from: " + context : "",
       "",

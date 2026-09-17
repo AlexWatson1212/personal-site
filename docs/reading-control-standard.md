@@ -94,7 +94,7 @@ concept that does not have one is not thereby out of date.
 
 ## Where it lands in the process
 
-- **Direction Note.** Named as included, with one line on where it will sit and
+- **Practice Clarity document** (formerly the Direction Note). Named as included, with one line on where it will sit and
   what it will be called in this practice's language.
 - **Build.** Implemented and tested at every text-size step, in the calm mode,
   and with the preference already stored on a return visit.

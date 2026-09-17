@@ -1,115 +1,95 @@
 # Product terminology — the words the site uses, and the only ones it uses
 
-Alexander Watson Studio · internal · 13 September 2026
+Alexander Watson Studio · internal · written 13 September 2026 · **simplified 17 September 2026**
 
 **Not published.** `docs` is in the `exclude` list in `_config.yml`.
 
-This file exists because the Sofia Marin implementation changed what the studio
-delivers, and the fastest way to lose the value of that change is to describe it
-five different ways on five different pages. One name per thing. Where a page
-needs to say it differently, it is wrong, not the name.
+One name per thing. Where a page needs to say it differently, the page is wrong,
+not the name. The current commercial facts are in `DECISION-REGISTER.md`; this
+file only fixes the words.
 
 ---
 
 ## 1. The product
 
-**Practice Identity & Website.**
+**Practice Identity & Website.** Written with an ampersand (`&amp;` in HTML body
+copy, a bare `&` in front matter and JSON-LD). It replaced **Therapist Website**,
+which stays retired and is guarded in `scripts/qa.mjs`.
 
-Written with an ampersand. In HTML body copy it is `&amp;`; in front matter and
-in JSON-LD it is a bare `&`. It replaces **Therapist Website**, which is now a
-retired name and is guarded against in `scripts/qa.mjs` under
-*Product scope → The website-only description of the offer has not come back*.
+In running copy the thing a client buys is simply *a website built from Practice
+Clarity*. The product name is used where a name is needed (the price, the scope
+page, the terms); the explanation leads with the website and the method, not
+with "identity".
 
-The route is unchanged: `/services/practice-website/`. A URL slug is plumbing.
-Changing it would cost a redirect, a route-table edit, a breadcrumb, the
-purchasing URLs and every existing link, and would buy a customer nothing.
+The route is unchanged: `/services/practice-website/`.
 
-## 2. The four stages
+## 2. The four stages (public)
 
 One piece of work in four stages, sold once. The client is never asked which of
-them they need — that judgement is the studio's and it is most of what the price
-pays for.
+them they need.
 
-| Stage | Name | What it settles |
+| # | Name | What happens |
 | --- | --- | --- |
-| 1 | **Practice Clarity** | What the practice stands for, who it is for, what it should say, and what it is not |
-| 2 | **Practice Identity** | The words, then the look. Both follow from stage 1 |
-| 3 | **The website** | The identity applied, built, launched and cared for |
-| 4 | **Yours to keep** | The identity written down, with the files, in the client's name |
+| 1 | **Practice Clarity** | The intake is worked into a Practice Clarity document: who the practice is for, how the therapist works, how it should sound, what a visitor needs to understand, what the website has to do |
+| 2 | **Agree the direction** | The therapist reads it; it is refined (one consolidated revision); nothing is designed until both agree |
+| 3 | **Visual direction and website** | Typography, colour, how the name is set, image direction where needed — then the website, up to five pages |
+| 4 | **Refine and launch** | Two consolidated rounds, written approval, launch, handover, the first year of Website Care |
 
-Stage 2 has two halves and they are always named in this order: **the words**
-(position, descriptions at usable lengths, vocabulary, language to avoid) and
-then **the look** (typography, colour, wordmark). The words come first because
-they are the half a therapist can immediately recognise as their problem.
+Production contains more steps than this. The public explanation does not.
 
-Stage 4 is **"Yours to keep"** everywhere. Not "the toolkit", not "the handover
-pack", not "your brand kit". `#yours-to-keep` on `/service/`, `#keep` on the
-published scope page.
+**Retired on 17 September 2026:** the previous four stages (*Practice Clarity →
+Practice Identity → the website → Yours to keep*) and the first step "name the
+one you keep returning to". A client is not choosing Sofia, Maya or Daniel.
+"Yours to keep" survives only as the name of the handover section
+(`#yours-to-keep` on `/service/`, `#keep` on the scope page).
 
-## 3. The document
+## 3. The documents a client receives
 
-**Practice Identity Guide.** Singular, capitalised, no page count anywhere on
-the site — the evidence on `/work/sofia-marin/` renders from
-`_data/identity_evidence.yml` precisely so the document can be reorganised
-without the page being touched.
+- **Practice Clarity document** — the client's own version of the document
+  published with each case study (those are titled *Practice Clarity
+  Blueprint*). It is what the client reads, corrects and agrees.
+- **Identity guide** — short, lower case, no page count: the visual decisions
+  and how to use them.
+
+**Retired:** *Direction Note* (the one-page approval note — the client now
+receives the Practice Clarity document itself) and *Practice Identity Guide* as
+a named, extensive deliverable.
 
 ## 4. Words the site may not use
 
-Three sets, and all three are enforced by `npm test`.
+Enforced by `npm test`.
 
-**Banned already, and unchanged:** *package*, *bundle*, *upgrade*, "two routes /
-options / tiers", "unlimited revisions". These rebuild the retired tier
-structure.
+- **Tier language:** *package*, *bundle*, *upgrade*, "two routes / options /
+  tiers", "unlimited revisions".
+- **The old name:** "Therapist Website".
+- **Open-ended promises:** "unlimited templates/design/applications", "ongoing
+  design support", "everything you need", "all your marketing materials", "any
+  printed item".
+- **The retired identity package:** letterhead, email signature, business card,
+  supplier briefs.
+- **The retired approval note:** "Direction Note".
+- **Portfolio counting:** anything that counts the collection as six.
 
-**Retired by this change:** "Therapist Website", "a visual identity for the
-website", "brand guidelines, stationery". The last is the important one — it was
-an exclusion, and it now promises the absence of something the client actually
-receives.
+## 5. What keeps the offer bounded
 
-**Open-ended promises, newly guarded:** "unlimited templates/design/
-applications", "ongoing design support", "everything you need", "all your
-marketing materials", "any printed item". The offer has to be extremely valuable
-*and* finite.
+**Made:** the Practice Clarity document; a short identity guide; the wordmark or
+name treatment, colour values and typefaces as files (fonts where licences
+permit); the website.
 
-## 5. The distinction that keeps the offer bounded
+**Not made:** a custom logo or symbol, logo concepts, stationery, print
+templates, signage, leaflets or any other designed application. A client who
+needs one is quoted in writing. The identity guide gives a supplier what they
+need to follow the visual direction.
 
-**Made:** the identity guide, the wordmark files, the colour and typography
-specifications, the fonts where their licences permit, three templates
-(letterhead, email signature, business card), four supplier briefs, the website
-specification.
+A custom logo or an extensive brand identity is not assumed to be necessary.
+Whether real clients ask for one is one of the things the founding projects are
+for (`DECISION-REGISTER.md`, open questions).
 
-**Specified:** everything else a practice might one day want made — a leaflet,
-an appointment card, a door plaque, a worksheet, a poster. The guide describes
-it precisely enough for a supplier to produce, and producing it is outside the
-scope.
-
-That single distinction is what lets the studio increase the value of the
-outcome without selling an unbounded amount of design. Any page that loses it
-has started promising a retainer.
-
-## 6. Ownership, which is now a contractual position and not a slogan
+## 6. Ownership
 
 The practice identity — the wordmark, the guide, the colour and typography
-specifications, the templates and the supplier briefs — is **owned outright** by
-the client on full payment, and may be given to another designer, printer, sign
-maker or developer. It is *not* licensed for one website.
-
-The **website design system, layout and code** remain the studio's and are
-licensed, as before: non-exclusive, perpetual, non-transferable, one website,
-one practice.
-
-Typefaces travel with the identity where their licence permits, and are named
-rather than supplied where it does not.
-
-Clause 13 of `/service-terms/practice-website/` carries this, and both new
-paragraphs are flagged ⚖ for a solicitor.
-
-## 7. What has not changed
-
-The price, the instalments, the founding arrangement, the route, the nav labels,
-the collection (narrowed from six cases to three on 16 September 2026 — see
-`DECISION-REGISTER.md`), Website Care, and the "name the one you keep returning
-to" starting point. The collection is still where a project begins visually — it
-is a fast way to read what a practitioner responds to before anything else is
-known about them, and the site already says it is a starting point rather than
-the thing being bought. Nothing about the identity work contradicts that.
+specifications — is **owned outright** by the client on full payment and may be
+given to another designer, printer or developer. The **website design system,
+layout and code** remain the studio's and are licensed: non-exclusive,
+perpetual, non-transferable, one website, one practice. Clause 13 of
+`/service-terms/practice-website/`, flagged ⚖ for a solicitor.

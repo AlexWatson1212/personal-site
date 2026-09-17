@@ -1,5 +1,12 @@
 # The Direction Note
 
+> **Status: SUPERSEDED (17 September 2026).** Clients no longer receive a
+> one-page Direction Note. They receive their **Practice Clarity document** —
+> the same kind of document as the published case-study Blueprints — and agree
+> it before anything is designed, with one consolidated revision. Kept as a
+> record; the "what it is not / write in the client's language" rules below are
+> still good advice for that document. Current state: `DECISION-REGISTER.md`.
+
 A named deliverable inside the Practice Identity & Website (the current price and
 instalments are in `DECISION-REGISTER.md`). Sent within five working
 days of a complete intake, and approved in writing before the build starts.

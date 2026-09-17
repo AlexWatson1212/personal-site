@@ -19,9 +19,10 @@ the offer and the sequence.
 ## 1. The offer, in one paragraph
 
 The first three practices pay **£495**. After those three, the price is **£995**.
-It is the same service at both prices — Practice Clarity, the Direction Note, the
-identity, the design and build, two consolidated revision rounds, launch,
-handover, thirty days of corrections and the first twelve months of Website Care.
+It is the same service at both prices — Practice Clarity and the client's
+Practice Clarity document, the visual direction, the design and build, two
+consolidated revision rounds, launch, handover, thirty days of corrections and
+the first twelve months of Website Care.
 Nothing is removed at £495 and nothing extra is added to it. The reason for the
 difference is that these are the first three times the complete process runs with
 a real therapist, and what the Studio gets back — the experience, the honest
@@ -100,10 +101,10 @@ side of each step written down.
 | 5 | Intake | Client | Send the Website Content Questionnaire link. It is not a form that submits — the client assembles their answers in the browser and emails them. **This is a manual step by design.** | Completed questionnaire, by email |
 | 6 | Check the intake | Alexander | Read it properly and say what is missing. Nothing starts until it is complete. | Written list of gaps |
 | 7 | Confirm the start date | Alexander | In writing. **This is the point the project officially begins** — not the payment. Three to five weeks from here. | Start-date email |
-| 8 | Practice Clarity → Direction Note | Alexander, then client approves | The thinking, then the note: what was understood, who the site speaks to, palette, typefaces, structure, the decisions made and what is deliberately not being done. One consolidated revision included. | Direction Note (`DIRECTION-NOTE-TEMPLATE.md`) |
+| 8 | Practice Clarity → agree the direction | Alexander, then client agrees | Work the intake into the Practice Clarity document (the same structure as the published Blueprints): the practice, who it is for, how it should sound, what a visitor needs to understand, what the website has to do. The client reads it; one consolidated revision is included. Nothing is designed before agreement. **Before client one:** make sure the approval page says *one* consolidated revision — the published portfolio Blueprints say two. | Practice Clarity document (Alexander's studio template) |
 | 9 | Build, then two rounds | Client, twice | Tailor and build to the approved note. Each round is one complete prioritised list from the client, not messages arriving singly. A correction to something that does not match an approved direction is **not** a revision round. | The staged website |
 | 10 | Final approval and balance | Client | Ask for approval **once both revision rounds are done**. Written approval confirms they have checked factual and professional details. If they are not ready, they have ten working days to say in writing what is outstanding within the agreed scope; in-scope items are put right at no charge and do not use a round, then ask again. Then invoice £395. Nothing goes live before approval; launch follows payment. | Approval email, invoice |
-| 11 | Launch, handover, care | — | Launch. Send the handover pack (`docs/handover-runbook.md`). Thirty days of corrections. Twelve months of Website Care, then write and ask before the year is up. | Handover pack |
+| 11 | Launch, handover, care | — | Launch. Send the handover pack (`docs/handover-runbook.md`). Thirty days of corrections. Twelve months of Website Care, then write and ask before the year is up. The project is then complete; anything new is quoted. | Handover pack |
 
 ### The founding-specific additions to that path
 

@@ -74,6 +74,8 @@ their own URLs and are linked from `/guidance/`.
   Harbour and Stillpoint are preserved in `_strategy/archived-portfolio-2026-09/` and
   their URLs redirect to `/work/`. The eight exploratory directions it held before that
   are in `_strategy/retired-direction-collection-2026-09.yml (deleted since; recoverable from git history, see commit dd9eabc)`.
+- `_data/founder.yml` — the founder video. Empty until a real recording exists; while it
+  is empty the home page renders exactly as it does without it.
 - `_guides/` — the guidance notes, the practical guides and the nine principles.
 - `_includes/practice-website-buy.html` — the only file permitted to emit a checkout link.
 - `_pages/` — legal and statement pages. Draft until `_data/legal.yml` says otherwise.

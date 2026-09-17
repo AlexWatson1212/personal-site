@@ -25,10 +25,11 @@
 # _strategy/, which is never published.
 #
 # The point of three is range, not quantity: the same method applied to three
-# practices produces three answers with almost nothing in common. A prospective
-# client may notice which one they keep returning to — that is a useful signal
-# about what they respond to, and a starting reference. It is never a template
-# they buy.
+# practices produces three answers with almost nothing in common. They are
+# evidence, not choices: since 17 September 2026 the site no longer asks a client
+# to pick one as a starting point (the contact form has no design field and the
+# /work/ cards no "start from this one" link). A client may mention one they
+# liked; it is never a template they buy.
 #
 # PROVENANCE. Every entry must carry a `provenance` value, and only the four
 # in _data/provenance.yml are permitted. No page writes its own disclosure

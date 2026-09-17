@@ -1,0 +1,27 @@
+{%- comment -%}
+  The portrait in the "Who makes it" band, or the founder video once it exists.
+  Everything is driven by _data/founder.yml; while that file is empty this
+  renders exactly the portrait the band has always had.
+{%- endcomment -%}
+{%- assign fv = site.data.founder.video -%}
+{%- if fv.file and fv.file != "" -%}
+<figure class="portrait portrait--video rise">
+  <video controls preload="none" playsinline
+         {% if fv.poster and fv.poster != "" %}poster="{{ fv.poster | relative_url }}"{% endif %}
+         aria-label="Alexander Watson introduces the studio{% if fv.duration != '' %} ({{ fv.duration }}){% endif %}">
+    <source src="{{ fv.file | relative_url }}">
+    {%- if fv.captions and fv.captions != "" %}
+    <track kind="captions" src="{{ fv.captions | relative_url }}" srclang="en" label="English" default>
+    {%- endif %}
+  </video>
+  <figcaption>Alexander Watson, on why the work starts with the practice{% if fv.duration != "" %} · {{ fv.duration }}{% endif %}</figcaption>
+</figure>
+{%- else -%}
+<figure class="portrait rise">
+  <img src="{{ '/assets/images/brand/about-hero-portrait.webp' | relative_url }}"
+       alt="Alexander Watson, seated in a consulting room" width="1535" height="1024" loading="lazy" decoding="async">
+  {%- if fv.url and fv.url != "" %}
+  <figcaption><a class="inline-link" href="{{ fv.url }}" target="_blank" rel="noopener noreferrer">Watch Alexander introduce the studio{% if fv.duration != "" %} ({{ fv.duration }}){% endif %}</a></figcaption>
+  {%- endif %}
+</figure>
+{%- endif -%}

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Start a website
-description: Tell me which design you like and what is already written. No brief needed, no call required, and a reply within two working days.
+description: Tell me about your practice and where you are up to. No brief needed, no call required, and a reply within two working days.
 permalink: /contact/
 page_js: /assets/js/contact-enquiry.js
 ---
@@ -11,11 +11,11 @@ page_js: /assets/js/contact-enquiry.js
     <div class="contact-grid">
       <div class="stack stack--loose">
         <p class="label">Start here</p>
-        <h1 class="measure-3xs">Tell me which design you like.</h1>
+        <h1 class="measure-3xs">Tell me about your practice.</h1>
         <p class="lead">
-          That is genuinely the whole brief. Name the one you keep returning to,
-          tell me roughly where your practice is up to, and I will write back with
-          what I would suggest. You do not need to know what pages, features or
+          That is genuinely the whole brief. A few lines about who you work with and
+          roughly where the practice is up to, and I will write back with what I
+          would suggest. You do not need to know what pages, features or
           technical setup you need &mdash; and if I am not the right person, I will say so.
         </p>
 
@@ -41,7 +41,7 @@ page_js: /assets/js/contact-enquiry.js
           <form class="form" data-studio-enquiry>
             <div>
               <p class="label" style="margin-block-end:var(--s-2)">A useful first message</p>
-              <h2 class="measure-md" style="font-size:var(--t-h3)">What you like, and where you are up to.</h2>
+              <h2 class="measure-md" style="font-size:var(--t-h3)">Your practice, and where you are up to.</h2>
               <p class="small quiet mt-3">This opens an email in your own email app. Nothing typed here is stored by the website.</p>
             </div>
 
@@ -49,14 +49,6 @@ page_js: /assets/js/contact-enquiry.js
               <p class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></p>
               <p class="field"><label for="f-email">Email address</label><input id="f-email" name="email" type="email" autocomplete="email" required></p>
             </div>
-
-            <p class="field">
-              <label for="f-design">Which of the three do you keep returning to?</label>
-              <select id="f-design" name="design">
-                <option value="">I am not sure yet</option>
-                {% for d in site.data.collection %}<option>{{ d.name | strip_html }}</option>{% endfor %}
-              </select>
-            </p>
 
             <input type="hidden" name="service" value="">
 
@@ -68,7 +60,7 @@ page_js: /assets/js/contact-enquiry.js
             <p class="field">
               <label for="f-message">Your practice, and where you are up to</label>
               <textarea id="f-message" name="message" rows="6" required></textarea>
-              <span class="field__hint">A couple of lines is plenty. Who you work with, what you like about the one you chose, and whether your words are mostly ready, rough notes, or somewhere in between.</span>
+              <span class="field__hint">A couple of lines is plenty. Who you work with, anything in the work you particularly liked, and whether your words are mostly ready, rough notes, or somewhere in between.</span>
             </p>
 
             <button type="submit" class="btn">Prepare my enquiry email<span class="btn__arrow" aria-hidden="true">&rarr;</span></button>

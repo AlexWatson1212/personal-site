@@ -1,0 +1,34 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# THE FOUNDER VIDEO — empty until a real recording exists.
+#
+# September 2026. The next new asset is a 60–90 second video: Alexander at his
+# own desk, speaking to camera — who he is, why the process starts with
+# Practice Clarity, and what that means for a therapist's website. The home
+# page is built to take it without a redesign, and to work exactly as it does
+# now while these fields are empty. Nothing renders from this file until
+# `file` or `url` is set.
+#
+# Never fill these with a placeholder, stock footage, an AI avatar or a
+# generated likeness. The only thing that belongs here is the real recording.
+#
+#   file      a self-hosted video, e.g. /assets/video/meet-alexander.mp4.
+#             Embedded in the "Who makes it" band on the home page (#meet),
+#             in place of the portrait, with native controls. Nothing plays
+#             until the visitor presses play.
+#   captions  a WebVTT file for `file`. Required: scripts/qa.mjs fails the
+#             build if a video is configured without captions.
+#   poster    a still taken from the recording itself.
+#   url       alternative to `file`: a link to the video hosted elsewhere
+#             (YouTube, for example). Linked, not embedded — the site's
+#             content security policy does not allow third-party frames.
+#   duration  shown beside the link, e.g. "1 min".
+#
+# When either `file` or `url` is set, the home page hero gains one quiet link,
+# "Meet Alexander", beside its two existing actions.
+# ─────────────────────────────────────────────────────────────────────────────
+video:
+  file: ""
+  captions: ""
+  poster: ""
+  url: ""
+  duration: ""

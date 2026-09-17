@@ -27,6 +27,17 @@ photographs losslessly at 3.3 MB; the published file re-encodes those two images
 as JPEG and is 1.0 MB. Nothing else about it is changed, and the text layer,
 typography and layout are untouched.
 
+## 17 September 2026 — the client now receives this kind of document
+
+The one-page Direction Note is retired. A client receives their own Practice
+Clarity document, in the same structure as these Blueprints, and agrees it
+before design. That makes the "pending correction" below matter for real
+clients rather than only for the portfolio: **the client template's approval
+page must say one consolidated round of revision** (clause 7 of the service
+terms), not two. The portfolio note's wording ("appears only in portfolio
+editions") is now accurate as it stands, so correction 2 below is no longer
+needed.
+
 ## 16 September 2026 — three are published, three archived
 
 Only the Sofia Marin, Maya Bennett and Daniel Mercer documents are still in

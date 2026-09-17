@@ -36,7 +36,7 @@ One folder, sent as a single archive, with a plain README at the top.
 | `content/` | Her copy, her images at original size, and the logo files she supplied or that were made for her |
 | `README.md` | How to deploy the built files, how to point the domain, and how to rebuild from source |
 | `dependencies.md` | Every third-party service the site touches, what it costs, and whose account it is on |
-| `identity/` | **Added 16 September 2026 to match "Yours to keep" (`docs/product-terminology.md` §5, `_data/purchasing.yml`).** The Practice Identity Guide as PDF and editable source; the wordmark in the formats a printer, sign maker and developer need; the colour and typography specifications; font files where their licences permit; the three templates (letterhead, email signature, business card); the four supplier briefs; and the written website specification |
+| `identity/` | **Simplified 17 September 2026** (`docs/product-terminology.md` §5). The agreed Practice Clarity document; the short identity guide (PDF); the wordmark or name treatment, colour values and typefaces as files, with font files where their licences permit |
 
 Nothing in the pack requires the Studio to stay involved for it to work.
 

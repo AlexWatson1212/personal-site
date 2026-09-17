@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Practice identity and websites for therapists
-description: For therapists in UK private practice. What your practice stands for, how it sounds and how it looks — decided once, written down, and yours to keep. The website is where it is applied first. £495 for the first three practices, £995 after that, including the first year of Website Care.
+title: Websites for therapists, built from understanding the practice first
+description: Websites for therapists and counsellors in UK private practice. Most therapist websites start with the website; I start with Practice Clarity — who you work with, how you work and what somebody needs to understand — and build the visual direction and the website from that. £495 for the first three practices, £995 after that, including the first year of Website Care.
 permalink: /
 image: /assets/images/work/sofia-marin-website.webp
 ---
@@ -26,14 +26,27 @@ image: /assets/images/work/sofia-marin-website.webp
       <p class="label enter" style="--i:0">For therapists and counsellors in UK private practice</p>
       <h1 class="t-display enter" style="--i:1">Your practice worked out first. The website built from&nbsp;it.</h1>
       <p class="lead enter" style="--i:2">
-        What your practice stands for, who it is for, how it should sound and how
-        it should look &mdash; decided once, written down, and yours to keep. The
-        website is where those decisions are applied first, not where they are
-        made.
+        Most therapist websites start with the website &mdash; the colours, the
+        layout, what the homepage should say. I start earlier, with Practice
+        Clarity: who you work well with, how you think about therapy, and what
+        somebody needs to understand before they contact you. The visual direction
+        and the website are built from that.
       </p>
+      {%- comment -%}
+        One primary action (the enquiry), the work beside it, and — only once
+        _data/founder.yml holds a real recording — a quiet link to the founder
+        video in the "Who makes it" band just below. Nothing here changes while
+        that file is empty.
+      {%- endcomment -%}
+      {%- assign fv = site.data.founder.video -%}
       <div class="actions hero__actions enter" style="--i:3">
-        <a class="btn" href="{{ '/work/' | relative_url }}">See the collection<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
-        <a class="tlink" href="{{ '/service/' | relative_url }}">What it costs <span aria-hidden="true">&rarr;</span></a>
+        <a class="btn" href="{{ '/contact/' | relative_url }}" data-analytics="start-a-website">{% if site.data.purchasing.founding.active %}Enquire about a founding place{% else %}Start a website{% endif %}<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+        <a class="tlink" href="{{ '/work/' | relative_url }}">See the work <span aria-hidden="true">&rarr;</span></a>
+        {%- if fv.file and fv.file != "" %}
+        <a class="tlink" href="#meet">Meet Alexander{% if fv.duration != "" %} ({{ fv.duration }}){% endif %} <span aria-hidden="true">&darr;</span></a>
+        {%- elsif fv.url and fv.url != "" %}
+        <a class="tlink" href="{{ fv.url }}" target="_blank" rel="noopener noreferrer">Meet Alexander{% if fv.duration != "" %} ({{ fv.duration }}){% endif %} <span aria-hidden="true">&rarr;</span></a>
+        {%- endif %}
       </div>
       <div class="hero__price enter" style="--i:4">
         <p>
@@ -103,20 +116,57 @@ image: /assets/images/work/sofia-marin-website.webp
   </div>
 </section>
 
+{%- comment -%}
+  September 2026: moved up to sit straight after the short version. A
+  therapist should meet the person before the proof — what the studio does,
+  why it is different, who is behind it, then the work. The portrait becomes
+  the founder video when _data/founder.yml has one (see founder-media.html).
+{%- endcomment -%}
+<section class="band on-paper" id="meet">
+  <div class="wrap">
+    <div class="split split--wide-right">
+      {% include founder-media.html %}
+      <div class="stack stack--loose">
+        <p class="label">Who makes it</p>
+        <h2 class="measure-sm">Marketing and communicating online first. Counselling now.</h2>
+        <p class="quiet">
+          I spent years working in marketing and personal branding, and creating
+          content online &mdash; including building my own audience on YouTube. I know
+          from the inside what it is like to put yourself in public without wanting
+          to perform or to sell.
+        </p>
+        <p class="quiet">
+          I am now training as a counsellor, with supervised client work on
+          placement. The studio brings those two things together for therapists and
+          counsellors. One person, not an agency: the person who works through your
+          practice with you is the person who builds the website.
+        </p>
+        <dl class="facts">
+          <div><dt>Prices</dt><dd>Published in full, before you speak to me.</dd></div>
+          <div><dt>Process</dt><dd>Written first. Calls only where they genuinely help.</dd></div>
+          <div><dt>Scope</dt><dd>Agreed in writing. If something falls outside it, I say so before doing it.</dd></div>
+        </dl>
+        <p><a class="tlink" href="{{ '/about/' | relative_url }}">More about me <span aria-hidden="true">&rarr;</span></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="band on-sage">
   <div class="wrap--wide">
     <div class="split split--wide-left">
       <div>
         <p class="label">The collection</p>
-        <h2 class="rise">Three finished practices. Notice which one you keep returning to.</h2>
+        <h2 class="rise">Three practices. Three different answers. One method.</h2>
       </div>
       <div class="stack rise">
         <p class="lead">
-          Three fictional practices, each given a complete website and the strategic
-          work behind it. Not themes, not colour changes &mdash; the same method,
-          three different problems, three answers.
+          Three fictional practices, each worked through with Practice Clarity and
+          then given a complete website. They are not three designs to choose from.
+          They look nothing alike because the practices underneath them are
+          different &mdash; which is the point.
         </p>
-        <p><a class="tlink" href="{{ '/work/' | relative_url }}">Browse the collection <span aria-hidden="true">&rarr;</span></a></p>
+        <p><a class="tlink" href="{{ '/work/' | relative_url }}">See the work <span aria-hidden="true">&rarr;</span></a></p>
       </div>
     </div>
 
@@ -235,12 +285,12 @@ image: /assets/images/work/sofia-marin-website.webp
     <div class="spread">
       <div class="spread__aside"><p class="label">How it works</p></div>
       <div class="spread__body">
-        <h2 class="rise measure-sm">The one you choose is where it starts. It is not what you get.</h2>
+        <h2 class="rise measure-sm">Four stages. The first one is the point.</h2>
         <p class="lead rise mt-5 measure-xl">
-          The collection removes the blank page. It does not remove the work of
-          understanding your practice, deciding what it should say and settling how
-          it should look &mdash; which is most of what you are paying for, and the
-          part you still have when the website is years old.
+          Nothing is designed until we both agree on what the practice is and what
+          the website has to say. After that the design decisions are mine to make,
+          and they follow from what we agreed rather than from my idea of a good
+          therapist website.
         </p>
       </div>
     </div>
@@ -250,24 +300,24 @@ image: /assets/images/work/sofia-marin-website.webp
         <span class="anatomy__rule" aria-hidden="true"></span>
         <ol class="anatomy__steps">
           <li class="anatomy__step">
-            <span class="anatomy__n">Your decision</span>
-            <h3>Name the one you keep returning to</h3>
-            <p>Not an order from a menu. It is the quickest way to tell me what you respond to, before I know anything else about the practice.</p>
+            <span class="anatomy__n">01</span>
+            <h3>Practice Clarity</h3>
+            <p>You tell me about the practice in writing. I work it into a Practice Clarity document: who you work well with, how you think about therapy, how the practice should sound, and what somebody needs to understand before they contact you.</p>
           </li>
           <li class="anatomy__step">
-            <span class="anatomy__n">You</span>
-            <h3>Tell me about the practice</h3>
-            <p>A written form, about an hour. Who you work with, what you offer, your words.</p>
+            <span class="anatomy__n">02 &middot; Your decision</span>
+            <h3>Agree the direction</h3>
+            <p>You read it and tell me what is wrong or missing, and I refine it. Nothing is designed until we both agree it describes your practice.</p>
           </li>
           <li class="anatomy__step">
-            <span class="anatomy__n">Your decision</span>
-            <h3>Approve how it is being tailored</h3>
-            <p>A short written note first: the palette, the structure and the decisions I have made for your practice. Nothing is built until you agree with it, and after that the design decisions are mine to make.</p>
+            <span class="anatomy__n">03</span>
+            <h3>Visual direction and website</h3>
+            <p>Typography, colour, how your name is set and how images are used &mdash; whatever the practice actually needs &mdash; then the website itself, up to five pages.</p>
           </li>
           <li class="anatomy__step anatomy__step--end">
-            <span class="anatomy__n">Your decision</span>
-            <h3>Approve the finished website</h3>
-            <p>After two rounds of changes. Then it is launched, looked after for the first year, and handed over with the identity written down and the files to use it anywhere else.</p>
+            <span class="anatomy__n">04 &middot; Your decision</span>
+            <h3>Refine and launch</h3>
+            <p>Two consolidated rounds of changes, then your approval, then launch. The first year of Website Care is included.</p>
           </li>
         </ol>
       </div>
@@ -328,7 +378,7 @@ image: /assets/images/work/sofia-marin-website.webp
       <div class="spread__body">
         <h2 class="measure-md">One price, published, and the whole scope with it.</h2>
         <p class="quiet mt-4 measure-2xl">
-          Four stages, sold once. You are not asked which of them you need.
+          One piece of work, sold once. You are not asked which parts of it you need.
         </p>
       </div>
     </div>
@@ -351,10 +401,10 @@ image: /assets/images/work/sofia-marin-website.webp
         </p>
         {% endif -%}
         <ul class="way__list mt-5">
-          <li><b>Practice Clarity</b> &mdash; what the practice stands for, who it is for, and what it should say</li>
-          <li><b>Practice Identity</b> &mdash; the words and the visual decisions that follow from it</li>
-          <li><b>The website</b> &mdash; the identity applied, built, launched and cared for the first year</li>
-          <li><b>Yours to keep</b> &mdash; the identity written down, with the files to use it anywhere else</li>
+          <li><b>Practice Clarity</b> &mdash; who the practice is for, how it should sound, and what the website has to say, written down</li>
+          <li><b>The direction, agreed</b> &mdash; nothing is designed until we both agree on it</li>
+          <li><b>Visual direction and website</b> &mdash; up to five pages, built from what we agreed</li>
+          <li><b>Refine and launch</b> &mdash; two rounds of changes, launch, and the first year of Website Care</li>
         </ul>
         <div class="actions way__actions">
           <a class="btn" href="{{ '/service/' | relative_url }}">See everything included<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
@@ -364,21 +414,16 @@ image: /assets/images/work/sofia-marin-website.webp
       <div class="offer__aside">
         <p class="statement statement--sm">You do not have to make web-design decisions. That is my job.</p>
         <p class="quiet mt-5">
-          The intake is part of the price, and reading it properly is part of the work.
-          If you already know who you work with, what you offer and roughly what you
-          want to say, that is enough for me to build from.
+          You do not need to arrive with your positioning worked out or your copy
+          finished. Your own words about who you work with and how you work are
+          enough to start from; turning them into something clear is
+          <a class="inline-link" href="{{ '/service/#practice-clarity' | relative_url }}">Practice Clarity</a>,
+          and it is part of the price rather than a separate purchase.
         </p>
         <p class="quiet mt-4">
-          If those decisions are not settled yet &mdash; who it is for, what you are
-          offering, what needs saying &mdash; working them out is part of the price.
-          <a class="inline-link" href="{{ '/service/#practice-clarity' | relative_url }}">That work has a name</a>,
-          but it is not a separate purchase and you are not asked to judge how much of it
-          you need.
-        </p>
-        <p class="quiet mt-4">
-          And it does not stop at the website. The decisions are written down and handed
-          over, so a directory profile, a leaflet or a printer five years from now has a
-          specification to follow rather than a guess to make.
+          You keep the Practice Clarity document and your visual direction written
+          down, so the next time you write a directory profile or a leaflet there is
+          something to work from.
           <a class="inline-link" href="{{ '/service/#yours-to-keep' | relative_url }}">What you keep</a>.
         </p>
         <p class="small quiet mt-4">
@@ -391,50 +436,23 @@ image: /assets/images/work/sofia-marin-website.webp
   </div>
 </section>
 
-<section class="band on-paper">
-  <div class="wrap">
-    <div class="split split--wide-right">
-      <figure class="portrait rise">
-        <img src="{{ '/assets/images/brand/about-hero-portrait.webp' | relative_url }}"
-             alt="Alexander Watson, seated in a consulting room" width="1535" height="1024" loading="lazy" decoding="async">
-      </figure>
-      <div class="stack stack--loose">
-        <p class="label">Who makes it</p>
-        <h2 class="measure-sm">I design websites, and I am training as a counsellor.</h2>
-        <p class="quiet">
-          One person, not an agency. The training is not a design credential &mdash; it is
-          why I question generic therapeutic language, notice what a page asks of somebody
-          before they are ready, and treat an enquiry form as a real moment rather than a
-          step in a process.
-        </p>
-        <dl class="facts">
-          <div><dt>Prices</dt><dd>Published in full, before you speak to me.</dd></div>
-          <div><dt>Process</dt><dd>Written first. Calls only where they genuinely help.</dd></div>
-          <div><dt>Scope</dt><dd>Agreed in writing. If something falls outside it, I say so before doing it.</dd></div>
-        </dl>
-        <p><a class="tlink" href="{{ '/about/' | relative_url }}">More about the studio <span aria-hidden="true">&rarr;</span></a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="band closing on-paper">
   <div class="wrap">
     <div class="closing__plate on-ink">
       <div class="split split--wide-left">
         <div>
           <p class="label">When you are ready</p>
-          <h2 class="measure-xs">Start with the one that feels closest.</h2>
+          <h2 class="measure-xs">Tell me about your practice.</h2>
         </div>
         <div class="stack stack--loose">
           <p>
-            You do not need a brief, a moodboard or a finished plan. Tell me which
-            of the three you keep returning to, or ask me which suits your practice,
-            and say what is already written.
+            You do not need a brief, a moodboard or a finished plan. A few lines about
+            who you work with and where you are up to is enough, and writing commits
+            you to nothing.
           </p>
           <div class="actions">
-            <a class="btn" href="{{ '/work/' | relative_url }}">See the collection<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
-            <a class="tlink" href="{{ '/contact/' | relative_url }}">Ask a question first <span aria-hidden="true">&rarr;</span></a>
+            <a class="btn" href="{{ '/contact/' | relative_url }}" data-analytics="start-a-website">{% if site.data.purchasing.founding.active %}Enquire about a founding place{% else %}Start a website{% endif %}<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="tlink" href="{{ '/work/' | relative_url }}">See the work <span aria-hidden="true">&rarr;</span></a>
           </div>
         </div>
       </div>

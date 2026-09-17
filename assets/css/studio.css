@@ -2373,6 +2373,8 @@ p { text-wrap: pretty; }
 
 .portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .portrait--wide img { aspect-ratio: 16 / 10; }
+/* The founder video, when _data/founder.yml has one. Recorded landscape. */
+.portrait--video video { display: block; width: 100%; aspect-ratio: 16 / 9; background: var(--ink, #1a2119); }
 
 .portrait figcaption {
   padding-block-start: var(--s-3);

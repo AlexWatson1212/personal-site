@@ -48,10 +48,14 @@ superseded.)
   never by the studio declaring the work finished.
 - **Practice Clarity** is the first of the four stages and has no price.
   `clarity_display` was deleted so a template that refers to it fails loudly.
-- **Direction Note.** The client deliverable from Practice Clarity: sent within
-  five working days of a complete intake, approved before the build, with one
-  consolidated revision of its own that is separate from the two website rounds.
-  See `DIRECTION-NOTE-TEMPLATE.md`.
+- **Practice Clarity document.** The client deliverable from Practice Clarity
+  (it replaced the one-page Direction Note on 17 September 2026): agreed before
+  the build, with one consolidated revision of its own that is separate from
+  the two website rounds.
+- **Identity.** Bounded to the visual direction the website needs — see
+  `docs/product-terminology.md` §5. The *Product scope* checks guard it.
+- **Founder video.** `_data/founder.yml`; empty until a real recording exists.
+  See the *Founder video* check.
 - **Website Care.** Included for the first twelve months, then `website_care.monthly`
   if wanted. Stated as conduct, not as a row in a price table.
 - **Custom projects.** Quoted, mentioned quietly.

@@ -201,7 +201,7 @@ whether you know what to do on the day, in what order, with which file.*
 
 - [ ] Run one fictional client end to end: enquiry → acceptance with scope and
       price → £500 invoice → payment recorded → questionnaire → Practice
-      Clarity → Direction Note and approval → build → two rounds → final
+      Clarity document and agreement → build → two rounds → final
       approval → £495 invoice → launch → handover → first-year Care. Produce
       the real artefacts, from the real templates.
 - [ ] Fix only the gaps where you would not have known what to do. If the

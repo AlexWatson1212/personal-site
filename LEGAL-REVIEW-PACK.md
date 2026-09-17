@@ -18,6 +18,10 @@
 >   guide, specifications, templates, briefs) outright on full payment, flagged ⚖.
 > - **The cancellation ladder in §4** is written against £500; the published page is
 >   no longer tied to any amount.
+> - **17 September 2026:** the one-page *Direction Note* (§2, §4, §7) is replaced by
+>   the client's **Practice Clarity document**, agreed before design with one
+>   consolidated revision (clause 7). The identity scope is smaller: no stationery
+>   templates, supplier briefs or website specification (clauses 2 and 13).
 
 **For a UK commercial solicitor. Prepared 27 August 2026.**
 

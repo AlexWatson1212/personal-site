@@ -1,6 +1,6 @@
 # Decision register — current state
 
-Alexander Watson Studio · internal · **the source of truth** · last updated 16 September 2026
+Alexander Watson Studio · internal · **the source of truth** · last updated 17 September 2026
 
 **Not published.** Listed under `exclude:` in `_config.yml`.
 
@@ -15,44 +15,64 @@ itself changes, and date it.
 
 | | Decision |
 |---|---|
-| **Niche** | Therapists and counsellors in UK private practice. The niche for this launch; revisited only at the launch finish line, on evidence. |
-| **Core service** | **Practice Identity & Website** — one piece of work in four stages, sold once: **Practice Clarity → Practice Identity** (the words, then the look) **→ the website → Yours to keep**. The client is never asked which stages they need. |
-| **Next phase** | Market exposure and real-client validation. |
-| **Freeze rule** | No new fictional practices and no substantive portfolio or studio-site redesign before meaningful market exposure and real-client evidence. Corrections of fact, broken links and accessibility faults are not redesign. |
+| **Niche** | Therapists and counsellors in UK private practice. |
+| **Core idea** | Most therapist websites start with the website. Alexander Watson Studio starts by understanding the practice. The website is downstream of that. |
+| **Who is behind it** | Alexander: years in marketing, personal branding and creating content online (including a YouTube audience); now training as a counsellor, with supervised client work on placement. One person, not an agency. No invented figures, employers or credentials. |
+| **Stage** | Founding experiment. The only question it has to answer now: will three real therapists pay £495 for this process? |
+| **Next validation target** | **Client one.** |
+| **Next new website asset** | A **60–90 second founder video** (Alexander at his own desk, to camera). The home page is ready for it (`_data/founder.yml`) and works without it. It is **not** a prerequisite for finding client one. |
+| **Later, not now** | A 4–6 minute process video (Practice Clarity → Sofia, Maya, Daniel → how decisions become design). A future marketing asset, not a launch blocker, and no funnel is to be built around it. |
+| **Not the plan** | Giving a website away free as a validation project. No giveaway, competition or free-project call to action anywhere. |
+| **Freeze rule** | No new fictional practices. No speculative service redesign. No substantive studio-site redesign before real-client evidence. Corrections of fact, broken links and accessibility faults are not redesign. |
+
+## The service
+
+| | Decision |
+|---|---|
+| **Product** | **Practice Identity & Website** — a website built from Practice Clarity. Identity exists to support the website. |
+| **Public process** | **1 Practice Clarity → 2 Agree the direction → 3 Visual direction and website → 4 Refine and launch.** Production has more steps; the public explanation does not. |
+| **Practice Clarity** | Included, no separate price, always the first stage. The intake is worked into a **Practice Clarity document** (the same kind of document as the published Blueprints, roughly 17 pages) that the therapist reads, corrects and agrees. The separate £500 Practice Clarity offer (August 2026) is retired. |
+| **Approval point** | Nothing is designed until the Practice Clarity document is agreed. |
+| **Identity** | The visual direction the website needs: typography, a colour system, a typographic wordmark or name treatment (or the client's existing logo), image direction where needed, written down in a short identity guide. **Not included:** a custom logo or symbol, logo concepts, stationery, print templates, supplier briefs, other designed applications. Anything more is quoted. |
+| **Website** | Up to five core pages. Client supplies words or notes; editing for clarity is included; copywriting from a blank page is not. |
+| **Portfolio's role** | Evidence, not choices. A client does not pick Sofia, Maya or Daniel as a starting design. |
+| **Retired 17 Sep 2026** | The one-page Direction Note (replaced by the Practice Clarity document). The "name the one you keep returning to" first step. The 13 Sep identity package (full identity guide with editable source, three stationery templates, four supplier briefs, website specification). |
+
+## Commercial terms — settled
+
+| | Decision |
+|---|---|
+| **Founding experiment** | The first **three** real practices: **£495**, the complete service. No countdown, deadline or places counter. |
+| **Payment** | **£100 to begin. £395 when your website is approved and ready to launch.** Contractually (service terms clause 3): first instalment on written acceptance of the scope, before the project begins; second invoiced after written approval of the finished website, payable within 14 days; the site goes live once it is received. Approval is bounded by clause 11. Never a guarantee or "pay only if happy". Invoice and bank transfer only. |
+| **Standard price** | **£995** is the currently intended price after the founding three. The pricing structure will be reviewed using real delivery evidence. |
+| **Revisions** | **One consolidated revision of the Practice Clarity document**, then **two consolidated revision rounds on the website**. Copy and design share the two rounds. A correction to something that does not match what was agreed is not a round. |
+| **Launch and end** | Written approval → £395 → launch → handover → thirty days of minor corrections → **project complete**. |
+| **Handover** | The agreed Practice Clarity document, the identity guide and files, and the website and its files. |
+| **Website Care** | **First twelve months included** from launch: hosting, TLS, deployments, updates, version history, DNS help, fixing faults, and factual updates (fees, availability, contact details, address, qualifications) with no charge. Then **£29 a month** only if the client says yes; no minimum term; invoiced. Not uptime, monitoring or backups. |
+| **Additional work** | New or rewritten content, new pages, design or structural changes, a different visual direction after the build has started, a custom logo, anything outside the scope: quoted in writing first, invoiced separately. There is no retainer. |
+| **Ownership** | Identity owned outright on full payment; the website is the client's to keep, host and move; the design system and code are licensed for that one website (clause 13, ⚖, unreviewed). |
+
+## Open — deliberately not decided until real clients have been through it
+
+Do not turn any of these into policy, a package or a page.
+
+- Whether £495 feels low, right or high; whether £995 is justified.
+- Whether a £595 price, a focused one-page website, or a larger-site distinction makes sense.
+- Any long-term pricing architecture or menu of extras.
+- Whether Practice Clarity needs more than one consolidated revision in practice ("refined until we both agree").
+- How long Practice Clarity and production actually take, and how much AI shortens production (record hours on every project).
+- Whether clients ask for logos, and whether a larger identity option is ever worth offering.
+- What ongoing support clients actually need, and whether Website Care is the right shape.
+- Which parts of the internal system are genuinely useful.
 
 ## The portfolio
 
 | | Decision |
 |---|---|
-| **Public flagships** | **Sofia Marin** (editorial, precise, conceptual, restrained) · **Maya Bennett** (warm, conversational, permission before justification) · **Daniel Mercer** (stark, practical, typographic, ordinary rather than therapeutic) |
-| **Public count** | **3.** Enforced by the *Portfolio* check in `scripts/qa.mjs`. |
-| **Archived** (16 Sep 2026) | **Helen Calder · Harbour · Stillpoint.** A strategic narrowing, not a temporary hide. Preserved unpublished in `_strategy/archived-portfolio-2026-09/`; old URLs 301 to `/work/`. The concept subdomains themselves were not touched. |
-| **How the cases are described** | Evidence of the method and starting references — never templates or products bought unchanged. All three are fictional and labelled so. Their Blueprints were written after the concept sites, in the form a client's is written before one, and public copy says so. |
-
-## The offer
-
-| | Decision |
-|---|---|
-| **Founding offer** | The first **three** real practices: **£495**, complete. The whole service at a lower price, not a reduced version, a tier, a trial or a discount. No countdown, deadline or remaining-places counter. |
-| **Payment (founding)** | **£100 to begin. £395 when your website is approved and ready to launch.** (`_data/purchasing.yml` → `payment_sentence`.) Contractually (service terms clause 3): the first instalment is due on written acceptance of the scope and before the project begins; the second is invoiced after written approval of the finished website, payable within 14 days, and the website is made live once it is received. Approval is defined and bounded by clause 11. Never described as a guarantee or "pay only if happy". |
-| **Standard price** | **£995** after the three founding places. Its instalment split returns to the site only when £995 does (steps at the top of `_data/purchasing.yml`). |
-| **How payment is taken** | Invoice and bank transfer. No online checkout, no Stripe, no card payments. |
-| **Practice Clarity** | **Included, and has no price.** It is the first stage of every project, not a separate £500 service, and the client is not asked to judge how much of it they need. The separate £500 Practice Clarity offer (August 2026) is retired. |
-| **Custom work** | Scoped and quoted individually, in writing. |
-
-## The process and what the client receives
-
-| | Decision |
-|---|---|
-| **Client process** | Enquiry → written scope and price → **£100** → questionnaire → intake checked → start date confirmed (the project begins here) → **Practice Clarity → Direction Note, approved** → identity and build → **round one → round two** → **written approval** → **£395** → launch → handover → Website Care. Three to five weeks from the confirmed start. |
-| **Client decisions** | Three: the work in the collection they respond to (or ask for a recommendation); approval of the Direction Note; approval of the finished website. |
-| **Internal method** | Practice Clarity (the thinking). The published **Practice Clarity Blueprints** are portfolio-length demonstrations of it, not a client deliverable. |
-| **Client deliverables** | The **Direction Note** (record of the Practice Clarity work, approved before the build). The website, up to five core pages. **Yours to keep:** the **Practice Identity Guide** (PDF and editable source), wordmark files, colour and typography specifications, font files where licences permit, three templates (letterhead, email signature, business card), four supplier briefs, and a written website specification. Other applications are specified for a supplier, not designed. |
-| **Revisions** | **One consolidated revision of the Direction Note**, separate from **two consolidated revision rounds on the website**. Copy and design changes share the two rounds. Putting right something that does not match an approved direction is a correction, not a round. |
-| **Copy** | The client supplies words or notes clear enough to edit from; editing for clarity is included; copywriting from a blank page is not. |
-| **After launch** | Thirty days of minor corrections. |
-| **Website Care** | **First twelve months included**, from launch. Then **£29 a month** only if the client says yes, no minimum term, invoiced. Covers hosting, TLS, deployments, updates, version history, DNS help, faults, and factual updates (fees, availability, contact details, address, qualifications). Does not claim uptime, monitoring or backups. |
-| **Ownership** | Identity owned outright on full payment; the finished website is the client's to keep, host and move; the underlying design system and code are licensed for that one website (clause 13, flagged ⚖, unreviewed). |
+| **Public** | **Sofia Marin** (editorial, precise, conceptual, restrained) · **Maya Bennett** (warm, conversational, permission-led) · **Daniel Mercer** (stark, practical, typographic, ordinary). Exactly three; enforced by `scripts/qa.mjs`. |
+| **What they prove** | Practice → thinking → decisions → website, three times, with three different results. Not three templates, and no house style. |
+| **Archived** (16 Sep 2026) | **Helen Calder · Harbour · Stillpoint.** Preserved unpublished in `_strategy/archived-portfolio-2026-09/`; old URLs 301 to `/work/`. |
+| **Honesty** | All three are fictional and labelled so. Their Blueprints were written after the concept sites, in the form a client's is written before one, and public copy says so. Sofia's fuller identity is shown as how far the method can go, not as the scope. |
 
 ## Where the detail lives
 
@@ -62,16 +82,17 @@ itself changes, and date it.
 | Words the site may use | `docs/product-terminology.md` |
 | The founding path, step by step | `docs/founding-practices.md` |
 | What must be true before the first £100 | `docs/pre-launch.md` |
-| The Direction Note | `DIRECTION-NOTE-TEMPLATE.md`, `docs/direction-note-template.html` |
 | Handover | `docs/handover-runbook.md` |
-| Open questions | `OPEN_DECISIONS.md` |
+| The founder video fields | `_data/founder.yml` |
+| Questions to ask therapists | `docs/proposition-feedback.md` |
+| Open repository questions | `OPEN_DECISIONS.md` |
 | Legal facts still to supply | `LEGAL-INFORMATION-REQUIRED.md` |
 | Solicitor pack | `LEGAL-REVIEW-PACK.md` — **update its commercial sections first** (status note at its top) |
 | How the code enforces all this | `README.md`, `IMPLEMENTATION.md`, `scripts/qa.mjs` |
 
-## Document status (16 September 2026)
+## Document status (17 September 2026)
 
-- **Current:** this file · `README.md` · `IMPLEMENTATION.md` · `VISUAL-SYSTEM.md` · `OPEN_DECISIONS.md` · `DIRECTION-NOTE-TEMPLATE.md` · `LEGAL-INFORMATION-REQUIRED.md` · `docs/product-terminology.md` · `docs/founding-practices.md` · `docs/pre-launch.md` · `docs/handover-runbook.md` · `docs/direction-note-template.html` · `docs/proposition-feedback.md` · `docs/portfolio-disclosure-standard.md` · `docs/reading-control-standard.md` · `docs/Practice Clarity — presentation standard.md` · `_strategy/PRACTICE-CLARITY-SOURCES.md`
-- **Update required:** `LEGAL-REVIEW-PACK.md` (commercial facts in §1, §2, §4 are pre-founding)
-- **Superseded:** `STRIPE_SETUP.md` · `LEGAL_REVIEW.md` · `docs/first-payment-checklist.md`
+- **Current:** this file · `README.md` · `IMPLEMENTATION.md` · `VISUAL-SYSTEM.md` · `OPEN_DECISIONS.md` · `LEGAL-INFORMATION-REQUIRED.md` · `docs/product-terminology.md` · `docs/founding-practices.md` · `docs/pre-launch.md` · `docs/handover-runbook.md` · `docs/proposition-feedback.md` · `docs/portfolio-disclosure-standard.md` · `docs/reading-control-standard.md` · `docs/Practice Clarity — presentation standard.md` · `_strategy/PRACTICE-CLARITY-SOURCES.md`
+- **Update required:** `LEGAL-REVIEW-PACK.md` (commercial facts predate the founding offer and this simplification)
+- **Superseded:** `DIRECTION-NOTE-TEMPLATE.md` · `docs/direction-note-template.html` · `STRIPE_SETUP.md` · `LEGAL_REVIEW.md` · `docs/first-payment-checklist.md`
 - **Archive (historical record only):** `TRUST-ARCHITECTURE-REVIEW.md` · `MINIMAL-LAUNCH-V2.md` · `CONCEPT-PUBLICATION-ASSESSMENT.md` · `POST-LAUNCH.md` · `REBUILD-REPORT.md` · `REDESIGN-REPORT.md` · `REFINEMENT-CHANGELOG.md` · `OFFER-RESOLUTION-CHANGELOG.md` · `PRE-LAUNCH-CHANGELOG.md` · `APPLY-*.txt` · `INSTALLATION.md` · `PHOTOGRAPHY-SHOT-LIST.md` · `_strategy/archived-portfolio-2026-09/` · `_legacy/`
