@@ -1,0 +1,25 @@
+<!-- Reading options — markup, for a site that would rather keep it in the
+     template than have the script build it.
+
+     If you use this file, hide it without JavaScript (`.no-js .ro{display:none}`
+     or the inverse), because a control that cannot work should not be offered,
+     and drop the DOM-building half of reading-options.js. Wording and placement
+     are per practice; the class names, the fieldsets and the attributes are not. -->
+<div class="ro">
+  <button class="ro__btn" id="ro-btn" type="button" aria-expanded="false" aria-controls="ro-panel">Reading options</button>
+  <div class="ro__panel" id="ro-panel" hidden>
+    <fieldset class="ro__group">
+      <legend class="ro__legend">Text size</legend>
+      <label class="ro__opt"><input type="radio" name="ro-size" value="default" checked>Default</label>
+      <label class="ro__opt"><input type="radio" name="ro-size" value="large">Larger</label>
+      <label class="ro__opt"><input type="radio" name="ro-size" value="largest">Largest</label>
+    </fieldset>
+    <fieldset class="ro__group">
+      <legend class="ro__legend">Reading mode</legend>
+      <label class="ro__opt"><input type="radio" name="ro-mode" value="default" checked>Default</label>
+      <label class="ro__opt"><input type="radio" name="ro-mode" value="contrast">Higher contrast</label>
+      <label class="ro__opt"><input type="radio" name="ro-mode" value="soft">Softer</label>
+    </fieldset>
+    <p class="ro__note">Kept on this device only, so the page opens this way next time. Nothing is sent anywhere.</p>
+  </div>
+</div>

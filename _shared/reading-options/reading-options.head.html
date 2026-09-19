@@ -1,0 +1,15 @@
+<!-- Reading options — pre-paint.
+     Goes in <head>, after window.READING_OPTIONS is defined and before the
+     stylesheet. Parser-blocking on purpose: a returning visitor's setting has
+     to be on the element before anything is painted, or the page flashes from
+     the default into their choice. -->
+<script>
+(function(c){
+  if (!c || !c.enabled) return;
+  try{
+    var saved = JSON.parse(localStorage.getItem(c.storageKey) || "{}");
+    if (saved.size && saved.size !== "default") document.documentElement.setAttribute("data-read-size", saved.size);
+    if (saved.mode && saved.mode !== "default") document.documentElement.setAttribute("data-read-mode", saved.mode);
+  }catch(e){}
+})(window.READING_OPTIONS);
+</script>

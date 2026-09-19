@@ -73,7 +73,37 @@ analytics:
   domain: ""     # the site domain as registered with the provider
   host: ""       # the provider's script host, e.g. plausible.io
 
+# ─────────────────────────────────────────────────────────────────────────────
+# READING OPTIONS
+#
+# The studio's display control: text size, and a reading mode. The standard is
+# docs/reading-control-standard.md; the component is _shared/reading-options/.
+#
+#   enabled: true   →  the control is built into the footer, the pre-paint
+#                      snippet and the component script are loaded, and the
+#                      two reading modes in section 22 of studio.css become
+#                      reachable.
+#   enabled: false  →  nothing renders, no script is requested, no space is
+#                      reserved, and every page is byte-for-byte the page it
+#                      was before the capability existed.
+#
+# Off on this site. Per the standard, real client sites carry it on by default
+# and concepts carry it off; the studio's own site is neither, and the approved
+# design is what a visitor should meet unless the studio decides otherwise.
+# Switching it on is this one word plus `npm run build`.
+# ─────────────────────────────────────────────────────────────────────────────
+accessibilityPreferences:
+  enabled: false
+  label: "Reading options"
+  storageKey: "aw-studio:reading"
+
 exclude:
+  # Concept websites and the shared components they draw on. These are
+  # separate deployments served from their own subdomains, kept here so
+  # they are versioned with the studio rather than loose on a laptop.
+  # They are not studio source and must not be built into this site.
+  - _concepts
+  - _shared
   - README.md
   - DECISION-REGISTER.md
   - VISUAL-SYSTEM.md

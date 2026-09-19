@@ -3,17 +3,22 @@
   "short_name": "AW Studio",
   "icons": [
     {
-      "src": "/assets/images/brand/favicon.png",
-      "sizes": "64x64",
-      "type": "image/png"
-    },
-    {
       "src": "/assets/images/brand/favicon-32x32.png",
       "sizes": "32x32",
       "type": "image/png"
+    },
+    {
+      "src": "/assets/images/brand/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/brand/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
-  "theme_color": "#283a38",
+  "theme_color": "#263835",
   "background_color": "#f7f4ef",
   "display": "standalone"
 }

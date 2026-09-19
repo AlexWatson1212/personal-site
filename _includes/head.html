@@ -43,11 +43,69 @@
   first page pays ~11 KB over the wire and every page after it pays nothing.
 {%- endcomment -%}
 <link rel="stylesheet" href="{{ '/assets/css/studio.min.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+{%- comment -%}
+  Reading options — the studio's shared display control.
 
-<!-- Favicons -->
+  Configuration is `accessibilityPreferences` in _config.yml; the component
+  itself is _shared/reading-options/, and the standard behind it is
+  docs/reading-control-standard.md. The config object below is the interface
+  the shared component reads, so this site is wired to the component rather
+  than carrying a second implementation of it.
+
+  The snippet is inline and parser-blocking for the one reason that justifies
+  an inline script: an external file arrives after the first paint, so a
+  returning visitor who has chosen "Largest" would watch the page resize under
+  them on every navigation. It reads one key, sets at most two attributes and
+  touches nothing else; a missing, unreadable or unrecognised value leaves the
+  document in the approved design.
+
+  Kept in step with _shared/reading-options/reading-options.head.html.
+{%- endcomment -%}
+{%- if site.accessibilityPreferences.enabled -%}
+<script>
+window.READING_OPTIONS = {
+  enabled: true,
+  label: {{ site.accessibilityPreferences.label | default: "Reading options" | jsonify }},
+  storageKey: {{ site.accessibilityPreferences.storageKey | default: "reading" | jsonify }}
+};
+(function(c){
+  if (!c || !c.enabled) return;
+  try{
+    var saved = JSON.parse(localStorage.getItem(c.storageKey) || "{}");
+    if (saved.size && saved.size !== "default") document.documentElement.setAttribute("data-read-size", saved.size);
+    if (saved.mode && saved.mode !== "default") document.documentElement.setAttribute("data-read-mode", saved.mode);
+  }catch(e){}
+})(window.READING_OPTIONS);
+</script>
+{%- endif -%}
+
+{%- comment -%}
+  Favicons. One mark, taken from the identity submark — the serif A from
+  Alexander-Watson-Submark.svg — set in the ink disc the footer lockup already
+  uses. The wordmark is never reduced to this size; the A is the part that
+  survives 16px.
+
+  Four declarations, in the order a browser reads them:
+
+  - favicon.ico at the site root carries 16, 32 and 48. It is what a browser,
+    a crawler or a chat unfurl asks for when it asks for nothing in
+    particular, and without it that request returns the 404 page.
+  - favicon.svg is what every current browser actually uses. It carries a
+    prefers-color-scheme block: ink disc with a paper A on light browser
+    chrome, and the two reversed on dark, where a dark disc would otherwise
+    dissolve into the tab strip.
+  - The two PNGs are the fallback for browsers with no SVG icon support. The
+    16px one is drawn with a slightly larger A: at that size the serif needs
+    the extra weight to stay legible, which is an optical correction rather
+    than a different mark.
+  - apple-touch-icon is full-bleed ink rather than a disc, because iOS
+    ignores transparency and applies its own rounded mask.
+{%- endcomment -%}
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="{{ '/assets/images/brand/favicon.svg' | relative_url }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/brand/favicon-32x32.png' | relative_url }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/brand/favicon-16x16.png' | relative_url }}">
-<link rel="shortcut icon" type="image/png" href="{{ '/assets/images/brand/favicon.png' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/assets/images/brand/apple-touch-icon.png' | relative_url }}">
 <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
 
 <meta name="theme-color" content="#263835">

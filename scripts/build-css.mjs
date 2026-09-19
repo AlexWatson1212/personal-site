@@ -21,7 +21,35 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const source = path.join(root, "assets/css/studio.css");
 const output = path.join(root, "assets/css/studio.min.css");
 
-const css = await fs.readFile(source, "utf8");
+/* The reading control is a studio component, not a page of this site, so its
+ * shared half lives in _shared/reading-options and is prepended here rather
+ * than pasted into studio.css. One file still reaches the browser; the site
+ * keeps one source of truth for the scale and the control's structure, and a
+ * second site that takes the component takes the same bytes.
+ *
+ * It is inert until an attribute appears on <html>, so a site with the
+ * control switched off pays about a kilobyte before compression and changes
+ * in no other way. Section 22 of studio.css fills in what belongs to this
+ * practice: the two mode palettes, and the control's skin.
+ *
+ * Missing is not an error. A build of this repository without the shared
+ * folder should still produce a working stylesheet; what it loses is the
+ * reading control, which is optional by design. It is reported, not fatal.
+ */
+const sharedReading = path.join(root, "_shared/reading-options/reading-options.css");
+
+let shared = "";
+try {
+  shared = await fs.readFile(sharedReading, "utf8");
+} catch {
+  console.warn(
+    "build-css: _shared/reading-options/reading-options.css not found — " +
+    "building without the reading control."
+  );
+}
+
+const studio = await fs.readFile(source, "utf8");
+const css = shared ? `${shared}\n\n${studio}` : studio;
 
 const required = [
   ['@font-face for Newsreader', /font-family:\s*"Newsreader"/],

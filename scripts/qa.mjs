@@ -96,6 +96,7 @@ function lineAt(body, index) {
 const EXCLUDED_DIRS = new Set([
   ".git",
   ".jekyll-cache",
+  "_concepts",
   "_legacy",
   "_preview",
   "_shots",
@@ -131,6 +132,15 @@ const EXCLUDED_PREFIXES = [
 
      If a directory is added to the `exclude` list in _config.yml and it holds
      .html or .md files, add it here too. */
+  /* September 2026. The concept websites and the shared components they use.
+     Each concept is a separate deployment on its own subdomain — its own page,
+     its own identity, its own offer — versioned here rather than left loose on
+     a laptop. They are in the `exclude` list in _config.yml for that reason, so
+     by the rule above they belong here too: a fictional counsellor's fee is not
+     a studio price, her page's <main> is not a second landmark on a studio page,
+     and her assets live beside her page rather than in /assets. */
+  "_concepts/",
+  "_shared/",
   "Claude outputs/",
   "staging/",
   "legacy/",
@@ -2007,6 +2017,8 @@ const KNOWN_ROUTES = (() => {
   routes.add("/search.json");
   routes.add("/site.webmanifest");
   routes.add("/sitemap.xml");
+  /* Served as a file from the repository root, not from a page's permalink. */
+  routes.add("/favicon.ico");
   for (const line of read("_redirects").split("\n")) {
     const from = line.trim().split(/\s+/)[0];
     if (from && from.startsWith("/")) routes.add(from.endsWith("/") ? from : `${from}/`);
@@ -2127,6 +2139,20 @@ check("Built site", "Every expected route was produced", () => {
   }
   assert(missing.length === 0, `routes not built: ${missing.join(", ")}`);
   return `${ROUTES.length} routes`;
+});
+
+check("Built site", "No concept website or shared component is built into the studio site", () => {
+  if (!hasSite) skip("no _site directory — run `npm run build` first");
+  /* Each concept is a separate deployment on its own subdomain, versioned in
+     this repository but never published from it. If one were built into
+     alexanderwatson.co.uk, a fictional counsellor's fee, room, email address
+     and enquiry form would appear as studio pages — and the exclusions that
+     stop that are three lines in two files, which is exactly the kind of thing
+     that gets removed by someone tidying up. */
+  for (const dir of ["_concepts", "concepts", "_shared"]) {
+    assert(!fs.existsSync(path.join(SITE, dir)), `${dir}/ was built into _site`);
+  }
+  return "concept deployments stay separate";
 });
 
 check("Built site", "The sitemap lists the public routes and none of the private ones", () => {

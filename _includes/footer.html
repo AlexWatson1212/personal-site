@@ -28,6 +28,17 @@
       </nav>
     </div>
 
+    {%- comment -%}
+      The reading control's mount point. The shared component builds the
+      control into this element; see docs/reading-control-standard.md and
+      _shared/reading-options/README.md. The element itself is emitted only
+      when the site has switched the capability on, so a site with it off
+      carries no empty container and no reserved space.
+    {%- endcomment -%}
+    {%- if site.accessibilityPreferences.enabled %}
+    <div class="footer-reading" data-reading-mount></div>
+    {%- endif %}
+
     <div class="footer-bottom">
       <div class="footer-social" role="group" aria-label="Elsewhere">
         <a href="https://instagram.com/instawats" target="_blank" rel="noopener noreferrer" aria-label="Instagram">

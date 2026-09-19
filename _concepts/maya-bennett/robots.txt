@@ -1,0 +1,3 @@
+# Portfolio concept — not a real practice. Kept out of search deliberately.
+User-agent: *
+Disallow: /

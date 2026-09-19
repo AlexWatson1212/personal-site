@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Maya Bennett — Counselling in Bristol</title>
+<meta name="description" content="Counselling for the part before you’ve decided it counts. Maya Bennett, Bristol and online, £60 per 50-minute session. A fictional practice built as a website design concept by Alexander Watson Studio.">
+<link rel="canonical" href="https://maya-bennett-concept.alexanderwatson.co.uk/">
+<meta name="theme-color" content="#F7F2E6">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://maya-bennett-concept.alexanderwatson.co.uk/">
+<meta property="og:title" content="Maya Bennett — Counselling in Bristol">
+<meta property="og:description" content="Counselling for the part before you’ve decided it counts. A fictional practice: a website design concept by Alexander Watson Studio.">
+<meta property="og:image" content="https://maya-bennett-concept.alexanderwatson.co.uk/assets/images/maya-bennett-social-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Maya Bennett — Counselling, Bristol.">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Icons. One mark, met, at every size: /assets/images/maya-bennett-favicon.svg
+     is the identity's own favicon asset, and the .ico and the PNGs are that
+     file rendered — not a second, slightly wrong mark drawn by hand. If the
+     asset changes, re-render them from it; do not redraw. The cream ground is
+     part of the asset, so the mark holds against light and dark browser chrome
+     alike. -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/images/maya-bennett-favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/images/maya-bennett-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<script>document.documentElement.className+=" js";</script>
+<!-- Reading options — the studio's shared display-preference control.
+     One configuration object, read by this pre-paint script and by the
+     component at the foot of the page. It is OFF for this site: the
+     default is, and stays, the approved design. -->
+<script>
+window.READING_OPTIONS = { enabled:false, storageKey:"maya-bennett:reading" };
+(function(c){
+  if (!c || !c.enabled) return;
+  try{
+    var saved = JSON.parse(localStorage.getItem(c.storageKey) || "{}");
+    if (saved.size && saved.size !== "default") document.documentElement.setAttribute("data-read-size", saved.size);
+    if (saved.mode && saved.mode !== "default") document.documentElement.setAttribute("data-read-mode", saved.mode);
+  }catch(e){}
+})(window.READING_OPTIONS);
+</script>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/hanken-grotesk-variable.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-variable.woff2" crossorigin>
+<style>
+/* ==============================================================
+   MAYA BENNETT COUNSELLING
+   Portfolio concept · Alexander Watson Studio
+
+   MECHANISM   Bring the unfinished version and something useful
+               happens immediately. Many half-formed inputs; one
+               steady kind of response.
+
+   TYPE        Fraunces is what the visitor brings — every sentence
+               handed back, the position, and the display headings
+               (Guide pp. 26–27). Hanken Grotesk is what Maya says —
+               every reply, label, fact, number and all running prose.
+
+   COLOUR      Apricot means one thing: the moment something is met.
+               It appears only where the two forms of the mark
+               overlap, and on the rule that introduces a reply.
+               Lilac is the tidy version nobody has to bring.
+               Blue is links and focus on light, butter on plum.
+
+   MARK        Two forms; one variable — the distance between them.
+               Apart is offered. Closed is met, and the overlap is
+               apricot. It appears only where that is true.
+
+   MOTION      Nothing moves unless the meeting changes.
+   ============================================================== */
+
+@font-face{
+  font-family:"Fraunces"; font-style:normal; font-weight:100 900; font-display:swap;
+  src:url(/fonts/fraunces-variable.woff2) format("woff2-variations");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:"Hanken Grotesk"; font-style:normal; font-weight:100 900; font-display:swap;
+  src:url(/fonts/hanken-grotesk-variable.woff2) format("woff2-variations");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@property --sep { syntax: '<length>'; inherits: true; initial-value: 0px; }
+
+:root{
+  --paper:      #F7F2E6;
+  --paper-deep: #EFE6D3;
+  --lilac:      #DED6EC;
+  --lilac-deep: #BFAFDE;
+
+  --plum:       #4A2340;
+  --plum-ink:   #2A1626;
+  --plum-mid:   #6B3A5D;
+
+  --apricot:    #EF7F4B;   /* met — the overlap in the mark, and the rule that opens a reply */
+  --blue:       #38538F;
+  --blue-soft:  #93A6D6;
+  --butter:     #F6C95C;
+
+  --rule:       rgba(42,22,38,.18);
+  --rule-soft:  rgba(42,22,38,.10);
+  --rule-light: rgba(247,242,230,.26);
+
+  --offered: "Fraunces", "Hoefler Text", Georgia, serif;
+  --answered: "Hanken Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  /* Reading scale. 1 is the designed page; the Reading options control moves
+     these three and nothing else, so there is one dial rather than a second
+     type system. Prose moves furthest, headings a fraction of that (so the
+     hierarchy survives the largest setting), labels and numbers least. */
+  --read-text: 1;
+  --read-head: 1;
+  --read-ui:   1;
+  --read-lead: 1;
+
+  /* The scale. Only the *minimum* of each step was raised in the mobile pass:
+     the preferred term and the maximum are the approved desktop values, so
+     above roughly 820px every step computes exactly as it did before, and
+     below it the page stops shrinking desktop typography down to a phone.
+        --step-0 holds at 17px to ~820px, then the original curve to 18px
+        --step--1 holds at 14.4px to ~860px
+        --step-1 holds at 19.2px to ~530px                                  */
+  --step--1: calc(clamp(.9rem, .83rem + .13vw, .95rem)       * var(--read-ui));
+  --step-0:  calc(clamp(1.0625rem, .96rem + .2vw, 1.125rem)  * var(--read-text));
+  --step-1:  calc(clamp(1.2rem, 1.08rem + .36vw, 1.38rem)    * var(--read-text));
+  --step-2:  calc(clamp(1.4rem, 1.26rem + .68vw, 1.9rem)     * var(--read-head));
+  --step-3:  calc(clamp(1.7rem, 1.44rem + 1.16vw, 2.55rem)   * var(--read-head));
+  --step-4:  calc(clamp(2rem, 1.6rem + 1.9vw, 3.4rem)        * var(--read-head));
+  --step-5:  calc(clamp(2.5rem, 1.75rem + 3.6vw, 5rem)       * var(--read-head));
+
+  /* Prose sizes. These replace the scatter of fixed .85–1rem declarations the
+     page used to carry, so every reading surface answers to one place and to
+     the reading scale. The values below are the approved desktop sizes to the
+     tenth of a pixel; the mobile block near the foot of the sheet is where
+     they are lifted for a phone. */
+  --prose:      var(--step-0);                  /* running copy                */
+  --prose-md:   calc(1rem   * var(--read-text));/* prose on the dark bands     */
+  --prose-sm:   calc(.98rem * var(--read-text));/* supporting copy, ledgers    */
+  --prose-xs:   calc(.88rem * var(--read-text));/* captions, hints             */
+  --prose-fine: calc(.85rem * var(--read-ui));  /* the base line, small print  */
+
+  --shell: 1200px;
+  --pad: clamp(1.25rem, 5vw, 4rem);
+  --gutter: max(var(--pad), calc((100vw - var(--shell)) / 2));
+  --flow: clamp(3.5rem, 7vw, 6.5rem);
+  --strip-h: 1.75rem;
+  --ease: cubic-bezier(.22,.68,.32,1);
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%;
+  scroll-padding-top:calc(var(--strip-h) + 1rem); }
+body{
+  margin:0; background:var(--paper); color:var(--plum-ink);
+  font-family:var(--answered); font-size:var(--prose); line-height:calc(1.6 * var(--read-lead)); font-weight:400;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+img{ display:block; max-width:100%; height:auto; }
+svg{ display:block; }
+/* Display headings are Fraunces 500 (Guide p. 27): section heading 27–41px,
+   sub-heading 22–30px. Maya's answers, labels and facts stay in the grotesque. */
+h1,h2,h3{ margin:0; font-family:var(--offered); font-weight:500; line-height:1.12;
+  letter-spacing:-.012em; font-variation-settings:"SOFT" 70,"WONK" 1; text-wrap:balance; }
+h2{ font-size:var(--step-3); }
+h3{ font-size:var(--step-2); }
+/* labels that happen to be headings stay labels */
+.label{ font-family:var(--answered); font-variation-settings:normal; font-size:var(--step--1); font-weight:600;
+  letter-spacing:.12em; text-transform:uppercase; line-height:1.3; color:var(--plum-mid); }
+p{ margin:0; text-wrap:pretty; }
+ul,ol{ margin:0; padding:0; list-style:none; }
+strong,b{ font-weight:600; }
+a{ color:var(--blue); text-underline-offset:.2em; text-decoration-thickness:1px; }
+a:hover{ text-decoration-thickness:2px; }
+
+:focus-visible{ outline:3px solid var(--blue); outline-offset:3px; border-radius:2px; }
+.on-plum :focus-visible{ outline-color:var(--butter); }
+
+.skip{ position:absolute; left:.5rem; top:-4rem; z-index:100; background:var(--plum-ink); color:var(--paper);
+  padding:.7rem 1.1rem; border-radius:999px; font-size:var(--step--1); text-decoration:none; }
+.skip:focus{ top:calc(var(--strip-h) + .5rem); }
+.vh{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+
+/* ---------- layout ---------- */
+.shell{ width:min(100% - (var(--pad)*2), var(--shell)); margin-inline:auto; }
+.band{ padding-block:var(--flow); position:relative; }
+.band--sparse{ padding-block:clamp(4rem,8vw,7rem); }
+.band--tight{ padding-block:clamp(2.75rem,5vw,4rem); }
+.grid{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:clamp(1.25rem,2.6vw,2.25rem); }
+section[id]{ scroll-margin-top:calc(var(--strip-h) + 1rem); }
+
+.on-plum{ background:var(--plum); color:var(--paper); }
+.on-plum h2,.on-plum h3{ color:var(--paper); }
+.on-plum a{ color:var(--butter); }
+.on-deep{ background:var(--paper-deep); }
+/* Plum is one band per surface (Guide p. 23). The enquiry sits on plum ink,
+   the darkest ground, and runs on into the footer. */
+.on-ink{ background:var(--plum-ink); }
+
+/* ---------- the mark: two forms, one variable ----------
+   Apart is offered. Closed is met, and the overlap is apricot. */
+.mark{ display:block; overflow:visible; --m1:var(--lilac-deep); --m2:var(--plum-mid); --m3:var(--apricot); }
+.mark .b{ transform:translateX(var(--sep)); transition:transform .5s var(--ease); }
+.on-plum .mark{ --m1:var(--blue-soft); --m2:var(--lilac-deep); --m3:var(--apricot); }
+
+.eyebrow{
+  font-size:var(--step--1); font-weight:600; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--plum-mid); margin-bottom:1.1rem;
+}
+.on-plum .eyebrow{ color:var(--butter); }
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; gap:.65rem; font-family:var(--answered); font-weight:600;
+  font-size:calc(1rem * var(--read-ui)); line-height:1; padding:1.05em 1.5em; border-radius:999px; border:1px solid transparent;
+  text-decoration:none; cursor:pointer; min-height:48px;
+  transition:background-color .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease);
+}
+.btn--fill{ background:var(--plum-ink); color:var(--paper); }
+.btn--fill:hover{ background:var(--plum); }
+.on-plum .btn--fill{ background:var(--butter); color:var(--plum-ink); }
+.on-plum .btn--fill:hover{ background:var(--paper); }
+.btn[disabled]{ opacity:.6; cursor:default; }
+
+/* ---------- photography: evidence, twice ---------- */
+.fig{ margin:0; position:relative; }
+.fig img{ width:100%; height:auto; object-fit:cover; background:var(--paper-deep); }
+.fig__cap{
+  margin-top:.85rem; font-size:var(--prose-xs); line-height:calc(1.5 * var(--read-lead)); color:var(--plum-mid); max-width:34ch;
+}
+.on-plum .fig__cap{ color:rgba(247,242,230,.78); }
+
+/* ---------- studio disclosure: chrome, never floating ----------
+   A strip pinned above the page below 960px; the margin tab above it. */
+.studio{
+  position:sticky; top:0; z-index:60; display:block; text-decoration:none;
+  font-family:var(--answered); background:var(--plum-ink); color:var(--paper);
+  font-size:.625rem; font-weight:600; letter-spacing:.13em; text-transform:uppercase; line-height:1;
+  padding:.6rem var(--pad); min-height:var(--strip-h);
+  transition:background-color .25s var(--ease);
+}
+.studio:hover{ background:var(--plum); }
+.studio:focus-visible{ outline:3px solid var(--butter); outline-offset:-3px; }
+.studio__short{ display:none; }
+@media (max-width:26rem){
+  .studio__long{ display:none; }
+  .studio__short{ display:inline; }
+  .studio{ letter-spacing:.1em; }
+}
+@media (min-width:60rem){
+  :root{ --strip-h:0rem; }
+  .studio{
+    position:fixed; left:0; top:50%; width:auto;
+    transform-origin:0 0; transform:rotate(-90deg) translateX(-50%);
+    padding:.72em 1.1em; border-radius:0 0 4px 4px; white-space:nowrap; min-height:0;
+  }
+  .studio__long{ display:inline; }
+}
+@media print{ .studio{ display:none; } }
+
+/* ---------- header ---------- */
+.head{ padding-block:1.5rem 1.1rem; position:relative; z-index:20; }
+.head .shell{ display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+/* The wordmark is an identity artefact, so the mark is always in the met state. */
+.wordmark{ display:inline-flex; align-items:center; gap:.7rem; text-decoration:none; color:inherit; --sep:0px; }
+.wordmark .mark{ width:2.4rem; flex:none; }
+.wordmark span{ font-family:var(--offered); font-size:1.3rem; font-weight:500; letter-spacing:-.02em;
+  line-height:1; font-variation-settings:"SOFT" 60,"WONK" 1; }
+.wordmark small{ display:block; font-family:var(--answered); font-size:.68rem; font-weight:500; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--plum-mid); margin-top:.35rem; }
+
+.wordmark span{ white-space:nowrap; }
+.head .wordmark{ min-height:44px; }
+/* On the smallest phones the lockup would otherwise break over two lines
+   beside the menu control. The descriptor steps out visually (it stays in the
+   link's accessible name) rather than the name being broken or shrunk. */
+@media (max-width:22.5rem){
+  .head .shell{ gap:.6rem; }
+  .head .wordmark small{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .js .head .navtoggle{ padding-inline:.85em; }
+}
+
+.nav{ display:flex; align-items:center; gap:clamp(1.1rem,2.2vw,2rem); }
+.nav a{ color:var(--plum-ink); text-decoration:none; font-size:calc(.98rem * var(--read-ui)); font-weight:500; position:relative; }
+/* Nothing moves unless the meeting changes: the underline appears, it does not
+   travel. It is full width at rest and changes colour, so no geometry animates
+   and no later edit can turn it back into a slide. */
+.nav > a:not(.btn)::after{ content:""; position:absolute; left:0; right:0; bottom:-.35em; height:2px;
+  background:transparent; transition:background-color .2s var(--ease); }
+.nav > a:not(.btn):hover::after{ background:var(--plum-ink); }
+.nav .btn{ font-size:calc(.94rem * var(--read-ui)); padding:.8em 1.25em; min-height:44px; }
+.nav a.btn--fill{ color:var(--paper); }
+.navtoggle{ display:none; }
+
+@media (max-width:920px){
+  /* Without script the links stay in the page as a plain row under the name,
+     and the control that could not work is not shown. */
+  .head .shell{ flex-wrap:wrap; }
+  .nav{ width:100%; flex-wrap:wrap; gap:0 1.25rem; }
+  .nav a{ display:inline-flex; align-items:center; min-height:44px; }
+  .nav > a:not(.btn)::after{ display:none; }
+  .navtoggle{ display:none; }
+
+  .js .head .shell{ flex-wrap:nowrap; }
+  .js .nav{ display:none; position:absolute; top:100%; right:var(--pad); left:var(--pad); width:auto;
+    flex-direction:column; align-items:stretch; gap:0; background:var(--paper-deep);
+    border:1px solid var(--rule); padding:.5rem; }
+  .js .nav[data-open="true"]{ display:flex; }
+  .js .nav a{ padding:.9rem 1rem; border-radius:3px; }
+  .js .nav .btn{ justify-content:center; margin-top:.4rem; }
+  .js .navtoggle{ display:inline-flex; align-items:center; gap:.55rem; background:transparent; border:1px solid var(--rule);
+    border-radius:999px; padding:.72em 1.1em; font:inherit; font-size:.94rem; font-weight:600; color:inherit;
+    cursor:pointer; min-height:44px; }
+  .navtoggle .bars{ display:grid; gap:3px; }
+  .navtoggle .bars i{ display:block; width:16px; height:2px; background:var(--plum-ink); }
+}
+
+/* ==============================================================
+   THE DEVICE — offered, then met
+   ============================================================== */
+.met{ display:grid; gap:.3rem clamp(1.5rem,3vw,2.5rem); padding:1.05rem 0;
+  border-bottom:1px solid var(--rule-soft); }
+.met:first-of-type{ border-top:1px solid var(--rule-soft); }
+@media (min-width:48rem){
+  .met{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:start; }
+}
+.met > summary{
+  display:flex; gap:.85rem; align-items:flex-start; list-style:none; cursor:pointer;
+  font-family:var(--offered); font-size:var(--step-0); line-height:1.45; font-weight:400;
+  font-variation-settings:"SOFT" 70,"WONK" 1; color:var(--plum-ink);
+  border-radius:2px; padding:.15rem 0;
+}
+.met > summary::-webkit-details-marker{ display:none; }
+.met > summary:hover{ color:var(--plum); }
+.met .mark{ width:2.1rem; flex:none; margin-top:.1rem; --sep:34px; }
+.met[open] .mark{ --sep:0px; }
+/* Equality of measure. The sentence's text begins 2.95rem inside its column —
+   the mark (2.1rem) plus its gap (.85rem). The reply is built to begin at the
+   same inset and to end level with it, so sentence and reply occupy exactly the
+   same measure. Stacked, that also puts the reply's first character directly
+   under the sentence's. */
+.met__reply{
+  font-family:var(--answered); font-size:var(--step-0); line-height:1.55; color:var(--plum-mid);
+  padding-top:.6rem; padding-left:1.1rem; display:flex; gap:.75rem; align-items:flex-start;
+}
+.met__reply::before{ content:""; flex:none; width:1.1rem; height:2px; background:var(--apricot); margin-top:.62em; }
+@media (min-width:48rem){
+  /* Side by side the rule sits flush at the column edge, so the box stops
+     1.1rem short of the right instead — same measure, arrived at from the
+     other end. */
+  .met__reply{ padding-top:.15rem; padding-left:0; max-width:calc(100% - 1.1rem); }
+}
+.met__hint{ font-size:var(--step--1); color:var(--plum-mid); margin-top:1rem; }
+
+/* ---------- arrival ---------- */
+.hero{ padding-block:clamp(1.5rem,3vw,3rem) clamp(3rem,6vw,5.5rem); }
+.hero .grid{ align-items:start; }
+/* Below 64rem the hero runs in the order of Maya's argument: the state,
+   then the meeting, then what it costs and how to start. Beside each
+   other above it, so the meeting reads as a caption to the claim. */
+.hero__text{ grid-column:1 / span 12; }
+.hero__acts{ grid-column:1 / span 12; }
+.hero h1{
+  font-size:var(--step-5); line-height:1; letter-spacing:-.03em;
+  font-variation-settings:"SOFT" 80,"WONK" 1; max-width:15ch;
+}
+.hero__lede{ font-size:var(--step-1); line-height:1.48; max-width:34ch; margin-top:1.4rem; }
+.hero__acts{ margin-top:clamp(2rem,4vw,2.5rem); }
+.hero__meta{ font-size:var(--step--1); color:var(--plum-mid); margin-top:1.6rem; padding-top:1.1rem;
+  border-top:1px solid var(--rule-soft); display:flex; flex-wrap:wrap; gap:.35rem 1.1rem; }
+.hero__meta span{ display:inline-flex; align-items:center; gap:.55rem; }
+.hero__meta span+span::before{ content:""; width:4px; height:4px; border-radius:50%; background:var(--rule); }
+/* On a narrow screen each fact takes its own line, so no separator is left
+   stranded at the start of a wrapped line. */
+@media (max-width:30rem){
+  .hero__meta{ flex-direction:column; }
+  .hero__meta span+span::before{ display:none; }
+}
+
+/* the first meeting, already met, so the idea is legible on arrival */
+.hero__pair{ grid-column:1 / span 12; margin-top:clamp(1.9rem,4vw,2.5rem); }
+@media (min-width:64rem){
+  .hero__text{ grid-column:1 / span 7; grid-row:1; }
+  .hero__acts{ grid-column:1 / span 7; grid-row:2; margin-top:clamp(2rem,3vw,2.5rem); }
+  .hero__pair{ grid-column:9 / span 4; grid-row:1 / span 2; align-self:center; margin-top:0; }
+}
+.pair{ border-top:1px solid var(--rule); padding-top:1.2rem; }
+.pair__said{
+  display:flex; gap:.85rem; align-items:flex-start;
+  font-family:var(--offered); font-size:var(--step-1); line-height:1.35; font-weight:400;
+  font-variation-settings:"SOFT" 70,"WONK" 1;
+}
+.pair .mark{ width:2.3rem; flex:none; margin-top:.15rem; --sep:0px; }
+/* Equality: a reply is set at the same size as the sentence it answers. The
+   second voice is the only permitted difference. */
+.pair__reply{ margin-top:.9rem; padding-left:2.75rem; color:var(--plum-mid);
+  font-size:var(--step-1); line-height:1.45;
+  display:flex; gap:.75rem; align-items:flex-start; }
+.pair__reply::before{ content:""; flex:none; width:1.1rem; height:2px; background:var(--apricot); margin-top:.62em; }
+.pair__note{ margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--rule-soft);
+  font-size:var(--step--1); color:var(--plum-mid); }
+
+/* ---------- permission: the position, before anything is offered ----------
+   The practice's nine words, unchanged, set as the largest sentence on the
+   page (Guide pp. 11, 31). Fraunces, because the position is handed to the
+   reader rather than said about them. */
+.claim__head{ grid-column:1 / span 12; }
+.claim h2{ font-size:var(--step-5); line-height:1.02; letter-spacing:-.03em;
+  font-variation-settings:"SOFT" 80,"WONK" 1; max-width:16ch; }
+.claim__body{ grid-column:1 / span 12; display:grid; gap:1.1rem; margin-top:clamp(1.75rem,3.5vw,2.75rem); max-width:60ch; }
+@media (min-width:60rem){
+  .claim__head{ grid-column:1 / span 7; }
+  .claim__body{ grid-column:8 / span 5; align-self:end; margin-top:0; }
+}
+
+/* ---------- what brings people ---------- */
+.meet__rows{ grid-column:1 / span 12; }
+.meet__rows > h2{ max-width:20ch; }
+.meet__note{ margin-top:1rem; color:var(--plum-mid); max-width:56ch; }
+.meet__list{ margin-top:clamp(1.75rem,3.5vw,2.5rem); }
+
+/* ---------- you don't need to prepare ---------- */
+.prep__head{ grid-column:1 / span 12; }
+@media (min-width:60rem){ .prep__head{ grid-column:1 / span 6; } }
+.prep__head h2{ max-width:14ch; }
+.prep__head p{ margin-top:1.2rem; max-width:44ch; }
+.prep__head p + p{ margin-top:.9rem; }
+
+/* Four tidy bars against five loose cards: the two sit beside each other,
+   so the arrangement carries the argument (Guide pp. 30–31). */
+.demo{ grid-column:1 / span 12; margin-top:clamp(2.5rem,5vw,3.5rem);
+  display:grid; gap:clamp(2rem,4vw,3rem) clamp(1.5rem,4vw,4rem); align-items:start; }
+@media (min-width:48rem){
+  .demo{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+  .demo__caption{ grid-column:1 / -1; }
+}
+.demo__group{ display:grid; gap:.9rem; }
+.demo__label{ font-size:var(--step--1); font-weight:600; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--plum-mid); padding-bottom:.6rem; border-bottom:1px solid var(--rule); }
+/* the tidy version: uniform, institutional, in Maya's plain face because
+   nobody actually says these — they are the imagined requirement */
+.tidy{ display:grid; gap:.4rem; }
+.tidy li{ background:var(--lilac); border-radius:2px; min-height:2rem; display:flex; align-items:center;
+  padding:.4rem .85rem; font-size:var(--prose-xs); color:var(--plum-ink); }
+.tidy li:nth-child(1){ width:100%; } .tidy li:nth-child(2){ width:90%; }
+.tidy li:nth-child(3){ width:97%; } .tidy li:nth-child(4){ width:84%; }
+/* what is genuinely enough: the off-register set (Guide p. 30). Cards carry
+   speech, so they are in the visitor's face, on paper deep or butter — butter
+   means "this is your sentence"; lilac is kept for the tidy version. A 3 mm
+   radius, never an outline, and each at its own small rotation (under 2°) and
+   its own indent, so none of them lines up with the tidy column beside it.
+   Nothing here is animated into place. */
+.enough{ display:grid; gap:.6rem; justify-items:start; padding-top:.15rem; }
+.enough li{
+  font-family:var(--offered); font-size:var(--prose-sm); line-height:calc(1.45 * var(--read-lead)); font-variation-settings:"SOFT" 70,"WONK" 1;
+  background:var(--paper-deep); color:var(--plum-ink); border-radius:.7rem;
+  padding:.6rem 1rem; max-width:min(23rem,96%);
+}
+.enough li:nth-child(1){ transform:rotate(-1.2deg); }
+.enough li:nth-child(2){ margin-left:clamp(.5rem,4vw,2.25rem); transform:rotate(.9deg); background:var(--butter); }
+.enough li:nth-child(3){ margin-left:clamp(.25rem,1.5vw,1rem); transform:rotate(-.5deg); }
+.enough li:nth-child(4){ margin-left:clamp(.9rem,6vw,3.25rem); transform:rotate(1.4deg); }
+.enough li:nth-child(5){ margin-left:clamp(.15rem,1vw,.6rem); transform:rotate(-.9deg); background:var(--butter); }
+.demo__caption{ color:var(--plum-mid); font-size:var(--prose-sm); max-width:40ch; }
+
+/* The borrowed vocabulary: under a rule, labelled as borrowed, small and
+   uniform. Plain words in a row — not chips, not a grid, never enclosed. */
+.index{ grid-column:1 / span 12; margin-top:clamp(2.5rem,5vw,3.5rem); padding-top:1.5rem;
+  border-top:1px solid var(--rule); display:grid; gap:.9rem; }
+.index ul{ display:flex; flex-wrap:wrap; gap:.3rem 0; max-width:60rem; }
+.index li{ font-size:var(--prose-sm); line-height:calc(1.5 * var(--read-lead)); }
+.index li:not(:last-child)::after{ content:"·"; content:"·" / ""; color:var(--plum-mid); padding-inline:.6rem; }
+
+/* ---------- method ---------- */
+.sess__head{ grid-column:1 / span 12; }
+@media (min-width:60rem){ .sess__head{ grid-column:1 / span 7; } }
+.sess__head h2{ max-width:22ch; }
+.sess__sub{ grid-column:1 / span 12; margin-top:1.2rem; color:rgba(247,242,230,.88); max-width:46ch; }
+@media (min-width:60rem){ .sess__sub{ grid-column:9 / span 4; align-self:end; margin-top:0; } }
+.sess__media{ grid-column:1 / span 12; margin-top:clamp(2.5rem,5vw,4rem); }
+@media (min-width:60rem){ .sess__media{ grid-column:1 / span 7; } }
+.sess__media img{ aspect-ratio:4/3; }
+.pull{ grid-column:1 / span 12; margin-top:clamp(1.75rem,3vw,3rem);
+  font-size:var(--step-2); font-weight:400; line-height:1.25; color:var(--paper); max-width:22ch; }
+@media (min-width:60rem){ .pull{ grid-column:9 / span 4; align-self:end; } }
+.sess__notes{ grid-column:1 / span 12; margin-top:clamp(2.75rem,5vw,4rem);
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr)); gap:clamp(1.5rem,3vw,2.75rem); }
+.note{ border-top:1px solid var(--rule-light); padding-top:1.1rem; }
+.note h3{ margin-bottom:.7rem; }
+.note p{ color:rgba(247,242,230,.88); font-size:var(--prose-md); }
+
+/* ---------- person ---------- */
+.about__text{ grid-column:1 / span 12; }
+@media (min-width:60rem){ .about__text{ grid-column:1 / span 6; } }
+.about__text h2{ max-width:16ch; }
+.about__text p{ margin-top:1.2rem; max-width:44ch; }
+.about__media{ grid-column:1 / span 12; margin-top:clamp(2rem,4vw,3rem); max-width:22rem; }
+@media (min-width:60rem){
+  .about__media{ grid-column:8 / span 4; margin-top:0; align-self:end; max-width:none; }
+}
+.about__media img{ aspect-ratio:4/5; }
+
+.creds{ grid-column:1 / span 12; margin-top:clamp(2.5rem,5vw,4rem);
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:0 clamp(1.5rem,3vw,2.75rem); border-top:1px solid var(--rule); }
+.creds div{ padding:1.05rem 0 1.2rem; border-bottom:1px solid var(--rule-soft); }
+.creds dt{ font-weight:600; font-size:calc(.74rem * var(--read-ui)); letter-spacing:.12em; text-transform:uppercase;
+  color:var(--plum-mid); margin-bottom:.45rem; }
+.creds dd{ margin:0; font-size:var(--prose-sm); max-width:34ch; }
+.creds .creds__note{ border-bottom-color:var(--rule); }
+.creds .creds__note dd{ color:var(--plum-mid); }
+
+/* ---------- information ---------- */
+.prac__head{ grid-column:1 / span 12; }
+@media (min-width:60rem){ .prac__head{ grid-column:1 / span 4; align-self:start; position:sticky; top:calc(var(--strip-h) + 2rem); } }
+.prac__head > p{ margin-top:1rem; color:var(--plum-mid); max-width:28ch; }
+.prac__body{ grid-column:1 / span 12; margin-top:2rem; }
+@media (min-width:60rem){ .prac__body{ grid-column:6 / span 7; margin-top:0; } }
+.glance{ display:grid; grid-template-columns:repeat(auto-fit,minmax(7rem,1fr)); gap:1rem clamp(1rem,2vw,1.75rem);
+  padding-bottom:1.5rem; border-bottom:1px solid var(--rule); }
+.glance div{ display:grid; gap:.3rem; }
+.glance dt{ font-size:calc(.74rem * var(--read-ui)); font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--plum-mid); }
+.glance dd{ margin:0; font-size:var(--step-2); font-weight:500; letter-spacing:-.02em;
+  line-height:1.05; font-variant-numeric:tabular-nums; }
+.glance dd small{ font-size:var(--prose-xs); font-weight:400; letter-spacing:0; display:block;
+  color:var(--plum-mid); margin-top:.3rem; }
+.prac__list{ margin-top:clamp(2rem,3.5vw,2.75rem); }
+.prac__item{ display:grid; grid-template-columns:1fr; gap:.35rem clamp(1rem,2.5vw,2.25rem);
+  padding:1.1rem 0; border-bottom:1px solid var(--rule-soft); align-items:baseline; }
+@media (min-width:44rem){ .prac__item{ grid-template-columns:minmax(8rem,.42fr) 1fr; } }
+.prac__item:first-child{ border-top:1px solid var(--rule-soft); }
+.prac__item dt{ font-weight:600; font-size:calc(.74rem * var(--read-ui)); letter-spacing:.12em; text-transform:uppercase; color:var(--plum-mid); }
+.prac__item dd{ margin:0; font-size:var(--prose-sm); max-width:52ch; }
+.prac__item dd b{ display:block; font-size:var(--step-1); font-weight:500;
+  letter-spacing:-.018em; margin-bottom:.2rem; }
+
+/* ---------- action ---------- */
+.steps__head{ grid-column:1 / span 12; }
+.steps__head h2{ max-width:20ch; }
+.steps{ grid-column:1 / span 12; display:grid; grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));
+  gap:clamp(1.5rem,3vw,2.75rem); margin-top:clamp(1.75rem,3.5vw,2.75rem); counter-reset:s; }
+.step{ counter-increment:s; padding-top:1.1rem; border-top:1px solid var(--rule); }
+.step h3{ margin-bottom:.5rem; }
+.step h3::before{ content:counter(s) " — "; font-family:var(--answered); font-weight:400;
+  color:var(--plum-mid); font-variant-numeric:tabular-nums; }
+.step p{ font-size:var(--prose-sm); max-width:34ch; }
+
+.enq__head{ grid-column:1 / span 12; }
+@media (min-width:60rem){ .enq__head{ grid-column:1 / span 5; } }
+.enq__head h2{ max-width:14ch; }
+.enq__head > p{ margin-top:1.2rem; color:rgba(247,242,230,.88); max-width:34ch; }
+.enq__aside{ margin-top:1.75rem; padding-top:1.35rem; border-top:1px solid var(--rule-light); display:grid; gap:.9rem;
+  font-size:var(--prose-sm); color:rgba(247,242,230,.88); max-width:36ch; }
+.enq__aside .lead{ color:var(--paper); }
+
+.form{ grid-column:1 / span 12; margin-top:2.25rem; display:grid; gap:1.4rem; }
+@media (min-width:60rem){ .form{ grid-column:7 / span 6; margin-top:0; } }
+.field{ display:grid; gap:.45rem; }
+.form label,.legend{ font-size:calc(.92rem * var(--read-ui)); font-weight:500; color:var(--paper); }
+.hint{ font-weight:400; color:rgba(247,242,230,.76); font-size:var(--prose-xs); }
+.form input[type=text],.form input[type=email],.form textarea{
+  font:inherit; font-size:max(1rem, calc(1rem * var(--read-ui))); color:var(--paper); background:rgba(247,242,230,.06);
+  border:1px solid var(--rule-light); border-radius:4px; padding:.75rem .85rem; min-height:48px; width:100%;
+}
+.form textarea{ min-height:7rem; resize:vertical; line-height:1.55; }
+.form input:focus,.form textarea:focus{ border-color:var(--paper); }
+.field[data-invalid="true"] input{ border-color:var(--butter); }
+fieldset{ border:0; padding:0; margin:0; display:grid; gap:.6rem; }
+.choices{ display:flex; flex-wrap:wrap; gap:.6rem 1.4rem; }
+.choice{ display:inline-flex; align-items:center; gap:.5rem; min-height:44px; font-weight:400; }
+.choice input{ width:1.15rem; height:1.15rem; accent-color:var(--butter); margin:0; }
+.err{ font-size:var(--prose-xs); color:var(--butter); font-weight:500; }
+.err:empty{ display:none; }
+/* The confirmation is a reply, so it takes the same short apricot rule as every
+   other reply on the page — never a border, never a fill. */
+.sent{ display:none; font-size:var(--prose-sm); color:var(--paper); gap:.75rem; align-items:flex-start; }
+.sent::before{ content:""; flex:none; width:1.1rem; height:2px; background:var(--apricot); margin-top:.62em; }
+.sent[data-on="true"]{ display:flex; }
+.formnote{ font-size:var(--prose-fine); color:rgba(247,242,230,.7); }
+
+/* ---------- footer ---------- */
+.foot{ background:var(--plum-ink); color:rgba(247,242,230,.82); padding-bottom:clamp(3rem,6vw,4.5rem); }
+.foot > .shell{ border-top:1px solid var(--rule-light); padding-top:clamp(3rem,6vw,4.5rem); }
+.foot .label{ font-size:calc(.74rem * var(--read-ui)); color:var(--paper); margin-bottom:.9rem; }
+.foot a{ color:var(--butter); }
+.foot p{ font-size:var(--prose-sm); }
+.foot__brand{ grid-column:1 / span 12; }
+@media (min-width:56rem){ .foot__brand{ grid-column:1 / span 4; } }
+.foot__brand .wordmark{ color:var(--paper); }
+.foot__brand .wordmark small{ color:rgba(247,242,230,.7); }
+.foot__brand p{ margin-top:1.1rem; max-width:34ch; }
+.foot__col{ grid-column:1 / span 12; margin-top:2rem; display:grid; gap:.5rem; align-content:start; }
+@media (min-width:56rem){ .foot__col{ grid-column:span 4; margin-top:0; } }
+.foot__col a{ text-decoration:none; }
+.foot__col a:hover{ text-decoration:underline; }
+.foot__disclosure{ grid-column:1 / span 12; margin-top:clamp(2.5rem,5vw,3.5rem); padding-top:1.75rem;
+  border-top:1px solid var(--rule-light); display:grid; gap:1.25rem; }
+.foot__disclosure p{ max-width:80ch; }
+.foot__disclosure b{ font-weight:inherit; color:var(--paper); }
+.foot__base{ display:flex; flex-wrap:wrap; gap:.4rem 1.5rem; font-size:var(--prose-fine); color:rgba(247,242,230,.62); }
+
+/* ==============================================================
+   PHONE — the page composed for a phone, not shrunk onto one
+   Reviewed at 320 / 360 / 375 / 390 / 430.
+
+   Everything here is inside the query, and every type step above
+   reaches its approved desktop value before this width ends, so
+   the desktop page is untouched. The three things being fixed:
+   substantive counselling copy was reading at 15–16px; paragraph
+   and heading spacing was set for a 16px line, not a 17px one;
+   and several real targets were tappable but not comfortably so.
+   ============================================================== */
+@media (max-width:47.99rem){
+  :root{
+    --prose-md:   calc(1.0625rem * var(--read-text));  /* 17.0px — prose on the dark bands */
+    --prose-sm:   calc(1.03rem   * var(--read-text));  /* 16.5px — supporting copy, ledgers */
+    --prose-xs:   calc(.95rem    * var(--read-text));  /* 15.2px — captions, hints */
+    --prose-fine: calc(.9rem     * var(--read-ui));    /* 14.4px — the base line */
+  }
+
+  /* --- reading comfort: the line, then the space around it --- */
+  .met > summary{ line-height:calc(1.5 * var(--read-lead)); }
+  .met__reply{ line-height:calc(1.6 * var(--read-lead)); padding-top:.7rem; }
+  .hero__lede{ line-height:calc(1.5 * var(--read-lead)); margin-top:1.5rem; }
+  .pair__reply{ line-height:calc(1.5 * var(--read-lead)); }
+
+  /* --- heading → paragraph, and paragraph → paragraph --- */
+  .claim__body{ gap:1.35rem; }
+  .meet__note{ margin-top:1.2rem; }
+  .prep__head > h2 + p{ margin-top:1.45rem; }
+  .prep__head p + p{ margin-top:1.15rem; }
+  .about__text > h2 + p{ margin-top:1.45rem; }
+  .about__text p + p{ margin-top:1.3rem; }
+  .prac__head > p{ margin-top:1.15rem; }
+  .enq__head > p{ margin-top:1.4rem; }
+
+  /* --- lists and ledgers: the same rows, given room to breathe --- */
+  .prac__item{ gap:.5rem clamp(1rem,2.5vw,2.25rem); padding:1.25rem 0; }
+  .creds div{ padding:1.15rem 0 1.3rem; }
+  .glance{ gap:1.35rem clamp(1rem,2vw,1.75rem); }
+  .enough{ gap:.7rem; }
+  .enough li{ padding:.7rem 1rem; }
+  .index ul{ gap:.45rem 0; }
+  .index li:not(:last-child)::after{ padding-inline:.5rem; }
+  .sess__notes{ gap:2rem; }
+  .fig__cap{ margin-top:.9rem; }
+  .prac__item dd b{ margin-bottom:.35rem; }
+
+  /* --- targets ---------------------------------------------------
+     The visible shapes are unchanged; the area under the thumb is
+     what grows. The sentence rows give back the padding the summary
+     takes, so a met list is the height it always was. */
+  .met{ padding:.75rem 0; }
+  .met > summary{ padding:.62rem 0; }
+  .choice input{ width:1.5rem; height:1.5rem; }
+  .navtoggle{ min-width:44px; }
+  .foot__col{ gap:.15rem; }
+  .foot__col a{ display:flex; align-items:center; min-height:44px; }
+  .foot__brand .wordmark{ min-height:44px; }
+}
+
+/* ==============================================================
+   READING OPTIONS — the studio's shared display-preference control
+   Source of truth: _shared/reading-options/ in the studio repo.
+   Inlined here because this concept is one file with no build step.
+   It is OFF for this site: see READING_OPTIONS at the foot of the
+   page for how to turn it on.
+
+   Nothing below paints anything until an attribute is set on
+   <html>, and no attribute is set unless a visitor asks for one.
+   Default is the approved page, to the pixel.
+   ============================================================== */
+:root[data-read-size="large"]  { --read-text:1.12; --read-head:1.05; --read-lead:1.03; }
+:root[data-read-size="largest"]{ --read-text:1.26; --read-head:1.09; --read-lead:1.06; }
+
+/* Higher contrast. The same four colours; the quiet end of each
+   pairing pulled up, and links underlined so nothing on the page
+   is carried by colour alone. */
+:root[data-read-mode="contrast"]{
+  --paper:      #FBF8F0;
+  --paper-deep: #F1E9D8;
+  --plum-mid:   #4A2340;
+  --apricot:    #C1521C;
+  --blue:       #2B4076;
+  --rule:       rgba(42,22,38,.38);
+  --rule-soft:  rgba(42,22,38,.22);
+  --rule-light: rgba(247,242,230,.5);
+}
+[data-read-mode="contrast"] .sess__sub,
+[data-read-mode="contrast"] .note p,
+[data-read-mode="contrast"] .enq__head > p,
+[data-read-mode="contrast"] .enq__aside,
+[data-read-mode="contrast"] .foot,
+[data-read-mode="contrast"] .hint,
+[data-read-mode="contrast"] .formnote,
+[data-read-mode="contrast"] .foot__base,
+[data-read-mode="contrast"] .on-plum .fig__cap{ color:var(--paper); }
+[data-read-mode="contrast"] .nav a,
+[data-read-mode="contrast"] .foot__col a{ text-decoration:underline; text-underline-offset:.22em; }
+[data-read-mode="contrast"] :focus-visible{ outline-width:4px; }
+
+/* Softer. The volume turned down rather than the lights out: less
+   chroma in the ground and in the accents, the same relationships,
+   and no pairing allowed below the contrast it already had. */
+:root[data-read-mode="soft"]{
+  --paper:      #F2EEE5;
+  --paper-deep: #E9E3D6;
+  --lilac:      #DFDAE6;
+  --lilac-deep: #C4BAD4;
+  --plum:       #42293B;
+  --plum-ink:   #2B1D27;
+  --plum-mid:   #5C4354;
+  --apricot:    #D9784A;
+  --butter:     #E9C874;
+  --blue:       #3A4C7A;
+}
+[data-read-mode="soft"] .fig img{ filter:saturate(.94); }
+
+/* --- the control: a quiet item in the navigation, then a panel --- */
+.ro{ position:relative; }
+.ro__btn{
+  font:inherit; font-family:var(--answered); font-size:calc(.98rem * var(--read-ui)); font-weight:500;
+  color:var(--plum-ink); background:transparent; border:0; padding:0; cursor:pointer;
+  display:inline-flex; align-items:center; gap:.5rem; min-height:44px; border-radius:2px;
+}
+.ro__btn::after{
+  content:""; width:.45rem; height:.45rem; flex:none;
+  border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor;
+  transform:translateY(-.15em) rotate(45deg);
+}
+.ro__btn[aria-expanded="true"]::after{ transform:translateY(.1em) rotate(225deg); }
+.ro__panel{
+  position:absolute; right:0; top:calc(100% + .6rem); z-index:80;
+  width:min(19rem, calc(100vw - var(--pad) * 2));
+  background:var(--paper-deep); border:1px solid var(--rule); border-radius:3px;
+  padding:1.1rem 1.15rem 1.2rem; display:grid; gap:1.1rem; text-align:left;
+}
+.ro__panel[hidden]{ display:none; }
+.ro__group{ display:grid; gap:.35rem; border:0; padding:0; margin:0; }
+.ro__legend{
+  font-family:var(--answered); font-size:calc(.74rem * var(--read-ui)); font-weight:600;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--plum-mid); padding:0; margin-bottom:.2rem;
+}
+.ro__opt{
+  display:flex; align-items:center; gap:.6rem; min-height:44px; cursor:pointer;
+  font-family:var(--answered); font-size:calc(.98rem * var(--read-ui)); font-weight:400; color:var(--plum-ink);
+}
+.ro__opt input{ width:1.5rem; height:1.5rem; margin:0; flex:none; accent-color:var(--plum-mid); }
+.ro__note{
+  font-family:var(--answered); font-size:calc(.82rem * var(--read-ui)); line-height:1.45; color:var(--plum-mid);
+  border-top:1px solid var(--rule-soft); padding-top:.9rem; margin:0; text-wrap:pretty;
+}
+/* On a phone the panel is the next block down inside the menu, so the
+   menu does not grow a second floating layer over the page. */
+@media (max-width:920px){
+  .js .ro__btn{ padding:.9rem 1rem; width:100%; justify-content:space-between; }
+  .js .ro__panel{ position:static; width:auto; border:0; border-top:1px solid var(--rule);
+    border-radius:0; background:transparent; padding:1rem 1rem 1.1rem; }
+}
+
+/* ---------- reduced motion ---------- */
+/* The same end state, arrived at immediately. Nothing is disabled and nothing is
+   hidden — the travel is removed, not compressed into a flicker. */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ transition:none !important; animation:none !important; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<a class="studio" href="#about-this-site">
+  <span class="studio__long">Alexander Watson Studio — portfolio concept</span>
+  <span class="studio__short">Concept · AW Studio</span>
+</a>
+
+<header class="head">
+  <div class="shell">
+    <a class="wordmark" href="#top">
+      <svg class="mark" viewBox="0 0 150 90" aria-hidden="true">
+        <defs><clipPath id="k1"><circle cx="45" cy="45" r="32"/></clipPath></defs>
+        <g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m2)"/></g>
+        <circle cx="45" cy="45" r="32" fill="var(--m1)"/>
+        <g clip-path="url(#k1)"><g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m3)"/></g></g>
+      </svg>
+      <span>Maya Bennett<small>Counselling · Bristol</small></span>
+    </a>
+    <button class="navtoggle" type="button" aria-expanded="false" aria-controls="nav">
+      <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span> Menu
+    </button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#sessions">Sessions</a>
+      <a href="#maya">Maya</a>
+      <a href="#practical">Fees &amp; practical</a>
+      <a class="btn btn--fill" href="#enquire">Enquire</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ═══════════ ARRIVAL ═══════════ -->
+<section class="hero" id="top">
+  <div class="shell grid">
+    <div class="hero__text">
+      <p class="eyebrow">Integrative relational counselling</p>
+      <h1>Most people start in the middle of a sentence.</h1>
+      <p class="hero__lede">I’m Maya, a counsellor in Bristol. If something has been sitting with you a while and you’re still not sure it counts, that’s usually a reasonable place to begin.</p>
+    </div>
+
+    <div class="hero__pair">
+      <div class="pair">
+        <p class="pair__said">
+          <svg class="mark" viewBox="0 0 150 90" aria-hidden="true">
+            <defs><clipPath id="k2"><circle cx="45" cy="45" r="32"/></clipPath></defs>
+            <g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m2)"/></g>
+            <circle cx="45" cy="45" r="32" fill="var(--m1)"/>
+            <g clip-path="url(#k2)"><g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m3)"/></g></g>
+          </svg>
+          <span>“I’m not sure this counts.”</span>
+        </p>
+        <p class="pair__reply">It does. That sentence is enough to start a call with.</p>
+        <p class="pair__note">Whatever you can say now is enough to begin with.</p>
+      </div>
+    </div>
+
+    <div class="hero__acts">
+      <a class="btn btn--fill" href="#enquire">Enquire about a session</a>
+      <p class="hero__meta">
+        <span>Adults, individually</span>
+        <span>£60 per 50 minutes</span>
+        <span>In person in Bristol, or online</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PERMISSION ═══════════ -->
+<section class="band band--sparse on-deep">
+  <div class="shell grid claim">
+    <div class="claim__head">
+      <p class="eyebrow">There isn’t a threshold</p>
+      <h2>Counselling for the part before you’ve decided it&nbsp;counts.</h2>
+    </div>
+    <div class="claim__body">
+      <p>There isn’t a threshold you have to cross first. People often arrive apologising — for taking a space someone else might need more, for not having a proper reason, for being upset about something they’ve already decided is small. None of that is asked for here.</p>
+      <p>Counselling isn’t only for the worst fortnight of your life. It’s also for the long, functional stretch where everything looks fine from the outside and you’ve quietly stopped feeling much about any of it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WHAT BRINGS PEOPLE ═══════════ -->
+<section class="band" id="brings">
+  <div class="shell grid">
+    <div class="meet__rows">
+      <p class="eyebrow">What brings people</p>
+      <h2>You might recognise one of&nbsp;these.</h2>
+      <p class="meet__note">None of them need tidying up before you get here. Each one below is something somebody has actually said, and each one has an answer beside it.</p>
+
+      <div class="meet__list" id="metlist">
+        <details class="met" open>
+          <summary>
+            <svg class="mark" viewBox="0 0 150 90" aria-hidden="true">
+              <defs><clipPath id="m1"><circle cx="45" cy="45" r="32"/></clipPath></defs>
+              <g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m2)"/></g>
+              <circle cx="45" cy="45" r="32" fill="var(--m1)"/>
+              <g clip-path="url(#m1)"><g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m3)"/></g></g>
+            </svg>
+            <span>“I’m fine. I’ve been fine for about four years.”</span>
+          </summary>
+          <p class="met__reply">I’d ask what fine has involved. That’s an hour, easily.</p>
+        </details>
+
+        <details class="met" open>
+          <summary>
+            <svg class="mark" viewBox="0 0 150 90" aria-hidden="true">
+              <defs><clipPath id="m2"><circle cx="45" cy="45" r="32"/></clipPath></defs>
+              <g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m2)"/></g>
+              <circle cx="45" cy="45" r="32" fill="var(--m1)"/>
+              <g clip-path="url(#m2)"><g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m3)"/></g></g>
+            </svg>
+            <span>“I say yes, then spend three days resenting it.”</span>
+          </summary>
+          <p class="met__reply">We could start with the last time that happened. Nothing bigger needed.</p>
+        </details>
+
+        <details class="met" open>
+          <summary>
+            <svg class="mark" viewBox="0 0 150 90" aria-hidden="true">
+              <defs><clipPath id="m3"><circle cx="45" cy="45" r="32"/></clipPath></defs>
+              <g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m2)"/></g>
+              <circle cx="45" cy="45" r="32" fill="var(--m1)"/>
+              <g clip-path="url(#m3)"><g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m3)"/></g></g>
+            </svg>
+            <span>“I got the thing I wanted and felt almost nothing.”</span>
+          </summary>
+          <p class="met__reply">That’s worth an hour. You wouldn’t have to explain the nothing first.</p>
+        </details>
+
+        <details class="met" open>
+          <summary>
+            <svg class="mark" viewBox="0 0 150 90" aria-hidden="true">
+              <defs><clipPath id="m4"><circle cx="45" cy="45" r="32"/></clipPath></defs>
+              <g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m2)"/></g>
+              <circle cx="45" cy="45" r="32" fill="var(--m1)"/>
+              <g clip-path="url(#m4)"><g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m3)"/></g></g>
+            </svg>
+            <span>“I can’t tell if I’m unhappy or just tired.”</span>
+          </summary>
+          <p class="met__reply">You don’t have to decide which before we speak.</p>
+        </details>
+
+        <details class="met" open>
+          <summary>
+            <svg class="mark" viewBox="0 0 150 90" aria-hidden="true">
+              <defs><clipPath id="m5"><circle cx="45" cy="45" r="32"/></clipPath></defs>
+              <g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m2)"/></g>
+              <circle cx="45" cy="45" r="32" fill="var(--m1)"/>
+              <g clip-path="url(#m5)"><g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m3)"/></g></g>
+            </svg>
+            <span>“Everyone else seems to have a next step.”</span>
+          </summary>
+          <p class="met__reply">We can start there. It doesn’t need a bigger reason behind it.</p>
+        </details>
+
+        <details class="met" open>
+          <summary>
+            <svg class="mark" viewBox="0 0 150 90" aria-hidden="true">
+              <defs><clipPath id="m6"><circle cx="45" cy="45" r="32"/></clipPath></defs>
+              <g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m2)"/></g>
+              <circle cx="45" cy="45" r="32" fill="var(--m1)"/>
+              <g clip-path="url(#m6)"><g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m3)"/></g></g>
+            </svg>
+            <span>“I keep having the same argument with different people.”</span>
+          </summary>
+          <p class="met__reply">Bring the most recent one. The details do most of the work.</p>
+        </details>
+
+        <details class="met" open>
+          <summary>
+            <svg class="mark" viewBox="0 0 150 90" aria-hidden="true">
+              <defs><clipPath id="m7"><circle cx="45" cy="45" r="32"/></clipPath></defs>
+              <g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m2)"/></g>
+              <circle cx="45" cy="45" r="32" fill="var(--m1)"/>
+              <g clip-path="url(#m7)"><g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m3)"/></g></g>
+            </svg>
+            <span>“It ended months ago and I still can’t explain why.”</span>
+          </summary>
+          <p class="met__reply">Not being able to explain it isn’t a problem for a first session.</p>
+        </details>
+
+        <details class="met" open>
+          <summary>
+            <svg class="mark" viewBox="0 0 150 90" aria-hidden="true">
+              <defs><clipPath id="m8"><circle cx="45" cy="45" r="32"/></clipPath></defs>
+              <g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m2)"/></g>
+              <circle cx="45" cy="45" r="32" fill="var(--m1)"/>
+              <g clip-path="url(#m8)"><g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m3)"/></g></g>
+            </svg>
+            <span>“I know what I should want. That isn’t the same thing.”</span>
+          </summary>
+          <p class="met__reply">That’s a sentence I’d want to sit with. It’s enough to book a call on.</p>
+        </details>
+      </div>
+      <p class="met__hint" id="methint" hidden>Each one is answered. Open the others if you want to see how ordinary the answers are.</p>
+    </div>
+
+    <div class="index">
+      <h3 class="label">Or, in borrowed words — the plainer terms people search&nbsp;for</h3>
+      <ul>
+        <li>Anxiety</li><li>Self-esteem</li><li>People-pleasing</li><li>Relationship difficulties</li>
+        <li>Breakups and endings</li><li>Identity</li><li>Life transitions</li><li>Perfectionism</li>
+        <li>Feeling behind</li><li>Not knowing what you want</li><li>Work and burnout</li><li>Family patterns</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ YOU DON’T NEED TO PREPARE ═══════════ -->
+<section class="band" id="prepare">
+  <div class="shell grid">
+    <div class="prep__head">
+      <p class="eyebrow">Before a first session</p>
+      <h2>You don’t need to&nbsp;prepare.</h2>
+      <p>People often think they should arrive with a tidy account — background in order, when it started, the actual problem, and what they want from therapy. Almost nobody has that, including the people who look like they do.</p>
+      <p>The untidy version is more useful anyway. It’s closer to how you actually think about it, and it hasn’t had the interesting parts smoothed out of it yet.</p>
+    </div>
+
+    <div class="demo">
+      <div class="demo__group">
+        <p class="demo__label" id="lbl-tidy">What people think they need to bring</p>
+        <ul class="tidy" aria-labelledby="lbl-tidy">
+          <li>The background, in order</li>
+          <li>When it started</li>
+          <li>The actual problem, stated clearly</li>
+          <li>What I want from therapy</li>
+        </ul>
+      </div>
+      <div class="demo__group">
+        <p class="demo__label" id="lbl-enough">What is genuinely enough</p>
+        <ul class="enough" aria-labelledby="lbl-enough">
+          <li>Something that happened on Tuesday</li>
+          <li>A feeling that hasn’t got a story yet</li>
+          <li>The thing I’ve never said out loud</li>
+          <li>An argument I keep replaying</li>
+          <li>“No idea, honestly”</li>
+        </ul>
+      </div>
+      <p class="demo__caption">Both are a first session. Only one of them takes six weeks to write.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ METHOD ═══════════ -->
+<section class="band on-plum" id="sessions">
+  <div class="shell grid">
+    <div class="sess__head">
+      <p class="eyebrow">What sessions are like</p>
+      <h2>Fifty minutes a week with someone who isn’t in a hurry to fix&nbsp;you.</h2>
+    </div>
+    <p class="sess__sub">Same time each week, in an ordinary room with good light and a door that shuts. No couch, no clipboard, no technique performed at you.</p>
+
+    <figure class="fig sess__media">
+      <img src="/assets/images/maya-bennett-session-room.webp"
+           srcset="/assets/images/maya-bennett-session-room-700.webp 700w, /assets/images/maya-bennett-session-room.webp 1400w"
+           sizes="(min-width: 60rem) 58vw, 92vw"
+           width="1400" height="1050" loading="lazy" decoding="async"
+           alt="Two worn leather armchairs angled towards each other beneath a sash window, with afternoon light across the floor.">
+      <figcaption class="fig__cap">The room in Bristol. Two chairs, slightly at an angle — nobody has to look straight at anybody.</figcaption>
+    </figure>
+
+    <p class="pull">You can be funny about it. Most people are, at&nbsp;first.</p>
+
+    <div class="sess__notes">
+      <div class="note">
+        <h3>The shape of it</h3>
+        <p>You talk. I listen properly, which is less passive than it sounds. I’ll ask questions, and some of them you won’t have an answer to — that tends to be the interesting part. Nothing is compulsory: “I don’t want to go into that today” is a complete sentence.</p>
+      </div>
+      <div class="note">
+        <h3>Integrative, meaning</h3>
+        <p>I don’t run one method over everything regardless of fit. I’ve trained across several approaches and choose between them depending on what’s in front of us — sometimes that means understanding where a pattern began, sometimes it means what to do about Thursday.</p>
+      </div>
+      <div class="note">
+        <h3>Relational, meaning</h3>
+        <p>What happens between us counts. How it feels to talk to me, what comes easily and what you find yourself editing — that isn’t the preamble to the work, it’s a fair amount of the work. Most of us learned how to be with people somewhere, and it turns up in the room.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PERSON ═══════════ -->
+<section class="band" id="maya">
+  <div class="shell grid">
+    <div class="about__text">
+      <p class="eyebrow">Maya</p>
+      <h2>I’m not a blank&nbsp;screen.</h2>
+      <p>I trained in Bristol and have been in independent practice for five years. Before counselling I worked in arts programming, which mostly taught me how much of what someone means arrives in the pause before they say it.</p>
+      <p>In the room I’m fairly informal and I use plain words. You’ll usually be able to tell when something lands with me. What I won’t do is tell you how to live, or agree with everything automatically — I’d rather say what I notice, including when it’s inconvenient. That’s the part people say they didn’t expect to like.</p>
+      <p>I work with adults on their own, mostly in their twenties, thirties and early forties, and often with people who have never done this before and are faintly embarrassed to have booked.</p>
+    </div>
+
+    <figure class="fig about__media">
+      <img src="/assets/images/maya-bennett-portrait.webp"
+           srcset="/assets/images/maya-bennett-portrait-350.webp 350w, /assets/images/maya-bennett-portrait.webp 700w"
+           sizes="(min-width: 60rem) 30vw, min(22rem, 92vw)"
+           width="700" height="875" loading="lazy" decoding="async"
+           alt="Maya Bennett, close, looking directly at the camera in daylight.">
+      <figcaption class="fig__cap">Maya Bennett, Bristol.</figcaption>
+    </figure>
+
+    <dl class="creds">
+      <div><dt>Practice</dt><dd>Five years in independent practice, in Bristol and online</dd></div>
+      <div><dt>Works with</dt><dd>Adults, individually — often people who have never had counselling before</dd></div>
+      <div class="creds__note"><dt>Professional standing</dt><dd>Left blank on purpose. Maya is a fictional counsellor, so no professional body, qualification, registration number, supervisor or insurer is named or claimed. <a href="#about-this-site">About this concept</a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ═══════════ INFORMATION ═══════════ -->
+<section class="band on-deep" id="practical">
+  <div class="shell grid">
+    <div class="prac__head">
+      <p class="eyebrow">Fees &amp; practical</p>
+      <h2>The practical part, plainly.</h2>
+      <p>No packages, no minimum commitment, nothing you have to ask about twice.</p>
+    </div>
+
+    <div class="prac__body">
+      <dl class="glance">
+        <div><dt>Fee</dt><dd>£60<small>per session</small></dd></div>
+        <div><dt>Length</dt><dd>50 min<small>weekly, same time</small></dd></div>
+        <div><dt>In person</dt><dd>Bristol<small>central, step-free</small></dd></div>
+        <div><dt>Online</dt><dd>UK-wide<small>video, same fee</small></dd></div>
+      </dl>
+
+      <dl class="prac__list">
+        <div class="prac__item"><dt>Availability</dt><dd><b>Tuesday to Thursday, 9am–7pm</b>The same time each week, so the hour stops being a decision. I’ll tell you honestly if I have nothing suitable.</dd></div>
+        <div class="prac__item"><dt>First call</dt><dd><b>Free, twenty minutes</b>No obligation on either side. It’s completely fine to decide I’m not the right person for you.</dd></div>
+        <div class="prac__item"><dt>Paying</dt><dd><b>Bank transfer after each session</b>Or monthly, if that’s simpler. No card details, no subscription, no deposit.</dd></div>
+        <div class="prac__item"><dt>Cancellations</dt><dd><b>48 hours’ notice</b>Sessions cancelled with less notice are charged. If you’re ill, say so — we’ll work it out.</dd></div>
+        <div class="prac__item"><dt>Lower fee</dt><dd><b>Two reduced-fee places</b>Kept for people on a low income. You can ask for one without proving anything.</dd></div>
+        <div class="prac__item"><dt>Access</dt><dd><b>Ground floor, no stairs</b>Accessible toilet in the building. Tell me what you need and I’ll tell you honestly whether the room can do it.</dd></div>
+        <div class="prac__item"><dt>Confidentiality</dt><dd><b>Kept, with two limits</b>What you say stays between us, except where there’s a serious risk to you or someone else, or where the law requires disclosure. I discuss my work anonymously in supervision. Wherever possible I’d tell you first.</dd></div>
+        <div class="prac__item"><dt>Contact</dt><dd><b>hello@mayabennett.example</b>Or the form below. I reply within two working days.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ACTION ═══════════ -->
+<section class="band band--tight" id="start">
+  <div class="shell grid">
+    <div class="steps__head">
+      <p class="eyebrow">How to start</p>
+      <h2>Three steps, and you can stop after any of&nbsp;them.</h2>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <h3>Send a message</h3>
+        <p>A few lines is plenty. You don’t have to explain the whole situation or find the right words for it.</p>
+      </li>
+      <li class="step">
+        <h3>A short call</h3>
+        <p>Twenty minutes, free, usually within a few days. You can ask me anything — including what I’m like to talk to.</p>
+      </li>
+      <li class="step">
+        <h3>A first session</h3>
+        <p>If it seems workable, we book one. Afterwards you decide whether to carry on, and stopping later takes one sentence. There’s no block of six to commit to.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="band on-plum on-ink" id="enquire">
+  <div class="shell grid">
+    <div class="enq__head">
+      <p class="eyebrow">Enquire</p>
+      <h2>Send a first&nbsp;message.</h2>
+      <p>It comes to me, not to an assistant or a booking system. I reply within two working days — if you haven’t heard back in three, something has gone wrong at my end, so please send it again.</p>
+      <div class="enq__aside">
+        <p class="lead">You don’t have to explain it well here.</p>
+        <p>“I’d like to talk to someone” is a complete enquiry. I’ll ask the rest on the call.</p>
+        <p>Prefer email? <a href="mailto:hello@mayabennett.example">hello@mayabennett.example</a></p>
+        <p>If you are in crisis or at immediate risk, counselling isn’t the fastest help available — contact your GP, NHS 111, or the Samaritans on 116 123, free, at any hour.</p>
+      </div>
+    </div>
+
+    <form class="form" id="enquiry" novalidate>
+      <div class="field">
+        <label for="f-name">Your name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+        <p class="err" id="e-name" role="alert"></p>
+      </div>
+
+      <div class="field">
+        <label for="f-email">Email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email">
+        <p class="err" id="e-email" role="alert"></p>
+      </div>
+
+      <fieldset>
+        <legend class="legend">How would you like to meet?</legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="format" value="in-person"><span>In person, Bristol</span></label>
+          <label class="choice"><input type="radio" name="format" value="online"><span>Online</span></label>
+          <label class="choice"><input type="radio" name="format" value="unsure" checked><span>Not sure yet</span></label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label for="f-msg">Anything you’d like me to know <span class="hint">— optional</span></label>
+        <p class="hint" id="h-msg">One sentence is plenty, and it can be badly put. You don’t need to start at the beginning.</p>
+        <textarea id="f-msg" name="message" aria-describedby="h-msg"></textarea>
+      </div>
+
+      <p class="hint">Sending this lets me reply to you by email. It isn’t used for anything else.</p>
+
+      <div>
+        <button class="btn btn--fill" type="submit">Send message</button>
+      </div>
+
+      <p class="sent" id="sent" role="status" tabindex="-1">Thank you — that would have reached Maya. This is a portfolio concept, so nothing was sent. On a live site you’d see a confirmation here and a reply within two working days.</p>
+
+      <p class="formnote">Demonstration form. It validates in the browser and transmits nothing.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell grid">
+    <div class="foot__brand">
+      <a class="wordmark" href="#top">
+        <svg class="mark" viewBox="0 0 150 90" aria-hidden="true">
+          <defs><clipPath id="k14"><circle cx="45" cy="45" r="32"/></clipPath></defs>
+          <g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m2)"/></g>
+          <circle cx="45" cy="45" r="32" fill="var(--m1)"/>
+          <g clip-path="url(#k14)"><g class="b"><rect x="48" y="17" width="56" height="56" rx="18" fill="var(--m3)"/></g></g>
+        </svg>
+        <span>Maya Bennett<small>Counselling · Bristol</small></span>
+      </a>
+      <p>Integrative relational counselling for adults, in central Bristol and online across the UK. £60 per 50-minute session.</p>
+    </div>
+
+    <nav class="foot__col" aria-label="Sections">
+      <h2 class="label">This page</h2>
+      <a href="#brings">What brings people</a>
+      <a href="#prepare">Before a first session</a>
+      <a href="#sessions">What sessions are like</a>
+      <a href="#maya">About Maya</a>
+      <a href="#practical">Fees &amp; practical</a>
+      <a href="#enquire">Enquire</a>
+    </nav>
+
+    <div class="foot__disclosure" id="about-this-site">
+      <p><b>About this site.</b> Maya Bennett is a fictional counsellor, created by Alexander Watson Studio as a website design concept. She is not accepting clients, and no enquiry sent from this page reaches anyone. No professional body, qualification, registration number, supervisor or insurer is named or claimed, and no testimonial or outcome exists. The fee, availability, room and email address are illustrative, and the enquiry form transmits nothing.</p>
+      <div class="foot__base">
+        <span>Design concept, 2026</span>
+        <span>Photography and design direction by <a href="https://alexanderwatson.co.uk">Alexander Watson Studio</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* --- navigation --- */
+  var toggle = document.querySelector(".navtoggle"), nav = document.getElementById("nav");
+  if (toggle && nav){
+    var setNav = function(open){
+      nav.setAttribute("data-open", String(open));
+      toggle.setAttribute("aria-expanded", String(open));
+    };
+    toggle.addEventListener("click", function(){ setNav(nav.getAttribute("data-open") !== "true"); });
+    nav.addEventListener("click", function(e){ if (e.target.closest("a")) setNav(false); });
+    document.addEventListener("keydown", function(e){
+      if (e.key === "Escape" && nav.getAttribute("data-open") === "true"){ setNav(false); toggle.focus(); }
+    });
+    document.addEventListener("click", function(e){
+      if (nav.getAttribute("data-open") === "true" && !e.target.closest(".head")) setNav(false);
+    });
+  }
+
+  /* --- the meeting ---------------------------------------------
+     Every sentence ships already answered, so the page is complete
+     with no JavaScript at all. Where there is script, all but the
+     first are closed, so a visitor gets to be met rather than told.
+     Native <details>; no ARIA is invented for it.
+     ------------------------------------------------------------- */
+  var rows = document.querySelectorAll("#metlist .met");
+  if (rows.length > 1){
+    for (var i = 1; i < rows.length; i++) rows[i].open = false;
+    var hint = document.getElementById("methint");
+    if (hint) hint.hidden = false;
+  }
+
+  /* --- enquiry form --- */
+  var form = document.getElementById("enquiry");
+  if (!form) return;
+  var sent = document.getElementById("sent");
+  var re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function mark(input, msg){
+    var field = input.closest(".field");
+    var box = document.getElementById(input.getAttribute("aria-describedby"));
+    if (field) field.setAttribute("data-invalid", msg ? "true" : "false");
+    input.setAttribute("aria-invalid", msg ? "true" : "false");
+    if (box && box.classList.contains("err")) box.textContent = msg || "";
+    return !msg;
+  }
+  function checkName(){
+    var el = document.getElementById("f-name");
+    return mark(el, el.value.trim() ? "" : "Please add a name — a first name is plenty.");
+  }
+  function checkEmail(){
+    var el = document.getElementById("f-email");
+    if (!el.value.trim()) return mark(el, "Please add an email address so I can reply.");
+    return mark(el, re.test(el.value.trim()) ? "" : "That doesn’t look like an email address — check for a missing @ or dot.");
+  }
+
+  [["f-name",checkName],["f-email",checkEmail]].forEach(function(pair){
+    var el = document.getElementById(pair[0]);
+    el.addEventListener("blur", function(){ if (el.value.trim()) pair[1](); });
+    el.addEventListener("input", function(){ if (el.getAttribute("aria-invalid") === "true") pair[1](); });
+  });
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var a = checkName(), b = checkEmail();
+    if (!(a && b)){
+      var bad = form.querySelector('[aria-invalid="true"]');
+      if (bad) bad.focus();
+      sent.setAttribute("data-on","false");
+      return;
+    }
+    sent.setAttribute("data-on","true");
+    sent.focus();
+    form.querySelector('button[type="submit"]').disabled = true;
+  });
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   READING OPTIONS — shared component
+   Source of truth: _shared/reading-options/ in the studio repo.
+   Configured at the top of the page: window.READING_OPTIONS.
+
+   Off here, so this block returns before it touches anything. When
+   it is on, it builds one button and one panel inside the existing
+   navigation — nothing floats over the page, and nothing is added
+   to the markup a visitor without JavaScript receives, because a
+   control that cannot work should not be offered.
+   ══════════════════════════════════════════════════════════════ */
+(function(){
+  "use strict";
+  var cfg = window.READING_OPTIONS;
+  if (!cfg || !cfg.enabled) return;
+
+  var nav = document.getElementById("nav");
+  if (!nav) return;
+  var doc = document.documentElement;
+
+  var GROUPS = [
+    { key:"size", attr:"data-read-size", legend:"Text size",
+      options:[["default","Default"],["large","Larger"],["largest","Largest"]] },
+    { key:"mode", attr:"data-read-mode", legend:"Reading mode",
+      options:[["default","Default"],["contrast","Higher contrast"],["soft","Softer"]] }
+  ];
+
+  var state = { size:"default", mode:"default" };
+  try{
+    var saved = JSON.parse(localStorage.getItem(cfg.storageKey) || "{}");
+    GROUPS.forEach(function(g){
+      var v = saved[g.key];
+      if (v && g.options.some(function(o){ return o[0] === v; })) state[g.key] = v;
+    });
+  }catch(e){}
+
+  function apply(){
+    GROUPS.forEach(function(g){
+      if (state[g.key] === "default") doc.removeAttribute(g.attr);
+      else doc.setAttribute(g.attr, state[g.key]);
+    });
+    try{ localStorage.setItem(cfg.storageKey, JSON.stringify(state)); }catch(e){}
+  }
+
+  var wrap = document.createElement("div");
+  wrap.className = "ro";
+
+  var btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "ro__btn";
+  btn.id = "ro-btn";
+  btn.setAttribute("aria-expanded", "false");
+  btn.setAttribute("aria-controls", "ro-panel");
+  btn.appendChild(document.createTextNode(cfg.label || "Reading options"));
+
+  var panel = document.createElement("div");
+  panel.className = "ro__panel";
+  panel.id = "ro-panel";
+  panel.hidden = true;
+
+  GROUPS.forEach(function(g){
+    var set = document.createElement("fieldset");
+    set.className = "ro__group";
+    var leg = document.createElement("legend");
+    leg.className = "ro__legend";
+    leg.textContent = g.legend;
+    set.appendChild(leg);
+    g.options.forEach(function(opt){
+      var label = document.createElement("label");
+      label.className = "ro__opt";
+      var input = document.createElement("input");
+      input.type = "radio";
+      input.name = "ro-" + g.key;
+      input.value = opt[0];
+      input.checked = state[g.key] === opt[0];
+      input.addEventListener("change", function(){ state[g.key] = opt[0]; apply(); });
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(opt[1]));
+      set.appendChild(label);
+    });
+    panel.appendChild(set);
+  });
+
+  var note = document.createElement("p");
+  note.className = "ro__note";
+  note.textContent = "Kept on this device only, so the page opens this way next time. Nothing is sent anywhere.";
+  panel.appendChild(note);
+
+  wrap.appendChild(btn);
+  wrap.appendChild(panel);
+
+  var cta = nav.querySelector(".btn");
+  nav.insertBefore(wrap, cta || null);
+
+  function open(is){
+    panel.hidden = !is;
+    btn.setAttribute("aria-expanded", String(is));
+  }
+  btn.addEventListener("click", function(){ open(panel.hidden); });
+  /* Capture, so that inside an open panel Escape closes the panel and stops
+     there rather than also closing the menu the panel is sitting in. */
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape" && !panel.hidden){
+      e.stopPropagation();
+      open(false);
+      btn.focus();
+    }
+  }, true);
+  document.addEventListener("click", function(e){
+    if (!panel.hidden && !e.target.closest(".ro")) open(false);
+  });
+
+  apply();
+})();
+</script>
+</body>
+</html>

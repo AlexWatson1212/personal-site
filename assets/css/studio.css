@@ -78,20 +78,31 @@
   --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
   --sans: "Inter", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
 
-  --t-display: clamp(2.75rem, 1.35rem + 5.2vw, 5.5rem);
-  --t-h1: clamp(2.25rem, 1.4rem + 3.3vw, 4.15rem);
-  --t-h2: clamp(1.8rem, 1.32rem + 1.95vw, 2.95rem);
-  --t-h3: clamp(1.3rem, 1.18rem + 0.5vw, 1.6rem);
-  --t-h4: clamp(1.05rem, 1rem + 0.25vw, 1.2rem);
-  --t-lead: clamp(1.08rem, 1.02rem + 0.34vw, 1.3rem);
-  --t-body: 1.0625rem;
-  --t-small: 0.9375rem;
-  --t-tiny: 0.875rem;
-  --t-label: 0.6875rem;
+  /* The reading scale. --read-text, --read-head, --read-ui and --read-lead
+     are declared by the shared component (_shared/reading-options), which the
+     build prepends to this stylesheet. All four are 1 unless a visitor has
+     chosen otherwise, so every calc below resolves to exactly the literal it
+     multiplies and the default page is the approved page to the pixel — not a
+     theme that restores it.
+
+     Which token rides which multiplier is this site's decision, and it is the
+     whole reason the largest step reads as a larger page rather than a zoomed
+     one: reading text takes the full step, headings a fraction of it, and
+     eyebrows, numbers and controls least of all. See section 22. */
+  --t-display: calc(clamp(2.75rem, 1.35rem + 5.2vw, 5.5rem) * var(--read-head, 1));
+  --t-h1: calc(clamp(2.25rem, 1.4rem + 3.3vw, 4.15rem) * var(--read-head, 1));
+  --t-h2: calc(clamp(1.8rem, 1.32rem + 1.95vw, 2.95rem) * var(--read-head, 1));
+  --t-h3: calc(clamp(1.3rem, 1.18rem + 0.5vw, 1.6rem) * var(--read-head, 1));
+  --t-h4: calc(clamp(1.05rem, 1rem + 0.25vw, 1.2rem) * var(--read-head, 1));
+  --t-lead: calc(clamp(1.08rem, 1.02rem + 0.34vw, 1.3rem) * var(--read-text, 1));
+  --t-body: calc(1.0625rem * var(--read-text, 1));
+  --t-small: calc(0.9375rem * var(--read-text, 1));
+  --t-tiny: calc(0.875rem * var(--read-text, 1));
+  --t-label: calc(0.6875rem * var(--read-ui, 1));
 
   --lh-display: 1.02;
   --lh-heading: 1.08;
-  --lh-body: 1.62;
+  --lh-body: calc(1.62 * var(--read-lead, 1));
 
   /* ---- Space. A single scale. ---- */
   --s-1: 0.25rem;
@@ -144,14 +155,46 @@
    including the ones a later rule adds — and nothing has to out-specify
    anything. Durations become imperceptible rather than zero, so state changes
    still fire their events. */
-/* On a phone the two smaller sizes come up to 15px and 16px. Small print is
-   still small print, but nothing on this site asks somebody to read body
-   copy below 15px on the device most of them are using. */
+/* PHONE READING ------------------------------------------------------------
+   The scale is composed for a desktop column and then has to survive a 332px
+   one. Five tokens move, and nothing else does; the desktop composition above
+   48rem is untouched.
+
+   --t-tiny / --t-small   Small print comes up to 15px and 16px. Small print is
+                          still small print, but nothing on this site asks
+                          somebody to read body copy below 15px on the device
+                          most of them are using.
+   --t-lead               The clamp resolves to 17.6px at 390px against a 17px
+                          body: the lead paragraph, which is meant to be the
+                          step between the headline and the text, arrived the
+                          same size as the text. 1.2rem restores the step. At
+                          48rem the clamp itself reaches 18.9px, so the two
+                          meet within a quarter of a pixel and there is no
+                          jump at the boundary.
+   --t-label              Eyebrows are 11px uppercase at 0.15em, which is the
+                          smallest thing on the page and the one carrying the
+                          section names. 12px on a phone.
+   --lh-body              1.62 is right for a 17px line of 70 characters and
+                          tight for one of 43. Measured at 375, 390 and 430px.
+
+   Body copy stays at 17px. It is already inside the comfortable band, and at
+   this column width raising it would buy larger glyphs at the cost of the
+   line length — the wrong trade on a phone. */
 @media (max-width: 48rem) {
   :root {
-    --t-tiny: 0.9375rem;
-    --t-small: 1rem;
+    --t-tiny: calc(0.9375rem * var(--read-text, 1));
+    --t-small: calc(1rem * var(--read-text, 1));
+    --t-lead: calc(1.2rem * var(--read-text, 1));
+    --t-label: calc(0.75rem * var(--read-ui, 1));
+    --lh-body: calc(1.68 * var(--read-lead, 1));
   }
+
+  /* Paragraph rhythm. The default flow is 1rem, which is less than one line
+     on a phone, so consecutive paragraphs read as one block. Each step moves
+     up one place on the same scale — no new values. */
+  .stack { --flow: var(--s-5); }
+  .stack--tight { --flow: var(--s-4); }
+  .stack--loose { --flow: var(--s-6); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -286,7 +329,10 @@ h1, h2, h3 {
 /* 200% zoom on a 390px phone leaves a 195px viewport. A display line has to
    give way there — the alternative is a heading that runs off the page. */
 @media (max-width: 20rem) {
-  :root { --t-display: clamp(1.9rem, 9vw, 2.6rem); --t-h1: clamp(1.7rem, 8vw, 2.3rem); }
+  :root {
+    --t-display: calc(clamp(1.9rem, 9vw, 2.6rem) * var(--read-head, 1));
+    --t-h1: calc(clamp(1.7rem, 8vw, 2.3rem) * var(--read-head, 1));
+  }
   .t-display, h1, .t-h1 { hyphens: auto; }
 }
 
@@ -1623,6 +1669,23 @@ p { text-wrap: pretty; }
    rather than 4 + 2, and six in a row from 72rem. */
 .anatomy--six { --anatomy-steps: 6; }
 @media (min-width: 48rem) and (max-width: 71.99rem) { .anatomy--six .anatomy__steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* Below 48rem the six-step journey goes to one column.
+
+   Two columns leave each step about 158px at 375px — twenty characters to a
+   line, with "04 · Your decision" breaking across two lines above a heading
+   that also breaks, and step four's sentence coming apart into four fragments.
+   It was the desktop rail folded in half rather than a phone composition, and
+   it is the one place on the page that read that way.
+
+   One column gives each step the full measure, puts the sequence in the order
+   a thumb reads it, and lets the description come up from small print to the
+   size of the supporting copy elsewhere. The three-step variant has always
+   done this; six now matches it. */
+@media (max-width: 47.99rem) {
+  .anatomy--six .anatomy__steps { grid-template-columns: minmax(0, 1fr); }
+  .anatomy--six .anatomy__step p { font-size: var(--t-small); }
+}
 
 .anatomy__step { position: relative; padding-block-start: var(--s-5); }
 
@@ -3667,5 +3730,180 @@ legend {
   .contact-email {
     display: inline-block;
     padding-block: 0.35rem;
+  }
+}
+
+/* ==========================================================================
+   22  READING OPTIONS — this site's half
+
+   The standard is docs/reading-control-standard.md. The component is
+   _shared/reading-options/, and scripts/build-css.mjs prepends its stylesheet
+   to this one, so what arrives above this section is the scale (--read-text,
+   --read-head, --read-ui, --read-lead) and the control's structure (.ro).
+
+   Two things belong to the practice rather than to the component, and both
+   are below: what the two modes are made of, and what the control looks like.
+   The shared file ships the mode slots empty on purpose — an unfilled mode is
+   a mode that does nothing, which is the correct failure.
+
+   Everything here hangs off an attribute on <html>. With no attribute set
+   nothing in this section applies, which is why "Default" is not a theme that
+   restores the approved design: it is the approved design, untouched.
+   ========================================================================== */
+
+/* ---- Higher contrast ----------------------------------------------------
+   The three surfaces do not move. This raises what is written on them; it
+   does not repaint the brand. Every text pairing below is at or above 7:1 —
+   AAA for body copy — on all three grounds, and the hairlines clear 3:1,
+   which at the default weight they do not. Measured against the colour each
+   one is actually painted on, not estimated. */
+
+:root[data-read-mode="contrast"] {
+  --text: #141a16;          /* 16.1:1 on paper · 14.3:1 on sage */
+  --text-quiet: #2c3531;    /* 11.5:1 on paper · 10.3:1 on sage */
+  --text-faint: #3a433e;    /*  9.3:1 on paper ·  8.3:1 on sage */
+  --on-ink: #ffffff;        /* 14.9:1 on ink */
+  --on-ink-quiet: #dce4de;  /* 11.5:1 on ink */
+  --ink: #1c2a27;
+  --ink-deep: #16211f;
+  --clay: #6f3f27;          /*  7.9:1 on paper */
+  --clay-quiet: #8a5238;
+  --line: #8e8373;          /*  3.4:1 on paper ·  3.0:1 on sage */
+  --line-soft: #9c9181;
+  --line-strong: #6b6152;
+  --line-on-sage: #8b9088;
+}
+
+/* In running text the underline is the only thing that says "link" without
+   relying on colour. Here it is unambiguous everywhere, and the focus ring is
+   heavier, because the people who reach for higher contrast are frequently
+   the people navigating by keyboard. */
+[data-read-mode="contrast"] .nav__links a,
+[data-read-mode="contrast"] .footer-group a,
+[data-read-mode="contrast"] .inline-link {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+[data-read-mode="contrast"] :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline-width: 3px;
+  outline-offset: 2px;
+}
+
+/* ---- Softer -------------------------------------------------------------
+   For glare and light sensitivity rather than for low vision: the paper comes
+   down off its brightest value, the ink slabs come up off their deepest, and
+   the distance between the two closes a little. The same palette with the
+   volume down — not a dark mode, and not the contrast mode in reverse.
+
+   No pairing is allowed below the contrast it already had where that contrast
+   was the floor: body copy is 11.9:1 on paper here and nothing falls below
+   5:1, so this is a AA surface throughout and AAA where the reading happens.
+
+   Decoration goes with it. The motion tokens are the same ones the
+   reduced-motion preference flips, so standing them down here reaches every
+   animation in the stylesheet without any rule having to out-specify another,
+   and the plate lift and image hover go quiet with them. */
+
+:root[data-read-mode="soft"] {
+  --paper: #f1ede4;
+  --paper-deep: #e9e4da;
+  --sage: #dfe5dd;
+  --ink: #35453f;
+  --ink-deep: #2c3a35;
+  --text: #262e2a;          /* 11.9:1 on paper */
+  --text-quiet: #4a544e;    /*  6.7:1 on paper */
+  --text-faint: #58615b;    /*  5.5:1 on paper ·  5.0:1 on sage */
+  --on-ink: #edeae2;        /*  8.4:1 on ink */
+  --on-ink-quiet: #c2ccc5;  /*  6.1:1 on ink */
+  --clay: #7d4b34;          /*  6.1:1 on paper */
+  --clay-quiet: #96674f;
+  --line: #cfc8bc;
+  --line-soft: #ded8cd;
+  --line-strong: #aca596;
+
+  --lift: 0px;
+  --dur-micro: 0.01ms;
+  --dur: 0.01ms;
+  --dur-slow: 0.01ms;
+  --dur-entrance: 0.01ms;
+  --dur-image: 0.01ms;
+}
+
+/* The one piece of ornament that is not made of a token: the showcase cycles
+   three screenshots on the home page. In the softer mode it holds still on
+   the first, which is exactly what it does under a reduced-motion preference. */
+:root[data-read-mode="soft"] .showcase__shot:not(:first-child),
+:root[data-read-mode="soft"] .showcase__names span:not(:first-child) {
+  animation: none;
+  opacity: 0;
+}
+
+/* ---- The control --------------------------------------------------------
+   Structure comes from the shared file; this is the studio's voice on top of
+   it. It sits on ink in the footer, so it borrows the footer's colours and
+   nothing else — no panel of its own colour, no badge, no icon standing in
+   for the words.
+
+   Its own type rides --read-ui rather than --read-text: a control that grows
+   with the text it is controlling is disorienting to operate. */
+
+.footer-reading {
+  padding-block: var(--s-5);
+  border-block-start: var(--hairline) solid var(--line-on-ink);
+}
+
+.footer-reading .ro__btn {
+  color: var(--on-ink);
+  font-family: var(--sans);
+  font-size: calc(0.9375rem * var(--read-ui, 1));
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.footer-reading .ro__panel {
+  padding: var(--s-5);
+  background: var(--ink-deep);
+  border: var(--hairline) solid var(--line-on-ink);
+  border-radius: var(--r);
+  box-shadow: 0 18px 40px -28px rgba(10, 16, 15, 0.8);
+}
+
+.footer-reading .ro__legend {
+  color: var(--on-ink-quiet);
+  font-size: var(--t-label);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.footer-reading .ro__opt {
+  color: var(--on-ink);
+  font-size: calc(0.9375rem * var(--read-ui, 1));
+  line-height: 1.3;
+}
+
+.footer-reading .ro__opt input { accent-color: var(--on-ink); }
+
+.footer-reading .ro__note {
+  color: var(--on-ink-quiet);
+  font-size: var(--t-tiny);
+  line-height: 1.5;
+}
+
+/* The panel is anchored to the right edge of an element that spans the
+   footer, which would throw it off the far side of the page. Anchor it to the
+   button instead, and let it become an ordinary block on a phone — the
+   shared file's own behaviour, at this site's navigation breakpoint rather
+   than the one it ships with. */
+.footer-reading { position: relative; }
+.footer-reading .ro__panel { right: auto; left: 0; }
+
+@media (max-width: 61.99rem) {
+  .footer-reading .ro__btn { width: 100%; justify-content: space-between; }
+  .footer-reading .ro__panel {
+    position: static;
+    width: auto;
+    margin-block-start: var(--s-4);
   }
 }
