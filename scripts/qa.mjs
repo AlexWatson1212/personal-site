@@ -1170,6 +1170,87 @@ check("Product scope", "The identity is bounded, and no elaborate package is pro
   return "no open-ended promise; the identity is bounded and the exclusions are published";
 });
 
+check("Product scope", "The identity reads as a principal part of the service, not an extra", () => {
+  /* 19 September 2026. The offer is a Practice Identity & Website, and for a
+     long time the site described it as a website with some thinking in front of
+     it: the home page's h1 named only the website, its title and description
+     said "Websites for therapists", and the identity appeared as a trailing
+     clause on one list item. A therapist reading it had no way to know they
+     were buying a logo, a colour system and typography at all.
+
+     This is the check that stops it sliding back, because it slides back one
+     harmless-looking edit at a time — a shortened headline, a tightened
+     description, a list item trimmed for length.
+
+     It asserts presence and prominence, never particular sentences: the copy is
+     meant to be rewritten. What it will not allow is the identity disappearing
+     from the places a reader meets first. */
+  const IDENTITY = /\b(identity|logo or wordmark|colour system|visual direction)\b/i;
+
+  /* The home page, above everything else a reader scrolls past. */
+  const fm = frontMatter(homePage);
+  for (const [key, value] of [
+    ["title", frontMatterValue(homePage, "title")],
+    ["description", frontMatterValue(homePage, "description")],
+  ]) {
+    assert(
+      IDENTITY.test(value),
+      `index.html ${key} describes the service without naming the identity: "${value}"`
+    );
+  }
+  const h1 = (homePage.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || "";
+  assert(
+    IDENTITY.test(h1),
+    `the home page headline names only the website: "${h1.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").trim()}"`
+  );
+
+  /* The band that carries the message, and the three plates that show it
+     rather than explaining it. */
+  assert(/More than a website/.test(homePage), "index.html no longer carries the \"More than a website\" band");
+  assert(
+    /sofia-marin-identity-visual\.webp/.test(homePage) && /sofia-marin-identity-words\.webp/.test(homePage),
+    "index.html no longer shows the identity pages beside the website; the progression is text-only again"
+  );
+  /* Concept imagery carries its disclosure wherever it appears. */
+  assert(
+    /fictional practice/i.test(homePage),
+    "index.html shows concept work without saying the practice is fictional"
+  );
+
+  /* The cost page has to show the work as five parts, with the identity its
+     own part rather than a line inside the document. */
+  for (const stage of [
+    "Practice clarity",
+    "Visual identity",
+    "Website design and build",
+    "Assets and guidance",
+    "Launch, ownership and support",
+  ]) {
+    assert(servicePage.includes(stage), `service.html does not name the stage "${stage}"`);
+  }
+
+  /* What a client leaves with, on both pages that promise it. */
+  const purchase = read(PURCHASE_PAGE);
+  for (const [rel, body] of [["service.html", servicePage], [PURCHASE_PAGE, purchase]]) {
+    assert(
+      /printer|another designer|future designer|supplier/i.test(body),
+      `${rel} no longer says the assets can be handed to somebody else`
+    );
+  }
+
+  /* The identity is a foundation that can develop — never one that lasts
+     unchanged. A promise about the future is the one thing here nobody can
+     keep. */
+  const forLife = /(identity|brand)[^.]{0,80}\b(for life|forever|for ever|never need(s)? (to be )?chang|last(s)? a lifetime|permanent)\b/i;
+  const offenders = [];
+  for (const [rel, body] of publishedBodies) {
+    if (forLife.test(body)) offenders.push(`${rel} promises an identity that never changes`);
+  }
+  assert(offenders.length === 0, offenders.join("\n"));
+
+  return "named in the home page title, description and headline; five stages on the cost page; handover stated on both";
+});
+
 check("Founding offer", "The founding price is never shown without the standard price beside it", () => {
   /* £495 has meant three different things in this project's history. While it is
      the founding price, any page that shows it must also show what the service

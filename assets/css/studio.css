@@ -1861,6 +1861,22 @@ p { text-wrap: pretty; }
 
 @media (min-width: 54rem) { .diff { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
+/* Three across, for a progression rather than a comparison: the identity
+   pages, then the website built from them. Same grammar as .anatomy--three.
+   It stacks below 54rem and goes to three only at 62rem, because three website
+   plates side by side at tablet width are too small to read as anything. */
+@media (min-width: 62rem) { .diff--three { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem); } }
+
+/* The three plates are not the same shape — two are document pages at 7:5 and
+   the third is a website at 16:10 — so left alone their captions sit at three
+   different heights and the row reads as an accident. Each column becomes a
+   grid with the caption in its own bottom row, and the plates share one ratio.
+   Cropping is from the top, because the top of a page is the part that carries
+   the meaning. */
+.diff--three > * { display: grid; grid-template-rows: auto auto 1fr; }
+.diff--three .plate-frame { aspect-ratio: 7 / 5; }
+.diff--three .plate-frame img { height: 100%; object-fit: cover; object-position: top center; }
+
 .diff__label {
   display: flex;
   align-items: baseline;
