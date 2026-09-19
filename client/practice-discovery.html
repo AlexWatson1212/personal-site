@@ -30,6 +30,12 @@ sitemap: false
 
   All three come from _data/practice_discovery.yml so they cannot drift apart.
 
+  TEXT ONLY. There is no branch below that renders a file input, and the form
+  carries no multipart encoding, so `type: "file"` in the data file would
+  render nothing at all rather than quietly opening an upload. Files reach the
+  Studio by a shared-folder link or by email; the privacy notice says plainly
+  that nothing is uploaded through this form, and it has to stay true.
+
   PROGRESSIVE ENHANCEMENT. Without JavaScript this is one long, ordinary form:
   every fieldset visible, native `required` doing the validation, one submit
   button. assets/js/practice-discovery.js turns it into eleven steps, takes
@@ -62,8 +68,9 @@ sitemap: false
         paragraph.
       </p>
       <p class="quiet">
-        Only the questions marked <strong>Required</strong> must be completed
-        &mdash; there are ten, and most of them take seconds. Everything else is
+        Most questions are optional. <strong>Nine</strong> are required,
+        together with the final confirmation before you submit, and most of the
+        nine take seconds. Everything else is
         an invitation, not an obligation. Some questions will matter a great
         deal to your practice and others will not apply at all; answer the ones
         that feel alive to you and skip the rest without a second thought. Where
@@ -81,15 +88,19 @@ sitemap: false
         Please complete and submit it in one sitting.
       </p>
       <p class="quiet">
-        There are two places to attach a file, and each one takes a single file.
-        Keep the combined size below 7&nbsp;MB. If you have several files, or
-        anything larger, share a folder link instead &mdash; there is a field for
-        it &mdash; or email them to me.
+        Nothing is uploaded through this form &mdash; it takes your written
+        answers only. If you have a logo, photographs, documents or anything
+        else you would like me to see, put them in a Google Drive or Dropbox
+        folder, or send a WeTransfer link, and paste the address into the
+        question that asks for it. Make sure the link works without a password.
+        Emailing the files to
+        <strong>hello@alexanderwatson.co.uk</strong> is just as good.
       </p>
       <p class="quiet">
-        Please don&rsquo;t include confidential or identifiable information about
-        individual clients, in what you write or in what you upload. Never enter
-        passwords or account recovery information.
+        Whichever route you use, please don&rsquo;t send anything identifiable
+        or confidential about your own clients &mdash; no names, no session
+        notes, no case material, no correspondence. Never enter passwords,
+        security answers or account recovery information anywhere in this form.
       </p>
 
       <div class="pd__note">
@@ -113,7 +124,6 @@ sitemap: false
             method="POST"
             data-netlify="true"
             netlify-honeypot="{{ pd.honeypot }}"
-            enctype="multipart/form-data"
             action="{{ pd.action | relative_url }}"
             data-practice-discovery
             data-step-count="{{ step_count }}">
@@ -227,28 +237,6 @@ sitemap: false
             {%- if field.hint %}<span class="field__hint" id="{{ fid }}-hint">{{ field.hint }}</span>{% endif %}
             <textarea id="{{ fid }}" name="{{ field.name }}" rows="{{ field.rows | default: 4 }}"
                       aria-describedby="{{ described }}"{% if field.required %} required{% endif %}></textarea>
-            <span class="field__error" id="{{ fid }}-error" data-error-for="{{ field.name }}" hidden></span>
-          </p>
-
-          {%- elsif field.type == 'file' %}
-          <p class="field field--question">
-            <label for="{{ fid }}">
-              {{ field.label }}
-              <span class="opt">Optional</span>
-            </label>
-            {%- if field.hint %}<span class="field__hint" id="{{ fid }}-hint">{{ field.hint }}</span>{% endif %}
-            {%- comment -%}
-              No `multiple`. Netlify Forms takes one file per file input: a
-              control that accepts several would let a client attach five and
-              submit one, with nothing on screen to say the other four were
-              dropped. Several files need several fields, or the folder link
-              in "Existing presence and materials". The attribute is not
-              emitted here at all rather than switched off in the data, so it
-              cannot come back by way of a `multiple: true` in the YAML.
-            {%- endcomment -%}
-            <input id="{{ fid }}" type="file" name="{{ field.name }}"
-                   {% if field.accept %}accept="{{ field.accept }}"{% endif %}
-                   aria-describedby="{{ described }}">
             <span class="field__error" id="{{ fid }}-error" data-error-for="{{ field.name }}" hidden></span>
           </p>
 

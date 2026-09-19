@@ -103,13 +103,13 @@ The client emails for every step are in `docs/operations/client-email-templates.
 | 2 | Accept, confirm scope and price, invoice the deposit | Alexander | Assign the project reference (`AW-001`…). Confirm scope, price (£495, founding), payment schedule and terms **in writing**, citing the terms version. Attach the £100 invoice. | Template 1 · deposit invoice |
 | 3 | Client accepts and pays £100 | Client | Nothing is booked until it arrives. | Paid invoice |
 | 4 | Welcome and intake link | — | Same day: receipt, intake link `/client/intake/?ref=AW-00X`, printable questions, photography brief, suggested finish in 10 days. Set a calendar reminder for day 7. | Template 2 |
-| 5 | Intake | Client | Day 7, if nothing has arrived: check Tally partial submissions, then send Template 3. | Template 3 |
+| 5 | Intake | Client | Day 7, if nothing has arrived: send Template 3. Netlify keeps no partial submissions, so there is nothing to check first. | Template 3 |
 | 6 | Check the intake | Alexander | Within two working days. Enough to start = every required fact plus at least four of the seven core answers. Otherwise one message of up to five questions (Template 4), a thin-intake follow-up (Template 5) or a 20-minute call. Confirm in writing when work starts — **the point the project officially begins**. Download responses and files to the project folder. | Templates 4/5 |
 | 7 | Practice Fundamentals | Alexander | About seven working days: strategy and words, visual system, the opening-screen preview built in code, the 11-page document from the template, the facts table, the approval page on top. | Template 6 · draft Fundamentals |
 | 8 | Direction approval (feedback stage 1) | Client | Five working days. "A" → Template 8 with the £395 invoice. "B" → make one consolidated set of adjustments, send Template 7, wait for confirmation, then Template 8. Corrections don't use the stage. No reply → dormancy rules (clause 8); the balance is never invoiced without approval. | Templates 7/8 · balance invoice |
 | 9 | Balance paid → build | — | Build from the approved preview (about four working days). | Template 9 |
 | 10 | Website feedback (feedback stage 2) | Client | Private preview (noindex). One consolidated list; refinements, not a restart. Then send the changes back and ask for **launch approval** (ten working days, clause 11). | Template 10 · variant 10a |
-| 11 | Launch, handover, care | — | Connect the domain, launch, reissue the Practice Fundamentals with facts confirmed, send the files, delete the intake from Tally, start the thirty days and the twelve months of technical Care. | Template 11 · `docs/handover-runbook.md` |
+| 11 | Launch, handover, care | — | Connect the domain, launch, reissue the Practice Fundamentals with facts confirmed, send the files, delete the Practice Discovery submission from Netlify, start the thirty days and the twelve months of technical Care. | Template 11 · `docs/handover-runbook.md` |
 
 **Record on every founding project** (per the source): actual hours per step,
 where the waiting happened, how many clarification questions were needed, what
@@ -139,7 +139,7 @@ someone who mistakes them for oversights.
 | Manual step | Why it stays manual |
 | --- | --- |
 | The enquiry arrives as an email the visitor's own client sends | Nothing is transmitted to or stored by the website. `OPEN_DECISIONS.md` item 9. |
-| The intake is a Tally form, and every message around it is sent by hand | Settled 17 September 2026: no Zapier, CRM or client portal during the founding projects. Tally holds the answers as processor; Alexander downloads them and deletes them from Tally at launch. |
+| The intake is a form on this site, and every message around it is sent by hand | Settled 17 September 2026, revised 19 September 2026: no Zapier, CRM or client portal during the founding projects. The intake was briefly a Tally form; it is now Practice Discovery, a native Netlify form. Netlify holds the written answers as processor; Alexander downloads them and deletes them at launch. No files pass through the form at all — clients share a folder link or email them. |
 | Scope and price are confirmed in a written exchange | There is no online checkout, and clause 4 makes the written exchange the point of acceptance. |
 | Both instalments are invoiced and paid by bank transfer | Settled September 2026. Bank details live on the invoice and must never appear on the website. |
 | Website Care after year one is invoiced, not subscribed | No recurring billing is built. `subscriptions_enabled: false`. |
@@ -170,11 +170,12 @@ not a reduced obligation.
    nothing on the pages claims otherwise. The remaining half of the decision is
    now an operational one and sits in step 2 of the table above: **the acceptance
    email must cite the terms version.**
-5. **The Tally intake built, tested and connected** — `docs/operations/tally-intake-build-spec.md`,
-   then `_data/intake.yml` → `tally_url`. Until then `/client/intake/` shows a
+5. **Practice Discovery confirmed live on Netlify** — deploy, then check Netlify
+   → Forms has detected `practice-discovery`, per
+   `docs/operations/practice-discovery-netlify-setup.md`. Until then `/client/practice-discovery/` is a
    "not connected yet" notice. (The old questionnaire was retired on 17 September 2026.)
 6. **The privacy notice's remaining brackets filled** with what is actually
-   operated today, including the two Tally facts (`intake_provider`,
+   operated today, including the two form-service facts (`intake_provider`,
    `intake_retention`).
 7. **The new payment, feedback, cancellation and Care wording reviewed** —
    clauses 3, 7, 11 and 12 and the cancellation stages are flagged ⚖.

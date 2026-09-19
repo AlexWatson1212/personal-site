@@ -49,21 +49,27 @@ approval of the direction.
 Enquire → reserve the project → complete the intake → approve the direction →
 website build → review and launch. The approved source is
 `docs/operations/practice-fundamentals-intake-system.md`; the operational files
-beside it are the Tally build specification and the client email templates.
+beside it are the Netlify Forms setup runbook and the client email templates.
 
 - **Enquiry:** `contact.html` + `assets/js/contact-enquiry.js`. Builds an email in
   the browser, with a five-question fit check and a copy-and-paste fallback.
   Nothing is posted or stored.
-- **Intake:** `client/intake.html` → `/client/intake/?ref=AW-001`. Embeds the Tally
-  form whose share link is `tally_url` in `_data/intake.yml` (empty = a calm
-  "not connected yet" notice). `assets/js/client.js` accepts only the `AW-000`
-  reference shape and passes it to Tally's hidden `ref` field.
+- **Intake:** `client/practice-discovery.html` → `/client/practice-discovery/`.
+  A native Netlify form, 68 text questions across 11 steps, no file uploads; nine required questions plus the closing confirmation.
+  Questions live in `_data/practice_discovery.yml`; the step-by-step behaviour is
+  progressive enhancement in `assets/js/practice-discovery.js`. Retired 19
+  September 2026: the embedded Tally form at `/client/intake/`, its data file and
+  the half of `assets/js/client.js` that drove it. All three were deleted
+  rather than archived — git history at `e52cb8d` holds them — and every old
+  intake address now redirects here.
 - **Photography brief:** `client/photography.html` → `/client/photography/`,
   printable to one A4 page.
 - Both client pages are unlisted: `noindex: true`, `sitemap: false`,
   `Disallow: /client/` in `robots.txt`, and `X-Robots-Tag` from `netlify.toml`.
-  The retired questionnaire route redirects to `/client/intake/`; its files are in
-  `_legacy/practice-website-questionnaire-2026-09/`.
+  Every retired intake address — the old questionnaire routes and `/client/intake/`
+  — redirects to `/client/practice-discovery/`. The questionnaire's files are in
+  `_legacy/practice-website-questionnaire-2026-09/`; the Tally intake's are in
+  git history at `e52cb8d`.
 
 ## Information architecture
 
@@ -103,7 +109,7 @@ their own URLs and are linked from `/guidance/`.
 - `_includes/practice-website-buy.html` — the only file permitted to emit a checkout link.
 - `_pages/` — legal and statement pages. Draft until `_data/legal.yml` says otherwise.
 - `client/` — the two private client pages (intake, photography brief).
-- `docs/operations/` — the intake system source, the Tally build specification and the client email templates. Not published.
+- `docs/operations/` — the intake system source, the Netlify Forms setup runbook and the client email templates. Not published.
 - `_legacy/`, `_strategy/`, `_responsive-pass/` — not published; excluded in `_config.yml`.
 - `scripts/` — build, purchasing resolver and four QA harnesses.
 - `assets/images/brand/favicon.*`, `icon-*.png`, `apple-touch-icon.png` and

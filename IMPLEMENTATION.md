@@ -59,9 +59,10 @@ superseded.)
   direction, inside the Fundamentals — see `docs/product-terminology.md` §6.
 - **Enquiry fit check and intake.** `contact.html` (five questions, a
   conditional follow-up, an error summary; still a browser-built email) and the
-  private `client/intake.html` (Tally, one address in `_data/intake.yml`,
-  `?ref=` limited to `AW-000`). The *Enquiry fit check* and *Intake* checks guard
-  both, and that the retired questionnaire stays retired.
+  private `client/practice-discovery.html` (a native Netlify form, text only,
+  68 questions from `_data/practice_discovery.yml`). The *Enquiry fit check* and
+  *Practice Discovery* checks guard both, and that the retired questionnaire and
+  the retired Tally intake stay retired.
 - **Founder video.** `_data/founder.yml`; empty until a real recording exists.
   See the *Founder video* check.
 - **Website Care.** Included for the first twelve months, then `website_care.monthly`
@@ -151,9 +152,12 @@ before testing `:focus-visible` and skips elements that focus cannot land on
 5. Changing a permalink means editing `scripts/qa.mjs` ROUTES, `_redirects`,
    `netlify.toml`, `robots.txt` and `_data/purchasing.yml` together. For the
    client pages, also `PRIVATE_ROUTES` and the welcome email template.
-8. **The Tally address lives only in `_data/intake.yml`.** A `tally.so/r/…`
-   address anywhere else fails the *Intake* checks, and so does loading a Tally
-   script. The CSP allows frames from `https://tally.so` only.
+8. **No third-party form service, anywhere.** The intake is Practice Discovery,
+   a native Netlify form. A `tally.so` address in active source or configuration
+   fails the *Practice Discovery* checks, as does a file input, a `multiple`
+   attribute or multipart encoding on that form. The CSP sets `frame-src 'none'`:
+   no page frames a third party. (Until 19 September 2026 the intake was an
+   embedded Tally form; the retired files are in git history at `e52cb8d`.)
 6. Banned strings: `unlimited revisions`, `coming soon`, `Template Website`,
    `Semi-Custom`, plus the retired offer names.
 7. **The collection is three cases.** Reintroducing an archived case, or copy

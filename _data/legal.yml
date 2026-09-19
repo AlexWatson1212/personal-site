@@ -48,14 +48,28 @@ data_protection:
   bank: ""
   # How personal data reaches each processor above, once they are named
   transfer_mechanism: ""
-  # The intake form provider (Tally, since 17 September 2026): its legal entity
-  # and role, once confirmed and its data processing terms accepted. Leave empty
-  # until confirmed.
+  # The form service behind Practice Discovery: Netlify, Inc., which hosts this
+  # site and receives the questionnaire's written text responses as processor.
+  # The questionnaire takes no file uploads.
+  #
+  # Netlify's entity, its processor role, its Data Processing Addendum and its
+  # transfer hierarchy are already written into the privacy notice from Netlify's
+  # own published documents. This field records only what those documents cannot
+  # say: that the Addendum has been read and applies to this account, and which
+  # plan and account name it applies to. Leave empty until confirmed.
   intake_provider: ""
   # Retention periods, as actually operated
   enquiry_retention: ""
-  # How long intake answers and uploads stay in the form service, e.g.
-  # "Deleted from the form service at launch."
+  # How long Practice Discovery's written text responses stay in Netlify before
+  # they are deleted, e.g. "Deleted from Netlify once copied into the project
+  # files, and in any event at launch." There are no uploads to retain: the form
+  # takes text only.
+  #
+  # Netlify's Forms documentation does not state an automatic deletion schedule
+  # for form responses, so responses remain available until they are deleted.
+  # That is a statement about the published documentation, not a claim about
+  # Netlify's internal retention policies, which are not published. Whatever
+  # goes here is therefore a description of actual practice.
   intake_retention: ""
   project_retention: ""
   statutory_retention: ""

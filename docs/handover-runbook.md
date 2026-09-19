@@ -91,8 +91,9 @@ instructions, not an export from a system only the Studio can run.
 ## Standing rules
 
 - **Her domain, her account, from day one.** No exceptions, however convenient.
-- **Intake data leaves Tally at launch.** Download the response and files to the project
-  folder, then delete them from Tally, and record the date (privacy notice,
+- **Practice Discovery answers leave Netlify at launch.** Download the response from
+  Netlify → Forms → `practice-discovery` into the project folder, then delete the
+  submission there, and record the date (privacy notice,
   `data_protection.intake_retention`).
 - **Handover at launch, not on request.** A client who already has the pack never has to
   ask for it, and never wonders what would happen if she did.

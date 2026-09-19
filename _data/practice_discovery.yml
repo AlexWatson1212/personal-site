@@ -16,15 +16,16 @@
 # Only `required: true` fields block the step. Everything else is marked
 # Optional in the rendered page.
 #
-# UPLOADS — one file per field, and there is no `multiple` key.
-# Netlify Forms accepts a single file per file input; several files need
-# several fields. The whole submission, text and files together, has to fit
-# inside an 8 MB request and the upload itself times out at 30 seconds, so the
-# page asks for 7 MB across both uploads and points anybody with more at the
-# `file-links` field. `multiple: true` would render a control that lets a
-# client attach five files and lose four of them without being told, which is
-# why scripts/qa.mjs fails on it and client/practice-discovery.html no longer
-# has the markup to emit it.
+# NO UPLOADS. There is no `file` type, and client/practice-discovery.html has
+# no markup that could render a file input even if one appeared here.
+#
+# 19 September 2026. The two upload fields were removed and the form carries
+# text only. Files now reach the Studio by a shared-folder link — the
+# `file-links` question — or by email, which keeps the client's material out of
+# the form service entirely rather than parked there until somebody remembers
+# to delete it. Adding `type: "file"` back would need a template change, a QA
+# change and a privacy-notice change, in that order, because the privacy notice
+# now states plainly that no files are uploaded through the form.
 #
 # ─────────────────────────────────────────────────────────────────────────────
 # LENGTH IS A DESIGN CONSTRAINT, NOT AN ACCIDENT
@@ -416,16 +417,11 @@ steps:
         type: "textarea"
         hint: "Including information that is inconsistent between profiles, and any ownership or access problem that might affect the project. Please describe the issue only. Do not enter passwords, security answers or recovery codes."
         rows: 4
-      - name: "existing-materials"
-        label: "One file you already have that I should see"
-        type: "file"
-        hint: "This field takes a single file — a logo or identity file, photography, a written document, a screenshot or visual inspiration. PDF, DOC, DOCX, JPG, PNG or WEBP. Keep the combined size of your uploaded files below 7 MB. For several or larger files, share a folder link below instead, or email them to me. Please don’t upload anything containing confidential or identifiable information about clients. If your logo is an SVG, AI or EPS file, email that too — those formats are not accepted here."
-        accept: ".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp"
       - name: "file-links"
-        label: "A link to several files, or to anything too large to upload"
+        label: "A link to anything you already have that I should see"
         type: "textarea"
-        hint: "If you have more than one or two files, this is the better route: a shared Dropbox or Google Drive folder, or a WeTransfer link. Please make sure the link works without a password."
-        rows: 3
+        hint: "Logos and identity files, photography, written documents, screenshots, visual inspiration — share them as a Google Drive or Dropbox folder, or a WeTransfer link, and paste the address here. One per line. Please make sure the link works without a password, and don’t include anything identifiable or confidential about your own clients. If you would rather email the files, that is just as good: hello@alexanderwatson.co.uk."
+        rows: 4
 
   - id: "working-together"
     title: "Working together"
@@ -486,8 +482,3 @@ steps:
         type: "textarea"
         hint: "The last question is the open one. Anything you have been meaning to say belongs here."
         rows: 5
-      - name: "upload-anything-else"
-        label: "One final file, if you thought of something on the way through"
-        type: "file"
-        hint: "A single file again, PDF, DOC, DOCX, JPG, PNG or WEBP, and below 7 MB across both uploads together. For anything more, use the folder link in “Existing presence and materials”, or email it. Nothing containing confidential or identifiable client information, please."
-        accept: ".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp"

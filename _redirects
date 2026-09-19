@@ -27,7 +27,7 @@
 # Earlier service names.
 /professional-identity/                                     /service/ 301
 /services/straightforward-website/                          /services/practice-website/ 301
-/services/straightforward-website/questionnaire/            /client/intake/ 301
+/services/straightforward-website/questionnaire/            /client/practice-discovery/ 301
 /service-terms/straightforward-website/                     /service-terms/practice-website/ 301
 
 # Retired September 2026. The purchase-complete page existed only as the page a
@@ -50,10 +50,21 @@
 /assets/practice-clarity/practice-clarity-harbour.pdf       /work/ 301
 /assets/practice-clarity/practice-clarity-stillpoint.pdf    /work/ 301
 
-# The Website Content Questionnaire was retired on 17 September 2026 when the
-# Practice Fundamentals intake moved to a Tally form opened from the private
-# page /client/intake/. Anyone holding the old link lands on the new page; a
-# ?ref= in the old link is carried across by Netlify. The destination is
-# noindex and disallowed in robots.txt, like the page it replaces.
-/services/practice-website/questionnaire/                   /client/intake/ 301
-/services/practice-website/questionnaire                    /client/intake/ 301
+# Client intake, twice retired.
+#
+# The Website Content Questionnaire went first, on 17 September 2026, replaced
+# by a Tally form opened from the private page /client/intake/. That Tally
+# intake was itself retired on 19 September 2026, replaced by Practice
+# Discovery — a native Netlify form at /client/practice-discovery/, built into
+# this site rather than embedded from a third party.
+#
+# Every old address therefore lands on Practice Discovery. The retired page
+# and its script are in git history at e52cb8d.
+#
+# A ?ref= on an old link is carried across by Netlify and simply ignored:
+# Practice Discovery does not read one. All three destinations are noindex and
+# disallowed in robots.txt, like the pages they replace.
+/client/intake/                                             /client/practice-discovery/ 301
+/client/intake                                              /client/practice-discovery/ 301
+/services/practice-website/questionnaire/                   /client/practice-discovery/ 301
+/services/practice-website/questionnaire                    /client/practice-discovery/ 301

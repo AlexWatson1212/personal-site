@@ -9,7 +9,7 @@ Save each template in your email client as a reusable template, snippet or draft
 
 **Where the wording comes from.**
 
-- **Templates 2–8:** the approved messages from the source, word for word. The form labels are changed to the four used in the Tally form ("Fact needed before publishing", "Core question", "Optional context", "Optional reference or upload"). The intake link is the website address.
+- **Templates 2–8:** the approved messages from the source, word for word. The intake link is `/client/practice-discovery/`. (Until 19 September 2026 the intake was a Tally form with four question labels; Practice Discovery marks ten questions Required and every other one Optional instead.)
 - **Templates 1, 9, 10 and 11:** written for this system, using the same voice and the same payment wording.
 
 **Payment wording.** Use these exact phrasings everywhere, and nothing that contradicts them:
@@ -185,7 +185,7 @@ Use this only if the intake link goes out separately, later the same day.
 
 ## Template 3: Seven-day reminder
 
-**When:** seven days after Template 2, if the form hasn't arrived. Check Tally's partial submissions first.
+**When:** seven days after Template 2, if the form hasn't arrived. Netlify keeps no partial submissions, so there is nothing to check first — a questionnaire is either submitted or it is not.
 
 **Subject:** Your intake form, a gentle nudge
 

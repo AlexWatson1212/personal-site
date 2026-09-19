@@ -21,13 +21,19 @@ checkout.
 
 ## 1. RESOLVED, THEN RETIRED — the Website Content Questionnaire
 
-**17 September 2026 (later the same day): retired.** The intake is now the
-Tally form described in `docs/operations/practice-fundamentals-intake-system.md`
-and built from `docs/operations/tally-intake-build-spec.md`, opened from the
-private page `/client/intake/`. The questionnaire's route redirects there, and
-its files are in `_legacy/practice-website-questionnaire-2026-09/`.
-`questionnaire_approved` and the question counts were removed from
-`_data/intake.yml`.
+**17 September 2026 (later the same day): retired.** The intake became a Tally
+form opened from the private page `/client/intake/`.
+
+**19 September 2026: retired again.** That Tally intake lasted two days. The
+intake is now **Practice Discovery** — a native Netlify form at
+`/client/practice-discovery/`, built into this site, 68 text questions across 11
+steps, no file uploads. Both retired routes redirect there. The questionnaire's
+files are in `_legacy/practice-website-questionnaire-2026-09/`; the Tally page,
+its script and `_data/intake.yml` were deleted rather than archived, and are in
+git history at `e52cb8d`.
+The question design in `docs/operations/practice-fundamentals-intake-system.md`
+survived the change; the delivery mechanism did not, and that file carries a
+banner saying so.
 
 **Earlier on 17 September 2026:** approved as the current questionnaire (version
 1.0). The history below is kept as a record.
@@ -286,9 +292,11 @@ international transfers, retention and security — with `[square bracket]`
 placeholders where a real answer is needed rather than a plausible one.
 
 **Decision needed.** The actual email, file storage and accounting providers;
-the intake form provider's entity and role (Tally) and how long intake data stays
-in it; the retention periods actually operated; the transfer mechanism each supplier
-relies on; and the security controls genuinely in place.
+confirmation that Netlify, Inc.'s Data Processing Addendum applies to the account
+(it is the form processor for Practice Discovery since 19 September 2026) and how
+long responses stay in it; the retention periods actually operated; the transfer
+mechanism each supplier relies on; and the security controls genuinely in place.
+Asked, question by question, in `LEGAL-QUESTIONNAIRE-2026-09-19.md`.
 
 **Then.** Do not describe a control that is not operated. A privacy policy that
 claims two-factor authentication and device encryption is a statement of fact,
@@ -298,10 +306,16 @@ not an aspiration.
 
 ## 9. Where enquiry submissions should go
 
-**17 September 2026.** The intake question is settled: it is a Tally form
-(processor named in the privacy notice). The enquiry stays browser-built — no
-Netlify Forms, no backend, no spam processing, no storage — by decision, and now
-carries the five-question fit check in its email.
+**17 September 2026, revised 19 September 2026.** The intake question is
+settled: it is Practice Discovery, a native **Netlify form** (Netlify, Inc. named
+as processor in the privacy notice). It briefly ran on Tally; that lasted two
+days.
+
+The *enquiry* is a separate decision and is unchanged: it stays browser-built —
+no form service, no backend, no spam processing, no storage — by decision, and
+carries the five-question fit check in its email. Note the asymmetry is
+deliberate: a public enquiry form that stores nothing, and a private
+deposit-gated questionnaire that does.
 
 **State.** The enquiry form assembles its content in the visitor's own browser
 and hands it back as text to copy or open in their own email client. Nothing is

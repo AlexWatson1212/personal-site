@@ -155,24 +155,27 @@ unsettled is what it says about its own status.*
 
 ### 6. Intake form built and connected
 *Revised 17 September 2026. The Website Content Questionnaire was approved and
-then retired the same day; the intake is now a Tally form. It is the first thing
+then retired the same day. The intake is now **Practice Discovery**, a native
+Netlify form at `/client/practice-discovery/` (the Tally form that briefly
+replaced the questionnaire was itself retired on 19 September 2026). It is the first thing
 a client uses after paying.*
 
-- [ ] Create the Tally account and build the form from
-      `docs/operations/tally-intake-build-spec.md` (about 2.5 hours).
+- [ ] Nothing to build: Practice Discovery ships with the site. Confirm Netlify
+      has detected the form after the first deploy —
+      `docs/operations/practice-discovery-netlify-setup.md`.
 - [ ] Run the testing checklist in section 8 of that file, on a phone and a
       laptop, including a photo, a voice note and closing the form halfway.
-- [ ] Publish it and paste the share link into `_data/intake.yml` → `tally_url`.
+- [ ] Set the notification email in the Netlify dashboard (not in any file in this repository).
 - [ ] Check `/client/intake/?ref=AW-999` shows the form and the reference.
 - [ ] Save the printable questions and the photography brief as PDFs.
 - [ ] Save the email templates and the two invoice templates
       (`docs/operations/client-email-templates.md`).
-- [ ] Upgrade to Tally Pro on the day the first deposit arrives (upload size,
+- [ ] Check the Netlify Forms submission allowance on the plan (no uploads are taken,
       respondent email, partial submissions).
 
 ### 7. Privacy notice truthful
 *The notice is already published and makes statements of fact about a real
-person's data. Twelve of them are currently empty brackets (two added for Tally
+person's data. Twelve of them are currently empty brackets (two for the form service,
 on 17 September 2026). It has to describe
 what the Studio actually does today, not what it intends to move to.*
 
@@ -180,7 +183,8 @@ what the Studio actually does today, not what it intends to move to.*
       things stand, Namecheap Private Email forwarding into a personal Gmail
       account, whatever bank receives the £500, and any bookkeeping
       arrangement in place.
-- [ ] Confirm Tally's entity and role, accept its data processing terms, and write
+- [ ] Confirm Netlify, Inc.'s role as processor, confirm its Data Processing
+      Addendum applies to the account, and write
       `intake_provider` and `intake_retention`.
 - [ ] Write the three retention periods, as actually operated. Enquiries are
       already decided at 12 months; project files and the statutory period are
@@ -195,7 +199,7 @@ whether you know what to do on the day, in what order, with which file.*
 
 - [ ] Run one fictional client end to end (revised 17 September 2026): enquiry
       with fit check → acceptance with scope and price (Template 1) → £100
-      invoice → payment recorded → intake link (Template 2) → Tally submission →
+      invoice → payment recorded → intake link (Template 2) → Practice Discovery submission →
       intake check → Practice Fundamentals (Template 6) → direction approval →
       £395 invoice (Template 8) → payment → build → website feedback (Template
       10) → launch approval → launch and handover (Template 11) → first-year

@@ -250,7 +250,6 @@ const ROUTES = [
   ["index.html", "/"],
   ["service.html", "/service/"],
   ["services/practice-website.html", "/services/practice-website/"],
-  ["client/intake.html", "/client/intake/"],
   ["client/photography.html", "/client/photography/"],
   ["work.html", "/work/"],
   ["about.html", "/about/"],
@@ -267,12 +266,12 @@ const ROUTES = [
 ];
 
 /** Routes that must never be indexed or listed. */
-/* 17 September 2026: the retired questionnaire route now redirects to
-   /client/intake/, so the private pages are the two client pages. */
-/* 19 September 2026: the Practice Discovery questionnaire and the page its
-   form action lands on are the third and fourth. */
+/* 17 September 2026: the retired questionnaire route redirected to
+   /client/intake/. 19 September 2026: that Tally intake was itself retired and
+   its page removed, so /client/intake/ is now a redirect rather than a route.
+   The private pages are Practice Discovery, the page its form action lands on,
+   and the photography brief. */
 const PRIVATE_ROUTES = [
-  "/client/intake/",
   "/client/photography/",
   "/client/practice-discovery/",
   "/client/practice-discovery/thank-you/",
@@ -280,12 +279,11 @@ const PRIVATE_ROUTES = [
 
 const BUY_INCLUDE = "_includes/practice-website-buy.html";
 const PURCHASE_PAGE = "services/practice-website.html";
-const INTAKE = "client/intake.html";
 const PHOTO_BRIEF = "client/photography.html";
 const DISCOVERY = "client/practice-discovery.html";
 const DISCOVERY_THANKS = "client/practice-discovery-thank-you.html";
 /** Every source file that is itself a client page. */
-const CLIENT_PAGES = [INTAKE, PHOTO_BRIEF, DISCOVERY, DISCOVERY_THANKS];
+const CLIENT_PAGES = [PHOTO_BRIEF, DISCOVERY, DISCOVERY_THANKS];
 const ENQUIRY = "contact.html";
 const SUPPORT_EMAIL = "hello@alexanderwatson.co.uk";
 
@@ -350,14 +348,12 @@ const RETIRED_PRICES = ["795", "1,495", "1,995", "2,195", "2,000", "290"].map((n
 
 const purchasingYml = read("_data/purchasing.yml");
 const legalYml = read("_data/legal.yml");
-const intakeYml = read("_data/intake.yml");
 const buyInclude = read(BUY_INCLUDE);
 /* The include with its leading documentation comment stripped. Checks that ask
    what the component RENDERS must read this; checks that ask how it is wired
    may read the whole file. */
 const buyMarkup = buyInclude.replace(/\{%-?\s*comment\s*-?%\}[\s\S]*?\{%-?\s*endcomment\s*-?%\}/g, "");
 const purchasePage = read(PURCHASE_PAGE);
-const intakePage = read(INTAKE);
 const photoBrief = read(PHOTO_BRIEF);
 const enquiryPage = read(ENQUIRY);
 const servicePage = read("service.html");
@@ -1630,7 +1626,7 @@ check("Legal", "The purchase journey links to the terms it is made under", () =>
   const surfaces = [
     [PURCHASE_PAGE, purchasePage],
     [BUY_INCLUDE, buyInclude],
-    [INTAKE, intakePage],
+    [DISCOVERY, read(DISCOVERY)],
   ];
   const cfgAlias = {
     "/service-terms/practice-website/": "cfg.urls.service_terms",
@@ -1639,7 +1635,10 @@ check("Legal", "The purchase journey links to the terms it is made under", () =>
   };
   for (const [rel, body] of surfaces) {
     for (const [route] of JOURNEY_LEGAL) {
-      if (rel === INTAKE && route === "/cancellation-and-refunds/") continue;
+      /* The questionnaire links to the privacy notice, which is the one a
+         client needs at the moment they are typing. The purchase surfaces
+         carry the terms and the cancellation information. */
+      if (rel === DISCOVERY && route !== "/privacy/") continue;
       const linked = body.includes(route) || body.includes(cfgAlias[route]);
       assert(linked, `${rel} does not link to ${route}`);
     }
@@ -1694,7 +1693,7 @@ check("Private routes", "The built private routes carry the robots tag and stay 
  * ------------------------------------------------------------------ */
 
 check("Private routes", "The client pages declare noindex and stay out of the sitemap at source", () => {
-  for (const [rel, body] of [[INTAKE, intakePage], [PHOTO_BRIEF, photoBrief]]) {
+  for (const [rel, body] of [[DISCOVERY, read(DISCOVERY)], [PHOTO_BRIEF, photoBrief]]) {
     assert(/^noindex:\s*true\s*$/m.test(frontMatter(body)), `${rel} does not set noindex: true`);
     assert(/^sitemap:\s*false\s*$/m.test(frontMatter(body)), `${rel} does not set sitemap: false`);
   }
@@ -1709,10 +1708,9 @@ check("Private routes", "The client pages declare noindex and stay out of the si
 });
 
 check("Private routes", "Nothing public links to the client pages", () => {
-  /* The intake is reached only from the link in the welcome email. The only
-     published files allowed to point at /client/ are the client pages
-     themselves (the intake links to the photography brief), the redirect
-     table, and robots.txt. */
+  /* Practice Discovery is reached only from the link in the welcome email.
+     The only published files allowed to point at /client/ are the client pages
+     themselves, the redirect table, and robots.txt. */
   const offenders = [];
   for (const [rel, body] of publishedBodies) {
     if (CLIENT_PAGES.includes(rel)) continue;
@@ -1795,50 +1793,70 @@ check("Enquiry fit check", "Every field is labelled and every fieldset has a leg
   return `${fields.length} controls, ${fieldsets.length} fieldsets`;
 });
 
-check("Intake", "The Tally address is one value, and the page is safe without it", () => {
-  assert(/^tally_url:\s*"[^"]*"\s*$/m.test(intakeYml), "_data/intake.yml does not declare tally_url as a single quoted value");
-  assert(/site\.data\.intake/.test(intakePage) && /intake\.tally_url/.test(intakePage), `${INTAKE} does not read the form address from _data/intake.yml`);
-  assert(/data-intake-state="not-connected"/.test(intakePage), `${INTAKE} has no state for an unset form address`);
-  assert(/tally_scheme == "https:\/\/"/.test(intakePage), `${INTAKE} does not require an https form address`);
-  assert(/Open the form in a new tab/.test(intakePage), `${INTAKE} has no direct link to the form`);
-  const hardcoded = [];
-  for (const rel of trackedFiles) {
-    /* _data/intake.yml is the one place the address belongs. */
-    if (!/\.(html|md|yml|yaml|js|mjs|toml)$/.test(rel) || rel === "scripts/qa.mjs" || rel === "_data/intake.yml") continue;
-    const body = fs.readFileSync(path.join(ROOT, rel), "utf8");
-    if (/tally\.so\/(r|embed|forms)\/[A-Za-z0-9]{3,}/.test(body)) hardcoded.push(rel);
+check("Intake", "The retired Tally intake is gone from the active tree", () => {
+  /* 19 September 2026. This slot used to hold three checks guarding the Tally
+     embed: that its address lived in exactly one data file, that only an
+     AW-000 project reference travelled in the page address, and that the CSP
+     framed tally.so and nothing else. All three are obsolete, because the
+     thing they guarded no longer exists. What replaces them is the opposite
+     assertion — that it has not come back — which lives with the other
+     Practice Discovery checks further down.
+
+     Kept here: the client-side script, because it is the file that shrank. It
+     used to read a URL parameter and listen for cross-origin messages. It now
+     reveals a print button, and it should stay that small. */
+  for (const gone of [
+    "client/intake.html",
+    "_data/intake.yml",
+    "docs/operations/tally-intake-build-spec.md",
+  ]) {
+    assert(!exists(gone), `${gone} is back in the active tree; the Tally intake was retired`);
   }
-  assert(hardcoded.length === 0, `a Tally form address is hard-coded outside _data/intake.yml: ${hardcoded.join(", ")}`);
-  const configured = (intakeYml.match(/^tally_url:\s*"([^"]*)"/m) || [])[1] || "";
-  return configured ? `form address set: ${configured}` : "NOT YET SET — /client/intake/ shows the \"not connected yet\" notice";
-});
 
-check("Intake", "Only a project reference travels in the address, and no Tally script is loaded", () => {
   const js = read("assets/js/client.js");
-  assert(/\^AW-\\d\{3,4\}\$/.test(js), "client.js does not restrict ?ref= to the AW-000 shape");
-  const params = [...js.matchAll(/\.get\("([^"]+)"\)/g)].map((m) => m[1]);
-  assert(params.length === 1 && params[0] === "ref", `client.js reads address parameters other than ref: ${params.join(", ")}`);
-  assert(!/fetch\(|XMLHttpRequest|sendBeacon|localStorage|sessionStorage|document\.cookie/.test(js), "client.js transmits or stores something");
-  assert(/event\.origin !== "https:\/\/tally\.so"/.test(js), "client.js accepts messages from origins other than Tally");
-  const offenders = trackedFiles.filter((rel) => /\.(html|js)$/.test(rel) && /tally\.so\/widgets|embed\.js/.test(fs.readFileSync(path.join(ROOT, rel), "utf8")));
-  assert(offenders.length === 0, `a Tally script is loaded by: ${offenders.join(", ")}`);
-  const toml = read("netlify.toml");
-  assert(/frame-src https:\/\/tally\.so;/.test(toml), "the content security policy does not limit frames to Tally");
-  assert(/do not include anything about your own clients/i.test(intakePage), `${INTAKE} does not tell people to leave client information out`);
-  assert(/client names, session notes/i.test(intakePage), `${INTAKE} does not name what must not be sent`);
+  const code = js.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
+  for (const [pattern, what] of [
+    [/addEventListener\("message"/, "listens for cross-origin messages again"],
+    [/URLSearchParams|location\.search/, "reads the page address again"],
+    [/<iframe|\.src\s*=/, "loads an embed again"],
+    [/fetch\(|XMLHttpRequest|sendBeacon|localStorage|sessionStorage|document\.cookie/, "transmits or stores something"],
+    [/tally/i, "refers to Tally in code"],
+  ]) {
+    assert(!pattern.test(code), `assets/js/client.js ${what}`);
+  }
+  assert(/data-print/.test(code), "assets/js/client.js no longer reveals the photography brief's print button");
+
+  /* The removal is documented in the comment at the top of that file, in
+     netlify.toml and in _redirects. That is deliberate: a reader who finds a
+     redirect from /client/intake/ should be able to learn why. */
+  assert(/Tally/.test(js), "the note explaining what was removed from client.js is gone");
+
+  return "page, data file and build specification retired; client.js is the print button only";
 });
 
-check("Intake", "The retired questionnaire is gone, and its address leads to the intake", () => {
+check("Intake", "Every retired intake address leads to Practice Discovery", () => {
   assert(!exists("services/practice-website-questionnaire.html"), "the retired questionnaire page is still in the published tree");
   assert(!exists("assets/js/practice-website-questionnaire.js"), "the retired questionnaire script is still published");
   const redirects = read("_redirects");
-  assert(
-    /^\/services\/practice-website\/questionnaire\/\s+\/client\/intake\/\s+301/m.test(redirects),
-    "the retired questionnaire route does not redirect to /client/intake/"
-  );
+  for (const from of [
+    "/client/intake/",
+    "/client/intake",
+    "/services/practice-website/questionnaire/",
+    "/services/practice-website/questionnaire",
+    "/services/straightforward-website/questionnaire/",
+  ]) {
+    const line = redirects
+      .split("\n")
+      .find((l) => !l.trim().startsWith("#") && l.trim().startsWith(from + " "));
+    assert(line, `no redirect for ${from} — an old intake link would 404`);
+    assert(
+      /\/client\/practice-discovery\/\s+301/.test(line),
+      `${from} does not redirect to /client/practice-discovery/: ${line.trim()}`
+    );
+  }
   const robots = read("robots.txt");
   assert(/^Disallow:\s*\/client\//m.test(robots), "robots.txt does not disallow /client/");
-  assert(!/questionnaire_approved|required_questions/.test(intakeYml), "_data/intake.yml still carries the retired questionnaire's settings");
+  return "5 retired addresses → /client/practice-discovery/";
 });
 
 check("Intake", "The photography brief carries the approved requirements and prints", () => {
@@ -1864,24 +1882,28 @@ check("Intake", "The photography brief carries the approved requirements and pri
   return `${required.length} requirements present`;
 });
 
-check("Intake", "The build specification and the email templates are in the repository", () => {
+check("Intake", "The intake source, the setup runbook and the email templates are in the repository", () => {
+  /* 19 September 2026: the Tally build specification was retired with the form
+     it described, and this check now guards the Netlify runbook in its place.
+     The question-design source survives the change and carries a banner saying
+     which half of it was superseded. */
   const source = "docs/operations/practice-fundamentals-intake-system.md";
-  const spec = "docs/operations/tally-intake-build-spec.md";
+  const runbook = "docs/operations/practice-discovery-netlify-setup.md";
   const emails = "docs/operations/client-email-templates.md";
-  for (const rel of [source, spec, emails]) assert(exists(rel), `${rel} is missing`);
-  const specBody = read(spec);
-  for (const label of ["Fact needed before publishing", "Core question", "Optional context", "Optional reference or upload"]) {
-    assert(specBody.includes(label), `${spec} does not use the label "${label}"`);
+  for (const rel of [source, runbook, emails]) assert(exists(rel), `${rel} is missing`);
+  assert(
+    /SUPERSEDED IN PART/.test(read(source)),
+    `${source} describes a Tally form and no longer says so at the top`
+  );
+  const runbookBody = read(runbook);
+  for (const phrase of ["practice-discovery", "Forms", "notification"]) {
+    assert(runbookBody.includes(phrase), `${runbook} does not cover "${phrase}"`);
   }
-  for (const id of ["A1", "B6", "C1", "D4", "E8", "F3", "G5", "H10", "I10", "J10", "K4", "V3", "V4", "V5"]) {
-    assert(new RegExp(`\\|\\s*${id}\\b`).test(specBody), `${spec} does not specify ${id}`);
-  }
-  assert(/hidden field/i.test(specBody) && /\bref\b/.test(specBody), `${spec} does not specify the hidden ref field`);
   const templates = (read(emails).match(/^## Template \d+/gm) || []).length;
   assert(templates === 11, `${emails} has ${templates} templates; expected 11`);
   const outOfModel = /£395 (?:when|on) (?:your )?(?:website|launch)|approved? the finished website/i;
   assert(!outOfModel.test(read(emails)), `${emails} ties the balance to the finished website`);
-  return `source, specification and ${templates} templates present`;
+  return `source, runbook and ${templates} templates present`;
 });
 
 /* ------------------------------------------------------------------ *
@@ -1889,9 +1911,9 @@ check("Intake", "The build specification and the email templates are in the repo
  * ------------------------------------------------------------------ */
 
 check("Client data", "No form asks for anything about the visitor's own clients", () => {
-  /* Since the questionnaire moved to Tally, the enquiry form is the only form
-     on the site. The intake's own questions are held to the same rule in the
-     build specification, which the Intake checks above keep present. */
+  /* Two forms on the site: the public enquiry, and Practice Discovery behind
+     its unlisted address. Both are held to this rule, and Practice Discovery's
+     own checks add the closing confirmation a client has to tick. */
   const formPages = publishedSources.filter((rel) => /<form\b/i.test(publishedBodies.get(rel)));
   assert(formPages.length >= 1, `only ${formPages.length} pages with forms found`);
   const banned = /(client name|clients? names?|case notes?|session notes?|case material|diagnosis|diagnoses|referral details|health (?:data|information)|patient)/i;
@@ -1915,18 +1937,30 @@ check("Client data", "No form asks for anything about the visitor's own clients"
   return `${formPages.length} pages with forms`;
 });
 
-check("Client data", "The intake page and the privacy notice both say not to send it", () => {
+check("Client data", "The questionnaire and the privacy notice both say not to send it", () => {
+  const discovery = read(DISCOVERY)
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&rsquo;/g, "'")
+    .replace(/&mdash;/g, "—")
+    .replace(/&nbsp;/g, " ")
+    .replace(/\s+/g, " ");
   assert(
-    /do not include anything about your own clients/i.test(intakePage),
-    "the intake page does not tell people to leave client information out"
+    /don.t send anything identifiable or confidential about your own clients/i.test(discovery),
+    `${DISCOVERY} does not tell people to leave client information out`
+  );
+  /* The warning has to cover the route files now take, not only the form. */
+  assert(
+    /no names, no session notes, no case material/i.test(discovery),
+    `${DISCOVERY} no longer names what must not be sent`
   );
   const privacy = read("_pages/privacy.html");
   assert(
     /do not send client names, session notes/i.test(privacy),
     "the privacy notice does not tell people to leave client information out"
   );
-  assert(/Tally/.test(privacy), "the privacy notice does not name the intake form provider");
-  assert(/data_protection\.intake_retention/.test(privacy), "the privacy notice does not state how long intake data is kept");
+  assert(/Netlify, Inc\./.test(privacy), "the privacy notice does not name the form service's legal entity");
+  assert(!/Tally/i.test(privacy), "the privacy notice still names Tally, which was retired on 19 September 2026");
+  assert(/data_protection\.intake_retention/.test(privacy), "the privacy notice does not state how long responses are kept");
 });
 
 /* ------------------------------------------------------------------ *
@@ -2847,7 +2881,6 @@ check("Practice Discovery", "The form, the hidden name and the honeypot all agre
   for (const [pattern, what] of [
     [/<form[^>]*\bmethod="POST"/, 'method="POST"'],
     [/<form[^>]*\bdata-netlify="true"/, 'data-netlify="true"'],
-    [/<form[^>]*\benctype="multipart\/form-data"/, 'enctype="multipart/form-data" (required for the file uploads)'],
     [/<input type="hidden" name="form-name" value="\{\{ pd\.form_name \}\}">/, "the hidden form-name field"],
     [/netlify-honeypot="\{\{ pd\.honeypot \}\}"/, "netlify-honeypot"],
     [/name="\{\{ pd\.honeypot \}\}"/, "a field matching the declared honeypot"],
@@ -3043,76 +3076,323 @@ check("Practice Discovery", "It works without JavaScript, and asks for nothing d
      any referrer header the confirmation page sends. */
   assert(!/<form[^>]*\bmethod="GET"/i.test(DISCOVERY_BODY), "the questionnaire would submit by GET, putting answers in the URL");
 
-  /* Uploads: no executables, no archives, nothing that runs when opened. */
-  const accepts = [];
-  const uploads = discoveryFields().filter((f) => f.type === "file");
-  assert(uploads.length > 0, "the questionnaire offers no uploads at all");
-  for (const field of uploads) {
-    assert(field.accept, `the upload "${field.name}" accepts anything at all`);
-    assert(!field.required, `the upload "${field.name}" is required; uploads must stay optional`);
-    accepts.push(...field.accept.split(",").map((e) => e.trim().toLowerCase()));
+  /* Uploads: there are none, and the check that keeps it that way lives in
+     "The questionnaire takes text only". What is asserted here is the one
+     thing that check cannot see — that nothing has quietly started asking for
+     a credential or an executable in a text field instead. */
+  assert(
+    discoveryFields().every((f) => f.type !== "file"),
+    "the questionnaire has a file field again; it takes text only"
+  );
+  /* Per field, not across the joined text: two questions mention passwords in
+     order to warn against them ("Do not enter passwords…", "a link that works
+     without a password"), and a warning is the opposite of a request. A field
+     that says password without one of those framings is asking for one. */
+  const WARNING = /do not enter|don.t enter|without a password|never enter/i;
+  for (const field of discoveryFields()) {
+    const text = `${field.label} ${field.hint}`;
+    if (WARNING.test(text)) continue;
+    for (const [pattern, what] of [
+      [/\bpasswords?\b/i, "asks for a password"],
+      [/security answer|recovery code|two-factor|\b2fa\b/i, "asks for account recovery information"],
+      [/\.exe\b|\.zip\b|\.rar\b/i, "asks for an executable or an archive"],
+    ]) {
+      assert(!pattern.test(text), `"${field.name}" ${what}`);
+    }
   }
-  const forbidden = [".exe", ".zip", ".rar", ".7z", ".tar", ".gz", ".js", ".sh", ".bat", ".svg", ".html"];
-  const bad = accepts.filter((e) => forbidden.includes(e));
-  assert(bad.length === 0, `uploads accept ${[...new Set(bad)].join(", ")} — executables, archives and script-bearing formats must not be requested`);
-  return `${[...new Set(accepts)].sort().join(" ")} · no storage, no logging, no analytics`;
+  return "no uploads, no credentials requested · no storage, no logging, no analytics";
 });
 
-check("Practice Discovery", "Every upload takes one file, and the request stays inside Netlify's limit", () => {
-  /* 19 September 2026. Netlify Forms accepts ONE file per file input. A
-     control carrying `multiple` looks like it takes several, accepts several
-     in the file picker, and then submits one — silently, with nothing on the
-     page to say the rest were dropped. A client would have no way of knowing
-     they had lost four of five files, and neither would the person reading
-     the submission. Several files need several fields, or a folder link.
+check("Practice Discovery", "The questionnaire takes text only — no uploads, anywhere", () => {
+  /* 19 September 2026. The questionnaire briefly had two single-file uploads.
+     They are gone, and the privacy notice now states in public that "No files
+     are uploaded through the questionnaire. It has no upload field of any
+     kind." That sentence has to stay true, which is what this check is for.
 
-     Two ways for it to come back, so both are closed: the attribute is no
-     longer emitted by the template at all, and `multiple` in the data file
-     fails here. Checking only the rendered markup would pass a YAML change
-     that a later template edit would then honour. */
-  const uploads = discoveryFields().filter((f) => f.type === "file");
-  assert(uploads.length > 0, "the questionnaire offers no uploads at all");
-
-  const many = uploads.filter((f) => f.multiple).map((f) => f.name);
+     Four separate ways an upload could come back, so all four are closed:
+     a `type: "file"` in the data file, a file branch in the template, a
+     `multiple` attribute, and multipart encoding on the form. Any one of them
+     alone is harmless; together they are a working upload, and a client's
+     material would land in Netlify while the privacy notice said it could
+     not. */
+  const fields = discoveryFields();
+  const uploads = fields.filter((f) => f.type === "file");
   assert(
-    many.length === 0,
-    `"${many.join('", "')}" carries multiple: true. Netlify takes one file per field — ` +
-      "the extra files are dropped on submission without telling anyone. Add a second field, " +
-      "or point the client at the file-links question."
-  );
-  assert(
-    !/\bmultiple\b/.test(DISCOVERY_BODY.replace(/\{%-?\s*comment[\s\S]*?endcomment\s*-?%\}/g, "")),
-    `${DISCOVERY} can emit a multiple attribute again — the file input must not carry one`
+    uploads.length === 0,
+    `"${uploads.map((f) => f.name).join('", "')}" is type: file. The questionnaire is text only, ` +
+      "and the privacy notice says so in public. Files reach the Studio by a shared-folder link " +
+      "or by email."
   );
 
-  /* The 8 MB ceiling is the whole request, text and files together, and the
-     upload itself times out after 30 seconds. The page has to say so, because
-     a rejected submission on this form costs somebody forty minutes of
-     writing. 7 MB is the number the page gives: conservative on purpose, so
-     that the text of seventy answers cannot push a just-under-8 MB file over. */
-  const pageText = DISCOVERY_BODY.replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ");
-  const hints = uploads.map((f) => f.hint).join(" ");
-  assert(
-    /7\s?MB/.test(pageText) || /7\s?MB/.test(hints),
-    "the page no longer states a size ceiling for uploads; Netlify rejects the whole submission over 8 MB"
-  );
-  assert(
-    /single file|one file/i.test(hints),
-    "the upload hints no longer say that each field takes one file"
-  );
+  /* Comments stripped: this tests the markup, not the note explaining why the
+     markup does not do this. */
+  const markup = DISCOVERY_BODY.replace(/\{%-?\s*comment[\s\S]*?endcomment\s*-?%\}/g, "");
+  for (const [pattern, what] of [
+    [/type="file"/, "renders a file input"],
+    [/field\.type\s*==\s*'file'/, "still has a branch for file fields"],
+    [/\bmultiple\b/, "can emit a multiple attribute"],
+    [/enctype/, "still declares an encoding — multipart is only needed for uploads"],
+    [/field\.accept/, "still emits an accept list"],
+  ]) {
+    assert(!pattern.test(markup), `${DISCOVERY} ${what}`);
+  }
 
-  /* The escape route has to exist, or the advice above is a dead end. */
-  const links = discoveryFields().find((f) => f.name === "file-links");
+  /* The route files actually take has to exist, or the privacy notice's
+     "share a folder link instead" is advice with nowhere to act on it. */
+  const links = fields.find((f) => f.name === "file-links");
   assert(links, "the file-links question is gone — there is now nowhere to put a folder link");
   assert(links.type === "textarea", "file-links is no longer a free-text field");
-
-  /* Without this the files never arrive at all, whatever their size. */
   assert(
-    /<form[^>]*\benctype="multipart\/form-data"/.test(DISCOVERY_BODY),
-    "the form lost enctype=\"multipart/form-data\" — uploads would submit as filenames only"
+    /Google Drive|Dropbox/i.test(links.hint) && /WeTransfer/i.test(links.hint),
+    "the file-links hint no longer names the sharing services a client can use"
+  );
+  assert(
+    /without a password/i.test(links.hint),
+    "the file-links hint no longer asks for a link that works without a password"
   );
 
-  return `${uploads.length} single-file uploads · 7 MB advised, 8 MB hard limit · multipart`;
+  /* Promises about uploads are worse than useless once uploads are gone: they
+     tell a client to do something the form cannot do. */
+  const pageText = DISCOVERY_BODY.replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ");
+  const hints = fields.map((f) => `${f.label} ${f.hint}`).join(" ");
+  for (const [pattern, what] of [
+    [/\d+\s?MB/i, "a file-size promise"],
+    [/one file per field|single file/i, "a one-file-per-field promise"],
+    [/time\s?out|times out/i, "an upload timeout"],
+    [/\.pdf|\.docx|\.webp|PDF, DOC/i, "a list of accepted file formats"],
+    [/upload/i, "the word upload"],
+  ]) {
+    assert(!pattern.test(hints), `the questions still carry ${what}; nothing is uploaded any more`);
+  }
+  for (const [pattern, what] of [
+    [/\d+\s?MB/i, "a file-size promise"],
+    [/times out/i, "an upload timeout"],
+  ]) {
+    assert(!pattern.test(pageText), `the page still carries ${what}; nothing is uploaded any more`);
+  }
+
+  /* Said in public, so it has to be said on the page too. */
+  assert(
+    /Nothing is uploaded through this form/i.test(pageText),
+    "the page no longer tells the client that nothing is uploaded through the form"
+  );
+
+  return `0 uploads · file-links present · no size, format or timeout promises`;
+});
+
+check("Practice Discovery", "No external embedded form service or retired Tally integration remains", () => {
+  /* 19 September 2026. The intake was an embedded Tally form at /client/intake/
+     for two days. It was retired in favour of Practice Discovery, whose form
+     handling is native to this site. Three things had to move together — the
+     page, the CSP allowance and the privacy notice — and it is the kind of
+     change where one of the three gets left behind.
+
+     What this check does NOT claim: that no third party is involved. Netlify,
+     Inc. is a third-party processor, named as one in the privacy notice. What
+     went away is the *embedded* service: a form hosted by someone else, framed
+     into a page of ours, with its own script and its own origin.
+
+     Comments are stripped first, everywhere. The removal is documented in
+     assets/js/client.js, netlify.toml and _redirects on purpose: that is the
+     record of an abandoned approach, and erasing it would make the history
+     unreadable. What must not survive is anything that still WORKS. */
+  const strip = (text) =>
+    text
+      .replace(/\{%-?\s*comment[\s\S]*?endcomment\s*-?%\}/g, "")
+      .replace(/<!--[\s\S]*?-->/g, "")
+      .replace(/\/\*[\s\S]*?\*\//g, "")
+      .replace(/^\s*\/\/.*$/gm, "")
+      .replace(/^\s*#.*$/gm, "");
+
+  const active = [
+    "client/practice-discovery.html",
+    "client/practice-discovery-thank-you.html",
+    "client/photography.html",
+    "assets/js/client.js",
+    "assets/js/practice-discovery.js",
+    "netlify.toml",
+    "_redirects",
+    "_pages/privacy.html",
+  ];
+  for (const file of active) {
+    const body = strip(read(file));
+    assert(
+      !/tally/i.test(body),
+      `${file} still refers to Tally outside a comment — the integration was retired on 19 September 2026`
+    );
+  }
+
+  /* The page and its data file are gone from the active tree entirely. */
+  for (const gone of ["client/intake.html", "_data/intake.yml"]) {
+    assert(!exists(gone), `${gone} is back; the Tally intake was retired and belongs in _to_delete/`);
+  }
+
+  /* Every address anybody might still be holding lands on the live one. */
+  const redirects = read("_redirects");
+  for (const from of [
+    "/client/intake/",
+    "/services/practice-website/questionnaire/",
+    "/services/straightforward-website/questionnaire/",
+  ]) {
+    const line = redirects
+      .split("\n")
+      .find((l) => !l.trim().startsWith("#") && l.trim().startsWith(from + " "));
+    assert(line, `no redirect for ${from} — an old intake link would 404`);
+    assert(
+      /\/client\/practice-discovery\/\s+301/.test(line),
+      `${from} does not redirect to /client/practice-discovery/: ${line.trim()}`
+    );
+  }
+
+  /* The CSP allowed frames from tally.so for exactly one embed. No page frames
+     anything now, so the allowance comes out rather than sitting open. */
+  const csp = read("netlify.toml")
+    .split("\n")
+    .filter((l) => !l.trim().startsWith("#"))
+    .join("\n");
+  assert(!/tally\.so/.test(csp), "netlify.toml still allows frames from tally.so in a live header");
+  assert(
+    /frame-src 'none'/.test(csp),
+    "the Content-Security-Policy no longer sets frame-src 'none'; nothing on this site frames a third party"
+  );
+
+  /* The public statement is the one that matters. */
+  const privacy = read("_pages/privacy.html");
+  assert(/Netlify, Inc\./.test(privacy), "the privacy notice no longer names Netlify, Inc. as the form processor");
+  assert(
+    /No files are uploaded through the questionnaire/i.test(privacy),
+    "the privacy notice no longer states that no files are uploaded through the questionnaire"
+  );
+  /* The hierarchy is Netlify's, and it has a direction: DPA s.14.2 puts the UK
+     Extension to the EU–US Data Privacy Framework first for eligible transfers,
+     and ss.14.3–14.4 bring in the Standard Contractual Clauses with the UK
+     International Data Transfer Addendum only if the Framework is declared
+     invalid or Netlify fails to re-certify. An earlier version of this notice
+     had it the other way round. Both mechanisms must be named, the Framework
+     must be described first, and the fallback condition must be stated —
+     otherwise the notice is describing an arrangement that does not exist. */
+  const flat = privacy.replace(/<[^>]+>/g, " ").replace(/&ndash;/g, "–").replace(/&rsquo;/g, "'").replace(/\s+/g, " ");
+  const dpf = flat.indexOf("UK Extension to the EU–US Data Privacy Framework");
+  const sccs = flat.indexOf("Standard Contractual Clauses");
+  assert(dpf !== -1, "the privacy notice no longer names the UK Extension to the EU–US Data Privacy Framework");
+  assert(sccs !== -1, "the privacy notice no longer names the Standard Contractual Clauses");
+  assert(/International Data Transfer Addendum/.test(flat), "the privacy notice no longer names the UK International Data Transfer Addendum");
+  assert(
+    dpf < sccs,
+    "the privacy notice describes the Standard Contractual Clauses before the UK Extension to the Data Privacy Framework — " +
+      "Netlify's DPA s.14.2 makes the Framework primary and the clauses the fallback"
+  );
+  assert(
+    /(unavailable|declared invalid|invalid)[\s\S]{0,120}re-certif/i.test(flat),
+    "the privacy notice no longer states the condition on which the fallback applies " +
+      "(the Extension being unavailable or invalid, or a failure to re-certify)"
+  );
+  /* Describing an arrangement is not endorsing it. */
+  assert(
+    !/(sufficient|adequate|compliant|lawful) (safeguard|mechanism|basis|transfer)/i.test(flat) ||
+      /not offering a view on whether it is legally sufficient/i.test(flat),
+    "the privacy notice claims a transfer mechanism is legally sufficient; it should describe, not certify"
+  );
+
+  /* 19 September 2026. Three claims about Netlify were written into this notice
+     and had to come out, because the documents reviewed do not support them:
+
+       "offers no UK or European storage region"  — the absence of a published
+         region is not proof that none exists. Not finding a commitment and
+         showing there is no capability are different things.
+       "likely to be processed outside the UK"    — "likely" is a probability
+         nothing in the sources establishes. Netlify's privacy statement says
+         data MAY be transferred and stored outside the country of collection.
+       "from the moment you submit"               — asserts a timing the
+         documents say nothing about.
+
+     They are easy to write because they read as candour: the stronger the
+     statement against your own supplier, the more honest it sounds. That is
+     exactly why they need a guard. The notice may say only what a source
+     supports, and overstating a risk is as much a misstatement as hiding one.
+
+     Scoped to the legal pages and the notes that feed them — not the whole
+     repository, where a future note about some other supplier could legitimately
+     use these words about a documented fact. */
+  const EVIDENCE = [
+    [/offers?\s+no\s+UK\s+or\s+Europe(an)?/i, '"offers no UK or European storage region" — not established by any reviewed source'],
+    [/likely\s+to\s+be\s+(processed|held|stored)\s+outside/i, '"likely to be processed outside" — the sources say "may", not "likely"'],
+    [/from\s+the\s+moment\s+(you|they)\s+submit/i, '"from the moment you submit" — asserts a timing no source states'],
+    [/likely\s+to\s+sit\s+in\s+the\s+United\s+States/i, '"likely to sit in the United States" — same overstatement'],
+  ];
+  for (const file of [
+    "_pages/privacy.html",
+    "_data/legal.yml",
+    "LEGAL-INFORMATION-REQUIRED.md",
+    "docs/LEGAL-QUESTIONNAIRE-2026-09-19.md",
+    "docs/operations/practice-discovery-netlify-setup.md",
+  ]) {
+    if (!exists(file)) continue;
+    const body = read(file);
+    for (const [pattern, why] of EVIDENCE) {
+      const hit = body.split("\n").find((line) => pattern.test(line));
+      assert(!hit, `${file} states ${why}\n      ${(hit || "").trim().slice(0, 100)}`);
+    }
+  }
+
+  /* The replacement has to actually be there, or the guard above is satisfied
+     by saying nothing at all about where the data goes. */
+  assert(
+    /based in the United States/.test(flat) &&
+      /may be transferred to and stored outside the country in which it was collected/.test(flat),
+    "the privacy notice no longer sources its transfer statement to Netlify's own privacy statement"
+  );
+  assert(
+    /may therefore be processed outside the United Kingdom/.test(flat),
+    "the privacy notice no longer tells the reader their answers may be processed outside the UK"
+  );
+
+  /* Comments are the record of the change, so they are allowed to say Tally —
+     but only in the past tense. A current operational file must not present it
+     as the provider in service. _data/legal.yml is called out by name because
+     its comments are the instructions somebody reads while filling the fact in,
+     and a stale one there would send them to the wrong supplier's terms.
+
+     Allow-listed, and deliberately so: _legacy/ and _to_delete/ (archives),
+     the decision records, docs/ (history and the superseded build source), and
+     this file, whose Tally references are all assertions that it is gone. */
+  const operational = [
+    "_data/legal.yml",
+    "_data/practice_discovery.yml",
+    "_pages/privacy.html",
+    "client/practice-discovery.html",
+    "client/practice-discovery-thank-you.html",
+    "docs/operations/practice-discovery-netlify-setup.md",
+    "docs/operations/client-email-templates.md",
+    "docs/handover-runbook.md",
+    "docs/product-terminology.md",
+  ];
+  /* A line naming Tally has to place it in the past somewhere on that line.
+     Checked per line rather than with a lookahead, because the past-tense
+     marker is as likely to come before the name ("the intake WAS a Tally
+     form") as after it. */
+  const PAST = /\b(was|were|until|briefly|retired|replaced|superseded|former(ly)?|previously|abandoned|no longer|used to)\b/i;
+  for (const file of operational) {
+    if (!exists(file)) continue;
+    const body = read(file);
+    const offending = body
+      .split("\n")
+      .filter((line) => /\bTally\b/i.test(line) && !PAST.test(line))
+      .map((line) => line.trim().slice(0, 90));
+    assert(
+      offending.length === 0,
+      `${file} describes Tally as the current provider:\n      ${offending.join("\n      ")}`
+    );
+  }
+  /* legal.yml is the one that matters most, so it is held to the stricter bar
+     of not mentioning Tally at all: the history belongs in the decision
+     records, not in the note beside an empty field. */
+  assert(
+    !/tally/i.test(read("_data/legal.yml")),
+    "_data/legal.yml mentions Tally; the form service is Netlify, Inc. and the history belongs in DECISION-REGISTER.md"
+  );
+
+  return "no embedded form service · 3 redirects · frame-src none · Netlify named · DPF before SCCs";
 });
 
 check("Practice Discovery", "It says what not to send, and points at the privacy notice", () => {

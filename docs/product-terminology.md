@@ -33,7 +33,7 @@ These exact step names appear on `/` and `/service/`, and `npm test` checks them
 | --- | --- | --- |
 | 1 | **Enquire** | The enquiry form, with the five-question fit check. Alexander replies personally. |
 | 2 | **Reserve the project** | Scope and price confirmed in writing; the £100 deposit reserves the place. |
-| 3 | **Complete the intake** | The Tally intake form, with the photography brief alongside. |
+| 3 | **Complete the intake** | Practice Discovery, the questionnaire at `/client/practice-discovery/`, with the photography brief alongside. |
 | 4 | **Approve the direction** *(your decision)* | The Practice Fundamentals, with a preview of the opening screen. Feedback stage 1. The balance follows approval. |
 | 5 | **Website build** | One complete page, built once the balance is paid. |
 | 6 | **Review and launch** *(your decision)* | Feedback stage 2, corrections, domain, launch approval, launch. |

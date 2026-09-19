@@ -1,3 +1,12 @@
+> **SUPERSEDED IN PART — 19 September 2026.** The question design, the labels and
+> the "enough to start" rule below still stand. The *delivery mechanism* does
+> not: the intake is no longer a Tally form opened from `/client/intake/`. It is
+> **Practice Discovery**, a native Netlify form at `/client/practice-discovery/`,
+> built into this site, carrying 68 text questions across 11 steps and **no file
+> uploads at all** — clients share a folder link or email files instead. Read
+> every reference to Tally below as a record of the approach that was abandoned.
+> Current: `docs/operations/practice-discovery-netlify-setup.md`.
+
 # Practice Fundamentals Intake System
 
 2026-09-17 · @Someone

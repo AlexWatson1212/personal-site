@@ -46,69 +46,50 @@ Form name `practice-discovery`, honeypot `bot-field`, action
    deliberately not in the page or in `assets/js/practice-discovery.js`: those
    are public files, and an address in them is an address a scraper collects.
 6. **Submit a genuine test response** through the deployed URL — not a local
-   build, which cannot post anywhere. Fill the ten required answers, attach a
-   small file to **each** of the two uploads — `existing-materials` in step 9
-   and `upload-anything-else` in step 11 — and submit. Both, not one: they are
-   separate fields and a configuration that drops the second would look
-   identical to a working one until a client lost a file.
+   build, which cannot post anywhere. Fill the nine required answers, tick the
+   closing confirmation, paste a test link into the `file-links` question, and
+   submit. There is nothing to attach: the questionnaire takes text only.
 7. Confirm the response appears under **Forms → practice-discovery**.
 8. Confirm the notification email arrives, and that replying to it addresses
    the email you typed into the test.
-9. Confirm **both** uploaded files are reachable from the submission in
-   Netlify, and **only** from there — a file has an unguessable URL rather
-   than a protected one, so treat that URL as the secret it is. If only one
-   file arrived, stop: something in the form is dropping the other.
-   Then repeat once with a file of roughly 6 MB, to see a large upload
-   complete inside Netlify's 30-second window on a real connection rather
-   than on a fast one.
-10. Delete the test submission and its file once you are satisfied.
+9. Confirm the `file-links` answer arrived intact, with the link readable and
+   clickable in the dashboard. It is the only route a client's material now
+   takes, so a truncated or mangled link is a silent failure.
+10. Delete the test submission once you are satisfied.
 11. **Confirm the plan.** Netlify Forms has a free monthly submission
-    allowance and a separate allowance for upload storage, both of which
-    change from time to time and differ by plan. Check the current figures on
-    the account before sending this to a client, and check what happens when
-    an allowance is reached: submissions past the limit can be rejected, which
-    on this form would mean losing forty minutes of somebody's writing.
+    allowance, which changes from time to time and differs by plan. (There is
+    no upload allowance to check: this form takes no files.) Check the current
+    figure on the account before sending this to a client, and check what
+    happens when the allowance is reached: submissions past the limit can be
+    rejected, which on this form would mean losing forty minutes of somebody's
+    writing.
 
-## The file uploads
+## No file uploads
 
-Two optional upload fields: one in "Existing presence and materials" for
-anything the client already has, and one at the end for whatever they thought
-of on the way through. (There were five; they were merged when the question set
-was cut, because five labelled boxes made the client sort their own files and
-produced no better result than one.) Accepted extensions are set per field in
-the data file — PDF, DOC, DOCX, JPG, JPEG, PNG, WEBP. SVG, AI and EPS are
-deliberately excluded and the page says to email those instead: an SVG is a
-document that can carry script, and this is not the place to accept one.
+**The questionnaire takes text only.** There is no file input, no `accept`
+list, no `multiple` attribute and no `enctype` on the form, and
+`scripts/qa.mjs` fails if any of those returns.
 
-### One file per field
+That is a deliberate narrowing, made on 19 September 2026. Two single-file
+uploads existed for a few hours (cut down from five). They came out because
+every file a client uploaded would have sat in Netlify, in the United States,
+until somebody remembered to delete it — and because Netlify Forms takes one
+file per field, so a client attaching three would have lost two without being
+told. Neither problem exists now.
 
-Netlify Forms accepts **one file per file input**. Several files need several
-fields. There is no `multiple` attribute on either control and no `multiple`
-key in the data file, and `scripts/qa.mjs` fails on both — because a control
-carrying `multiple` accepts five files in the picker and submits one, silently,
-with nothing on the page to tell the client the other four were dropped.
+**Files reach the Studio another way.** The `file-links` question asks for a
+Google Drive or Dropbox folder, or a WeTransfer link, that works without a
+password; emailing the files is offered as an equal alternative. The
+introduction says the same thing before a client starts.
 
-If a client needs to send more than two files, they use the `file-links`
-question — a shared Dropbox or Google Drive folder — or email them. The page
-says so at both uploads and in the introduction.
+What this means for the privacy notice: it states in public that "No files are
+uploaded through the questionnaire. It has no upload field of any kind." A
+future edit that adds an upload has to change that sentence first, and the QA
+suite will stop a change that does not.
 
-### Size and time
-
-| Limit | Value | Where it bites |
-| --- | --- | --- |
-| Maximum request size | **8 MB** for the whole submission, text and files together | Netlify rejects the request; the client loses everything they wrote |
-| Upload timeout | **30 seconds** | A large file on a slow connection fails mid-submission |
-| Files per field | **1** | Extra files are dropped without warning |
-
-The page advises **7 MB across both uploads**, deliberately below the 8 MB
-ceiling: the request carries seventy answers' worth of text as well as the
-files, and a client who sizes a file at exactly 8 MB would be over. That number
-lives in the two upload hints in `_data/practice_discovery.yml` and in the
-introduction in `client/practice-discovery.html`.
-
-Netlify's own figures change from time to time. Re-read their Forms
-documentation before sending this to a client, and if 8 MB has moved, change
-the advised figure in those two places — and nowhere else.
+The Netlify Forms limits that used to be recorded here — one file per field, an
+8 MB request ceiling, a 30-second upload timeout — no longer bear on anything
+and have been removed rather than left to look like live constraints.
 
 ## Spam
 
