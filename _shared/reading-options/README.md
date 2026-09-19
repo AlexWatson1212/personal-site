@@ -8,9 +8,22 @@ This is the reusable half of the Reading control described in
 get a second implementation, and so that turning the capability on for a client
 is a configuration decision rather than a build.
 
-**It is off by default.** A site that does not switch it on is byte-for-byte the
+## The policy, in four lines
+
+- The capability is **included in every client build** and reusable across them.
+- It is **off by default**, everywhere — client sites and concepts alike.
+- It is **switched on deliberately, per client**, where that practice's audience
+  and needs make it useful, for a reason recorded in the project.
+- **No existing published site gains the visible control merely because it is
+  live client work.** Turning it on is a change to that site, agreed with that
+  client.
+
+A concept stays off unless the concept exists to demonstrate the feature.
+
+**Off costs nothing.** A site that does not switch it on is byte-for-byte the
 site it was before, because nothing here paints until an attribute appears on
-`<html>`, and no attribute appears unless a visitor asks for one.
+`<html>`, and no attribute appears unless a visitor asks for one. That is the
+whole reason it can be in every build without being on any page.
 
 ---
 
@@ -61,7 +74,7 @@ the decision lives with the project rather than in a template:
 
 ```yaml
 accessibilityPreferences:
-  enabled: false          # the studio default for a concept
+  enabled: false          # the studio default, on every build
   label: "Reading options"
   storageKey: "harbour:reading"
 ```
@@ -80,10 +93,12 @@ To switch a site on, set `enabled: true`. To switch it off, set it back. There
 is nothing else to remove: the CSS is inert and the script returns before it
 touches the document.
 
-**Per the standard, real client sites are on by default and concepts are off.**
-The six published concepts are locked; Maya Bennett carries the capability so
-that it is available and demonstrable, configured off, which leaves the
-published concept the page that was approved.
+**`enabled: false` is the value a new build starts with, and the value it keeps
+unless someone decides otherwise for that client.** Being a real client site is
+not that decision, and neither is being a concept. What changes the value is a
+reason about the people who will read that practice's pages, recorded in the
+Practice Clarity document. Maya Bennett carries the capability, configured off,
+so it can be demonstrated on request without altering the published page.
 
 ## Files
 

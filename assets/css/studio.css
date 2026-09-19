@@ -1143,6 +1143,14 @@ p { text-wrap: pretty; }
   font-family: var(--serif);
   font-size: 1.4rem;
   font-weight: 400;
+  /* The price is set larger than the sentence it opens, and an inline element
+     contributes its own font-size times the inherited line-height to the line
+     box it sits in — so the first line of the price paragraph was standing
+     about ten pixels taller than the second. Visible on a phone, where the
+     paragraph is three lines and the block sits above the fold. Its own
+     line-height caps that contribution below the paragraph's strut, and the
+     lines come out even without moving the price or the leading. */
+  line-height: 1;
   color: var(--text);
   letter-spacing: -0.02em;
   font-variant-numeric: lining-nums;
@@ -1684,7 +1692,16 @@ p { text-wrap: pretty; }
    done this; six now matches it. */
 @media (max-width: 47.99rem) {
   .anatomy--six .anatomy__steps { grid-template-columns: minmax(0, 1fr); }
-  .anatomy--six .anatomy__step p { font-size: var(--t-small); }
+
+  /* The two-column grid was the measure. Take it away and the description
+     runs the full width of the band, which is right on a 375px phone and
+     wrong at the top of this range — at 720px, which is what a desktop at
+     200% zoom resolves to, it reached 84 characters a line. The column is
+     gone, so the paragraph carries its own. */
+  .anatomy--six .anatomy__step p {
+    max-width: 42ch;
+    font-size: var(--t-small);
+  }
 }
 
 .anatomy__step { position: relative; padding-block-start: var(--s-5); }
@@ -3852,6 +3869,12 @@ legend {
   padding-block: var(--s-5);
   border-block-start: var(--hairline) solid var(--line-on-ink);
 }
+
+/* The template emits the mount; the component fills it. Between those two
+   things — and permanently, if the visitor has no JavaScript — it is an empty
+   element, and an empty element with a rule above it and 48px of padding
+   inside it is a piece of furniture for a control that is not there. */
+.footer-reading:empty { display: none; }
 
 .footer-reading .ro__btn {
   color: var(--on-ink);

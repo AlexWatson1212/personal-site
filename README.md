@@ -88,7 +88,9 @@ their own URLs and are linked from `/guidance/`.
 ## Layout of the repository
 
 - `assets/css/studio.css` — the whole stylesheet. See `VISUAL-SYSTEM.md`.
-- `assets/css/studio.min.css` — built by `npm run build:css`; the only one loaded.
+- `assets/css/studio.min.css` — built by `npm run build:css`, which prepends
+  `_shared/reading-options/reading-options.css` before minifying; the only one
+  loaded.
 - `_data/collection.yml` — the three flagship portfolio cases (Sofia Marin, Maya Bennett,
   Daniel Mercer): screenshot, provenance, the strategic distinction and the links to the
   live concept and its document. Narrowed from six on 16 September 2026; Helen Calder,
@@ -104,6 +106,38 @@ their own URLs and are linked from `/guidance/`.
 - `docs/operations/` — the intake system source, the Tally build specification and the client email templates. Not published.
 - `_legacy/`, `_strategy/`, `_responsive-pass/` — not published; excluded in `_config.yml`.
 - `scripts/` — build, purchasing resolver and four QA harnesses.
+- `assets/images/brand/favicon.*`, `icon-*.png`, `apple-touch-icon.png` and
+  `/favicon.ico` — one mark, the identity submark's serif A in the ink disc.
+  The SVG carries a `prefers-color-scheme` block so it does not dissolve into a
+  dark tab strip; the 16px PNG is drawn with a slightly larger A. Referenced
+  from `_includes/head.html` and `site.webmanifest`, and `npm test` fails if
+  any referenced icon is missing.
+
+## The reading control
+
+An optional display control — text size, and a higher-contrast or softer
+reading mode. **Off on this site**, and one word in `_config.yml` to change:
+
+```yaml
+accessibilityPreferences:
+  enabled: false
+  label: "Reading options"
+  storageKey: "aw-studio:reading"
+```
+
+With it off the footer emits no mount, the head emits no config object or
+pre-paint snippet, the layout requests no script, and the CSS is inert — every
+rule in it hangs off an attribute that nothing sets. Verified: the rendered
+home page at 390px is pixel-identical with it off and with it on at Default,
+above the footer row the control adds.
+
+The standard is `docs/reading-control-standard.md`, the shared component is
+`_shared/reading-options/`, and what this site decided — the footer mount, which
+type tokens ride which multiplier, and the two mode palettes in section 22 of
+`studio.css` — is in `docs/operations/reading-options-implementation-notes.md`.
+`npm test` fails if the control offers a value the stylesheet does not
+implement, or if any of the three render points stops being gated on the one
+config key.
 
 ## Commands
 

@@ -97,6 +97,7 @@ const EXCLUDED_DIRS = new Set([
   ".git",
   ".jekyll-cache",
   "_concepts",
+  "_deploy",
   "_legacy",
   "_preview",
   "_shots",
@@ -140,6 +141,7 @@ const EXCLUDED_PREFIXES = [
      a studio price, her page's <main> is not a second landmark on a studio page,
      and her assets live beside her page rather than in /assets. */
   "_concepts/",
+  "_deploy/",
   "_shared/",
   "Claude outputs/",
   "staging/",
@@ -2149,7 +2151,7 @@ check("Built site", "No concept website or shared component is built into the st
      and enquiry form would appear as studio pages — and the exclusions that
      stop that are three lines in two files, which is exactly the kind of thing
      that gets removed by someone tidying up. */
-  for (const dir of ["_concepts", "concepts", "_shared"]) {
+  for (const dir of ["_concepts", "concepts", "_deploy", "_shared"]) {
     assert(!fs.existsSync(path.join(SITE, dir)), `${dir}/ was built into _site`);
   }
   return "concept deployments stay separate";
@@ -2393,6 +2395,104 @@ check("Personal data", "No UK telephone number in published source", () => {
   }
   assert(offenders.length === 0, `telephone-shaped strings:\n${offenders.join("\n")}`);
   return expected.length ? `note: ${expected.join("; ")}` : "none found";
+});
+
+/* ------------------------------------------------------------------ *
+ * 20. Identity mark and the reading control
+ * ------------------------------------------------------------------ */
+
+check("Favicon", "Every icon the head and the manifest reference is in the repository", () => {
+  const head = read("_includes/head.html");
+  const manifest = JSON.parse(read("site.webmanifest"));
+
+  const referenced = new Set();
+  for (const m of head.matchAll(/<link rel="(?:icon|apple-touch-icon)"[^>]*href="\{\{\s*'([^']+)'\s*\|\s*relative_url\s*\}\}"/g)) {
+    referenced.add(m[1]);
+  }
+  for (const icon of manifest.icons || []) referenced.add(icon.src);
+
+  assert(referenced.size >= 5, `only ${referenced.size} icons referenced — the head is not being read`);
+
+  const missing = [...referenced].filter((src) => !exists(src.replace(/^\//, "")));
+  assert(missing.length === 0, `referenced but not in the repository:\n${missing.join("\n")}`);
+
+  /* The three that matter most, by the job each one does. An SVG icon is what
+     a current browser uses; the .ico is what anything asking for nothing in
+     particular gets; the apple-touch icon is the home screen. */
+  for (const [what, src] of [
+    ["an SVG icon", "/assets/images/brand/favicon.svg"],
+    ["a root favicon.ico", "/favicon.ico"],
+    ["an apple-touch-icon", "/assets/images/brand/apple-touch-icon.png"]
+  ]) {
+    assert(referenced.has(src), `the head does not reference ${what} (${src})`);
+  }
+
+  /* The SVG carries both browser chromes. Without the dark block a dark disc
+     disappears into a dark tab strip. */
+  const svg = read("assets/images/brand/favicon.svg");
+  assert(
+    /prefers-color-scheme:\s*dark/.test(svg),
+    "assets/images/brand/favicon.svg has no dark-chrome block — it will vanish into a dark tab strip"
+  );
+
+  assert(
+    manifest.theme_color.toLowerCase() === "#263835",
+    `site.webmanifest theme_color is ${manifest.theme_color}, which is not the --ink token`
+  );
+
+  return `${referenced.size} icons, all present · SVG carries a dark-chrome variant`;
+});
+
+check("Reading options", "The capability is gated on one key, and every offered value is implemented", () => {
+  const config = read("_config.yml");
+  const enabled = /^accessibilityPreferences:\s*\n(?:\s{2}.*\n)*?\s{2}enabled:\s*(true|false)\s*$/m.exec(config);
+  assert(enabled, "_config.yml has no accessibilityPreferences.enabled — the control has no switch");
+
+  /* Every place that renders any part of the control must be behind the same
+     key, or switching it off leaves something behind. */
+  for (const [file, what] of [
+    ["_includes/head.html", "the config object and the pre-paint snippet"],
+    ["_includes/footer.html", "the mount element"],
+    ["_layouts/default.html", "the component script"]
+  ]) {
+    assert(
+      read(file).includes("site.accessibilityPreferences.enabled"),
+      `${file} renders ${what} without gating it on site.accessibilityPreferences.enabled`
+    );
+  }
+
+  /* The script offers a fixed set of values and the stylesheet decides what
+     they mean. A value offered but not implemented is a control that does
+     nothing when somebody presses it. */
+  const js = read("assets/js/reading-options.js");
+  const css = read("assets/css/studio.css");
+  const shared = exists("_shared/reading-options/reading-options.css")
+    ? read("_shared/reading-options/reading-options.css")
+    : "";
+  assert(shared, "_shared/reading-options/reading-options.css is missing — the scale is not being built in");
+
+  const offered = [...js.matchAll(/\["(default|large|largest|contrast|soft)",/g)].map((m) => m[1]);
+  assert(offered.length >= 6, `only ${offered.length} options found in the component — the parse is wrong`);
+
+  const missing = [];
+  for (const value of new Set(offered)) {
+    if (value === "default") continue;
+    const attr = ["large", "largest"].includes(value) ? "data-read-size" : "data-read-mode";
+    const pattern = new RegExp(`\\[${attr}="${value}"\\]`);
+    if (!pattern.test(css) && !pattern.test(shared)) missing.push(`${attr}="${value}"`);
+  }
+  assert(missing.length === 0, `offered by the control but not implemented in CSS:\n${missing.join("\n")}`);
+
+  /* The default state has to be the absence of an attribute rather than a
+     value of one, or "Default" becomes a theme that approximates the approved
+     design instead of being it. */
+  assert(
+    /removeAttribute\(g\.attr\)/.test(js),
+    "the component sets an attribute for the default state instead of removing it"
+  );
+
+  const state = enabled[1] === "true" ? "ON" : "off";
+  return `switch present · ${new Set(offered).size} values, all implemented · currently ${state} on this site`;
 });
 
 /* ------------------------------------------------------------------ *

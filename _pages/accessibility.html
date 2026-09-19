@@ -41,15 +41,15 @@ permalink: /accessibility/
       <li>Nothing important depends on hover, on colour alone, or on a mouse.</li>
     </ul>
 
-{%- if site.data.reading_options.enabled %}
+{%- if site.accessibilityPreferences.enabled %}
     <h2>Reading options</h2>
     <p>
-      There is a <strong>{{ site.data.reading_options.label }}</strong> control at the
-      foot of every page, and inside the menu on a phone. It offers two things:
-      a larger or largest text size, which enlarges the reading text rather
-      than zooming the whole interface, and a choice of display &mdash; the
-      default, a higher-contrast setting, or a softer one that takes the glare
-      off the page and stands down what little movement there is.
+      There is a <strong>{{ site.accessibilityPreferences.label }}</strong> control in the
+      footer of every page. It offers two things: a larger or largest text
+      size, which enlarges the reading text rather than zooming the whole
+      interface, and a choice of display &mdash; the default, a higher-contrast
+      setting, or a softer one that takes the glare off the page and stands
+      down what little movement there is.
     </p>
     <p>
       Your choice is stored in your own browser and is applied on every page

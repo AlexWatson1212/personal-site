@@ -104,6 +104,7 @@ exclude:
   # They are not studio source and must not be built into this site.
   - _concepts
   - _shared
+  - _deploy
   - README.md
   - DECISION-REGISTER.md
   - VISUAL-SYSTEM.md
