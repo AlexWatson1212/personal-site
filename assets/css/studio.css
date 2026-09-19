@@ -1050,30 +1050,32 @@ p { text-wrap: pretty; }
   }
 }
 
-.hero__copy { max-width: 34rem; }
+.hero__copy { max-width: 37rem; }
 .hero__copy .t-display { margin-block: var(--s-4) var(--s-5); }
 
 /* The display line has to answer to its column, not to the window.
 
-   --t-display scales on 5.2vw, which is right while the hero is one column and
-   the copy is the full 34rem. At 62rem the hero becomes two columns and the
-   copy column drops to about 382px — but the viewport, and therefore the type,
-   keeps growing. Between 992px and 1366px the headline was wider than the
-   column it sits in, and because "recognised by." is bound by a non-breaking
-   space the browser had nowhere legal to break it: at 1024px it split the word
-   as "recognised b / y.", and at 1280px it stranded the full stop on a line of
-   its own. Both were measured, on the most common laptop widths there are.
+   --t-display scales on 5.2vw, which is right for the window and wrong for a
+   column. The headline sat at 88px inside a 544px column, which is about
+   fifteen characters — so it broke two words to a line and, because
+   "built from it." is held together by a non-breaking space, the balancer had
+   to strand "website" alone on a line of its own. Measured at every common
+   width from 320px to 1920px in September 2026: five lines on every desktop
+   and laptop size, four of them one or two words.
 
-   The cap is expressed against the column itself. Below 62rem nothing changes,
-   because the rule is inside the two-column query. At 1440px and wider the
-   column is back to its full 34rem and 16.5cqi exceeds the 5.5rem ceiling, so
-   min() returns the clamp and the wide composition is exactly what it was.
-   Where cqi is not supported the whole declaration is invalid and the element
-   falls back to --t-display, which is today's behaviour. */
+   The cap is expressed against the column itself rather than the window, so it
+   holds in both the one-column and the two-column composition; 11.5cqi is the
+   largest value that keeps the headline to three lines at every width measured,
+   with no line shorter than three words. `pretty` rather than the inherited
+   `balance`: balance evens the line lengths and in doing so produces the short
+   opening line, where pretty fills greedily and only protects the last line.
+   Where cqi or text-wrap: pretty is unsupported each declaration is dropped on
+   its own and the element falls back to --t-display and to balance. */
 .hero__copy { container-type: inline-size; }
 
-@media (min-width: 62rem) {
-  .hero__copy .t-display { font-size: min(var(--t-display), 16.5cqi); }
+.hero__copy .t-display {
+  font-size: min(var(--t-display), 11.5cqi);
+  text-wrap: pretty;
 }
 .hero__copy .lead { max-width: 33ch; }
 .hero__actions { margin-block-start: var(--s-6); }

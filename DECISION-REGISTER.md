@@ -17,7 +17,7 @@ itself changes, and date it.
 |---|---|
 | **Niche** | Therapists and counsellors in UK private practice. |
 | **Core idea** | Most therapist websites start with the website. Alexander Watson Studio starts by understanding the practice. The website is downstream of that. |
-| **Who is behind it** | Alexander: years in marketing, personal branding and creating content online (including a YouTube audience); now training as a counsellor, with supervised client work on placement. One person, not an agency. No invented figures, employers or credentials. |
+| **Who is behind it** | Alexander: more than fifteen years across marketing, e-commerce and personal branding — his own businesses, social channels grown for businesses in different markets, and individual clients' personal brands; now training as a counsellor, with supervised client work on placement. One person, not an agency. No invented figures, employers or credentials. **The site must not claim or imply a large personal YouTube audience** — the YouTube experience was through earlier businesses, and the wording was corrected on 19 September 2026. |
 | **Current experiment** | Get three real founding clients at £495. The only question it has to answer now: will three real therapists pay £495 for this process? |
 | **Next business target** | **Client one.** |
 | **Next optional site asset** | A **60–90 second founder video** (Alexander at his own desk, to camera). The home page is ready for it (`_data/founder.yml`) and works without it. It is **not** a prerequisite for finding client one. |
