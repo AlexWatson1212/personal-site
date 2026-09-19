@@ -269,12 +269,23 @@ const ROUTES = [
 /** Routes that must never be indexed or listed. */
 /* 17 September 2026: the retired questionnaire route now redirects to
    /client/intake/, so the private pages are the two client pages. */
-const PRIVATE_ROUTES = ["/client/intake/", "/client/photography/"];
+/* 19 September 2026: the Practice Discovery questionnaire and the page its
+   form action lands on are the third and fourth. */
+const PRIVATE_ROUTES = [
+  "/client/intake/",
+  "/client/photography/",
+  "/client/practice-discovery/",
+  "/client/practice-discovery/thank-you/",
+];
 
 const BUY_INCLUDE = "_includes/practice-website-buy.html";
 const PURCHASE_PAGE = "services/practice-website.html";
 const INTAKE = "client/intake.html";
 const PHOTO_BRIEF = "client/photography.html";
+const DISCOVERY = "client/practice-discovery.html";
+const DISCOVERY_THANKS = "client/practice-discovery-thank-you.html";
+/** Every source file that is itself a client page. */
+const CLIENT_PAGES = [INTAKE, PHOTO_BRIEF, DISCOVERY, DISCOVERY_THANKS];
 const ENQUIRY = "contact.html";
 const SUPPORT_EMAIL = "hello@alexanderwatson.co.uk";
 
@@ -857,6 +868,123 @@ check("Analytics", "Loads nothing until it is configured, and never reads what i
   return `off by default · ${names.length} allowlisted events · no field access`;
 });
 
+check("Analytics", "Google Analytics is configured in one place and waits for consent", () => {
+  const config = read("_config.yml");
+  const include = read("_includes/analytics.html");
+  const consent = read("assets/js/analytics-consent.js");
+
+  const declared = /ga4_measurement_id:\s*"([^"]*)"/.exec(config);
+  assert(declared, "_config.yml no longer declares analytics.ga4_measurement_id");
+  const id = declared[1];
+
+  /* Unconfigured is a valid state and everything below is moot in it. */
+  if (id === "") return "no measurement ID configured — nothing is emitted";
+
+  assert(/^G-[A-Z0-9]+$/.test(id), `analytics.ga4_measurement_id is "${id}", which is not a GA4 measurement ID`);
+
+  /* 1. One place. The ID belongs to the config; a template or a script that
+        carries its own copy is a second place to forget. */
+  const carriers = publishedSources.filter(
+    (rel) => rel !== "_config.yml" && publishedBodies.get(rel).includes(id)
+  );
+  assert(carriers.length === 0, `the measurement ID is written into:\n${carriers.join("\n")}`);
+  assert(!consent.includes(id), "assets/js/analytics-consent.js hardcodes the measurement ID");
+  assert(
+    /site\.analytics\.ga4_measurement_id/.test(include),
+    "_includes/analytics.html no longer reads the measurement ID from _config.yml"
+  );
+
+  /* 2. The studio site only. The concept sites, the deployment packages and
+        the shared components are separate builds; this property measures
+        alexanderwatson.co.uk and must not appear in any of them. */
+  const strays = [];
+  for (const dir of ["_concepts", "_deploy", "_shared"]) {
+    if (!exists(dir)) continue;
+    for (const file of walk(path.join(ROOT, dir), () => true)) {
+      let body;
+      try { body = fs.readFileSync(file, "utf8"); } catch { continue; }
+      if (body.includes(id) || /googletagmanager\.com/.test(body)) {
+        strays.push(path.relative(ROOT, file));
+      }
+    }
+  }
+  assert(strays.length === 0, `this GA4 property reached files outside the studio site:\n${strays.slice(0, 10).join("\n")}`);
+
+  /* 3. Nothing from Google is requested until a visitor has allowed it. The
+        template must not contain a Google host at all — the tag is injected
+        by the consent script, which is the only reason a first visit makes no
+        request and sets no cookie. */
+  /* Strip the Liquid comment first: this guard tests what the template emits,
+     not the note that explains why it emits nothing. */
+  const includeCode = include.replace(/\{%-?\s*comment\s*-?%\}[\s\S]*?\{%-?\s*endcomment\s*-?%\}/g, "");
+  assert(
+    !/googletagmanager\.com|google-analytics\.com/.test(includeCode),
+    "_includes/analytics.html loads a Google host directly — the tag must be injected only after consent"
+  );
+  assert(
+    /function load\(\)[\s\S]*?googletagmanager\.com/.test(consent),
+    "the consent script no longer injects gtag.js from inside its load() function"
+  );
+  assert(
+    /if \(loaded \|\| !measurable\) return;/.test(consent),
+    "load() no longer refuses to run off a configured host — the production guard is gone"
+  );
+  assert(
+    /choice === "granted"\) load\(\)/.test(consent),
+    "the consent script no longer requires a stored \"granted\" choice before loading"
+  );
+  assert(
+    /HOSTS\.indexOf\(window\.location\.hostname\) !== -1/.test(consent),
+    "the host allowlist is no longer checked against the page's own hostname"
+  );
+
+  if (hasSite) {
+    for (const file of walk(SITE, (f) => /\.html$/.test(f))) {
+      const body = fs.readFileSync(file, "utf8");
+      assert(
+        !/googletagmanager\.com|google-analytics\.com/.test(body),
+        `${path.relative(SITE, file)} ships a Google host in its HTML — the built page must request nothing until consent`
+      );
+    }
+  }
+
+  /* 4. Nothing typed may reach it, which is the same promise the cookieless
+        provider is held to above. */
+  const consentCode = consent.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
+  for (const [pattern, what] of [
+    [/\.value\b/, "reads a field value"],
+    [/FormData/, "reads form data"],
+    [/\.elements\b/, "reads form elements"],
+  ]) {
+    assert(!pattern.test(consentCode), `assets/js/analytics-consent.js ${what} — analytics must never see what somebody typed`);
+  }
+
+  /* 5. The policy has to permit what consent will cause, or the beacon is
+        reported today and blocked the day the header is enforced. */
+  const csp = read("netlify.toml");
+  for (const [directive, host] of [
+    ["script-src", "https://www.googletagmanager.com"],
+    ["connect-src", "https://*.google-analytics.com"],
+  ]) {
+    const rule = new RegExp(`${directive}[^;"]*${host.replace(/[.*]/g, "\\$&")}`);
+    assert(rule.test(csp), `netlify.toml does not permit ${host} in ${directive} — the GA4 beacon would be blocked`);
+  }
+
+  /* 6. The privacy notice has to describe what is actually configured. */
+  const privacy = read("_pages/privacy.html");
+  assert(
+    /Google Analytics/.test(privacy),
+    "/privacy/ does not mention Google Analytics while a measurement ID is configured"
+  );
+  assert(
+    !/sets no cookies of its own and uses no analytics/.test(privacy.split("{%- else %}")[0]),
+    "/privacy/ still claims the site uses no analytics in the branch that renders when it does"
+  );
+
+  const hosts = [...config.matchAll(/^\s{4}- ([a-z0-9.-]+)\s*$/gm)].map((m) => m[1]);
+  return `${id} · ${hosts.length} measurable host(s) · injected on consent only`;
+});
+
 check("Information architecture", "One resource section, one front door", () => {
   /* The Journal index and the Library index folded into /guidance/ in August
      2026. The nav must offer exactly one way in, the retired indexes must
@@ -975,7 +1103,9 @@ check("Product scope", "The retired delivery model has not come back", () => {
     [/revision rounds?\b/i, "revision rounds"],
     [/two rounds of changes/i, "two rounds of changes"],
     [/Website Content Questionnaire/, "the Website Content Questionnaire"],
-    [/Practice Clarity document/, "the Practice Clarity document as the deliverable"],
+    /* Whitespace-tolerant: the phrase slipped through once wrapped across two
+       lines of an indented paragraph, which is exactly how it would come back. */
+    [/Practice\s+Clarity\s+document/, "the Practice Clarity document as the deliverable"],
     [/approved? the finished website/i, "the balance or approval tied to the finished website"],
     [/when your website is approved/i, "the balance tied to website approval"],
     [/factual updates are included/i, "factual updates inside Website Care"],
@@ -1585,7 +1715,7 @@ check("Private routes", "Nothing public links to the client pages", () => {
      table, and robots.txt. */
   const offenders = [];
   for (const [rel, body] of publishedBodies) {
-    if (rel === INTAKE || rel === PHOTO_BRIEF) continue;
+    if (CLIENT_PAGES.includes(rel)) continue;
     const text = body.replace(/\{%-?\s*comment\s*-?%\}[\s\S]*?\{%-?\s*endcomment\s*-?%\}/g, "");
     if (/\/client\//.test(text)) offenders.push(`${rel} links to or names /client/`);
     if (/urls\.(intake|photography)/.test(text)) offenders.push(`${rel} renders a client-page URL`);
@@ -2493,6 +2623,509 @@ check("Reading options", "The capability is gated on one key, and every offered 
 
   const state = enabled[1] === "true" ? "ON" : "off";
   return `switch present · ${new Set(offered).size} values, all implemented · currently ${state} on this site`;
+});
+
+/* ------------------------------------------------------------------ *
+ * 21. Search
+ * ------------------------------------------------------------------ */
+
+/** Pages that are meant to be found. Excludes the private client routes. */
+const INDEXABLE = publishedSources.filter((rel) => {
+  if (rel.startsWith("_includes/") || rel.startsWith("_layouts/")) return false;
+  const body = publishedBodies.get(rel);
+  if (!frontMatterValue(body, "permalink") && !rel.startsWith("_guides/")) return false;
+  return !/^noindex:\s*true/m.test(body);
+});
+
+check("Search", "Every indexable page declares a title and a description", () => {
+  const missing = [];
+  for (const rel of INDEXABLE) {
+    const body = publishedBodies.get(rel);
+    if (!frontMatterValue(body, "title")) missing.push(`${rel} — no title`);
+    if (!frontMatterValue(body, "description")) missing.push(`${rel} — no description`);
+  }
+  assert(missing.length === 0, `a search result would be written by Google instead:\n${missing.join("\n")}`);
+  return `${INDEXABLE.length} indexable pages, all titled and described`;
+});
+
+check("Search", "No two indexable pages claim the same title or description", () => {
+  /* Two pages with one title is the shape of a duplicate-content problem, and
+     it is also the shape of a template that stopped substituting. */
+  for (const key of ["title", "description"]) {
+    const seen = new Map();
+    for (const rel of INDEXABLE) {
+      const value = (frontMatterValue(publishedBodies.get(rel), key) || "").trim();
+      if (!value) continue;
+      if (seen.has(value)) {
+        throw new Error(`${key} "${value.slice(0, 60)}…" is used by both ${seen.get(value)} and ${rel}`);
+      }
+      seen.set(value, rel);
+    }
+  }
+  return "all distinct";
+});
+
+check("Search", "Titles and descriptions stay inside what a result shows", () => {
+  /* Warnings, not failures: Google measures pixels, not characters, and it
+     rewrites descriptions whenever it likes. These bounds are generous — they
+     catch the 370-character description that is really a paragraph in the
+     wrong field, not a title three characters over. */
+  const BRAND = read("_config.yml").match(/^brand:\s*"([^"]+)"/m);
+  const suffix = BRAND ? BRAND[1].length + 3 : 26;
+  const long = [];
+  for (const rel of INDEXABLE) {
+    const body = publishedBodies.get(rel);
+    const title = frontMatterValue(body, "seo_title") || frontMatterValue(body, "title") || "";
+    const description = frontMatterValue(body, "seo_description") || frontMatterValue(body, "description") || "";
+    if (title.length + suffix > 90) long.push(`${rel} — title ${title.length + suffix} chars`);
+    if (description.length > 230) long.push(`${rel} — description ${description.length} chars`);
+  }
+  assert(long.length === 0, `too long to survive a search result:\n${long.join("\n")}`);
+  return "within bounds";
+});
+
+check("Search", "The concept websites cannot be crawled as if they were real practices", () => {
+  /* The three concepts are fictional therapy practices on their own
+     subdomains. A concept indexed as a real practice is the one SEO mistake
+     on this site that would matter to somebody other than the studio: a
+     person in distress finding a counsellor who does not exist. Each copy in
+     this repository is locked three ways, and all three have to hold. */
+  const roots = ["_concepts", "_deploy"];
+  const problems = [];
+  for (const root of roots) {
+    if (!exists(root)) continue;
+    for (const dir of fs.readdirSync(path.join(ROOT, root), { withFileTypes: true })) {
+      if (!dir.isDirectory()) continue;
+      const base = path.join(ROOT, root, dir.name);
+      const rel = `${root}/${dir.name}`;
+
+      const robots = path.join(base, "robots.txt");
+      if (!fs.existsSync(robots)) problems.push(`${rel} — no robots.txt`);
+      else if (!/^\s*Disallow:\s*\/\s*$/m.test(fs.readFileSync(robots, "utf8"))) {
+        problems.push(`${rel}/robots.txt does not Disallow: /`);
+      }
+
+      const index = path.join(base, "index.html");
+      if (!fs.existsSync(index)) problems.push(`${rel} — no index.html`);
+      else if (!/<meta\s+name="robots"\s+content="[^"]*noindex/i.test(fs.readFileSync(index, "utf8"))) {
+        problems.push(`${rel}/index.html carries no noindex meta tag`);
+      }
+
+      const headers = path.join(base, "_headers");
+      if (!fs.existsSync(headers)) problems.push(`${rel} — no _headers`);
+      else if (!/X-Robots-Tag:\s*noindex/i.test(fs.readFileSync(headers, "utf8"))) {
+        problems.push(`${rel}/_headers sends no noindex X-Robots-Tag`);
+      }
+    }
+  }
+  assert(problems.length === 0, `a fictional practice could be indexed as a real one:\n${problems.join("\n")}`);
+  return "robots.txt, meta and header locks present on every concept in the repository";
+});
+
+check("Search", "robots.txt allows the site, blocks the private routes and names the sitemap", () => {
+  const robots = read("robots.txt");
+  assert(/^Allow:\s*\/$/m.test(robots), "robots.txt no longer allows the site");
+  assert(/^Sitemap:\s*\{\{\s*site\.url\s*\}\}\/sitemap\.xml$/m.test(robots),
+    "robots.txt no longer declares the sitemap as an absolute URL");
+  for (const route of ["/client/"]) {
+    assert(new RegExp(`^Disallow:\\s*${route}`, "m").test(robots), `robots.txt no longer disallows ${route}`);
+  }
+  assert(read("_config.yml").includes("jekyll-sitemap"), "the sitemap plugin is no longer configured");
+  return "allow, 2 disallows, absolute sitemap";
+});
+
+check("Search", "Every page carries one canonical and exactly one h1", () => {
+  if (!hasSite) skip("no _site directory — run `npm run build` first");
+  const problems = [];
+  for (const file of walk(SITE, (f) => /\.html$/.test(f))) {
+    const rel = path.relative(SITE, file);
+    const body = fs.readFileSync(file, "utf8");
+    const canonical = body.match(/<link rel="canonical" href="([^"]+)"/g) || [];
+    const h1 = body.match(/<h1\b/g) || [];
+    if (canonical.length !== 1) problems.push(`${rel} — ${canonical.length} canonical tags`);
+    if (h1.length !== 1) problems.push(`${rel} — ${h1.length} h1 elements`);
+    if (!/href="https:\/\//.test(canonical[0] || "")) problems.push(`${rel} — canonical is not an absolute https URL`);
+  }
+  assert(problems.length === 0, problems.join("\n"));
+  return "one canonical and one h1 on every built page";
+});
+
+check("Search", "Structured data parses, and claims nothing that cannot be checked", () => {
+  /* The failure this guards against is not a typo. It is the day somebody
+     pastes in an aggregateRating or a review to win a star in the results:
+     there are no reviews, and markup that invents them is a manual action. */
+  const FORBIDDEN = ["aggregateRating", "review", "Review", "award", "openingHours", "priceRange"];
+  const sources = [read("_includes/schema.html"), ...publishedSources.map((r) => publishedBodies.get(r))];
+  let blocks = 0;
+
+  for (const body of sources) {
+    for (const match of body.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+      blocks += 1;
+      const raw = match[1];
+      for (const term of FORBIDDEN) {
+        assert(!new RegExp(`"${term}"\\s*:`).test(raw), `structured data declares "${term}", which this site has no evidence for`);
+      }
+      /* Liquid is stripped to a placeholder so the JSON shape can be parsed
+         without rendering the site. A brace that never closes fails here. */
+      const json = raw
+        .replace(/"\{\{[\s\S]*?\}\}"/g, '"x"')
+        .replace(/\{\{[\s\S]*?\}\}/g, '"x"')
+        .replace(/\{%[\s\S]*?%\}/g, "")
+        .replace(/,(\s*[}\]])/g, "$1");
+      if (!json.trim()) continue;
+      try {
+        JSON.parse(json);
+      } catch (error) {
+        throw new Error(`a JSON-LD block is malformed: ${String(error.message).slice(0, 120)}`);
+      }
+    }
+  }
+  assert(blocks >= 5, `only ${blocks} JSON-LD blocks found — the schema include is not being read`);
+  return `${blocks} JSON-LD blocks, all parseable`;
+});
+
+/* ------------------------------------------------------------------ *
+ * 22. Practice Discovery
+ *
+ * The questionnaire is a Netlify form. Netlify detects it at deploy time by
+ * parsing the built HTML, and a submission is matched to that form by a
+ * hidden field. Three values have to agree — the form's name, the hidden
+ * form-name, and the field netlify-honeypot points at — or submissions are
+ * rejected or filed under nothing. None of that fails loudly in a browser,
+ * which is why it is checked here.
+ * ------------------------------------------------------------------ */
+
+const DISCOVERY_BODY = read(DISCOVERY);
+const DISCOVERY_YAML = read("_data/practice_discovery.yml");
+
+/**
+ * The question set, read without a YAML library — this harness has no
+ * dependencies and is not going to grow one for five keys.
+ *
+ * Deliberately forgiving: it keys off `name:` starting a field and collects
+ * the handful of scalars that follow it, whatever the indentation, key order
+ * or quoting. It assumes only that one field begins at each `name:`, which is
+ * the one thing about the file's shape worth depending on.
+ */
+function discoveryFields() {
+  const fields = [];
+  let current = null;
+  for (const raw of DISCOVERY_YAML.split("\n")) {
+    const line = raw.replace(/\s+$/, "");
+    if (/^\s*#/.test(line) || line.trim() === "") continue;
+    const match = /^\s*-?\s*([a-z_]+):\s*(.*)$/.exec(line);
+    if (!match) continue;
+    const key = match[1];
+    const value = match[2].replace(/^"(.*)"$/, "$1").trim();
+    if (key === "name") {
+      current = { name: value, type: "text", required: false, accept: "", label: "", hint: "", multiple: false };
+      fields.push(current);
+      continue;
+    }
+    if (!current) continue;
+    if (key === "type") current.type = value;
+    else if (key === "required") current.required = value === "true";
+    else if (key === "accept") current.accept = value;
+    else if (key === "label") current.label = value;
+    else if (key === "hint") current.hint = value;
+    else if (key === "multiple") current.multiple = value === "true";
+  }
+  return fields;
+}
+
+function discoveryScalar(key) {
+  const match = new RegExp(`^${key}:\\s*"([^"]+)"`, "m").exec(DISCOVERY_YAML);
+  return match ? match[1] : "";
+}
+
+check("Practice Discovery", "The form, the hidden name and the honeypot all agree", () => {
+  const formName = discoveryScalar("form_name");
+  const honeypot = discoveryScalar("honeypot");
+  const action = discoveryScalar("action");
+  assert(formName && honeypot && action, "_data/practice_discovery.yml is missing form_name, honeypot or action");
+
+  for (const [pattern, what] of [
+    [/<form[^>]*\bmethod="POST"/, 'method="POST"'],
+    [/<form[^>]*\bdata-netlify="true"/, 'data-netlify="true"'],
+    [/<form[^>]*\benctype="multipart\/form-data"/, 'enctype="multipart/form-data" (required for the file uploads)'],
+    [/<input type="hidden" name="form-name" value="\{\{ pd\.form_name \}\}">/, "the hidden form-name field"],
+    [/netlify-honeypot="\{\{ pd\.honeypot \}\}"/, "netlify-honeypot"],
+    [/name="\{\{ pd\.honeypot \}\}"/, "a field matching the declared honeypot"],
+  ]) {
+    assert(pattern.test(DISCOVERY_BODY), `${DISCOVERY} no longer carries ${what}`);
+  }
+
+  /* One source for all three values, so they cannot drift apart. */
+  assert(
+    /<form[^>]*\bname="\{\{ pd\.form_name \}\}"/.test(DISCOVERY_BODY),
+    "the form name is written out instead of coming from the data file"
+  );
+  assert(
+    action === "/client/practice-discovery/thank-you/",
+    `the form action is "${action}", which is not the confirmation route`
+  );
+  assert(
+    PRIVATE_ROUTES.includes(action),
+    "the form action points at a route that is not one of the private routes"
+  );
+  return `${formName} → ${action} · honeypot ${honeypot}`;
+});
+
+check("Practice Discovery", "Every question has a unique, readable name and only the last control submits", () => {
+  const fields = discoveryFields();
+  assert(fields.length > 20, `only ${fields.length} questions parsed — the data file is not being read`);
+  const names = [];
+  let required = 0;
+  for (const field of fields) {
+    names.push(field.name);
+    if (field.required) required += 1;
+    assert(
+      /^[a-z][a-z0-9-]*$/.test(field.name),
+      `"${field.name}" is not a readable field name — lower case, words separated by hyphens`
+    );
+    assert(
+      !/^(q|question|field)[-_]?\d+$/i.test(field.name),
+      `"${field.name}" is an identifier rather than a name; the Netlify column has to be readable`
+    );
+    assert(field.label && field.label.length > 2, `${field.name} has no label`);
+  }
+  const duplicates = names.filter((n, i) => names.indexOf(n) !== i);
+  assert(duplicates.length === 0, `duplicate field names: ${[...new Set(duplicates)].join(", ")}`);
+
+  /* Only the final control may submit. Previous and Continue are ordinary
+     buttons; a stray type="submit" on either would post ten steps early. */
+  const buttons = [...DISCOVERY_BODY.matchAll(/<button\b([^>]*)>/g)].map((m) => m[1]);
+  const submits = buttons.filter((a) => /type="submit"/.test(a));
+  assert(submits.length === 1, `${submits.length} submit buttons in the questionnaire; there must be exactly one`);
+  assert(/data-pd-submit/.test(submits[0]), "the submit button is not the one the script knows about");
+  for (const marker of ["data-pd-prev", "data-pd-next"]) {
+    const button = buttons.find((a) => a.includes(marker));
+    assert(button, `${marker} is missing`);
+    assert(/type="button"/.test(button), `${marker} is not type="button" — it would submit the form`);
+  }
+  return `${names.length} questions · ${required} required in data, plus the confirmation`;
+});
+
+/**
+ * The question set grouped by step, for the length budget below. Same
+ * dependency-free reading as discoveryFields(), one level up: a step begins at
+ * `- id:` and owns every `- name:` until the next one.
+ */
+function discoverySteps() {
+  const steps = [];
+  for (const raw of DISCOVERY_YAML.split("\n")) {
+    if (/^\s*#/.test(raw) || raw.trim() === "") continue;
+    const step = /^\s*-\s*id:\s*"([^"]+)"/.exec(raw);
+    if (step) {
+      steps.push({ id: step[1], fields: 0 });
+      continue;
+    }
+    if (/^\s*-\s*name:\s*"/.test(raw) && steps.length) steps[steps.length - 1].fields += 1;
+  }
+  return steps;
+}
+
+check("Practice Discovery", "The questionnaire stays short enough to finish in one sitting", () => {
+  /* 19 September 2026. The first version asked 194 questions across these
+     eleven steps: technically sound, and an examination to sit. It was cut to
+     70 by merging narrow questions into open ones with helper prompts.
+
+     This check exists because that is exactly the kind of decision that erodes
+     one well-meaning addition at a time. A band, not a fixed number — the set
+     is meant to be edited — but a band narrow enough that drifting back
+     towards a hundred questions fails here first, in front of whoever is
+     making the change, rather than in front of a client at step seven.
+
+     "You and your practice" is allowed more because most of its questions are
+     one-line factual fields — a name, a title, a telephone number — rather
+     than anything that has to be thought about. */
+  const MIN = 55;
+  const MAX = 75;
+  const PER_STEP_MAX = 8;
+  const FACTUAL_STEP = "you-and-your-practice";
+  const FACTUAL_STEP_MAX = 14;
+
+  const steps = discoverySteps();
+  const total = steps.reduce((sum, step) => sum + step.fields, 0);
+  assert(steps.length === 11, `${steps.length} steps in the data file; the questionnaire is designed around eleven`);
+  assert(total === discoveryFields().length, "the per-step reading and the flat reading disagree — one of the two parsers is wrong");
+  assert(
+    total >= MIN && total <= MAX,
+    `${total} questions. The agreed range is ${MIN}–${MAX}: below it the discovery is too thin to work from, ` +
+      `above it a client is sitting an examination. Merge before you add.`
+  );
+  for (const step of steps) {
+    const ceiling = step.id === FACTUAL_STEP ? FACTUAL_STEP_MAX : PER_STEP_MAX;
+    assert(
+      step.fields <= ceiling,
+      `step "${step.id}" asks ${step.fields} questions; the ceiling is ${ceiling}. ` +
+        `Merge two into one open question with a helper prompt rather than raising it.`
+    );
+  }
+
+  /* A merged question is only an improvement if the helper prompt survived
+     with it. Without one, "How would a client experience working with you?"
+     is four questions the client has to guess at. */
+  const long = discoveryFields().filter((f) => f.type === "textarea");
+  const withHint = long.filter((f) => f.hint).length;
+  assert(
+    withHint >= long.length / 3,
+    `only ${withHint} of ${long.length} open questions carry a helper prompt; merged questions need them`
+  );
+
+  const counts = steps.map((s) => s.fields).join("/");
+  return `${total} questions across ${steps.length} steps (${counts})`;
+});
+
+check("Practice Discovery", "Only the agreed questions are required, and the rest say so", () => {
+  /* The questionnaire is long on purpose and compulsory almost nowhere. If a
+     future edit marks a section required, a client meets a wall instead of an
+     invitation. */
+  const expected = [
+    "full-name", "email", "practice-name", "preferred-professional-title",
+    "practice-stage", "how-you-practise", "who-you-want-to-work-with",
+    "most-important-message", "website-main-job",
+  ];
+  const actual = discoveryFields().filter((f) => f.required).map((f) => f.name);
+  assert(
+    actual.sort().join(",") === expected.sort().join(","),
+    `the required questions have changed:\n  expected ${expected.join(", ")}\n  found    ${actual.join(", ")}`
+  );
+  assert(
+    /name="confirmation"[^>]*required/.test(DISCOVERY_BODY.replace(/\s+/g, " ")),
+    "the closing confirmation is no longer required"
+  );
+  /* Every question that is not required has to be visibly marked optional,
+     or a long form reads as a long list of obligations. */
+  assert(
+    /<span class="opt">Optional<\/span>/.test(DISCOVERY_BODY),
+    "optional questions are no longer marked Optional"
+  );
+  assert(
+    /<span class="req">Required<\/span>/.test(DISCOVERY_BODY),
+    "required questions are no longer marked Required"
+  );
+  return `${expected.length} required questions + the confirmation`;
+});
+
+check("Practice Discovery", "It works without JavaScript, and asks for nothing dangerous", () => {
+  /* Without the script every step is visible and the browser validates. The
+     two navigation controls start hidden because they would do nothing. */
+  assert(
+    /data-pd-prev hidden/.test(DISCOVERY_BODY) && /data-pd-next hidden/.test(DISCOVERY_BODY),
+    "Previous and Continue no longer start hidden — without JavaScript they would be dead controls"
+  );
+  assert(
+    !/<form[^>]*\bnovalidate/.test(DISCOVERY_BODY),
+    "novalidate is in the markup — without JavaScript nothing would be validated at all"
+  );
+  assert(
+    /form\.noValidate = true/.test(read("assets/js/practice-discovery.js")),
+    "the script no longer takes over validation, so the browser and the script will compete"
+  );
+
+  /* Comments stripped first: this tests the code, not the note that explains
+     why the code does not do these things. */
+  const script = read("assets/js/practice-discovery.js")
+    .replace(/\/\*[\s\S]*?\*\//g, "")
+    .replace(/^\s*\/\/.*$/gm, "");
+  for (const [pattern, what] of [
+    [/localStorage/, "writes answers to localStorage"],
+    [/sessionStorage/, "writes answers to sessionStorage"],
+    [/console\.(log|info|warn|error)/, "logs to the console"],
+    [/gtag\(|dataLayer/, "sends answers to analytics"],
+    [/\.disabled\s*=\s*true[\s\S]{0,40}input/, "disables inputs, which would drop their answers"],
+  ]) {
+    assert(!pattern.test(script), `assets/js/practice-discovery.js ${what}`);
+  }
+
+  /* A GET form would put every answer in the address bar, in history, and in
+     any referrer header the confirmation page sends. */
+  assert(!/<form[^>]*\bmethod="GET"/i.test(DISCOVERY_BODY), "the questionnaire would submit by GET, putting answers in the URL");
+
+  /* Uploads: no executables, no archives, nothing that runs when opened. */
+  const accepts = [];
+  const uploads = discoveryFields().filter((f) => f.type === "file");
+  assert(uploads.length > 0, "the questionnaire offers no uploads at all");
+  for (const field of uploads) {
+    assert(field.accept, `the upload "${field.name}" accepts anything at all`);
+    assert(!field.required, `the upload "${field.name}" is required; uploads must stay optional`);
+    accepts.push(...field.accept.split(",").map((e) => e.trim().toLowerCase()));
+  }
+  const forbidden = [".exe", ".zip", ".rar", ".7z", ".tar", ".gz", ".js", ".sh", ".bat", ".svg", ".html"];
+  const bad = accepts.filter((e) => forbidden.includes(e));
+  assert(bad.length === 0, `uploads accept ${[...new Set(bad)].join(", ")} — executables, archives and script-bearing formats must not be requested`);
+  return `${[...new Set(accepts)].sort().join(" ")} · no storage, no logging, no analytics`;
+});
+
+check("Practice Discovery", "Every upload takes one file, and the request stays inside Netlify's limit", () => {
+  /* 19 September 2026. Netlify Forms accepts ONE file per file input. A
+     control carrying `multiple` looks like it takes several, accepts several
+     in the file picker, and then submits one — silently, with nothing on the
+     page to say the rest were dropped. A client would have no way of knowing
+     they had lost four of five files, and neither would the person reading
+     the submission. Several files need several fields, or a folder link.
+
+     Two ways for it to come back, so both are closed: the attribute is no
+     longer emitted by the template at all, and `multiple` in the data file
+     fails here. Checking only the rendered markup would pass a YAML change
+     that a later template edit would then honour. */
+  const uploads = discoveryFields().filter((f) => f.type === "file");
+  assert(uploads.length > 0, "the questionnaire offers no uploads at all");
+
+  const many = uploads.filter((f) => f.multiple).map((f) => f.name);
+  assert(
+    many.length === 0,
+    `"${many.join('", "')}" carries multiple: true. Netlify takes one file per field — ` +
+      "the extra files are dropped on submission without telling anyone. Add a second field, " +
+      "or point the client at the file-links question."
+  );
+  assert(
+    !/\bmultiple\b/.test(DISCOVERY_BODY.replace(/\{%-?\s*comment[\s\S]*?endcomment\s*-?%\}/g, "")),
+    `${DISCOVERY} can emit a multiple attribute again — the file input must not carry one`
+  );
+
+  /* The 8 MB ceiling is the whole request, text and files together, and the
+     upload itself times out after 30 seconds. The page has to say so, because
+     a rejected submission on this form costs somebody forty minutes of
+     writing. 7 MB is the number the page gives: conservative on purpose, so
+     that the text of seventy answers cannot push a just-under-8 MB file over. */
+  const pageText = DISCOVERY_BODY.replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ");
+  const hints = uploads.map((f) => f.hint).join(" ");
+  assert(
+    /7\s?MB/.test(pageText) || /7\s?MB/.test(hints),
+    "the page no longer states a size ceiling for uploads; Netlify rejects the whole submission over 8 MB"
+  );
+  assert(
+    /single file|one file/i.test(hints),
+    "the upload hints no longer say that each field takes one file"
+  );
+
+  /* The escape route has to exist, or the advice above is a dead end. */
+  const links = discoveryFields().find((f) => f.name === "file-links");
+  assert(links, "the file-links question is gone — there is now nowhere to put a folder link");
+  assert(links.type === "textarea", "file-links is no longer a free-text field");
+
+  /* Without this the files never arrive at all, whatever their size. */
+  assert(
+    /<form[^>]*\benctype="multipart\/form-data"/.test(DISCOVERY_BODY),
+    "the form lost enctype=\"multipart/form-data\" — uploads would submit as filenames only"
+  );
+
+  return `${uploads.length} single-file uploads · 7 MB advised, 8 MB hard limit · multipart`;
+});
+
+check("Practice Discovery", "It says what not to send, and points at the privacy notice", () => {
+  const text = DISCOVERY_BODY.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+  assert(/do not include confidential information about clients/i.test(text),
+    "the questionnaire no longer tells people to leave client information out");
+  assert(/[Nn]ever enter passwords/.test(text),
+    "the questionnaire no longer warns against entering passwords");
+  assert(/Do not enter passwords, security answers or recovery codes/.test(DISCOVERY_YAML),
+    "the access-issues question no longer warns against entering credentials");
+  assert(/'\/privacy\/' \| relative_url/.test(DISCOVERY_BODY),
+    "the questionnaire no longer links to the privacy notice");
+  return "client information, passwords and the privacy link all stated";
 });
 
 /* ------------------------------------------------------------------ *

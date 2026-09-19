@@ -17,6 +17,7 @@
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": {{ '/#studio' | absolute_url | jsonify }},
   "name": {{ site.brand | jsonify }},
   "description": {{ site.description | jsonify }},
   "url": {{ '/' | absolute_url | jsonify }},
@@ -42,6 +43,63 @@
 </script>
 {%- endif -%}
 
+{%- comment -%}
+  The site itself, named. It is two lines and it does one job: it tells Google
+  which of the several things called "Alexander Watson" this domain is, which
+  is the ambiguity a personal name creates. No SearchAction — there is no site
+  search to point it at, and declaring one that does not exist is the kind of
+  markup that gets a site's structured data distrusted.
+{%- endcomment -%}
+{%- if page.url == '/' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": {{ '/#website' | absolute_url | jsonify }},
+  "url": {{ '/' | absolute_url | jsonify }},
+  "name": {{ site.brand | jsonify }},
+  "inLanguage": "en-GB",
+  "publisher": { "@id": {{ '/#studio' | absolute_url | jsonify }} }
+}
+</script>
+{%- endif -%}
+
+{%- comment -%}
+  The service, on the two pages that describe it.
+
+  Every field is something the page states in words. The price comes from
+  _data/purchasing.yml through the same variables the page prints, so it
+  cannot drift from the figure a visitor reads, and closing the founding offer
+  still changes one file. There is no aggregateRating, no review, no award and
+  no opening hours: none of those exist, and inventing them is how structured
+  data turns into a manual action.
+{%- endcomment -%}
+{%- if page.url == '/service/' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": {{ '/service/#practice-identity-and-website' | absolute_url | jsonify }},
+  "name": "Practice Identity & Website",
+  "serviceType": "Website design for therapists and counsellors",
+  "description": "A written Practice Fundamentals document and a complete one-page website built from it, for therapists and counsellors in UK private practice.",
+  "provider": { "@id": {{ '/#studio' | absolute_url | jsonify }} },
+  "areaServed": { "@type": "Country", "name": "United Kingdom" },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Therapists and counsellors in private practice"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": {{ site.data.purchasing.price_numeric | default: "495.00" | jsonify }},
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock",
+    "url": {{ '/service/' | absolute_url | jsonify }}
+  }
+}
+</script>
+{%- endif -%}
+
 {%- if page.url == '/about/' -%}
 <script type="application/ld+json">
 {
@@ -57,6 +115,60 @@
     "https://instagram.com/instawats",
     "https://www.linkedin.com/in/alexander-watson-60892b75/",
     "https://www.youtube.com/@AlexanderWatsonofficial"
+  ]
+}
+</script>
+{%- endif -%}
+
+{%- comment -%}
+  Breadcrumbs, on the pages that genuinely sit underneath something.
+
+  The hierarchy is the one the site already navigates: a case belongs to the
+  collection, a note belongs to the guidance index, a principle belongs to the
+  nine, and the full scope belongs beside the price. Each of those pages
+  carries a real link back to its parent, so this describes the site rather
+  than inventing a structure for Google's benefit. Pages with no parent — the
+  home page, About, Contact, the legal pages — get none, which is correct.
+
+  /services/practice-website/ is absent on purpose: that page writes its own
+  Product and its own BreadcrumbList inline, and a second breadcrumb over the
+  top of the first is worse than either.
+{%- endcomment -%}
+{%- assign crumb_parent = "" -%}
+{%- assign crumb_parent_name = "" -%}
+{%- if page.url contains '/work/' and page.url != '/work/' -%}
+  {%- assign crumb_parent = '/work/' -%}
+  {%- assign crumb_parent_name = 'The collection' -%}
+{%- elsif page.url contains '/guidance/' and page.url != '/guidance/' -%}
+  {%- assign crumb_parent = '/guidance/' -%}
+  {%- assign crumb_parent_name = 'Useful guidance' -%}
+{%- elsif page.url contains '/practice-clarity/' and page.url != '/practice-clarity/' -%}
+  {%- assign crumb_parent = '/practice-clarity/' -%}
+  {%- assign crumb_parent_name = 'The nine principles' -%}
+{%- endif -%}
+{%- if crumb_parent != "" and page.title -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": {{ '/' | absolute_url | jsonify }}
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ crumb_parent_name | jsonify }},
+      "item": {{ crumb_parent | absolute_url | jsonify }}
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ page.title | strip_html | jsonify }}
+    }
   ]
 }
 </script>

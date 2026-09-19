@@ -59,6 +59,18 @@
           <a href="{{ '/terms/' | relative_url }}">Terms</a>
           <a href="{{ '/cancellation-and-refunds/' | relative_url }}">Cancellations &amp; refunds</a>
         </nav>
+
+        {%- comment -%}
+          Where a visitor changes their analytics choice, on every page, for as
+          long as there is a measurement ID to change it about. The button is
+          built by assets/js/analytics-consent.js: without JavaScript there is
+          no analytics to have a preference about, so an empty container would
+          be furniture for a control that cannot exist. It collapses until the
+          script fills it.
+        {%- endcomment -%}
+        {%- if site.analytics.ga4_measurement_id != "" %}
+        <div class="footer-analytics" data-analytics-preference></div>
+        {%- endif %}
         <p>© {{ site.time | date: "%Y" }} Alexander Watson.</p>
       </div>
     </div>

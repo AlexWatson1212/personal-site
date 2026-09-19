@@ -1,6 +1,10 @@
 title: "Alexander Watson"
 brand: "Alexander Watson Studio"
-description: "Websites for therapists and counsellors in UK private practice, built from understanding the practice first. Your Practice Fundamentals settles who you work with, how you work, how the practice should sound and how it should look; a complete one-page website is built from it. £495 for the first three practices, £995 after that, including the first year of Website Care."
+# Used as the fallback meta description, and as the organisation description in
+# the ProfessionalService schema. Kept under 160 characters so a search result
+# shows all of it, and deliberately free of prices: those live in
+# _data/purchasing.yml, and closing the founding offer must stay one edit.
+description: "Website design for therapists and counsellors in UK private practice. The practice is worked out first; the website is built from it."
 
 url: "https://alexanderwatson.co.uk"
 baseurl: ""
@@ -72,6 +76,33 @@ analytics:
   provider: ""   # "plausible" is the only implemented provider
   domain: ""     # the site domain as registered with the provider
   host: ""       # the provider's script host, e.g. plausible.io
+
+  # ───────────────────────────────────────────────────────────────────────────
+  # Google Analytics 4.
+  #
+  # Separate from `provider` above, which stays empty: Plausible and GA4 are
+  # different propositions, and the guard that keeps Plausible off is not the
+  # guard that governs this. Only one of the two should ever be filled in.
+  #
+  # GA4 is cookie-based, so unlike the cookieless provider above it cannot be
+  # switched on unilaterally for a UK audience. Nothing from Google is
+  # requested until a visitor has actively allowed it — see
+  # assets/js/analytics-consent.js, and the "Cookies and analytics" section of
+  # /privacy/, which has to stay true to whatever is set here.
+  #
+  # Empty this string to remove analytics completely: no measurement ID means
+  # no consent notice, no preference control, no script, nothing.
+  ga4_measurement_id: "G-49F892QLNC"
+
+  # The hostnames this property is allowed to measure. A visit is only ever
+  # reported from one of these, so localhost, `jekyll serve`, the Node preview
+  # renderer, Netlify deploy previews and branch deploys are all inert even
+  # with consent stored in the browser. This is the production guard; it is
+  # expressed here rather than at build time so that it cannot be defeated by
+  # a build that skipped a step.
+  ga4_hosts:
+    - alexanderwatson.co.uk
+    - www.alexanderwatson.co.uk
 
 # ─────────────────────────────────────────────────────────────────────────────
 # READING OPTIONS

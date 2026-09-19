@@ -1,0 +1,493 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# PRACTICE DISCOVERY — the question set
+#
+# Rendered by client/practice-discovery.html into one static <form>. Every
+# field below becomes a real control in the built HTML, which is what lets
+# Netlify detect the form at deploy time; the step-by-step experience is added
+# by assets/js/practice-discovery.js on top of that, and the page is complete
+# and submittable without it.
+#
+# `name` is what appears as a column heading in the Netlify submission, so the
+# names are written to be read by a person. They are also the stable identity
+# of an answer: changing one renames the column and separates new submissions
+# from older ones. Add and reword freely; rename with care.
+#
+# Types: text · email · tel · url · textarea · radio · checkboxes · file
+# Only `required: true` fields block the step. Everything else is marked
+# Optional in the rendered page.
+#
+# UPLOADS — one file per field, and there is no `multiple` key.
+# Netlify Forms accepts a single file per file input; several files need
+# several fields. The whole submission, text and files together, has to fit
+# inside an 8 MB request and the upload itself times out at 30 seconds, so the
+# page asks for 7 MB across both uploads and points anybody with more at the
+# `file-links` field. `multiple: true` would render a control that lets a
+# client attach five files and lose four of them without being told, which is
+# why scripts/qa.mjs fails on it and client/practice-discovery.html no longer
+# has the markup to emit it.
+#
+# ─────────────────────────────────────────────────────────────────────────────
+# LENGTH IS A DESIGN CONSTRAINT, NOT AN ACCIDENT
+#
+# 19 September 2026: this set was cut from 194 questions to 70. The first
+# version asked every question separately and produced an examination. The
+# rule now is one rich, open question with a short helper prompt in place of
+# four narrow ones — a client should be answering in their own shape, not
+# filling a grid.
+#
+# The budget: roughly five to seven questions per step, with more allowed in
+# "You and your practice" because most of those are one-line factual fields.
+# scripts/qa.mjs enforces the total and the per-step ceiling. If a new question
+# is worth adding, something is probably worth merging away.
+#
+# Two things to keep when editing:
+#   · Factual values that get reused verbatim on the website (name, title,
+#     location, fees) stay as their own fields — they are not prose.
+#   · Helper prompts earn their place or they go. A helper that restates the
+#     label is noise; a helper that lists what somebody might consider is the
+#     whole reason a merged question works.
+# ─────────────────────────────────────────────────────────────────────────────
+
+form_name: "practice-discovery"
+honeypot: "bot-field"
+action: "/client/practice-discovery/thank-you/"
+
+steps:
+  - id: "you-and-your-practice"
+    title: "You and your practice"
+    intro: "The practical facts first. Most of these take a few seconds."
+    fields:
+      - name: "full-name"
+        label: "Full name"
+        type: "text"
+        required: true
+        autocomplete: "name"
+      - name: "preferred-professional-name"
+        label: "Preferred professional name"
+        type: "text"
+        hint: "If you practise under a different name from the one above."
+      - name: "pronouns"
+        label: "Pronouns"
+        type: "text"
+      - name: "practice-name"
+        label: "Practice name"
+        type: "text"
+        required: true
+        hint: "If you have not settled on one, write “Not decided yet” — that is a useful answer."
+      - name: "preferred-professional-title"
+        label: "Preferred professional title"
+        type: "text"
+        required: true
+        hint: "For example Counsellor, Psychotherapist, Integrative Therapist."
+      - name: "qualifications-and-memberships"
+        label: "Qualifications, memberships and registrations"
+        type: "textarea"
+        hint: "For example BACP, UKCP, BABCP or NCPS, including membership level if it matters."
+        rows: 4
+      - name: "email"
+        label: "Email address"
+        type: "email"
+        required: true
+        autocomplete: "email"
+      - name: "telephone"
+        label: "Telephone number"
+        type: "tel"
+        autocomplete: "tel"
+      - name: "current-website"
+        label: "Current or intended website address"
+        type: "url"
+      - name: "location"
+        label: "Location"
+        type: "text"
+        hint: "Town or city is enough. This is for context; it is not published unless you want it to be."
+      - name: "practice-stage"
+        label: "Which stage best describes the practice?"
+        type: "radio"
+        required: true
+        options:
+          - "Planning a new practice"
+          - "Preparing to launch"
+          - "Already practising"
+          - "Established practice being repositioned"
+          - "Other"
+      - name: "services-fees-and-availability"
+        label: "What do you offer, and on what terms?"
+        type: "textarea"
+        hint: "Whether you work online, in person or both; the services you offer now and any you want to offer later; current or anticipated fees, including reduced-fee places; and your typical working days and hours."
+        rows: 5
+      - name: "where-the-practice-is-going"
+        label: "Where is the practice now, and where would you like it to be?"
+        type: "textarea"
+        hint: "You might include what prompted you to invest in it now, what currently feels unclear or unfinished, whether this is your main work or sits alongside another role, and what you would like it to become over the next two or three years."
+        rows: 5
+
+  - id: "how-you-practise"
+    title: "How you practise"
+    intro: "The part that is hardest to find on most therapist websites, and the part that matters most."
+    fields:
+      - name: "how-you-practise"
+        label: "How would you describe the way you practise, in your own words?"
+        type: "textarea"
+        required: true
+        hint: "The modalities, theories or traditions that influence you are worth naming — and so is what you believe actually makes therapy helpful."
+        rows: 6
+      - name: "first-session"
+        label: "What normally happens in a first session with you?"
+        type: "textarea"
+        hint: "People read this more carefully than almost anything else on a therapist’s website."
+        rows: 4
+      - name: "client-experience"
+        label: "How would a client experience working with you?"
+        type: "textarea"
+        hint: "You might consider how structured or open-ended you are, how much direction you offer, the atmosphere you create, what people tend to notice about you, and which parts of your personality come into the room. Please keep this general rather than describing anyone in particular."
+        rows: 5
+      - name: "specialisms-and-fit"
+        label: "Which areas do you work in most, and which do you not work with?"
+        type: "textarea"
+        hint: "Also useful: experiences, identities, subjects or communities you understand particularly well, and anything you offer that a list of qualifications cannot communicate."
+        rows: 4
+      - name: "misconceptions-and-boundaries"
+        label: "What do you wish people understood before meeting you?"
+        type: "textarea"
+        hint: "Including any misconception about your approach you would like the website to avoid, and any professional or ethical boundary it has to communicate."
+        rows: 4
+
+  - id: "people-you-want-to-reach"
+    title: "The people you want to reach"
+    intro: "Not a marketing persona. The person who is actually reading, and what is happening for them."
+    fields:
+      - name: "who-you-want-to-work-with"
+        label: "Who do you most want to work with?"
+        type: "textarea"
+        required: true
+        hint: "Ages, identities, circumstances or life stages, if that is how you think about it."
+        rows: 5
+      - name: "what-is-happening-for-them"
+        label: "What is usually happening for somebody when they begin looking for a therapist like you?"
+        type: "textarea"
+        hint: "You might include what they may be thinking but not saying aloud, what they fear therapy will be like, and what has previously stopped them from reaching out."
+        rows: 5
+      - name: "their-own-language"
+        label: "What language might they naturally use to describe what is happening?"
+        type: "textarea"
+        hint: "Their words, not the clinical ones. This shapes more of the writing than anything else here."
+        rows: 4
+      - name: "what-they-need-and-hope-for"
+        label: "What do they most need to feel when they find you, and what are they hoping will change?"
+        type: "textarea"
+        rows: 4
+      - name: "enquiries-and-fit"
+        label: "Which enquiries would you most like to receive, and who might not be the right fit?"
+        type: "textarea"
+        hint: "If there is one area you would like to develop more work in, or distinct groups who may need to be spoken to differently, mention them here."
+        rows: 4
+
+  - id: "what-distinguishes-the-practice"
+    title: "What distinguishes the practice"
+    intro: "What makes this practice itself, rather than any other competent one."
+    fields:
+      - name: "why-you"
+        label: "Why might somebody choose you rather than another suitable therapist?"
+        type: "textarea"
+        hint: "What feels distinctive about your background, outlook or approach. It does not have to sound impressive — it has to be true."
+        rows: 4
+      - name: "known-for"
+        label: "If the practice could become known for one thing, what would it be?"
+        type: "textarea"
+        hint: "And what would you want somebody to remember after only a brief visit to the website?"
+        rows: 4
+      - name: "never-become"
+        label: "What do you never want the practice to become?"
+        type: "textarea"
+        hint: "Which parts of the therapy profession feel clichéd or unlike you — and which feel genuinely aligned with you."
+        rows: 4
+      - name: "positioning-sentences"
+        label: "Finish any of these sentences that feel useful"
+        type: "textarea"
+        hint: "“My practice exists to…” · “I want people to know that…” · “Working with me feels…”"
+        rows: 4
+      - name: "most-important-message"
+        label: "What is the most important thing the practice should communicate?"
+        type: "textarea"
+        required: true
+        rows: 5
+
+  - id: "personality-language-and-tone"
+    title: "Personality, language and tone"
+    intro: "How the practice should sound, and how close that is to how you actually speak."
+    fields:
+      - name: "tone-words"
+        label: "Which words should describe the practice?"
+        type: "checkboxes"
+        hint: "Choose as many or as few as fit. Choosing none is a real answer."
+        options:
+          - "Warm"
+          - "Direct"
+          - "Spacious"
+          - "Grounded"
+          - "Intelligent"
+          - "Gentle"
+          - "Challenging"
+          - "Informal"
+          - "Refined"
+          - "Reassuring"
+          - "Clinical"
+          - "Creative"
+          - "Understated"
+          - "Contemporary"
+          - "Established"
+      - name: "tone-in-practice"
+        label: "How should the writing sound?"
+        type: "textarea"
+        hint: "More formal or more conversational; expressive or restrained; close to your everyday speaking voice or a little apart from it. Add any other words that should describe it, and say if you write quite differently from how you speak."
+        rows: 4
+      - name: "your-words-and-words-to-avoid"
+        label: "Which words and phrases feel like yours — and which should never appear?"
+        type: "textarea"
+        hint: "Expressions or ideas you find yourself returning to; therapy clichés or labels you dislike; and any clinical term you deliberately use, or deliberately avoid."
+        rows: 4
+      - name: "personal-information-comfort"
+        label: "How much of yourself are you comfortable putting on the website?"
+        type: "textarea"
+        hint: "How much personal information feels right; whether humour is part of how you come across; and whether the writing should address the reader directly as “you” or keep a little more distance."
+        rows: 4
+      - name: "voice-links"
+        label: "Links to your writing, a profile, an article, an interview, a podcast or a video"
+        type: "textarea"
+        hint: "One per line. Hearing you is worth more than any description of how you sound."
+        rows: 4
+
+  - id: "visual-preferences"
+    title: "Visual preferences"
+    intro: "Preferences, not decisions. Nothing here commits you to anything."
+    fields:
+      - name: "existing-visual-material"
+        label: "Do you already have a logo, colours, typefaces or other visual material?"
+        type: "textarea"
+        hint: "If so, which parts should remain, and which no longer feel right?"
+        rows: 4
+      - name: "colours"
+        label: "Which colours are you drawn to, and which do you dislike?"
+        type: "textarea"
+        hint: "Why, if you can say. And if there are colours you love personally but would not want associated with the practice, that is useful to know."
+        rows: 4
+      - name: "visual-direction"
+        label: "Which of these feel right for the practice?"
+        type: "checkboxes"
+        hint: "These come in pairs. Tick only what you feel strongly about — leaving a pair untouched tells me you have no firm preference, which is genuinely useful."
+        options:
+          - "Warm colours"
+          - "Cool colours"
+          - "Light and airy"
+          - "Deep and low-lit"
+          - "Muted and quiet"
+          - "Saturated and vivid"
+          - "Traditional"
+          - "Contemporary"
+          - "Minimal"
+          - "Expressive"
+          - "Personal"
+          - "Institutional"
+          - "Natural and organic"
+          - "Architectural and structured"
+      - name: "typography"
+        label: "Which styles of lettering appeal to you, and which do not?"
+        type: "textarea"
+        hint: "You do not need the vocabulary. “The kind you see on a good book cover” tells me plenty."
+        rows: 4
+      - name: "imagery"
+        label: "What imagery feels right, and what feels clichéd or wrong?"
+        type: "textarea"
+        hint: "Common therapist imagery you want to steer away from is worth naming. If there are sensory or accessibility preferences that should shape the visual work — contrast, movement, busyness — say so here."
+        rows: 4
+      - name: "photography"
+        label: "Where are you with photography?"
+        type: "radio"
+        options:
+          - "I already have professional photography I am happy with"
+          - "I have some, but it needs replacing"
+          - "I have none, and I am comfortable being photographed"
+          - "I have none, and I would rather not appear in photographs"
+          - "Not sure yet"
+      - name: "practice-as-a-room"
+        label: "If the practice were a physical room, how would it look and feel?"
+        type: "textarea"
+        hint: "And what should somebody feel — or definitely not feel — when they first see the identity?"
+        rows: 5
+
+  - id: "inspiration-and-references"
+    title: "Inspiration and references"
+    intro: "Everything here is optional. Three references with a sentence each are worth more than twenty without."
+    fields:
+      - name: "website-reference-1-url"
+        label: "Website reference 1 — address"
+        type: "url"
+      - name: "website-reference-1-why"
+        label: "Website reference 1 — what specifically do you like about it?"
+        type: "textarea"
+        rows: 3
+      - name: "website-reference-2-url"
+        label: "Website reference 2 — address"
+        type: "url"
+      - name: "website-reference-2-why"
+        label: "Website reference 2 — what specifically do you like about it?"
+        type: "textarea"
+        rows: 3
+      - name: "website-reference-3-url"
+        label: "Website reference 3 — address"
+        type: "url"
+      - name: "website-reference-3-why"
+        label: "Website reference 3 — what specifically do you like about it?"
+        type: "textarea"
+        rows: 3
+      - name: "additional-website-references"
+        label: "Any other websites worth showing me"
+        type: "textarea"
+        hint: "Addresses and a line on each — including any you actively dislike, and why."
+        rows: 4
+      - name: "people-and-culture"
+        label: "Anything else that captures the right atmosphere"
+        type: "textarea"
+        hint: "Therapists or practices whose professional presence you admire, and what you admire about it; non-therapy brands, logos or identities you like; books, magazines, films, interiors, places, artists or objects. Pinterest boards and saved collections are welcome — paste the address, and make sure the board is public. Anything apparently unrelated is often the most useful answer."
+        rows: 5
+
+  - id: "the-website"
+    title: "The website"
+    intro: "What the website has to do, and what has to be true before somebody feels able to write to you."
+    fields:
+      - name: "website-main-job"
+        label: "What is the website’s most important job?"
+        type: "textarea"
+        required: true
+        hint: "What would make it feel successful six months after launch, and what is the one action you want most visitors to take?"
+        rows: 6
+      - name: "questions-before-enquiring"
+        label: "What must somebody know before they feel able to write to you?"
+        type: "textarea"
+        hint: "Including the questions people ask you again and again."
+        rows: 4
+      - name: "pages-and-content"
+        label: "Which pages or sections do you expect the website to need?"
+        type: "textarea"
+        hint: "Including any service that may need a page of its own — and anything you definitely do not want on the website."
+        rows: 4
+      - name: "functionality"
+        label: "Which of these do you think the website will need?"
+        type: "checkboxes"
+        hint: "Tick anything that applies. Nothing is committed by ticking it, and we can talk about the cost or sense of any of them later."
+        options:
+          - "An enquiry form"
+          - "Online booking"
+          - "Articles or resources I can add to over time"
+          - "A newsletter sign-up"
+          - "Fees shown on the site"
+          - "Current availability or a waiting list"
+          - "A connection to a booking or practice-management system I already use"
+          - "None of these"
+          - "Not sure yet"
+      - name: "enquiry-journey"
+        label: "How should people get in touch, and what happens next?"
+        type: "textarea"
+        hint: "A form, email, telephone or a mixture; whether you offer an initial consultation and whether it is free or paid; what happens after somebody enquires; and the response time you want the site to promise. Name any booking or practice-management system it should connect with."
+        rows: 5
+      - name: "website-requirements"
+        label: "Is there anything the website must include, or must avoid?"
+        type: "textarea"
+        hint: "Professional registers or accreditation links; safeguarding, crisis or support resources to signpost; particular accessibility requirements; and any testimonials you are professionally permitted to use — only if your professional body permits it and consent was properly given. If you are unsure about testimonials, leave them out and we will talk about it."
+        rows: 4
+
+  - id: "existing-presence-and-materials"
+    title: "Existing presence and materials"
+    intro: "Where the practice already appears, and anything you already have that I should see."
+    fields:
+      - name: "presence-psychology-today"
+        label: "Psychology Today profile"
+        type: "url"
+      - name: "presence-counselling-directory"
+        label: "Counselling Directory profile"
+        type: "url"
+      - name: "presence-social-and-other"
+        label: "Other profiles, domains and accounts"
+        type: "textarea"
+        hint: "One per line — Instagram, LinkedIn, Facebook, a Google Business Profile, a booking system, other directories, any domains you own, and your professional email address if you already have one."
+        rows: 4
+      - name: "presence-changes-and-access"
+        label: "What should be kept, what should go, and is anything out of your control?"
+        type: "textarea"
+        hint: "Including information that is inconsistent between profiles, and any ownership or access problem that might affect the project. Please describe the issue only. Do not enter passwords, security answers or recovery codes."
+        rows: 4
+      - name: "existing-materials"
+        label: "One file you already have that I should see"
+        type: "file"
+        hint: "This field takes a single file — a logo or identity file, photography, a written document, a screenshot or visual inspiration. PDF, DOC, DOCX, JPG, PNG or WEBP. Keep the combined size of your uploaded files below 7 MB. For several or larger files, share a folder link below instead, or email them to me. Please don’t upload anything containing confidential or identifiable information about clients. If your logo is an SVG, AI or EPS file, email that too — those formats are not accepted here."
+        accept: ".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp"
+      - name: "file-links"
+        label: "A link to several files, or to anything too large to upload"
+        type: "textarea"
+        hint: "If you have more than one or two files, this is the better route: a shared Dropbox or Google Drive folder, or a WeTransfer link. Please make sure the link works without a password."
+        rows: 3
+
+  - id: "working-together"
+    title: "Working together"
+    intro: "The practical arrangements, so nothing stalls halfway through."
+    fields:
+      - name: "approval-and-dates"
+        label: "Who will approve the work, and are there dates I should know about?"
+        type: "textarea"
+        hint: "If anybody else will influence or sign off decisions, it helps to know now rather than at the end."
+        rows: 4
+      - name: "pending-and-fixed"
+        label: "Is anything still pending, fixed, or likely to hold things up?"
+        type: "textarea"
+        hint: "Qualifications, registrations or services not yet confirmed; anything that cannot change; anything the project depends on."
+        rows: 4
+      - name: "owns-domain"
+        label: "Do you own your domain and the relevant external accounts?"
+        type: "radio"
+        options:
+          - "Yes"
+          - "Some of them"
+          - "No"
+          - "Not sure"
+      - name: "studio-help"
+        label: "Would any of these be useful?"
+        type: "checkboxes"
+        options:
+          - "A professional email address set up"
+          - "A matching email signature"
+          - "Help updating directory profiles after launch"
+          - "Printed or print-ready materials"
+          - "None of these for now"
+          - "Not sure"
+      - name: "communication-preferences"
+        label: "How would you like us to work together?"
+        type: "textarea"
+        hint: "The best way to reach you, how involved you want to be, and any communication, accessibility or working preferences I should understand."
+        rows: 4
+
+  - id: "final-reflections"
+    title: "Final reflections"
+    intro: "The questions that often turn out to matter most. Then you are finished."
+    fields:
+      - name: "one-thing-to-understand"
+        label: "If I understood only one thing before beginning, what should it be?"
+        type: "textarea"
+        rows: 4
+      - name: "excited-and-nervous"
+        label: "What are you most looking forward to, and what are you most nervous about?"
+        type: "textarea"
+        rows: 4
+      - name: "feel-like-you"
+        label: "What would make the finished result immediately feel like you — and what would make it feel wrong?"
+        type: "textarea"
+        rows: 5
+      - name: "unresolved-or-unasked"
+        label: "Is there anything unresolved, contradictory, or that I simply haven’t asked about?"
+        type: "textarea"
+        hint: "The last question is the open one. Anything you have been meaning to say belongs here."
+        rows: 5
+      - name: "upload-anything-else"
+        label: "One final file, if you thought of something on the way through"
+        type: "file"
+        hint: "A single file again, PDF, DOC, DOCX, JPG, PNG or WEBP, and below 7 MB across both uploads together. For anything more, use the folder link in “Existing presence and materials”, or email it. Nothing containing confidential or identifiable client information, please."
+        accept: ".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp"

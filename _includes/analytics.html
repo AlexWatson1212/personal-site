@@ -25,3 +25,40 @@
 <script defer data-domain="{{ domain }}" src="https://{{ host }}/js/script.tagged-events.js"></script>
 <script defer src="{{ '/assets/js/analytics-events.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 {%- endif -%}
+
+{%- comment -%}
+  ───────────────────────────────────────────────────────────────────────────
+  Google Analytics 4.
+
+  Everything below emits is one small configuration object and one first-party
+  script. Nothing from Google is requested here. gtag.js is injected by
+  assets/js/analytics-consent.js, and only after a visitor has actively chosen
+  to allow it — so on a first visit, and on every visit after a visitor has
+  declined, this page makes no request to googletagmanager.com, sets no _ga
+  cookie, and Google is told nothing at all. That is the whole reason the tag
+  is not simply pasted into the head, which is what Google's own instructions
+  say to do.
+
+  The measurement ID lives in _config.yml and appears in exactly one place in
+  the templates: here. The host allowlist is the production guard — the script
+  compares location.hostname against it before it will load anything, so a
+  local preview or a Netlify deploy preview cannot report a visit even with
+  consent already stored in that browser.
+
+  This include is only reached from _layouts/default.html, which the studio
+  site's pages use. The concept sites in _concepts/, the deployment copies in
+  _deploy/ and the shared components in _shared/ are separate builds and are
+  excluded from this one in _config.yml, so none of them can pick this up.
+  ───────────────────────────────────────────────────────────────────────────
+{%- endcomment -%}
+{%- assign ga4 = site.analytics.ga4_measurement_id | default: "" | strip -%}
+{%- if ga4 != "" -%}
+<script>
+window.STUDIO_ANALYTICS = {
+  measurementId: {{ ga4 | jsonify }},
+  hosts: {{ site.analytics.ga4_hosts | default: empty | jsonify }},
+  storageKey: "aw-studio:analytics"
+};
+</script>
+<script defer src="{{ '/assets/js/analytics-consent.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+{%- endif -%}

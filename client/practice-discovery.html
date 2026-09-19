@@ -1,0 +1,323 @@
+---
+layout: default
+title: Practice Discovery
+description: The private Practice Discovery questionnaire, sent to a client once their deposit is paid. Not listed on the site.
+permalink: /client/practice-discovery/
+page_js: /assets/js/practice-discovery.js
+noindex: true
+sitemap: false
+---
+
+{%- comment -%}
+  PRACTICE DISCOVERY — the client questionnaire.
+
+  Unlisted, not private. Nothing on the public site links here and the page is
+  kept out of search four ways: `noindex: true` renders the robots meta tag,
+  `sitemap: false` keeps it out of sitemap.xml, robots.txt disallows /client/,
+  and netlify.toml sends X-Robots-Tag: noindex, nofollow for /client/*. None of
+  that is authentication. Anyone with the address can open and submit this
+  form; it is unguessable, not protected. Do not describe it as secure.
+
+  NETLIFY FORMS. Detection happens at deploy time against the built HTML, so
+  every control below is rendered by Jekyll into the page whether or not the
+  step it belongs to is the one on screen. The JavaScript only hides steps; it
+  never creates, moves or removes a field. Three things have to agree or the
+  submission is rejected as a 404 or lands under the wrong form:
+
+    · name="practice-discovery" on the <form>
+    · the hidden form-name input carrying the same value
+    · netlify-honeypot naming a field that actually exists
+
+  All three come from _data/practice_discovery.yml so they cannot drift apart.
+
+  PROGRESSIVE ENHANCEMENT. Without JavaScript this is one long, ordinary form:
+  every fieldset visible, native `required` doing the validation, one submit
+  button. assets/js/practice-discovery.js turns it into eleven steps, takes
+  over validation (setting novalidate so the browser stops competing with it),
+  and reveals the Previous/Continue controls that are hidden in the markup —
+  hidden because without the script they would do nothing.
+{%- endcomment -%}
+
+{%- assign pd = site.data.practice_discovery -%}
+{%- assign step_count = pd.steps | size -%}
+
+<section class="band band--sm on-paper">
+  <div class="wrap--mid">
+    <div class="stack stack--loose">
+      <p class="label">Client process</p>
+      <h1 class="measure-sm">Practice Discovery</h1>
+      <p class="lead">
+        This questionnaire is the starting point for your Practice
+        Fundamentals, identity and website.
+      </p>
+      <p class="quiet">
+        It gives me an opportunity to understand not only what your practice
+        offers, but how you think, how you work and how you want people to
+        experience you.
+      </p>
+      <p class="quiet">
+        You don&rsquo;t need perfectly written answers. Honest thoughts,
+        unfinished ideas, links, screenshots and instinctive reactions are all
+        useful, and a half-formed sentence often tells me more than a careful
+        paragraph.
+      </p>
+      <p class="quiet">
+        Only the questions marked <strong>Required</strong> must be completed
+        &mdash; there are ten, and most of them take seconds. Everything else is
+        an invitation, not an obligation. Some questions will matter a great
+        deal to your practice and others will not apply at all; answer the ones
+        that feel alive to you and skip the rest without a second thought. Where
+        something needs further exploration, we will talk about it properly
+        rather than solve it here.
+      </p>
+      <p class="quiet">
+        Most people will need around 35&ndash;50 minutes. You may find it helpful
+        to look through the questionnaire first and gather any useful links,
+        images or existing materials before beginning.
+      </p>
+      <p class="quiet">
+        Your answers will remain in the form while you move between sections, but
+        this first version does not securely save an unfinished form for later.
+        Please complete and submit it in one sitting.
+      </p>
+      <p class="quiet">
+        There are two places to attach a file, and each one takes a single file.
+        Keep the combined size below 7&nbsp;MB. If you have several files, or
+        anything larger, share a folder link instead &mdash; there is a field for
+        it &mdash; or email them to me.
+      </p>
+      <p class="quiet">
+        Please don&rsquo;t include confidential or identifiable information about
+        individual clients, in what you write or in what you upload. Never enter
+        passwords or account recovery information.
+      </p>
+
+      <div class="pd__note">
+        <p class="small">
+          Your responses will be used to develop your Practice Fundamentals,
+          identity and website. Please share information about your own practice
+          only, and do not include confidential information about clients.
+          <a class="inline-link" href="{{ '/privacy/' | relative_url }}">How your information is handled</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--flush-top on-paper">
+  <div class="wrap--mid">
+    <div class="form-panel">
+
+      <form class="form pd"
+            name="{{ pd.form_name }}"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="{{ pd.honeypot }}"
+            enctype="multipart/form-data"
+            action="{{ pd.action | relative_url }}"
+            data-practice-discovery
+            data-step-count="{{ step_count }}">
+
+        {%- comment -%}
+          Netlify reads the form's identity from this field on submission, not
+          from the <form> element. Without it a POST from a JavaScript-rendered
+          page arrives unattributed.
+        {%- endcomment -%}
+        <input type="hidden" name="form-name" value="{{ pd.form_name }}">
+
+        {%- comment -%}
+          The honeypot. Named by netlify-honeypot above; Netlify discards any
+          submission that fills it. It is moved off-screen rather than given
+          display:none or the hidden attribute, so that the field still exists
+          for the automated submitters this is meant to catch, while remaining
+          labelled and out of the tab order for anybody using the page.
+
+          If real spam ever arrives despite this, the next step is Netlify's
+          built-in reCAPTCHA 2 (add data-netlify-recaptcha="true" to the form
+          and a <div data-netlify-recaptcha="true"></div> where the challenge
+          should appear). It is not here because an accessibility cost that
+          buys nothing is not worth paying until there is spam to stop.
+        {%- endcomment -%}
+        <p class="pd__honeypot" aria-hidden="true">
+          <label for="pd-{{ pd.honeypot }}">Leave this field empty</label>
+          <input id="pd-{{ pd.honeypot }}" name="{{ pd.honeypot }}" tabindex="-1" autocomplete="off">
+        </p>
+
+        {%- comment -%}
+          Progress. Hidden in the markup because it describes a step-by-step
+          experience that only exists once the script runs. The text carries
+          the whole message; the bar is decoration and is hidden from
+          assistive technology.
+        {%- endcomment -%}
+        <div class="pd__progress" data-pd-progress hidden>
+          <p class="pd__progress-text">
+            <span data-pd-step-name>{{ pd.steps[0].title }}</span>
+            <span class="pd__progress-count">Step <span data-pd-step-current>1</span> of {{ step_count }}</span>
+          </p>
+          <div class="pd__progress-bar" aria-hidden="true">
+            <span class="pd__progress-fill" data-pd-progress-fill></span>
+          </div>
+        </div>
+
+        <div class="form-errors" data-form-errors tabindex="-1" aria-labelledby="pd-errors-title" hidden>
+          <div role="alert">
+            {%- comment -%}
+              A paragraph, not a heading. The summary appears and disappears,
+              so it has no business in the page's heading outline, and the
+              accessible name still reaches assistive technology through the
+              container's aria-labelledby. It is announced by the role="alert"
+              around it either way.
+            {%- endcomment -%}
+            <p class="form-errors__title" id="pd-errors-title">Some answers are needed before you can continue.</p>
+            <ul class="form-errors__list" data-form-error-list></ul>
+          </div>
+        </div>
+
+        {%- for step in pd.steps %}
+        {%- assign n = forloop.index -%}
+        <fieldset class="pd__step" id="pd-step-{{ n }}" data-pd-step="{{ n }}" data-pd-step-title="{{ step.title | escape }}">
+          <legend class="pd__legend" id="pd-legend-{{ n }}" tabindex="-1">
+            <span class="pd__legend-count">Step {{ n }} of {{ step_count }}</span>
+            <span class="pd__legend-title">{{ step.title }}</span>
+          </legend>
+          {%- if step.intro %}
+          <p class="quiet pd__intro">{{ step.intro }}</p>
+          {%- endif %}
+
+          {%- for field in step.fields %}
+          {%- assign fid = field.name | prepend: 'pd-' -%}
+          {%- assign described = '' -%}
+          {%- if field.hint %}{%- assign described = fid | append: '-hint' -%}{%- endif %}
+          {%- assign described = described | append: ' ' | append: fid | append: '-error' | strip -%}
+
+          {%- if field.type == 'radio' or field.type == 'checkboxes' %}
+          <fieldset class="field field--question" aria-describedby="{{ described }}">
+            <legend>
+              {{ field.label }}
+              {%- if field.required %}<span class="req">Required</span>{% else %}<span class="opt">Optional</span>{% endif %}
+            </legend>
+            {%- if field.hint %}<span class="field__hint" id="{{ fid }}-hint">{{ field.hint }}</span>{% endif %}
+            <span class="field__error" id="{{ fid }}-error" data-error-for="{{ field.name }}" hidden></span>
+            <div class="choices">
+              {%- for option in field.options %}
+              <label class="check" for="{{ fid }}-{{ forloop.index }}">
+                <input id="{{ fid }}-{{ forloop.index }}"
+                       type="{% if field.type == 'radio' %}radio{% else %}checkbox{% endif %}"
+                       {%- comment -%}
+                         Several checkboxes share one name. Netlify records
+                         them as one comma-separated value under that name; the
+                         PHP-style [] suffix would only make the column heading
+                         harder to read.
+                       {%- endcomment -%}
+                       name="{{ field.name }}"
+                       value="{{ option | escape }}"
+                       {% if field.required and field.type == 'radio' and forloop.first %}required{% endif %}>
+                <span>{{ option }}</span>
+              </label>
+              {%- endfor %}
+            </div>
+          </fieldset>
+
+          {%- elsif field.type == 'textarea' %}
+          <p class="field field--question">
+            <label for="{{ fid }}">
+              {{ field.label }}
+              {%- if field.required %}<span class="req">Required</span>{% else %}<span class="opt">Optional</span>{% endif %}
+            </label>
+            {%- if field.hint %}<span class="field__hint" id="{{ fid }}-hint">{{ field.hint }}</span>{% endif %}
+            <textarea id="{{ fid }}" name="{{ field.name }}" rows="{{ field.rows | default: 4 }}"
+                      aria-describedby="{{ described }}"{% if field.required %} required{% endif %}></textarea>
+            <span class="field__error" id="{{ fid }}-error" data-error-for="{{ field.name }}" hidden></span>
+          </p>
+
+          {%- elsif field.type == 'file' %}
+          <p class="field field--question">
+            <label for="{{ fid }}">
+              {{ field.label }}
+              <span class="opt">Optional</span>
+            </label>
+            {%- if field.hint %}<span class="field__hint" id="{{ fid }}-hint">{{ field.hint }}</span>{% endif %}
+            {%- comment -%}
+              No `multiple`. Netlify Forms takes one file per file input: a
+              control that accepts several would let a client attach five and
+              submit one, with nothing on screen to say the other four were
+              dropped. Several files need several fields, or the folder link
+              in "Existing presence and materials". The attribute is not
+              emitted here at all rather than switched off in the data, so it
+              cannot come back by way of a `multiple: true` in the YAML.
+            {%- endcomment -%}
+            <input id="{{ fid }}" type="file" name="{{ field.name }}"
+                   {% if field.accept %}accept="{{ field.accept }}"{% endif %}
+                   aria-describedby="{{ described }}">
+            <span class="field__error" id="{{ fid }}-error" data-error-for="{{ field.name }}" hidden></span>
+          </p>
+
+          {%- else %}
+          <p class="field field--question">
+            <label for="{{ fid }}">
+              {{ field.label }}
+              {%- if field.required %}<span class="req">Required</span>{% else %}<span class="opt">Optional</span>{% endif %}
+            </label>
+            {%- if field.hint %}<span class="field__hint" id="{{ fid }}-hint">{{ field.hint }}</span>{% endif %}
+            <input id="{{ fid }}" type="{{ field.type }}" name="{{ field.name }}"
+                   {% if field.autocomplete %}autocomplete="{{ field.autocomplete }}"{% endif %}
+                   {% if field.inputmode %}inputmode="{{ field.inputmode }}"{% endif %}
+                   aria-describedby="{{ described }}"{% if field.required %} required{% endif %}>
+            <span class="field__error" id="{{ fid }}-error" data-error-for="{{ field.name }}" hidden></span>
+          </p>
+          {%- endif %}
+          {%- endfor %}
+
+          {%- if forloop.last %}
+          {%- comment -%}
+            The confirmation lives inside the final step rather than outside
+            every fieldset, so that a person reading the form one step at a
+            time meets it immediately before the submit button, and a person
+            reading the whole page meets it in the same place.
+          {%- endcomment -%}
+          <fieldset class="field field--question pd__confirm" aria-describedby="pd-confirm-error">
+            <legend>
+              Before you submit
+              <span class="req">Required</span>
+            </legend>
+            <span class="field__error" id="pd-confirm-error" data-error-for="confirmation" hidden></span>
+            <div class="choices">
+              <label class="check" for="pd-confirmation">
+                <input id="pd-confirmation" type="checkbox" name="confirmation"
+                       value="Confirmed" required>
+                <span>I confirm that I have not included identifiable or confidential information about clients, passwords, security answers or account recovery details.</span>
+              </label>
+            </div>
+          </fieldset>
+          {%- endif %}
+        </fieldset>
+        {%- endfor %}
+
+        <p class="small quiet pd__review">
+          Please take a moment to review any required answers before submitting.
+          You can move backwards without losing what you have entered.
+        </p>
+
+        {%- comment -%}
+          Previous and Continue are type="button" and start hidden: they belong
+          to the script. The submit button is the only control that can submit
+          the form, and it is the only one a person without JavaScript sees.
+        {%- endcomment -%}
+        <div class="pd__nav">
+          <button type="button" class="btn btn--quiet" data-pd-prev hidden>
+            <span aria-hidden="true">&larr;</span> Previous section
+          </button>
+          <button type="button" class="btn" data-pd-next hidden>
+            Continue <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+          </button>
+          <button type="submit" class="btn" data-pd-submit>
+            Submit Practice Discovery <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+          </button>
+        </div>
+
+        <p class="tiny quiet" data-pd-status role="status"></p>
+      </form>
+
+    </div>
+  </div>
+</section>

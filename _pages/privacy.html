@@ -214,13 +214,69 @@ permalink: /privacy/
       <span class="legal-flag">⚖</span>
     </p>
 
-    <h2>Cookies and analytics</h2>
+    <h2 id="cookies">Cookies and analytics</h2>
+{%- if site.analytics.ga4_measurement_id != "" %}
+    <p>
+      This website sets no cookies of its own, and uses no advertising and no
+      cross-site tracking, on any page. It offers one optional thing:
+      <strong>Google Analytics</strong>.
+    </p>
+    <p>
+      <strong>Why.</strong> I am one person deciding what to write next and
+      where to spend my time. Analytics tells me which pages people actually
+      read, how long the longer articles hold somebody, and whether visitors
+      arrive from a search, a directory or a link somebody sent. Without it I
+      am guessing.
+    </p>
+    <p>
+      <strong>What is measured.</strong> Pages viewed and the order they are
+      viewed in, roughly how long a page is open, the approximate part of the
+      country or the world a visit comes from, and the kind of device and
+      browser. Google is not given your name, your email address or your
+      precise location, and <strong>nothing you type on this site is ever
+      measured</strong> &mdash; not the enquiry form, not the intake form, not
+      a single field. Google Analytics is used for measurement only. It is not
+      connected to any advertising product, no audience or remarketing list is
+      built from it, and nothing about you is sold or shared for marketing.
+    </p>
+    <p>
+      <strong>It is optional, and it is off until you say otherwise.</strong>
+      On your first visit a short notice asks whether you are willing. Until
+      you answer it, and forever if you answer no, this site requests nothing
+      from Google, sets no analytics cookie and reports no visit. Nothing about
+      the site works differently either way, and there is nothing you cannot
+      read or do because you declined.
+    </p>
+    <p>
+      If you allow it, Google Analytics sets cookies in your browser (their
+      names begin <code>_ga</code>) which let it recognise a repeat visit
+      without knowing who you are. They last up to two years. Your answer
+      itself is not a cookie: it is a single word kept in your browser's local
+      storage, so that you are asked once rather than on every page.
+    </p>
+    <p>
+      <strong>Changing your mind.</strong> At the bottom of every page, beside
+      the Privacy and Terms links, there is a small control showing your
+      current choice. Select it to change your answer at any time. Turning
+      analytics off also deletes the Google Analytics cookies already in your
+      browser, so declining removes what allowing created rather than only
+      stopping more of it. Clearing your browser's site data has the same
+      effect, and means you will be asked again on your next visit.
+    </p>
+    <p>
+      Google Analytics is provided by Google, who process this information on
+      my behalf and may do so outside the UK. Their own explanation of what the
+      service collects is published at
+      <a class="inline-link" href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">policies.google.com/technologies/partner-sites</a>.
+    </p>
+{%- else %}
     <p>
       This website sets no cookies of its own and uses no analytics, advertising
       or tracking, on any page. If that ever changes, this notice will be updated
       before any such system is introduced, and consent will be sought where it
       is required.
     </p>
+{%- endif %}
 
     <h2>External websites</h2>
     <p>

@@ -6,9 +6,28 @@
 {%- comment -%}
   One place decides the browser-tab title. Page front matter carries the page
   name only — never the studio name — so the suffix is never doubled.
+
+  `seo_title` and `seo_description` are optional overrides, and they exist for
+  one reason: on the guide, page and post layouts `page.title` is printed as
+  the visible <h1> and `page.description` as the visible standfirst, so those
+  two strings cannot be rewritten for a search result without rewriting the
+  page. Where a page needs a title that reads on its own in a result — "What
+  it costs" is clear above the price table and says nothing in a list of
+  search results — it declares `seo_title` and the page keeps its heading.
+
+  Absent, both fall through to exactly the behaviour this file has always had.
+  A page that does not declare them is unchanged.
+
+  The home page declares `seo_title` like anything else. It used to be a
+  special case in this file, which meant the one page whose title mattered
+  most was the one page the title rule did not describe. It leads with the
+  subject rather than the studio name: Google shows roughly the first sixty
+  characters, and "Alexander Watson Studio · " spent twenty-five of them on a
+  name nobody is searching for yet.
 {%- endcomment -%}
-{%- if page.url == '/' -%}
-  {%- assign page_title = site.brand | append: ' · Websites for therapists, built from understanding the practice first' -%}
+{%- assign meta_description = page.seo_description | default: page.description | default: site.description -%}
+{%- if page.seo_title -%}
+  {%- assign page_title = page.seo_title | append: ' · ' | append: site.brand -%}
 {%- elsif page.title -%}
   {%- assign page_title = page.title | append: ' · ' | append: site.brand -%}
 {%- else -%}
@@ -18,7 +37,7 @@
 
 <meta
   name="description"
-  content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% else %}{{ site.description | escape }}{% endif %}"
+  content="{{ meta_description | strip_html | strip_newlines | escape }}"
 >
 
 <link rel="canonical" href="{{ page.url | absolute_url }}">
@@ -114,17 +133,23 @@ window.READING_OPTIONS = {
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="{{ page_title | escape }}">
-<meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% else %}{{ site.description | escape }}{% endif %}">
+<meta property="og:description" content="{{ meta_description | strip_html | strip_newlines | escape }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta property="og:site_name" content="{{ site.brand }}">
+<meta property="og:locale" content="en_GB">
 <meta property="og:image" content="{{ page.image | default: '/assets/images/service/alexander-watson-counselling-case-study.webp' | absolute_url }}">
-<meta property="og:image:alt" content="Alexander Watson Studio — websites for therapists">
-<meta property="og:image:width" content="1376">
-<meta property="og:image:height" content="864">
+{%- comment -%}
+  The alt describes the image the page actually sets, where the page says what
+  that is. Declared dimensions are deliberately absent: they were fixed at
+  1376×864 while most pages set a 1440×900 screenshot or the 1672×941 hero, so
+  they were wrong nearly everywhere. They are optional, every platform reads
+  the file, and a wrong number is worse than no number.
+{%- endcomment -%}
+<meta property="og:image:alt" content="{{ page.image_alt | default: 'Alexander Watson Studio — websites for therapists' | escape }}">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ page_title | escape }}">
-<meta name="twitter:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% else %}{{ site.description | escape }}{% endif %}">
+<meta name="twitter:description" content="{{ meta_description | strip_html | strip_newlines | escape }}">
 <meta name="twitter:image" content="{{ page.image | default: '/assets/images/service/alexander-watson-counselling-case-study.webp' | absolute_url }}">
-<meta name="twitter:image:alt" content="Alexander Watson Studio — websites for therapists">
+<meta name="twitter:image:alt" content="{{ page.image_alt | default: 'Alexander Watson Studio — websites for therapists' | escape }}">

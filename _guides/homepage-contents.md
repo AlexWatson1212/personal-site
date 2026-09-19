@@ -12,6 +12,8 @@ slug: homepage-contents
 permalink: /guidance/homepage-contents/
 read_time: 4 min read
 updated: 2026-08-25
+# The <h1> above stays as it is; this is what a search result says.
+seo_title: "What belongs on a therapist's homepage"
 ---
 
 Someone has found your website. They may have been given your name, or

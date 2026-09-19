@@ -1,3 +1,18 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# The `href` on each entry is the concept's own subdomain. Those subdomains are
+# kept out of search three ways — robots.txt Disallow, a noindex meta tag and
+# an X-Robots-Tag header — and `npm test` fails if any of the three is removed
+# from a concept in this repository.
+#
+# The links to them from the case pages carry rel="nofollow" as a fourth lock,
+# and for a specific reason: a URL that robots.txt disallows can still be
+# listed by Google as a bare URL with no title or description, purely on the
+# strength of links pointing at it, because the crawler is not allowed to
+# fetch the page and read the noindex that would have excluded it. The only
+# links pointing at these subdomains are the studio's own, so removing the
+# signal removes the failure mode. A fictional counsellor must not appear in
+# search results as though somebody could book with her.
+# ─────────────────────────────────────────────────────────────────────────────
 # The collection: three flagship portfolio cases.
 #
 # SEPTEMBER 2026 (16th) — NARROWED FROM SIX TO THREE, DELIBERATELY.

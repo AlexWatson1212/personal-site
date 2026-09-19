@@ -12,6 +12,8 @@ slug: putting-some-people-off
 permalink: /guidance/putting-some-people-off/
 read_time: 2 min read
 updated: 2026-08-25
+# The <h1> above stays as it is; this is what a search result says.
+seo_title: "Why a website should put some people off"
 ---
 
 Most therapists write their website as though every visitor is a

@@ -12,6 +12,8 @@ slug: counselling-directory-profile
 permalink: /guidance/counselling-directory-profile/
 read_time: 4 min read
 updated: 2026-09-07
+# The <h1> above stays as it is; this is what a search result says.
+seo_title: "A directory profile people remember"
 ---
 
 For most therapists, a directory is where private practice actually begins,

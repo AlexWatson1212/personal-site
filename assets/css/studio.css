@@ -3930,3 +3930,302 @@ legend {
     margin-block-start: var(--s-4);
   }
 }
+
+/* ==========================================================================
+   23  ANALYTICS CONSENT
+
+   The notice that asks before Google Analytics is loaded, and the footer
+   control that changes the answer afterwards. Both are built by
+   assets/js/analytics-consent.js, so nothing here paints on a site with no
+   measurement ID configured, or for a visitor without JavaScript.
+
+   It is deliberately not a cookie banner. No full-width slab, no overlay, no
+   scrim, nothing that has to be dismissed before the page can be read: it is
+   a plate at the foot of the screen, made of the same object the closing call
+   to action is made of, and the page behind it stays completely usable while
+   it is open. A person who ignores it has still read the site.
+   ========================================================================== */
+
+/* The plate carries `on-ink` in its class list, which is what supplies the
+   background, the text colour and — the part that matters — the button tokens
+   for a dark surface. */
+.consent {
+  position: fixed;
+  z-index: 200;
+  inset-inline: var(--gutter);
+  inset-block-end: var(--gutter);
+  max-width: 30rem;
+  /* Anchored to the start edge rather than centred. Centred, a plate this size
+     sits in the middle of the screen over the opening composition and reads as
+     a dialog waiting to be dealt with; in the corner it reads as a note, which
+     is what it is — the page behind it is completely usable either way. */
+  margin-inline-end: auto;
+  border-radius: var(--r-lg);
+  box-shadow: 0 24px 56px -28px rgba(10, 16, 15, 0.7);
+}
+
+.consent:focus { outline: none; }
+
+/* Focused only when the visitor asked for it from the footer, and then the
+   ring belongs on the plate rather than on nothing. */
+.consent:focus-visible {
+  outline: 2px solid var(--on-ink);
+  outline-offset: 3px;
+}
+
+.consent__inner {
+  display: grid;
+  gap: var(--s-4);
+  padding: clamp(1.35rem, 4vw, 1.85rem);
+}
+
+.consent__title {
+  margin: 0;
+  color: var(--on-ink);
+  font-family: var(--serif);
+  font-size: var(--t-h3);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.014em;
+}
+
+.consent__body {
+  margin: 0;
+  max-width: 44ch;
+  color: var(--on-ink-quiet);
+  font-size: var(--t-small);
+  line-height: 1.55;
+}
+
+.consent__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+
+/* The two answers carry equal weight. A quiet "no" beside a solid "yes" is
+   the pattern that makes a consent notice a nudge rather than a question, so
+   both are full buttons and only the fill distinguishes them. */
+.consent__actions .btn {
+  flex: 1 1 auto;
+  justify-content: center;
+  min-height: 44px;
+}
+
+.consent__more { margin: 0; }
+
+.consent__more .inline-link {
+  color: var(--on-ink-quiet);
+  font-size: var(--t-tiny);
+}
+
+/* Below the navigation breakpoint the plate spans the gutters rather than
+   floating in the middle of them, which at 375px is the difference between a
+   readable measure and four words a line. */
+@media (max-width: 30rem) {
+  .consent { max-width: none; }
+  .consent__actions .btn { flex-basis: 100%; }
+}
+
+/* The footer control. It is a button among links, so it borrows the legal
+   row's type and colour rather than looking like a control dropped into it. */
+.footer-analytics:empty { display: none; }
+
+.footer-analytics__button {
+  display: inline-block;
+  min-height: 26px;
+  padding: 0.4rem 0;
+  background: none;
+  border: 0;
+  color: var(--on-ink-quiet);
+  font-family: var(--sans);
+  font-size: var(--t-tiny);
+  line-height: inherit;
+  text-align: start;
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 1px;
+  cursor: pointer;
+}
+
+.footer-analytics__button:hover { color: var(--on-ink); }
+
+@media (pointer: coarse) {
+  .footer-analytics__button { padding-block: 0.6rem; min-height: 44px; }
+}
+
+/* ==========================================================================
+   24  PRACTICE DISCOVERY
+
+   The client questionnaire at /client/practice-discovery/. It borrows the
+   whole of section 15 — .form, .field, .check, .form-errors, .req, .opt — and
+   adds only what a long form broken into steps needs that a short one does
+   not: a step heading, a progress line, and a row of navigation controls.
+
+   Everything here degrades to a plain long form. Without JavaScript the steps
+   are all visible, the progress line and the two navigation buttons stay
+   hidden, and nothing below is doing anything the page depends on.
+   ========================================================================== */
+
+/* The honeypot. Off-screen rather than display:none or [hidden]: the field has
+   to be real enough for an automated submitter to find and fill, which is the
+   whole mechanism, while being unreachable by pointer, keyboard or screen
+   reader. aria-hidden and tabindex="-1" are in the markup. */
+.pd__honeypot {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.pd__note {
+  padding: var(--s-5);
+  border-inline-start: 2px solid var(--line-strong);
+  background: var(--paper-deep);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+
+.pd__note p { margin: 0; max-width: 60ch; }
+
+/* ---- Progress ------------------------------------------------------------
+   The text is the progress indicator; the bar repeats it for people who read
+   shape faster than words and is hidden from assistive technology so it is
+   not announced twice. Nothing here relies on colour alone. */
+
+.pd__progress {
+  display: grid;
+  gap: var(--s-2);
+  padding-block-end: var(--s-5);
+  border-block-end: var(--hairline) solid var(--line);
+}
+
+.pd__progress[hidden] { display: none; }
+
+.pd__progress-text {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-4);
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0;
+  font-size: var(--t-small);
+  font-weight: 600;
+}
+
+.pd__progress-count { color: var(--text-faint); font-weight: 500; }
+
+.pd__progress-bar {
+  block-size: 4px;
+  background: var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.pd__progress-fill {
+  display: block;
+  block-size: 100%;
+  inline-size: 0;
+  background: var(--ink);
+  transition: inline-size var(--dur) var(--ease-out);
+}
+
+/* ---- Steps --------------------------------------------------------------- */
+
+.pd__step { display: grid; gap: var(--s-6); }
+.pd__step[hidden] { display: none; }
+
+/* Not the site's serif fieldset legend: this one is a heading with a counter
+   above it, and it is the element focus lands on when a step changes, so it
+   needs a focus ring of its own. */
+.pd__legend {
+  display: grid;
+  gap: var(--s-2);
+  padding: 0;
+  inline-size: 100%;
+}
+
+.pd__legend:focus { outline: none; }
+
+.pd__legend:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+  border-radius: var(--r-xs);
+}
+
+.pd__legend-count {
+  display: block;
+  color: var(--text-faint);
+  font-family: var(--sans);
+  font-size: var(--t-label);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.pd__legend-title {
+  display: block;
+  font-family: var(--serif);
+  font-size: var(--t-h2);
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+}
+
+.pd__intro { max-width: 60ch; margin: 0; }
+
+/* A question that is a fieldset of choices sits inside a step that is also a
+   fieldset. The inner one gets a rule so the grouping is visible as well as
+   structural. */
+.pd__step > .field--question > legend { max-width: 60ch; }
+
+.pd__confirm {
+  padding: var(--s-5);
+  border: var(--hairline) solid var(--line-strong);
+  border-radius: var(--r-sm);
+  background: var(--paper-deep);
+}
+
+.pd__review { max-width: 60ch; }
+
+/* ---- Navigation ---------------------------------------------------------- */
+
+.pd__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  align-items: center;
+  padding-block-start: var(--s-5);
+  border-block-start: var(--hairline) solid var(--line);
+}
+
+.pd__nav .btn[hidden] { display: none; }
+
+/* Continue sits to the right of Previous on a wide screen and below it on a
+   narrow one, where both go full width so neither is a small target. */
+@media (max-width: 30rem) {
+  .pd__nav { display: grid; }
+  .pd__nav .btn { justify-content: center; inline-size: 100%; }
+}
+
+.pd .field__error { margin-block-start: var(--s-1); }
+
+/* A file input is not a text input and should not be painted as one. */
+.pd input[type="file"] {
+  padding: var(--s-3);
+  background: var(--paper-deep);
+  font-size: var(--t-tiny);
+}
+
+.pd input[type="file"]::file-selector-button {
+  margin-inline-end: var(--s-3);
+  padding: 0.5rem 0.9rem;
+  background: var(--paper);
+  border: var(--hairline) solid var(--line-strong);
+  border-radius: var(--r-sm);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
