@@ -3558,6 +3558,55 @@ legend {
 .acw-guide-content > :is(.acw-callout, .acw-pullquote, .acw-guide-figure, .acw-guide-diagram, .acw-reflection-grid),
 .acw-post-content > :is(.acw-callout, .acw-pullquote, .acw-guide-figure, .acw-guide-diagram) { margin-block: var(--s-3); }
 
+/* --- The editorial note ---------------------------------------------------
+   22 September 2026. Opt-in with `editorial: true` in a note's front matter,
+   which is the only thing that puts .prose--editorial on the article body.
+   Nothing here reaches a note that has not asked for it.
+
+   It exists for the long-scroll piece that arrives from Instagram and is read
+   almost entirely on a 331px column — the same traffic the touch-target
+   section below was written for. Two things change, both of them already in
+   the system:
+
+   - A hairline marks the start of a section. At this measure a serif h2 is
+     only about 1.4x the body size, so a section start was reading as a
+     slightly larger line rather than as a new section. The rule is the site's
+     existing separator, and it belongs to the heading: most of the space
+     sits above it, a quarter of it below.
+   - The one photograph holds the portrait ratio of .portrait on a phone and
+     the wide ratio of .portrait--wide above 48rem, so a single asset is a
+     strong crop on a phone and an editorial band on a desktop. The ratio is
+     declared here rather than by the file, so the space is reserved before
+     the image arrives and nothing shifts.
+
+   These must stay after the article rhythm block above: they carry the same
+   specificity as the rules they adjust, so source order is what decides. */
+
+.prose--editorial > :is(h2, h3) {
+  margin-block-start: var(--s-6);
+  padding-block-start: var(--s-5);
+  border-block-start: var(--hairline) solid var(--line);
+}
+
+.acw-guide-content > .acw-guide-figure--editorial { margin-block: var(--s-5); }
+
+.acw-guide-figure--editorial > :first-child {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--r-sm);
+}
+
+@media (min-width: 48rem) {
+  .acw-guide-figure--editorial > :first-child { aspect-ratio: 16 / 10; }
+}
+
+/* TEMPORARY. The photograph for the editorial note has not been taken yet, so
+   the slot holds a neutral block at the same two ratios. It is here only so
+   the reserved space, the crop and the rhythm around it can be seen and
+   tested before the asset exists. Delete this rule with the div it paints. */
+.image-pending { background: var(--paper-deep); border: var(--hairline) dashed var(--line-strong); }
+
 /* --- Client pages: /client/intake/ and /client/photography/ -------------
    17 September 2026. Both are private and unlisted; they use the site's own
    components and add only what an embedded form and a printable brief need.

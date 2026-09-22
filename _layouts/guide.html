@@ -32,7 +32,7 @@ layout: default
       {% endif %}
     {% endunless %}
 
-    <div class="prose acw-guide-content">
+    <div class="prose acw-guide-content{% if page.editorial %} prose--editorial{% endif %}">
       {{ content }}
     </div>
   </div>
