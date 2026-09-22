@@ -16,26 +16,12 @@ updated: 2026-09-22
 # start, and the wide/portrait crop for the one photograph. Nothing else.
 editorial: true
 
-# THE PHOTOGRAPH - not yet sourced.
-# The slot, the crop and the reserved space in the body are already correct.
-# Two files, both under  assets/images/guidance/  :
-#
-#   reading-therapist-profiles.webp       1440 x 900, the master
-#   reading-therapist-profiles-960.webp    960 x 600, the smaller cut
-#
-# Frame the master wide: the stylesheet crops it to 4:5 below 48rem and to
-# 16:10 above, so the subject has to sit inside the centre 4:5 of the master.
-#
-# When both files exist, replace the one image-pending div in the body with an
-# img built the way the collection screenshots are built in work.html: src on
-# the 960 cut, srcset declaring 960w and 1440w, both paths through relative_url,
-# sizes="(min-width: 78rem) 1180px, 92vw", width="1440" height="900",
-# loading="lazy", decoding="async", and this alt:
-#
-#   A person sitting alone by a window in a cafe, seen from across the room,
-#   half turned away.
-#
-# Then delete the image-pending rule from the stylesheet. Nothing else changes.
+# The share card. Every other note falls through to the studio default; this
+# one has a photograph of its own, and most of its traffic arrives from a
+# social post. og:image and twitter:image only - the Article schema reads
+# hero_image, which this note does not set, so structured data is unchanged.
+image: /assets/images/guidance/reading-therapist-profiles.webp
+image_alt: "A woman sitting alone at a cafe table by a window, seen from across the room."
 
 # The <h1> above stays as it is; this is what a search result says.
 seo_title: "What I noticed in therapist profiles"
@@ -57,7 +43,12 @@ There wasn't one approach that was obviously right.
 But I did notice something.
 
 <figure class="acw-guide-figure acw-guide-figure--editorial">
-  <div class="image-pending" aria-hidden="true"></div>
+  <img src="{{ '/assets/images/guidance/reading-therapist-profiles-960.webp' | relative_url }}"
+       srcset="{{ '/assets/images/guidance/reading-therapist-profiles-960.webp' | relative_url }} 960w,
+               {{ '/assets/images/guidance/reading-therapist-profiles.webp' | relative_url }} 1440w"
+       sizes="(min-width: 78rem) 1180px, 92vw"
+       alt="A woman sitting alone at a cafe table by a window, seen from across the room through an open doorway, half turned away."
+       width="1440" height="900" loading="lazy" decoding="async">
 </figure>
 
 ## Most therapists have enough to say.

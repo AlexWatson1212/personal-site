@@ -3601,12 +3601,6 @@ legend {
   .acw-guide-figure--editorial > :first-child { aspect-ratio: 16 / 10; }
 }
 
-/* TEMPORARY. The photograph for the editorial note has not been taken yet, so
-   the slot holds a neutral block at the same two ratios. It is here only so
-   the reserved space, the crop and the rhythm around it can be seen and
-   tested before the asset exists. Delete this rule with the div it paints. */
-.image-pending { background: var(--paper-deep); border: var(--hairline) dashed var(--line-strong); }
-
 /* --- Client pages: /client/intake/ and /client/photography/ -------------
    17 September 2026. Both are private and unlisted; they use the site's own
    components and add only what an embedded form and a printable brief need.
