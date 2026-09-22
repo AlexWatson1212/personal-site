@@ -83,7 +83,7 @@ Four navigation links and one call to action:
 | About | `/about/` | `about.html` |
 | Start a website | `/contact/` | `contact.html` |
 
-There is **one** free resource surface, `/guidance/`. It holds six short
+There is **one** free resource surface, `/guidance/`. It holds seven short
 notes (`_guides/`, `category: Guidance`), the two longer practical guides and a
 link out to the nine Practice Clarity principles at `/practice-clarity/`, which
 is now a reference page rather than a second front door. The Journal index has
