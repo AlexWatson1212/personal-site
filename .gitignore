@@ -5,6 +5,7 @@ vendor/
 .bundle/
 _transfer/
 _transfer-src.tgz
+site-qa.tgz
 scripts/preview/node_modules/
 _preview
 _data/purchasing_resolved.yml
