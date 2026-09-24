@@ -197,7 +197,7 @@ website_care:
 # It is not a price for the Practice Identity & Website and must never be used
 # to break that service into hours.
 # ─────────────────────────────────────────────────────────────────────────────
-hourly_rate: "£XX"
+hourly_rate: "£55"
 
 # Routes the purchase journey depends on.
 urls:

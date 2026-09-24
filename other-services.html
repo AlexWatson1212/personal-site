@@ -164,16 +164,12 @@ permalink: /other-services/
         <h2 class="measure-xs">A fixed quote where the scope is clear. Otherwise, by the hour.</h2>
       </div>
       <div class="stack stack--loose">
-        <p class="quiet">
-          {%- if rate_set %}
-          For smaller pieces of work I usually work at {{ rate }} an hour. If the
-          scope is clearer as a fixed project, I will quote a fixed price instead.
-          {%- else %}
-          For smaller pieces of work I usually work at an hourly rate, confirmed
-          before anything starts. If the scope is clearer as a fixed project, I will
-          quote a fixed price instead.
-          {%- endif %}
-        </p>
+        {%- if rate_set %}
+        <p class="lead">{{ rate }} an hour for smaller work.</p>
+        {%- else %}
+        <p class="lead">An hourly rate for smaller work, confirmed before anything starts.</p>
+        {%- endif %}
+        <p class="quiet">If I can define the job clearly in advance, I&rsquo;ll quote a fixed price instead.</p>
         <p class="quiet">
           Either way, what is included is agreed in writing first. If the work grows
           into something new, the new part is quoted separately rather than folded
