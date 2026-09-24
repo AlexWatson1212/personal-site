@@ -255,6 +255,7 @@ const ROUTES = [
   ["about.html", "/about/"],
   ["contact.html", "/contact/"],
   ["guidance.html", "/guidance/"],
+  ["other-services.html", "/other-services/"],
   ["practice-clarity.html", "/practice-clarity/"],
   ["links/index.html", "/links/"],
   ["404.html", "/404.html"],
@@ -347,6 +348,14 @@ const CITED_AMOUNTS = new Set(["£60"]);
 const RETIRED_PRICES = ["795", "1,495", "1,995", "2,195", "2,000", "290"].map((n) => "£" + n);
 
 const purchasingYml = read("_data/purchasing.yml");
+
+/* 24 September 2026. The hourly rate for smaller work on /other-services/.
+   It is set once, as `hourly_rate` in _data/purchasing.yml, and approved here
+   from that file so that setting it is a one-line change. "£XX" is the
+   unset placeholder: the page shows no figure while it stands. */
+const HOURLY_RATE = (purchasingYml.match(/^hourly_rate:\s*"([^"]*)"\s*$/m) || [])[1] ?? null;
+const HOURLY_RATE_SET = HOURLY_RATE !== null && /^£\d[\d,]*(\.\d{2})?$/.test(HOURLY_RATE);
+if (HOURLY_RATE_SET) APPROVED_PRICES.add(HOURLY_RATE);
 const legalYml = read("_data/legal.yml");
 const buyInclude = read(BUY_INCLUDE);
 /* The include with its leading documentation comment stripped. Checks that ask
@@ -981,14 +990,42 @@ check("Analytics", "Google Analytics is configured in one place and waits for co
   return `${id} · ${hosts.length} measurable host(s) · injected on consent only`;
 });
 
+check("Other services", "The secondary page stays secondary, and its rate is set in one place", () => {
+  /* 24 September 2026. /other-services/ lists smaller, adjacent work. It must
+     not write a figure of its own, promise search results, offer paid
+     advertising, or stop pointing back to the main service. */
+  const page = read("other-services.html");
+  const offenders = [];
+  assert(HOURLY_RATE !== null, "_data/purchasing.yml has no hourly_rate");
+  assert(HOURLY_RATE === "£XX" || HOURLY_RATE === "" || HOURLY_RATE_SET,
+    `hourly_rate is "${HOURLY_RATE}" — set it as a single amount such as "£45", or leave it as "£XX"`);
+  if (/£/.test(page)) offenders.push("writes a £ figure itself instead of rendering hourly_rate");
+  if (!/purchasing[\s\S]{0,40}hourly_rate|cfg\.hourly_rate/.test(page)) offenders.push("does not render hourly_rate from the data file");
+  if (!/contains "XX"/.test(page)) offenders.push("no longer hides the unset £XX placeholder");
+  if (!/'\/service\/'/.test(page)) offenders.push("does not link back to the main service");
+  const promises = [
+    [/page one|first page of google|top of google|guaranteed? (rankings?|results|traffic)|rank(ing)? guarantee/i, "promises search results"],
+    [/\b(we|I) (manage|run|offer) (PPC|paid ads|google ads)/i, "offers paid advertising"],
+    [/\bunlimited\b/i, "promises something unlimited"],
+  ];
+  for (const [pattern, what] of promises) if (pattern.test(page)) offenders.push(what);
+  assert(offenders.length === 0, `other-services.html — ${offenders.join("; ")}`);
+  return HOURLY_RATE_SET ? `hourly rate ${HOURLY_RATE}, approved from purchasing.yml` : "hourly rate not yet set — the page shows no figure";
+});
+
 check("Information architecture", "One resource section, one front door", () => {
   /* The Journal index and the Library index folded into /guidance/ in August
      2026. The nav must offer exactly one way in, the retired indexes must
      redirect rather than 404, and nothing may link at /blog/ any more. */
   const header = read("_includes/header.html");
   const navLinks = [...header.matchAll(/<li><a href="\{\{ '([^']+)'/g)].map((m) => m[1]);
-  assert(navLinks.length === 4, `expected four primary nav links, found ${navLinks.length}`);
+  /* Five since 24 September 2026, when /other-services/ joined, on Alexander's
+     instruction, as a secondary page for smaller work. */
+  assert(navLinks.length === 5, `expected five primary nav links, found ${navLinks.length}`);
   assert(navLinks.includes("/guidance/"), "the navigation does not offer /guidance/");
+  assert(navLinks.includes("/other-services/"), "the navigation does not offer /other-services/");
+  assert(navLinks.indexOf("/service/") < navLinks.indexOf("/other-services/"),
+    "Other services sits before the main service in the navigation");
   assert(!header.includes("/blog/"), "the navigation still links to the retired Journal index");
   assert(!/<details/.test(header), "the navigation still uses a dropdown");
 
@@ -1159,6 +1196,10 @@ check("Product scope", "The identity is bounded, and no elaborate package is pro
   for (const [rel, body] of publishedBodies) {
     if (rel.startsWith("_guides/") || rel.startsWith("_posts/")) continue;
     for (const [pattern, what] of overclaims) {
+      /* /other-services/ offers business cards and print as separately quoted
+         work (24 September 2026). That is the page saying what is outside the
+         identity, not the identity promising it; every other guard still applies. */
+      if (rel === "other-services.html" && /letterhead/.test(pattern.source)) continue;
       if (pattern.test(body)) offenders.push(`${rel} — ${what}`);
     }
   }

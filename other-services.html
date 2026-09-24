@@ -1,0 +1,214 @@
+---
+layout: default
+title: Other services
+seo_title: Other services for therapists
+description: Focused website, SEO, profile, messaging and practice-material support for therapists who do not need a complete identity and website project.
+permalink: /other-services/
+---
+
+{%- comment -%}
+  24 September 2026, on Alexander's instruction. A secondary page for smaller,
+  adjacent work. The Practice Identity & Website stays the main service and
+  every section here points back to it; nothing on this page is a tier of it.
+
+  The hourly rate is not written here. It is `hourly_rate` in
+  _data/purchasing.yml, like every other figure on the site. Until it holds a
+  real amount the page says the rate is confirmed before work starts, so the
+  placeholder can never reach a visitor.
+{%- endcomment -%}
+{%- assign cfg = site.data.purchasing -%}
+{%- assign rate = cfg.hourly_rate -%}
+{%- assign rate_set = true -%}
+{%- if rate == blank or rate contains "XX" -%}{%- assign rate_set = false -%}{%- endif -%}
+
+<section class="band band--sm on-paper">
+  <div class="wrap">
+    <div class="split split--wide-left align-end">
+      <div class="stack stack--loose">
+        <p class="label">Other services</p>
+        <h1 class="measure-2xs">Sometimes it is one part that needs attention, not the whole practice.</h1>
+        <p class="lead">
+          Not every practice needs a new identity and website. Sometimes what helps
+          is a second pair of eyes, a clearer directory profile, one page that says
+          more plainly what you do, or one part of how the practice appears online
+          put right.
+        </p>
+      </div>
+      <div class="stack stack--loose">
+        <p class="quiet">
+          Most of my work is the complete
+          <a class="inline-link" href="{{ '/service/' | relative_url }}">Practice Identity &amp; Website</a>,
+          and if the whole practice needs describing, that is still where I would
+          start. Alongside it I take on smaller pieces of work like these, where
+          they are a good fit and I can do them properly.
+        </p>
+        <div class="actions">
+          <a class="btn" href="mailto:{{ cfg.support_email }}?subject=A%20smaller%20piece%20of%20work">Tell me what you need<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band on-paper-deep">
+  <div class="wrap">
+    <div class="split split--wide-left mb-7">
+      <div>
+        <p class="label">What I can help with</p>
+        <h2 class="measure-xs">Five smaller pieces of work.</h2>
+      </div>
+      <p class="quiet align-end">
+        Each one is bounded and agreed in writing before it starts. None of them
+        needs the complete service first, and none of them is a cut-down version of it.
+      </p>
+    </div>
+
+    <div>
+      <div class="offer-row">
+        <div class="offer-row__name">
+          <h3>Counselling profile review</h3>
+          <p class="small quiet">For Counselling Directory, Psychology Today and similar listings.</p>
+        </div>
+        <div class="offer-row__body">
+          <p>
+            A directory profile is often the first thing a prospective client reads,
+            and it is usually written once and rarely looked at again. I read it the
+            way the right client would.
+          </p>
+          <ul class="care__list mt-4">
+            <li>Clarity, positioning and tone, assessed plainly</li>
+            <li>What may be getting in the way of the right person</li>
+            <li>A clearer structure, and key sections rewritten where that helps</li>
+          </ul>
+          <p class="mt-4">The aim is simple: the right client understands who you are and how you work more quickly.</p>
+        </div>
+      </div>
+
+      <div class="offer-row">
+        <div class="offer-row__name">
+          <h3>SEO setup and assessment</h3>
+          <p class="small quiet">The foundations, measured.</p>
+        </div>
+        <div class="offer-row__body">
+          <p>
+            Get the foundations right, measure what happens, then decide whether
+            anything further is worth doing.
+          </p>
+          <ul class="care__list mt-4">
+            <li>Page titles, descriptions, headings and content structure</li>
+            <li>Local relevance, where the practice serves a particular area</li>
+            <li>Checks that your pages are indexed and can be found</li>
+            <li>Basic measurement set up, and a short review after an agreed period &mdash; usually around three months</li>
+          </ul>
+          <p class="mt-4">Nobody can promise a search ranking, and I do not. This is groundwork, not an ongoing SEO service.</p>
+        </div>
+      </div>
+
+      <div class="offer-row">
+        <div class="offer-row__name">
+          <h3>Website improvements</h3>
+          <p class="small quiet">For a website you already have, that does not need rebuilding.</p>
+        </div>
+        <div class="offer-row__body">
+          <p>Often a site is mostly right, and one part of it is not doing its job.</p>
+          <ul class="care__list mt-4">
+            <li>A new page, or an existing one restructured</li>
+            <li>Clearer wording, and clearer next steps for a visitor</li>
+            <li>The route from reading to getting in touch</li>
+            <li>Mobile, usability and technical tidying</li>
+          </ul>
+          <p class="mt-4">Whether I can work on it depends on how and where it is built. I will tell you once I have seen it.</p>
+        </div>
+      </div>
+
+      <div class="offer-row">
+        <div class="offer-row__name">
+          <h3>Brand and practice materials</h3>
+          <p class="small quiet">Print and digital pieces that belong to the same practice.</p>
+        </div>
+        <div class="offer-row__body">
+          <p>The things that sit alongside a website and should look as though they come from the same place.</p>
+          <ul class="care__list mt-4">
+            <li>Small refinements to an existing identity</li>
+            <li>Business cards, leaflets and referral materials</li>
+            <li>Profile and social graphics</li>
+            <li>Print-ready files and artwork a supplier can use</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="offer-row">
+        <div class="offer-row__name">
+          <h3>Focused messaging help</h3>
+          <p class="small quiet">Practical recommendations, not a strategy document.</p>
+        </div>
+        <div class="offer-row__body">
+          <p>An outside view of how the practice is presented, and what is worth changing.</p>
+          <ul class="care__list mt-4">
+            <li>How the practice currently comes across</li>
+            <li>Who you are trying to reach, made clearer</li>
+            <li>Messaging refined into language you would actually use</li>
+            <li>The route from profile or website to an enquiry</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--sm on-sage">
+  <div class="wrap">
+    <div class="split split--wide-left">
+      <div>
+        <p class="label">How it is priced</p>
+        <h2 class="measure-xs">A fixed quote where the scope is clear. Otherwise, by the hour.</h2>
+      </div>
+      <div class="stack stack--loose">
+        <p class="quiet">
+          {%- if rate_set %}
+          For smaller pieces of work I usually work at {{ rate }} an hour. If the
+          scope is clearer as a fixed project, I will quote a fixed price instead.
+          {%- else %}
+          For smaller pieces of work I usually work at an hourly rate, confirmed
+          before anything starts. If the scope is clearer as a fixed project, I will
+          quote a fixed price instead.
+          {%- endif %}
+        </p>
+        <p class="quiet">
+          Either way, what is included is agreed in writing first. If the work grows
+          into something new, the new part is quoted separately rather than folded
+          into the original job, so a small piece of work stays small.
+        </p>
+        <p class="quiet">
+          Not every request will be a good fit. If yours is not, or if the complete
+          service would serve you better, I will say so.
+        </p>
+        <p class="small quiet divider-top">I do not currently offer paid advertising or PPC management.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band closing on-paper">
+  <div class="wrap">
+    <div class="closing__plate on-ink">
+      <div class="split split--wide-left">
+        <div>
+          <p class="label">Something else</p>
+          <h2 class="measure-sm">Need help with one specific part of your practice?</h2>
+        </div>
+        <div class="stack stack--loose">
+          <p>
+            If it relates to how your therapy practice presents itself, communicates
+            or works online, feel free to ask. If it is outside what I do well,
+            I&rsquo;ll say so. A personal reply within two working days.
+          </p>
+          <div class="actions">
+            <a class="btn" href="mailto:{{ cfg.support_email }}?subject=A%20smaller%20piece%20of%20work">Tell me what you need<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="tlink" href="{{ '/service/' | relative_url }}">The complete service <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -820,7 +820,12 @@ p { text-wrap: pretty; }
 .is-open .nav__bars::before { transform: translateY(4.3px) rotate(45deg); }
 .is-open .nav__bars::after { transform: translateY(-4.3px) rotate(-45deg); }
 
-@media (max-width: 61.99rem) {
+/* The menu takes over below 72rem. It was 62rem while the bar carried four
+   links; the fifth, Other services (24 September 2026), made the labels and the
+   call to action wrap onto two lines between 62rem and about 69rem, so the
+   inline bar now starts where all six fit on one line with room to spare.
+   assets/js/nav.js matches the same query. */
+@media (max-width: 71.99rem) {
   .nav__toggle { display: inline-flex; }
 
   .nav__panel {

@@ -182,6 +182,23 @@ website_care:
   monthly: "£29"
   subscriptions_enabled: false
 
+# ─────────────────────────────────────────────────────────────────────────────
+# OTHER SERVICES — THE HOURLY RATE (24 September 2026)
+#
+# The rate for smaller, ad hoc work on /other-services/. This is the ONLY place
+# it is written. Set it as one amount with the pound sign and no "/hour" —
+# the page adds "an hour" itself.
+#
+# While it reads "£XX" (or is empty) the page does not show a figure; it says
+# the rate is confirmed before work starts, so the placeholder never reaches a
+# visitor. scripts/qa.mjs reads the amount from here and approves it, so no
+# other file needs to change when it is set.
+#
+# It is not a price for the Practice Identity & Website and must never be used
+# to break that service into hours.
+# ─────────────────────────────────────────────────────────────────────────────
+hourly_rate: "£XX"
+
 # Routes the purchase journey depends on.
 urls:
   service: "/services/practice-website/"

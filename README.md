@@ -73,15 +73,25 @@ beside it are the Netlify Forms setup runbook and the client email templates.
 
 ## Information architecture
 
-Four navigation links and one call to action:
+Five navigation links and one call to action:
 
 | Nav | Route | Source |
 |---|---|---|
 | The collection | `/work/` | `work.html` |
 | What it costs | `/service/` | `service.html` |
+| Other services | `/other-services/` | `other-services.html` |
 | Useful guidance | `/guidance/` | `guidance.html` |
 | About | `/about/` | `about.html` |
 | Start a website | `/contact/` | `contact.html` |
+
+`/other-services/` (24 September 2026) is a secondary page for smaller,
+adjacent work — profile reviews, SEO foundations, website improvements,
+practice materials, focused messaging help. It never prices the main service
+and always points back to it. Its hourly rate is `hourly_rate` in
+`_data/purchasing.yml` and nowhere else; while that reads `"£XX"` the page
+shows no figure. The fifth link moved the mobile-menu breakpoint from 62rem to
+72rem (`studio.css` section 8 and `assets/js/nav.js`), because the inline bar
+wrapped below about 69rem.
 
 There is **one** free resource surface, `/guidance/`. It holds seven short
 notes (`_guides/`, `category: Guidance`), the two longer practical guides and a

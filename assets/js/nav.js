@@ -12,7 +12,7 @@
   var header = document.querySelector("[data-site-header]");
   var toggle = document.querySelector(".nav__toggle");
   var panel = document.querySelector("[data-nav-panel]");
-  var mobile = window.matchMedia("(max-width: 61.99rem)");
+  var mobile = window.matchMedia("(max-width: 71.99rem)"); /* matches the nav query in studio.css */
 
   /* ---- Header state ---- */
 
