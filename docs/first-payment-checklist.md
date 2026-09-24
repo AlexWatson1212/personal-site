@@ -32,7 +32,7 @@ remaining work is not.
 | Online purchasing | **Off** | `_data/purchasing_resolved.yml` → `purchases_enabled: false`, `link_source: "none"` |
 | Live Payment Link | **Does not exist** | `STRIPE_SETUP.md`, Stage C |
 | Sandbox Payment Link | Exists, unverified | `STRIPE_SETUP.md` step 4 |
-| Recurring billing for Website Care | **Does not exist, and is not needed yet** | `_data/purchasing.yml` → `subscriptions_enabled: false` |
+| Recurring billing for Practice Care | **Does not exist, and is not needed yet** | `_data/purchasing.yml` → `subscriptions_enabled: false` |
 | The £495 balance | Stripe invoice, raised by hand | `STRIPE_SETUP.md` step 9a |
 | What the public site says | A written route: scope confirmed in writing, then a payment link is sent | `_includes/practice-website-buy.html` |
 

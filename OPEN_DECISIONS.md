@@ -218,7 +218,13 @@ why it is not in `RETIRED_PRICES`. Since 10 September 2026 it is the founding
 price instead, and the standard instalment split has left the published site so
 that the number means one thing at a time.
 
-## 4. Website Care as a subscription
+## 4. Website Care as a subscription — SUPERSEDED 24 September 2026
+
+**Superseded.** Website Care at £29 a month was retired and replaced by Practice
+Care: first year included, then optional at £120 a year, invoiced, renewed only
+if the client says yes; additional work at £55 an hour or a fixed quote. See
+`DECISION-REGISTER.md`. The text below is kept for the record.
+
 
 **State.** Website Care is included for the first twelve months, then optional
 at £29 per month with no minimum term. The annual price was retired in August

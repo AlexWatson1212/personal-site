@@ -256,6 +256,9 @@ const ROUTES = [
   ["contact.html", "/contact/"],
   ["guidance.html", "/guidance/"],
   ["other-services.html", "/other-services/"],
+  ["other-services-enquiry.html", "/other-services/enquiry/"],
+  ["other-services-thanks.html", "/other-services/thanks/"],
+  ["website-design-therapists-stockport.html", "/website-design-therapists-stockport/"],
   ["practice-clarity.html", "/practice-clarity/"],
   ["links/index.html", "/links/"],
   ["404.html", "/404.html"],
@@ -323,7 +326,11 @@ const STRIPE_SDK_HOST = "js." + "stripe.com";
      £995    the standard price, after the three founding practices. Published
              so a reader can see what they are being offered against, never
              struck through and never used to dress £495 as a saving.
-     £29     Website Care per month, after the included first year, optional
+     Practice Care's annual figure and the hourly rate for additional work are
+     approved from _data/purchasing.yml below, so each is set in one place.
+   £29 LEFT THE PUBLISHED SITE on 24 September 2026, when Website Care at £29 a
+   month was replaced by Practice Care, charged annually. It is no longer an
+   approved price, so the scan below fails if it reappears on a page.
    £500 LEFT THE PUBLISHED SITE with the standard instalment split (which,
    since 17 September 2026, is the £995 split: a sum to begin and the rest once
    the Practice Fundamentals is approved, recorded in OPEN_DECISIONS.md). Publishing
@@ -332,7 +339,7 @@ const STRIPE_SDK_HOST = "js." + "stripe.com";
    confidence. The standard split returns to the site when £995 does.
    £1,495 was retired in August 2026 along with the tier it implied. Any other
    amount in published source is a mistake until this list says otherwise. */
-const APPROVED_PRICES = new Set(["£495", "£100", "£395", "£995", "£29"]);
+const APPROVED_PRICES = new Set(["£495", "£100", "£395", "£995"]);
 /* Figures that are not studio prices. £60 is a session fee drawn inside the
    tailoring illustration on the home page, where the point being made is that
    this practice's visitors need the cost before anything else. Held separately
@@ -356,6 +363,11 @@ const purchasingYml = read("_data/purchasing.yml");
 const HOURLY_RATE = (purchasingYml.match(/^hourly_rate:\s*"([^"]*)"\s*$/m) || [])[1] ?? null;
 const HOURLY_RATE_SET = HOURLY_RATE !== null && /^£\d[\d,]*(\.\d{2})?$/.test(HOURLY_RATE);
 if (HOURLY_RATE_SET) APPROVED_PRICES.add(HOURLY_RATE);
+
+/* 24 September 2026. Practice Care, optional after the included first year,
+   charged annually. Set once as practice_care.annual in _data/purchasing.yml. */
+const CARE_ANNUAL = (purchasingYml.match(/^practice_care:[\s\S]*?^\s+annual:\s*"([^"]*)"/m) || [])[1] ?? null;
+if (CARE_ANNUAL && /^£\d[\d,]*(\.\d{2})?$/.test(CARE_ANNUAL)) APPROVED_PRICES.add(CARE_ANNUAL);
 const legalYml = read("_data/legal.yml");
 const buyInclude = read(BUY_INCLUDE);
 /* The include with its leading documentation comment stripped. Checks that ask
@@ -501,9 +513,11 @@ check("Prices", "The displayed prices come from _data/purchasing.yml", () => {
   );
   assert(!/bespoke_price_display/.test(purchasingYml), "bespoke_price_display is still declared — the bespoke route was retired");
   assert(!/guided_price_display/.test(purchasingYml), "guided_price_display is still declared — the Guided tier was retired");
-  assert(/included_months:\s*12/.test(purchasingYml), "Website Care is not declared as twelve included months");
-  assert(/monthly:\s*"£29"/.test(purchasingYml), "Website Care monthly price is not £29");
-  assert(!/annual:/.test(purchasingYml), "Website Care still declares an annual price — Care is monthly after the included year");
+  assert(/^practice_care:/m.test(purchasingYml), "_data/purchasing.yml does not declare practice_care");
+  assert(/included_months:\s*12/.test(purchasingYml), "Practice Care is not declared as twelve included months");
+  assert(CARE_ANNUAL && /^£\d/.test(CARE_ANNUAL), "practice_care.annual is not set to an amount");
+  assert(!/^website_care:/m.test(purchasingYml), "website_care is still declared — Website Care was retired on 24 September 2026");
+  assert(!/^\s+monthly:/m.test(purchasingYml), "a monthly care price is still declared — Practice Care is annual");
 });
 
 /* ------------------------------------------------------------------ *
@@ -619,13 +633,13 @@ check("Commercial architecture", "One product, one care plan, and nothing sold b
      that the fields are on the page rather than that the numerals are. */
   assert(/purchasing\.price_display/.test(servicePage), "service.html does not render the price");
   assert(/purchasing\.payment_sentence/.test(servicePage), "service.html does not render the payment sentence");
-  assert(/£29/.test(servicePage), "service.html does not show the £29 Website Care price");
+  assert(/purchasing\.practice_care\.annual/.test(servicePage), "service.html does not render the Practice Care price");
   assert(/[Cc]ustom project/.test(servicePage), "service.html does not offer a custom project route");
   assert(
     /founding\.standard_price_display/.test(servicePage),
     "service.html does not publish the standard price the founding price is measured against"
   );
-  return "price + instalments rendered from data · £29 care · standard price published · custom quoted";
+  return "price + instalments rendered from data · Practice Care from data · standard price published · custom quoted";
 });
 
 check("Commercial architecture", "One website price, and Practice Clarity is not sold", () => {
@@ -680,7 +694,7 @@ check("Commercial architecture", "One website price, and Practice Clarity is not
      add-on: it kept a second price away from the buying decision, and there is
      no second price now. */
   assert(/Practice Fundamentals/.test(servicePage), "service.html no longer explains the Practice Fundamentals");
-  assert(/Website Care/.test(servicePage), "service.html no longer explains Website Care");
+  assert(/Practice Care/.test(servicePage), "service.html no longer explains Practice Care");
 
   /* Language that rebuilds the tier. */
   const banned = [
@@ -1011,6 +1025,64 @@ check("Other services", "The secondary page stays secondary, and its rate is set
   for (const [pattern, what] of promises) if (pattern.test(page)) offenders.push(what);
   assert(offenders.length === 0, `other-services.html — ${offenders.join("; ")}`);
   return HOURLY_RATE_SET ? `hourly rate ${HOURLY_RATE}, approved from purchasing.yml` : "hourly rate not yet set — the page shows no figure";
+});
+
+check("Other services", "Every \"Tell me what you need\" reaches a short, working enquiry form", () => {
+  /* 24 September 2026. The smaller-work enquiry: a native Netlify form, three
+     required questions, nothing about domains, photographs, brand history or
+     budget, and a thank-you page that exists. */
+  const page = read("other-services.html");
+  const ctas = [...page.matchAll(/<a\b[^>]*href="([^"]*)"[^>]*>\s*Tell me what you need/g)].map((m) => m[1]);
+  assert(ctas.length >= 2, `expected at least two "Tell me what you need" calls to action, found ${ctas.length}`);
+  for (const href of ctas) assert(/\/other-services\/enquiry\//.test(href), `a "Tell me what you need" points at ${href}`);
+  assert(!/mailto:/.test(page), "other-services.html still uses a mailto link");
+
+  const enquiry = read("other-services-enquiry.html");
+  const form = (enquiry.match(/<form[\s\S]*?<\/form>/) || [""])[0];
+  assert(form, "the smaller-work enquiry has no form");
+  const name = (form.match(/<form[^>]*\bname="([^"]+)"/) || [])[1];
+  assert(name, "the form has no name");
+  assert(new RegExp(`name="form-name" value="${name}"`).test(form), "form-name does not match the form's name");
+  assert(/<form[^>]*\bmethod="POST"/.test(form) && /<form[^>]*\bdata-netlify="true"/.test(form), "the form is not a POST Netlify form");
+  const honeypot = (form.match(/netlify-honeypot="([^"]+)"/) || [])[1];
+  assert(honeypot && new RegExp(`name="${honeypot}"`).test(form), "the honeypot field named by netlify-honeypot does not exist");
+  assert(/action="\{\{ '\/other-services\/thanks\/'/.test(form), "the form action is not /other-services/thanks/");
+  const required = [...form.matchAll(/<(?:input|textarea|select)\b[^>]*\bname="([^"]+)"[^>]*\brequired\b/g)].map((m) => m[1]).sort();
+  assert(required.join(",") === "email,name,need", `required fields are ${required.join(", ")} — expected name, email and need only`);
+  assert(!/type="file"/.test(form), "the enquiry asks for an upload");
+  assert(!/name="(domain|photos?|budget|brandHistory)"/.test(form), "the enquiry asks for something that belongs to the main enquiry");
+  for (const id of [...form.matchAll(/<(?:input|textarea|select)\b[^>]*\bid="([^"]+)"/g)].map((m) => m[1])) {
+    assert(new RegExp(`<label[^>]*for="${id}"`).test(form), `field ${id} has no label`);
+  }
+  const thanks = read("other-services-thanks.html");
+  assert(/^noindex:\s*true/m.test(thanks), "the thank-you page is indexable");
+  assert(/other-services\/enquiry/.test(read("_pages/privacy.html")), "/privacy/ does not describe the smaller-work enquiry form");
+  return `${ctas.length} calls to action → /other-services/enquiry/ · ${name} → /other-services/thanks/`;
+});
+
+check("Search", "One local page, form routes kept out of search, and no street address published", () => {
+  /* 24 September 2026. The local + niche intent has exactly one page. Town
+     clones are the doorway-page pattern this site does not use. */
+  const localPages = publishedSources.filter((rel) => /^website-design-.*\.html$/.test(rel));
+  assert(localPages.length === 1, `expected one local page, found ${localPages.length}: ${localPages.join(", ")}`);
+  const local = read(localPages[0]);
+  assert(/training as a counsellor/.test(local), "the local page no longer describes the counselling training accurately");
+  assert(!/qualified (counsellor|therapist)|(registered|accredited) (counsellor|therapist|member)/i.test(local), "the local page claims a credential");
+  for (const rel of ["other-services-enquiry.html", "other-services-thanks.html"]) {
+    const body = read(rel);
+    assert(/^noindex:\s*true/m.test(body) && /^sitemap:\s*false/m.test(body), `${rel} is not noindex and out of the sitemap`);
+  }
+  const schema = read("_includes/schema.html");
+  assert(!/streetAddress|postalCode/.test(schema), "structured data publishes a street address or postcode");
+  const legal = read("_data/legal.yml");
+  const address = (legal.match(/^\s*address:\s*"([^"]+)"/m) || [])[1];
+  if (address) {
+    for (const [rel, body] of publishedBodies) {
+      if (LEGAL_SURFACE.has(rel)) continue;
+      assert(!body.includes(address), `${rel} publishes the business address outside the legal pages`);
+    }
+  }
+  return `${localPages[0]} · form routes noindex · locality only in structured data`;
 });
 
 check("Information architecture", "One resource section, one front door", () => {
@@ -1427,26 +1499,62 @@ check("Commercial architecture", "The Practice Identity & Website is the only ro
 });
 
 /* ------------------------------------------------------------------ *
- * 5. Website Care
+ * 5. Practice Care (Website Care until 24 September 2026)
  * ------------------------------------------------------------------ */
 
-check("Website Care", "Described as included for twelve months, then £29 a month", () => {
+check("Practice Care", "Included for twelve months, then optional and annual, rendered from data", () => {
   let described = 0;
   for (const rel of [PURCHASE_PAGE, "service.html"]) {
     const body = read(rel);
-    assert(body.includes("Website Care"), `${rel} does not mention Website Care`);
+    assert(body.includes("Practice Care"), `${rel} does not mention Practice Care`);
     assert(
-      /(first (twelve months|year)|twelve months of Website Care)/i.test(body),
-      `${rel} does not say the first year of Website Care is included`
+      /(first (twelve months|year)|twelve months of Practice Care)/i.test(body),
+      `${rel} does not say the first year of Practice Care is included`
     );
-    assert(/£29/.test(body), `${rel} does not state the £29 monthly price`);
-    assert(/no\s+minimum\s+term/i.test(body), `${rel} does not say there is no minimum term`);
+    assert(/practice_care\.annual/.test(body), `${rel} does not render practice_care.annual`);
+    assert(/a year/.test(body), `${rel} does not say Practice Care is charged a year`);
+    assert(/optional/i.test(body), `${rel} does not say Practice Care is optional after the first year`);
+    assert(/say yes/i.test(body), `${rel} does not say it continues only if the client says yes`);
+    assert(/hourly_rate/.test(body), `${rel} does not say what additional work costs`);
     described += 1;
   }
-  return `${described} pages`;
+  for (const rel of ["_pages/service-terms-practice-website.html", "_pages/terms.html"]) {
+    assert(/practice_care\.annual/.test(read(rel)), `${rel} does not render practice_care.annual`);
+  }
+  return `${described} pages · terms agree`;
 });
 
-check("Website Care", "Claims only what the infrastructure supports", () => {
+check("Practice Care", "The retired £29-a-month Website Care appears nowhere published", () => {
+  const offenders = [];
+  for (const [rel, body] of publishedBodies) {
+    for (const [pattern, what] of [
+      [/Website\s+Care/, "names Website Care"],
+      [/website_care/, "reads the retired website_care data"],
+      [/£\s?29\b/, "shows £29"],
+      [/a month (after|if you want)|per month|no minimum term/i, "describes care as monthly"],
+    ]) {
+      const hit = body.match(pattern);
+      if (hit) offenders.push(`${rel}:${lineAt(body, hit.index)} — ${what}`);
+    }
+  }
+  assert(offenders.length === 0, offenders.join("\n"));
+  return `${publishedBodies.size} published files clear`;
+});
+
+check("Practice Care", "Bounded: no development time, ongoing SEO or unlimited support inside it", () => {
+  const surfaces = [PURCHASE_PAGE, "service.html", "_pages/service-terms-practice-website.html"];
+  for (const rel of surfaces) {
+    const body = read(rel);
+    assert(/development time/i.test(body), `${rel} does not say Practice Care includes no development time`);
+    assert(/ongoing SEO/i.test(body), `${rel} does not exclude ongoing SEO from Practice Care`);
+    assert(/unlimited\s+support/i.test(body), `${rel} does not exclude unlimited support from Practice Care`);
+    assert(!/unlimited (updates|changes|edits)/i.test(body), `${rel} promises unlimited updates`);
+    assert(!/same[- ]day/i.test(body), `${rel} promises same-day work`);
+  }
+  return `${surfaces.length} surfaces bounded`;
+});
+
+check("Practice Care", "Claims only what the infrastructure supports", () => {
   /* Care is a paid promise now that it is inside the price, so it must not
      claim continuous monitoring or a backup guarantee: neither is provided.
      Version history and TLS are, and are named instead. */
@@ -1469,11 +1577,11 @@ check("Website Care", "Claims only what the infrastructure supports", () => {
       offenders.push(`${rel}: ${hit[0]}`);
     }
   }
-  assert(offenders.length === 0, `Website Care claims something unsupported — ${offenders.join("; ")}`);
+  assert(offenders.length === 0, `Practice Care claims something unsupported — ${offenders.join("; ")}`);
   return "no monitoring or backup guarantee claimed";
 });
 
-check("Website Care", "Care is technical, and content changes are outside it", () => {
+check("Practice Care", "Care keeps the build working, and content changes are outside it", () => {
   /* 17 September 2026. Website Care covers genuine technical faults and support
      for the original build. Additions, redesigns and content changes are
      outside it. The three places that describe Care must say so, and none may
@@ -1481,15 +1589,15 @@ check("Website Care", "Care is technical, and content changes are outside it", (
   const surfaces = [PURCHASE_PAGE, "service.html", "_pages/service-terms-practice-website.html"];
   for (const rel of surfaces) {
     const body = read(rel);
-    assert(/technical/i.test(body), `${rel} does not describe Website Care as technical`);
-    assert(/content changes/i.test(body), `${rel} does not say content changes are outside Website Care`);
+    assert(/technical/i.test(body), `${rel} does not describe Practice Care\'s technical upkeep`);
+    assert(/content changes/i.test(body), `${rel} does not say content changes are outside Practice Care`);
     assert(!/Keeping your fees, availability/i.test(body), `${rel} still lists fee and availability updates as part of Care`);
     assert(!/no quota and no charge/i.test(body), `${rel} still promises free content updates`);
   }
   return `${surfaces.length} surfaces agree`;
 });
 
-check("Website Care", "No subscription is built or activated", () => {
+check("Practice Care", "No subscription is built or activated", () => {
   assert(/subscriptions_enabled:\s*false/.test(purchasingYml), "_data/purchasing.yml does not set subscriptions_enabled: false");
   const offenders = [];
   /* Care sits inside the £995 for its first twelve months, so the checkout
@@ -1498,15 +1606,15 @@ check("Website Care", "No subscription is built or activated", () => {
      action beside Care described any other way would be selling a
      subscription this repository has not built. */
   for (const [rel, body] of publishedBodies) {
-    let index = body.indexOf("Website Care");
+    let index = body.indexOf("Practice Care");
     while (index !== -1) {
       const block = body.slice(Math.max(0, index - 1200), index + 1200);
       const hasAction = /https:\/\/buy\.stripe\.com|practice-website-buy|data-purchase-action/.test(block);
       const saysIncluded = /includ(ed|es|ing)/i.test(block);
       if (hasAction && !saysIncluded) {
-        offenders.push(`${rel}:${lineAt(body, index)} places a checkout action beside Website Care without saying it is included`);
+        offenders.push(`${rel}:${lineAt(body, index)} places a checkout action beside Practice Care without saying it is included`);
       }
-      index = body.indexOf("Website Care", index + 1);
+      index = body.indexOf("Practice Care", index + 1);
     }
   }
   for (const [rel, body] of publishedBodies) {
@@ -2404,12 +2512,21 @@ check("Links", "Every referenced asset exists on disk", () => {
   if (!imagesPresent) {
     skip("assets/images is empty in this working copy — binary assets are not part of this export, so their paths cannot be verified here");
   }
-  const missing = [...referenced].filter((asset) => !exists(asset.replace(/^\//, ""))).sort();
+  /* 24 September 2026. An image that a page renders only when the file is in
+     the build — `site.static_files | where: "path", ...` with a fallback —
+     may be referenced before it exists. It is reported, not failed. */
+  const guarded = new Set();
+  for (const [, body] of publishedBodies) {
+    for (const m of body.matchAll(/site\.static_files\s*\|\s*where:\s*"path",\s*"(\/assets\/[^"]+)"/g)) guarded.add(m[1]);
+  }
+  const absent = [...referenced].filter((asset) => !exists(asset.replace(/^\//, "")));
+  const missing = absent.filter((asset) => !guarded.has(asset)).sort();
+  const pending = absent.filter((asset) => guarded.has(asset)).sort();
   assert(
     missing.length === 0,
     `${missing.length} referenced assets are missing from the repository:\n${missing.join("\n")}`
   );
-  return `${referenced.size} assets`;
+  return `${referenced.size} assets` + (pending.length ? ` · ${pending.length} optional image(s) not yet added, fallback shown: ${pending.join(", ")}` : "");
 });
 
 /* ------------------------------------------------------------------ *
@@ -2447,11 +2564,16 @@ check("Built site", "The sitemap lists the public routes and none of the private
   if (!hasSite) skip("no _site directory — run `npm run build` first");
   const sitemap = readSite("sitemap.xml");
   const missing = [];
-  for (const [, permalink] of ROUTES) {
+  /* 24 September 2026. A route whose source says `sitemap: false` (the
+     smaller-work enquiry form and its thank-you page) is meant to be absent. */
+  const unlisted = [];
+  for (const [file, permalink] of ROUTES) {
     if (PRIVATE_ROUTES.includes(permalink) || permalink === "/404.html") continue;
-    if (!sitemap.includes(permalink)) missing.push(permalink);
+    if (/^sitemap:\s*false/m.test(frontMatter(read(file)))) { unlisted.push(permalink); continue; }
+    if (!sitemap.includes(`${permalink}</loc>`)) missing.push(permalink);
   }
   assert(missing.length === 0, `routes absent from sitemap.xml: ${missing.join(", ")}`);
+  for (const route of unlisted) assert(!sitemap.includes(`${route}</loc>`), `${route} is marked sitemap: false but appears in sitemap.xml`);
   for (const route of PRIVATE_ROUTES) assert(!sitemap.includes(route), `${route} appears in sitemap.xml`);
 });
 

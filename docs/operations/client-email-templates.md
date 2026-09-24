@@ -99,7 +99,7 @@ Bank details and reference: as above, reference AW-[000]
 >
 > I'd be glad to take this on. So that everything is in writing, here is what we'd be agreeing:
 >
-> - **The service:** the Practice Identity & Website, as described in full at https://alexanderwatson.co.uk/services/practice-website/. That covers your 11-page Practice Fundamentals, your identity and your words, one complete responsive page with an enquiry form, connection to your domain, launch, and the first year of technical Website Care.
+> - **The service:** the Practice Identity & Website, as described in full at https://alexanderwatson.co.uk/services/practice-website/. That covers your 11-page Practice Fundamentals, your identity and your words, one complete responsive page with an enquiry form, connection to your domain, launch, and the first year of Practice Care.
 > - **The price:** £495. It's the founding price for one of the first three practices; the standard price is £995. It's the same service either way.
 > - **How it's paid:** £100 now to reserve your place. £395 once you've approved your Practice Fundamentals and visual direction, before I build the website.
 > - **Feedback:** two consolidated stages, one on your Practice Fundamentals and one on the built website. Corrections never use up a stage.
@@ -388,7 +388,7 @@ Use this only if the intake link goes out separately, later the same day.
 
 ---
 
-## Template 11: Launch confirmation and Website Care explanation
+## Template 11: Launch confirmation and Practice Care explanation
 
 **When:** the day the website goes live.
 
@@ -411,18 +411,19 @@ Use this only if the intake link goes out separately, later the same day.
 >
 > **The next thirty days.** If you notice a fault in what I delivered, such as a broken link, a display problem, or a typo I introduced, tell me before **[date, 30 days on]** and I'll correct it free of charge.
 >
-> **Website Care, for the first year.** Your first twelve months of Website Care run from today until **[date]**. It's technical care, and it covers:
+> **Practice Care, for the first year.** Your first twelve months of Practice Care run from today until **[date]**. It covers:
 >
 > - hosting, the security certificate and deployments;
-> - dependency and security updates, and version history, so any change can be reverted;
+> - security and technical upkeep, and version history, so any change can be reverted;
 > - help with your domain and its settings;
-> - fixing genuine technical faults, and support with the website as I built it.
+> - fixing genuine technical faults, and support with the website as I built it;
+> - once in the year, a review of your website, directory profile and basic SEO health, with a short set of written recommendations.
 >
 > If something looks wrong, email me. I'll acknowledge it within one working day and tell you what's happening.
 >
-> Care doesn't include additions, redesigns or content changes. That means changing your fees, availability or wording, adding a section or a page, or a new look. I'm glad to do any of those; I'll quote in writing before starting, so just ask when you need something.
+> Care doesn't include development time: changing your fees, availability or wording, adding a section or a page, or a new look. I'm glad to do any of those at £55 an hour, or for a fixed price where the job is clear; either way I'll agree it with you in writing before starting.
 >
-> Before the year is up, I'll write and ask whether you'd like Care to continue, at £29 a month with no minimum term. It only continues if you say yes. You're also free to host the website elsewhere at any time, and I'll hand over what's needed.
+> Before the year is up, I'll write and ask whether you'd like Practice Care to continue, at £120 a year. It's optional and only continues if you say yes. You're also free to host the website elsewhere at any time, and I'll hand over what's needed.
 >
 > **Your domain** stays in your own account with [registrar]. [Its renewal date is [date], if known.]
 >

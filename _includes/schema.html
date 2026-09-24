@@ -2,9 +2,11 @@
   Structured data.
 
   Three types, each describing something that actually exists on the page. No
-  rating, review, award, credential, address or telephone number appears here,
-  because none of those facts is available and inventing one would be worse than
-  omitting it.
+  rating, review, award, credential, street address or telephone number appears
+  here, because none of those facts is available and inventing one would be
+  worse than omitting it. The studio's town is stated (24 September 2026:
+  Stockport, Greater Manchester) as locality only: there is no public office,
+  so no street address or postcode is ever added.
 
   Deliberately absent: FAQPage. The cost page does carry a real FAQ, but the
   rich result it once produced is now restricted to government and health
@@ -22,6 +24,12 @@
   "description": {{ site.description | jsonify }},
   "url": {{ '/' | absolute_url | jsonify }},
   "email": "hello@alexanderwatson.co.uk",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Stockport",
+    "addressRegion": "Greater Manchester",
+    "addressCountry": "GB"
+  },
   "logo": {{ '/assets/images/brand/alexander-watson-primary-logo.svg' | absolute_url | jsonify }},
   "image": {{ '/assets/images/service/alexander-watson-counselling-case-study.webp' | absolute_url | jsonify }},
   "areaServed": { "@type": "Country", "name": "United Kingdom" },
@@ -96,6 +104,33 @@
     "availability": "https://schema.org/InStock",
     "url": {{ '/service/' | absolute_url | jsonify }}
   }
+}
+</script>
+{%- endif -%}
+
+{%- comment -%}
+  The local page. The same service, described with where it comes from and
+  where it is offered: Stockport and Greater Manchester, and the rest of the UK.
+{%- endcomment -%}
+{%- if page.url == '/website-design-therapists-stockport/' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": {{ '/website-design-therapists-stockport/#service' | absolute_url | jsonify }},
+  "name": "Website design for therapists in Stockport and Greater Manchester",
+  "serviceType": "Practice identity and website design for therapists and counsellors",
+  "provider": { "@id": {{ '/#studio' | absolute_url | jsonify }} },
+  "areaServed": [
+    { "@type": "City", "name": "Stockport" },
+    { "@type": "AdministrativeArea", "name": "Greater Manchester" },
+    { "@type": "Country", "name": "United Kingdom" }
+  ],
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Therapists and counsellors in private practice"
+  },
+  "url": {{ page.url | absolute_url | jsonify }}
 }
 </script>
 {%- endif -%}

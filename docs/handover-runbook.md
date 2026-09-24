@@ -19,7 +19,7 @@ Three moments, and they are the same pack each time:
 1. **At launch**, as a matter of course. Handover is not a thing that happens when a
    relationship ends; it happens when the job finishes.
 2. **Whenever the client asks**, at any point afterwards.
-3. **Before the website is removed** from Studio infrastructure if Website Care is not
+3. **Before the website is removed** from Studio infrastructure if Practice Care is not
    continued — clause 12 gives at least thirty days' notice, and the pack goes with the
    notice, not after it.
 
@@ -67,13 +67,15 @@ costs nothing.
 disclosed before purchase and is part of what keeps the price where it is. Changes are an
 email; the files are hers to hand to anyone.
 
-**What does Website Care cover?** Technical care only, since 17 September 2026:
-hosting, TLS, deployments, updates, version history, DNS help, genuine technical faults
-and support with the website as built. Content changes (including fees and
-availability), additions and redesigns are quoted. Template 11 in
+**What does Practice Care cover?** (Replaced Website Care on 24 September 2026.)
+Hosting, TLS, deployments, security and technical upkeep, version history, DNS help,
+genuine technical faults, support with the website as built, and one annual website,
+profile and basic SEO review with short written recommendations. No development time:
+content changes (including fees and availability), additions and redesigns are £55 an
+hour or a fixed quote. After the included year it is optional at £120 a year. Template 11 in
 `docs/operations/client-email-templates.md` says this at launch.
 
-**What happens if I stop Website Care?** Thirty days' notice, the pack, and the site
+**What happens if I stop Practice Care?** Thirty days' notice, the pack, and the site
 comes off Studio infrastructure at the end of it. Nothing is withheld and nothing is
 deleted without the notice having been given.
 

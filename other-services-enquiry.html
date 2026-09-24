@@ -1,0 +1,121 @@
+---
+layout: default
+title: Tell me what you need
+seo_title: A smaller piece of work
+description: A short enquiry for a smaller piece of work — a profile review, SEO foundations, a website improvement, practice materials or messaging help.
+permalink: /other-services/enquiry/
+noindex: true
+sitemap: false
+---
+
+{%- comment -%}
+  24 September 2026. The enquiry route for /other-services/. Deliberately short:
+  three required questions and four optional ones, about two or three minutes.
+  It asks nothing about domains, photographs, brand history or budget; that
+  belongs to the main enquiry at /contact/ and to Practice Discovery.
+
+  A native Netlify form, the same mechanism as Practice Discovery: name and
+  form-name agree, the honeypot is real, and the action is the thank-you page.
+  Native `required` does the validation, so it works without JavaScript.
+  /privacy/ section 1 describes what happens to what is sent.
+{%- endcomment -%}
+{%- assign cfg = site.data.purchasing -%}
+
+<section class="band contact-open on-paper">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="stack stack--loose">
+        <p class="label">Other services</p>
+        <h1 class="measure-3xs">Tell me what you need.</h1>
+        <p class="lead">
+          If one part of your practice needs attention, tell me what you are trying
+          to improve. I will tell you whether I can help, what I would suggest, and
+          whether it makes more sense as a fixed quote or as hourly work.
+        </p>
+        <p class="quiet">
+          Three short questions are needed and the rest are optional. A few lines is
+          plenty; there is no need to prepare anything.
+        </p>
+
+        <div class="divider-top">
+          <p class="label">Prefer an ordinary email?</p>
+          <a class="contact-email" href="mailto:{{ cfg.support_email }}">{{ cfg.support_email }}</a>
+          <p class="small quiet mt-3">A reply within two working days.</p>
+        </div>
+
+        <p class="small quiet">
+          Looking for a complete identity and website instead?
+          <a class="inline-link" href="{{ '/contact/' | relative_url }}">Tell me about your practice</a>.
+        </p>
+      </div>
+
+      <div class="contact-col">
+        <div class="form-panel">
+          <form class="form"
+                name="smaller-work-enquiry"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                action="{{ '/other-services/thanks/' | relative_url }}">
+            <input type="hidden" name="form-name" value="smaller-work-enquiry">
+
+            {%- comment -%}
+              The honeypot, hidden the same way as Practice Discovery's: present
+              for automated submitters, unreachable by pointer, keyboard or
+              screen reader. Netlify discards any submission that fills it.
+            {%- endcomment -%}
+            <p class="pd__honeypot" aria-hidden="true">
+              <label for="sw-bot-field">Leave this field empty</label>
+              <input id="sw-bot-field" name="bot-field" tabindex="-1" autocomplete="off">
+            </p>
+
+            <div class="field-row">
+              <p class="field"><label for="sw-name">Your name</label><input id="sw-name" name="name" autocomplete="name" required></p>
+              <p class="field"><label for="sw-email">Email address</label><input id="sw-email" name="email" type="email" autocomplete="email" required></p>
+            </div>
+
+            <div class="field field--question">
+              <label for="sw-need">What do you need help with?</label>
+              <span class="field__hint" id="sw-need-hint">What you have now, and what you would like to be different. A few lines is plenty.</span>
+              <textarea id="sw-need" name="need" rows="5" required aria-describedby="sw-need-hint"></textarea>
+            </div>
+
+            <div class="field field--question">
+              <label for="sw-area">Which area is this about? <span class="opt">Optional</span></label>
+              <select id="sw-area" name="area">
+                <option value="">Choose one, or leave blank</option>
+                <option>Counselling profile review</option>
+                <option>SEO setup or assessment</option>
+                <option>Website improvement</option>
+                <option>Brand or practice materials</option>
+                <option>Messaging / positioning</option>
+                <option>Something else</option>
+              </select>
+            </div>
+
+            <div class="field-row">
+              <p class="field"><label for="sw-practice">Practice name <span class="opt">Optional</span></label><input id="sw-practice" name="practice" autocomplete="organization"></p>
+              <p class="field"><label for="sw-url">Website or profile link <span class="opt">Optional</span></label><input id="sw-url" name="link" inputmode="url" autocomplete="url" placeholder="https://"></p>
+            </div>
+
+            <div class="field field--question">
+              <label for="sw-timing">Is there a date or timing I should know about? <span class="opt">Optional</span></label>
+              <input id="sw-timing" name="timing" autocomplete="off">
+            </div>
+
+            <p class="small quiet">
+              Please share information about your own practice only, and nothing about
+              the people you work with. What you send is received through Netlify, which
+              hosts this site, and used only to reply to you.
+              <a class="inline-link" href="{{ '/privacy/' | relative_url }}">How your information is handled</a>.
+            </p>
+
+            <div>
+              <button type="submit" class="btn">Send<span class="btn__arrow" aria-hidden="true">&rarr;</span></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

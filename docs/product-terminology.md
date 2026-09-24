@@ -62,7 +62,7 @@ keep" survives only as the name of the handover section (`#yours-to-keep` on
 - **Launch approval**: the written confirmation before launch (clause 11).
 - **Deposit** (£100, reserves the place) and **balance** (£395, after direction
   approval, before the build). Not "first instalment" in client-facing copy.
-- **Website Care**: technical. Never "updates included".
+- **Practice Care**: hosting, technical upkeep and one annual review. Never "updates included". "Website Care" was retired on 24 September 2026 and is not used.
 
 ## 4. The documents a client receives
 

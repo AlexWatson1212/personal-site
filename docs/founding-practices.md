@@ -23,7 +23,7 @@ It is the same service at both prices: the intake, the full **11-page Practice
 Fundamentals** (identity included), the copy, **one complete responsive page**
 with its enquiry route, **two consolidated feedback stages**, domain connection,
 launch, handover, thirty days of corrections and the first twelve months of
-**technical** Website Care. Nothing is removed at £495 and nothing extra is added
+Practice Care. Nothing is removed at £495 and nothing extra is added
 to it. The reason for the difference is that these are the first three times the
 complete process runs with a real therapist, and what the Studio gets back — the
 experience, the honest account of what was unclear, and case studies and
@@ -142,7 +142,7 @@ someone who mistakes them for oversights.
 | The intake is a form on this site, and every message around it is sent by hand | Settled 17 September 2026, revised 19 September 2026: no Zapier, CRM or client portal during the founding projects. The intake was briefly a Tally form; it is now Practice Discovery, a native Netlify form. Netlify holds the written answers as processor; Alexander downloads them and deletes them at launch. No files pass through the form at all — clients share a folder link or email them. |
 | Scope and price are confirmed in a written exchange | There is no online checkout, and clause 4 makes the written exchange the point of acceptance. |
 | Both instalments are invoiced and paid by bank transfer | Settled September 2026. Bank details live on the invoice and must never appear on the website. |
-| Website Care after year one is invoiced, not subscribed | No recurring billing is built. `subscriptions_enabled: false`. |
+| Practice Care after year one is invoiced, not subscribed | No recurring billing is built. `subscriptions_enabled: false`. |
 | Closing the founding offer is a config edit | Deliberately not automated: no counter to go stale. |
 
 ---

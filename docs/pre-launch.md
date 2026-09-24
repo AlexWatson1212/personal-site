@@ -46,8 +46,8 @@ studio dashboard. This file is the reasoning behind it.
   the offer needs is already covered: the parties, the scope, £995 in two
   instalments, what Practice Clarity means inside the service, what the client
   supplies, three to five weeks, two rounds, corrections, approval,
-  cancellation, ownership and handover, the first Care year, £29 a month after
-  it, third parties, liability, data, and ending the project.
+  cancellation, ownership and handover, the first Care year, Practice Care at £120 a year after
+  it (was £29 a month until 24 September 2026), third parties, liability, data, and ending the project.
 - **The cancellation and refund position is fair and already published.** It
   does not declare the £500 non-refundable in every circumstance; it sets out a
   stage-by-stage position, distinguishes consumer from business purchases

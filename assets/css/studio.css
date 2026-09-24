@@ -2373,6 +2373,79 @@ p { text-wrap: pretty; }
 .offer-row__body { color: var(--text-quiet); font-size: var(--t-small); max-width: 52ch; }
 .offer-row__body p + p { margin-block-start: var(--s-3); }
 
+/* Other services: the figures between the service rows (24 September 2026).
+   Each figure shows its image once the file exists; until then the fallback
+   panel below states the same idea in type, so the page never shows a broken
+   image or an empty box. Both share one frame, so swapping in the image does
+   not move anything. */
+.os-proof {
+  display: grid;
+  gap: var(--s-6) clamp(1.5rem, 3vw, 2.5rem);
+  margin-block: var(--s-7);
+}
+
+@media (min-width: 54rem) {
+  .os-proof--pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.os-proof__figure { margin: 0; }
+
+.os-proof__figure img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--r-sm);
+}
+
+@media (min-width: 54rem) {
+  .os-proof--wide .os-proof__figure img { aspect-ratio: 9 / 5; }
+}
+
+.os-proof__figure img { height: auto; object-fit: cover; background: var(--paper); }
+
+.os-proof__fallback {
+  display: grid;
+  align-content: center;
+  gap: var(--s-4);
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+  border-radius: var(--r-sm);
+  background: var(--paper);
+  border: var(--hairline) solid var(--line);
+}
+
+.os-proof__fallback > .label { margin: 0; }
+
+.os-proof__marks li { white-space: nowrap; }
+
+.os-proof__marks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-5);
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 1rem + 0.9vw, 1.6rem);
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.os-proof__fallback--marks .os-proof__marks li::before {
+  content: "\2014";
+  margin-inline-end: 0.4em;
+  color: var(--text-faint);
+}
+
+.os-proof__fallback--steps .os-proof__marks li + li::before {
+  content: "\2192";
+  margin-inline-end: var(--s-4);
+  color: var(--text-faint);
+}
+
+.os-proof__figure figcaption {
+  max-width: 52ch;
+  padding-block-start: var(--s-3);
+  color: var(--text-quiet);
+  font-size: var(--t-small);
+}
+
 .faq { display: grid; gap: 0; }
 
 .faq details {

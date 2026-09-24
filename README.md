@@ -13,9 +13,10 @@ September 2026. **One service, at the price it is being sold at today.**
 
 | | |
 |---|---|
-| Practice Identity & Website | **£495** for the first three practices, then **£995**. £100 to reserve the place, £395 once the client approves the Practice Fundamentals, before the website is built. One complete responsive page. First twelve months of technical Website Care included either way |
+| Practice Identity & Website | **£495** for the first three practices, then **£995**. £100 to reserve the place, £395 once the client approves the Practice Fundamentals, before the website is built. One complete responsive page. First twelve months of Practice Care included either way |
 | Practice Fundamentals | The 11-page document and identity, inside the price. It has no separate figure and must not acquire one |
-| Website Care | Included for twelve months, then **£29** a month, no minimum term |
+| Practice Care | Included for twelve months, then optional at **£120** a year (`practice_care.annual`), renewed only if the client says yes. Replaced £29/month Website Care, retired 24 September 2026 |
+| Additional work | **£55** an hour (`hourly_rate`), or a fixed quote where the scope is clear |
 | Custom project | Scoped and quoted individually |
 
 The founding price is not a tier, a trial, a discount or a stripped-down
@@ -83,6 +84,12 @@ Five navigation links and one call to action:
 | Useful guidance | `/guidance/` | `guidance.html` |
 | About | `/about/` | `about.html` |
 | Start a website | `/contact/` | `contact.html` |
+
+`/other-services/enquiry/` is its short enquiry: a native Netlify form
+(`smaller-work-enquiry`, honeypot `bot-field`) that lands on
+`/other-services/thanks/` (noindex). Its three figures are wired to
+`assets/images/other-services/{profile-review,seo-foundations,practice-materials}.webp`
+and show a typographic fallback until each file exists.
 
 `/other-services/` (24 September 2026) is a secondary page for smaller,
 adjacent work — profile reviews, SEO foundations, website improvements,
@@ -173,5 +180,5 @@ render every route so the browser harnesses can run without Ruby.
 ## Before you change anything
 
 `IMPLEMENTATION.md` lists the things that break if you are not careful —
-prices, the checkout scope, the Website Care claims, permalinks, the banned
+prices, the checkout scope, the Practice Care claims, permalinks, the banned
 strings and the three-case collection. `VISUAL-SYSTEM.md` holds the token set and the motion grammar.

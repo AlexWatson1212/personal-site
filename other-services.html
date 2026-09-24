@@ -15,6 +15,12 @@ permalink: /other-services/
   _data/purchasing.yml, like every other figure on the site. Until it holds a
   real amount the page says the rate is confirmed before work starts, so the
   placeholder can never reach a visitor.
+
+  The three figures are wired to their final filenames under
+  /assets/images/other-services/. Each one renders its image only when the file
+  is in the build (site.static_files); until then it renders a typographic
+  panel that says the same thing, so nothing ever shows as a broken image.
+  Every "Tell me what you need" goes to /other-services/enquiry/.
 {%- endcomment -%}
 {%- assign cfg = site.data.purchasing -%}
 {%- assign rate = cfg.hourly_rate -%}
@@ -43,7 +49,7 @@ permalink: /other-services/
           they are a good fit and I can do them properly.
         </p>
         <div class="actions">
-          <a class="btn" href="mailto:{{ cfg.support_email }}?subject=A%20smaller%20piece%20of%20work">Tell me what you need<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="btn" href="{{ '/other-services/enquiry/' | relative_url }}">Tell me what you need<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
     </div>
@@ -66,68 +72,89 @@ permalink: /other-services/
     <div>
       <div class="offer-row">
         <div class="offer-row__name">
+          <p class="label">01</p>
           <h3>Counselling profile review</h3>
           <p class="small quiet">For Counselling Directory, Psychology Today and similar listings.</p>
         </div>
         <div class="offer-row__body">
-          <p>
-            A directory profile is often the first thing a prospective client reads,
-            and it is usually written once and rarely looked at again. I read it the
-            way the right client would.
-          </p>
+          <p>A directory profile is often the first thing a prospective client reads, and it is usually written once and rarely looked at again. I read it the way the right client would.</p>
           <ul class="care__list mt-4">
-            <li>Clarity, positioning and tone, assessed plainly</li>
+            <li>A plain assessment of clarity, positioning and tone</li>
             <li>What may be getting in the way of the right person</li>
-            <li>A clearer structure, and key sections rewritten where that helps</li>
+            <li>A clearer structure for the profile</li>
+            <li>Key sections rewritten where that helps</li>
           </ul>
-          <p class="mt-4">The aim is simple: the right client understands who you are and how you work more quickly.</p>
         </div>
       </div>
-
       <div class="offer-row">
         <div class="offer-row__name">
+          <p class="label">02</p>
           <h3>SEO setup and assessment</h3>
           <p class="small quiet">The foundations, measured.</p>
         </div>
         <div class="offer-row__body">
-          <p>
-            Get the foundations right, measure what happens, then decide whether
-            anything further is worth doing.
-          </p>
+          <p>The groundwork that helps search engines understand the practice, set up so you can see what happens. Nobody can promise a ranking, and I do not.</p>
           <ul class="care__list mt-4">
-            <li>Page titles, descriptions, headings and content structure</li>
+            <li>Page titles, descriptions, headings and structure put right</li>
             <li>Local relevance, where the practice serves a particular area</li>
-            <li>Checks that your pages are indexed and can be found</li>
-            <li>Basic measurement set up, and a short review after an agreed period &mdash; usually around three months</li>
+            <li>Indexing checked, and basic measurement set up</li>
+            <li>A short review after an agreed period &mdash; usually around three months</li>
           </ul>
-          <p class="mt-4">Nobody can promise a search ranking, and I do not. This is groundwork, not an ongoing SEO service.</p>
         </div>
       </div>
+    </div>
+      <div class="os-proof os-proof--pair">
+        <figure class="os-proof__figure">
+          {%- assign img = site.static_files | where: "path", "/assets/images/other-services/profile-review.webp" | first -%}
+          {%- if img %}
+          <img src="{{ '/assets/images/other-services/profile-review.webp' | relative_url }}" alt="A therapist directory profile, annotated at the opening line, clarity, positioning, tone and the call to action" width="1500" height="1000" loading="lazy" decoding="async">
+          {%- else %}
+          <div class="os-proof__fallback os-proof__fallback--marks" role="img" aria-label="A therapist directory profile, annotated at the opening line, clarity, positioning, tone and the call to action">
+            <p class="label">Profile review</p>
+            <ol class="os-proof__marks"><li>Opening line</li><li>Clarity</li><li>Positioning</li><li>Tone</li><li>Next step</li></ol>
+          </div>
+          {%- endif %}
+          <figcaption>A profile review looks at what a prospective client actually encounters first.</figcaption>
+        </figure>
+        <figure class="os-proof__figure">
+          {%- assign img = site.static_files | where: "path", "/assets/images/other-services/seo-foundations.webp" | first -%}
+          {%- if img %}
+          <img src="{{ '/assets/images/other-services/seo-foundations.webp' | relative_url }}" alt="A simple diagram: foundations, then measurement, then review" width="1500" height="1000" loading="lazy" decoding="async">
+          {%- else %}
+          <div class="os-proof__fallback os-proof__fallback--steps" role="img" aria-label="A simple diagram: foundations, then measurement, then review">
+            <p class="label">SEO foundations</p>
+            <ol class="os-proof__marks"><li>Foundations</li><li>Measurement</li><li>Review</li></ol>
+          </div>
+          {%- endif %}
+          <figcaption>Get the foundations right, measure what happens, then decide whether anything further is worth doing.</figcaption>
+        </figure>
+      </div>
 
+    <div>
       <div class="offer-row">
         <div class="offer-row__name">
+          <p class="label">03</p>
           <h3>Website improvements</h3>
           <p class="small quiet">For a website you already have, that does not need rebuilding.</p>
         </div>
         <div class="offer-row__body">
-          <p>Often a site is mostly right, and one part of it is not doing its job.</p>
+          <p>Often a site is mostly right, and one part of it is not doing its job. Whether I can work on it depends on how and where it is built.</p>
           <ul class="care__list mt-4">
             <li>A new page, or an existing one restructured</li>
             <li>Clearer wording, and clearer next steps for a visitor</li>
-            <li>The route from reading to getting in touch</li>
+            <li>A simpler route from reading to getting in touch</li>
             <li>Mobile, usability and technical tidying</li>
           </ul>
-          <p class="mt-4">Whether I can work on it depends on how and where it is built. I will tell you once I have seen it.</p>
         </div>
       </div>
-
       <div class="offer-row">
         <div class="offer-row__name">
+          <p class="label">04</p>
           <h3>Brand and practice materials</h3>
           <p class="small quiet">Print and digital pieces that belong to the same practice.</p>
         </div>
         <div class="offer-row__body">
-          <p>The things that sit alongside a website and should look as though they come from the same place.</p>
+          <p>The things that sit alongside a website, and should look as though they come from the same place.</p>
           <ul class="care__list mt-4">
             <li>Small refinements to an existing identity</li>
             <li>Business cards, leaflets and referral materials</li>
@@ -136,9 +163,26 @@ permalink: /other-services/
           </ul>
         </div>
       </div>
+    </div>
+      <div class="os-proof os-proof--wide">
+        <figure class="os-proof__figure">
+          {%- assign img = site.static_files | where: "path", "/assets/images/other-services/practice-materials.webp" | first -%}
+          {%- if img %}
+          <img src="{{ '/assets/images/other-services/practice-materials.webp' | relative_url }}" alt="A business card, a referral leaflet and a profile graphic designed for the same practice" width="1800" height="1000" loading="lazy" decoding="async">
+          {%- else %}
+          <div class="os-proof__fallback os-proof__fallback--marks" role="img" aria-label="A business card, a referral leaflet and a profile graphic designed for the same practice">
+            <p class="label">Practice materials</p>
+            <ol class="os-proof__marks"><li>Business card</li><li>Leaflet</li><li>Referral card</li><li>Profile graphic</li></ol>
+          </div>
+          {%- endif %}
+          <figcaption>Small pieces should still feel as though they belong to the same practice.</figcaption>
+        </figure>
+      </div>
 
+    <div>
       <div class="offer-row">
         <div class="offer-row__name">
+          <p class="label">05</p>
           <h3>Focused messaging help</h3>
           <p class="small quiet">Practical recommendations, not a strategy document.</p>
         </div>
@@ -179,7 +223,12 @@ permalink: /other-services/
           Not every request will be a good fit. If yours is not, or if the complete
           service would serve you better, I will say so.
         </p>
-        <p class="small quiet divider-top">I do not currently offer paid advertising or PPC management.</p>
+        <p class="small quiet divider-top">
+          If I built your website, Practice Care can continue after its included first
+          year &mdash; {{ cfg.practice_care.annual }} a year, optional &mdash; for hosting,
+          technical upkeep and an annual review.
+        </p>
+        <p class="small quiet">I do not currently offer paid advertising or PPC management.</p>
       </div>
     </div>
   </div>
@@ -200,7 +249,7 @@ permalink: /other-services/
             I&rsquo;ll say so. A personal reply within two working days.
           </p>
           <div class="actions">
-            <a class="btn" href="mailto:{{ cfg.support_email }}?subject=A%20smaller%20piece%20of%20work">Tell me what you need<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="btn" href="{{ '/other-services/enquiry/' | relative_url }}">Tell me what you need<span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
             <a class="tlink" href="{{ '/service/' | relative_url }}">The complete service <span aria-hidden="true">&rarr;</span></a>
           </div>
         </div>

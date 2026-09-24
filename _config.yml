@@ -4,7 +4,7 @@ brand: "Alexander Watson Studio"
 # the ProfessionalService schema. Kept under 160 characters so a search result
 # shows all of it, and deliberately free of prices: those live in
 # _data/purchasing.yml, and closing the founding offer must stay one edit.
-description: "Practice identity and website design for therapists and counsellors in UK private practice. The practice is worked out first; the identity and the website are built from it."
+description: "Practice identity and website design for therapists and counsellors in UK private practice, from a one-person studio in Stockport, Greater Manchester."
 
 url: "https://alexanderwatson.co.uk"
 baseurl: ""

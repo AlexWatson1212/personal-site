@@ -23,7 +23,7 @@
 # whole service — the intake, the full 11-page Practice Fundamentals, the
 # identity, the copy, one complete responsive page with its contact route, two
 # feedback stages, domain connection, launch and the first twelve months of
-# technical Website Care — at a deliberately reduced price for the first three live client implementations of
+# Practice Care — at a deliberately reduced price for the first three live client implementations of
 # a process that has been built but not yet run with a real therapist. What the
 # studio receives in exchange is the experience of running it, the feedback, and
 # case studies and testimonials where the client is willing.
@@ -159,27 +159,37 @@ payment_sentence_third_person: "£100 to reserve the place. £395 once the clien
 # control for text size and spacing — the full Practice Fundamentals, the
 # identity (logo or wordmark, colours, typography, photography direction), the
 # copy, the contact route, domain connection, launch and the first year of
-# technical Website Care. Additional pages, booking systems, blogs, advanced
+# Practice Care. Additional pages, booking systems, blogs, advanced
 # integrations, unusual functionality, print design, social-media templates,
 # ongoing marketing and a change to a new direction after approval are quoted
 # separately. Nothing may present any of this as separately priced.
 
-# Website Care. The first twelve months are included in the price and are not
-# separately payable. After that it is optional and monthly, invoiced like
-# everything else.
+# PRACTICE CARE (24 September 2026). Replaces Website Care.
 #
-# No recurring billing has been built and none is planned. Care is invoiced.
+# RETIRED: Website Care at a monthly fee after the included year. It is no
+# longer offered, and no published page may mention it; scripts/qa.mjs fails
+# the build if the old name or its monthly figure comes back.
 #
-# 17 September 2026: Care is TECHNICAL. It covers hosting, the certificate,
-# deployments, dependency and security updates, genuine technical faults, and
-# support with the website as originally built. Content changes (including new
-# fees or availability), additions, new pages, redesigns and new functionality
-# are outside Care and are quoted in writing first. It is not an unlimited
-# support contract. The service page, the scope page and clause 12 of the
+# The first twelve months are included in the price and are not separately
+# payable. After that Practice Care is OPTIONAL at `annual` a year, paid for the
+# year ahead and renewed only when the client says yes. No recurring billing has
+# been built and none is planned. Care is invoiced.
+#
+# Practice Care covers: hosting on the studio's infrastructure, the TLS
+# certificate, security and technical upkeep, version history, DNS help, genuine
+# technical faults, support with the website as built, and once a year a review
+# of the website, directory profile and basic SEO health with a short set of
+# written recommendations. It does NOT include development time, content or
+# design changes, new pages, ongoing SEO, paid advertising or unlimited support.
+# Those are additional work at `hourly_rate` (below), or a fixed quote where the
+# scope is clear. The service page, the scope page, /terms/ and clause 12 of the
 # service terms must agree.
-website_care:
+#
+# `annual` is the ONLY place the Practice Care figure is written; every page
+# renders it, and scripts/qa.mjs approves it from here.
+practice_care:
   included_months: 12
-  monthly: "£29"
+  annual: "£120"
   subscriptions_enabled: false
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -194,6 +204,7 @@ website_care:
 # visitor. scripts/qa.mjs reads the amount from here and approves it, so no
 # other file needs to change when it is set.
 #
+# It is also the rate for additional work after launch, outside Practice Care.
 # It is not a price for the Practice Identity & Website and must never be used
 # to break that service into hours.
 # ─────────────────────────────────────────────────────────────────────────────

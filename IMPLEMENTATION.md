@@ -65,10 +65,13 @@ superseded.)
   the retired Tally intake stay retired.
 - **Founder video.** `_data/founder.yml`; empty until a real recording exists.
   See the *Founder video* check.
-- **Website Care.** Included for the first twelve months, then `website_care.monthly`
-  if wanted. Technical only since 17 September 2026: content changes, additions
-  and redesigns are quoted. The *Care is technical* check keeps the service
-  page, the scope page and clause 12 in agreement.
+- **Practice Care** (replaced Website Care, 24 September 2026). Included for the
+  first twelve months, then optional at `practice_care.annual` a year. Hosting,
+  technical upkeep, faults and one annual website/profile/SEO review. No
+  development time: content changes, additions and redesigns are additional work
+  at `hourly_rate` or a fixed quote. The *Practice Care* checks keep the service
+  page, the scope page, /terms/ and clause 12 in agreement, and fail the build if
+  "Website Care", `website_care` or £29 reappear on a published page.
 - **Custom projects.** Quoted, mentioned quietly.
 
 `APPROVED_PRICES` and `RETIRED_PRICES` in `scripts/qa.mjs` are the enforcement.
@@ -120,7 +123,7 @@ they are restated on the new tokens in §20.
 ## What the QA harnesses will catch
 
 - `scripts/qa.mjs` — 80 checks. Prices, retired offer language, checkout scope,
-  Website Care claims, legal routes, private routes, the enquiry fit check, the
+  Practice Care claims, legal routes, private routes, the enquiry fit check, the
   intake handoff and photography brief,
   client-data hygiene, front matter, links, anchors, assets, built output.
 - `scripts/qa-browser/run.mjs` — overflow at six widths, heading wrapping,
@@ -147,7 +150,7 @@ before testing `:focus-visible` and skips elements that focus cannot land on
 3. **Nothing describing the Practice Fundamentals may carry a purchase action or a
    price.** It is the first stage of the one product, not a separate piece of
    work, and it is never presented as a version of the website.
-4. **Website Care must not claim uptime monitoring or a backup guarantee.**
+4. **Practice Care must not claim uptime monitoring or a backup guarantee.**
    Neither is provided. Version history, TLS and fault-fixing are, and are named.
 5. Changing a permalink means editing `scripts/qa.mjs` ROUTES, `_redirects`,
    `netlify.toml`, `robots.txt` and `_data/purchasing.yml` together. For the

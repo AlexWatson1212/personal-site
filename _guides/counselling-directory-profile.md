@@ -116,4 +116,6 @@ Take your opening two sentences, remove your name, and put them beside the
 opening two sentences of three other profiles in your area.
 
 If somebody who knows you could not pick yours out, that is the thing to
-work on — and it is a writing problem rather than a marketing one.
+work on — and it is a writing problem rather than a marketing one. If you
+would like a second reader for it, a
+[profile review](/other-services/) is one of the smaller pieces of work I take on.
