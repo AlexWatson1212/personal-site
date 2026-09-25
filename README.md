@@ -103,7 +103,11 @@ wrapped below about 69rem.
 Its SEO item (25 September 2026) is a **bounded setup and assessment with a
 later review**, not ongoing SEO: foundations checked, a baseline recorded, a
 small number of evidence-led improvements, measurement set up, then a review
-after an agreed period (usually around three months). No ranking guarantees,
+after an agreed period (usually around three months). The client receives a
+plain-English search visibility report (appearances in Google, visits,
+selected searches, what changed, what happened afterwards, what next) — never
+live rankings, never claimed causation, never described publicly as software.
+No ranking guarantees,
 no retainer or monthly SEO, no PPC; further implementation is separately
 agreed work. The full statement is the "SEO setup and assessment" row in
 `DECISION-REGISTER.md`; `npm test` fails if the page starts promising rankings

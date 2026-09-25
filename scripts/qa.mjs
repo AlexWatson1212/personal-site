@@ -1028,6 +1028,13 @@ check("Other services", "The secondary page stays secondary, and its rate is set
   for (const [pattern, what] of promises) if (pattern.test(page)) offenders.push(what);
   if (!/nobody can promise a ranking/i.test(page)) offenders.push("the SEO item no longer says a ranking cannot be promised");
   if (!/review is booked separately/i.test(page)) offenders.push("the SEO item no longer keeps the later review as separate, agreed work");
+  /* 25 September 2026. The search visibility report is a plain-English reading
+     of the evidence: never live rankings or guaranteed outcomes, and never
+     described as software or an internal system. */
+  if (/(live|real-time|real time) rankings?|exact (google )?position|guaranteed? (improvement|enquiries|traffic|results)/i.test(page)) offenders.push("the SEO item overstates what the report can show");
+  if (/dashboard|software|localStorage|\bCSV\b|\bAI\b|operating system/i.test(page)) offenders.push("the page describes internal tooling instead of the report");
+  if (!/search visibility report/i.test(page)) offenders.push("the SEO item no longer names the search visibility report");
+  if (!/leave things alone/i.test(page)) offenders.push("the SEO item no longer allows that the right next step may be to change nothing");
   assert(offenders.length === 0, `other-services.html — ${offenders.join("; ")}`);
   return HOURLY_RATE_SET ? `hourly rate ${HOURLY_RATE}, approved from purchasing.yml` : "hourly rate not yet set — the page shows no figure";
 });
