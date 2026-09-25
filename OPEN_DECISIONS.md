@@ -355,3 +355,20 @@ its own redirect.
 
 **Decision needed.** Keep `/links/` or retire it. If it is retired, add a
 redirect rather than letting it 404.
+
+---
+
+## 11. A dedicated SEO page — DEFERRED 25 September 2026
+
+**State.** SEO setup and assessment is described only as one item on
+`/other-services/` (settled in `DECISION-REGISTER.md`). `/other-services/`
+stays an adjacent-services page and does not compete with `/service/`.
+
+**Decision needed.** Whether a separate SEO-for-therapists page is justified.
+Decide on evidence — Search Console queries reaching `/other-services/`, or
+real enquiries for SEO work — not in advance.
+
+**Then.** If one is made, it keeps the same bounded model (setup, measure,
+review; no retainer, no ranking promise) and needs its own title, canonical,
+sitemap entry and internal links without cannibalising `/service/` or the
+Stockport page.

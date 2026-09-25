@@ -1021,8 +1021,13 @@ check("Other services", "The secondary page stays secondary, and its rate is set
     [/page one|first page of google|top of google|guaranteed? (rankings?|results|traffic)|rank(ing)? guarantee/i, "promises search results"],
     [/\b(we|I) (manage|run|offer) (PPC|paid ads|google ads)/i, "offers paid advertising"],
     [/\bunlimited\b/i, "promises something unlimited"],
+    /* 25 September 2026. SEO here is a bounded setup and a later review
+       (DECISION-REGISTER.md, "SEO setup and assessment"), never SEO by the month. */
+    [/SEO (retainer|packages?|plans?)|\bmonthly SEO|per month|a month\b|backlink/i, "sells SEO as a monthly or packaged service"],
   ];
   for (const [pattern, what] of promises) if (pattern.test(page)) offenders.push(what);
+  if (!/nobody can promise a ranking/i.test(page)) offenders.push("the SEO item no longer says a ranking cannot be promised");
+  if (!/review is booked separately/i.test(page)) offenders.push("the SEO item no longer keeps the later review as separate, agreed work");
   assert(offenders.length === 0, `other-services.html — ${offenders.join("; ")}`);
   return HOURLY_RATE_SET ? `hourly rate ${HOURLY_RATE}, approved from purchasing.yml` : "hourly rate not yet set — the page shows no figure";
 });

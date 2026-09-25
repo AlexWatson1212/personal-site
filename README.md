@@ -100,6 +100,15 @@ shows no figure. The fifth link moved the mobile-menu breakpoint from 62rem to
 72rem (`studio.css` section 8 and `assets/js/nav.js`), because the inline bar
 wrapped below about 69rem.
 
+Its SEO item (25 September 2026) is a **bounded setup and assessment with a
+later review**, not ongoing SEO: foundations checked, a baseline recorded, a
+small number of evidence-led improvements, measurement set up, then a review
+after an agreed period (usually around three months). No ranking guarantees,
+no retainer or monthly SEO, no PPC; further implementation is separately
+agreed work. The full statement is the "SEO setup and assessment" row in
+`DECISION-REGISTER.md`; `npm test` fails if the page starts promising rankings
+or offering SEO by the month.
+
 There is **one** free resource surface, `/guidance/`. It holds seven short
 notes (`_guides/`, `category: Guidance`), the two longer practical guides and a
 link out to the nine Practice Clarity principles at `/practice-clarity/`, which
