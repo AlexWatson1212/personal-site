@@ -1072,6 +1072,37 @@ check("Other services", "Every \"Tell me what you need\" reaches a short, workin
   return `${ctas.length} calls to action → /other-services/enquiry/ · ${name} → /other-services/thanks/`;
 });
 
+check("Other services", "Website help stays a simple ask-and-quote, not a package", () => {
+  /* 26 September 2026, on Alexander's instruction. #website-help on
+     /other-services/ is for a therapist stuck with one thing on an existing
+     website. It names the platforms, says small and one-hour jobs can be
+     quoted, writes no figure and no plan, and its CTA reaches the smaller-work
+     enquiry with the matching option preselected by script. */
+  const page = read("other-services.html");
+  const section = (page.match(/<section[^>]*id="website-help"[\s\S]*?<\/section>/) || [""])[0];
+  assert(section, "other-services.html has no #website-help section");
+  for (const platform of ["WordPress", "Wix", "Squarespace", "Shopify"]) {
+    assert(section.includes(platform), `the website help section no longer names ${platform}`);
+  }
+  assert(/an hour/.test(section), "the website help section no longer says small, one-hour jobs can be quoted");
+  assert(/therapists/.test(section), "the website help section is no longer addressed to therapists");
+  assert(!/£|\d+\s*(minutes|hours)\b/.test(section), "the website help section states a price or a time figure of its own");
+  assert(!/package|retainer|maintenance plan|subscription|per month|a month\b|unlimited/i.test(section),
+    "the website help section reads as a package, plan or retainer");
+  const cta = (section.match(/<a\b[^>]*class="btn"[^>]*href="([^"]*)"/) || [])[1];
+  assert(cta && /\/other-services\/enquiry\/\?area=website-help/.test(cta), `the website help CTA points at ${cta}`);
+
+  const enquiry = read("other-services-enquiry.html");
+  assert(/^page_js:\s*\/assets\/js\/other-services-enquiry\.js\s*$/m.test(enquiry), "the smaller-work enquiry no longer loads other-services-enquiry.js");
+  const js = read("assets/js/other-services-enquiry.js");
+  const target = (js.match(/"website-help":\s*"([^"]+)"/) || [])[1];
+  assert(target, "other-services-enquiry.js no longer maps website-help to an option");
+  assert(new RegExp(`<option value="${target}"`).test(enquiry), `the enquiry has no option with the value "${target}"`);
+  assert(!/fetch\(|XMLHttpRequest|sendBeacon|localStorage|sessionStorage/.test(js), "other-services-enquiry.js transmits or stores something");
+  assert(/other-services\/#website-help/.test(read("service.html")), "the service FAQ on existing websites no longer points to website help");
+  return `#website-help · 4 platforms named · CTA → /other-services/enquiry/?area=website-help → "${target}"`;
+});
+
 check("Search", "One local page, form routes kept out of search, and no street address published", () => {
   /* 24 September 2026. The local + niche intent has exactly one page. Town
      clones are the doorway-page pattern this site does not use. */
