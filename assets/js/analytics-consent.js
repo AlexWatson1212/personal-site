@@ -275,7 +275,7 @@
     /* The visible label is the state; the accessible name has to be the
        action, because "Analytics: allowed" read on its own does not tell
        somebody that pressing it will do anything. */
-    button.setAttribute("aria-label", state + " — change your analytics choice");
+    button.setAttribute("aria-label", state + ": change your analytics choice");
     button.addEventListener("click", function () {
       returnFocusTo = button;
       openNotice(true);

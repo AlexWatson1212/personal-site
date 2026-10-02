@@ -4,8 +4,7 @@ title: "Why a good website should put some people off"
 description: "Being specific costs you enquiries you did not want, and gains you the ones you did. What that looks like in practice."
 excerpt: >
   A website that appeals to everybody produces enquiries from people you
-  cannot help. Specificity is not a marketing tactic — it is how the
-  right person recognises themselves.
+  cannot help. Specificity is not a marketing tactic; it is how the right person recognises themselves.
 category: Guidance
 guidance_order: 4
 slug: putting-some-people-off
@@ -60,7 +59,7 @@ Publishing your fee is the clearest example of a page doing this well.
 
 It removes the enquiries you cannot serve, before they cost either of
 you anything. It also signals that you are comfortable with what you
-charge, which is read — accurately — as a sign of an established
+charge, which is read, accurately, as a sign of an established
 practice.
 
 If your fee is at the higher end, saying so plainly does more good than
@@ -71,8 +70,7 @@ eventually. Better at the moment of scanning than three emails in.
 
 It does not mean inventing a niche you do not have. A great many
 therapists genuinely do work across a broad range, and pretending
-otherwise produces a website that misrepresents the practice — which is
-worse than a general one.
+otherwise produces a website that misrepresents the practice, which is worse than a general one.
 
 If you are genuinely general, be specific about something else: how you
 work, who you are, what a first session is like, what you are good at.

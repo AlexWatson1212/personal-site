@@ -4,8 +4,7 @@ title: "Writing a directory profile that is remembered"
 description: "Most therapist directory profiles are not bad. They are hard to tell apart. What actually distinguishes one, and where a profile stops being able to help."
 excerpt: >
   Every profile on a directory has the same headings, the same layout and
-  the same amount of space. The only variable is the sentences — and most
-  of them begin in the same place.
+  the same amount of space. The only variable is the sentences, and most of them begin in the same place.
 category: Guidance
 guidance_order: 6
 slug: counselling-directory-profile
@@ -55,8 +54,7 @@ Somebody comparing therapists is usually reading six profiles in an evening,
 on a phone, deciding in a few seconds each whether to keep reading. The
 opening is not a warm-up. It is the whole shortlisting decision.
 
-So put the specific thing first. Not what you provide — who you tend to
-work with and what tends to be going on for them.
+So put the specific thing first. Not what you provide, but who you tend to work with and what tends to be going on for them.
 
 > Most of the people I see are in their thirties and forties, functioning
 > perfectly well from the outside, and finding it increasingly expensive to
@@ -69,8 +67,7 @@ recognised themselves.
 ## The directory has already done the categorising
 
 You do not need to repeat the filters. The person reading has already ticked
-the boxes for location, fee band and presenting issue — that is how they
-arrived. Restating the list of everything you work with spends your only
+the boxes for location, fee band and presenting issue; that is how they arrived. Restating the list of everything you work with spends your only
 distinguishing resource on information the platform has already supplied.
 
 Say the thing the filters cannot: what it is like, how you tend to work, what
@@ -115,7 +112,6 @@ answer, and it is worth knowing before you spend anything.
 Take your opening two sentences, remove your name, and put them beside the
 opening two sentences of three other profiles in your area.
 
-If somebody who knows you could not pick yours out, that is the thing to
-work on — and it is a writing problem rather than a marketing one. If you
+If somebody who knows you could not pick yours out, that is the thing to work on, and it is a writing problem rather than a marketing one. If you
 would like a second reader for it, a
 [profile review](/other-services/) is one of the smaller pieces of work I take on.

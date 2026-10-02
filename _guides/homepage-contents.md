@@ -57,7 +57,7 @@ any amount of language about safe spaces.
 Put the fee on the homepage or one clear click from it.
 
 Withholding a price does not create an enquiry. It creates a person who
-emails to ask the price, gets an answer, and disappears — or, more often,
+emails to ask the price, gets an answer, and disappears, or, more often,
 one who does not email at all. Fee transparency is being argued for
 inside the profession for good reasons, and it also happens to remove the
 single most common reason somebody closes a therapist's website.
@@ -71,7 +71,7 @@ expensive.
 One photograph of you. Not a stock image, not a chair, not a plant.
 
 You do not have to like being photographed. The photograph is not there
-to be flattering — it is there so that the person can picture sitting in
+to be flattering; it is there so that the person can picture sitting in
 a room with a human being rather than with a website. A plain, well-lit,
 unstyled photograph is better than an expensive one where you look like
 somebody else.
@@ -106,9 +106,8 @@ Roughly:
 4. Who you are, with a photograph
 5. How to get in touch, and what happens then
 
-Everything else — your training history, your reading, your
-accreditations in full, your thoughts on the therapeutic relationship —
-belongs on an About page or a Fees page, where the person who wants it
+Everything else (your training history, your reading, your
+accreditations in full, your thoughts on the therapeutic relationship) belongs on an About page or a Fees page, where the person who wants it
 will go looking.
 
 ## What does not need to be there

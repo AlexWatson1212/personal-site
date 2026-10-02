@@ -74,7 +74,7 @@ steps:
         label: "Practice name"
         type: "text"
         required: true
-        hint: "If you have not settled on one, write “Not decided yet” — that is a useful answer."
+        hint: "If you have not settled on one, write “Not decided yet”. That is a useful answer."
       - name: "preferred-professional-title"
         label: "Preferred professional title"
         type: "text"
@@ -130,7 +130,7 @@ steps:
         label: "How would you describe the way you practise, in your own words?"
         type: "textarea"
         required: true
-        hint: "The modalities, theories or traditions that influence you are worth naming — and so is what you believe actually makes therapy helpful."
+        hint: "The modalities, theories or traditions that influence you are worth naming, and so is what you believe actually makes therapy helpful."
         rows: 6
       - name: "first-session"
         label: "What normally happens in a first session with you?"
@@ -190,7 +190,7 @@ steps:
       - name: "why-you"
         label: "Why might somebody choose you rather than another suitable therapist?"
         type: "textarea"
-        hint: "What feels distinctive about your background, outlook or approach. It does not have to sound impressive — it has to be true."
+        hint: "What feels distinctive about your background, outlook or approach. It does not have to sound impressive; it has to be true."
         rows: 4
       - name: "known-for"
         label: "If the practice could become known for one thing, what would it be?"
@@ -200,7 +200,7 @@ steps:
       - name: "never-become"
         label: "What do you never want the practice to become?"
         type: "textarea"
-        hint: "Which parts of the therapy profession feel clichéd or unlike you — and which feel genuinely aligned with you."
+        hint: "Which parts of the therapy profession feel clichéd or unlike you, and which feel genuinely aligned with you."
         rows: 4
       - name: "positioning-sentences"
         label: "Finish any of these sentences that feel useful"
@@ -243,7 +243,7 @@ steps:
         hint: "More formal or more conversational; expressive or restrained; close to your everyday speaking voice or a little apart from it. Add any other words that should describe it, and say if you write quite differently from how you speak."
         rows: 4
       - name: "your-words-and-words-to-avoid"
-        label: "Which words and phrases feel like yours — and which should never appear?"
+        label: "Which words and phrases feel like yours, and which should never appear?"
         type: "textarea"
         hint: "Expressions or ideas you find yourself returning to; therapy clichés or labels you dislike; and any clinical term you deliberately use, or deliberately avoid."
         rows: 4
@@ -275,7 +275,7 @@ steps:
       - name: "visual-direction"
         label: "Which of these feel right for the practice?"
         type: "checkboxes"
-        hint: "These come in pairs. Tick only what you feel strongly about — leaving a pair untouched tells me you have no firm preference, which is genuinely useful."
+        hint: "These come in pairs. Tick only what you feel strongly about. Leaving a pair untouched tells me you have no firm preference, which is genuinely useful."
         options:
           - "Warm colours"
           - "Cool colours"
@@ -299,7 +299,7 @@ steps:
       - name: "imagery"
         label: "What imagery feels right, and what feels clichéd or wrong?"
         type: "textarea"
-        hint: "Common therapist imagery you want to steer away from is worth naming. If there are sensory or accessibility preferences that should shape the visual work — contrast, movement, busyness — say so here."
+        hint: "Common therapist imagery you want to steer away from is worth naming. If there are sensory or accessibility preferences that should shape the visual work (contrast, movement, busyness), say so here."
         rows: 4
       - name: "photography"
         label: "Where are you with photography?"
@@ -313,7 +313,7 @@ steps:
       - name: "practice-as-a-room"
         label: "If the practice were a physical room, how would it look and feel?"
         type: "textarea"
-        hint: "And what should somebody feel — or definitely not feel — when they first see the identity?"
+        hint: "And what should somebody feel, or definitely not feel, when they first see the identity?"
         rows: 5
 
   - id: "inspiration-and-references"
@@ -321,35 +321,35 @@ steps:
     intro: "Everything here is optional. Three references with a sentence each are worth more than twenty without."
     fields:
       - name: "website-reference-1-url"
-        label: "Website reference 1 — address"
+        label: "Website reference 1: address"
         type: "url"
       - name: "website-reference-1-why"
-        label: "Website reference 1 — what specifically do you like about it?"
+        label: "Website reference 1: what specifically do you like about it?"
         type: "textarea"
         rows: 3
       - name: "website-reference-2-url"
-        label: "Website reference 2 — address"
+        label: "Website reference 2: address"
         type: "url"
       - name: "website-reference-2-why"
-        label: "Website reference 2 — what specifically do you like about it?"
+        label: "Website reference 2: what specifically do you like about it?"
         type: "textarea"
         rows: 3
       - name: "website-reference-3-url"
-        label: "Website reference 3 — address"
+        label: "Website reference 3: address"
         type: "url"
       - name: "website-reference-3-why"
-        label: "Website reference 3 — what specifically do you like about it?"
+        label: "Website reference 3: what specifically do you like about it?"
         type: "textarea"
         rows: 3
       - name: "additional-website-references"
         label: "Any other websites worth showing me"
         type: "textarea"
-        hint: "Addresses and a line on each — including any you actively dislike, and why."
+        hint: "Addresses and a line on each, including any you actively dislike, and why."
         rows: 4
       - name: "people-and-culture"
         label: "Anything else that captures the right atmosphere"
         type: "textarea"
-        hint: "Therapists or practices whose professional presence you admire, and what you admire about it; non-therapy brands, logos or identities you like; books, magazines, films, interiors, places, artists or objects. Pinterest boards and saved collections are welcome — paste the address, and make sure the board is public. Anything apparently unrelated is often the most useful answer."
+        hint: "Therapists or practices whose professional presence you admire, and what you admire about it; non-therapy brands, logos or identities you like; books, magazines, films, interiors, places, artists or objects. Pinterest boards and saved collections are welcome; paste the address, and make sure the board is public. Anything apparently unrelated is often the most useful answer."
         rows: 5
 
   - id: "the-website"
@@ -370,7 +370,7 @@ steps:
       - name: "pages-and-content"
         label: "Which pages or sections do you expect the website to need?"
         type: "textarea"
-        hint: "Including any service that may need a page of its own — and anything you definitely do not want on the website."
+        hint: "Including any service that may need a page of its own, and anything you definitely do not want on the website."
         rows: 4
       - name: "functionality"
         label: "Which of these do you think the website will need?"
@@ -394,7 +394,7 @@ steps:
       - name: "website-requirements"
         label: "Is there anything the website must include, or must avoid?"
         type: "textarea"
-        hint: "Professional registers or accreditation links; safeguarding, crisis or support resources to signpost; particular accessibility requirements; and any testimonials you are professionally permitted to use — only if your professional body permits it and consent was properly given. If you are unsure about testimonials, leave them out and we will talk about it."
+        hint: "Professional registers or accreditation links; safeguarding, crisis or support resources to signpost; particular accessibility requirements; and any testimonials you are professionally permitted to use, only if your professional body permits it and consent was properly given. If you are unsure about testimonials, leave them out and we will talk about it."
         rows: 4
 
   - id: "existing-presence-and-materials"
@@ -410,7 +410,7 @@ steps:
       - name: "presence-social-and-other"
         label: "Other profiles, domains and accounts"
         type: "textarea"
-        hint: "One per line — Instagram, LinkedIn, Facebook, a Google Business Profile, a booking system, other directories, any domains you own, and your professional email address if you already have one."
+        hint: "One per line: Instagram, LinkedIn, Facebook, a Google Business Profile, a booking system, other directories, any domains you own, and your professional email address if you already have one."
         rows: 4
       - name: "presence-changes-and-access"
         label: "What should be kept, what should go, and is anything out of your control?"
@@ -420,7 +420,7 @@ steps:
       - name: "file-links"
         label: "A link to anything you already have that I should see"
         type: "textarea"
-        hint: "Logos and identity files, photography, written documents, screenshots, visual inspiration — share them as a Google Drive or Dropbox folder, or a WeTransfer link, and paste the address here. One per line. Please make sure the link works without a password, and don’t include anything identifiable or confidential about your own clients. If you would rather email the files, that is just as good: hello@alexanderwatson.co.uk."
+        hint: "Logos and identity files, photography, written documents, screenshots, visual inspiration. Share them as a Google Drive or Dropbox folder, or a WeTransfer link, and paste the address here. One per line. Please make sure the link works without a password, and don’t include anything identifiable or confidential about your own clients. If you would rather email the files, that is just as good: hello@alexanderwatson.co.uk."
         rows: 4
 
   - id: "working-together"
@@ -474,7 +474,7 @@ steps:
         type: "textarea"
         rows: 4
       - name: "feel-like-you"
-        label: "What would make the finished result immediately feel like you — and what would make it feel wrong?"
+        label: "What would make the finished result immediately feel like you, and what would make it feel wrong?"
         type: "textarea"
         rows: 5
       - name: "unresolved-or-unasked"

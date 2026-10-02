@@ -32,7 +32,7 @@
 sofia-marin:
   lede: >-
     The document defines the practice. The website is one implementation of it,
-    and the most visible — not where the decisions were made, and not the only
+    and the most visible, but not where the decisions were made, and not the only
     place the practice will need them. A designer who had never spoken to her
     could work from this and build something else entirely.
 
@@ -73,7 +73,7 @@ sofia-marin:
         with its rhythm, register and punctuation beside them.
       caption: >-
         The words. Written once, so a directory profile or a leaflet does not
-        start from nothing — and so somebody writing in five years can still
+        start from nothing, and so somebody writing in five years can still
         sound like the same practice.
 
     - src: "/assets/images/work/sofia-marin-identity-visual.webp"
@@ -92,8 +92,8 @@ sofia-marin:
       width: 1400
       height: 897
       alt: >-
-        A letterhead, a leaflet cover, and three cards — the front and back of a
-        business card and an appointment card — laid out flat at their true
+        A letterhead, a leaflet cover, and three cards (the front and back of a
+        business card and an appointment card) laid out flat at their true
         relative sizes.
       caption: >-
         What survives outside a browser. The letterhead, the signature and the

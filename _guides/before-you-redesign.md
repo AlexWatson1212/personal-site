@@ -4,7 +4,7 @@ title: "Before you redesign your website"
 description: "A short checklist for working out whether you need a new website, a better one, or just half an hour with the one you have."
 excerpt: >
   Not every website problem is a design problem. Ten questions that
-  usually reveal which kind you have — and three of them can be fixed
+  usually reveal which kind you have, and three of them can be fixed
   this afternoon.
 category: Guidance
 guidance_order: 5
@@ -26,7 +26,7 @@ Roughly, there are three situations.
 The information is right, the enquiries are the right sort, nothing is
 broken. You have simply looked at it four hundred times.
 
-This is real, and it is not nothing — a website you are embarrassed by
+This is real, and it is not nothing: a website you are embarrassed by
 is a website you do not send people to. But it does not need rebuilding.
 It usually needs a photograph, a rewritten opening paragraph and some
 space.
@@ -44,8 +44,7 @@ produces a nicer-looking version of the same problem.
 ## Situation three: the website cannot do what you need it to
 
 The enquiries are the wrong sort, or there are not enough of them, or
-you cannot bring yourself to give people the address. Something more
-structural is off — usually who the site is talking to, what it explains,
+you cannot bring yourself to give people the address. Something more structural is off, usually who the site is talking to, what it explains,
 or how easy it is to take the next step.
 
 That is the situation a new website solves.
@@ -94,8 +93,7 @@ redesign is a good moment to stop renting.
 
 **10. Does it sound like you?**
 Read the homepage out loud. If you would not say those sentences to
-somebody sitting opposite you, that is the thing to fix — and it is a
-writing problem, not a design one.
+somebody sitting opposite you, that is the thing to fix, and it is a writing problem, not a design one.
 
 ---
 
@@ -103,18 +101,16 @@ writing problem, not a design one.
 
 **Mostly yes, one or two nos.** Fix the nos. Do not redesign.
 
-**Nos clustered around content — fees, who it is for, what happens
-next.** The words are the problem. A redesign will help only if it comes
+**Nos clustered around content: fees, who it is for, what happens next.** The words are the problem. A redesign will help only if it comes
 with a rethink of what the site says, which is a different and usually
 more valuable piece of work than choosing a new look.
 
-**Nos clustered around the practical — phone, contact, ownership, it
+**Nos clustered around the practical: phone, contact, ownership, it
 looks wrong on a phone.** That is a build problem, and it is the clearest
 case for starting again. Websites of a certain age cannot be made
 responsive by editing them.
 
-**You cannot answer question one at all.** That is worth knowing. It is
-not a website problem yet — it is a question about what the practice is,
+**You cannot answer question one at all.** That is worth knowing. It is not a website problem yet; it is a question about what the practice is,
 and it is much cheaper to answer it before somebody builds you a site
 around a guess.
 
@@ -123,7 +119,7 @@ around a guess.
 ## One more thing
 
 Before you commission anything, write down what you want to be different
-in six months' time. Not "a better website" — something you could
+in six months' time. Not "a better website", but something you could
 actually notice. Fewer enquiries from people you cannot help. Being
 willing to give somebody the address. Not having to explain your fees in
 every first email.

@@ -1021,9 +1021,7 @@ Simply notice what your current About page is communicating.
 
 If somebody finished reading your About page...
 
-would they know more facts about you—
-
-or would they feel they knew you a little better?
+would they know more facts about you, or would they feel they knew you a little better?
 
 </div>
 

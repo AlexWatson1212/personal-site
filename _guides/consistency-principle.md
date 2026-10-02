@@ -988,9 +988,7 @@ would every step feel as though it belonged to the same thoughtful practice?
 
 Where does your practice currently create mixed messages?
 
-Not obvious contradictions—
-
-small moments where the emotional tone quietly changes.
+Not obvious contradictions, but small moments where the emotional tone quietly changes.
 
 </div>
 

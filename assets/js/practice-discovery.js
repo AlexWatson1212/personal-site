@@ -61,7 +61,7 @@
     var label = labelFor(el);
     if (el.validity.valueMissing) {
       if (el.type === "checkbox") return label + " needs to be confirmed.";
-      if (el.type === "radio") return label + " — please choose one.";
+      if (el.type === "radio") return label + ": please choose one.";
       return label + " — please add an answer.";
     }
     if (el.validity.typeMismatch && el.type === "email") {

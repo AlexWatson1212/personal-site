@@ -937,9 +937,7 @@ What recurring observations have emerged from your therapeutic work that never a
 
 If a prospective client finished reading your homepage today...
 
-would they simply know what you do—
-
-or would they quietly feel understood?
+would they simply know what you do, or would they quietly feel understood?
 
 </div>
 

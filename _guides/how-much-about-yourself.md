@@ -38,8 +38,7 @@ is *what does this person need in order to imagine the first session*.
 
 ## What usually helps
 
-**Something specific about the work.** Not "I work with anxiety" but the
-shape of it — what you notice, what you tend to be interested in, what
+**Something specific about the work.** Not "I work with anxiety" but the shape of it: what you notice, what you tend to be interested in, what
 you think tends to be underneath the thing people arrive with. Two or
 three sentences of real thought does more than a paragraph of adjectives.
 
@@ -50,7 +49,7 @@ sound professional.
 
 **Something plainly human.** Where you live. What you did before this, if
 you did something before this. A sentence that could only have been
-written by you. It does not need to be a revelation — the point is that
+written by you. It does not need to be a revelation; the point is that
 somebody wrote it.
 
 **The practical facts.** Training, accreditation, supervision, insurance,
@@ -60,7 +59,7 @@ how long you have been practising. Stated once, without ceremony.
 
 **A therapeutic autobiography.** Your own history of therapy, your
 recovery, your reason for entering the profession. Sometimes this is
-exactly right — practitioners working in a specific field often need to
+exactly right: practitioners working in a specific field often need to
 say it. But it is worth being honest about who it is for. If it is
 mainly there to justify your presence in the room, the page will feel
 like it is asking the reader for something.

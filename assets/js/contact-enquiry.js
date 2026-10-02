@@ -188,7 +188,7 @@
     if (!validate()) return;
 
     const body = buildBody();
-    const subject = "Studio enquiry — " + (value("name") || "new website");
+    const subject = "Studio enquiry: " + (value("name") || "new website");
 
     /* The fallback is revealed on every submit, not only on failure: a browser
        does not tell us whether the mail app opened, so the honest thing is to

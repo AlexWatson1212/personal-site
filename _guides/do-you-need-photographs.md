@@ -1,7 +1,7 @@
 ---
 layout: guide
 title: "Do you need professional photographs?"
-description: "One photograph of you, yes. A full shoot, usually not — and here is how to tell which situation you are in."
+description: "One photograph of you, yes. A full shoot, usually not. Here is how to tell which situation you are in."
 excerpt: >
   A photograph of you does more for a therapy website than any other
   image. Everything beyond that is optional, and some of it is actively
@@ -38,8 +38,7 @@ It needs to be:
 That is the whole specification. A friend with a recent phone and twenty
 minutes will produce something usable. A professional will produce
 something better, and if you can afford it and it makes you less
-self-conscious about having your photograph taken, it is money well
-spent — but it is not the difference between a website that works and
+self-conscious about having your photograph taken, it is money well spent, but it is not the difference between a website that works and
 one that does not.
 
 ## What a photographer is genuinely worth paying for
@@ -49,8 +48,7 @@ photographed consistently, is a job. Mixed phone photographs of six
 people in six different lights look worse than no photographs at all.
 
 **If your room is part of the offer.** A dedicated space you want people
-to see before they arrive — particularly for work with children, families
-or anyone for whom the environment matters — is worth photographing
+to see before they arrive (particularly for work with children, families or anyone for whom the environment matters) is worth photographing
 properly.
 
 **If you have a specific reason to look a particular way.** Working with
@@ -65,10 +63,8 @@ the whole subject for two years, that is what you are paying to solve.
 
 ## What you almost certainly do not need
 
-Stock photography. The category has a fixed vocabulary — hands around a
-mug, pebbles balanced on a beach, a path through a misty wood, an empty
-armchair, somebody looking out of a rain-streaked window — and a
-prospective client has seen all of it on four other websites this
+Stock photography. The category has a fixed vocabulary: hands around a mug, pebbles balanced on a beach, a path through a misty wood, an empty
+armchair, somebody looking out of a rain-streaked window. A prospective client has seen all of it on four other websites this
 evening. It does not read as calm. It reads as unspecific.
 
 If a page needs something in that space, better options are: nothing at

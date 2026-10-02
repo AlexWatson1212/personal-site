@@ -38,8 +38,7 @@ you are left holding when they have finished.
 
 Three things account for most of the difference.
 
-**Who does the thinking.** A template gives you a layout and leaves the
-hard part — deciding what to say, and in what order — to you. At the other
+**Who does the thinking.** A template gives you a layout and leaves the hard part (deciding what to say, and in what order) to you. At the other
 end, somebody works out how the practice should be described before
 anything is designed. That work takes time, and it is usually the part
 that makes the difference to who gets in touch.
@@ -82,8 +81,7 @@ own anything at the end, and what happens to the site if you stop.
 
 - Several pages rather than one
 - Copy written for you rather than supplied by you
-- A custom identity — a logo or wordmark, colours and typography — rather
-  than a template's defaults
+- A custom identity (a logo or wordmark, colours and typography) rather than a template's defaults
 - Online booking, payments, a blog or other integrations
 - Photography
 - Ongoing changes after launch, if they are not included

@@ -760,7 +760,7 @@ Or:
 
 Or:
 
-*"If you're unsure whether I'm the right therapist, that's completely okay—we can explore that together."*
+*"If you're unsure whether I'm the right therapist, that's completely okay. We can explore that together."*
 
 Those sentences do not change the practical process.
 
